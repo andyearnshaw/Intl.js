@@ -28,7 +28,9 @@ var
     hop = Object.prototype.hasOwnProperty,
     
     // Some regular expressions we're using
-    expNumGroups = /(?=(?!^)(?:\d{3})+(?!\d))/g,
+    expNumGroups    = /(?=(?!^)(?:\d{3})+(?!\d))/g,
+    expCurrencyCode = /^[A-Z]{3}$/,
+    expUnicodeExSeq = /-u(?:-\w+)+(?!-\w-)/g,
     
     // Sham this for ES3 compat
     defineProperty = Object.defineProperty || function (obj, name, desc) {
@@ -71,7 +73,7 @@ function /* 6.2.3 */CanonicalizeLanguageTag (locale) {
     // define that go beyond the canonicalization rules of RFC 5646 section 4.5.
     // Implementations are allowed, but not required, to apply these additional rules.
     
-    // ###TODO: Implement###
+    // ###TODO###
     return locale;
 }
 
@@ -101,7 +103,7 @@ function /* 6.3.1 */IsWellFormedCurrencyCode(currency) {
     // 3. If the string length of normalized is not 3, return false.
     // 4. If normalized contains any character that is not in the range "A" to "Z"
     //    (U+0041 to U+005A), return false.
-    if (/^[A-Z]{3}$/.test(normalized) === false)
+    if (expCurrencyCode.test(normalized) === false)
         return false;
 
     // 5. Return true
@@ -175,7 +177,7 @@ function /* 9.2.1 */CanonicalizeLocaleList (locales) {
             //     IsStructurallyValidLanguageTag (defined in 6.2.2), passing tag as
             //     the argument, is false, then throw a RangeError exception.
             if (!IsStructurallyValidLanguageTag(tag))
-                throw new RangeError(tag + ' is not a structurally valid language tag');
+                throw new RangeError("'" + tag + "' is not a structurally valid language tag");
 
             // v. Let tag be the result of calling the abstract operation
             //    CanonicalizeLanguageTag (defined in 6.2.3), passing tag as the
@@ -258,8 +260,8 @@ function /* 9.2.3 */LookupMatcher (availableLocales, requestedLocales) {
             locale = requestedLocales[i],
 
             // b. Let noExtensionsLocale be the String value that is locale with all
-            //    Unicode locale extension sequences removed. ###TODO###
-            noExtensionsLocale = String(locale),
+            //    Unicode locale extension sequences removed.
+            noExtensionsLocale = String(locale).replace(expUnicodeExSeq, ''),
 
             // c. Let availableLocale be the result of calling the
             //    BestAvailableLocale abstract operation (defined in 9.2.2) with
@@ -284,7 +286,7 @@ function /* 9.2.3 */LookupMatcher (availableLocales, requestedLocales) {
             var
                 // i. Let extension be the String value consisting of the first
                 //    substring of locale that is a Unicode locale extension sequence.
-                extension = String(), // ###TODO###
+                extension = extension.slice(0, extension.indexOf('-u-')),
 
                 // ii. Let extensionIndex be the character position of the initial
                 //     "-" of the first Unicode locale extension sequence within locale.
@@ -547,7 +549,7 @@ function /* 9.2.6 */LookupSupportedLocales (availableLocales, requestedLocales) 
             locale = requestedLocales[k],
             // b. Let noExtensionsLocale be the String value that is locale with all
             //    Unicode locale extension sequences removed.
-            noExtensionsLocale = String(locale), // ###TODO###
+            noExtensionsLocale = String(locale).replace(expUnicodeExSeq, ''),
             // c. Let availableLocale be the result of calling the
             //    BestAvailableLocale abstract operation (defined in 9.2.2) with
             //    arguments availableLocales and noExtensionsLocale.
@@ -841,7 +843,7 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
     //     IsWellFormedCurrencyCode abstract operation (defined in 6.3.1) with
     //     argument c is false, then throw a RangeError exception.
     if (c !== undefined && !IsWellFormedCurrencyCode(c))
-        throw new RangeError(c + 'is not a valid currency code');
+        throw new RangeError("'" + c + "' is not a valid currency code");
 
     // 19. If s is "currency" and c is undefined, throw a TypeError exception.
     if (s === 'currency' && c === undefined)
@@ -1117,8 +1119,9 @@ function FormatNumber (numberFormat, x) {
             //    [[minimumIntegerDigits]], [[minimumFractionDigits]], and
             //    [[maximumFractionDigits]] internal properties of numberFormat.
             n = ToRawFixed(x,
-                  internal['[[minimumSignificantDigits]]'],
-                  internal['[[maximumSignificantDigits]]']);
+                  internal['[[minimumIntegerDigits]]'],
+                  internal['[[minimumFractionDigits]]'],
+                  internal['[[maximumFractionDigits]]']);
 
         // e. If the value of the [[numberingSystem]] internal property of
         //    numberFormat matches one of the values in the “Numbering System” column
