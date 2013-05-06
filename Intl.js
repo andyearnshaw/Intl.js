@@ -12,14 +12,23 @@
  */
 
 window.OldIntl = window.Intl;
-window.Intl = /*window.Intl || */(function (Intl) {
+var Intl = /*window.Intl || */(function (Intl) {
 
 var
     // Private object houses our locale data for each locale
     localeData = {},
     
-    // Object housing internal properties for statics
-    internals = {};
+    // Object housing internal properties for constructors 
+    internals = Object.create(null),
+
+    // Keep internal properties internal
+    secret = Math.random(),
+
+    // We need this for proto-less objects
+    hop = Object.prototype.hasOwnProperty,
+    
+    // Some regular expressions we're using
+    expNumGroups = /(?=(?!^)(?:\d{3})+(?!\d))/g;
 
 // Sect 6.2 Language Tags
 // ======================
@@ -732,13 +741,25 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
     // numberFormat (which must be an object), locales, and options. It initializes
     // numberFormat as a NumberFormat object.
 
+    // This will be a internal properties object if we're not already initialized
+    var internal = getInternalProperties(numberFormat);
+
     // 1. If numberFormat has an [[initializedIntlObject]] internal property with
     // value true, throw a TypeError exception.
-    if (getInternalProperty(numberFormat, '[[initializedIntlObject]]') === true)
+    if (internal['[[initializedIntlObject]]'] === true)
         throw new TypeError('NumberFormat object already initialized');
 
+    // Need this to access the `internal` object
+    Object.defineProperty(numberFormat, '__getInternalProperties', {
+        value: function () {
+            // NOTE: Non-standard, for internal use only
+            if (arguments[0] === secret)
+                return internal;
+        }
+    });
+
     // 2. Set the [[initializedIntlObject]] internal property of numberFormat to true.
-    setInternalProperty(numberFormat, '[[initializedIntlObject]]', true);
+    internal['[[initializedIntlObject]]'] = true;
 
     var
     // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
@@ -776,22 +797,23 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
         NumberFormat = Intl.NumberFormat,
     // 10. Let localeData be the value of the [[localeData]] internal property of
     //     NumberFormat.
-        localeData = getInternalProperty(NumberFormat, '[[localeData]]'),
+        localeData = internals.NumberFormat['[[localeData]]'],
     // 11. Let r be the result of calling the ResolveLocale abstract operation
     //     (defined in 9.2.5) with the [[availableLocales]] internal property of
     //     NumberFormat, requestedLocales, opt, the [[relevantExtensionKeys]]
     //     internal property of NumberFormat, and localeData.
-        r = ResolveLocale(getInternalProperty(NumberFormat, '[[availableLocales]]'),
-                requestedLocales, opt, getInternalProperty(NumberFormat,
-                                           '[[relevantExtensionKeys]]'), localeData);
+        r = ResolveLocale(
+                internals.NumberFormat['[[availableLocales]]'], requestedLocales, 
+                opt, internals.NumberFormat['[[relevantExtensionKeys]]'], localeData
+            );
 
     // 12. Set the [[locale]] internal property of numberFormat to the value of
     //     r.[[locale]].
-    setInternalProperty(numberFormat, '[[locale]]', r['[[locale]]']);
+    internal['[[locale]]'] = r['[[locale]]'];
 
     // 13. Set the [[numberingSystem]] internal property of numberFormat to the value
     //     of r.[[nu]].
-    setInternalProperty(numberFormat, '[[numberingSystem]]', r['[[nu]]']);
+    internal['[[numberingSystem]]'] = r['[[nu]]'];
 
     var
     // 14. Let dataLocale be the value of r.[[dataLocale]].
@@ -803,7 +825,7 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
                 'decimal');
 
     // 16. Set the [[style]] internal property of numberFormat to s.
-    setInternalProperty(numberFormat, '[[style]]', s);
+    internal['[[style]]'] = s;
 
     var
     // 17. Let c be the result of calling the GetOption abstract operation with the
@@ -826,7 +848,7 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
         c = c.toUpperCase();
 
         // b. Set the [[currency]] internal property of numberFormat to c.
-        setInternalProperty(numberFormat, '[[currency]]', c);
+        internal['[[currency]]'] = c;
 
         var
         // c. Let cDigits be the result of calling the CurrencyDigits abstract
@@ -844,7 +866,7 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
     // 22. If s is "currency", then set the [[currencyDisplay]] internal property of
     //     numberFormat to cd.
     if (s === 'currency')
-        setInternalProperty(numberFormat, '[[currencyDisplay]]', cd);
+        internal['[[currencyDisplay]]'] = cd;
 
 
     var
@@ -854,7 +876,7 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
         mnid = GetNumberOption(options, 'minimumIntegerDigits', 1, 21, 1);
 
     // 24. Set the [[minimumIntegerDigits]] internal property of numberFormat to mnid.
-    setInternalProperty(numberFormat, '[[minimumIntegerDigits]]', mnid);
+    internal['[[minimumIntegerDigits]]'] = mnid;
 
     var
     // 25. If s is "currency", then let mnfdDefault be cDigits; else let mnfdDefault
@@ -866,7 +888,7 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
         mnfd = GetNumberOption(options, 'minimumFractionDigits', 0, 20, mnfdDefault);
 
     // 27. Set the [[minimumFractionDigits]] internal property of numberFormat to mnfd.
-    setInternalProperty(numberFormat, '[[minimumFractionDigits]]', mnfd);
+    internal['[[minimumFractionDigits]]'] = mnfd;
 
     var
     // 28. If s is "currency", then let mxfdDefault be max(mnfd, cDigits); else if s
@@ -879,7 +901,7 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
         mxfd = GetNumberOption(options, 'maximumFractionDigits', mnfd, 20, mxfdDefault);
 
     // 30. Set the [[maximumFractionDigits]] internal property of numberFormat to mxfd.
-    setInternalProperty(numberFormat, '[[maximumFractionDigits]]', mxfd);
+    internal['[[maximumFractionDigits]]'] = mxfd;
 
     var
     // 31. Let mnsd be the result of calling the [[Get]] internal method of options
@@ -903,8 +925,8 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
         // c. Set the [[minimumSignificantDigits]] internal property of numberFormat
         //    to mnsd, and the [[maximumSignificantDigits]] internal property of
         //    numberFormat to mxsd.
-        setInternalProperty(numberFormat, '[[minimumSignificantDigits]]', mnsd);
-        setInternalProperty(numberFormat, '[[maximumSignificantDigits]]', mxsd);
+        internal['[[minimumSignificantDigits]]'] = mnsd;
+        internal['[[maximumSignificantDigits]]'] = mxsd;
     }
     var
     // 34. Let g be the result of calling the GetOption abstract operation with the
@@ -912,7 +934,7 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
         g = GetOption(options, 'useGrouping', 'boolean', undefined, true);
 
     // 35. Set the [[useGrouping]] internal property of numberFormat to g.
-    setInternalProperty(numberFormat, '[[useGrouping]]', g);
+    internal['[[useGrouping]]'] = g;
 
     var
     // 36. Let dataLocaleData be the result of calling the [[Get]] internal method of
@@ -933,19 +955,19 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
     // 40. Set the [[positivePattern]] internal property of numberFormat to the
     //     result of calling the [[Get]] internal method of stylePatterns with the
     //     argument "positivePattern".
-    setInternalProperty(numberFormat, '[[positivePattern]]',
-                                                      stylePatterns.positivePattern);
+    internal['[[positivePattern]]'] = stylePatterns.positivePattern;
+
     // 41. Set the [[negativePattern]] internal property of numberFormat to the
     //     result of calling the [[Get]] internal method of stylePatterns with the
     //     argument "negativePattern".
-    setInternalProperty(numberFormat, '[[negativePattern]]',
-                                                      stylePatterns.negativePattern);
+    internal['[[negativePattern]]'] = stylePatterns.negativePattern;
+
     // 42. Set the [[boundFormat]] internal property of numberFormat to undefined.
-    setInternalProperty(numberFormat, '[[boundFormat]]', undefined);
+    internal['[[boundFormat]]'] = undefined;
 
     // 43. Set the [[initializedNumberFormat]] internal property of numberFormat to
     //     true.
-    setInternalProperty(numberFormat, '[[initializedNumberFormat]]', true);
+    internal['[[initializedNumberFormat]]'] = true;
 }
 
 function CurrencyDigits(currency) {
@@ -968,7 +990,7 @@ function CurrencyDigits(currency) {
     // 2. Let availableLocales be the value of the [[availableLocales]] internal
     //    property of the standard built-in object that is the initial value of
     //    Intl.NumberFormat.
-        availableLocales = getInternalProperty(Intl.NumberFormat, '[[availableLocales]]'),
+        availableLocales = internals.NumberFormat['[[availableLocales]]'],
     // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
     //    abstract operation (defined in 9.2.1) with argument locales.
         requestedLocales = CanonicalizeLocaleList(locales);
@@ -990,12 +1012,14 @@ function CurrencyDigits(currency) {
     // according to the effective locale and the formatting options of this
     // NumberFormat object.
     get: function () {
+        var internal = getInternalProperties(this);
+
         // The value of the [[Get]] attribute is a function that takes the following
         // steps:
 
         // 1. If the [[boundFormat]] internal property of this NumberFormat object
         //    is undefined, then:
-        if (getInternalProperty(this, '[[boundFormat]]') === undefined) {
+        if (internal['[[boundFormat]]'] === undefined) {
             var
             // a. Let F be a Function object, with internal properties set as
             //    specified for built-in functions in ES5, 15, or successor, and the
@@ -1016,11 +1040,11 @@ function CurrencyDigits(currency) {
                 bf = F.bind(this);
             // d. Set the [[boundFormat]] internal property of this NumberFormat
             //    object to bf.
-            setInternalProperty(this, '[[boundFormat]]', bf);
+            internal['[[boundFormat]]'] = bf;
         }
         // Return the value of the [[boundFormat]] internal property of this
         // NumberFormat object.
-        return getInternalProperty(this, '[[boundFormat]]', bf);
+        return internal['[[boundFormat]]'];
     }
 });
 
@@ -1030,11 +1054,12 @@ function FormatNumber (numberFormat, x) {
     // Number value), it returns a String value representing x according to the
     // effective locale and the formatting options of numberFormat.
 
-    var n, decimalSeparator, 
-        locale = getInternalProperty(numberFormat, '[[locale]]'),
-        nums   = getInternalProperty(numberFormat, '[[numberingSystem]]'),
+    var n,
+        internal = getInternalProperties(numberFormat),
+        locale = internal['[[locale]]'],
+        nums   = internal['[[numberingSystem]]'],
         data   = localeData[locale].numbers,
-        ild    = data['symbols-numberingSystem-' + numSys],
+        ild    = data['symbols-numberSystem-' + nums],
 
     // 1. Let negative be false.
         negative = false;
@@ -1066,20 +1091,20 @@ function FormatNumber (numberFormat, x) {
 
         // b. If the value of the [[style]] internal property of numberFormat is
         //    "percent", let x be 100 × x.
-        if (getInternalProperty(numberFormat, '[[style]]') === 'percent')
+        if (internal['[[style]]'] === 'percent')
             x *= 100;
 
         // c. If the [[minimumSignificantDigits]] and [[maximumSignificantDigits]]
         //    internal properties of numberFormat are present, then
-        if (hasInternalProperty(numberFormat, '[[minimumSignificantDigits]]') &&
-                hasInternalProperty(numberFormat, '[[maximumSignificantDigits]]'))
+        if (hop.call(internal, '[[minimumSignificantDigits]]') &&
+                hop.call(internal, '[[maximumSignificantDigits]]'))
             // i. Let n be the result of calling the ToRawPrecision abstract operation
             //    (defined below), passing as arguments x and the values of the
             //    [[minimumSignificantDigits]] and [[maximumSignificantDigits]]
             //    internal properties of numberFormat.
             n = ToRawPrecision(x,
-                  getInternalProperty(numberFormat, '[[minimumSignificantDigits]]'),
-                  getInternalProperty(numberFormat, '[[maximumSignificantDigits]]'));
+                  internal['[[minimumSignificantDigits]]'],
+                  internal['[[maximumSignificantDigits]]']);
         // d. Else
         else
             // i. Let n be the result of calling the ToRawFixed abstract operation
@@ -1087,21 +1112,21 @@ function FormatNumber (numberFormat, x) {
             //    [[minimumIntegerDigits]], [[minimumFractionDigits]], and
             //    [[maximumFractionDigits]] internal properties of numberFormat.
             n = ToRawFixed(x,
-                  getInternalProperty(numberFormat, '[[minimumSignificantDigits]]'),
-                  getInternalProperty(numberFormat, '[[maximumSignificantDigits]]'));
+                  internal['[[minimumSignificantDigits]]'],
+                  internal['[[maximumSignificantDigits]]']);
 
         // e. If the value of the [[numberingSystem]] internal property of
         //    numberFormat matches one of the values in the “Numbering System” column
         //    of Table 2 below, then
-        if (numSys[getInternalProperty(numberFormat, '[[numberingSystem]]')]) {
+        if (numSys[nums]) {
             // i. Let digits be an array whose 10 String valued elements are the
             //    UTF-16 string representations of the 10 digits specified in the
             //    “Digits” column of Table 2 in the row containing the value of the
             //    [[numberingSystem]] internal property.
-            var digits = numSys[getInternalProperty(numberFormat, '[[numberingSystem]]')];
+            var digits = numSys[internal['[[numberingSystem]]']];
             // ii. Replace each digit in n with the value of digits[digit].
-            n = String(n).replace(/\d/g, function (num) {
-                return digits[num];
+            n = String(n).replace(/\d/g, function (digit) {
+                return digits[digit];
             });
         }
         // f. Else use an implementation dependent algorithm to map n to the
@@ -1111,50 +1136,48 @@ function FormatNumber (numberFormat, x) {
 
         // g. If n contains the character ".", then replace it with an ILND String
         //    representing the decimal separator.
-        n = n.replace(/\./g, decimalSeparator);
+        n = n.replace(/\./g, ild.decimal);
 
         // h. If the value of the [[useGrouping]] internal property of numberFormat
         //    is true, then insert an ILND String representing a grouping separator
         //    into an ILND set of locations within the integer part of n.
-        if (getInternalProperty(numberFormat, '[[useGrouping]]') === true)
-            n = n.replace(/(?=(?!^)(?:\d{3})+(?!\d))/g, ",");
+        if (internal['[[useGrouping]]'] === true)
+            n = n.replace(expNumGroups, ild.group);
     }
 
     var
     // 4. If negative is true, then let result be the value of the [[negativePattern]]
     //    internal property of numberFormat; else let result be the value of the
     //    [[positivePattern]] internal property of numberFormat.
-        result = getInternalProperty(numberFormat,
-                    negative === true ? '[[negativePattern]]' : '[[positivePattern]]');
+        result = internal[negative === true ? '[[negativePattern]]' : '[[positivePattern]]'];
 
     // 5. Replace the substring "{number}" within result with n.
     result = result.replace('{number}', n);
 
     // 6. If the value of the [[style]] internal property of numberFormat is
     //    "currency", then:
-    if (getInternalProperty(numberFormat, '[[style]]') === 'currency') {
+    if (internal['[[style]]'] === 'currency') {
         var cd,
         // a. Let currency be the value of the [[currency]] internal property of
         //    numberFormat.
-            currency = getInternalProperty(numberFormat, '[[currency]]');
+            currency = internal['[[currency]]'];
 
         // b. If the value of the [[currencyDisplay]] internal property of
         //    numberFormat is "code", then let cd be currency.
-        if (getInternalProperty(numberFormat, '[[currencyDisplay]]') === 'code')
+        if (internal['[[currencyDisplay]]'] === 'code')
             cd = currency;
         // c. Else if the value of the [[currencyDisplay]] internal property of
         //    numberFormat is "symbol", then let cd be an ILD string representing
         //    currency in short form. If the implementation does not have such a
         //    representation of currency, then use currency itself.
-        else if (getInternalProperty(numberFormat, '[[currencyDisplay]]') === 'symbol')
-            cd = localeData[locale].numbers.currencies[currency].symbol || currency;
+        else if (internal['[[currencyDisplay]]'] === 'symbol')
+            cd = data.currencies[currency].symbol || currency;
         // d. Else if the value of the [[currencyDisplay]] internal property of
         //    numberFormat is "name", then let cd be an ILD string representing
         //    currency in long form. If the implementation does not have such a
         //    representation of currency, then use currency itself.
-        else if (getInternalProperty(numberFormat, '[[currencyDisplay]]') === 'name')
-            cd = localeData[locale].numbers
-                           .currencies[currency]['displayNamecount-one'] || currency;
+        else if (internal['[[currencyDisplay]]'] === 'name')
+            cd = data.currencies[currency]['displayName-count-one'] || currency;
 
         // e. Replace the substring "{currency}" within result with cd.
         result = result.replace('{currency}', cd);
@@ -1270,11 +1293,11 @@ var numSys = {
             'minimumFractionDigits', 'maximumFractionDigits', 'minimumSignificantDigits', 
             'maximumSignificantDigits', 'useGrouping'
         ],
-        that  = this;
+        internal = getInternalProperties(this);
 
     props.forEach(function (el) {
         var val;
-        if ((val = getInternalProperty(that, '[['+el+']]')) !== undefined)
+        if ((val = internal['[['+el+']]']) !== undefined)
             ret[el] = val;
     });
 
@@ -1359,40 +1382,13 @@ function toObject (arg) {
 }
 
 /**
- * Sets the value of internal property `prop` on object `obj` to `val`
- * Note: we're not doing anything special at all to try and keep these
- *       properties hidden (for the time being).
+ * Returns "internal" properties for an object
  */
-function setInternalProperty(obj, prop, val) {
-    if (Object.defineProperty)
-        Object.defineProperty(obj, prop, {
-            configurable: false,
-            writable: true,
-            value: val
-        });
+function getInternalProperties (obj) {
+    if (obj.hasOwnProperty('__getInternalProperties'))
+        return obj.__getInternalProperties(secret);
     else
-        obj[prop] = val;
-}
-
-/**
- * Checks for the existence of internal property `prop` on object `obj`
- */
-function hasInternalProperty(obj, prop) {
-    if (obj == Intl.NumberFormat)
-        return internals.NumberFormat.hasOwnProperty(prop);
-
-    // Gets internal property `prop` on object `obj`.
-    return obj.hasOwnProperty(prop);
-}
-
-/**
- * Gets internal property `prop` on object `obj`.
- */
-function getInternalProperty(obj, prop) {
-    if (obj == Intl.NumberFormat)
-        return internals.NumberFormat[prop];
-
-    return obj[prop];
+        return Object.create(null); 
 }
 
 return Intl;
