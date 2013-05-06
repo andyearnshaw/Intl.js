@@ -1,4 +1,6 @@
 /*jshint eqnull:true, boss:true, laxbreak:true, newcap:false, shadow:true, funcscope:true */
+window.OldIntl = window.Intl;
+var Intl = /*window.Intl || */(function (Intl) {
 // Copyright 2013 Andy Earnshaw, MIT License
 
 /**
@@ -11,9 +13,7 @@
  * are required to work with additional locales.
  */
 
-window.OldIntl = window.Intl;
-var Intl = /*window.Intl || */(function (Intl) {
-
+"use strict";
 var
     // Private object houses our locale data for each locale
     localeData = {},
@@ -155,7 +155,7 @@ function /* 9.2.1 */CanonicalizeLocaleList (locales) {
 
             // b. Let kPresent be the result of calling the [[HasProperty]] internal
             //    method of O with argument Pk.
-            kPresent = hop.call(O, Pk);
+            kPresent = Pk in O;
 
         // c. If kPresent is true, then
         if (kPresent) {
@@ -186,7 +186,7 @@ function /* 9.2.1 */CanonicalizeLocaleList (locales) {
 
             // vi. If tag is not an element of seen, then append tag as the last
             //     element of seen.
-            if (!seen.indexOf(tag))
+            if (seen.indexOf(tag) === -1)
                 seen.push(tag);
         }
 
@@ -213,7 +213,7 @@ function /* 9.2.2 */BestAvailableLocale (availableLocales, locale) {
     while (true) {
         // a. If availableLocales contains an element equal to candidate, then return
         // candidate.
-        if (availableLocales.indexOf(candidate))
+        if (availableLocales.indexOf(candidate) > -1)
             return candidate;
 
         var
@@ -326,7 +326,7 @@ function /* 9.2.4 */BestFitMatcher (availableLocales, requestedLocales) {
     // is the index of the first Unicode locale extension sequence within the request
     // locale language tag.
     for (var i=0, max=requestedLocales.length; i < max; i++) {
-        if (availableLocales.indexOf(requestedLocales[i]))
+        if (availableLocales.indexOf(requestedLocales[i]) > -1)
             return {
                 '[[locale]]': requestedLocales[i]
             };
