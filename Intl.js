@@ -688,7 +688,7 @@ function /* 9.2.10 */GetNumberOption (options, property, minimum, maximum, fallb
     var
         // 1. Let value be the result of calling the [[Get]] internal method of
         //    options with argument property.
-        value = options.property;
+        value = options[property];
 
     // 2. If value is not undefined, then
     if (value !== undefined) {
