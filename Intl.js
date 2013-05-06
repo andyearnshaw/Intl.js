@@ -19,16 +19,21 @@ var
     localeData = {},
     
     // Object housing internal properties for constructors 
-    internals = Object.create(null),
+    internals = Object.create ? Object.create(null) : {},
 
     // Keep internal properties internal
     secret = Math.random(),
 
-    // We need this for proto-less objects
+    // We use this a lot (and need it for proto-less objects)
     hop = Object.prototype.hasOwnProperty,
     
     // Some regular expressions we're using
-    expNumGroups = /(?=(?!^)(?:\d{3})+(?!\d))/g;
+    expNumGroups = /(?=(?!^)(?:\d{3})+(?!\d))/g,
+    
+    // Sham this for ES3 compat
+    defineProperty = Object.defineProperty || function (obj, name, desc) {
+        obj[name] = desc.value || desc.get;        
+    };
 
 // Sect 6.2 Language Tags
 // ======================
@@ -148,7 +153,7 @@ function /* 9.2.1 */CanonicalizeLocaleList (locales) {
 
             // b. Let kPresent be the result of calling the [[HasProperty]] internal
             //    method of O with argument Pk.
-            kPresent = O.hasOwnProperty(Pk);
+            kPresent = hop.call(O, Pk);
 
         // c. If kPresent is true, then
         if (kPresent) {
@@ -364,7 +369,7 @@ function /* 9.2.5 */ResolveLocale (availableLocales, requestedLocales, options,
         foundLocale = r['[[locale]]'];
 
     // 5. If r has an [[extension]] field, then
-    if (r.hasOwnProperty('[[extension]]'))
+    if (hop.call(r, '[[extension]]'))
         var
             // a. Let extension be the value of r.[[extension]].
             extension = r['[[extension]]'],
@@ -472,7 +477,7 @@ function /* 9.2.5 */ResolveLocale (availableLocales, requestedLocales, options,
             }
         }
         // h. If options has a field [[<key>]], then
-        if (options.hasOwnProperty('[[' + key + ']]')) {
+        if (hop.call(options, '[[' + key + ']]')) {
             var
                 // i. Let optionsValue be the value of options.[[<key>]].
                 optionsValue = options['[[' + key + ']]'];
@@ -621,7 +626,7 @@ function /*9.2.8 */SupportedLocales (availableLocales, requestedLocales, options
 
     // 4. For each named own property name P of subset,
     for (var P in subset) {
-        if (!subset.hasOwnProperty(P))
+        if (!hop.call(subset, P))
             continue;
 
         var
@@ -633,7 +638,7 @@ function /*9.2.8 */SupportedLocales (availableLocales, requestedLocales, options
         // c. Set desc.[[Configurable]] to false.
         // d. Call the [[DefineOwnProperty]] internal method of subset with P, desc,
         //    and true as arguments.
-        Object.defineProperty(subset, P, {
+        defineProperty(subset, P, {
             writable: false, configurable: false, value: subset[P]
         });
     }
@@ -750,7 +755,7 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
         throw new TypeError('NumberFormat object already initialized');
 
     // Need this to access the `internal` object
-    Object.defineProperty(numberFormat, '__getInternalProperties', {
+    defineProperty(numberFormat, '__getInternalProperties', {
         value: function () {
             // NOTE: Non-standard, for internal use only
             if (arguments[0] === secret)
@@ -1007,7 +1012,7 @@ function CurrencyDigits(currency) {
     '[[localeData]]': {}
 };
 
-/* 11.3.2 */Object.defineProperty(Intl.NumberFormat.prototype, 'format', {
+/* 11.3.2 */defineProperty(Intl.NumberFormat.prototype, 'format', {
     // This named accessor property returns a function that formats a number
     // according to the effective locale and the formatting options of this
     // NumberFormat object.
@@ -1309,7 +1314,7 @@ var numSys = {
  * this __addLocaleData method as a means for the developer to add the data on an 
  * as-needed basis
  */
-Object.defineProperty(Intl, '__addLocaleData', {
+defineProperty(Intl, '__addLocaleData', {
     value: function (data) {
         if (!data.identity)
             throw new Error('Must pass valid CLDR data parsed into a JavaScript object.');
@@ -1339,7 +1344,7 @@ Object.defineProperty(Intl, '__addLocaleData', {
             for (var k in data.numbers.otherNumberingSystems) {
                 var v = data.numbers.otherNumberingSystems[k];
 
-                if (v != defNumSys && !nuNo.hasOwnProperty(v))
+                if (v != defNumSys && !hop.call(nuNo, v))
                     nu.push(v);
             }
 
@@ -1385,10 +1390,10 @@ function toObject (arg) {
  * Returns "internal" properties for an object
  */
 function getInternalProperties (obj) {
-    if (obj.hasOwnProperty('__getInternalProperties'))
+    if (hop.call(obj, '__getInternalProperties'))
         return obj.__getInternalProperties(secret);
     else
-        return Object.create(null); 
+        return Object.create ? Object.create(null) : {};
 }
 
 return Intl;
