@@ -1402,9 +1402,9 @@ defineProperty(Intl, '__addLocaleData', {
                 
                 // 11.2.3 says nu can't contain these:
                 nuNo = {
-                    native:   1,
+                    'native': 1,
                     traditio: 1,
-                    finanice: 1
+                    finance:  1
                 };
 
             for (var k in data.numbers.otherNumberingSystems) {
