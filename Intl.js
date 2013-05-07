@@ -27,71 +27,193 @@ var
     // We use this a lot (and need it for proto-less objects)
     hop = Object.prototype.hasOwnProperty,
     
-    // Some regular expressions we're using
-    expInsertGroups = /(?=(?!^)(?:\d{3})+(?!\d))/g,
-    expCurrencyCode = /^[A-Z]{3}$/,
-    expUnicodeExSeq = /-u(?:-\w+)+(?!-\w-)/g,
-    
     // Sham this for ES3 compat
     defineProperty = Object.defineProperty || function (obj, name, desc) {
         obj[name] = desc.value || desc.get;        
-    };
+    },
 
+    // Some regular expressions we're using
+    expInsertGroups = /(?=(?!^)(?:\d{3})+(?!\d))/g,
+    expCurrencyCode = /^[A-Z]{3}$/,
+    expUnicodeExSeq = /-u(?:-[0-9a-z]{2,8})+/gi, // See `extension` below
+
+    expBCP47Syntax,
+    expVariantDupes,
+    expSingletonDupes;
+
+/**
+ * Defines regular expressions for various operations related to the BCP 47 syntax,
+ * as defined at http://tools.ietf.org/html/bcp47#section-2.1
+ */
+(function () {
+    var
+        // extlang       = 3ALPHA              ; selected ISO 639 codes
+        //                 *2("-" 3ALPHA)      ; permanently reserved            
+        extlang = '[a-z]{3}(?:-[a-z]{3}){0,2}',
+
+        // language      = 2*3ALPHA            ; shortest ISO 639 code
+        //                 ["-" extlang]       ; sometimes followed by
+        //                                     ; extended language subtags
+        //               / 4ALPHA              ; or reserved for future use
+        //               / 5*8ALPHA            ; or registered language subtag
+        language = '(?:[a-z]{2,3}(?:-' + extlang + ')?|[a-z]{4}|[a-z]{5,8})',
+
+        // script        = 4ALPHA              ; ISO 15924 code
+        script = '[a-z]{4}',
+
+        // region        = 2ALPHA              ; ISO 3166-1 code
+        //               / 3DIGIT              ; UN M.49 code
+        region = '(?:[a-z]{2}|\\d{3})',
+        
+        // variant       = 5*8alphanum         ; registered variants
+        //               / (DIGIT 3alphanum)
+        variant = '(?:[a-z0-9]{5-8}|\\d[a-z0-9]{3})',
+
+        //                                     ; Single alphanumerics
+        //                                     ; "x" reserved for private use
+        // singleton     = DIGIT               ; 0 - 9
+        //               / %x41-57             ; A - W
+        //               / %x59-5A             ; Y - Z
+        //               / %x61-77             ; a - w
+        //               / %x79-7A             ; y - z
+        singleton = '[0-9a-wy-z]',
+
+        // extension     = singleton 1*("-" (2*8alphanum))
+        extension = singleton + '(?:-[a-z0-9]{2,8})+',
+
+        // privateuse    = "x" 1*("-" (1*8alphanum))
+        privateuse = 'x(?:-[a-z0-9]{1,8})+',
+
+        // irregular     = "en-GB-oed"         ; irregular tags do not match
+        //               / "i-ami"             ; the 'langtag' production and
+        //               / "i-bnn"             ; would not otherwise be
+        //               / "i-default"         ; considered 'well-formed'
+        //               / "i-enochian"        ; These tags are all valid,
+        //               / "i-hak"             ; but most are deprecated
+        //               / "i-klingon"         ; in favor of more modern
+        //               / "i-lux"             ; subtags or subtag
+        //               / "i-mingo"           ; combination
+        //               / "i-navajo"
+        //               / "i-pwn"
+        //               / "i-tao"
+        //               / "i-tay"
+        //               / "i-tsu"
+        //               / "sgn-BE-FR"
+        //               / "sgn-BE-NL"
+        //               / "sgn-CH-DE"
+        irregular = '(?:en-GB-oed'
+                  + '|i-(?:ami|bnn|default|enochian|hak|klingon|lux|mingo|navajo|pwn|tao|tay|tsu)'
+                  + '|sgn-(?:BE-FR|BE-NL|CH-DE))',
+
+        // regular       = "art-lojban"        ; these tags match the 'langtag'
+        //               / "cel-gaulish"       ; production, but their subtags
+        //               / "no-bok"            ; are not extended language
+        //               / "no-nyn"            ; or variant subtags: their meaning
+        //               / "zh-guoyu"          ; is defined by their registration
+        //               / "zh-hakka"          ; and all of these are deprecated
+        //               / "zh-min"            ; in favor of a more modern
+        //               / "zh-min-nan"        ; subtag or sequence of subtags
+        //               / "zh-xiang"
+        regular = '(?:art-lojban|cel-gaulish|no-bok|no-nyn'
+                + '|zh-(?:guoyu|hakka|min|min-nan|xiang))',
+
+        // grandfathered = irregular           ; non-redundant tags registered
+        //               / regular             ; during the RFC 3066 era
+        grandfathered = '(?:' + irregular + '|' + regular + ')',
+
+        // langtag       = language
+        //                 ["-" script]
+        //                 ["-" region]
+        //                 *("-" variant)
+        //                 *("-" extension)
+        //                 ["-" privateuse]
+        langtag = language + '(?:-' + script + ')?(?:-' + region + ')?(?:-' 
+                + variant + ')*(?:-' + extension + ')*(?:-' + privateuse + ')?';
+
+    // Language-Tag  = langtag             ; normal language tags
+    //               / privateuse          ; private use tag
+    //               / grandfathered       ; grandfathered tags
+    expBCP47Syntax = RegExp('^(?:'+langtag+'|'+privateuse+'|'+grandfathered+')$', 'i');
+
+    // Match duplicate variants in a language tag ###TODO: Fix###
+    expVariantDupes = RegExp('-('+variant+')-(?:[a-z0-9]{2,8})*\\1(?![a-z0-9])', 'i');
+
+    // Match duplicate singletons in a language tag
+    expSingletonDupes = RegExp('-('+singleton+')-(?:[a-z0-9]{2,}-)*\\1(?![a-z0-9])', 'i');
+})();
+    
 // Sect 6.2 Language Tags
 // ======================
-function /* 6.2.2 */IsStructurallyValidLanguageTag(locale) {
-    // The IsStructurallyValidLanguageTag abstract operation verifies that the locale
-    //  argument (which must be a String value)
-    //
-    // - represents a well-formed BCP 47 language tag as specified in RFC 5646
-    //   section 2.1, or successor,
-    // - does not include duplicate variant subtags, and
-    // - does not include duplicate singleton subtags.
-    //
-    // The abstract operation returns true if locale can be generated from the ABNF
-    // grammar in section 2.1 of the RFC, starting with Language-Tag, and does not
-    // contain duplicate variant or singleton subtags (other than as a private use
-    // subtag). It returns false otherwise. Terminal value characters in the grammar
-    // are interpreted as the Unicode equivalents of the ASCII octet values given.
 
-    // ###TODO###
+/**
+ * The IsStructurallyValidLanguageTag abstract operation verifies that the locale
+ * argument (which must be a String value)
+ *
+ * - represents a well-formed BCP 47 language tag as specified in RFC 5646 section
+ *   2.1, or successor,
+ * - does not include duplicate variant subtags, and
+ * - does not include duplicate singleton subtags.
+ *
+ * The abstract operation returns true if locale can be generated from the ABNF
+ * grammar in section 2.1 of the RFC, starting with Language-Tag, and does not
+ * contain duplicate variant or singleton subtags (other than as a private use
+ * subtag). It returns false otherwise. Terminal value characters in the grammar are
+ * interpreted as the Unicode equivalents of the ASCII octet values given.
+ */
+function /* 6.2.2 */IsStructurallyValidLanguageTag(locale) {
+    // - represents a well-formed BCP 47 language tag as specified in RFC 5646
+    if (expBCP47Syntax.test(locale))
+        return false;
+
+    // - does not include duplicate variant subtags, and
+    if (expVariantDupes.test(locale))
+        return false;
+
+    // - does not include duplicate singleton subtags.
+    if (expSingletonDupes.test(locale))
+        return false;
+
     return true;
 }
+window.isvlt = IsStructurallyValidLanguageTag;
 
+/**
+ * The CanonicalizeLanguageTag abstract operation returns the canonical and case-
+ * regularized form of the locale argument (which must be a String value that is
+ * a structurally valid BCP 47 language tag as verified by the
+ * IsStructurallyValidLanguageTag abstract operation). It takes the steps
+ * specified in RFC 5646 section 4.5, or successor, to bring the language tag
+ * into canonical form, and to regularize the case of the subtags, but does not
+ * take the steps to bring a language tag into “extlang form” and to reorder
+ * variant subtags.
+
+ * The specifications for extensions to BCP 47 language tags, such as RFC 6067,
+ * may include canonicalization rules for the extension subtag sequences they
+ * define that go beyond the canonicalization rules of RFC 5646 section 4.5.
+ * Implementations are allowed, but not required, to apply these additional rules.
+ */
 function /* 6.2.3 */CanonicalizeLanguageTag (locale) {
-    // The CanonicalizeLanguageTag abstract operation returns the canonical and case-
-    // regularized form of the locale argument (which must be a String value that is
-    // a structurally valid BCP 47 language tag as verified by the
-    // IsStructurallyValidLanguageTag abstract operation). It takes the steps
-    // specified in RFC 5646 section 4.5, or successor, to bring the language tag
-    // into canonical form, and to regularize the case of the subtags, but does not
-    // take the steps to bring a language tag into “extlang form” and to reorder
-    // variant subtags.
-
-    // The specifications for extensions to BCP 47 language tags, such as RFC 6067,
-    // may include canonicalization rules for the extension subtag sequences they
-    // define that go beyond the canonicalization rules of RFC 5646 section 4.5.
-    // Implementations are allowed, but not required, to apply these additional rules.
-    
-    // ###TODO###
     return locale;
 }
 
+/**
+ * The DefaultLocale abstract operation returns a String value representing the
+ * structurally valid (6.2.2) and canonicalized (6.2.3) BCP 47 language tag for the
+ * host environment’s current locale.
+ */
 function /* 6.2.4 */DefaultLocale () {
-    // The DefaultLocale abstract operation returns a String value representing the
-    // structurally valid (6.2.2) and canonicalized (6.2.3) BCP 47 language tag for
-    // the host environment’s current locale.
-
     return typeof navigator === 'object' ? navigator.language || '(default)': '(default)';
 }
 
 // Sect 6.3 Currency Codes
 // =======================
-function /* 6.3.1 */IsWellFormedCurrencyCode(currency) {
-    // The IsWellFormedCurrencyCode abstract operation verifies that the currency
-    // argument (after conversion to a String value) represents a well-formed
-    // 3-letter ISO currency code. The following steps are taken:
 
+/**
+ * The IsWellFormedCurrencyCode abstract operation verifies that the currency argument
+ * (after conversion to a String value) represents a well-formed 3-letter ISO currency
+ * code. The following steps are taken:
+ */
+function /* 6.3.1 */IsWellFormedCurrencyCode(currency) {
     var
         // 1. Let `c` be ToString(currency)
         c = String(currency),
@@ -109,13 +231,6 @@ function /* 6.3.1 */IsWellFormedCurrencyCode(currency) {
     // 5. Return true
     return true;
 }
-
-// Sect 8.1 Properties of the Intl Object
-// ======================================
-//
-// The value of each of the standard built-in properties of the Intl object is a
-// constructor. The behaviour of these constructors is specified in the following
-// clauses: Collator (10), NumberFormat (11), and DateTimeFormat (12).
 
 // Sect 9.2 Abstract Operations
 // ============================
@@ -197,14 +312,15 @@ function /* 9.2.1 */CanonicalizeLocaleList (locales) {
     return seen;
 }
 
+/**
+ * The BestAvailableLocale abstract operation compares the provided argument
+ * locale, which must be a String value with a structurally valid and
+ * canonicalized BCP 47 language tag, against the locales in availableLocales and
+ * returns either the longest non-empty prefix of locale that is an element of
+ * availableLocales, or undefined if there is no such element. It uses the
+ * fallback mechanism of RFC 4647, section 3.4. The following steps are taken:
+ */
 function /* 9.2.2 */BestAvailableLocale (availableLocales, locale) {
-    // The BestAvailableLocale abstract operation compares the provided argument
-    // locale, which must be a String value with a structurally valid and
-    // canonicalized BCP 47 language tag, against the locales in availableLocales and
-    // returns either the longest non-empty prefix of locale that is an element of
-    // availableLocales, or undefined if there is no such element. It uses the
-    // fallback mechanism of RFC 4647, section 3.4. The following steps are taken:
-
     var
        // 1. Let candidate be locale
        candidate = locale;
@@ -236,12 +352,13 @@ function /* 9.2.2 */BestAvailableLocale (availableLocales, locale) {
     }
 }
 
+/**
+ * The LookupMatcher abstract operation compares requestedLocales, which must be
+ * a List as returned by CanonicalizeLocaleList, against the locales in
+ * availableLocales and determines the best available language to meet the
+ * request. The following steps are taken:
+ */
 function /* 9.2.3 */LookupMatcher (availableLocales, requestedLocales) {
-    // The LookupMatcher abstract operation compares requestedLocales, which must be
-    // a List as returned by CanonicalizeLocaleList, against the locales in
-    // availableLocales and determines the best available language to meet the
-    // request. The following steps are taken:
-
     var
         // 1. Let i be 0.
         i = 0,
@@ -308,23 +425,25 @@ function /* 9.2.3 */LookupMatcher (availableLocales, requestedLocales) {
     return result;
 }
 
+/**
+ * The BestFitMatcher abstract operation compares requestedLocales, which must be
+ * a List as returned by CanonicalizeLocaleList, against the locales in
+ * availableLocales and determines the best available language to meet the
+ * request. The algorithm is implementation dependent, but should produce results
+ * that a typical user of the requested locales would perceive as at least as
+ * good as those produced by the LookupMatcher abstract operation. Options
+ * specified through Unicode locale extension sequences must be ignored by the
+ * algorithm. Information about such subsequences is returned separately.
+ * The abstract operation returns a record with a [[locale]] field, whose value
+ * is the language tag of the selected locale, which must be an element of
+ * availableLocales. If the language tag of the request locale that led to the
+ * selected locale contained a Unicode locale extension sequence, then the
+ * returned record also contains an [[extension]] field whose value is the first
+ * Unicode locale extension sequence, and an [[extensionIndex]] field whose value
+ * is the index of the first Unicode locale extension sequence within the request
+ * locale language tag.
+ */
 function /* 9.2.4 */BestFitMatcher (availableLocales, requestedLocales) {
-    // The BestFitMatcher abstract operation compares requestedLocales, which must be
-    // a List as returned by CanonicalizeLocaleList, against the locales in
-    // availableLocales and determines the best available language to meet the
-    // request. The algorithm is implementation dependent, but should produce results
-    // that a typical user of the requested locales would perceive as at least as
-    // good as those produced by the LookupMatcher abstract operation. Options
-    // specified through Unicode locale extension sequences must be ignored by the
-    // algorithm. Information about such subsequences is returned separately.
-    // The abstract operation returns a record with a [[locale]] field, whose value
-    // is the language tag of the selected locale, which must be an element of
-    // availableLocales. If the language tag of the request locale that led to the
-    // selected locale contained a Unicode locale extension sequence, then the
-    // returned record also contains an [[extension]] field whose value is the first
-    // Unicode locale extension sequence, and an [[extensionIndex]] field whose value
-    // is the index of the first Unicode locale extension sequence within the request
-    // locale language tag.
     for (var i=0, max=requestedLocales.length; i < max; i++) {
         if (availableLocales.indexOf(requestedLocales[i]) > -1)
             return {
@@ -337,15 +456,15 @@ function /* 9.2.4 */BestFitMatcher (availableLocales, requestedLocales) {
     };
 }
 
+/**
+ * The ResolveLocale abstract operation compares a BCP 47 language priority list
+ * requestedLocales against the locales in availableLocales and determines the
+ * best available language to meet the request. availableLocales and
+ * requestedLocales must be provided as List values, options as a Record.
+ */
 function /* 9.2.5 */ResolveLocale (availableLocales, requestedLocales, options,
                                                  relevantExtensionKeys, localeData) {
-    // The ResolveLocale abstract operation compares a BCP 47 language priority list
-    // requestedLocales against the locales in availableLocales and determines the
-    // best available language to meet the request. availableLocales and
-    // requestedLocales must be provided as List values, options as a Record.
-
     // The following steps are taken:
-
     var
         // 1. Let matcher be the value of options.[[localeMatcher]].
         matcher = options['[[localeMatcher]]'];
@@ -526,13 +645,14 @@ function /* 9.2.5 */ResolveLocale (availableLocales, requestedLocales, options,
     return result;
 }
 
+/**
+ * The LookupSupportedLocales abstract operation returns the subset of the
+ * provided BCP 47 language priority list requestedLocales for which
+ * availableLocales has a matching locale when using the BCP 47 Lookup algorithm.
+ * Locales appear in the same order in the returned list as in requestedLocales.
+ * The following steps are taken:
+ */
 function /* 9.2.6 */LookupSupportedLocales (availableLocales, requestedLocales) {
-    // The LookupSupportedLocales abstract operation returns the subset of the
-    // provided BCP 47 language priority list requestedLocales for which
-    // availableLocales has a matching locale when using the BCP 47 Lookup algorithm.
-    // Locales appear in the same order in the returned list as in requestedLocales.
-    // The following steps are taken:
-
     var
         // 1. Let len be the number of elements in requestedLocales.
         len = requestedLocales.length,
@@ -572,25 +692,28 @@ function /* 9.2.6 */LookupSupportedLocales (availableLocales, requestedLocales) 
     // 6. Return subsetArray.
     return subsetArray;
 }
-function /*9.2.7 */BestFitSupportedLocales (availableLocales, requestedLocales) {
-    // The BestFitSupportedLocales abstract operation returns the subset of the
-    // provided BCP 47 language priority list requestedLocales for which
-    // availableLocales has a matching locale when using the Best Fit Matcher
-    // algorithm. Locales appear in the same order in the returned list as in
-    // requestedLocales. The steps taken are implementation dependent.
 
+/**
+ * The BestFitSupportedLocales abstract operation returns the subset of the
+ * provided BCP 47 language priority list requestedLocales for which
+ * availableLocales has a matching locale when using the Best Fit Matcher
+ * algorithm. Locales appear in the same order in the returned list as in
+ * requestedLocales. The steps taken are implementation dependent.
+ */
+function /*9.2.7 */BestFitSupportedLocales (availableLocales, requestedLocales) {
     // ###TODO: implement this function as described by the specification###
     return LookupSupportedLocales(availableLocales, requestedLocales);
 }
 
+/**
+ * The SupportedLocales abstract operation returns the subset of the provided BCP
+ * 47 language priority list requestedLocales for which availableLocales has a
+ * matching locale. Two algorithms are available to match the locales: the Lookup
+ * algorithm described in RFC 4647 section 3.4, and an implementation dependent
+ * best-fit algorithm. Locales appear in the same order in the returned list as
+ * in requestedLocales. The following steps are taken:
+ */
 function /*9.2.8 */SupportedLocales (availableLocales, requestedLocales, options) {
-    // The SupportedLocales abstract operation returns the subset of the provided BCP
-    // 47 language priority list requestedLocales for which availableLocales has a
-    // matching locale. Two algorithms are available to match the locales: the Lookup
-    // algorithm described in RFC 4647 section 3.4, and an implementation dependent
-    // best-fit algorithm. Locales appear in the same order in the returned list as
-    // in requestedLocales. The following steps are taken:
-
     // 1. If options is not undefined, then
     if (options !== undefined) {
         var
@@ -648,12 +771,13 @@ function /*9.2.8 */SupportedLocales (availableLocales, requestedLocales, options
     return subset;
 }
 
+/**
+ * The GetOption abstract operation extracts the value of the property named
+ * property from the provided options object, converts it to the required type,
+ * checks whether it is one of a List of allowed values, and fills in a fallback
+ * value if necessary.
+ */
 function /*9.2.9 */GetOption (options, property, type, values, fallback) {
-    // The GetOption abstract operation extracts the value of the property named
-    // property from the provided options object, converts it to the required type,
-    // checks whether it is one of a List of allowed values, and fills in a fallback
-    // value if necessary.
-
     var
         // 1. Let value be the result of calling the [[Get]] internal method of
         //    options with argument property.
@@ -682,11 +806,12 @@ function /*9.2.9 */GetOption (options, property, type, values, fallback) {
     return fallback;
 }
 
+/**
+ * The GetNumberOption abstract operation extracts a property value from the
+ * provided options object, converts it to a Number value, checks whether it is
+ * in the allowed range, and fills in a fallback value if necessary.
+ */
 function /* 9.2.10 */GetNumberOption (options, property, minimum, maximum, fallback) {
-    // The GetNumberOption abstract operation extracts a property value from the
-    // provided options object, converts it to a Number value, checks whether it is
-    // in the allowed range, and fills in a fallback value if necessary.
-
     var
         // 1. Let value be the result of calling the [[Get]] internal method of
         //    options with argument property.
@@ -722,11 +847,12 @@ Intl.Collator = function (/* [locales [, options]]*/) {
     return InitializeCollator(toObject(this), locales, options);
 };
 
+/**
+ * The abstract operation InitializeCollator accepts the arguments collator
+ * (which must be an object), locales, and options. It initializes collator as a
+ * Collator object.
+ */
 function /*10.1.1.1 */InitializeCollator (collator, locales, options) {
-    // The abstract operation InitializeCollator accepts the arguments collator
-    // (which must be an object), locales, and options. It initializes collator as a
-    // Collator object.
-
     // ###TODO###
 }
 
@@ -743,11 +869,12 @@ Intl.NumberFormat = function (/* [locales [, options]]*/) {
     return InitializeNumberFormat(toObject(this), locales, options);
 };
 
+/**
+ * The abstract operation InitializeNumberFormat accepts the arguments
+ * numberFormat (which must be an object), locales, and options. It initializes
+ * numberFormat as a NumberFormat object.
+ */
 function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
-    // The abstract operation InitializeNumberFormat accepts the arguments
-    // numberFormat (which must be an object), locales, and options. It initializes
-    // numberFormat as a NumberFormat object.
-
     // This will be a internal properties object if we're not already initialized
     var internal = getInternalProperties(numberFormat);
 
@@ -984,6 +1111,7 @@ function CurrencyDigits(currency) {
     // 1. If the ISO 4217 currency and funds code list contains currency as an
     // alphabetic code, then return the minor unit value corresponding to the
     // currency from the list; else return 2.
+    // ###TODO###
     return /* that first thing ? its minor unit value : */2;
 }
 
@@ -1014,10 +1142,12 @@ function CurrencyDigits(currency) {
     '[[localeData]]': {}
 };
 
+/**
+ * This named accessor property returns a function that formats a number
+ * according to the effective locale and the formatting options of this
+ * NumberFormat object.
+ */
 /* 11.3.2 */defineProperty(Intl.NumberFormat.prototype, 'format', {
-    // This named accessor property returns a function that formats a number
-    // according to the effective locale and the formatting options of this
-    // NumberFormat object.
     get: function () {
         var internal = getInternalProperties(this);
 
@@ -1055,12 +1185,13 @@ function CurrencyDigits(currency) {
     }
 });
 
+/**
+ * When the FormatNumber abstract operation is called with arguments numberFormat
+ * (which must be an object initialized as a NumberFormat) and x (which must be a
+ * Number value), it returns a String value representing x according to the
+ * effective locale and the formatting options of numberFormat.
+ */
 function FormatNumber (numberFormat, x) {
-    // When the FormatNumber abstract operation is called with arguments numberFormat
-    // (which must be an object initialized as a NumberFormat) and x (which must be a
-    // Number value), it returns a String value representing x according to the
-    // effective locale and the formatting options of numberFormat.
-
     var n,
         internal = getInternalProperties(numberFormat),
         locale = internal['[[locale]]'],
@@ -1201,11 +1332,12 @@ function FormatNumber (numberFormat, x) {
     return result;
 }
 
+/**
+ * When the ToRawPrecision abstract operation is called with arguments x (which 
+ * must be a finite non-negative number), minPrecision, and maxPrecision (both 
+ * must be integers between 1 and 21) the following steps are taken:
+ */
 function ToRawPrecision (x, minPrecision, maxPrecision) {
-    // When the ToRawPrecision abstract operation is called with arguments x (which 
-    // must be a finite non-negative number), minPrecision, and maxPrecision (both 
-    // must be integers between 1 and 21) the following steps are taken:
-
     var
     // 1. Let p be maxPrecision.
         p = maxPrecision;
@@ -1254,12 +1386,13 @@ function ToRawPrecision (x, minPrecision, maxPrecision) {
     return m;
 }
 
+/**
+ * When the ToRawFixed abstract operation is called with arguments x (which must
+ * be a finite non-negative number), minInteger (which must be an integer between
+ * 1 and 21), minFraction, and maxFraction (which must be integers between 0 and
+ * 20) the following steps are taken:
+ */
 function ToRawFixed (x, minInteger, minFraction, maxFraction) {
-    // When the ToRawFixed abstract operation is called with arguments x (which must
-    // be a finite non-negative number), minInteger (which must be an integer between
-    // 1 and 21), minFraction, and maxFraction (which must be integers between 0 and
-    // 20) the following steps are taken:
-
     // (or not because Number.toPrototype.toFixed does a lot of it for us)
     var
         // We can pick up after the fixed formatted string (m) is created
@@ -1327,18 +1460,20 @@ var numSys = {
     tibt:    [ '\u0F20', '\u0F21', '\u0F22', '\u0F23', '\u0F24', '\u0F25', '\u0F26', '\u0F27', '\u0F28', '\u0F29' ]
 };
 
+/**
+ * This function provides access to the locale and formatting options computed 
+ * during initialization of the object.
+ *
+ * The function returns a new object whose properties and attributes are set as 
+ * if constructed by an object literal assigning to each of the following 
+ * properties the value of the corresponding internal property of this 
+ * NumberFormat object (see 11.4): locale, numberingSystem, style, currency, 
+ * currencyDisplay, minimumIntegerDigits, minimumFractionDigits, 
+ * maximumFractionDigits, minimumSignificantDigits, maximumSignificantDigits, and 
+ * useGrouping. Properties whose corresponding internal properties are not present 
+ * are not assigned.
+ */
 /* 11.3.3 */Intl.NumberFormat.prototype.resolvedOptions = function () {
-    // This function provides access to the locale and formatting options computed 
-    // during initialization of the object.
-    //
-    // The function returns a new object whose properties and attributes are set as 
-    // if constructed by an object literal assigning to each of the following 
-    // properties the value of the corresponding internal property of this 
-    // NumberFormat object (see 11.4): locale, numberingSystem, style, currency, 
-    // currencyDisplay, minimumIntegerDigits, minimumFractionDigits, 
-    // maximumFractionDigits, minimumSignificantDigits, maximumSignificantDigits, and 
-    // useGrouping. Properties whose corresponding internal properties are not present 
-    // are not assigned.
     var ret   = {},
         props = [
             'numberingSystem', 'style', 'currency', 'currencyDisplay', 'minimumIntegerDigits', 
