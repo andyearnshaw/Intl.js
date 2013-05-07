@@ -1357,6 +1357,25 @@ var numSys = {
     return ret;
 };
 
+/* 13.2.1 */defineProperty(Number.prototype, 'toLocaleString', {
+    writable: true,
+    configurable: true,
+    value: function () {
+        // When the toLocaleString method is called with optional arguments locales
+        // and options, the following steps are taken:
+
+        // 1. Let x be this Number value (as defined in ES5, 15.7.4).
+        // 2. If locales is not provided, then let locales be undefined.
+        // 3. If options is not provided, then let options be undefined.
+        // 4. Let numberFormat be the result of creating a new object as if by the 
+        //    expression new Intl.NumberFormat(locales, options) where
+        //    Intl.NumberFormat is the standard built-in constructor defined in 11.1.3.
+        // 5. Return the result of calling the FormatNumber abstract operation 
+        //    (defined in 11.3.2) with arguments numberFormat and x.
+        return FormatNumber(new Intl.NumberFormat(arguments[0], arguments[1]), this);
+    }
+});
+
 /**
  * Can't really ship a single script with data for hundreds of locales, so we provide
  * this __addLocaleData method as a means for the developer to add the data on an 
