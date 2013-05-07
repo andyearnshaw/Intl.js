@@ -1396,6 +1396,18 @@ defineProperty(Intl, '__addLocaleData', {
                     nu.push(v);
             }
 
+            // Build patterns for each number style
+            var currencyPattern = 
+                    data.numbers['currencyFormats-numberSystem-'+defNumSys]
+                        .standard.currencyFormat.pattern
+                            .replace('#,##0.00', '{number}')
+                            .replace('¤', '{currency}'),
+
+                percentPattern =
+                    data.numbers['percentFormats-numberSystem-'+defNumSys]
+                        .standard.percentFormat.pattern
+                            .replace('#,##0', '{number}');
+
             internals.NumberFormat['[[availableLocales]]'].push(locale);
             internals.NumberFormat['[[localeData]]'][locale] = {
                 nu: nu,
@@ -1405,12 +1417,12 @@ defineProperty(Intl, '__addLocaleData', {
                         negativePattern: '-{number}'  
                     },
                     percent: {
-                        positivePattern: '{number}%',
-                        negativePattern: '-{number}%'  
+                        positivePattern: percentPattern,
+                        negativePattern: '-' + percentPattern  
                     },
                     currency: {
-                        positivePattern: '{currency}{number}',
-                        negativePattern: '{currency}-{number}'  
+                        positivePattern: currencyPattern,
+                        negativePattern: '-' + currencyPattern 
                     }
                 }
             };
