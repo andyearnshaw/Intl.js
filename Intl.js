@@ -28,6 +28,7 @@ var
     hop = Object.prototype.hasOwnProperty,
     
     // Some regular expressions we're using
+    expInsertGroups = /(?=(?!^)(?:\d{3})+(?!\d))/g,
     expCurrencyCode = /^[A-Z]{3}$/,
     expUnicodeExSeq = /-u(?:-\w+)+(?!-\w-)/g,
     
@@ -1145,15 +1146,15 @@ function FormatNumber (numberFormat, x) {
         //    representing the decimal separator.
         n = n.replace(/\./g, ild.decimal);
 
-        var insGroups = new RegExp(
-                '(?=(?!^)(?:\\d{3})+(?!\\d)\\' + ild.decimal + ')', 'g'
-            );
-
         // h. If the value of the [[useGrouping]] internal property of numberFormat
         //    is true, then insert an ILND String representing a grouping separator
         //    into an ILND set of locations within the integer part of n.
-        if (internal['[[useGrouping]]'] === true)
-            n = n.replace(insGroups, ild.group);
+        if (internal['[[useGrouping]]'] === true) {
+            var parts = n.split(ild.decimal);
+            parts[0] = parts[0].replace(expInsertGroups, ild.group);
+
+            n = parts.join(ild.group); 
+        }
     }
 
     var
