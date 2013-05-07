@@ -28,7 +28,6 @@ var
     hop = Object.prototype.hasOwnProperty,
     
     // Some regular expressions we're using
-    expNumGroups    = /(?=(?!^)(?:\d{3})+(?!\d))/g,
     expCurrencyCode = /^[A-Z]{3}$/,
     expUnicodeExSeq = /-u(?:-\w+)+(?!-\w-)/g,
     
@@ -1146,11 +1145,15 @@ function FormatNumber (numberFormat, x) {
         //    representing the decimal separator.
         n = n.replace(/\./g, ild.decimal);
 
+        var insGroups = new RegExp(
+                '(?=(?!^)(?:\\d{3})+(?!\\d)\\' + ild.decimal + ')', 'g'
+            );
+
         // h. If the value of the [[useGrouping]] internal property of numberFormat
         //    is true, then insert an ILND String representing a grouping separator
         //    into an ILND set of locations within the integer part of n.
         if (internal['[[useGrouping]]'] === true)
-            n = n.replace(expNumGroups, ild.group);
+            n = n.replace(insGroups, ild.group);
     }
 
     var
@@ -1168,7 +1171,10 @@ function FormatNumber (numberFormat, x) {
         var cd,
         // a. Let currency be the value of the [[currency]] internal property of
         //    numberFormat.
-            currency = internal['[[currency]]'];
+            currency = internal['[[currency]]'],
+         
+        // Shorthand for the currency data
+            cData = data.currencies[currency];
 
         // b. If the value of the [[currencyDisplay]] internal property of
         //    numberFormat is "code", then let cd be currency.
@@ -1179,13 +1185,13 @@ function FormatNumber (numberFormat, x) {
         //    currency in short form. If the implementation does not have such a
         //    representation of currency, then use currency itself.
         else if (internal['[[currencyDisplay]]'] === 'symbol')
-            cd = data.currencies[currency].symbol || currency;
+            cd = cData ? cData.symbol : currency;
         // d. Else if the value of the [[currencyDisplay]] internal property of
         //    numberFormat is "name", then let cd be an ILD string representing
         //    currency in long form. If the implementation does not have such a
         //    representation of currency, then use currency itself.
         else if (internal['[[currencyDisplay]]'] === 'name')
-            cd = data.currencies[currency]['displayName-count-one'] || currency;
+            cd = cData ? cData['displayName-count-one'] : currency;
 
         // e. Replace the substring "{currency}" within result with cd.
         result = result.replace('{currency}', cd);
@@ -1249,12 +1255,51 @@ function ToRawPrecision (x, minPrecision, maxPrecision) {
     // 9. Return m.
 }
 
-function ToRawFixed (n, minInteger, minFraction, maxFraction) {
-    return n.toFixed(minFraction);
-    // TODO
+function ToRawFixed (x, minInteger, minFraction, maxFraction) {
+    // When the ToRawFixed abstract operation is called with arguments x (which must
+    // be a finite non-negative number), minInteger (which must be an integer between
+    // 1 and 21), minFraction, and maxFraction (which must be integers between 0 and
+    // 20) the following steps are taken:
+
+    // (or not because Number.toPrototype.toFixed does a lot of it for us)
+    var
+        // We can pick up after the fixed formatted string (m) is created
+        m   = Number.prototype.toFixed.call(x, maxFraction),
+
+        // 4. If [maxFraction] ≠ 0, then 
+        //    ...
+        //    e. Let int be the number of characters in a.
+        //
+        // 5. Else let int be the number of characters in m.
+        igr = m.split(".")[0].length,  // int is a reserved word
+
+        // 6. Let cut be maxFraction – minFraction.
+        cut = maxFraction - minFraction;
+
+    // 7. Repeat while cut > 0 and the last character of m is "0":
+    while (cut > 0 && m.slice(-1) === "0") {
+        // a. Remove the last character from m.
+        m = m.slice(0, -1);
+
+        // b. Decrease cut by 1.
+        cut--;
+    }
+
+    // 8. If the last character of m is ".", then
+    if (m.slice(-1) === ".")
+        // a. Remove the last character from m.
+        m = m.slice(0, -1);
+
+    // 9. If int < minInteger, then
+    if (igr < minInteger)
+        // a. Let z be the String consisting of minInteger–int occurrences of the 
+        //    character "0".
+        var z = Array(minInteger - igr + 1).join("0");
+
+    // 10. Let m be the concatenation of Strings z and m.
+    // 11. Return m.
+    return (z ? z : '') + m;
 }
-
-
 
 // Sect 11.3.2 Table 2, Numbering systems
 // ======================================
