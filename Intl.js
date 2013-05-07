@@ -1153,7 +1153,7 @@ function FormatNumber (numberFormat, x) {
             var parts = n.split(ild.decimal);
             parts[0] = parts[0].replace(expInsertGroups, ild.group);
 
-            n = parts.join(ild.group); 
+            n = parts.join(ild.decimal);
         }
     }
 
@@ -1206,9 +1206,6 @@ function ToRawPrecision (x, minPrecision, maxPrecision) {
     // must be a finite non-negative number), minPrecision, and maxPrecision (both 
     // must be integers between 1 and 21) the following steps are taken:
 
-    // NOTE: Number.prototype.toPrecision is implemented similarly, so we don't need 
-    //       to follow the spec quite as literally as we have been doing.
-
     var
     // 1. Let p be maxPrecision.
         p = maxPrecision;
@@ -1223,37 +1220,38 @@ function ToRawPrecision (x, minPrecision, maxPrecision) {
     }
     // 3. Else
     else {
-        // a. Let e and n be integers such that 10p–1 ≤ n < 10p and for which the 
-        //    exact mathematical value of n × 10e–p+1 – x is as close to zero as 
+        // a. Let e and n be integers such that 10ᵖ⁻¹ ≤ n < 10ᵖ and for which the 
+        //    exact mathematical value of n × 10ᵉ⁻ᵖ⁺¹ – x is as close to zero as 
         //    possible. If there are two such sets of e and n, pick the e and n for 
-        //    which n × 10e–p+1 is larger.
+        //    which n × 10ᵉ⁻ᵖ⁺¹ is larger.
 
-        // b. Let m be the String consisting of the digits of the decimal 
-        //    representation of n (in order, with no leading zeroes).
+        var
+        // Skip a few steps... cheat a little...
+            m = Number.prototype.toPrecision.call(x, maxPrecision);
     }
-    // 4. If e ≥ p, then
-    //   a. Return the concatenation of m and e-p+1 occurrences of the character "0".
 
-    // 5. If e = p-1, then
-    //   a. Return m.
-
-    // 6. If e ≥ 0, then
-    //   a. Let m be the concatenation of the first e+1 characters of m, the character
-    //      ".", and the remaining p–(e+1) characters of m.
-
-    // 7. If e < 0, then
-    //   a. Let m be the concatenation of the String "0.", –(e+1) occurrences of the 
-    //      character "0", and the string m.
-
+    // ...
     // 8. If m contains the character ".", and maxPrecision > minPrecision, then
-    //   a. Let cut be maxPrecision – minPrecision.
-    //   b. Repeat while cut > 0 and the last character of m is "0":
-    //      i. Remove the last character from m.
-    //     ii. Decrease cut by 1.
-    //   c. If the last character of m is ".", then
-    //      i. Remove the last character from m.
+    if (m.indexOf(".") >= 0) {
+        var
+        // a. Let cut be maxPrecision – minPrecision.
+            cut = maxPrecision - minPrecision;
 
+        // b. Repeat while cut > 0 and the last character of m is "0":
+        while (cut > 0 && m.slice(-1) === '0') {
+            //  i. Remove the last character from m.
+            m = m.slice(0, -1);
+
+            //  ii. Decrease cut by 1.
+            cut--;
+        }
+        // c. If the last character of m is ".", then
+        if (m.slice(-1) === '.')
+            //    i. Remove the last character from m.
+            m = m.slice(0, -1);
+    }
     // 9. Return m.
+    return m;
 }
 
 function ToRawFixed (x, minInteger, minFraction, maxFraction) {
