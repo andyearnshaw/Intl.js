@@ -19,6 +19,7 @@ environments.
 
 ### Implemented:
  - All internal methods except for some that are implementation dependent
+ - Checking structural validity of language tags  
  - __`Intl.NumberFormat`__
    - The `Intl.NumberFormat` constructor ([11.1](http://www.ecma-international.org/ecma-402/1.0/#sec-11.1))
    - Properties of the `Intl.NumberFormat` Constructor ([11.2](http://www.ecma-international.org/ecma-402/1.0/#sec-11.2))
@@ -29,7 +30,6 @@ environments.
 
 ### Not Implemented
  - Canonicalizing language tags
- - Checking structural validity of language tags  
  - `BestFitSupportedLocales` internal function
  - Implementation-dependent numbering system mappings
  - Collator objects (`Intl.Collator`)

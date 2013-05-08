@@ -67,7 +67,7 @@ var
         
         // variant       = 5*8alphanum         ; registered variants
         //               / (DIGIT 3alphanum)
-        variant = '(?:[a-z0-9]{5-8}|\\d[a-z0-9]{3})',
+        variant = '(?:[a-z0-9]{5,8}|\\d[a-z0-9]{3})',
 
         //                                     ; Single alphanumerics
         //                                     ; "x" reserved for private use
@@ -135,11 +135,11 @@ var
     //               / grandfathered       ; grandfathered tags
     expBCP47Syntax = RegExp('^(?:'+langtag+'|'+privateuse+'|'+grandfathered+')$', 'i');
 
-    // Match duplicate variants in a language tag ###TODO: Fix###
-    expVariantDupes = RegExp('-('+variant+')-(?:[a-z0-9]{2,8})*\\1(?![a-z0-9])', 'i');
+    // Match duplicate variants in a language tag
+    expVariantDupes = RegExp('\\b('+variant+')-(?:\\w{4,8}-)*\\1\\b', 'i');
 
     // Match duplicate singletons in a language tag
-    expSingletonDupes = RegExp('-('+singleton+')-(?:[a-z0-9]{2,}-)*\\1(?![a-z0-9])', 'i');
+    expSingletonDupes = RegExp('\\b('+singleton+')-(?:\\w+-)*\\1\\b', 'i');
 })();
     
 // Sect 6.2 Language Tags
@@ -161,21 +161,20 @@ var
  * interpreted as the Unicode equivalents of the ASCII octet values given.
  */
 function /* 6.2.2 */IsStructurallyValidLanguageTag(locale) {
-    // - represents a well-formed BCP 47 language tag as specified in RFC 5646
-    if (expBCP47Syntax.test(locale))
+    // represents a well-formed BCP 47 language tag as specified in RFC 5646
+    if (!expBCP47Syntax.test(locale))
         return false;
 
-    // - does not include duplicate variant subtags, and
+    // does not include duplicate variant subtags, and
     if (expVariantDupes.test(locale))
         return false;
 
-    // - does not include duplicate singleton subtags.
+    // does not include duplicate singleton subtags.
     if (expSingletonDupes.test(locale))
         return false;
 
     return true;
 }
-window.isvlt = IsStructurallyValidLanguageTag;
 
 /**
  * The CanonicalizeLanguageTag abstract operation returns the canonical and case-
