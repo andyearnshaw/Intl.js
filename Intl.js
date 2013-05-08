@@ -38,6 +38,7 @@ var
     expUnicodeExSeq = /-u(?:-[0-9a-z]{2,8})+/gi, // See `extension` below
 
     expBCP47Syntax,
+    expExtSequences,
     expVariantDupes,
     expSingletonDupes;
 
@@ -140,6 +141,9 @@ var
 
     // Match duplicate singletons in a language tag
     expSingletonDupes = RegExp('\\b('+singleton+')-(?:\\w+-)*\\1\\b', 'i');
+
+    // Match all extension sequences
+    expExtSequences = RegExp('-'+extension, 'ig');
 })();
     
 // Sect 6.2 Language Tags
@@ -192,6 +196,58 @@ function /* 6.2.2 */IsStructurallyValidLanguageTag(locale) {
  * Implementations are allowed, but not required, to apply these additional rules.
  */
 function /* 6.2.3 */CanonicalizeLanguageTag (locale) {
+    var match, parts;
+
+    // A language tag is in 'canonical form' when the tag is well-formed
+    // according to the rules in Sections 2.1 and 2.2 
+
+    // Section 2.1 says all subtags use lowercase...
+    locale = locale.toLowerCase();
+
+    // ...with 2 exceptions: 'two-letter and four-letter subtags that neither 
+    // appear at the start of the tag nor occur after singletons.  Such two-letter
+    // subtags are all uppercase (as in the tags "en-CA-x-ca" or "sgn-BE-FR") and 
+    // four-letter subtags are titlecase (as in the tag "az-Latn-x-latn").
+    parts = locale.split('-');
+    for (var i = 1, max = parts.length; i < max; i++) {
+        // Two-letter subtags are all uppercase
+        if (parts[i].length === 2)
+            parts[i] = parts[i].toUpperCase();
+
+        // Four-letter subtags are titlecase
+        else if (parts[i].length === 4)
+            parts[i] = parts[i].charAt(0).toUpperCase() + parts[i].slice(1);        
+
+        // Is it a singleton?
+        else if (parts[i].length === 1 && parts[i] != 'x')
+            break;
+    }
+    locale = parts.join('-');
+
+    // The steps laid out in RFC 5646 section 4.5 are as follows:
+
+    // 1.  Extension sequences are ordered into case-insensitive ASCII order
+    //     by singleton subtag.
+    if ((match = locale.match(expExtSequences)) && match.length > 1) {
+        // The built-in sort() sorts by ASCII order, so use that
+        match.sort();
+
+        // Replace all extensions with the joined, sorted array
+        locale = locale.replace(
+            RegExp('(?:' + expExtSequences.source + ')+', 'i'), 
+            match.join('')
+        );
+    }
+
+    // ###TODO###
+    // 2.  Redundant or grandfathered tags are replaced by their 'Preferred-
+    //     Value', if there is one.
+
+    // 3.  Subtags are replaced by their 'Preferred-Value', if there is one.
+    //     For extlangs, the original primary language subtag is also
+    //     replaced if there is a primary language subtag in the 'Preferred-
+    //     Value'.
+
     return locale;
 }
 

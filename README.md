@@ -20,6 +20,7 @@ environments.
 ### Implemented:
  - All internal methods except for some that are implementation dependent
  - Checking structural validity of language tags  
+ - Canonicalizing the case and order of language subtags
  - __`Intl.NumberFormat`__
    - The `Intl.NumberFormat` constructor ([11.1](http://www.ecma-international.org/ecma-402/1.0/#sec-11.1))
    - Properties of the `Intl.NumberFormat` Constructor ([11.2](http://www.ecma-international.org/ecma-402/1.0/#sec-11.2))
@@ -29,7 +30,8 @@ environments.
    - Properties of the `Number` Prototype Object ([13.2](http://www.ecma-international.org/ecma-402/1.0/#sec-13.2))
 
 ### Not Implemented
- - Canonicalizing language tags
+ - Canonicalizing language tags containing subtags that have a "Preferred-value" from 
+   the IANA Language Subtag registry
  - `BestFitSupportedLocales` internal function
  - Implementation-dependent numbering system mappings
  - Collator objects (`Intl.Collator`)
