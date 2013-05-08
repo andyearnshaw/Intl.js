@@ -17,7 +17,7 @@ environments.
 ## <a id=status></a>Status
 `Intl.js` isn't yet ready for production environments. Current progress is as follows:
 
-### Implemented:
+### Implemented
  - All internal methods except for some that are implementation dependent
  - Checking structural validity of language tags  
  - Canonicalizing the case and order of language subtags
@@ -43,7 +43,16 @@ environments.
 None of the implementation has been tested for compliance as of yet. 
 [test402](http://test262.ecmascript.org/testcases_intl402.html) integration is planned.
 
+## Compatibility
+Intl.js is designed to be compatible with ECMAScript 3.1 environments in order to
+follow the specification as closely as possible. However, some consideration is given
+to legacy (ES3) environments, and the goal of this project is to at least provide a
+a non-compliant, albeit working implementation where ES5 methods are unavailable.
+
 ## Locale Data
+The main `Intl.js` file contains no locale data itself.  Instead, the data should be
+provided, parsed into a JavaScript object, using the `Intl.__addLocaleData()` method.
+
 `Intl.js` uses the Unicode CLDR locale data, as recommended by the specification.
 Some of the data from CLDR version 22.1 is currently available in JSON and JSONP
 formats in the `locale-data` folder of this repository.  The rest is available from
