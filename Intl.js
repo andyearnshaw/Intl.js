@@ -1,4 +1,4 @@
-/*jshint eqnull:true, boss:true, laxbreak:true, newcap:false, shadow:true, funcscope:true */
+/*jshint proto:true, eqnull:true, boss:true, laxbreak:true, newcap:false, shadow:true, funcscope:true */
 window.OldIntl = window.Intl;
 var Intl = /*window.Intl || */(function (Intl) {
 // Copyright 2013 Andy Earnshaw, MIT License
@@ -19,7 +19,7 @@ var
     localeData = {},
     
     // Object housing internal properties for constructors 
-    internals = Object.create ? Object.create(null) : {},
+    internals = createCleanObj(),
 
     // Keep internal properties internal
     secret = Math.random(),
@@ -27,9 +27,25 @@ var
     // We use this a lot (and need it for proto-less objects)
     hop = Object.prototype.hasOwnProperty,
     
-    // Sham this for ES3 compat
+    // 
     defineProperty = Object.defineProperty || function (obj, name, desc) {
-        obj[name] = desc.value || desc.get;        
+        if (desc.get && obj.__defineGetter__)
+            obj.__defineGetter(name, desc.get);
+        else
+            obj[name] = desc.value || desc.get;        
+    },
+
+    // Array.prototype.indexOf, as good as we need it to be
+    arrIndexOf = Array.prototype.indexOf || function (search) {
+        /*jshint validthis:true */
+        var t = this;
+        if (!t.length)
+            return -1;
+
+        for (var i = arguments[1] || 0, max = t.length; i < max; i++) {
+            if (t[i] === search)
+                return i;
+        }
     },
 
     // Some regular expressions we're using
@@ -356,7 +372,7 @@ function /* 9.2.1 */CanonicalizeLocaleList (locales) {
 
             // vi. If tag is not an element of seen, then append tag as the last
             //     element of seen.
-            if (seen.indexOf(tag) === -1)
+            if (arrIndexOf.call(seen, tag) === -1)
                 seen.push(tag);
         }
 
@@ -384,7 +400,7 @@ function /* 9.2.2 */BestAvailableLocale (availableLocales, locale) {
     while (true) {
         // a. If availableLocales contains an element equal to candidate, then return
         // candidate.
-        if (availableLocales.indexOf(candidate) > -1)
+        if (arrIndexOf.call(availableLocales, candidate) > -1)
             return candidate;
 
         var
@@ -500,14 +516,16 @@ function /* 9.2.3 */LookupMatcher (availableLocales, requestedLocales) {
  */
 function /* 9.2.4 */BestFitMatcher (availableLocales, requestedLocales) {
     for (var i=0, max=requestedLocales.length; i < max; i++) {
-        if (availableLocales.indexOf(requestedLocales[i]) > -1)
+        if (arrIndexOf.call(availableLocales, requestedLocales[i]) > -1)
             return {
                 '[[locale]]': requestedLocales[i]
             };
     }
 
     return {
-        '[[locale]]': availableLocales[availableLocales.indexOf(DefaultLocale())] || '(default)'
+        '[[locale]]': availableLocales[
+                          arrIndexOf.call(availableLocales, DefaultLocale())
+                      ] || '(default)'
     };
 }
 
@@ -597,7 +615,7 @@ function /* 9.2.5 */ResolveLocale (availableLocales, requestedLocales, options,
             supportedExtensionAddition = '',
             // f. Let indexOf be the standard built-in function object defined in
             //    ES5, 15.4.4.14.
-            indexOf = Array.prototype.indexOf;
+            indexOf = arrIndexOf;
 
         // g. If extensionSubtags is not undefined, then
         if (extensionSubtags !== undefined) {
@@ -850,8 +868,9 @@ function /*9.2.9 */GetOption (options, property, type, values, fallback) {
         if (values !== undefined) {
             // i. If values does not contain an element equal to value, then throw a
             //    RangeError exception.
-            if (values.indexOf(value) === -1)
-                throw new RangeError('values does not contain value');
+            if (arrIndexOf.call(values, value) === -1)
+                throw new RangeError("'" + value + "' is not an allowed value for `" 
+                                                                    + property +'`');
         }
 
         // e. Return value.
@@ -1638,11 +1657,38 @@ defineProperty(Intl, '__addLocaleData', {
     }
 });
 
+// 12.1 The Intl.DateTimeFormat constructor
+// ==================================
+
+Intl.DateTimeFormat = function (/* [locales [, options]]*/) {
+    var locales = arguments[0];
+    var options = arguments[1];
+
+    if (!this || this === Intl) {
+        return new Intl.DateTimeFormat(locales, options);
+    }
+    return InitializeDateTimeFormat(toObject(this), locales, options);
+};
+
 // Exposed for debugging
 window.IntlLocaleData = localeData;
 
 // Helper functions
 // ================
+
+/**
+ * Creates an object with no prototype
+ */
+function createCleanObj () {
+    if (Object.create)
+        return Object.create(null);
+    
+    var obj = {};
+    if (obj.__proto__ === Object.prototype)
+        obj.__proto__ = null;
+
+    return obj;
+}
 
 /**
  * Mimics ES5's abstract ToObject() function
@@ -1661,7 +1707,7 @@ function getInternalProperties (obj) {
     if (hop.call(obj, '__getInternalProperties'))
         return obj.__getInternalProperties(secret);
     else
-        return Object.create ? Object.create(null) : {};
+        return createCleanObj();
 }
 
 return Intl;
