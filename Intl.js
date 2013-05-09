@@ -9,8 +9,7 @@ var Intl = /*window.Intl || */(function (Intl) {
  *
  * ECMA-402: http://ecma-international.org/ecma-402/1.0/
  *
- * This file alone implements only a neutral English locale.  External language packs
- * are required to work with additional locales.
+ * CLDR format locale data should be provided using Intl.__addLocaleData().
  */
 
 "use strict";
@@ -539,6 +538,13 @@ function /* 9.2.4 */BestFitMatcher (availableLocales, requestedLocales) {
  */
 function /* 9.2.5 */ResolveLocale (availableLocales, requestedLocales, options,
                                                  relevantExtensionKeys, localeData) {
+
+    if (availableLocales.length === 0)
+        throw new ReferenceError(
+            'No locale data has been provided for this object yet.'
+            + ' (protip: use Intl.__addLocaleData(data))'
+        );
+
     // The following steps are taken:
     var
         // 1. Let matcher be the value of options.[[localeMatcher]].
@@ -1554,7 +1560,10 @@ var numSys = {
         props = [
             'numberingSystem', 'style', 'currency', 'currencyDisplay', 'minimumIntegerDigits',
             'minimumFractionDigits', 'maximumFractionDigits', 'minimumSignificantDigits',
-            'maximumSignificantDigits', 'useGrouping', 'locale'
+            'maximumSignificantDigits', 'useGrouping',
+
+            // Not part of the spec, but in here for debugging purposes
+            'matchedLocale'
         ],
         internal = getInternalProperties(this);
 
