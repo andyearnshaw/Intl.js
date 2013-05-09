@@ -14,15 +14,6 @@ var Intl = /*window.Intl || */(function (Intl) {
 
 "use strict";
 var
-    // Private object houses our locale data for each locale
-    localeData = {},
-
-    // Object housing internal properties for constructors
-    internals = createCleanObj(),
-
-    // Keep internal properties internal
-    secret = Math.random(),
-
     // We use this a lot (and need it for proto-less objects)
     hop = Object.prototype.hasOwnProperty,
 
@@ -46,6 +37,22 @@ var
                 return i;
         }
     },
+
+    // Create an object with the specified prototype (2nd arg isn't necessary for Intl)
+    objCreate = Object.create || function (proto) {
+        function F() {}
+        F.prototype = proto;
+        return new F();
+    },
+
+    // Private object houses our locale data for each locale
+    localeData = {},
+
+    // Object housing internal properties for constructors
+    internals = objCreate(),
+
+    // Keep internal properties internal
+    secret = Math.random(),
 
     // Some regular expressions we're using
     expInsertGroups = /(?=(?!^)(?:\d{3})+(?!\d))/g,
@@ -461,7 +468,7 @@ function /* 9.2.3 */LookupMatcher (availableLocales, requestedLocales) {
 
     var
         // 5. Let result be a new Record.
-        result = createCleanObj();
+        result = objCreate();
 
     // 6. If availableLocale is not undefined, then
     if (availableLocale !== undefined) {
@@ -516,18 +523,6 @@ function /* 9.2.3 */LookupMatcher (availableLocales, requestedLocales) {
  */
 function /* 9.2.4 */BestFitMatcher (availableLocales, requestedLocales) {
     return LookupMatcher(availableLocales, requestedLocales);
-//    for (var i=0, max=requestedLocales.length; i < max; i++) {
-//        if (arrIndexOf.call(availableLocales, requestedLocales[i]) > -1)
-//            return {
-//                '[[locale]]': requestedLocales[i]
-//            };
-//    }
-//
-//    return {
-//        '[[locale]]': availableLocales[
-//                          arrIndexOf.call(availableLocales, DefaultLocale())
-//                      ] || '(default)'
-//    };
 }
 
 /**
@@ -1681,25 +1676,452 @@ Intl.DateTimeFormat = function (/* [locales [, options]]*/) {
     return InitializeDateTimeFormat(toObject(this), locales, options);
 };
 
+/**
+ * The abstract operation InitializeDateTimeFormat accepts the arguments dateTimeFormat
+ * (which must be an object), locales, and options. It initializes dateTimeFormat as a
+ * DateTimeFormat object.
+ */
+function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options) {
+    // This will be a internal properties object if we're not already initialized
+    var internal = getInternalProperties(numberFormat);
+
+    // 1. If dateTimeFormat has an [[initializedIntlObject]] internal property with
+    //    value true, throw a TypeError exception.
+    if (internal['[[initializedIntlObject]]'] === true)
+        throw new TypeError('NumberFormat object already initialized');
+
+    // Need this to access the `internal` object
+    defineProperty(numberFormat, '__getInternalProperties', {
+        value: function () {
+            // NOTE: Non-standard, for internal use only
+            if (arguments[0] === secret)
+                return internal;
+        }
+    });
+
+    // 2. Set the [[initializedIntlObject]] internal property of numberFormat to true.
+    internal['[[initializedIntlObject]]'] = true;
+
+    var
+    // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
+    //    abstract operation (defined in 9.2.1) with argument locales.
+        requestedLocales = CanonicalizeLocaleList(locales),
+
+    // 4. Let options be the result of calling the ToDateTimeOptions abstract
+    //    operation (defined below) with arguments options, "any", and "date".
+        options = ToDateTimeOptions(options, 'any', 'date'),
+
+    // 5. Let opt be a new Record.
+        opt = objCreate();
+
+    // 6. Let matcher be the result of calling the GetOption abstract operation
+    //    (defined in 9.2.9) with arguments options, "localeMatcher", "string", a List
+    //    containing the two String values "lookup" and "best fit", and "best fit".
+        matcher = GetOption(options, 'localeMatcher', 'string',
+                                                    ['lookup', 'best fit'], 'best fit');
+
+    // 7. Set opt.[[localeMatcher]] to matcher.
+    opt['[[localeMatcher]]'] = matcher;
+
+    var
+    // 8. Let DateTimeFormat be the standard built-in object that is the initial
+    //    value of Intl.DateTimeFormat.
+        DateTimeFormat = internals.DateTimeFormat, // This is what we *really* need
+
+    // 9. Let localeData be the value of the [[localeData]] internal property of
+    //    DateTimeFormat.
+        localeData = DateTimeFormat['[[localeData]]'],
+
+    // 10. Let r be the result of calling the ResolveLocale abstract operation
+    //     (defined in 9.2.5) with the [[availableLocales]] internal property of
+    //      DateTimeFormat, requestedLocales, opt, the [[relevantExtensionKeys]]
+    //      internal property of DateTimeFormat, and localeData.
+        r = ResolveLocale(DateTimeFormat['[[availableLocales]]'], requestedLocales,
+                opt, DateTimeFormat['[[relevantExtensionKeys]]'], localeData);
+
+    // 11. Set the [[locale]] internal property of dateTimeFormat to the value of
+    //     r.[[locale]].
+    internal['[[locale]]'] = r['[[locale]]'];
+
+    // 12. Set the [[calendar]] internal property of dateTimeFormat to the value of
+    //     r.[[ca]].
+    internal['[[calendar]]'] = r['[[ca]]'];
+
+    // 13. Set the [[numberingSystem]] internal property of dateTimeFormat to the value of
+    //     r.[[nu]].
+    internal['[[numberingSystem]]'] = r['[[nu]]'];
+
+    var
+    // 14. Let dataLocale be the value of r.[[dataLocale]].
+        dataLocale = r['[[dataLocale]]'],
+
+    // 15. Let tz be the result of calling the [[Get]] internal method of options with
+    //     argument "timeZone".
+        tz = options.timeZone;
+
+    // 16. If tz is not undefined, then
+    if (tz !== undefined) {
+        // a. Let tz be ToString(tz).
+        // b. Convert tz to upper case as described in 6.1.
+        //    NOTE: If an implementation accepts additional time zone values, as permitted
+        //          under certain conditions by the Conformance clause, different casing
+        //          rules apply.
+        tz = String(tz).toUpperCase();
+
+        // c. If tz is not "UTC", then throw a RangeError exception.
+        // ###TODO: accept more time zones###
+        if (tz !== 'UTC')
+            throw new RangeError('timeZone is not supported.');
+    }
+
+    // 17. Set the [[timeZone]] internal property of dateTimeFormat to tz.
+    internal['[[timeZone]]'] = tz;
+
+    // 18. Let opt be a new Record.
+    opt = objCreate();
+
+    // 19. For each row of Table 3, except the header row, do:
+    for (var prop in dateTimeComponents) {
+        if (dateTimeComponents.hasOwnProperty(prop))
+            continue;
+
+        var
+        // 20. Let prop be the name given in the Property column of the row.
+        // 21. Let value be the result of calling the GetOption abstract operation,
+        //     passing as argument options, the name given in the Property column of the
+        //     row, "string", a List containing the strings given in the Values column of
+        //     the row, and undefined.
+            value = GetOption(options, prop, 'string', dateTimeComponents[prop]);
+
+        // 22. Set opt.[[<prop>]] to value.
+        opt['[['+prop+']]'] = value;
+    }
+
+    var
+        // Assigned a value below
+        bestFormat,
+
+        // 23. Let dataLocaleData be the result of calling the [[Get]] internal method of
+        //     localeData with argument dataLocale.
+        dataLocaleData = localeData.dataLocale,
+
+        // 24. Let formats be the result of calling the [[Get]] internal method of
+        //     dataLocaleData with argument "formats".
+        formats = dataLocaleData.formats,
+        // 25. Let matcher be the result of calling the GetOption abstract operation with
+        //     arguments options, "formatMatcher", "string", a List containing the two String
+        //     values "basic" and "best fit", and "best fit".
+        matcher = GetOption(options, 'formatMatcher', 'string', ['basic', 'best fit'], 'best fit');
+
+    // 26. If matcher is "basic", then
+    if (matcher === 'basic')
+        // 27. Let bestFormat be the result of calling the BasicFormatMatcher abstract
+        //     operation (defined below) with opt and formats.
+        bestFormat = BasicFormatMatcher(opt, formats);
+
+    // 28. Else
+    else
+        // 29. Let bestFormat be the result of calling the BestFitFormatMatcher
+        //     abstract operation (defined below) with opt and formats.
+        bestFormat = BestFitFormatMatcher(opt, formats);
+
+    // 30. For each row in Table 3, except the header row, do
+    for (var prop in dateTimeComponents) {
+        if (dateTimeComponents.hasOwnProperty(prop))
+            continue;
+
+        var
+        // a. Let prop be the name given in the Property column of the row.
+        // b. Let pDesc be the result of calling the [[GetOwnProperty]] internal method of
+        //    bestFormat with argument prop.
+            pDesc = bestFormat[prop];
+
+        // c. If pDesc is not undefined, then
+        if (pDesc !== undefined) {
+            var
+            // i. Let p be the result of calling the [[Get]] internal method of bestFormat
+            //    with argument prop.
+                p = bestFormat[prop];
+
+            // ii. Set the [[<prop>]] internal property of dateTimeFormat to p.
+            internal['[['+prop+']]'] = p;
+        }
+    }
+
+    var
+        // Assigned a value below
+        pattern,
+
+    // 31. Let hr12 be the result of calling the GetOption abstract operation with
+    //     arguments options, "hour12", "boolean", undefined, and undefined.
+        hr12 = GetOption(options, 'hour12', 'boolean'/*, undefined, undefined*/);
+
+    // 32. If dateTimeFormat has an internal property [[hour]], then
+    if (internal['[[hour]]']) {
+        // a. If hr12 is undefined, then let hr12 be the result of calling the [[Get]]
+        //    internal method of dataLocaleData with argument "hour12".
+        hr12 = hr12 || dataLocaleData.hour12;
+
+        // b. Set the [[hour12]] internal property of dateTimeFormat to hr12.
+        internal['[[hour12]]'] = hr12;
+
+        // c. If hr12 is true, then
+        if (hr12 === true) {
+            var
+            // i. Let hourNo0 be the result of calling the [[Get]] internal method of
+            //    dataLocaleData with argument "hourNo0".
+                hourNo0 = dataLocaleData.hourNo0;
+
+            // ii. Set the [[hourNo0]] internal property of dateTimeFormat to hourNo0.
+            internal['[[hourNo0]]'] = hourNo0;
+
+            // iii. Let pattern be the result of calling the [[Get]] internal method of
+            //      bestFormat with argument "pattern12".
+            pattern = bestFormat.pattern12;
+        }
+
+        // d. Else
+        else
+            // i. Let pattern be the result of calling the [[Get]] internal method of
+            //    bestFormat with argument "pattern".
+            pattern = bestFormat.pattern;
+    }
+
+    // 33. Else
+    else
+        // a. Let pattern be the result of calling the [[Get]] internal method of
+        //    bestFormat with argument "pattern".
+        pattern = bestFormat.pattern;
+
+    // 34. Set the [[pattern]] internal property of dateTimeFormat to pattern.
+    internal['[[pattern]]'] = pattern;
+
+    // 35. Set the [[boundFormat]] internal property of dateTimeFormat to undefined.
+    internal['[[boundFormat]]'] = undefined;
+
+    // 36. Set the [[initializedDateTimeFormat]] internal property of dateTimeFormat to
+    //     true.
+    internal['[[initializedDateTimeFormat]]'] = true;
+}
+
+/**
+ * Several DateTimeFormat algorithms use values from the following table, which provides
+ * property names and allowable values for the components of date and time formats:
+ */
+var dateTimeComponents = {
+         weekday: [ "narrow", "short", "long" ],
+             era: [ "narrow", "short", "long" ],
+            year: [ "2-digit", "numeric" ],
+           month: [ "2-digit", "numeric", "narrow", "short", "long" ],
+             day: [ "2-digit", "numeric" ],
+            hour: [ "2-digit", "numeric" ],
+          minute: [ "2-digit", "numeric" ],
+          second: [ "2-digit", "numeric" ],
+    timeZoneName: [ "short", "long" ]
+};
+
+/**
+ * When the ToDateTimeOptions abstract operation is called with arguments options,
+ * required, and defaults, the following steps are taken:
+ */
+function ToDateTimeOptions(options, required, defaults) {
+    // 1. If options is undefined, then let options be null, else let options be
+    //    ToObject(options).
+    options = options === undefined ? null : toObject(options);
+
+    var
+    // 2. Let create be the standard built-in function object defined in ES5, 15.2.3.5.
+        create = objCreate,
+
+    // 3. Let options be the result of calling the [[Call]] internal method of create with
+    //    undefined as the this value and an argument list containing the single item
+    //    options.
+        options = create(options),
+
+    // 4. Let needDefaults be true.
+        needDefaults = true;
+
+    // 5. If required is "date" or "any", then
+    if (required === 'date' || required === 'any') {
+        // a. For each of the property names "weekday", "year", "month", "day":
+            // i. If the result of calling the [[Get]] internal method of options with the
+            //    property name is not undefined, then let needDefaults be false.
+        if (options.weekday !== undefined || options.year !== undefined
+                || options.month !== undefined || options.day !== undefined)
+            needDefaults = false;
+    }
+
+    // 6. If required is "time" or "any", then
+    if (required === 'time' || required === 'any') {
+        // a. For each of the property names "hour", "minute", "second":
+            // i. If the result of calling the [[Get]] internal method of options with the
+            //    property name is not undefined, then let needDefaults be false.
+        if (options.hour !== undefined || options.minute !== undefined || options.second !== undefined)
+                needDefaults = false;
+    }
+
+    // 7. If needDefaults is true and defaults is either "date" or "all", then
+    if (needDefaults && (defaults === 'date' || defaults === 'all'))
+        // a. For each of the property names "year", "month", "day":
+            // i. Call the [[DefineOwnProperty]] internal method of options with the
+            //    property name, Property Descriptor {[[Value]]: "numeric", [[Writable]]:
+            //    true, [[Enumerable]]: true, [[Configurable]]: true}, and false.
+        options.year = options.month = options.day = 'numeric';
+
+    // 8. If needDefaults is true and defaults is either "time" or "all", then
+    if (needDefaults && (defaults === 'time' || defaults === 'all'))
+        // a. For each of the property names "hour", "minute", "second":
+            // i. Call the [[DefineOwnProperty]] internal method of options with the
+            //    property name, Property Descriptor {[[Value]]: "numeric", [[Writable]]:
+            //    true, [[Enumerable]]: true, [[Configurable]]: true}, and false.
+        options.hour = options.minute = options.second = 'numeric';
+
+    // 9. Return options.
+    return options;
+}
+
+/**
+ * When the BasicFormatMatcher abstract operation is called with two arguments options and
+ * formats, the following steps are taken:
+ */
+function BasicFormatMatcher (options, formats) {
+    var
+    // 1. Let removalPenalty be 120.
+        removalPenalty = 120,
+
+    // 2. Let additionPenalty be 20.
+        additionPenalty = 20,
+
+    // 3. Let longLessPenalty be 8.
+        longLessPenalty = 8,
+
+    // 4. Let longMorePenalty be 6.
+        longMorePenalty = 6,
+
+    // 5. Let shortLessPenalty be 6.
+        shortLessPenalty = 6,
+
+    // 6. Let shortMorePenalty be 3.
+        shortMorePenalty = 3,
+
+    // 7. Let bestScore be -Infinity.
+        bestScore = -Infinity,
+
+    // 8. Let bestFormat be undefined.
+        bestFormat,
+
+    // 9. Let i be 0.
+        i = 0,
+
+    // 10. Let len be the result of calling the [[Get]] internal method of formats with argument "length".
+        len = formats.length;
+
+    // 11. Repeat while i < len:
+    while (i < len) {
+        var
+        // a. Let format be the result of calling the [[Get]] internal method of formats with argument ToString(i).
+            format = formats[i],
+
+        // b. Let score be 0.
+            score = 0;
+
+        // c. For each property shown in Table 3:
+        for (var k in dateTimeComponents) {
+            if (!dateTimeComponents.hasOwnProperty(k))
+                continue;
+
+            var
+            // Assigned a value below
+                formatProp,
+
+            // i. Let optionsProp be options.[[<property>]].
+                optionsProp = options['[['+k+']]'],
+
+            // ii. Let formatPropDesc be the result of calling the [[GetOwnProperty]] internal method of format
+            //     with argument property.
+                formatPropDesc = format[k];
+
+            // iii. If formatPropDesc is not undefined, then
+            if (formatPropDesc !== undefined)
+                // 1. Let formatProp be the result of calling the [[Get]] internal method of format with argument property.
+                formatProp = format[k];
+
+            // iv. If optionsProp is undefined and formatProp is not undefined, then decrease score by
+            //     additionPenalty.
+            if (optionsProp === undefined && formatProp !== undefined)
+                score -= additionPenalty;
+
+            // v. Else if optionsProp is not undefined and formatProp is undefined, then decrease score by
+            //    removalPenalty.
+            else if (optionsProp !== undefined && formatProp === undefined)
+                score -= removalPenalty;
+
+            // vi. Else
+            else {
+                var
+                // 1. Let values be the array ["2-digit", "numeric", "narrow", "short",
+                //    "long"].
+                    values = ['2-digit', 'numeric', 'narrow', 'short' ],
+
+                // 2. Let optionsPropIndex be the index of optionsProp within values.
+                    optionsPropIndex = arrIndexOf(values, optionsProp),
+
+                // 3. Let formatPropIndex be the index of formatProp within values.
+                    formatPropIndex = arrIndexOf(values, formatProp),
+
+                // 4. Let delta be max(min(formatPropIndex - optionsPropIndex, 2), -2).
+                    delta = Math.max(Math.min(formatPropIndex - optionsPropIndex, 2), -2);
+
+                // 5. If delta = 2, decrease score by longMorePenalty.
+                if (delta === 2)
+                    score -= longMorePenalty;
+
+                // 6. Else if delta = 1, decrease score by shortMorePenalty.
+                else if (delta === 1)
+                    score -= shortMorePenalty;
+
+                // 7. Else if delta = -1, decrease score by shortLessPenalty.
+                else if (delta === -1)
+                    score -= shortLessPenalty;
+
+                // 8. Else if delta = -2, decrease score by longLessPenalty.
+                else if (delta === -2)
+                    score -= longLessPenalty;
+            }
+        }
+
+        // d. If score > bestScore, then
+        if (score > bestScore) {
+            // i. Let bestScore be score.
+            bestScore = score;
+
+            // ii. Let bestFormat be format.
+            bestFormat = format;
+        }
+
+        // e. Increase i by 1.
+        i++;
+    }
+
+    // 12. Return bestFormat.
+    return bestFormat;
+}
+
+/**
+ * When the BestFitFormatMatcher abstract operation is called with two arguments options
+ * and formats, it performs implementation dependent steps, which should return a set of
+ * component representations that a typical user of the selected locale would perceive as
+ * at least as good as the one returned by BasicFormatMatcher.
+ */
+function BestFitFormatMatcher (options, formats) {
+    return BasicFormatMatcher(options, formats);
+}
+
 // Exposed for debugging
 window.IntlLocaleData = localeData;
 
 // Helper functions
 // ================
-
-/**
- * Creates an object with no prototype
- */
-function createCleanObj () {
-    if (Object.create)
-        return Object.create(null);
-
-    var obj = {};
-    if (obj.__proto__ === Object.prototype)
-        obj.__proto__ = null;
-
-    return obj;
-}
 
 /**
  * Mimics ES5's abstract ToObject() function
@@ -1718,7 +2140,7 @@ function getInternalProperties (obj) {
     if (hop.call(obj, '__getInternalProperties'))
         return obj.__getInternalProperties(secret);
     else
-        return createCleanObj();
+        return objCreate();
 }
 
 return Intl;
