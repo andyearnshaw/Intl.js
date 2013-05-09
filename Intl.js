@@ -49,7 +49,7 @@ var
     localeData = {},
 
     // Object housing internal properties for constructors
-    internals = objCreate(),
+    internals = objCreate(null),
 
     // Keep internal properties internal
     secret = Math.random(),
@@ -468,7 +468,7 @@ function /* 9.2.3 */LookupMatcher (availableLocales, requestedLocales) {
 
     var
         // 5. Let result be a new Record.
-        result = objCreate();
+        result = objCreate(null);
 
     // 6. If availableLocale is not undefined, then
     if (availableLocale !== undefined) {
@@ -1192,10 +1192,11 @@ function CurrencyDigits(currency) {
     return /* that first thing ? its minor unit value : */2;
 }
 
+/**
+ * When the supportedLocalesOf method of Intl.NumberFormat is called, the
+ * following steps are taken:
+ */
 /* 11.2.2 */Intl.NumberFormat.supportedLocalesOf = function (locales /*[, options]*/) {
-    // When the supportedLocalesOf method of Intl.NumberFormat is called, the
-    // following steps are taken:
-
     var
     // 1. If options is not provided, then let options be undefined.
         options = arguments[1],
@@ -1571,98 +1572,6 @@ var numSys = {
     return ret;
 };
 
-/* 13.2.1 */defineProperty(Number.prototype, 'toLocaleString', {
-    writable: true,
-    configurable: true,
-    value: function () {
-        // When the toLocaleString method is called with optional arguments locales
-        // and options, the following steps are taken:
-
-        // 1. Let x be this Number value (as defined in ES5, 15.7.4).
-        // 2. If locales is not provided, then let locales be undefined.
-        // 3. If options is not provided, then let options be undefined.
-        // 4. Let numberFormat be the result of creating a new object as if by the
-        //    expression new Intl.NumberFormat(locales, options) where
-        //    Intl.NumberFormat is the standard built-in constructor defined in 11.1.3.
-        // 5. Return the result of calling the FormatNumber abstract operation
-        //    (defined in 11.3.2) with arguments numberFormat and x.
-        return FormatNumber(new Intl.NumberFormat(arguments[0], arguments[1]), this);
-    }
-});
-
-/**
- * Can't really ship a single script with data for hundreds of locales, so we provide
- * this __addLocaleData method as a means for the developer to add the data on an
- * as-needed basis
- */
-defineProperty(Intl, '__addLocaleData', {
-    value: function (data) {
-        if (!data.identity)
-            throw new Error('Must pass valid CLDR data parsed into a JavaScript object.');
-
-        var add,
-            locale = data.identity.language;
-
-        if (add = data.identity.script)
-            locale += '-' + add;
-        if (add = data.identity.territory)
-            locale += '-' + add;
-
-        localeData[locale] = data;
-
-        // Add to NumberFormat internal properties as per 11.2.3
-        if (data.numbers) {
-            var defNumSys = data.numbers.defaultNumberingSystem,
-                nu = [ defNumSys ],
-
-                // 11.2.3 says nu can't contain these:
-                nuNo = {
-                    'native': 1,
-                    traditio: 1,
-                    finance:  1
-                };
-
-            for (var k in data.numbers.otherNumberingSystems) {
-                var v = data.numbers.otherNumberingSystems[k];
-
-                if (v != defNumSys && !hop.call(nuNo, v))
-                    nu.push(v);
-            }
-
-            // Build patterns for each number style
-            var currencyPattern =
-                    data.numbers['currencyFormats-numberSystem-'+defNumSys]
-                        .standard.currencyFormat.pattern
-                            .replace('#,##0.00', '{number}')
-                            .replace('¤', '{currency}'),
-
-                percentPattern =
-                    data.numbers['percentFormats-numberSystem-'+defNumSys]
-                        .standard.percentFormat.pattern
-                            .replace('#,##0', '{number}');
-
-            internals.NumberFormat['[[availableLocales]]'].push(locale);
-            internals.NumberFormat['[[localeData]]'][locale] = {
-                nu: nu,
-                patterns: {
-                    decimal: {
-                        positivePattern: '{number}',
-                        negativePattern: '-{number}'
-                    },
-                    percent: {
-                        positivePattern: percentPattern,
-                        negativePattern: '-' + percentPattern
-                    },
-                    currency: {
-                        positivePattern: currencyPattern,
-                        negativePattern: '-' + currencyPattern
-                    }
-                }
-            };
-        }
-    }
-});
-
 // 12.1 The Intl.DateTimeFormat constructor
 // ==================================
 
@@ -1712,7 +1621,7 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
         options = ToDateTimeOptions(options, 'any', 'date'),
 
     // 5. Let opt be a new Record.
-        opt = objCreate();
+        opt = objCreate(null);
 
     // 6. Let matcher be the result of calling the GetOption abstract operation
     //    (defined in 9.2.9) with arguments options, "localeMatcher", "string", a List
@@ -1778,7 +1687,7 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
     internal['[[timeZone]]'] = tz;
 
     // 18. Let opt be a new Record.
-    opt = objCreate();
+    opt = objCreate(null);
 
     // 19. For each row of Table 3, except the header row, do:
     for (var prop in dateTimeComponents) {
@@ -2114,8 +2023,131 @@ function BasicFormatMatcher (options, formats) {
  * at least as good as the one returned by BasicFormatMatcher.
  */
 function BestFitFormatMatcher (options, formats) {
+    // This is good enough for now
     return BasicFormatMatcher(options, formats);
 }
+
+/**
+ * When the supportedLocalesOf method of Intl.DateTimeFormat is called, the
+ * following steps are taken:
+ */
+/* 12.2.1 */Intl.DateTimeFormat.supportedLocalesOf = function (locales/*, [options]*/) {
+    var
+    // 1. If options is not provided, then let options be undefined.
+        options = arguments[1],
+
+    // 2. Let availableLocales be the value of the [[availableLocales]] internal
+    //    property of the standard built-in object that is the initial value of
+    //    Intl.NumberFormat.
+        availableLocales = internals.DateTimeFormat['[[availableLocales]]'],
+
+    // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
+    //    abstract operation (defined in 9.2.1) with argument locales.
+        requestedLocales = CanonicalizeLocaleList(locales);
+
+    // 4. Return the result of calling the SupportedLocales abstract operation
+    //    (defined in 9.2.8) with arguments availableLocales, requestedLocales,
+    //    and options.
+    return SupportedLocales(availableLocales, requestedLocales, options);
+};
+
+/* 11.2.3 */internals.DateTimeFormat = {
+    '[[availableLocales]]': [],
+    '[[relevantExtensionKeys]]': ['ca', 'nu'],
+    '[[localeData]]': {}
+};
+
+/* 13.2.1 */defineProperty(Number.prototype, 'toLocaleString', {
+    writable: true,
+    configurable: true,
+    value: function () {
+        // When the toLocaleString method is called with optional arguments locales
+        // and options, the following steps are taken:
+
+        // 1. Let x be this Number value (as defined in ES5, 15.7.4).
+        // 2. If locales is not provided, then let locales be undefined.
+        // 3. If options is not provided, then let options be undefined.
+        // 4. Let numberFormat be the result of creating a new object as if by the
+        //    expression new Intl.NumberFormat(locales, options) where
+        //    Intl.NumberFormat is the standard built-in constructor defined in 11.1.3.
+        // 5. Return the result of calling the FormatNumber abstract operation
+        //    (defined in 11.3.2) with arguments numberFormat and x.
+        return FormatNumber(new Intl.NumberFormat(arguments[0], arguments[1]), this);
+    }
+});
+
+/**
+ * Can't really ship a single script with data for hundreds of locales, so we provide
+ * this __addLocaleData method as a means for the developer to add the data on an
+ * as-needed basis
+ */
+defineProperty(Intl, '__addLocaleData', {
+    value: function (data) {
+        if (!data.identity)
+            throw new Error('Must pass valid CLDR data parsed into a JavaScript object.');
+
+        var add,
+            locale = data.identity.language;
+
+        if (add = data.identity.script)
+            locale += '-' + add;
+        if (add = data.identity.territory)
+            locale += '-' + add;
+
+        localeData[locale] = data;
+
+        // Add to NumberFormat internal properties as per 11.2.3
+        if (data.numbers) {
+            var defNumSys = data.numbers.defaultNumberingSystem,
+                nu = [ defNumSys ],
+
+                // 11.2.3 says nu can't contain these:
+                nuNo = {
+                    'native': 1,
+                    traditio: 1,
+                    finance:  1
+                };
+
+            for (var k in data.numbers.otherNumberingSystems) {
+                var v = data.numbers.otherNumberingSystems[k];
+
+                if (v != defNumSys && !hop.call(nuNo, v))
+                    nu.push(v);
+            }
+
+            // Build patterns for each number style
+            var currencyPattern =
+                    data.numbers['currencyFormats-numberSystem-'+defNumSys]
+                        .standard.currencyFormat.pattern
+                            .replace('#,##0.00', '{number}')
+                            .replace('¤', '{currency}'),
+
+                percentPattern =
+                    data.numbers['percentFormats-numberSystem-'+defNumSys]
+                        .standard.percentFormat.pattern
+                            .replace('#,##0', '{number}');
+
+            internals.NumberFormat['[[availableLocales]]'].push(locale);
+            internals.NumberFormat['[[localeData]]'][locale] = {
+                nu: nu,
+                patterns: {
+                    decimal: {
+                        positivePattern: '{number}',
+                        negativePattern: '-{number}'
+                    },
+                    percent: {
+                        positivePattern: percentPattern,
+                        negativePattern: '-' + percentPattern
+                    },
+                    currency: {
+                        positivePattern: currencyPattern,
+                        negativePattern: '-' + currencyPattern
+                    }
+                }
+            };
+        }
+    }
+});
 
 // Exposed for debugging
 window.IntlLocaleData = localeData;
@@ -2140,7 +2172,7 @@ function getInternalProperties (obj) {
     if (hop.call(obj, '__getInternalProperties'))
         return obj.__getInternalProperties(secret);
     else
-        return objCreate();
+        return objCreate(null);
 }
 
 return Intl;
