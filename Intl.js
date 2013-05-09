@@ -17,8 +17,8 @@ var Intl = /*window.Intl || */(function (Intl) {
 var
     // Private object houses our locale data for each locale
     localeData = {},
-    
-    // Object housing internal properties for constructors 
+
+    // Object housing internal properties for constructors
     internals = createCleanObj(),
 
     // Keep internal properties internal
@@ -26,13 +26,13 @@ var
 
     // We use this a lot (and need it for proto-less objects)
     hop = Object.prototype.hasOwnProperty,
-    
-    // 
+
+    //
     defineProperty = Object.defineProperty || function (obj, name, desc) {
         if (desc.get && obj.__defineGetter__)
             obj.__defineGetter(name, desc.get);
         else
-            obj[name] = desc.value || desc.get;        
+            obj[name] = desc.value || desc.get;
     },
 
     // Array.prototype.indexOf, as good as we need it to be
@@ -65,7 +65,7 @@ var
 (function () {
     var
         // extlang       = 3ALPHA              ; selected ISO 639 codes
-        //                 *2("-" 3ALPHA)      ; permanently reserved            
+        //                 *2("-" 3ALPHA)      ; permanently reserved
         extlang = '[a-z]{3}(?:-[a-z]{3}){0,2}',
 
         // language      = 2*3ALPHA            ; shortest ISO 639 code
@@ -81,7 +81,7 @@ var
         // region        = 2ALPHA              ; ISO 3166-1 code
         //               / 3DIGIT              ; UN M.49 code
         region = '(?:[a-z]{2}|\\d{3})',
-        
+
         // variant       = 5*8alphanum         ; registered variants
         //               / (DIGIT 3alphanum)
         variant = '(?:[a-z0-9]{5,8}|\\d[a-z0-9]{3})',
@@ -144,7 +144,7 @@ var
         //                 *("-" variant)
         //                 *("-" extension)
         //                 ["-" privateuse]
-        langtag = language + '(?:-' + script + ')?(?:-' + region + ')?(?:-' 
+        langtag = language + '(?:-' + script + ')?(?:-' + region + ')?(?:-'
                 + variant + ')*(?:-' + extension + ')*(?:-' + privateuse + ')?';
 
     // Language-Tag  = langtag             ; normal language tags
@@ -161,7 +161,7 @@ var
     // Match all extension sequences
     expExtSequences = RegExp('-'+extension, 'ig');
 })();
-    
+
 // Sect 6.2 Language Tags
 // ======================
 
@@ -215,14 +215,14 @@ function /* 6.2.3 */CanonicalizeLanguageTag (locale) {
     var match, parts;
 
     // A language tag is in 'canonical form' when the tag is well-formed
-    // according to the rules in Sections 2.1 and 2.2 
+    // according to the rules in Sections 2.1 and 2.2
 
     // Section 2.1 says all subtags use lowercase...
     locale = locale.toLowerCase();
 
-    // ...with 2 exceptions: 'two-letter and four-letter subtags that neither 
+    // ...with 2 exceptions: 'two-letter and four-letter subtags that neither
     // appear at the start of the tag nor occur after singletons.  Such two-letter
-    // subtags are all uppercase (as in the tags "en-CA-x-ca" or "sgn-BE-FR") and 
+    // subtags are all uppercase (as in the tags "en-CA-x-ca" or "sgn-BE-FR") and
     // four-letter subtags are titlecase (as in the tag "az-Latn-x-latn").
     parts = locale.split('-');
     for (var i = 1, max = parts.length; i < max; i++) {
@@ -232,7 +232,7 @@ function /* 6.2.3 */CanonicalizeLanguageTag (locale) {
 
         // Four-letter subtags are titlecase
         else if (parts[i].length === 4)
-            parts[i] = parts[i].charAt(0).toUpperCase() + parts[i].slice(1);        
+            parts[i] = parts[i].charAt(0).toUpperCase() + parts[i].slice(1);
 
         // Is it a singleton?
         else if (parts[i].length === 1 && parts[i] != 'x')
@@ -250,7 +250,7 @@ function /* 6.2.3 */CanonicalizeLanguageTag (locale) {
 
         // Replace all extensions with the joined, sorted array
         locale = locale.replace(
-            RegExp('(?:' + expExtSequences.source + ')+', 'i'), 
+            RegExp('(?:' + expExtSequences.source + ')+', 'i'),
             match.join('')
         );
     }
@@ -462,7 +462,7 @@ function /* 9.2.3 */LookupMatcher (availableLocales, requestedLocales) {
 
     var
         // 5. Let result be a new Record.
-        result = {};
+        result = createCleanObj();
 
     // 6. If availableLocale is not undefined, then
     if (availableLocale !== undefined) {
@@ -486,12 +486,13 @@ function /* 9.2.3 */LookupMatcher (availableLocales, requestedLocales) {
             // iv. Set result.[[extensionIndex]] to extensionIndex.
             result['[[extensionIndex]]'] = extensionIndex;
         }
-        // 7. Else
-        else
-            // a. Set result.[[locale]] to the value returned by the DefaultLocale
-            //    abstract operation (defined in 6.2.4).
-            result['[[locale]]'] = DefaultLocale();
     }
+    // 7. Else
+    else
+        // a. Set result.[[locale]] to the value returned by the DefaultLocale abstract
+        //    operation (defined in 6.2.4).
+        result['[[locale]]'] = DefaultLocale();
+
     // 8. Return result
     return result;
 }
@@ -515,18 +516,19 @@ function /* 9.2.3 */LookupMatcher (availableLocales, requestedLocales) {
  * locale language tag.
  */
 function /* 9.2.4 */BestFitMatcher (availableLocales, requestedLocales) {
-    for (var i=0, max=requestedLocales.length; i < max; i++) {
-        if (arrIndexOf.call(availableLocales, requestedLocales[i]) > -1)
-            return {
-                '[[locale]]': requestedLocales[i]
-            };
-    }
-
-    return {
-        '[[locale]]': availableLocales[
-                          arrIndexOf.call(availableLocales, DefaultLocale())
-                      ] || '(default)'
-    };
+    return LookupMatcher(availableLocales, requestedLocales);
+//    for (var i=0, max=requestedLocales.length; i < max; i++) {
+//        if (arrIndexOf.call(availableLocales, requestedLocales[i]) > -1)
+//            return {
+//                '[[locale]]': requestedLocales[i]
+//            };
+//    }
+//
+//    return {
+//        '[[locale]]': availableLocales[
+//                          arrIndexOf.call(availableLocales, DefaultLocale())
+//                      ] || '(default)'
+//    };
 }
 
 /**
@@ -869,7 +871,7 @@ function /*9.2.9 */GetOption (options, property, type, values, fallback) {
             // i. If values does not contain an element equal to value, then throw a
             //    RangeError exception.
             if (arrIndexOf.call(values, value) === -1)
-                throw new RangeError("'" + value + "' is not an allowed value for `" 
+                throw new RangeError("'" + value + "' is not an allowed value for `"
                                                                     + property +'`');
         }
 
@@ -1011,7 +1013,7 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
     //     NumberFormat, requestedLocales, opt, the [[relevantExtensionKeys]]
     //     internal property of NumberFormat, and localeData.
         r = ResolveLocale(
-                internals.NumberFormat['[[availableLocales]]'], requestedLocales, 
+                internals.NumberFormat['[[availableLocales]]'], requestedLocales,
                 opt, internals.NumberFormat['[[relevantExtensionKeys]]'], localeData
             );
 
@@ -1378,7 +1380,7 @@ function FormatNumber (numberFormat, x) {
         // a. Let currency be the value of the [[currency]] internal property of
         //    numberFormat.
             currency = internal['[[currency]]'],
-         
+
         // Shorthand for the currency data
             cData = data.currencies[currency];
 
@@ -1407,8 +1409,8 @@ function FormatNumber (numberFormat, x) {
 }
 
 /**
- * When the ToRawPrecision abstract operation is called with arguments x (which 
- * must be a finite non-negative number), minPrecision, and maxPrecision (both 
+ * When the ToRawPrecision abstract operation is called with arguments x (which
+ * must be a finite non-negative number), minPrecision, and maxPrecision (both
  * must be integers between 1 and 21) the following steps are taken:
  */
 function ToRawPrecision (x, minPrecision, maxPrecision) {
@@ -1426,9 +1428,9 @@ function ToRawPrecision (x, minPrecision, maxPrecision) {
     }
     // 3. Else
     else {
-        // a. Let e and n be integers such that 10ᵖ⁻¹ ≤ n < 10ᵖ and for which the 
-        //    exact mathematical value of n × 10ᵉ⁻ᵖ⁺¹ – x is as close to zero as 
-        //    possible. If there are two such sets of e and n, pick the e and n for 
+        // a. Let e and n be integers such that 10ᵖ⁻¹ ≤ n < 10ᵖ and for which the
+        //    exact mathematical value of n × 10ᵉ⁻ᵖ⁺¹ – x is as close to zero as
+        //    possible. If there are two such sets of e and n, pick the e and n for
         //    which n × 10ᵉ⁻ᵖ⁺¹ is larger.
 
         var
@@ -1472,7 +1474,7 @@ function ToRawFixed (x, minInteger, minFraction, maxFraction) {
         // We can pick up after the fixed formatted string (m) is created
         m   = Number.prototype.toFixed.call(x, maxFraction),
 
-        // 4. If [maxFraction] ≠ 0, then 
+        // 4. If [maxFraction] ≠ 0, then
         //    ...
         //    e. Let int be the number of characters in a.
         //
@@ -1498,7 +1500,7 @@ function ToRawFixed (x, minInteger, minFraction, maxFraction) {
 
     // 9. If int < minInteger, then
     if (igr < minInteger)
-        // a. Let z be the String consisting of minInteger–int occurrences of the 
+        // a. Let z be the String consisting of minInteger–int occurrences of the
         //    character "0".
         var z = Array(minInteger - igr + 1).join("0");
 
@@ -1535,24 +1537,24 @@ var numSys = {
 };
 
 /**
- * This function provides access to the locale and formatting options computed 
+ * This function provides access to the locale and formatting options computed
  * during initialization of the object.
  *
- * The function returns a new object whose properties and attributes are set as 
- * if constructed by an object literal assigning to each of the following 
- * properties the value of the corresponding internal property of this 
- * NumberFormat object (see 11.4): locale, numberingSystem, style, currency, 
- * currencyDisplay, minimumIntegerDigits, minimumFractionDigits, 
- * maximumFractionDigits, minimumSignificantDigits, maximumSignificantDigits, and 
- * useGrouping. Properties whose corresponding internal properties are not present 
+ * The function returns a new object whose properties and attributes are set as
+ * if constructed by an object literal assigning to each of the following
+ * properties the value of the corresponding internal property of this
+ * NumberFormat object (see 11.4): locale, numberingSystem, style, currency,
+ * currencyDisplay, minimumIntegerDigits, minimumFractionDigits,
+ * maximumFractionDigits, minimumSignificantDigits, maximumSignificantDigits, and
+ * useGrouping. Properties whose corresponding internal properties are not present
  * are not assigned.
  */
 /* 11.3.3 */Intl.NumberFormat.prototype.resolvedOptions = function () {
     var ret   = {},
         props = [
-            'numberingSystem', 'style', 'currency', 'currencyDisplay', 'minimumIntegerDigits', 
-            'minimumFractionDigits', 'maximumFractionDigits', 'minimumSignificantDigits', 
-            'maximumSignificantDigits', 'useGrouping'
+            'numberingSystem', 'style', 'currency', 'currencyDisplay', 'minimumIntegerDigits',
+            'minimumFractionDigits', 'maximumFractionDigits', 'minimumSignificantDigits',
+            'maximumSignificantDigits', 'useGrouping', 'locale'
         ],
         internal = getInternalProperties(this);
 
@@ -1575,10 +1577,10 @@ var numSys = {
         // 1. Let x be this Number value (as defined in ES5, 15.7.4).
         // 2. If locales is not provided, then let locales be undefined.
         // 3. If options is not provided, then let options be undefined.
-        // 4. Let numberFormat be the result of creating a new object as if by the 
+        // 4. Let numberFormat be the result of creating a new object as if by the
         //    expression new Intl.NumberFormat(locales, options) where
         //    Intl.NumberFormat is the standard built-in constructor defined in 11.1.3.
-        // 5. Return the result of calling the FormatNumber abstract operation 
+        // 5. Return the result of calling the FormatNumber abstract operation
         //    (defined in 11.3.2) with arguments numberFormat and x.
         return FormatNumber(new Intl.NumberFormat(arguments[0], arguments[1]), this);
     }
@@ -1586,7 +1588,7 @@ var numSys = {
 
 /**
  * Can't really ship a single script with data for hundreds of locales, so we provide
- * this __addLocaleData method as a means for the developer to add the data on an 
+ * this __addLocaleData method as a means for the developer to add the data on an
  * as-needed basis
  */
 defineProperty(Intl, '__addLocaleData', {
@@ -1608,7 +1610,7 @@ defineProperty(Intl, '__addLocaleData', {
         if (data.numbers) {
             var defNumSys = data.numbers.defaultNumberingSystem,
                 nu = [ defNumSys ],
-                
+
                 // 11.2.3 says nu can't contain these:
                 nuNo = {
                     'native': 1,
@@ -1624,7 +1626,7 @@ defineProperty(Intl, '__addLocaleData', {
             }
 
             // Build patterns for each number style
-            var currencyPattern = 
+            var currencyPattern =
                     data.numbers['currencyFormats-numberSystem-'+defNumSys]
                         .standard.currencyFormat.pattern
                             .replace('#,##0.00', '{number}')
@@ -1641,15 +1643,15 @@ defineProperty(Intl, '__addLocaleData', {
                 patterns: {
                     decimal: {
                         positivePattern: '{number}',
-                        negativePattern: '-{number}'  
+                        negativePattern: '-{number}'
                     },
                     percent: {
                         positivePattern: percentPattern,
-                        negativePattern: '-' + percentPattern  
+                        negativePattern: '-' + percentPattern
                     },
                     currency: {
                         positivePattern: currencyPattern,
-                        negativePattern: '-' + currencyPattern 
+                        negativePattern: '-' + currencyPattern
                     }
                 }
             };
@@ -1682,7 +1684,7 @@ window.IntlLocaleData = localeData;
 function createCleanObj () {
     if (Object.create)
         return Object.create(null);
-    
+
     var obj = {};
     if (obj.__proto__ === Object.prototype)
         obj.__proto__ = null;
