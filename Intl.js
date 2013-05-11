@@ -1592,7 +1592,7 @@ Intl.DateTimeFormat = function (/* [locales [, options]]*/) {
  */
 function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options) {
     // This will be a internal properties object if we're not already initialized
-    var internal = getInternalProperties(numberFormat);
+    var internal = getInternalProperties(dateTimeFormat);
 
     // 1. If dateTimeFormat has an [[initializedIntlObject]] internal property with
     //    value true, throw a TypeError exception.
@@ -1600,7 +1600,7 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
         throw new TypeError('NumberFormat object already initialized');
 
     // Need this to access the `internal` object
-    defineProperty(numberFormat, '__getInternalProperties', {
+    defineProperty(dateTimeFormat, '__getInternalProperties', {
         value: function () {
             // NOTE: Non-standard, for internal use only
             if (arguments[0] === secret)
@@ -1691,7 +1691,7 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
 
     // 19. For each row of Table 3, except the header row, do:
     for (var prop in dateTimeComponents) {
-        if (dateTimeComponents.hasOwnProperty(prop))
+        if (!dateTimeComponents.hasOwnProperty(prop))
             continue;
 
         var
@@ -1712,7 +1712,7 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
 
         // 23. Let dataLocaleData be the result of calling the [[Get]] internal method of
         //     localeData with argument dataLocale.
-        dataLocaleData = localeData.dataLocale,
+        dataLocaleData = localeData[dataLocale],
 
         // 24. Let formats be the result of calling the [[Get]] internal method of
         //     dataLocaleData with argument "formats".
@@ -2077,77 +2077,232 @@ function BestFitFormatMatcher (options, formats) {
 });
 
 /**
+ * The Unicode CLDR lists the full names for calendars, but we need to map some
+ * of them to their unicode extension equivalents, e.g. 'gregorian' should be
+ * 'gregory' (as in the '-u-ca-gregory' extension)
+ */
+var caMap = {
+    gregorian: 'gregory',
+    'ethiopic-amete-alam':'ethioaa',
+    'islamic-civil': 'islamicc'
+};
+
+/**
  * Can't really ship a single script with data for hundreds of locales, so we provide
  * this __addLocaleData method as a means for the developer to add the data on an
  * as-needed basis
  */
 defineProperty(Intl, '__addLocaleData', {
-    value: function (data) {
-        if (!data.identity)
-            throw new Error('Must pass valid CLDR data parsed into a JavaScript object.');
-
-        var add,
-            locale = data.identity.language;
-
-        if (add = data.identity.script)
-            locale += '-' + add;
-        if (add = data.identity.territory)
-            locale += '-' + add;
-
-        localeData[locale] = data;
-
-        // Add to NumberFormat internal properties as per 11.2.3
-        if (data.numbers) {
-            var defNumSys = data.numbers.defaultNumberingSystem,
-                nu = [ defNumSys ],
-
-                // 11.2.3 says nu can't contain these:
-                nuNo = {
-                    'native': 1,
-                    traditio: 1,
-                    finance:  1
-                };
-
-            for (var k in data.numbers.otherNumberingSystems) {
-                var v = data.numbers.otherNumberingSystems[k];
-
-                if (v != defNumSys && !hop.call(nuNo, v))
-                    nu.push(v);
-            }
-
-            // Build patterns for each number style
-            var currencyPattern =
-                    data.numbers['currencyFormats-numberSystem-'+defNumSys]
-                        .standard.currencyFormat.pattern
-                            .replace('#,##0.00', '{number}')
-                            .replace('¤', '{currency}'),
-
-                percentPattern =
-                    data.numbers['percentFormats-numberSystem-'+defNumSys]
-                        .standard.percentFormat.pattern
-                            .replace('#,##0', '{number}');
-
-            internals.NumberFormat['[[availableLocales]]'].push(locale);
-            internals.NumberFormat['[[localeData]]'][locale] = {
-                nu: nu,
-                patterns: {
-                    decimal: {
-                        positivePattern: '{number}',
-                        negativePattern: '-{number}'
-                    },
-                    percent: {
-                        positivePattern: percentPattern,
-                        negativePattern: '-' + percentPattern
-                    },
-                    currency: {
-                        positivePattern: currencyPattern,
-                        negativePattern: '-' + currencyPattern
-                    }
-                }
-            };
-        }
-    }
+    value: addLocaleData
 });
+function addLocaleData (data) {
+    if (!data.identity)
+        throw new Error('Must pass valid CLDR data parsed into a JavaScript object.');
+
+    var add,
+        locale = data.identity.language;
+
+    if (add = data.identity.script)
+        locale += '-' + add;
+    if (add = data.identity.territory)
+        locale += '-' + add;
+
+    localeData[locale] = data;
+
+    // Add to NumberFormat internal properties as per 11.2.3
+    if (data.numbers) {
+        var defNumSys = data.numbers.defaultNumberingSystem,
+            nu = [ defNumSys ],
+
+            // 11.2.3 says nu can't contain these:
+            nuNo = {
+                'native': 1,
+                traditio: 1,
+                finance:  1
+            };
+
+        for (var k in data.numbers.otherNumberingSystems) {
+            var v = data.numbers.otherNumberingSystems[k];
+
+            if (v != defNumSys && !hop.call(nuNo, v))
+                nu.push(v);
+        }
+
+        // Build patterns for each number style
+        var currencyPattern =
+                data.numbers['currencyFormats-numberSystem-'+defNumSys]
+                    .standard.currencyFormat.pattern
+                        .replace('#,##0.00', '{number}')
+                        .replace('¤', '{currency}'),
+
+            percentPattern =
+                data.numbers['percentFormats-numberSystem-'+defNumSys]
+                    .standard.percentFormat.pattern
+                        .replace('#,##0', '{number}');
+
+        internals.NumberFormat['[[availableLocales]]'].push(locale);
+        internals.NumberFormat['[[localeData]]'][locale] = {
+            nu: nu,
+            patterns: {
+                decimal: {
+                    positivePattern: '{number}',
+                    negativePattern: '-{number}'
+                },
+                percent: {
+                    positivePattern: percentPattern,
+                    negativePattern: '-' + percentPattern
+                },
+                currency: {
+                    positivePattern: currencyPattern,
+                    negativePattern: '-' + currencyPattern
+                }
+            }
+        };
+    }
+    if (data.dates) {
+        var cas     = data.dates.calendars,
+            defCa   = cas['default'],
+            ca      = [ defCa ],
+            formats = createDateTimeFormats(cas[defCa].dateTimeFormats.availableFormats);
+
+        for (var cal in data.dates.calendars) {
+            if (cal === defCa)
+                continue;
+
+            // Refer to our earlier calendar->unicode extension mappings
+            ca.push(caMap[cal] || cal);
+        }
+
+        internals.DateTimeFormat['[[availableLocales]]'].push(locale);
+        internals.DateTimeFormat['[[localeData]]'][locale] = {
+            nu: nu,
+            ca: ca,
+
+            formats: formats,
+
+            // Can't seem to find this in the CLDR data (will look harder later)
+            hourNo0: false,
+            hour12: false
+        };
+    }
+}
+
+var
+    // Match these datetime components in a CLDR pattern
+    expDTComponents = /[Eec]{1,6}|G{1,5}|(?:[yYu]+|U{1,5})|[ML]{1,5}|d{1,2}|a|[hk]{1,2}|m{1,2}|s{1,2}/g,
+
+    // Skip over patterns with these datetime components
+    unwantedDTCs = /[QxXVOvzASjgFDwWIQqH]/,
+
+    // Maps the number of characters in a CLDR pattern to the specification
+    dtcLengthMap = {
+        month:   [ 'numeric', '2-digit', 'short', 'long', 'narrow' ],
+        weekday: [ 'short', 'short', 'short', 'long', 'narrow' ],
+        era:     [ 'short', 'short', 'short', 'long', 'narrow' ]
+    };
+/**
+ * Converts the CLDR availableFormats into the objects and patterns required by
+ * the ECMAScript Internationalization API specification.
+ *
+ * The specification requires we support at least the following subsets of the
+ * dateTimeComponents listed above:
+ *
+ *   - 'weekday', 'year', 'month', 'day', 'hour', 'minute', 'second'
+ *   - 'weekday', 'year', 'month', 'day'
+ *   - 'year', 'month', 'day'
+ *   - 'year', 'month'
+ *   - 'month', 'day'
+ *   - 'hour', 'minute', 'second'
+ *   - 'hour', 'minute'
+ *
+ * However, since they recommend the CLDR data, we're going to assume that each locale
+ * within the CLDR supports at least these subsets (and variants thereof), so
+ * it's easier to just iterate over what the CLDR gives us an map it accordingly.
+ */
+function createDateTimeFormats(availableFormats) {
+    /*jshint loopfunc:true */ /* Will consider moving the function later */
+    var formats = [];
+
+    for (var format in availableFormats) {
+        // Prevent iterating over 'inherited' properties or patterns with
+        // datetime components we're not using (or '[hH]' patterns without 'a')
+        if (!availableFormats.hasOwnProperty(format) || unwantedDTCs.test(availableFormats[format]))
+            continue;
+
+        var formatObj = {};
+
+        // Replace the pattern string with the one required by the specification, whilst
+        // at the same time evaluating it for the subsets and formats
+        formatObj.pattern = availableFormats[format].replace(expDTComponents, function ($0) {
+            var subsetProp;
+
+            // See which symbol we're dealing with
+            switch ($0.charAt(0)) {
+                case 'E':
+                case 'e':
+                case 'c':
+                    formatObj.weekday = dtcLengthMap.weekday[$0.length-1];
+                    return '{weekday}';
+
+                case 'G':
+                    formatObj.era = dtcLengthMap.era[$0.length-1];
+                    return '{era}';
+
+                case 'y':
+                case 'Y':
+                case 'u':
+                case 'U':
+                    formatObj.year = $0.length === 2 ? '2-digit' : 'numeric';
+                    return '{year}';
+
+                case 'M':
+                case 'L':
+                    formatObj.month = dtcLengthMap.month[$0.length-1];
+                    return '{month}';
+
+                case 'd':
+                    formatObj.day = $0.length === 2 ? '2-digit' : 'numeric';
+                    return '{day}';
+
+                case 'a':
+                    return '{ampm}';
+
+                case 'h':
+                case 'k':
+                    formatObj.hour = $0.length === 2 ? '2-digit' : 'numeric';
+                    return '{hour}';
+
+                case 'm':
+                    formatObj.minute = $0.length === 2 ? '2-digit' : 'numeric';
+                    return '{minute}';
+
+                case 's':
+                    formatObj.second = $0.length === 2 ? '2-digit' : 'numeric';
+                    return '{second}';
+            }
+        });
+
+        if (formatObj.pattern.indexOf('{ampm}') > -1) {
+            formatObj.pattern12 = formatObj.pattern;
+            formatObj.pattern = formatObj.pattern.replace(/\s?{ampm}(?:\s(?![^\s]))?/, '');
+        }
+
+        formats.push(formatObj);
+    }
+
+    return formats;
+}
+
+/**
+ * dateTimeComponent subsets required for each locale as per 12.2.3
+ * The keys map to pattern keys in the CLDR data which, in turn, uses symbols from the
+ * Unicode TR35 Technical Standard.
+ *
+ * See http://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table
+ */
+var dateTimeSubsets = {
+};
+
 
 // Exposed for debugging
 window.IntlLocaleData = localeData;
