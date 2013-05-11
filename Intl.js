@@ -1554,12 +1554,9 @@ var numSys = {
 /* 11.3.3 */Intl.NumberFormat.prototype.resolvedOptions = function () {
     var ret   = {},
         props = [
-            'numberingSystem', 'style', 'currency', 'currencyDisplay', 'minimumIntegerDigits',
-            'minimumFractionDigits', 'maximumFractionDigits', 'minimumSignificantDigits',
-            'maximumSignificantDigits', 'useGrouping',
-
-            // Not part of the spec, but in here for debugging purposes
-            'matchedLocale'
+            'locale', 'numberingSystem', 'style', 'currency', 'currencyDisplay',
+            'minimumIntegerDigits', 'minimumFractionDigits', 'maximumFractionDigits',
+            'minimumSignificantDigits', 'maximumSignificantDigits', 'useGrouping'
         ],
         internal = getInternalProperties(this);
 
@@ -1691,7 +1688,7 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
 
     // 19. For each row of Table 3, except the header row, do:
     for (var prop in dateTimeComponents) {
-        if (!dateTimeComponents.hasOwnProperty(prop))
+        if (!hop.call(dateTimeComponents, prop))
             continue;
 
         var
@@ -1736,7 +1733,7 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
 
     // 30. For each row in Table 3, except the header row, do
     for (var prop in dateTimeComponents) {
-        if (dateTimeComponents.hasOwnProperty(prop))
+        if (!hop.call(dateTimeComponents, prop))
             continue;
 
         var
@@ -1935,25 +1932,19 @@ function BasicFormatMatcher (options, formats) {
             score = 0;
 
         // c. For each property shown in Table 3:
-        for (var k in dateTimeComponents) {
-            if (!dateTimeComponents.hasOwnProperty(k))
+        for (var property in dateTimeComponents) {
+            if (!hop.call(dateTimeComponents, property))
                 continue;
 
             var
-            // Assigned a value below
-                formatProp,
-
             // i. Let optionsProp be options.[[<property>]].
-                optionsProp = options['[['+k+']]'],
+                optionsProp = options['[['+ property +']]'],
 
             // ii. Let formatPropDesc be the result of calling the [[GetOwnProperty]] internal method of format
             //     with argument property.
-                formatPropDesc = format[k];
-
             // iii. If formatPropDesc is not undefined, then
-            if (formatPropDesc !== undefined)
                 // 1. Let formatProp be the result of calling the [[Get]] internal method of format with argument property.
-                formatProp = format[k];
+                formatProp = format[property];
 
             // iv. If optionsProp is undefined and formatProp is not undefined, then decrease score by
             //     additionPenalty.
@@ -1970,7 +1961,7 @@ function BasicFormatMatcher (options, formats) {
                 var
                 // 1. Let values be the array ["2-digit", "numeric", "narrow", "short",
                 //    "long"].
-                    values = ['2-digit', 'numeric', 'narrow', 'short' ],
+                    values = [ '2-digit', 'numeric', 'narrow', 'short' ],
 
                 // 2. Let optionsPropIndex be the index of optionsProp within values.
                     optionsPropIndex = arrIndexOf.call(values, optionsProp),
@@ -2058,6 +2049,209 @@ function BestFitFormatMatcher (options, formats) {
 };
 
 /**
+ * This named accessor property returns a function that formats a number
+ * according to the effective locale and the formatting options of this
+ * DateTimeFormat object.
+ */
+/* 12.3.2 */defineProperty(Intl.DateTimeFormat.prototype, 'format', {
+    get: function () {
+        var internal = getInternalProperties(this);
+
+        // The value of the [[Get]] attribute is a function that takes the following
+        // steps:
+
+        // 1. If the [[boundFormat]] internal property of this DateTimeFormat object
+        //    is undefined, then:
+        if (internal['[[boundFormat]]'] === undefined) {
+            var
+            // a. Let F be a Function object, with internal properties set as
+            //    specified for built-in functions in ES5, 15, or successor, and the
+            //    length property set to 1, that takes the argument value and
+            //    performs the following steps:
+                F = function (date) {
+                    //   i. If date is not provided or is undefined, then let x be the
+                    //      result as if by the expression Date.now() where Date.now is
+                    //      the standard built-in function defined in ES5, 15.9.4.4.
+                    //  ii. Else let x be ToNumber(date).
+                    // iii. Return the result of calling the FormatDateTime abstract
+                    //      operation (defined below) with arguments this and x.
+                    return FormatDateTime(this, /* x = */Number(date === undefined ? Date.now() : date));
+                },
+            // b. Let bind be the standard built-in function object defined in ES5,
+            //    15.3.4.5.
+            // c. Let bf be the result of calling the [[Call]] internal method of
+            //    bind with F as the this value and an argument list containing
+            //    the single item this.
+                bf = F.bind(this);
+            // d. Set the [[boundFormat]] internal property of this NumberFormat
+            //    object to bf.
+            internal['[[boundFormat]]'] = bf;
+        }
+        // Return the value of the [[boundFormat]] internal property of this
+        // NumberFormat object.
+        return internal['[[boundFormat]]'];
+    }
+});
+
+/**
+ * When the FormatDateTime abstract operation is called with arguments dateTimeFormat
+ * (which must be an object initialized as a DateTimeFormat) and x (which must be a Number
+ * value), it returns a String value representing x (interpreted as a time value as
+ * specified in ES5, 15.9.1.1) according to the effective locale and the formatting
+ * options of dateTimeFormat.
+ */
+function FormatDateTime(dateTimeFormat, x) {
+    // 1. If x is not a finite Number, then throw a RangeError exception.
+    if (!isFinite(x))
+        throw new RangeError('Invalid valid date passed to format');
+
+    var
+        internal = dateTimeFormat.__getInternalProperties(secret),
+
+    // 2. Let locale be the value of the [[locale]] internal property of dateTimeFormat.
+        locale = internal['[[locale]]'],
+
+    // 3. Let nf be the result of creating a new NumberFormat object as if by the
+    // expression new Intl.NumberFormat([locale], {useGrouping: false}) where
+    // Intl.NumberFormat is the standard built-in constructor defined in 11.1.3.
+        nf = new Intl.NumberFormat([locale], {useGrouping: false}),
+
+    // 4. Let nf2 be the result of creating a new NumberFormat object as if by the
+    // expression new Intl.NumberFormat([locale], {minimumIntegerDigits: 2, useGrouping:
+    // false}) where Intl.NumberFormat is the standard built-in constructor defined in
+    // 11.1.3.
+        nf2 = new Intl.NumberFormat([locale], {minimumIntegerDigits: 2, useGrouping: false}),
+
+    // 5. Let tm be the result of calling the ToLocalTime abstract operation (defined
+    // below) with x, the value of the [[calendar]] internal property of dateTimeFormat,
+    // and the value of the [[timeZone]] internal property of dateTimeFormat.
+        tm = ToLocalTime(x, internal['[[calendar]]'], internal['[[timeZone]]']),
+
+    // 6. Let result be the value of the [[pattern]] internal property of dateTimeFormat.
+        result = internal['[[pattern]]'];
+
+    // 7. For each row of Table 3, except the header row, do:
+    for (var p in dateTimeComponents) {
+        // a. If dateTimeFormat has an internal property with the name given in the
+        //    Property column of the row, then:
+        if (hop.call(internal, '[['+ p +']]')) {
+            var
+            // Assigned values below
+                pm, fv,
+
+            //   i. Let p be the name given in the Property column of the row.
+            //  ii. Let f be the value of the [[<p>]] internal property of dateTimeFormat.
+                f = internal['[['+ p +']]'],
+
+            // iii. Let v be the value of tm.[[<p>]].
+                v = tm['[['+ p +']]'];
+
+            //  iv. If p is "year" and v ≤ 0, then let v be 1 - v.
+            if (p === 'year' && v <= 0)
+                v = 1 - v;
+
+            //   v. If p is "month", then increase v by 1.
+            else if (p === 'month')
+                v++;
+
+            //  vi. If p is "hour" and the value of the [[hour12]] internal property of
+            //      dateTimeFormat is true, then
+            else if (p === 'hour') {
+                // 1. Let v be v modulo 12.
+                v = v % 12;
+
+                // 2. If v is equal to the value of tm.[[<p>]], then let pm be false; else
+                //    let pm be true.
+                pm = v !== tm['[['+ p +']]'];
+
+                // 3. If v is 0 and the value of the [[hourNo0]] internal property of
+                //    dateTimeFormat is true, then let v be 12.
+                if (v === 0 && internal['[[hourNo0]]'] === true)
+                    v = 12;
+            }
+
+            // vii. If f is "numeric", then
+            if (f === 'numeric')
+                // 1. Let fv be the result of calling the FormatNumber abstract operation
+                //    (defined in 11.3.2) with arguments nf and v.
+                fv = FormatNumber(nf, v);
+
+            // viii. Else if f is "2-digit", then
+            else if (f === '2-digit') {
+                // 1. Let fv be the result of calling the FormatNumber abstract operation
+                //    with arguments nf2 and v.
+                fv = FormatNumber(nf2, v);
+
+                // 2. If the length of fv is greater than 2, let fv be the substring of fv
+                //    containing the last two characters.
+                if (fv.length > 2)
+                    fv = fv.slice(-2);
+            }
+
+            // ix. Else if f is "narrow", "short", or "long", then let fv be a String
+            //     value representing f in the desired form; the String value depends upon
+            //     the implementation and the effective locale and calendar of
+            //     dateTimeFormat. If p is "month", then the String value may also depend
+            //     on whether dateTimeFormat has a [[day]] internal property. If p is
+            //     "timeZoneName", then the String value may also depend on the value of
+            //     the [[inDST]] field of tm.
+            else if (/^(?:narrow|short|long)$/.test(f)) {
+                fv = tm['[['+ p +']]'];
+                // ###TODO###
+            }
+
+            // x. Replace the substring of result that consists of "{", p, and "}", with
+            //    fv.
+            result = result.replace('{'+ p +'}', fv);
+        }
+    }
+    // 8. If dateTimeFormat has an internal property [[hour12]] whose value is true, then
+    if (internal['[[hour12]]'] === true) {
+        // a. If pm is true, then let fv be an implementation and locale dependent String
+        //    value representing “post meridiem”; else let fv be an implementation and
+        //    locale dependent String value representing “ante meridiem”.
+        fv = pm ? 'pm' : am;  // ###TODO###
+
+        // b. Replace the substring of result that consists of "{ampm}", with fv.
+        result.replace('{ampm}', fv);
+    }
+    // 9. Return result.
+    return result;
+}
+
+/**
+ * When the ToLocalTime abstract operation is called with arguments date, calendar, and
+ * timeZone, the following steps are taken:
+ */
+function ToLocalTime(date, calendar, timeZone) {
+    // 1. Apply calendrical calculations on date for the given calendar and time zone to
+    //    produce weekday, era, year, month, day, hour, minute, second, and inDST values.
+    //    The calculations should use best available information about the specified
+    //    calendar and time zone. If the calendar is "gregory", then the calculations must
+    //    match the algorithms specified in ES5, 15.9.1, except that calculations are not
+    //    bound by the restrictions on the use of best available information on time zones
+    //    for local time zone adjustment and daylight saving time adjustment imposed by
+    //    ES5, 15.9.1.7 and 15.9.1.8.
+    // ###TODO###
+    var d = new Date(date);
+
+    // 2. Return a Record with fields [[weekday]], [[era]], [[year]], [[month]], [[day]],
+    //    [[hour]], [[minute]], [[second]], and [[inDST]], each with the corresponding
+    //    calculated value.
+    return {
+        '[[weekday]]': d.getDay(),
+        '[[era]]'    : +(d.getFullYear >= 0),
+        '[[year]]'   : d.getFullYear(),
+        '[[month]]'  : d.getMonth(),
+        '[[day]]'    : d.getDate(),
+        '[[hour]]'   : d.getHours(),
+        '[[minute]]' : d.getMinutes(),
+        '[[second]]' : d.getSeconds(),
+        '[[inDST]]'  : false
+    };
+}
+
+/**
  * The function returns a new object whose properties and attributes are set as if
  * constructed by an object literal assigning to each of the following properties the
  * value of the corresponding internal property of this DateTimeFormat object (see 12.4):
@@ -2073,7 +2267,7 @@ function BestFitFormatMatcher (options, formats) {
             'era', 'year', 'month', 'day', 'hour', 'minute', 'second', 'timeZoneName',
 
             // Not part of the spec, but in here for debugging purposes
-            'matchedLocale'
+            'pattern'
         ],
         internal = getInternalProperties(this);
 
@@ -2188,19 +2382,37 @@ function addLocaleData (data) {
         };
     }
     if (data.dates) {
-        var cas     = data.dates.calendars,
+        var formats,
+            cas     = data.dates.calendars,
             defCa   = cas['default'],
             ca      = [ defCa ],
-            formats = createDateTimeFormats(cas[defCa].dateTimeFormats.availableFormats),
-            timeFormat = cas[defCa].timeFormats[cas[defCa].timeFormats['default']].timeFormat.pattern;
+            patterns= [],
+            timeFormats = cas[defCa].timeFormats,
+            dateFormats = cas[defCa].dateFormats,
+            timeFormat = timeFormats[timeFormats['default']].timeFormat.pattern;
 
-        for (var cal in data.dates.calendars) {
-            if (cal === defCa)
+        // Get calendars supported by this locale
+        for (var cal in cas) {
+            if (!hop.call(cas, cal) || cal === defCa)
                 continue;
 
             // Refer to our earlier calendar->unicode extension mappings
             ca.push(caMap[cal] || cal);
         }
+
+        // Merge all the patterns listed in the default calendar
+        for (var pattern in dateFormats) {
+            if (dateFormats.hasOwnProperty(pattern) && typeof dateFormats[pattern] === 'object')
+                patterns.push(dateFormats[pattern].dateFormat.pattern);
+        }
+
+        for (var pattern in timeFormats) {
+            if (timeFormats.hasOwnProperty(pattern) && typeof timeFormats[pattern] === 'object')
+                patterns.push(timeFormats[pattern].timeFormat.pattern);
+        }
+
+        patterns.concat(cas[defCa].dateTimeFormats.availableFormats);
+        formats = createDateTimeFormats(patterns);
 
         internals.DateTimeFormat['[[availableLocales]]'].push(locale);
         internals.DateTimeFormat['[[localeData]]'][locale] = {
@@ -2259,7 +2471,7 @@ function createDateTimeFormats(availableFormats) {
     for (var format in availableFormats) {
         // Prevent iterating over 'inherited' properties or patterns with
         // datetime components we're not using (or '[hH]' patterns without 'a')
-        if (!availableFormats.hasOwnProperty(format) || unwantedDTCs.test(availableFormats[format]))
+        if (!hop.call(availableFormats, format) || unwantedDTCs.test(availableFormats[format]))
             continue;
 
         var formatObj = {};
