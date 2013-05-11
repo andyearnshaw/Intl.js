@@ -480,11 +480,11 @@ function /* 9.2.3 */LookupMatcher (availableLocales, requestedLocales) {
             var
                 // i. Let extension be the String value consisting of the first
                 //    substring of locale that is a Unicode locale extension sequence.
-                extension = extension.slice(0, extension.indexOf('-u-')),
+                extension = locale.match(expUnicodeExSeq)[0],
 
                 // ii. Let extensionIndex be the character position of the initial
                 //     "-" of the first Unicode locale extension sequence within locale.
-                extensionIndex = extension.indexOf('-');
+                extensionIndex = locale.indexOf('-u-');
 
             // iii. Set result.[[extension]] to extension.
             result['[[extension]]'] = extension;
@@ -1973,10 +1973,10 @@ function BasicFormatMatcher (options, formats) {
                     values = ['2-digit', 'numeric', 'narrow', 'short' ],
 
                 // 2. Let optionsPropIndex be the index of optionsProp within values.
-                    optionsPropIndex = arrIndexOf(values, optionsProp),
+                    optionsPropIndex = arrIndexOf.call(values, optionsProp),
 
                 // 3. Let formatPropIndex be the index of formatProp within values.
-                    formatPropIndex = arrIndexOf(values, formatProp),
+                    formatPropIndex = arrIndexOf.call(values, formatProp),
 
                 // 4. Let delta be max(min(formatPropIndex - optionsPropIndex, 2), -2).
                     delta = Math.max(Math.min(formatPropIndex - optionsPropIndex, 2), -2);
@@ -2051,10 +2051,38 @@ function BestFitFormatMatcher (options, formats) {
     return SupportedLocales(availableLocales, requestedLocales, options);
 };
 
-/* 11.2.3 */internals.DateTimeFormat = {
+/* 12.2.3 */internals.DateTimeFormat = {
     '[[availableLocales]]': [],
     '[[relevantExtensionKeys]]': ['ca', 'nu'],
     '[[localeData]]': {}
+};
+
+/**
+ * The function returns a new object whose properties and attributes are set as if
+ * constructed by an object literal assigning to each of the following properties the
+ * value of the corresponding internal property of this DateTimeFormat object (see 12.4):
+ * locale, calendar, numberingSystem, timeZone, hour12, weekday, era, year, month, day,
+ * hour, minute, second, and timeZoneName. Properties whose corresponding internal
+ * properties are not present are not assigned.
+ */
+/* 12.3.3 */Intl.DateTimeFormat.prototype.resolvedOptions = function () {
+    var val,
+        ret   = {},
+        props = [
+            'locale', 'calendar', 'numberingSystem', 'timeZone', 'hour12', 'weekday',
+            'era', 'year', 'month', 'day', 'hour', 'minute', 'second', 'timeZoneName',
+
+            // Not part of the spec, but in here for debugging purposes
+            'matchedLocale'
+        ],
+        internal = getInternalProperties(this);
+
+    for (var i = 0, max = props.length; i < max; i++) {
+        if ((val = internal['[['+ props[i] +']]']) !== undefined)
+            ret[props[i]] = val;
+    }
+
+    return ret;
 };
 
 /* 13.2.1 */defineProperty(Number.prototype, 'toLocaleString', {
@@ -2163,7 +2191,8 @@ function addLocaleData (data) {
         var cas     = data.dates.calendars,
             defCa   = cas['default'],
             ca      = [ defCa ],
-            formats = createDateTimeFormats(cas[defCa].dateTimeFormats.availableFormats);
+            formats = createDateTimeFormats(cas[defCa].dateTimeFormats.availableFormats),
+            timeFormat = cas[defCa].timeFormats[cas[defCa].timeFormats['default']].timeFormat.pattern;
 
         for (var cal in data.dates.calendars) {
             if (cal === defCa)
@@ -2180,9 +2209,13 @@ function addLocaleData (data) {
 
             formats: formats,
 
-            // Can't seem to find this in the CLDR data (will look harder later)
-            hourNo0: false,
-            hour12: false
+            // Locales using 0-11 and 1-24 hours have 'k' or 'K' in their
+            // default time patterns
+            hourNo0: /k/i.test(timeFormat),
+
+            // Locales defaulting to 24hr time have 'H' or 'K' in their default
+            // time patterns
+            hour12: /H|K/.test(timeFormat)
         };
     }
 }
