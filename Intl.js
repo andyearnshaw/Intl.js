@@ -1,5 +1,7 @@
 /*jshint proto:true, eqnull:true, boss:true, laxbreak:true, newcap:false, shadow:true, funcscope:true */
-window.OldIntl = window.Intl;
+if (typeof window !== 'undefined')
+    window.OldIntl = window.Intl;
+
 var Intl = /*window.Intl || */(function (Intl) {
 // Copyright 2013 Andy Earnshaw, MIT License
 
@@ -946,8 +948,246 @@ Intl.Collator = function (/* [locales [, options]]*/) {
  * Collator object.
  */
 function /*10.1.1.1 */InitializeCollator (collator, locales, options) {
-    // ###TODO###
+    // This will be a internal properties object if we're not already initialized
+    var internal = getInternalProperties(collator);
+
+    // The following steps are taken:
+
+    // 1. If collator has an [[initializedIntlObject]] internal property with value true,
+    //    throw a TypeError exception.
+    if (internal['[[initializedIntlObject]]'] === true)
+        throw new TypeError('Collator object has already been initialized');
+
+    // 2. Set the [[initializedIntlObject]] internal property of collator to true.
+    internal['[[initializedIntlObject]]'] = true;
+
+    var
+    // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
+    //    abstract operation (defined in 9.2.1) with argument locales.
+        requestedLocales = CanonicalizeLocaleList(locales);
+
+    // 4. If options is undefined, then
+    if (options === undefined)
+        // a. Let options be the result of creating a new object as if by the expression
+        //    new Object() where Object is the standard built-in constructor with that
+        //    name.
+        options = {};
+
+    // 5. Else
+    else
+        // a. Let options be ToObject(options).
+        options = ToObject(options);
+
+    var
+    // 6. Let u be the result of calling the GetOption abstract operation (defined in
+    //    9.2.9) with arguments options, "usage", "string", a List containing the two
+    //    String values "sort" and "search", and "sort".
+        u = GetOption(options, 'usage', 'string', ['sort', 'search'], 'sort');
+
+    // 7. Set the [[usage]] internal property of collator to u.
+    internal['[[usage]]'] = u;
+
+    var
+    // 8. Let Collator be the standard built-in object that is the initial value of
+    //    Intl.Collator.
+        Collator = Intl.Collator;
+
+    // 9. If u is "sort", then let localeData be the value of the [[sortLocaleData]]
+    //    internal property of Collator; else let localeData be the value of the
+    //    [[searchLocaleData]] internal property of Collator.
+    if (u === 'sort')
+        var localeData = internals.Collator['[[sortLocaleData]]'];
+
+    var
+    // 10. Let opt be a new Record.
+        opt = {},
+
+    // 11. Let matcher be the result of calling the GetOption abstract operation with
+    //     arguments options, "localeMatcher", "string", a List containing the two String
+    //     values "lookup" and "best fit", and "best fit".
+        matcher = GetOption(options, 'localeMatcher', 'string', ['lookup', 'best fit'], 'best fit');
+
+    // 12. Set opt.[[localeMatcher]] to matcher.
+    opt['[[localeMatcher]]'] = matcher;
+
+    // 13. For each row in Table 1, except the header row, do:
+    for (var key in collatorOptions) {
+        if (!hop.call(collatorOptions, key))
+            continue;
+
+        var
+        // a. Let key be the name given in the Key column of the row.
+        // b. Let value be the result of calling the GetOption abstract operation, passing
+        //    as arguments options, the name given in the Property column of the row, the
+        //    string given in the Type column of the row, a List containing the Strings
+        //    given in the Values column of the row or undefined if no strings are given,
+        //    and undefined.
+            value = GetOption(options, collatorOptions[key].property,
+                                    collatorOptions[key].type, collatorOptions[key].value);
+
+        // c. If the string given in the Type column of the row is "boolean" and value is
+        //    not undefined, then
+        if (collatorOptions[key].type === 'boolean' && value !== undefined)
+            // i. Let value be ToString(value).
+            value = String(value);
+
+        // d. Set opt.[[<key>]] to value.
+        opt['[['+ key +']]'] = value;
+    }
+
+    var
+    // 14. Let relevantExtensionKeys be the value of the [[relevantExtensionKeys]]
+    //     internal property of Collator.
+        relevantExtensionKeys = internals.Collator['[[relevantExtensionKeys]]'],
+
+    // 15. Let r be the result of calling the ResolveLocale abstract operation (defined in
+    //     9.2.5) with the [[availableLocales]] internal property of Collator,
+    //     requestedLocales, opt, relevantExtensionKeys, and localeData.
+        r = ResolveLocale(internals.Collator['[[availableLocales]]'], requestedLocales, opt,
+                                                              relevantExtensionKeys, localeData);
+
+    // 16. Set the [[locale]] internal property of collator to the value of r.[[locale]].
+    internal['[[locale]]'] = r['[[locale]]'];
+
+    var
+    // 17. Let i be 0.
+        i = 0,
+
+    // 18. Let len be the result of calling the [[Get]] internal method of
+    //     relevantExtensionKeys with argument "length".
+        len = relevantExtensionKeys.length;
+
+    // 19. Repeat while i < len:
+    while (i < len) {
+        var
+        // a. Let key be the result of calling the [[Get]] internal method of
+        //    relevantExtensionKeys with argument ToString(i).
+            key = relevantExtensionKeys[String(i)];
+
+        // b. If key is "co", then
+        if (key === 'co') {
+            var
+            // i. Let property be "collation".
+                property = 'collation',
+
+            // ii. Let value be the value of r.[[co]].
+                value = r['[[co]]'];
+
+            // iii. If value is null, then let value be "default".
+            if (value === null)
+                value = 'default';
+        }
+        // c. Else use the row of Table 1 that contains the value of key in the Key
+        //    column:
+        else {
+            var
+            // i. Let property be the name given in the Property column of the row.
+                property = collatorOptions[key].property,
+
+            // ii. Let value be the value of r.[[<key>]].
+                value = r['[['+ key +']]'];
+
+            // iii. If the name given in the Type column of the row is "boolean", then let
+            //      value be the result of comparing value with "true".
+            if (collatorOptions[key].type === 'boolean')
+                value = value === 'true';
+        }
+        // d. Set the [[<property>]] internal property of collator to value.
+        internal['[['+ property +']]'] = value;
+
+        // e. Increase i by 1.
+        i++;
+    }
+
+    var
+    // 20. Let s be the result of calling the GetOption abstract operation with arguments
+    //     options, "sensitivity", "string", a List containing the four String values
+    //     "base", "accent", "case", and "variant", and undefined.
+        s = GetOption(options, 'sensitivity', 'string', ['base', 'accent', 'case', 'variant']);
+
+    // 21. If s is undefined, then
+    if (s === undefined) {
+        // a. If u is "sort", then let s be "variant".
+        if (u === 'sort')
+            s = 'variant';
+
+        // b. Else
+        else {
+            var
+            // i. Let dataLocale be the value of r.[[dataLocale]].
+                dataLocale = r['[[dataLocale]]'],
+
+            // ii. Let dataLocaleData be the result of calling the [[Get]] internal
+            //     operation of localeData with argument dataLocale.
+                dataLocaleData = localeData.dataLocale;
+
+            // iii. Let s be the result of calling the [[Get]] internal operation of
+            //      dataLocaleData with argument "sensitivity".
+            s = dataLocaleData.sensitivity;
+        }
+    }
+
+    // 22. Set the [[sensitivity]] internal property of collator to s.
+    internal['[[sensitivity]]'] = s;
+
+    var
+    // 23. Let ip be the result of calling the GetOption abstract operation with arguments
+    //     options, "ignorePunctuation", "boolean", undefined, and false.
+        ip = GetOption(options, 'ignorePunctuation', 'boolean', undefined, false);
+
+    // 24. Set the [[ignorePunctuation]] internal property of collator to ip.
+    internal['[[ignorePunctuation]]'] = ip;
+
+    // 25. Set the [[boundCompare]] internal property of collator to undefined.
+    internal['[[boundCompare]]'] = undefined;
+
+    // 26. Set the [[initializedCollator]] internal property of collator to true.
+    internal['[[initializedCollator]]'] = ip;
 }
+
+/**
+ * Several steps in the algorithm use values from the following table, which associates
+ * Unicode locale extension keys, property names, types, and allowable values
+ */
+var collatorOptions = {
+    kn: {
+        property: 'numeric',
+        type: 'boolean'
+    },
+    kf: {
+        property: 'caseFirst',
+        type: 'string',
+        values: ['upper', 'lower', 'false']
+    }
+};
+
+/* 10.2.2 */Intl.Collator.supportedLocalesOf = function () {
+    // When the supportedLocalesOf method of Intl.Collator is called, the following steps
+    // are taken:
+
+    var
+    // 1. If options is not provided, then let options be undefined.
+        options = arguments[1],
+
+    // 2. Let availableLocales be the value of the [[availableLocales]] internal property
+    //    of the standard built-in object that is the initial value of Intl.Collator.
+        availableLocales = internals.Collator['[[availableLocales]]'],
+
+    // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
+    //    abstract operation (defined in 9.2.1) with argument locales.
+        requestedLocales = CanonicalizeLocaleList(locales);
+
+    // 4. Return the result of calling the SupportedLocales abstract operation (defined in
+    //    9.2.8) with arguments availableLocales, requestedLocales, and options.
+    return SupportedLocales(availableLocales, requestedLocales, options);
+};
+
+/* 10.2.3 */internals.Collator = {
+    '[[availableLocales]]': [],
+    '[[relevantExtensionKeys]]': ['co'],
+    '[[sortLocaleData]]': {},
+    '[[searchLocaleData]]': {}
+};
 
 // 11.1 The Intl.NumberFormat constructor
 // ======================================
@@ -2719,7 +2959,8 @@ var dateTimeSubsets = {
 
 
 // Exposed for debugging
-window.IntlLocaleData = localeData;
+if (typeof window !== 'undefined')
+    window.IntlLocaleData = localeData;
 
 // Helper functions
 // ================
