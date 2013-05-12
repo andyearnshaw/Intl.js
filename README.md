@@ -26,6 +26,11 @@ environments.
    - Properties of the `Intl.NumberFormat` Constructor ([11.2](http://www.ecma-international.org/ecma-402/1.0/#sec-11.2))
    - Properties of the `Intl.NumberFormat` Prototype Object ([11.3](http://www.ecma-international.org/ecma-402/1.0/#sec-11.3))
    - Properties of Intl.NumberFormat Instances([11.4](http://www.ecma-international.org/ecma-402/1.0/#sec-11.4))
+ - __`Intl.DateTimeFormat`__ 
+   - The `Intl.DateTimeFormat` constructor ([12.1](http://www.ecma-international.org/ecma-402/1.0/#sec-12.1))
+   - Properties of the `Intl.DateTimeFormat` Constructor ([12.2](http://www.ecma-international.org/ecma-402/1.0/#sec-12.2))
+   - Properties of the `Intl.DateTimeFormat` Prototype Object ([12.3](http://www.ecma-international.org/ecma-402/1.0/#sec-12.3))
+   - Properties of Intl.DateTimeFormat Instances([12.4](http://www.ecma-international.org/ecma-402/1.0/#sec-12.4))
  - Locale Sensitive Functions of the ECMAScript Language Specification
    - Properties of the `Number` Prototype Object ([13.2](http://www.ecma-international.org/ecma-402/1.0/#sec-13.2))
 
@@ -35,19 +40,20 @@ environments.
  - `BestFitSupportedLocales` internal function
  - Implementation-dependent numbering system mappings
  - Collator objects (`Intl.Collator`)
- - DateTimeFormat objects (`Intl.DateTimeFormat`)
  - Properties of the `String` prototype object
  - Properties of the `Date` prototype object
  - Test suites
 
-None of the implementation has been tested for compliance as of yet. 
+None of the implementation has been tested for compliance as of yet, and a few of the
+implemented functions may currently be non-conforming and/or incomplete.  Those functions
+have comments marked as 'TODO' in the source code.
 [test402](http://test262.ecmascript.org/testcases_intl402.html) integration is planned.
 
 ## Compatibility
 Intl.js is designed to be compatible with ECMAScript 3.1 environments in order to
 follow the specification as closely as possible. However, some consideration is given
 to legacy (ES3) environments, and the goal of this project is to at least provide a
-a non-compliant, albeit working implementation where ES5 methods are unavailable.
+working, albeit non-compliant implementation where ES5 methods are unavailable.
 
 ## Locale Data
 The main `Intl.js` file contains no locale data itself.  Instead, the data should be
