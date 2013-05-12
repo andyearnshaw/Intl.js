@@ -54,6 +54,9 @@ var
     // Keep internal properties internal
     secret = Math.random(),
 
+    // CLDR weekday key mappings
+    weekdays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'],
+
     // Some regular expressions we're using
     expInsertGroups = /(?=(?!^)(?:\d{3})+(?!\d))/g,
     expCurrencyCode = /^[A-Z]{3}$/,
@@ -1961,7 +1964,7 @@ function BasicFormatMatcher (options, formats) {
                 var
                 // 1. Let values be the array ["2-digit", "numeric", "narrow", "short",
                 //    "long"].
-                    values = [ '2-digit', 'numeric', 'narrow', 'short' ],
+                    values = [ '2-digit', 'numeric', 'narrow', 'short', 'long' ],
 
                 // 2. Let optionsPropIndex be the index of optionsProp within values.
                     optionsPropIndex = arrIndexOf.call(values, optionsProp),
@@ -2196,8 +2199,23 @@ function FormatDateTime(dateTimeFormat, x) {
             //     "timeZoneName", then the String value may also depend on the value of
             //     the [[inDST]] field of tm.
             else if (/^(?:narrow|short|long)$/.test(f)) {
-                fv = tm['[['+ p +']]'];
+                var
+                    // Need the calendar data from CLDR
+                    ca = localeData[locale].dates.calendars[internal['[[calendar]]']],
+
+                    // CLDR formats are 'abbreviated', 'wide' or 'narrow'
+                    size = f === 'short' ? 'abbreviated' : (f === 'long' ? 'wide' : f);
+
+                if (p === 'month')
+                    fv = ca.months[ca.months['default']][size][tm['[['+ p +']]']];
+
+                // For weekdays, we need to refer to our `weekdays` array
+                else if (p === 'weekday')
+                    fv = ca.days[ca.days['default']][size][weekdays[tm['[['+ p +']]']]];
+
+                else
                 // ###TODO###
+                    fv = tm['[['+ p +']]'];
             }
 
             // x. Replace the substring of result that consists of "{", p, and "}", with
@@ -2434,10 +2452,10 @@ function addLocaleData (data) {
 
 var
     // Match these datetime components in a CLDR pattern
-    expDTComponents = /[Eec]{1,6}|G{1,5}|(?:[yYu]+|U{1,5})|[ML]{1,5}|d{1,2}|a|[hk]{1,2}|m{1,2}|s{1,2}/g,
+    expDTComponents = /[Eec]{1,6}|G{1,5}|(?:[yYu]+|U{1,5})|[ML]{1,5}|d{1,2}|a|[hk]{1,2}|m{1,2}|s{1,2}|z{1-4}/g,
 
     // Skip over patterns with these datetime components
-    unwantedDTCs = /[QxXVOvzASjgFDwWIQqH]/,
+    unwantedDTCs = /[QxXVOvzZASjgFDwWIQqH]/,
 
     // Maps the number of characters in a CLDR pattern to the specification
     dtcLengthMap = {
@@ -2489,6 +2507,7 @@ function createDateTimeFormats(availableFormats) {
                     formatObj.weekday = dtcLengthMap.weekday[$0.length-1];
                     return '{weekday}';
 
+                // Not supported yet
                 case 'G':
                     formatObj.era = dtcLengthMap.era[$0.length-1];
                     return '{era}';
@@ -2524,6 +2543,9 @@ function createDateTimeFormats(availableFormats) {
                 case 's':
                     formatObj.second = $0.length === 2 ? '2-digit' : 'numeric';
                     return '{second}';
+
+                case 'z':
+                    formatObj.timeZoneName = $0.length < 4 ? 'short' : 'long';
             }
         });
 
