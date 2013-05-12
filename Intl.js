@@ -2220,16 +2220,24 @@ function FormatDateTime(dateTimeFormat, x) {
                 // CLDR formats are 'abbreviated', 'wide' or 'narrow'
                     size = f === 'short' ? 'abbreviated' : (f === 'long' ? 'wide' : f);
 
-                if (p === 'month')
-                    fv = ca.months[ca.months['default']][size][tm['[['+ p +']]']];
+                switch (p) {
+                    case 'month':
+                        fv = ca.months[ca.months['default']][size][tm['[['+ p +']]']];
+                        break;
 
-                // For weekdays, we need to refer to our `weekdays` array
-                else if (p === 'weekday')
-                    fv = ca.days[ca.days['default']][size][weekdays[tm['[['+ p +']]']]];
+                    // For weekdays, we need to refer to our `weekdays` array
+                    case 'weekday':
+                        fv = ca.days[ca.days['default']][size][weekdays[tm['[['+ p +']]']]];
+                        break;
 
-                else
-                // ###TODO### Era, time zone support
-                    fv = tm['[['+ p +']]'];
+                    case 'timeZoneName':
+                        fv = ''; // TODO
+                        break;
+
+                    // TODO: Era
+                    default:
+                        fv = tm['[['+ p +']]'];
+                }
             }
 
             // x. Replace the substring of result that consists of "{", p, and "}", with
@@ -2585,14 +2593,12 @@ function addLocaleData (data) {
             // time patterns
             hour12: !/H|K/.test(timeFormat)
         };
-
-        console.log(internals.DateTimeFormat['[[localeData]]'][locale]);
     }
 }
 
 var
     // Match these datetime components in a CLDR pattern
-    expDTComponents = /[Eec]{1,6}|G{1,5}|(?:[yYu]+|U{1,5})|[ML]{1,5}|d{1,2}|a|[hk]{1,2}|m{1,2}|s{1,2}|z{1-4}/g,
+    expDTComponents = /[Eec]{1,6}|G{1,5}|(?:[yYu]+|U{1,5})|[ML]{1,5}|d{1,2}|a|[hk]{1,2}|m{1,2}|s{1,2}|z{1,4}/g,
 
     // Skip over patterns with these datetime components
     unwantedDTCs = /[QxXVOvZASjgFDwWIQqH]/,
@@ -2686,6 +2692,7 @@ function createDateTimeFormats(availableFormats) {
 
                 case 'z':
                     formatObj.timeZoneName = $0.length < 4 ? 'short' : 'long';
+                    return '{timeZoneName}';
             }
         });
 
@@ -2697,7 +2704,6 @@ function createDateTimeFormats(availableFormats) {
         formats.push(formatObj);
     }
 
-    console.log(formats);
     return formats;
 }
 
