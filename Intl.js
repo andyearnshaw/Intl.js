@@ -65,7 +65,21 @@ var
     expBCP47Syntax,
     expExtSequences,
     expVariantDupes,
-    expSingletonDupes;
+    expSingletonDupes,
+
+    // Currency minor units output from tools/getISO4217data.js and formatted
+    currencyMinorUnits = {
+        AFN: 2, EUR: 2, ALL: 2, DZD: 2, USD: 2, AOA: 2, XCD: 2, ARS: 2,
+        AMD: 2, AWG: 2, AUD: 2, AZN: 2, BSD: 2, BHD: 3, BDT: 2, BBD: 2,
+        BYR: 0, BZD: 2, XOF: 0, BMD: 2, BTN: 2, INR: 2, BOB: 2, BOV: 2,
+        BAM: 2, BWP: 2, NOK: 2, BRL: 2, BND: 2, BGN: 2, BIF: 0, KHR: 2,
+        XAF: 0, CAD: 2, CVE: 2, KYD: 2, CLF: 0, CLP: 0, CNY: 2, COP: 2,
+        COU: 2, KMF: 0, CDF: 2, NZD: 2, CRC: 2, HRK: 2, CUC: 2, CUP: 2,
+        ANG: 2, CZK: 2, DKK: 2, DJF: 0, DOP: 2, EGP: 2, SVC: 2, ERN: 2,
+        ETB: 2, FKP: 2, FJD: 2, XPF: 0, GMD: 2, GEL: 2, GHS: 2, GIP: 2,
+        GTQ: 2, GBP: 2, GNF: 0, GYD: 2, HTG: 2, HNL: 2, HKD: 2, HUF: 2,
+        ISK: 0, IDR: 2
+    };
 
 /**
  * Defines regular expressions for various operations related to the BCP 47 syntax,
@@ -1191,8 +1205,9 @@ function CurrencyDigits(currency) {
     // 1. If the ISO 4217 currency and funds code list contains currency as an
     // alphabetic code, then return the minor unit value corresponding to the
     // currency from the list; else return 2.
-    // ###TODO###
-    return /* that first thing ? its minor unit value : */2;
+    return currencyMinorUnits[currency] !== undefined
+                ? currencyMinorUnits[currency]
+                : 2;
 }
 
 /**
@@ -2214,7 +2229,7 @@ function FormatDateTime(dateTimeFormat, x) {
                     fv = ca.days[ca.days['default']][size][weekdays[tm['[['+ p +']]']]];
 
                 else
-                // ###TODO###
+                // ###TODO### Era, time zone support
                     fv = tm['[['+ p +']]'];
             }
 
@@ -2228,11 +2243,10 @@ function FormatDateTime(dateTimeFormat, x) {
         // a. If pm is true, then let fv be an implementation and locale dependent String
         //    value representing “post meridiem”; else let fv be an implementation and
         //    locale dependent String value representing “ante meridiem”.
-
-        fv = pm ? 'pm' : 'am';  // ###TODO###
+        fv = ca.dayPeriods.format.abbreviated[pm ? 'pm' : 'am'];
 
         // b. Replace the substring of result that consists of "{ampm}", with fv.
-        result = result.replace('{ampm}', ca.dayPeriods.format.abbreviated[fv]);
+        result = result.replace('{ampm}', fv);
     }
     // 9. Return result.
     return result;
@@ -2266,7 +2280,7 @@ function ToLocalTime(date, calendar, timeZone) {
         '[[hour]]'   : d.getHours(),
         '[[minute]]' : d.getMinutes(),
         '[[second]]' : d.getSeconds(),
-        '[[inDST]]'  : false
+        '[[inDST]]'  : false // ###TODO###
     };
 }
 
