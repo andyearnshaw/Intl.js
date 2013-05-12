@@ -1769,7 +1769,7 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
     if (internal['[[hour]]']) {
         // a. If hr12 is undefined, then let hr12 be the result of calling the [[Get]]
         //    internal method of dataLocaleData with argument "hour12".
-        hr12 = hr12 || dataLocaleData.hour12;
+        hr12 = hr12 === undefined ? dataLocaleData.hour12 : hr12;
 
         // b. Set the [[hour12]] internal property of dateTimeFormat to hr12.
         internal['[[hour12]]'] = hr12;
@@ -2131,7 +2131,10 @@ function FormatDateTime(dateTimeFormat, x) {
         tm = ToLocalTime(x, internal['[[calendar]]'], internal['[[timeZone]]']),
 
     // 6. Let result be the value of the [[pattern]] internal property of dateTimeFormat.
-        result = internal['[[pattern]]'];
+        result = internal['[[pattern]]'],
+
+    // Need the calendar data from CLDR
+        ca = localeData[locale].dates.calendars[internal['[[calendar]]']];
 
     // 7. For each row of Table 3, except the header row, do:
     for (var p in dateTimeComponents) {
@@ -2159,7 +2162,7 @@ function FormatDateTime(dateTimeFormat, x) {
 
             //  vi. If p is "hour" and the value of the [[hour12]] internal property of
             //      dateTimeFormat is true, then
-            else if (p === 'hour') {
+            else if (p === 'hour' && internal['[[hour12]]'] === true) {
                 // 1. Let v be v modulo 12.
                 v = v % 12;
 
@@ -2200,10 +2203,7 @@ function FormatDateTime(dateTimeFormat, x) {
             //     the [[inDST]] field of tm.
             else if (/^(?:narrow|short|long)$/.test(f)) {
                 var
-                    // Need the calendar data from CLDR
-                    ca = localeData[locale].dates.calendars[internal['[[calendar]]']],
-
-                    // CLDR formats are 'abbreviated', 'wide' or 'narrow'
+                // CLDR formats are 'abbreviated', 'wide' or 'narrow'
                     size = f === 'short' ? 'abbreviated' : (f === 'long' ? 'wide' : f);
 
                 if (p === 'month')
@@ -2228,10 +2228,11 @@ function FormatDateTime(dateTimeFormat, x) {
         // a. If pm is true, then let fv be an implementation and locale dependent String
         //    value representing “post meridiem”; else let fv be an implementation and
         //    locale dependent String value representing “ante meridiem”.
-        fv = pm ? 'pm' : am;  // ###TODO###
+
+        fv = pm ? 'pm' : 'am';  // ###TODO###
 
         // b. Replace the substring of result that consists of "{ampm}", with fv.
-        result.replace('{ampm}', fv);
+        result = result.replace('{ampm}', ca.dayPeriods.format.abbreviated[fv]);
     }
     // 9. Return result.
     return result;
@@ -2407,6 +2408,9 @@ function addLocaleData (data) {
             patterns= [],
             timeFormats = cas[defCa].timeFormats,
             dateFormats = cas[defCa].dateFormats,
+            dtFormats   = cas[defCa].dateTimeFormats.availableFormats,
+
+            // The default time format gives us some needed information
             timeFormat = timeFormats[timeFormats['default']].timeFormat.pattern;
 
         // Get calendars supported by this locale
@@ -2420,16 +2424,19 @@ function addLocaleData (data) {
 
         // Merge all the patterns listed in the default calendar
         for (var pattern in dateFormats) {
-            if (dateFormats.hasOwnProperty(pattern) && typeof dateFormats[pattern] === 'object')
+            if (hop.call(dateFormats, pattern) && typeof dateFormats[pattern] === 'object')
                 patterns.push(dateFormats[pattern].dateFormat.pattern);
         }
 
         for (var pattern in timeFormats) {
-            if (timeFormats.hasOwnProperty(pattern) && typeof timeFormats[pattern] === 'object')
+            if (hop.call(timeFormats, pattern) && typeof timeFormats[pattern] === 'object')
                 patterns.push(timeFormats[pattern].timeFormat.pattern);
         }
 
-        patterns.concat(cas[defCa].dateTimeFormats.availableFormats);
+        for (var pattern in dtFormats) {
+            if (hop.call(dtFormats, pattern))
+                patterns.push(dtFormats[pattern]);
+        }
         formats = createDateTimeFormats(patterns);
 
         internals.DateTimeFormat['[[availableLocales]]'].push(locale);
@@ -2440,13 +2447,15 @@ function addLocaleData (data) {
             formats: formats,
 
             // Locales using 0-11 and 1-24 hours have 'k' or 'K' in their
-            // default time patterns
-            hourNo0: /k/i.test(timeFormat),
+            // default time patterns, hour0 signifies 1-12 and 0-23
+            hourNo0: !/k/i.test(timeFormat),
 
             // Locales defaulting to 24hr time have 'H' or 'K' in their default
             // time patterns
-            hour12: /H|K/.test(timeFormat)
+            hour12: !/H|K/.test(timeFormat)
         };
+
+        console.log(internals.DateTimeFormat['[[localeData]]'][locale]);
     }
 }
 
@@ -2455,7 +2464,7 @@ var
     expDTComponents = /[Eec]{1,6}|G{1,5}|(?:[yYu]+|U{1,5})|[ML]{1,5}|d{1,2}|a|[hk]{1,2}|m{1,2}|s{1,2}|z{1-4}/g,
 
     // Skip over patterns with these datetime components
-    unwantedDTCs = /[QxXVOvzZASjgFDwWIQqH]/,
+    unwantedDTCs = /[QxXVOvZASjgFDwWIQqH]/,
 
     // Maps the number of characters in a CLDR pattern to the specification
     dtcLengthMap = {
@@ -2557,6 +2566,7 @@ function createDateTimeFormats(availableFormats) {
         formats.push(formatObj);
     }
 
+    console.log(formats);
     return formats;
 }
 
