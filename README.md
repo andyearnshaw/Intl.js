@@ -33,6 +33,7 @@ environments.
    - Properties of Intl.DateTimeFormat Instances([12.4](http://www.ecma-international.org/ecma-402/1.0/#sec-12.4))
  - Locale Sensitive Functions of the ECMAScript Language Specification
    - Properties of the `Number` Prototype Object ([13.2](http://www.ecma-international.org/ecma-402/1.0/#sec-13.2))
+   - Properties of the `Date` prototype object ([13.3](http://www.ecma-international.org/ecma-402/1.0/#sec-13.3))
 
 ### Not Implemented
  - Canonicalizing language tags containing subtags that have a "Preferred-value" from 
@@ -41,7 +42,6 @@ environments.
  - Implementation-dependent numbering system mappings
  - Collator objects (`Intl.Collator`)
  - Properties of the `String` prototype object
- - Properties of the `Date` prototype object
  - Test suites
 
 None of the implementation has been tested for compliance as of yet, and a few of the

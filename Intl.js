@@ -889,8 +889,7 @@ function /*9.2.9 */GetOption (options, property, type, values, fallback) {
             // i. If values does not contain an element equal to value, then throw a
             //    RangeError exception.
             if (arrIndexOf.call(values, value) === -1)
-                throw new RangeError("'" + value + "' is not an allowed value for `"
-                                                                    + property +'`');
+                throw new RangeError("'" + value + "' is not an allowed value for `" + property +'`');
         }
 
         // e. Return value.
@@ -2312,13 +2311,17 @@ function ToLocalTime(date, calendar, timeZone) {
     return ret;
 };
 
+// Sect 13 Locale Sensitive Functions of the ECMAScript Language Specification
+// ===========================================================================
+
+/**
+ * When the toLocaleString method is called with optional arguments locales and options,
+ * the following steps are taken:
+ */
 /* 13.2.1 */defineProperty(Number.prototype, 'toLocaleString', {
     writable: true,
     configurable: true,
     value: function () {
-        // When the toLocaleString method is called with optional arguments locales
-        // and options, the following steps are taken:
-
         // 1. Let x be this Number value (as defined in ES5, 15.7.4).
         // 2. If locales is not provided, then let locales be undefined.
         // 3. If options is not provided, then let options be undefined.
@@ -2328,6 +2331,120 @@ function ToLocalTime(date, calendar, timeZone) {
         // 5. Return the result of calling the FormatNumber abstract operation
         //    (defined in 11.3.2) with arguments numberFormat and x.
         return FormatNumber(new Intl.NumberFormat(arguments[0], arguments[1]), this);
+    }
+});
+
+/**
+ * When the toLocaleString method is called with optional arguments locales and options,
+ * the following steps are taken:
+ */
+/* 13.3.1 */defineProperty(Date.prototype, 'toLocaleString', {
+    writable: true,
+    configurable: true,
+    value: function () {
+        var
+        // 1. Let x be this time value (as defined in ES5, 15.9.5).
+            x = +this;
+
+        // 2. If x is NaN, then return "Invalid Date".
+        if (isNaN(x))
+            return 'Invalid Date';
+
+        var
+        // 3. If locales is not provided, then let locales be undefined.
+            locales = arguments[0],
+
+        // 4. If options is not provided, then let options be undefined.
+            options = arguments[1],
+
+        // 5. Let options be the result of calling the ToDateTimeOptions abstract
+        //    operation (defined in 12.1.1) with arguments options, "any", and "all".
+            options = ToDateTimeOptions(options, 'any', 'all'),
+
+        // 6. Let dateTimeFormat be the result of creating a new object as if by the
+        //    expression new Intl.DateTimeFormat(locales, options) where
+        //    Intl.DateTimeFormat is the standard built-in constructor defined in 12.1.3.
+            dateTimeFormat = new Intl.DateTimeFormat(locales, options);
+
+        // 7. Return the result of calling the FormatDateTime abstract operation (defined
+        //    in 12.3.2) with arguments dateTimeFormat and x.
+        return FormatDateTime(dateTimeFormat, x);
+    }
+});
+
+/**
+ * When the toLocaleDateString method is called with optional arguments locales and
+ * options, the following steps are taken:
+ */
+/* 13.3.2 */defineProperty(Date.prototype, 'toLocaleDateString', {
+    writable: true,
+    configurable: true,
+    value: function () {
+        var
+        // 1. Let x be this time value (as defined in ES5, 15.9.5).
+            x = +this;
+
+        // 2. If x is NaN, then return "Invalid Date".
+        if (isNaN(x))
+            return 'Invalid Date';
+
+        var
+        // 3. If locales is not provided, then let locales be undefined.
+            locales = arguments[0],
+
+        // 4. If options is not provided, then let options be undefined.
+            options = arguments[1],
+
+        // 5. Let options be the result of calling the ToDateTimeOptions abstract
+        //    operation (defined in 12.1.1) with arguments options, "date", and "date".
+            options = ToDateTimeOptions(options, 'date', 'date'),
+
+        // 6. Let dateTimeFormat be the result of creating a new object as if by the
+        //    expression new Intl.DateTimeFormat(locales, options) where
+        //    Intl.DateTimeFormat is the standard built-in constructor defined in 12.1.3.
+            dateTimeFormat = new Intl.DateTimeFormat(locales, options);
+
+        // 7. Return the result of calling the FormatDateTime abstract operation (defined
+        //    in 12.3.2) with arguments dateTimeFormat and x.
+        return FormatDateTime(dateTimeFormat, x);
+    }
+});
+
+/**
+ * When the toLocaleTimeString method is called with optional arguments locales and
+ * options, the following steps are taken:
+ */
+/* 13.3.3 */defineProperty(Date.prototype, 'toLocaleTimeString', {
+    writable: true,
+    configurable: true,
+    value: function () {
+        var
+        // 1. Let x be this time value (as defined in ES5, 15.9.5).
+            x = +this;
+
+        // 2. If x is NaN, then return "Invalid Date".
+        if (isNaN(x))
+            return 'Invalid Date';
+
+        var
+        // 3. If locales is not provided, then let locales be undefined.
+            locales = arguments[0],
+
+        // 4. If options is not provided, then let options be undefined.
+            options = arguments[1],
+
+        // 5. Let options be the result of calling the ToDateTimeOptions abstract
+        //    operation (defined in 12.1.1) with arguments options, "time", and "time".
+            options = ToDateTimeOptions(options, 'time', 'time'),
+
+        // 6. Let dateTimeFormat be the result of creating a new object as if by the
+        //    expression new Intl.DateTimeFormat(locales, options) where
+        //    Intl.DateTimeFormat is the standard built-in constructor defined in 12.1.3.
+            dateTimeFormat = new Intl.DateTimeFormat(locales, options);
+
+        // 7. Return the result of calling the FormatDateTime abstract operation (defined
+        //    in 12.3.2) with arguments dateTimeFormat and x.
+        return FormatDateTime(dateTimeFormat, x);
     }
 });
 
