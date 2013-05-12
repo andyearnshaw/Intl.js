@@ -53,7 +53,7 @@ have comments marked as 'TODO' in the source code.
 Intl.js is designed to be compatible with ECMAScript 3.1 environments in order to
 follow the specification as closely as possible. However, some consideration is given
 to legacy (ES3) environments, and the goal of this project is to at least provide a
-non-compliant, albeit working implementation where ES5 methods are unavailable.
+working, albeit non-compliant implementation where ES5 methods are unavailable.
 
 ## Locale Data
 The main `Intl.js` file contains no locale data itself.  Instead, the data should be
