@@ -1184,7 +1184,7 @@ var collatorOptions = {
 
 /* 10.2.3 */internals.Collator = {
     '[[availableLocales]]': [],
-    '[[relevantExtensionKeys]]': ['co'],
+    '[[relevantExtensionKeys]]': ['co', 'kn', 'kf'],
     '[[sortLocaleData]]': {},
     '[[searchLocaleData]]': {}
 };
@@ -2728,6 +2728,20 @@ function addLocaleData (data) {
         locale += '-' + add;
 
     localeData[locale] = data;
+
+    // Add to Collator internal properties as per 10.2.3
+    if (data.characters) {
+        internals.Collator['[[availableLocales]]'].push(locale);
+        internals.Collator['[[sortLocaleData]]'][locale] = {
+            co: [null],
+
+            // Always the default for sortLocaleData
+            sensitivity: 'variant'
+        };
+        internals.Collator['[[searchLocaleData]]'][locale] = {
+            co: [null]
+        };
+    }
 
     // Add to NumberFormat internal properties as per 11.2.3
     if (data.numbers) {
