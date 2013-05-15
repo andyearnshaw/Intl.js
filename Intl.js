@@ -2766,6 +2766,7 @@ function addLocaleData (data) {
         var currencyPattern =
                 data.numbers['currencyFormats-numberSystem-'+defNumSys]
                     .standard.currencyFormat.pattern
+                        .split(';')[0]
                         .replace('#,##0.00', '{number}')
                         .replace('¤', '{currency}'),
 
