@@ -61,9 +61,10 @@ provided, parsed into a JavaScript object, using the `Intl.__addLocaleData()` me
 
 `Intl.js` uses the Unicode CLDR locale data, as recommended by the specification.
 Some of the data from CLDR version 22.1 is currently available in JSON and JSONP
-formats in the `locale-data` folder of this repository.  The rest is available from
-the main [CLDR repository](http://www.unicode.org/repos/cldr-aux/json/22.1/).
+formats in the `locale-data` folder of this repository.
 
-At the time of writing, it appears the version 23.1 locale is in the process of being
-converted to JSON. Once this process is complete, the data will be made available from
-this repository for convenience.
+Work is in progress to convert the 23.1 data to JSON format.  The tools folder contains
+a Node.js script that automates the process to extract only the data needed by Intl.js.
+However, the script doesn't support converting the collation data to JSON (yet), and
+some of the localisation data in the version 22.1 files appears to be missing from the
+23.1 data.
