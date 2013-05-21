@@ -2745,7 +2745,7 @@ function addLocaleData (data) {
 
     // Add to NumberFormat internal properties as per 11.2.3
     if (data.numbers) {
-        var defNumSys = data.numbers.defaultNumberingSystem,
+        var defNumSys = data.numbers.defaultNumberingSystem || 'latn',
             nu = [ defNumSys ],
 
             // 11.2.3 says nu can't contain these:
