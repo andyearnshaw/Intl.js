@@ -1,0 +1,178 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "ia",
+        "territory": "FR"
+    },
+    "dates": {
+        "calendars": {
+            "generic": {
+                "dateFormats": {
+                    "full": "EEEE, G y MMMM dd",
+                    "long": "G y MMMM d",
+                    "medium": "G y MMM d",
+                    "short": "GGGGG yy/MM/dd"
+                }
+            },
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "jan",
+                            "2": "feb",
+                            "3": "mar",
+                            "4": "apr",
+                            "5": "mai",
+                            "6": "jun",
+                            "7": "jul",
+                            "8": "aug",
+                            "9": "sep",
+                            "10": "oct",
+                            "11": "nov",
+                            "12": "dec"
+                        },
+                        "wide": {
+                            "1": "januario",
+                            "2": "februario",
+                            "3": "martio",
+                            "4": "april",
+                            "5": "maio",
+                            "6": "junio",
+                            "7": "julio",
+                            "8": "augusto",
+                            "9": "septembre",
+                            "10": "octobre",
+                            "11": "novembre",
+                            "12": "decembre"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "dom",
+                            "mon": "lun",
+                            "tue": "mar",
+                            "wed": "mer",
+                            "thu": "jov",
+                            "fri": "ven",
+                            "sat": "sab"
+                        },
+                        "wide": {
+                            "sun": "dominica",
+                            "mon": "lunedi",
+                            "tue": "martedi",
+                            "wed": "mercuridi",
+                            "thu": "jovedi",
+                            "fri": "venerdi",
+                            "sat": "sabbato"
+                        }
+                    }
+                },
+                "quarters": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "T1",
+                            "2": "T2",
+                            "3": "T3",
+                            "4": "T4"
+                        },
+                        "wide": {
+                            "1": "1-me trimestre",
+                            "2": "2-nde trimestre",
+                            "3": "3-tie trimestre",
+                            "4": "4-te trimestre"
+                        }
+                    }
+                },
+                "dayPeriods": {
+                    "format": {
+                        "wide": {
+                            "am": "a.m.",
+                            "pm": "p.m."
+                        }
+                    }
+                },
+                "eras": {
+                    "eraNames": {
+                        "0": "ante Christo",
+                        "1": "post Christo"
+                    },
+                    "eraAbbr": {
+                        "0": "a.Chr.",
+                        "1": "p.Chr."
+                    }
+                },
+                "dateFormats": {
+                    "full": "EEEE, y MMMM dd",
+                    "long": "y MMMM d",
+                    "medium": "y MMM d",
+                    "short": "yy/MM/dd"
+                },
+                "timeFormats": {
+                    "full": "HH:mm:ss zzzz",
+                    "long": "HH:mm:ss z",
+                    "medium": "HH:mm:ss",
+                    "short": "HH:mm"
+                }
+            }
+        },
+        "timeZoneNames": {
+            "zone": {
+                "America": {
+                    "Grenada": {
+                        "exemplarCity": "Granada"
+                    },
+                    "Martinique": {
+                        "exemplarCity": "Martinica"
+                    },
+                    "Puerto_Rico": {
+                        "exemplarCity": "Porto Rico"
+                    }
+                },
+                "Atlantic": {
+                    "Cape_Verde": {
+                        "exemplarCity": "Capo Verde"
+                    }
+                },
+                "Europe": {
+                    "Luxembourg": {
+                        "exemplarCity": "Luxemburg"
+                    }
+                },
+                "Africa": {
+                    "Djibouti": {
+                        "exemplarCity": "Djibuti"
+                    }
+                },
+                "Asia": {
+                    "Hong_Kong": {
+                        "exemplarCity": "Hongkong"
+                    }
+                },
+                "Indian": {
+                    "Maldives": {
+                        "exemplarCity": "Maldivas"
+                    },
+                    "Mauritius": {
+                        "exemplarCity": "Mauritio"
+                    },
+                    "Mayotte": {
+                        "exemplarCity": "Mayotta"
+                    }
+                },
+                "Pacific": {
+                    "Pitcairn": {
+                        "exemplarCity": "Insula Pitcairn"
+                    }
+                }
+            }
+        }
+    }
+}

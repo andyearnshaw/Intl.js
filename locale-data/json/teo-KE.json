@@ -1,0 +1,221 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "teo",
+        "territory": "KE"
+    },
+    "numbers": {
+        "currencies": {
+            "KES": {
+                "symbol": "Ksh"
+            },
+            "UGX": {
+                "symbol": "USh"
+            }
+        },
+        "currencyFormats-numberSystem-latn": {
+            "standard": {
+                "currencyFormat": {
+                    "pattern": "¤#,##0.00;(¤#,##0.00)"
+                }
+            }
+        }
+    },
+    "dates": {
+        "calendars": {
+            "generic": {
+                "dateFormats": {
+                    "full": "EEEE, d MMMM y G",
+                    "long": "d MMMM y G",
+                    "medium": "d MMM y G",
+                    "short": "dd/MM/y GGGGG"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M/d",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "MMMMd": "MMMM d",
+                        "MMMMEd": "E, MMMM d",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMEd": "E, M/d/y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E, MMM d, y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            },
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "Rar",
+                            "2": "Muk",
+                            "3": "Kwa",
+                            "4": "Dun",
+                            "5": "Mar",
+                            "6": "Mod",
+                            "7": "Jol",
+                            "8": "Ped",
+                            "9": "Sok",
+                            "10": "Tib",
+                            "11": "Lab",
+                            "12": "Poo"
+                        },
+                        "wide": {
+                            "1": "Orara",
+                            "2": "Omuk",
+                            "3": "Okwamg'",
+                            "4": "Odung'el",
+                            "5": "Omaruk",
+                            "6": "Omodok'king'ol",
+                            "7": "Ojola",
+                            "8": "Opedel",
+                            "9": "Osokosokoma",
+                            "10": "Otibar",
+                            "11": "Olabor",
+                            "12": "Opoo"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "1": "R",
+                            "2": "M",
+                            "3": "K",
+                            "4": "D",
+                            "5": "M",
+                            "6": "M",
+                            "7": "J",
+                            "8": "P",
+                            "9": "S",
+                            "10": "T",
+                            "11": "L",
+                            "12": "P"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "Jum",
+                            "mon": "Bar",
+                            "tue": "Aar",
+                            "wed": "Uni",
+                            "thu": "Ung",
+                            "fri": "Kan",
+                            "sat": "Sab"
+                        },
+                        "wide": {
+                            "sun": "Nakaejuma",
+                            "mon": "Nakaebarasa",
+                            "tue": "Nakaare",
+                            "wed": "Nakauni",
+                            "thu": "Nakaung'on",
+                            "fri": "Nakakany",
+                            "sat": "Nakasabiti"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "sun": "J",
+                            "mon": "B",
+                            "tue": "A",
+                            "wed": "U",
+                            "thu": "U",
+                            "fri": "K",
+                            "sat": "S"
+                        }
+                    }
+                },
+                "quarters": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "K1",
+                            "2": "K2",
+                            "3": "K3",
+                            "4": "K4"
+                        },
+                        "wide": {
+                            "1": "Akwota abe",
+                            "2": "Akwota Aane",
+                            "3": "Akwota auni",
+                            "4": "Akwota Aung'on"
+                        }
+                    }
+                },
+                "dayPeriods": {
+                    "format": {
+                        "wide": {
+                            "am": "Taparachu",
+                            "pm": "Ebongi"
+                        }
+                    }
+                },
+                "eras": {
+                    "eraNames": {
+                        "0": "Kabla ya Christo",
+                        "1": "Baada ya Christo"
+                    },
+                    "eraAbbr": {
+                        "0": "KK",
+                        "1": "BK"
+                    }
+                },
+                "dateFormats": {
+                    "full": "EEEE, d MMMM y",
+                    "long": "d MMMM y",
+                    "medium": "d MMM y",
+                    "short": "dd/MM/y"
+                },
+                "timeFormats": {
+                    "full": "h:mm:ss a zzzz",
+                    "long": "h:mm:ss a z",
+                    "medium": "h:mm:ss a",
+                    "short": "h:mm a"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M/d",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "MMMMd": "MMMM d",
+                        "MMMMEd": "E, MMMM d",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMEd": "E, M/d/y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E, MMM d, y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            }
+        }
+    }
+}

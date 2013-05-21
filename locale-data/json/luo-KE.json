@@ -1,0 +1,218 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "luo",
+        "territory": "KE"
+    },
+    "dates": {
+        "calendars": {
+            "generic": {
+                "dateFormats": {
+                    "full": "EEEE, d MMMM y G",
+                    "long": "d MMMM y G",
+                    "medium": "d MMM y G",
+                    "short": "dd/MM/y GGGGG"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M/d",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "MMMMd": "MMMM d",
+                        "MMMMEd": "E, MMMM d",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMEd": "E, M/d/y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E, MMM d, y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            },
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "DAC",
+                            "2": "DAR",
+                            "3": "DAD",
+                            "4": "DAN",
+                            "5": "DAH",
+                            "6": "DAU",
+                            "7": "DAO",
+                            "8": "DAB",
+                            "9": "DOC",
+                            "10": "DAP",
+                            "11": "DGI",
+                            "12": "DAG"
+                        },
+                        "wide": {
+                            "1": "Dwe mar Achiel",
+                            "2": "Dwe mar Ariyo",
+                            "3": "Dwe mar Adek",
+                            "4": "Dwe mar Ang'wen",
+                            "5": "Dwe mar Abich",
+                            "6": "Dwe mar Auchiel",
+                            "7": "Dwe mar Abiriyo",
+                            "8": "Dwe mar Aboro",
+                            "9": "Dwe mar Ochiko",
+                            "10": "Dwe mar Apar",
+                            "11": "Dwe mar gi achiel",
+                            "12": "Dwe mar Apar gi ariyo"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "1": "C",
+                            "2": "R",
+                            "3": "D",
+                            "4": "N",
+                            "5": "B",
+                            "6": "U",
+                            "7": "B",
+                            "8": "B",
+                            "9": "C",
+                            "10": "P",
+                            "11": "C",
+                            "12": "P"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "JMP",
+                            "mon": "WUT",
+                            "tue": "TAR",
+                            "wed": "TAD",
+                            "thu": "TAN",
+                            "fri": "TAB",
+                            "sat": "NGS"
+                        },
+                        "wide": {
+                            "sun": "Jumapil",
+                            "mon": "Wuok Tich",
+                            "tue": "Tich Ariyo",
+                            "wed": "Tich Adek",
+                            "thu": "Tich Ang'wen",
+                            "fri": "Tich Abich",
+                            "sat": "Ngeso"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "sun": "J",
+                            "mon": "W",
+                            "tue": "T",
+                            "wed": "T",
+                            "thu": "T",
+                            "fri": "T",
+                            "sat": "N"
+                        }
+                    }
+                },
+                "quarters": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "NMN1",
+                            "2": "NMN2",
+                            "3": "NMN3",
+                            "4": "NMN4"
+                        },
+                        "wide": {
+                            "1": "nus mar nus 1",
+                            "2": "nus mar nus 2",
+                            "3": "nus mar nus 3",
+                            "4": "nus mar nus 4"
+                        }
+                    }
+                },
+                "dayPeriods": {
+                    "format": {
+                        "wide": {
+                            "am": "OD",
+                            "pm": "OT"
+                        }
+                    }
+                },
+                "eras": {
+                    "eraNames": {
+                        "0": "Kapok Kristo obiro",
+                        "1": "Ka Kristo osebiro"
+                    },
+                    "eraAbbr": {
+                        "0": "BC",
+                        "1": "AD"
+                    }
+                },
+                "dateFormats": {
+                    "full": "EEEE, d MMMM y",
+                    "long": "d MMMM y",
+                    "medium": "d MMM y",
+                    "short": "dd/MM/y"
+                },
+                "timeFormats": {
+                    "full": "h:mm:ss a zzzz",
+                    "long": "h:mm:ss a z",
+                    "medium": "h:mm:ss a",
+                    "short": "h:mm a"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M/d",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "MMMMd": "MMMM d",
+                        "MMMMEd": "E, MMMM d",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMEd": "E, M/d/y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E, MMM d, y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            }
+        }
+    },
+    "numbers": {
+        "currencyFormats-numberSystem-latn": {
+            "standard": {
+                "currencyFormat": {
+                    "pattern": "#,##0.00¤"
+                }
+            }
+        },
+        "currencies": {
+            "KES": {
+                "symbol": "Ksh"
+            }
+        }
+    }
+}

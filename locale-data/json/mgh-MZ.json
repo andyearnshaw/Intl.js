@@ -1,0 +1,197 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "mgh",
+        "territory": "MZ"
+    },
+    "dates": {
+        "calendars": {
+            "generic": {
+                "dateFormats": {
+                    "full": "EEEE, d MMMM y G",
+                    "long": "d MMMM y G",
+                    "medium": "d MMM y G",
+                    "short": "dd/MM/y GGGGG"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "Ed": "E d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "hms": "h:mm:ss a",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "d/M",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "ms": "m:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMd": "d/M/y",
+                        "yMEd": "E, M/d/y",
+                        "yMMM": "MMM y",
+                        "yMMMd": "MMM d, y",
+                        "yMMMEd": "E, MMM d, y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            },
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "Kwa",
+                            "2": "Una",
+                            "3": "Rar",
+                            "4": "Che",
+                            "5": "Tha",
+                            "6": "Moc",
+                            "7": "Sab",
+                            "8": "Nan",
+                            "9": "Tis",
+                            "10": "Kum",
+                            "11": "Moj",
+                            "12": "Yel"
+                        },
+                        "wide": {
+                            "1": "Mweri wo kwanza",
+                            "2": "Mweri wo unayeli",
+                            "3": "Mweri wo uneraru",
+                            "4": "Mweri wo unecheshe",
+                            "5": "Mweri wo unethanu",
+                            "6": "Mweri wo thanu na mocha",
+                            "7": "Mweri wo saba",
+                            "8": "Mweri wo nane",
+                            "9": "Mweri wo tisa",
+                            "10": "Mweri wo kumi",
+                            "11": "Mweri wo kumi na moja",
+                            "12": "Mweri wo kumi na yel'li"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "1": "K",
+                            "2": "U",
+                            "3": "R",
+                            "4": "C",
+                            "5": "T",
+                            "6": "M",
+                            "7": "S",
+                            "8": "N",
+                            "9": "T",
+                            "10": "K",
+                            "11": "M",
+                            "12": "Y"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "Sab",
+                            "mon": "Jtt",
+                            "tue": "Jnn",
+                            "wed": "Jtn",
+                            "thu": "Ara",
+                            "fri": "Iju",
+                            "sat": "Jmo"
+                        },
+                        "wide": {
+                            "sun": "Sabato",
+                            "mon": "Jumatatu",
+                            "tue": "Jumanne",
+                            "wed": "Jumatano",
+                            "thu": "Arahamisi",
+                            "fri": "Ijumaa",
+                            "sat": "Jumamosi"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "sun": "S",
+                            "mon": "J",
+                            "tue": "J",
+                            "wed": "J",
+                            "thu": "A",
+                            "fri": "I",
+                            "sat": "J"
+                        }
+                    }
+                },
+                "dayPeriods": {
+                    "format": {
+                        "wide": {
+                            "am": "wichishu",
+                            "pm": "mchochil'l"
+                        }
+                    }
+                },
+                "eras": {
+                    "eraNames": {
+                        "0": "Hinapiya yesu",
+                        "1": "Yopia yesu"
+                    },
+                    "eraAbbr": {
+                        "0": "HY",
+                        "1": "YY"
+                    }
+                },
+                "dateFormats": {
+                    "full": "EEEE, d MMMM y",
+                    "long": "d MMMM y",
+                    "medium": "d MMM y",
+                    "short": "dd/MM/y"
+                },
+                "timeFormats": {
+                    "full": "h:mm:ss a zzzz",
+                    "long": "h:mm:ss a z",
+                    "medium": "h:mm:ss a",
+                    "short": "h:mm a"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "Ed": "E d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "hms": "h:mm:ss a",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "d/M",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "ms": "m:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMd": "d/M/y",
+                        "yMEd": "E, M/d/y",
+                        "yMMM": "MMM y",
+                        "yMMMd": "MMM d, y",
+                        "yMMMEd": "E, MMM d, y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            }
+        }
+    },
+    "numbers": {
+        "currencies": {
+            "MZN": {
+                "symbol": "MTn"
+            }
+        }
+    }
+}

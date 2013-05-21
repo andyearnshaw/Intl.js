@@ -1,0 +1,725 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "my"
+    },
+    "dates": {
+        "calendars": {
+            "generic": {
+                "dateFormats": {
+                    "full": "EEEE, G y MMMM dd",
+                    "long": "G y MMMM d",
+                    "medium": "G y MMM d",
+                    "short": "GGGGG yy/MM/dd"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "Ed": "E, d",
+                        "H": "HH",
+                        "Hm": "HH:mm",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M/d",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "MMMMd": "MMMM d",
+                        "MMMMEd": "E, MMMM d",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "y/M",
+                        "yMEd": "E, y/M/d",
+                        "yMMM": "y MMM",
+                        "yMMMEd": "E, y MMM d",
+                        "yMMMM": "y MMMM",
+                        "yQQQ": "y QQQ",
+                        "yQQQQ": "y QQQQ"
+                    }
+                }
+            },
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "ဇန်",
+                            "2": "ဖေ",
+                            "3": "မတ်",
+                            "4": "ဧ",
+                            "5": "မေ",
+                            "6": "ဇွန်",
+                            "7": "ဇူ",
+                            "8": "ဩ",
+                            "9": "စက်",
+                            "10": "အောက်",
+                            "11": "နို",
+                            "12": "ဒီ"
+                        },
+                        "wide": {
+                            "1": "ဇန်နဝါရီ",
+                            "2": "ဖေဖော်ဝါရီ",
+                            "3": "မတ်",
+                            "4": "ဧပြီ",
+                            "5": "မေ",
+                            "6": "ဇွန်",
+                            "7": "ဇူလိုင်",
+                            "8": "ဩဂုတ်",
+                            "9": "စက်တင်ဘာ",
+                            "10": "အောက်တိုဘာ",
+                            "11": "နိုဝင်ဘာ",
+                            "12": "ဒီဇင်ဘာ"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "1": "ဇ",
+                            "2": "ဖ",
+                            "3": "မ",
+                            "4": "ဧ",
+                            "5": "မ",
+                            "6": "ဇ",
+                            "7": "ဇ",
+                            "8": "ဩ",
+                            "9": "စ",
+                            "10": "အ",
+                            "11": "န",
+                            "12": "ဒ"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "နွေ",
+                            "mon": "လာ",
+                            "tue": "ဂါ",
+                            "wed": "ဟူး",
+                            "thu": "တေး",
+                            "fri": "ကြာ",
+                            "sat": "နေ"
+                        },
+                        "wide": {
+                            "sun": "တနင်္ဂနွေ",
+                            "mon": "တနင်္လာ",
+                            "tue": "အင်္ဂါ",
+                            "wed": "ဗုဒ္ဓဟူး",
+                            "thu": "ကြာသပတေး",
+                            "fri": "သောကြာ",
+                            "sat": "စနေ"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "sun": "တ",
+                            "mon": "တ",
+                            "tue": "အ",
+                            "wed": "ဗ",
+                            "thu": "က",
+                            "fri": "သ",
+                            "sat": "စ"
+                        }
+                    }
+                },
+                "quarters": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "ပ-စိတ်",
+                            "2": "ဒု-စိတ်",
+                            "3": "တ-စိတ်",
+                            "4": "စ-စိတ်"
+                        },
+                        "wide": {
+                            "1": "ပထမ သုံးလပတ်",
+                            "2": "ဒုတိယ သုံးလပတ်",
+                            "3": "တတိယ သုံးလပတ်",
+                            "4": "စတုတ္ထ သုံးလပတ်"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "1": "ပ",
+                            "2": "ဒု",
+                            "3": "တ",
+                            "4": "စ"
+                        }
+                    }
+                },
+                "dayPeriods": {
+                    "format": {
+                        "wide": {
+                            "am": "နံနက်",
+                            "pm": "ညနေ"
+                        }
+                    }
+                },
+                "eras": {
+                    "eraNames": {
+                        "0": "ခရစ်တော် မပေါ်မီကာလ",
+                        "1": "ခရစ်တော် ပေါ်ထွန်းပြီးကာလ"
+                    },
+                    "eraAbbr": {
+                        "0": "ဘီစီ",
+                        "1": "အေဒီ"
+                    }
+                },
+                "dateFormats": {
+                    "full": "EEEE, y MMMM dd",
+                    "long": "y MMMM d",
+                    "medium": "y MMM d",
+                    "short": "yy/MM/dd"
+                },
+                "timeFormats": {
+                    "full": "HH:mm:ss zzzz",
+                    "long": "HH:mm:ss z",
+                    "medium": "HH:mm:ss",
+                    "short": "HH:mm"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "Ed": "E, d",
+                        "H": "HH",
+                        "Hm": "HH:mm",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M/d",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "MMMMd": "MMMM d",
+                        "MMMMEd": "E, MMMM d",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "y/M",
+                        "yMEd": "E, y/M/d",
+                        "yMMM": "y MMM",
+                        "yMMMEd": "E, y MMM d",
+                        "yMMMM": "y MMMM",
+                        "yQQQ": "y QQQ",
+                        "yQQQQ": "y QQQQ"
+                    }
+                }
+            }
+        },
+        "timeZoneNames": {
+            "zone": {
+                "America": {
+                    "Anchorage": {
+                        "exemplarCity": "အန်ကာရေ့ဂျ်"
+                    },
+                    "Campo_Grande": {
+                        "exemplarCity": "ကိမ်ပို ဂရန်ဒ"
+                    },
+                    "Chicago": {
+                        "exemplarCity": "ချီကာကို"
+                    },
+                    "Denver": {
+                        "exemplarCity": "ဒင်ဗာ"
+                    },
+                    "Indianapolis": {
+                        "exemplarCity": "အင်ဒီယားနားပိုလစ်"
+                    },
+                    "Los_Angeles": {
+                        "exemplarCity": "လော့စ်အိန်ဂျယ်လိစ်"
+                    },
+                    "New_York": {
+                        "exemplarCity": "နယူးယောက်"
+                    },
+                    "Phoenix": {
+                        "exemplarCity": "ဖီးနစ်"
+                    },
+                    "Rio_Branco": {
+                        "exemplarCity": "ရီယို ဗြန်ကို"
+                    },
+                    "Sao_Paulo": {
+                        "exemplarCity": "ဆာပိုလို"
+                    }
+                },
+                "Pacific": {
+                    "Honolulu": {
+                        "exemplarCity": "ဟိုနိုလူလူ"
+                    }
+                },
+                "Etc": {
+                    "Unknown": {
+                        "exemplarCity": "မသိသော"
+                    }
+                }
+            },
+            "metazone": {
+                "Afghanistan": {
+                    "long": {
+                        "standard": "အာဖဂန်နစ္စတန် အချိန်"
+                    }
+                },
+                "Africa_Central": {
+                    "long": {
+                        "standard": "အလယ်ပိုင်း အာဖရိက အချိန်"
+                    }
+                },
+                "Africa_Eastern": {
+                    "long": {
+                        "standard": "အရှေ့ပိုင်း အာဖရိက အချိန်"
+                    }
+                },
+                "Africa_Southern": {
+                    "long": {
+                        "standard": "တောင်အာဖရိက အချိန်"
+                    }
+                },
+                "Africa_Western": {
+                    "long": {
+                        "generic": "အနောက်ပိုင်း အာဖရိက အချိန်",
+                        "standard": "အနောက်ပိုင်း အာဖရိက စံတော်ချိန်",
+                        "daylight": "အနောက်ပိုင်း အာဖရိက နွေရာသီ အချိန်"
+                    }
+                },
+                "America_Central": {
+                    "long": {
+                        "generic": "အလယ်ပိုင်း အမေရိက အချိန်",
+                        "standard": "အလယ်ပိုင်း အမေရိက စံတော်ချိန်",
+                        "daylight": "အလယ်ပိုင်း အမေရိက နွေရာသီ အချိန်"
+                    }
+                },
+                "America_Eastern": {
+                    "long": {
+                        "generic": "အရှေ့ပိုင်း အမေရိက အချိန်",
+                        "standard": "အရှေ့ပိုင်း အမေရိက စံတော်ချိန်",
+                        "daylight": "အရှေ့ပိုင်း အမေရိက နေ့ပိုင်း အချိန်"
+                    }
+                },
+                "America_Mountain": {
+                    "long": {
+                        "generic": "အမေရိက တောင် အချိန်",
+                        "standard": "အမေရိက တောင် စံတော်ချိန်",
+                        "daylight": "အမေရိက တောင် နေ့ပိုင်း အချိန်"
+                    }
+                },
+                "America_Pacific": {
+                    "long": {
+                        "generic": "ပစိဖိတ် အချိန်",
+                        "standard": "ပစိဖိတ် စံတော်ချိန်",
+                        "daylight": "ပစိဖိတ် နေ့ပိုင်း အချိန်"
+                    }
+                },
+                "Arabian": {
+                    "long": {
+                        "generic": "အာရေဗျ အချိန်",
+                        "standard": "အာရေဗျ စံတော်ချိန်",
+                        "daylight": "အာရေဗျ နေ့ပိုင်း အချိန်"
+                    }
+                },
+                "Argentina": {
+                    "long": {
+                        "generic": "အာဂျင်တီးနား အချိန်",
+                        "standard": "အာဂျင်တီးနား စံတော်ချိန်",
+                        "daylight": "အာဂျင်တီးနား နွေရာသီ အချိန်"
+                    }
+                },
+                "Argentina_Western": {
+                    "long": {
+                        "generic": "အနောက် အာဂျင်တီးနား အချိန်",
+                        "standard": "အနောက် အာဂျင်တီးနား စံတော်ချိန်",
+                        "daylight": "အနောက် အာဂျင်တီးနား နွေရာသီ အချိန်"
+                    }
+                },
+                "Armenia": {
+                    "long": {
+                        "generic": "အာမေနီးယား အချိန်",
+                        "standard": "အာမေနီးယား စံတော်ချိန်",
+                        "daylight": "အာမေနီးယား နွေရာသီ အချိန်"
+                    }
+                },
+                "Atlantic": {
+                    "long": {
+                        "generic": "အတ္ထလန်တစ် အချိန်",
+                        "standard": "အတ္ထလန်တစ် စံတော်ချိန်",
+                        "daylight": "အတ္ထလန်တစ် နေ့ပိုင်း အချိန်"
+                    }
+                },
+                "Australia_Central": {
+                    "long": {
+                        "generic": "အလယ်ဩစတြေးလျှား အချိန်",
+                        "standard": "အလယ်ပိုင်း ဩစတြေးလျှား စံတော်ချိန်",
+                        "daylight": "အလယ်ပိုင်း ဩစတြေးလျှား နေ့ပိုင်း အချိန်"
+                    }
+                },
+                "Australia_CentralWestern": {
+                    "long": {
+                        "generic": "အလယ်အနောက်ပိုင်း ဩစတြေးလျှား အချိန်",
+                        "standard": "အလယ်အနောက်ပိုင်း ဩစတြေးလျှား စံတော်ချိန်",
+                        "daylight": "အလယ်အနောက်ပိုင်း ဩစတြေးလျှား နေ့ပိုင်း အချိန်"
+                    }
+                },
+                "Australia_Eastern": {
+                    "long": {
+                        "generic": "အရှေ့ဩစတြေးလျှား အချိန်",
+                        "standard": "အရှေ့ပိုင်း ဩစတြေးလျှား စံတော်ချိန်",
+                        "daylight": "အရှေ့ပိုင်း ဩစတြေးလျှား နေ့ပိုင်း အချိန်"
+                    }
+                },
+                "Australia_Western": {
+                    "long": {
+                        "generic": "အနောက် ဩစတြေးလျှား အချိန်",
+                        "standard": "အနောက်ပိုင်း ဩစတြေးလျှား စံတော်ချိန်",
+                        "daylight": "အနောက်ပိုင်း ဩစတြေးလျှား နေ့ပိုင်း အချိန်"
+                    }
+                },
+                "Azerbaijan": {
+                    "long": {
+                        "generic": "အဇာဘိုင်ဂျန် အချိန်",
+                        "standard": "အဇာဘိုင်ဂျန် စံတော်ချိန်",
+                        "daylight": "အဇာဘိုင်ဂျန် နွေရာသီ အချိန်"
+                    }
+                },
+                "Bangladesh": {
+                    "long": {
+                        "generic": "ဘင်္ဂလားဒေ့ရှ် အချိန်",
+                        "standard": "ဘင်္ဂလားဒေ့ရှ် စံတော်ချိန်",
+                        "daylight": "ဘင်္ဂလားဒေ့ရှ် နွေရာသီ အချိန်"
+                    }
+                },
+                "Bhutan": {
+                    "long": {
+                        "standard": "ဘူတန် အချိန်"
+                    }
+                },
+                "Bolivia": {
+                    "long": {
+                        "standard": "ဘိုလီးဘီးယား အချိန်"
+                    }
+                },
+                "Brasilia": {
+                    "long": {
+                        "generic": "ဘရာဇီး အချိန်",
+                        "standard": "ဘရာဇီး စံတော်ချိန်",
+                        "daylight": "ဘရာဇီး နွေရာသီ အချိန်"
+                    }
+                },
+                "Brunei": {
+                    "long": {
+                        "standard": "ဘရူနိုင်း စံတော်ချိန်"
+                    }
+                },
+                "Chile": {
+                    "long": {
+                        "generic": "ချီလီ အချိန်",
+                        "standard": "ချီလီ စံတော်ချိန်",
+                        "daylight": "ချီလီ နွေရာသီ အချိန်"
+                    }
+                },
+                "China": {
+                    "long": {
+                        "generic": "တရုတ် အချိန်",
+                        "standard": "တရုတ် စံတော်ချိန်",
+                        "daylight": "တရုတ် နေ့ပိုင်း အချိန်"
+                    }
+                },
+                "Colombia": {
+                    "long": {
+                        "generic": "ကိုလံဘီယာ အချိန်",
+                        "standard": "ကိုလံဘီယာ စံတော်ချိန်",
+                        "daylight": "ကိုလံဘီယာ နွေရာသီ အချိန်"
+                    }
+                },
+                "Cuba": {
+                    "long": {
+                        "generic": "ကျူးဘား အချိန်",
+                        "standard": "ကျူးဘား စံတော်ချိန်",
+                        "daylight": "ကျူးဘား နွေရာသီ အချိန်"
+                    }
+                },
+                "East_Timor": {
+                    "long": {
+                        "standard": "အရှေ့တီမော အချိန်"
+                    }
+                },
+                "Ecuador": {
+                    "long": {
+                        "standard": "အီကွေဒေါ အချိန်"
+                    }
+                },
+                "Europe_Central": {
+                    "long": {
+                        "generic": "ပြင်သစ် အချိန်",
+                        "standard": "ဥရောပ အလယ်ပိုင်း စံတော်ချိန်",
+                        "daylight": "ဥရောပ အလယ်ပိုင်း နွေရာသီ အချိန်"
+                    }
+                },
+                "Europe_Eastern": {
+                    "long": {
+                        "generic": "ရိုမေးနီးယား အချိန်",
+                        "standard": "အရှေ့ဥရောပ စံတော်ချိန်",
+                        "daylight": "အရှေ့ဥရောပ နွေရာသီ အချိန်"
+                    }
+                },
+                "Europe_Western": {
+                    "long": {
+                        "generic": "အနောက်ပိုင်း ဥရောပ အချိန်",
+                        "standard": "အနောက်ပိုင်း ဥရောပ စံတော်ချိန်",
+                        "daylight": "အနောက်ပိုင်း ဥရောပ နွေရာသီ အချိန်"
+                    }
+                },
+                "Falkland": {
+                    "long": {
+                        "generic": "ဖောင်ကလန်ကျွန်းစု အချိန်",
+                        "standard": "ဖောင်ကလန်ကျွန်းစု စံတော်ချိန်",
+                        "daylight": "ဖောင်ကလန်ကျွန်းစု နွေရာသီ အချိန်"
+                    }
+                },
+                "French_Guiana": {
+                    "long": {
+                        "standard": "ပြင်သစ် ဂီယာနာ အချိန်"
+                    }
+                },
+                "Georgia": {
+                    "long": {
+                        "generic": "ဂျော်ဂျီယာ အချိန်",
+                        "standard": "ဂျော်ဂျီယာ စံတော်ချိန်",
+                        "daylight": "ဂျော်ဂျီယာ နွေရာသီ အချိန်"
+                    }
+                },
+                "GMT": {
+                    "long": {
+                        "standard": "ဂရင်းနစ် စံတော်ချိန်"
+                    }
+                },
+                "Greenland_Eastern": {
+                    "long": {
+                        "generic": "အရှေ့ဂရင်းလန်း အချိန်",
+                        "standard": "အရှေ့ဂရင်းလန်း စံတော်ချိန်",
+                        "daylight": "အရှေ့ဂရင်းလန်း နွေရာသီ အချိန်"
+                    }
+                },
+                "Greenland_Western": {
+                    "long": {
+                        "generic": "အနောက် ဂရင်းလန်း အချိန်",
+                        "standard": "အနောက် ဂရင်းလန်း စံတော်ချိန်",
+                        "daylight": "အနောက် ဂရင်းလန်း နွေရာသီ အချိန်"
+                    }
+                },
+                "Gulf": {
+                    "long": {
+                        "standard": "ပင်လယ်ဂွေ့ အချိန်"
+                    }
+                },
+                "Hong_Kong": {
+                    "long": {
+                        "generic": "ဟောင်ကောင် အချိန်",
+                        "standard": "ဟောင်ကောင် စံတော်ချိန်",
+                        "daylight": "ဟောင်ကောင် နွေရာသီ အချိန်"
+                    }
+                },
+                "India": {
+                    "long": {
+                        "standard": "အိန္ဒြိယ စံတော်ချိန်"
+                    }
+                },
+                "Indian_Ocean": {
+                    "long": {
+                        "standard": "အိန္ဒြိယ သမုဒ္ဒရာ အချိန်"
+                    }
+                },
+                "Indochina": {
+                    "long": {
+                        "standard": "အင်ဒိုချိုင်းနား အချိန်"
+                    }
+                },
+                "Indonesia_Central": {
+                    "long": {
+                        "standard": "အလယ်ပိုင်း အင်ဒိုနီးရှား အချိန်"
+                    }
+                },
+                "Indonesia_Eastern": {
+                    "long": {
+                        "standard": "အရှေ့ပိုင်း အင်ဒိုနီးရှား အချိန်"
+                    }
+                },
+                "Indonesia_Western": {
+                    "long": {
+                        "standard": "အနောက်ပိုင်း အင်ဒိုနီးရှား အချိန်"
+                    }
+                },
+                "Iran": {
+                    "long": {
+                        "generic": "အီရန် အချိန်",
+                        "standard": "အီရန် စံတော်ချိန်",
+                        "daylight": "အီရန် နေ့ပိုင်း အချိန်"
+                    }
+                },
+                "Israel": {
+                    "long": {
+                        "generic": "အစ္စရေး အချိန်",
+                        "standard": "အစ္စရေး စံတော်ချိန်",
+                        "daylight": "အစ္စရေး နေ့ပိုင်း အချိန်"
+                    }
+                },
+                "Japan": {
+                    "long": {
+                        "generic": "ဂျပန် အချိန်",
+                        "standard": "ဂျပန် စံတော်ချိန်",
+                        "daylight": "ဂျပန် နေ့ပိုင်း အချိန်"
+                    }
+                },
+                "Kazakhstan_Eastern": {
+                    "long": {
+                        "standard": "အရှေ့ကာဇက်စတန် အချိန်"
+                    }
+                },
+                "Korea": {
+                    "long": {
+                        "generic": "ကိုးရီးယား အချိန်",
+                        "standard": "ကိုးရီးယား စံတော်ချိန်",
+                        "daylight": "ကိုးရီးယား နေ့ပိုင်း အချိန်"
+                    }
+                },
+                "Lanka": {
+                    "long": {
+                        "standard": "သီရိလင်္ကာ အချိန်"
+                    }
+                },
+                "Macau": {
+                    "long": {
+                        "generic": "မကာအို အချိန်",
+                        "standard": "မကာအို စံတော်ချိန်",
+                        "daylight": "မကာအို နွေရာသီ အချိန်"
+                    }
+                },
+                "Malaysia": {
+                    "long": {
+                        "standard": "မလေးရှား အချိန်"
+                    }
+                },
+                "Moscow": {
+                    "long": {
+                        "generic": "မော်စကို အချိန်",
+                        "standard": "မော်စကို စံတော်ချိန်",
+                        "daylight": "မော်စကို နွေရာသီ အချိန်"
+                    }
+                },
+                "Myanmar": {
+                    "long": {
+                        "standard": "မြန်မာ အချိန်"
+                    }
+                },
+                "Nepal": {
+                    "long": {
+                        "standard": "နီပေါ အချိန်"
+                    }
+                },
+                "New_Zealand": {
+                    "long": {
+                        "generic": "နယူးဇီလန် အချိန်",
+                        "standard": "နယူးဇီလန် စံတော်ချိန်",
+                        "daylight": "နယူးဇီလန် နေ့ပိုင်း အချိန်"
+                    }
+                },
+                "Newfoundland": {
+                    "long": {
+                        "generic": "နယူးဖောင်လန် အချိန်",
+                        "standard": "နယူးဖောင်လန် စံတော်ချိန်",
+                        "daylight": "နယူးဖောင်လန် နေ့ပိုင်း အချိန်"
+                    }
+                },
+                "Pakistan": {
+                    "long": {
+                        "generic": "ပါကစ္စတန် အချိန်",
+                        "standard": "ပါကစ္စတန် စံတော်ချိန်",
+                        "daylight": "ပါကစ္စတန် နွေရာသီ အချိန်"
+                    }
+                },
+                "Papua_New_Guinea": {
+                    "long": {
+                        "standard": "ပါပူရာနယူးဂီနီ အချိန်"
+                    }
+                },
+                "Paraguay": {
+                    "long": {
+                        "generic": "ပါရာဂွေး အချိန်",
+                        "standard": "ပါရာဂွေး စံတော်ချိန်",
+                        "daylight": "ပါရာဂွေး နွေရာသီ အချိန်"
+                    }
+                },
+                "Peru": {
+                    "long": {
+                        "generic": "ပီရူး အချိန်",
+                        "standard": "ပီရူး စံတော်ချိန်",
+                        "daylight": "ပီရူး နွေရာသီ အချိန်"
+                    }
+                },
+                "Philippines": {
+                    "long": {
+                        "generic": "ဖိလစ်ပိုင် အချိန်",
+                        "standard": "ဖိလစ်ပိုင် စံတော်ချိန်",
+                        "daylight": "ဖိလစ်ပိုင် နွေရာသီ အချိန်"
+                    }
+                },
+                "Singapore": {
+                    "long": {
+                        "standard": "စင်္ကာပူ စံတော်ချိန်"
+                    }
+                },
+                "South_Georgia": {
+                    "long": {
+                        "standard": "တောင်ဂျော်ဂျီယာ အချိန်"
+                    }
+                },
+                "Uruguay": {
+                    "long": {
+                        "generic": "ဥရုဂွေး အချိန်",
+                        "standard": "ဥရုဂွေး စံတော်ချိန်",
+                        "daylight": "ဥရုဂွေး နွေရာသီ အချိန်"
+                    }
+                },
+                "Uzbekistan": {
+                    "long": {
+                        "generic": "ဥဘက်ကစ္စတန် အချိန်",
+                        "standard": "ဥဘက်ကစ္စတန် စံတော်ချိန်",
+                        "daylight": "ဥဘက်ကစ္စတန် နွေရာသီ အချိန်"
+                    }
+                },
+                "Venezuela": {
+                    "long": {
+                        "standard": "ဗင်နီဇွဲလား အချိန်"
+                    }
+                }
+            }
+        }
+    },
+    "numbers": {
+        "decimalFormats-numberSystem-latn": {
+            "standard": {
+                "decimalFormat": {
+                    "pattern": "#,##0.###"
+                }
+            }
+        },
+        "percentFormats-numberSystem-latn": {
+            "standard": {
+                "percentFormat": {
+                    "pattern": "#,##0%"
+                }
+            }
+        },
+        "currencyFormats-numberSystem-latn": {
+            "standard": {
+                "currencyFormat": {
+                    "pattern": "¤ #,##0.00"
+                }
+            }
+        },
+        "currencies": {
+            "MMK": {
+                "symbol": "K"
+            }
+        }
+    }
+}

@@ -1,0 +1,211 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "lag",
+        "territory": "TZ"
+    },
+    "dates": {
+        "calendars": {
+            "generic": {
+                "dateFormats": {
+                    "full": "EEEE, d MMMM y G",
+                    "long": "d MMMM y G",
+                    "medium": "d MMM y G",
+                    "short": "dd/MM/y GGGGG"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M/d",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "MMMMd": "MMMM d",
+                        "MMMMEd": "E, MMMM d",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMEd": "E, M/d/y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E, MMM d, y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            },
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "Fúngatɨ",
+                            "2": "Naanɨ",
+                            "3": "Keenda",
+                            "4": "Ikúmi",
+                            "5": "Inyambala",
+                            "6": "Idwaata",
+                            "7": "Mʉʉnchɨ",
+                            "8": "Vɨɨrɨ",
+                            "9": "Saatʉ",
+                            "10": "Inyi",
+                            "11": "Saano",
+                            "12": "Sasatʉ"
+                        },
+                        "wide": {
+                            "1": "Kʉfúngatɨ",
+                            "2": "Kʉnaanɨ",
+                            "3": "Kʉkeenda",
+                            "4": "Kwiikumi",
+                            "5": "Kwiinyambála",
+                            "6": "Kwiidwaata",
+                            "7": "Kʉmʉʉnchɨ",
+                            "8": "Kʉvɨɨrɨ",
+                            "9": "Kʉsaatʉ",
+                            "10": "Kwiinyi",
+                            "11": "Kʉsaano",
+                            "12": "Kʉsasatʉ"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "1": "F",
+                            "2": "N",
+                            "3": "K",
+                            "4": "I",
+                            "5": "I",
+                            "6": "I",
+                            "7": "M",
+                            "8": "V",
+                            "9": "S",
+                            "10": "I",
+                            "11": "S",
+                            "12": "S"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "Píili",
+                            "mon": "Táatu",
+                            "tue": "Íne",
+                            "wed": "Táano",
+                            "thu": "Alh",
+                            "fri": "Ijm",
+                            "sat": "Móosi"
+                        },
+                        "wide": {
+                            "sun": "Jumapíiri",
+                            "mon": "Jumatátu",
+                            "tue": "Jumaíne",
+                            "wed": "Jumatáano",
+                            "thu": "Alamíisi",
+                            "fri": "Ijumáa",
+                            "sat": "Jumamóosi"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "sun": "P",
+                            "mon": "T",
+                            "tue": "E",
+                            "wed": "O",
+                            "thu": "A",
+                            "fri": "I",
+                            "sat": "M"
+                        }
+                    }
+                },
+                "quarters": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "Ncho 1",
+                            "2": "Ncho 2",
+                            "3": "Ncho 3",
+                            "4": "Ncho 4"
+                        },
+                        "wide": {
+                            "1": "Ncholo ya 1",
+                            "2": "Ncholo ya 2",
+                            "3": "Ncholo ya 3",
+                            "4": "Ncholo ya 4"
+                        }
+                    }
+                },
+                "dayPeriods": {
+                    "format": {
+                        "wide": {
+                            "am": "TOO",
+                            "pm": "MUU"
+                        }
+                    }
+                },
+                "eras": {
+                    "eraNames": {
+                        "0": "Kɨrɨsitʉ sɨ anavyaal",
+                        "1": "Kɨrɨsitʉ akavyaalwe"
+                    },
+                    "eraAbbr": {
+                        "0": "KSA",
+                        "1": "KA"
+                    }
+                },
+                "dateFormats": {
+                    "full": "EEEE, d MMMM y",
+                    "long": "d MMMM y",
+                    "medium": "d MMM y",
+                    "short": "dd/MM/y"
+                },
+                "timeFormats": {
+                    "full": "h:mm:ss a zzzz",
+                    "long": "h:mm:ss a z",
+                    "medium": "h:mm:ss a",
+                    "short": "h:mm a"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M/d",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "MMMMd": "MMMM d",
+                        "MMMMEd": "E, MMMM d",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMEd": "E, M/d/y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E, MMM d, y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            }
+        }
+    },
+    "numbers": {
+        "currencies": {
+            "TZS": {
+                "symbol": "TSh"
+            }
+        }
+    }
+}

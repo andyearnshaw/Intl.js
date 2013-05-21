@@ -1,0 +1,696 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "rm"
+    },
+    "dates": {
+        "calendars": {
+            "generic": {
+                "dateFormats": {
+                    "full": "EEEE, 'ils' d 'da' MMMM y G",
+                    "long": "d 'da' MMMM y G",
+                    "medium": "dd-MM-y G",
+                    "short": "dd-MM-yy GGGGG"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "Ed": "E d.",
+                        "H": "H",
+                        "HHmm": "HH:mm",
+                        "HHmmss": "HH:mm:ss",
+                        "Hm": "H:mm",
+                        "M": "L",
+                        "Md": "d.M.",
+                        "MEd": "E, d.M.",
+                        "MMd": "d.MM.",
+                        "MMdd": "dd.MM.",
+                        "MMM": "LLL",
+                        "MMMd": "d. MMM",
+                        "MMMEd": "E d. MMM",
+                        "MMMMd": "d. MMMM",
+                        "MMMMdd": "dd. MMMM",
+                        "MMMMEd": "E d. MMMM",
+                        "mmss": "mm:ss",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "y-M",
+                        "yMEd": "E, y-M-d",
+                        "yMM": "MM.y",
+                        "yMMdd": "dd.MM.y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E, d. MMM y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            },
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "schan.",
+                            "2": "favr.",
+                            "3": "mars",
+                            "4": "avr.",
+                            "5": "matg",
+                            "6": "zercl.",
+                            "7": "fan.",
+                            "8": "avust",
+                            "9": "sett.",
+                            "10": "oct.",
+                            "11": "nov.",
+                            "12": "dec."
+                        },
+                        "wide": {
+                            "1": "schaner",
+                            "2": "favrer",
+                            "3": "mars",
+                            "4": "avrigl",
+                            "5": "matg",
+                            "6": "zercladur",
+                            "7": "fanadur",
+                            "8": "avust",
+                            "9": "settember",
+                            "10": "october",
+                            "11": "november",
+                            "12": "december"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "1": "S",
+                            "2": "F",
+                            "3": "M",
+                            "4": "A",
+                            "5": "M",
+                            "6": "Z",
+                            "7": "F",
+                            "8": "A",
+                            "9": "S",
+                            "10": "O",
+                            "11": "N",
+                            "12": "D"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "du",
+                            "mon": "gli",
+                            "tue": "ma",
+                            "wed": "me",
+                            "thu": "gie",
+                            "fri": "ve",
+                            "sat": "so"
+                        },
+                        "wide": {
+                            "sun": "dumengia",
+                            "mon": "glindesdi",
+                            "tue": "mardi",
+                            "wed": "mesemna",
+                            "thu": "gievgia",
+                            "fri": "venderdi",
+                            "sat": "sonda"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "sun": "D",
+                            "mon": "G",
+                            "tue": "M",
+                            "wed": "M",
+                            "thu": "G",
+                            "fri": "V",
+                            "sat": "S"
+                        }
+                    }
+                },
+                "quarters": {
+                    "format": {
+                        "wide": {
+                            "1": "1. quartal",
+                            "2": "2. quartal",
+                            "3": "3. quartal",
+                            "4": "4. quartal"
+                        }
+                    }
+                },
+                "dayPeriods": {
+                    "format": {
+                        "wide": {
+                            "am": "am",
+                            "pm": "sm"
+                        }
+                    }
+                },
+                "eras": {
+                    "eraNames": {
+                        "0": "avant Cristus",
+                        "1": "suenter Cristus"
+                    },
+                    "eraAbbr": {
+                        "0": "av. Cr.",
+                        "1": "s. Cr."
+                    }
+                },
+                "dateFormats": {
+                    "full": "EEEE, 'ils' d 'da' MMMM y",
+                    "long": "d 'da' MMMM y",
+                    "medium": "dd-MM-y",
+                    "short": "dd-MM-yy"
+                },
+                "timeFormats": {
+                    "full": "HH:mm:ss zzzz",
+                    "long": "HH:mm:ss z",
+                    "medium": "HH:mm:ss",
+                    "short": "HH:mm"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "Ed": "E d.",
+                        "H": "H",
+                        "HHmm": "HH:mm",
+                        "HHmmss": "HH:mm:ss",
+                        "Hm": "H:mm",
+                        "M": "L",
+                        "Md": "d.M.",
+                        "MEd": "E, d.M.",
+                        "MMd": "d.MM.",
+                        "MMdd": "dd.MM.",
+                        "MMM": "LLL",
+                        "MMMd": "d. MMM",
+                        "MMMEd": "E d. MMM",
+                        "MMMMd": "d. MMMM",
+                        "MMMMdd": "dd. MMMM",
+                        "MMMMEd": "E d. MMMM",
+                        "mmss": "mm:ss",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "y-M",
+                        "yMEd": "E, y-M-d",
+                        "yMM": "MM.y",
+                        "yMMdd": "dd.MM.y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E, d. MMM y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            }
+        },
+        "timeZoneNames": {
+            "zone": {
+                "America": {
+                    "Anchorage": {
+                        "exemplarCity": "Alasca"
+                    },
+                    "Anguilla": {
+                        "exemplarCity": "The Valley"
+                    },
+                    "Araguaina": {
+                        "exemplarCity": "Araguaína"
+                    },
+                    "Argentina": {
+                        "San_Juan": {
+                            "exemplarCity": "San Juan, Argentinia"
+                        },
+                        "Ushuaia": {
+                            "exemplarCity": "Ushuaïa"
+                        },
+                        "Tucuman": {
+                            "exemplarCity": "Tucumán"
+                        }
+                    },
+                    "Aruba": {
+                        "exemplarCity": "Oranjestad"
+                    },
+                    "Asuncion": {
+                        "exemplarCity": "Asunción"
+                    },
+                    "Belem": {
+                        "exemplarCity": "Belém"
+                    },
+                    "Belize": {
+                        "exemplarCity": "Belmopan"
+                    },
+                    "Cancun": {
+                        "exemplarCity": "Cancún"
+                    },
+                    "Cayman": {
+                        "exemplarCity": "Inslas Cayman"
+                    },
+                    "Cordoba": {
+                        "exemplarCity": "Córdoba"
+                    },
+                    "Costa_Rica": {
+                        "exemplarCity": "San José"
+                    },
+                    "Cuiaba": {
+                        "exemplarCity": "Cuiabá"
+                    },
+                    "Curacao": {
+                        "exemplarCity": "Curaçao"
+                    },
+                    "Eirunepe": {
+                        "exemplarCity": "Eirunepé"
+                    },
+                    "El_Salvador": {
+                        "exemplarCity": "Salvador"
+                    },
+                    "Godthab": {
+                        "exemplarCity": "Godthåb"
+                    },
+                    "Grand_Turk": {
+                        "exemplarCity": "Cockburn Town"
+                    },
+                    "Guadeloupe": {
+                        "exemplarCity": "Basse-Terre"
+                    },
+                    "Indiana": {
+                        "Vincennes": {
+                            "exemplarCity": "Vincennes"
+                        },
+                        "Petersburg": {
+                            "exemplarCity": "Petersburg"
+                        },
+                        "Tell_City": {
+                            "exemplarCity": "Tell City"
+                        },
+                        "Knox": {
+                            "exemplarCity": "Knox"
+                        },
+                        "Winamac": {
+                            "exemplarCity": "Winamac"
+                        },
+                        "Marengo": {
+                            "exemplarCity": "Marengo"
+                        },
+                        "Vevay": {
+                            "exemplarCity": "Vevay"
+                        }
+                    },
+                    "Jamaica": {
+                        "exemplarCity": "Giamaica"
+                    },
+                    "Jujuy": {
+                        "exemplarCity": "San Salvador de Jujuy"
+                    },
+                    "Kentucky": {
+                        "Monticello": {
+                            "exemplarCity": "Monticello"
+                        }
+                    },
+                    "Mazatlan": {
+                        "exemplarCity": "Mazatlán"
+                    },
+                    "Merida": {
+                        "exemplarCity": "Mérida"
+                    },
+                    "Mexico_City": {
+                        "exemplarCity": "Citad da Mexico"
+                    },
+                    "Miquelon": {
+                        "exemplarCity": "Saint Pierre"
+                    },
+                    "Montserrat": {
+                        "exemplarCity": "Brades"
+                    },
+                    "Noronha": {
+                        "exemplarCity": "Fernando de Noronha"
+                    },
+                    "North_Dakota": {
+                        "New_Salem": {
+                            "exemplarCity": "North Dakota (New Salem)"
+                        },
+                        "Center": {
+                            "exemplarCity": "North Dakota (Central)"
+                        }
+                    },
+                    "Port_of_Spain": {
+                        "exemplarCity": "Port-of-Spain"
+                    },
+                    "Sao_Paulo": {
+                        "exemplarCity": "São Paulo"
+                    },
+                    "St_Johns": {
+                        "exemplarCity": "Saint John’s"
+                    },
+                    "St_Kitts": {
+                        "exemplarCity": "Saint Kitts"
+                    },
+                    "St_Lucia": {
+                        "exemplarCity": "Santa Lucia"
+                    },
+                    "St_Thomas": {
+                        "exemplarCity": "Saint Thomas"
+                    },
+                    "St_Vincent": {
+                        "exemplarCity": "Saint Vincent"
+                    },
+                    "Tortola": {
+                        "exemplarCity": "Road Town"
+                    }
+                },
+                "Atlantic": {
+                    "Azores": {
+                        "exemplarCity": "Azoras"
+                    },
+                    "Bermuda": {
+                        "exemplarCity": "Bermudas"
+                    },
+                    "Canary": {
+                        "exemplarCity": "Inslas Canarias"
+                    },
+                    "Cape_Verde": {
+                        "exemplarCity": "Cap Verd"
+                    },
+                    "Faeroe": {
+                        "exemplarCity": "Inslas Feroe"
+                    },
+                    "South_Georgia": {
+                        "exemplarCity": "Georgia dal Sid"
+                    },
+                    "St_Helena": {
+                        "exemplarCity": "Sontg'elena"
+                    },
+                    "Stanley": {
+                        "exemplarCity": "Port Stanley"
+                    }
+                },
+                "Europe": {
+                    "Athens": {
+                        "exemplarCity": "Athen"
+                    },
+                    "Brussels": {
+                        "exemplarCity": "Bruxelles"
+                    },
+                    "Bucharest": {
+                        "exemplarCity": "Bucarest"
+                    },
+                    "Copenhagen": {
+                        "exemplarCity": "Copenhaghen"
+                    },
+                    "Guernsey": {
+                        "exemplarCity": "Saint Peter Port"
+                    },
+                    "Isle_of_Man": {
+                        "exemplarCity": "Douglas"
+                    },
+                    "Jersey": {
+                        "exemplarCity": "Saint Helier"
+                    },
+                    "Lisbon": {
+                        "exemplarCity": "Lissabon"
+                    },
+                    "London": {
+                        "exemplarCity": "Londra"
+                    },
+                    "Luxembourg": {
+                        "exemplarCity": "Luxemburg"
+                    },
+                    "Moscow": {
+                        "exemplarCity": "Moscau"
+                    },
+                    "Rome": {
+                        "exemplarCity": "Roma"
+                    },
+                    "Tirane": {
+                        "exemplarCity": "Tirana"
+                    },
+                    "Uzhgorod": {
+                        "exemplarCity": "Uschgorod"
+                    },
+                    "Vatican": {
+                        "exemplarCity": "Citad dal Vatican"
+                    },
+                    "Warsaw": {
+                        "exemplarCity": "Varsovia"
+                    },
+                    "Zaporozhye": {
+                        "exemplarCity": "Saporischja"
+                    },
+                    "Zurich": {
+                        "exemplarCity": "Turitg"
+                    }
+                },
+                "Africa": {
+                    "Addis_Ababa": {
+                        "exemplarCity": "Addis Abeba"
+                    },
+                    "Algiers": {
+                        "exemplarCity": "Algier"
+                    },
+                    "Asmera": {
+                        "exemplarCity": "Asmara"
+                    },
+                    "Dar_es_Salaam": {
+                        "exemplarCity": "Daressalam"
+                    },
+                    "Djibouti": {
+                        "exemplarCity": "Dschibuti"
+                    },
+                    "El_Aaiun": {
+                        "exemplarCity": "El Ayun"
+                    },
+                    "Khartoum": {
+                        "exemplarCity": "Khartum"
+                    },
+                    "Lome": {
+                        "exemplarCity": "Lomé"
+                    },
+                    "Mogadishu": {
+                        "exemplarCity": "Mogadischu"
+                    },
+                    "Sao_Tome": {
+                        "exemplarCity": "São Tomé"
+                    }
+                },
+                "Asia": {
+                    "Aqtobe": {
+                        "exemplarCity": "Aqtöbe"
+                    },
+                    "Ashgabat": {
+                        "exemplarCity": "Aşgabat"
+                    },
+                    "Baghdad": {
+                        "exemplarCity": "Bagdad"
+                    },
+                    "Bishkek": {
+                        "exemplarCity": "Bischkek"
+                    },
+                    "Brunei": {
+                        "exemplarCity": "Bandar Seri Begawan"
+                    },
+                    "Choibalsan": {
+                        "exemplarCity": "Tschoibalsan"
+                    },
+                    "Dushanbe": {
+                        "exemplarCity": "Duschanbe"
+                    },
+                    "Hong_Kong": {
+                        "exemplarCity": "Hongkong"
+                    },
+                    "Kamchatka": {
+                        "exemplarCity": "Kamtschatka"
+                    },
+                    "Karachi": {
+                        "exemplarCity": "Karatschi"
+                    },
+                    "Kashgar": {
+                        "exemplarCity": "Kaschgar"
+                    },
+                    "Krasnoyarsk": {
+                        "exemplarCity": "Krasnojarsk"
+                    },
+                    "Macau": {
+                        "exemplarCity": "Macao"
+                    },
+                    "Makassar": {
+                        "exemplarCity": "Macassar"
+                    },
+                    "Muscat": {
+                        "exemplarCity": "Mascate"
+                    },
+                    "Novosibirsk": {
+                        "exemplarCity": "Nowosibirsk"
+                    },
+                    "Riyadh": {
+                        "exemplarCity": "Riyad"
+                    },
+                    "Saigon": {
+                        "exemplarCity": "Ho Chi Minh"
+                    },
+                    "Sakhalin": {
+                        "exemplarCity": "Sachalin"
+                    },
+                    "Samarkand": {
+                        "exemplarCity": "Samarcanda"
+                    },
+                    "Seoul": {
+                        "exemplarCity": "Seul"
+                    },
+                    "Singapore": {
+                        "exemplarCity": "Singapur"
+                    },
+                    "Tashkent": {
+                        "exemplarCity": "Taschkent"
+                    },
+                    "Tehran": {
+                        "exemplarCity": "Teheran"
+                    },
+                    "Tokyo": {
+                        "exemplarCity": "Tokio"
+                    },
+                    "Urumqi": {
+                        "exemplarCity": "Ürümqi"
+                    },
+                    "Yakutsk": {
+                        "exemplarCity": "Jakutsk"
+                    },
+                    "Yekaterinburg": {
+                        "exemplarCity": "Jekaterinburg"
+                    },
+                    "Yerevan": {
+                        "exemplarCity": "Jerevan"
+                    }
+                },
+                "Indian": {
+                    "Chagos": {
+                        "exemplarCity": "Diego Garcia"
+                    },
+                    "Christmas": {
+                        "exemplarCity": "Flying Fish Cove"
+                    },
+                    "Cocos": {
+                        "exemplarCity": "West Island"
+                    },
+                    "Comoro": {
+                        "exemplarCity": "Comoras"
+                    },
+                    "Kerguelen": {
+                        "exemplarCity": "Port-aux-Français"
+                    },
+                    "Maldives": {
+                        "exemplarCity": "Maldivas"
+                    },
+                    "Reunion": {
+                        "exemplarCity": "Réunion"
+                    }
+                },
+                "Pacific": {
+                    "Easter": {
+                        "exemplarCity": "Insla da Pasca"
+                    },
+                    "Fiji": {
+                        "exemplarCity": "Fidschi"
+                    },
+                    "Galapagos": {
+                        "exemplarCity": "Galápagos"
+                    },
+                    "Gambier": {
+                        "exemplarCity": "Rikitea"
+                    },
+                    "Guadalcanal": {
+                        "exemplarCity": "Honiara"
+                    },
+                    "Guam": {
+                        "exemplarCity": "Hagåtña"
+                    },
+                    "Kosrae": {
+                        "exemplarCity": "Tofol"
+                    },
+                    "Nauru": {
+                        "exemplarCity": "Yaren"
+                    },
+                    "Niue": {
+                        "exemplarCity": "Alofi"
+                    },
+                    "Norfolk": {
+                        "exemplarCity": "Kingston"
+                    },
+                    "Noumea": {
+                        "exemplarCity": "Nouméa"
+                    },
+                    "Palau": {
+                        "exemplarCity": "Melekok"
+                    },
+                    "Ponape": {
+                        "exemplarCity": "Palikir"
+                    },
+                    "Tarawa": {
+                        "exemplarCity": "South Tarawa"
+                    },
+                    "Tongatapu": {
+                        "exemplarCity": "Nukuʻalofa"
+                    },
+                    "Truk": {
+                        "exemplarCity": "Weno"
+                    },
+                    "Wallis": {
+                        "exemplarCity": "Matāʻutu"
+                    }
+                },
+                "Antarctica": {
+                    "DumontDUrville": {
+                        "exemplarCity": "Dumont d’Urville"
+                    },
+                    "McMurdo": {
+                        "exemplarCity": "Mac Murdo"
+                    },
+                    "South_Pole": {
+                        "exemplarCity": "Pol dal Sid"
+                    },
+                    "Syowa": {
+                        "exemplarCity": "Showa"
+                    }
+                },
+                "Etc": {
+                    "Unknown": {
+                        "exemplarCity": "zona betg enconuschenta"
+                    }
+                }
+            }
+        }
+    },
+    "numbers": {
+        "decimalFormats-numberSystem-latn": {
+            "standard": {
+                "decimalFormat": {
+                    "pattern": "#,##0.###"
+                }
+            }
+        },
+        "percentFormats-numberSystem-latn": {
+            "standard": {
+                "percentFormat": {
+                    "pattern": "#,##0 %"
+                }
+            }
+        },
+        "currencyFormats-numberSystem-latn": {
+            "standard": {
+                "currencyFormat": {
+                    "pattern": "#,##0.00 ¤"
+                }
+            },
+            "unitPattern-count-one": "{0} {1}",
+            "unitPattern-count-other": "{0} {1}"
+        },
+        "currencies": {
+            "CHF": {
+                "symbol": "CHF"
+            }
+        }
+    }
+}

@@ -1,0 +1,198 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "shi",
+        "script": "Tfng"
+    },
+    "dates": {
+        "calendars": {
+            "generic": {
+                "dateFormats": {
+                    "full": "EEEE d MMMM y G",
+                    "long": "d MMMM y G",
+                    "medium": "d MMM, y G",
+                    "short": "d/M/y GGGGG"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "M": "M",
+                        "Md": "d/M",
+                        "MMd": "d/MM",
+                        "MMdd": "dd/MM",
+                        "MMM": "MMM",
+                        "MMMd": "d MMM",
+                        "MMMdd": "dd MMM",
+                        "MMMEd": "E d MMM",
+                        "MMMMd": "d MMMM",
+                        "MMMMEd": "E d MMMM",
+                        "ms": "m:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMEd": "E d/M/y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E d MMM y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            },
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "ⵉⵏⵏ",
+                            "2": "ⴱⵕⴰ",
+                            "3": "ⵎⴰⵕ",
+                            "4": "ⵉⴱⵔ",
+                            "5": "ⵎⴰⵢ",
+                            "6": "ⵢⵓⵏ",
+                            "7": "ⵢⵓⵍ",
+                            "8": "ⵖⵓⵛ",
+                            "9": "ⵛⵓⵜ",
+                            "10": "ⴽⵜⵓ",
+                            "11": "ⵏⵓⵡ",
+                            "12": "ⴷⵓⵊ"
+                        },
+                        "wide": {
+                            "1": "ⵉⵏⵏⴰⵢⵔ",
+                            "2": "ⴱⵕⴰⵢⵕ",
+                            "3": "ⵎⴰⵕⵚ",
+                            "4": "ⵉⴱⵔⵉⵔ",
+                            "5": "ⵎⴰⵢⵢⵓ",
+                            "6": "ⵢⵓⵏⵢⵓ",
+                            "7": "ⵢⵓⵍⵢⵓⵣ",
+                            "8": "ⵖⵓⵛⵜ",
+                            "9": "ⵛⵓⵜⴰⵏⴱⵉⵔ",
+                            "10": "ⴽⵜⵓⴱⵔ",
+                            "11": "ⵏⵓⵡⴰⵏⴱⵉⵔ",
+                            "12": "ⴷⵓⵊⴰⵏⴱⵉⵔ"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "1": "ⵉ",
+                            "2": "ⴱ",
+                            "3": "ⵎ",
+                            "4": "ⵉ",
+                            "5": "ⵎ",
+                            "6": "ⵢ",
+                            "7": "ⵢ",
+                            "8": "ⵖ",
+                            "9": "ⵛ",
+                            "10": "ⴽ",
+                            "11": "ⵏ",
+                            "12": "ⴷ"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "ⴰⵙⴰ",
+                            "mon": "ⴰⵢⵏ",
+                            "tue": "ⴰⵙⵉ",
+                            "wed": "ⴰⴽⵕ",
+                            "thu": "ⴰⴽⵡ",
+                            "fri": "ⴰⵙⵉⵎ",
+                            "sat": "ⴰⵙⵉⴹ"
+                        },
+                        "wide": {
+                            "sun": "ⴰⵙⴰⵎⴰⵙ",
+                            "mon": "ⴰⵢⵏⴰⵙ",
+                            "tue": "ⴰⵙⵉⵏⴰⵙ",
+                            "wed": "ⴰⴽⵕⴰⵙ",
+                            "thu": "ⴰⴽⵡⴰⵙ",
+                            "fri": "ⵙⵉⵎⵡⴰⵙ",
+                            "sat": "ⴰⵙⵉⴹⵢⴰⵙ"
+                        }
+                    }
+                },
+                "quarters": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "ⴰⴽ 1",
+                            "2": "ⴰⴽ 2",
+                            "3": "ⴰⴽ 3",
+                            "4": "ⴰⴽ 4"
+                        },
+                        "wide": {
+                            "1": "ⴰⴽⵕⴰⴹⵢⵓⵔ 1",
+                            "2": "ⴰⴽⵕⴰⴹⵢⵓⵔ 2",
+                            "3": "ⴰⴽⵕⴰⴹⵢⵓⵔ 3",
+                            "4": "ⴰⴽⵕⴰⴹⵢⵓⵔ 4"
+                        }
+                    }
+                },
+                "dayPeriods": {
+                    "format": {
+                        "wide": {
+                            "am": "ⵜⵉⴼⴰⵡⵜ",
+                            "pm": "ⵜⴰⴷⴳⴳⵯⴰⵜ"
+                        }
+                    }
+                },
+                "eras": {
+                    "eraNames": {
+                        "0": "ⴷⴰⵜ ⵏ ⵄⵉⵙⴰ",
+                        "1": "ⴷⴼⴼⵉⵔ ⵏ ⵄⵉⵙⴰ"
+                    },
+                    "eraAbbr": {
+                        "0": "ⴷⴰⵄ",
+                        "1": "ⴷⴼⵄ"
+                    }
+                },
+                "dateFormats": {
+                    "full": "EEEE d MMMM y",
+                    "long": "d MMMM y",
+                    "medium": "d MMM, y",
+                    "short": "d/M/y"
+                },
+                "timeFormats": {
+                    "full": "HH:mm:ss zzzz",
+                    "long": "HH:mm:ss z",
+                    "medium": "HH:mm:ss",
+                    "short": "HH:mm"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "M": "M",
+                        "Md": "d/M",
+                        "MMd": "d/MM",
+                        "MMdd": "dd/MM",
+                        "MMM": "MMM",
+                        "MMMd": "d MMM",
+                        "MMMdd": "dd MMM",
+                        "MMMEd": "E d MMM",
+                        "MMMMd": "d MMMM",
+                        "MMMMEd": "E d MMMM",
+                        "ms": "m:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMEd": "E d/M/y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E d MMM y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            }
+        }
+    },
+    "numbers": {
+        "currencyFormats-numberSystem-latn": {
+            "standard": {
+                "currencyFormat": {
+                    "pattern": "#,##0.00¤"
+                }
+            }
+        }
+    }
+}

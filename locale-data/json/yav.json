@@ -1,0 +1,212 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "yav"
+    },
+    "dates": {
+        "calendars": {
+            "generic": {
+                "dateFormats": {
+                    "full": "EEEE d MMMM y G",
+                    "long": "d MMMM y G",
+                    "medium": "d MMM y G",
+                    "short": "d/M/y GGGGG"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "Ed": "E d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "hms": "h:mm:ss a",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "d/M",
+                        "MEd": "E d/M",
+                        "MMM": "LLL",
+                        "MMMd": "d MMM",
+                        "MMMEd": "E d MMM",
+                        "ms": "m:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMd": "d/M/y",
+                        "yMEd": "E d/M/y",
+                        "yMMM": "MMM y",
+                        "yMMMd": "d MMM y",
+                        "yMMMEd": "E d MMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            },
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "o.1",
+                            "2": "o.2",
+                            "3": "o.3",
+                            "4": "o.4",
+                            "5": "o.5",
+                            "6": "o.6",
+                            "7": "o.7",
+                            "8": "o.8",
+                            "9": "o.9",
+                            "10": "o.10",
+                            "11": "o.11",
+                            "12": "o.12"
+                        },
+                        "wide": {
+                            "1": "pikítíkítie, oólí ú kutúan",
+                            "2": "siɛyɛ́, oóli ú kándíɛ",
+                            "3": "ɔnsúmbɔl, oóli ú kátátúɛ",
+                            "4": "mesiŋ, oóli ú kénie",
+                            "5": "ensil, oóli ú kátánuɛ",
+                            "6": "ɔsɔn",
+                            "7": "efute",
+                            "8": "pisuyú",
+                            "9": "imɛŋ i puɔs",
+                            "10": "imɛŋ i putúk,oóli ú kátíɛ",
+                            "11": "makandikɛ",
+                            "12": "pilɔndɔ́"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "sd",
+                            "mon": "md",
+                            "tue": "mw",
+                            "wed": "et",
+                            "thu": "kl",
+                            "fri": "fl",
+                            "sat": "ss"
+                        },
+                        "wide": {
+                            "sun": "sɔ́ndiɛ",
+                            "mon": "móndie",
+                            "tue": "muányáŋmóndie",
+                            "wed": "metúkpíápɛ",
+                            "thu": "kúpélimetúkpiapɛ",
+                            "fri": "feléte",
+                            "sat": "séselé"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "sun": "s",
+                            "mon": "m",
+                            "tue": "m",
+                            "wed": "e",
+                            "thu": "k",
+                            "fri": "f",
+                            "sat": "s"
+                        }
+                    }
+                },
+                "quarters": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "Q1",
+                            "2": "Q2",
+                            "3": "Q3",
+                            "4": "Q4"
+                        },
+                        "wide": {
+                            "1": "ndátúɛ 1",
+                            "2": "ndátúɛ 2",
+                            "3": "ndátúɛ 3",
+                            "4": "ndátúɛ 4"
+                        }
+                    }
+                },
+                "dayPeriods": {
+                    "format": {
+                        "wide": {
+                            "am": "kiɛmɛ́ɛm",
+                            "pm": "kisɛ́ndɛ"
+                        }
+                    }
+                },
+                "eras": {
+                    "eraNames": {
+                        "0": "katikupíen Yésuse",
+                        "1": "ékélémkúnupíén n"
+                    },
+                    "eraAbbr": {
+                        "0": "-J.C.",
+                        "1": "+J.C."
+                    }
+                },
+                "dateFormats": {
+                    "full": "EEEE d MMMM y",
+                    "long": "d MMMM y",
+                    "medium": "d MMM y",
+                    "short": "d/M/y"
+                },
+                "timeFormats": {
+                    "full": "HH:mm:ss zzzz",
+                    "long": "HH:mm:ss z",
+                    "medium": "HH:mm:ss",
+                    "short": "HH:mm"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "Ed": "E d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "hms": "h:mm:ss a",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "d/M",
+                        "MEd": "E d/M",
+                        "MMM": "LLL",
+                        "MMMd": "d MMM",
+                        "MMMEd": "E d MMM",
+                        "ms": "m:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMd": "d/M/y",
+                        "yMEd": "E d/M/y",
+                        "yMMM": "MMM y",
+                        "yMMMd": "d MMM y",
+                        "yMMMEd": "E d MMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            }
+        }
+    },
+    "numbers": {
+        "decimalFormats-numberSystem-latn": {
+            "standard": {
+                "decimalFormat": {
+                    "pattern": "#,##0.###"
+                }
+            }
+        },
+        "percentFormats-numberSystem-latn": {
+            "standard": {
+                "percentFormat": {
+                    "pattern": "#,##0%"
+                }
+            }
+        },
+        "currencyFormats-numberSystem-latn": {
+            "standard": {
+                "currencyFormat": {
+                    "pattern": "#,##0.00 ¤;(#,##0.00 ¤)"
+                }
+            }
+        }
+    }
+}

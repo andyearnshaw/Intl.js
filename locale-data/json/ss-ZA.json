@@ -1,0 +1,104 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "ss",
+        "territory": "ZA"
+    },
+    "dates": {
+        "calendars": {
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "Bhi",
+                            "2": "Van",
+                            "3": "Vol",
+                            "4": "Mab",
+                            "5": "Nkh",
+                            "6": "Nhl",
+                            "7": "Kho",
+                            "8": "Ngc",
+                            "9": "Nyo",
+                            "10": "Mph",
+                            "11": "Lwe",
+                            "12": "Ngo"
+                        },
+                        "wide": {
+                            "1": "Bhimbidvwane",
+                            "2": "iNdlovana",
+                            "3": "iNdlovu-lenkhulu",
+                            "4": "Mabasa",
+                            "5": "iNkhwekhweti",
+                            "6": "iNhlaba",
+                            "7": "Kholwane",
+                            "8": "iNgci",
+                            "9": "iNyoni",
+                            "10": "iMphala",
+                            "11": "Lweti",
+                            "12": "iNgongoni"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "Son",
+                            "mon": "Mso",
+                            "tue": "Bil",
+                            "wed": "Tsa",
+                            "thu": "Ne",
+                            "fri": "Hla",
+                            "sat": "Mgc"
+                        },
+                        "wide": {
+                            "sun": "Lisontfo",
+                            "mon": "uMsombuluko",
+                            "tue": "Lesibili",
+                            "wed": "Lesitsatfu",
+                            "thu": "Lesine",
+                            "fri": "Lesihlanu",
+                            "sat": "uMgcibelo"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "numbers": {
+        "decimalFormats-numberSystem-latn": {
+            "standard": {
+                "decimalFormat": {
+                    "pattern": "#,##0.###"
+                }
+            }
+        },
+        "percentFormats-numberSystem-latn": {
+            "standard": {
+                "percentFormat": {
+                    "pattern": "#,##0%"
+                }
+            }
+        },
+        "currencyFormats-numberSystem-latn": {
+            "standard": {
+                "currencyFormat": {
+                    "pattern": "¤#,##0.00"
+                }
+            }
+        },
+        "currencies": {
+            "SZL": {
+                "symbol": "E"
+            },
+            "ZAR": {
+                "symbol": "R"
+            }
+        }
+    }
+}

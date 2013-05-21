@@ -1,0 +1,227 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "swc",
+        "territory": "CD"
+    },
+    "dates": {
+        "calendars": {
+            "generic": {
+                "dateFormats": {
+                    "full": "EEEE d MMMM y G",
+                    "long": "d MMMM y G",
+                    "medium": "d MMM y G",
+                    "short": "d/M/y GGGGG"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "Ed": "E d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "hms": "h:mm:ss a",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "d/M",
+                        "MEd": "E d/M",
+                        "MMM": "LLL",
+                        "MMMd": "d MMM",
+                        "MMMEd": "E d MMM",
+                        "ms": "m:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMd": "d/M/y",
+                        "yMEd": "E d/M/y",
+                        "yMMM": "MMM y",
+                        "yMMMd": "d MMM y",
+                        "yMMMEd": "E d MMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            },
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "mkw",
+                            "2": "mpi",
+                            "3": "mtu",
+                            "4": "min",
+                            "5": "mtn",
+                            "6": "mst",
+                            "7": "msb",
+                            "8": "mun",
+                            "9": "mts",
+                            "10": "mku",
+                            "11": "mkm",
+                            "12": "mkb"
+                        },
+                        "wide": {
+                            "1": "mwezi ya kwanja",
+                            "2": "mwezi ya pili",
+                            "3": "mwezi ya tatu",
+                            "4": "mwezi ya ine",
+                            "5": "mwezi ya tanu",
+                            "6": "mwezi ya sita",
+                            "7": "mwezi ya saba",
+                            "8": "mwezi ya munane",
+                            "9": "mwezi ya tisa",
+                            "10": "mwezi ya kumi",
+                            "11": "mwezi ya kumi na moya",
+                            "12": "mwezi ya kumi ya mbili"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "1": "k",
+                            "2": "p",
+                            "3": "t",
+                            "4": "i",
+                            "5": "t",
+                            "6": "s",
+                            "7": "s",
+                            "8": "m",
+                            "9": "t",
+                            "10": "k",
+                            "11": "m",
+                            "12": "m"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "yen",
+                            "mon": "kwa",
+                            "tue": "pil",
+                            "wed": "tat",
+                            "thu": "ine",
+                            "fri": "tan",
+                            "sat": "sit"
+                        },
+                        "wide": {
+                            "sun": "siku ya yenga",
+                            "mon": "siku ya kwanza",
+                            "tue": "siku ya pili",
+                            "wed": "siku ya tatu",
+                            "thu": "siku ya ine",
+                            "fri": "siku ya tanu",
+                            "sat": "siku ya sita"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "sun": "y",
+                            "mon": "k",
+                            "tue": "p",
+                            "wed": "t",
+                            "thu": "i",
+                            "fri": "t",
+                            "sat": "s"
+                        }
+                    }
+                },
+                "quarters": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "R1",
+                            "2": "R2",
+                            "3": "R3",
+                            "4": "R4"
+                        },
+                        "wide": {
+                            "1": "Robo 1",
+                            "2": "Robo 2",
+                            "3": "Robo 3",
+                            "4": "Robo 4"
+                        }
+                    }
+                },
+                "dayPeriods": {
+                    "format": {
+                        "wide": {
+                            "am": "ya asubuyi",
+                            "pm": "ya muchana"
+                        }
+                    }
+                },
+                "eras": {
+                    "eraNames": {
+                        "0": "mbele ya Yezu Kristo",
+                        "1": "kisha ya Yezu Kristo"
+                    },
+                    "eraAbbr": {
+                        "0": "mbele ya Y",
+                        "1": "kisha ya Y"
+                    }
+                },
+                "dateFormats": {
+                    "full": "EEEE d MMMM y",
+                    "long": "d MMMM y",
+                    "medium": "d MMM y",
+                    "short": "d/M/y"
+                },
+                "timeFormats": {
+                    "full": "HH:mm:ss zzzz",
+                    "long": "HH:mm:ss z",
+                    "medium": "HH:mm:ss",
+                    "short": "HH:mm"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "Ed": "E d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "hms": "h:mm:ss a",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "d/M",
+                        "MEd": "E d/M",
+                        "MMM": "LLL",
+                        "MMMd": "d MMM",
+                        "MMMEd": "E d MMM",
+                        "ms": "m:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMd": "d/M/y",
+                        "yMEd": "E d/M/y",
+                        "yMMM": "MMM y",
+                        "yMMMd": "d MMM y",
+                        "yMMMEd": "E d MMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            }
+        }
+    },
+    "numbers": {
+        "decimalFormats-numberSystem-latn": {
+            "standard": {
+                "decimalFormat": {
+                    "pattern": "#,##0.###"
+                }
+            }
+        },
+        "currencyFormats-numberSystem-latn": {
+            "standard": {
+                "currencyFormat": {
+                    "pattern": "¤#,##0.00"
+                }
+            }
+        },
+        "currencies": {
+            "CDF": {
+                "symbol": "FC"
+            }
+        }
+    }
+}

@@ -1,0 +1,229 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "nus",
+        "territory": "SD"
+    },
+    "dates": {
+        "calendars": {
+            "generic": {
+                "dateFormats": {
+                    "full": "EEEE d MMMM y G",
+                    "long": "d MMMM y G",
+                    "medium": "d MMM y G",
+                    "short": "d/MM/y GGGGG"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "Ed": "E d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "hms": "h:mm:ss a",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "d/M",
+                        "MEd": "E، d-M",
+                        "MMM": "LLL",
+                        "MMMd": "d MMM",
+                        "MMMEd": "E d MMM",
+                        "ms": "m:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMd": "d/M/y",
+                        "yMEd": "E، d/M/y",
+                        "yMMM": "MMM y",
+                        "yMMMd": "d MMM y",
+                        "yMMMEd": "E، d MMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            },
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "Tiop",
+                            "2": "Pɛt",
+                            "3": "Duɔ̱ɔ̱",
+                            "4": "Guak",
+                            "5": "Duä",
+                            "6": "Kor",
+                            "7": "Pay",
+                            "8": "Thoo",
+                            "9": "Tɛɛ",
+                            "10": "Laa",
+                            "11": "Kur",
+                            "12": "Tid"
+                        },
+                        "wide": {
+                            "1": "Tiop thar pɛt",
+                            "2": "Pɛt",
+                            "3": "Duɔ̱ɔ̱ŋ",
+                            "4": "Guak",
+                            "5": "Duät",
+                            "6": "Kornyoot",
+                            "7": "Pay yie̱tni",
+                            "8": "Tho̱o̱r",
+                            "9": "Tɛɛr",
+                            "10": "Laath",
+                            "11": "Kur",
+                            "12": "Tio̱p in di̱i̱t"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "1": "T",
+                            "2": "P",
+                            "3": "D",
+                            "4": "G",
+                            "5": "D",
+                            "6": "K",
+                            "7": "P",
+                            "8": "T",
+                            "9": "T",
+                            "10": "L",
+                            "11": "K",
+                            "12": "T"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "Cäŋ",
+                            "mon": "Jiec",
+                            "tue": "Rɛw",
+                            "wed": "Diɔ̱k",
+                            "thu": "Ŋuaan",
+                            "fri": "Dhieec",
+                            "sat": "Bäkɛl"
+                        },
+                        "wide": {
+                            "sun": "Cäŋ kuɔth",
+                            "mon": "Jiec la̱t",
+                            "tue": "Rɛw lätni",
+                            "wed": "Diɔ̱k lätni",
+                            "thu": "Ŋuaan lätni",
+                            "fri": "Dhieec lätni",
+                            "sat": "Bäkɛl lätni"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "sun": "C",
+                            "mon": "J",
+                            "tue": "R",
+                            "wed": "D",
+                            "thu": "Ŋ",
+                            "fri": "D",
+                            "sat": "B"
+                        }
+                    }
+                },
+                "quarters": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "P1",
+                            "2": "P2",
+                            "3": "P3",
+                            "4": "P4"
+                        },
+                        "wide": {
+                            "1": "Päth diɔk tin nhiam",
+                            "2": "Päth diɔk tin guurɛ",
+                            "3": "Päth diɔk tin wä kɔɔriɛn",
+                            "4": "Päth diɔk tin jiɔakdiɛn"
+                        }
+                    }
+                },
+                "dayPeriods": {
+                    "format": {
+                        "wide": {
+                            "am": "RW",
+                            "pm": "TŊ"
+                        }
+                    }
+                },
+                "eras": {
+                    "eraNames": {
+                        "0": "A ka̱n Yecu ni dap",
+                        "1": "Ɛ ca Yecu dap"
+                    },
+                    "eraAbbr": {
+                        "0": "AY",
+                        "1": "ƐY"
+                    }
+                },
+                "dateFormats": {
+                    "full": "EEEE d MMMM y",
+                    "long": "d MMMM y",
+                    "medium": "d MMM y",
+                    "short": "d/MM/y"
+                },
+                "timeFormats": {
+                    "full": "zzzz h:mm:ss a",
+                    "long": "z h:mm:ss a",
+                    "medium": "h:mm:ss a",
+                    "short": "h:mm a"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "Ed": "E d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "hms": "h:mm:ss a",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "d/M",
+                        "MEd": "E، d-M",
+                        "MMM": "LLL",
+                        "MMMd": "d MMM",
+                        "MMMEd": "E d MMM",
+                        "ms": "m:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMd": "d/M/y",
+                        "yMEd": "E، d/M/y",
+                        "yMMM": "MMM y",
+                        "yMMMd": "d MMM y",
+                        "yMMMEd": "E، d MMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            }
+        }
+    },
+    "numbers": {
+        "decimalFormats-numberSystem-latn": {
+            "standard": {
+                "decimalFormat": {
+                    "pattern": "#,##0.###"
+                }
+            }
+        },
+        "percentFormats-numberSystem-latn": {
+            "standard": {
+                "percentFormat": {
+                    "pattern": "#,##0%"
+                }
+            }
+        },
+        "currencyFormats-numberSystem-latn": {
+            "standard": {
+                "currencyFormat": {
+                    "pattern": "¤#,##0.00;(¤#,##0.00)"
+                }
+            }
+        }
+    }
+}

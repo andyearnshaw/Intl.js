@@ -1,0 +1,205 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "sn",
+        "territory": "ZW"
+    },
+    "dates": {
+        "calendars": {
+            "generic": {
+                "dateFormats": {
+                    "full": "EEEE, d MMMM y G",
+                    "long": "d MMMM y G",
+                    "medium": "d MMM y G",
+                    "short": "dd/MM/y GGGGG"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M/d",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "MMMMd": "MMMM d",
+                        "MMMMEd": "E, MMMM d",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMEd": "E, M/d/y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E, MMM d, y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            },
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "Ndi",
+                            "2": "Kuk",
+                            "3": "Kur",
+                            "4": "Kub",
+                            "5": "Chv",
+                            "6": "Chk",
+                            "7": "Chg",
+                            "8": "Nya",
+                            "9": "Gun",
+                            "10": "Gum",
+                            "11": "Mb",
+                            "12": "Zvi"
+                        },
+                        "wide": {
+                            "1": "Ndira",
+                            "2": "Kukadzi",
+                            "3": "Kurume",
+                            "4": "Kubvumbi",
+                            "5": "Chivabvu",
+                            "6": "Chikumi",
+                            "7": "Chikunguru",
+                            "8": "Nyamavhuvhu",
+                            "9": "Gunyana",
+                            "10": "Gumiguru",
+                            "11": "Mbudzi",
+                            "12": "Zvita"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "1": "N",
+                            "2": "K",
+                            "3": "K",
+                            "4": "K",
+                            "5": "C",
+                            "6": "C",
+                            "7": "C",
+                            "8": "N",
+                            "9": "G",
+                            "10": "G",
+                            "11": "M",
+                            "12": "Z"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "Svo",
+                            "mon": "Muv",
+                            "tue": "Chip",
+                            "wed": "Chit",
+                            "thu": "Chin",
+                            "fri": "Chis",
+                            "sat": "Mug"
+                        },
+                        "wide": {
+                            "sun": "Svondo",
+                            "mon": "Muvhuro",
+                            "tue": "Chipiri",
+                            "wed": "Chitatu",
+                            "thu": "China",
+                            "fri": "Chishanu",
+                            "sat": "Mugovera"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "sun": "S",
+                            "mon": "M",
+                            "tue": "C",
+                            "wed": "C",
+                            "thu": "C",
+                            "fri": "C",
+                            "sat": "M"
+                        }
+                    }
+                },
+                "quarters": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "K1",
+                            "2": "K2",
+                            "3": "K3",
+                            "4": "K4"
+                        },
+                        "wide": {
+                            "1": "Kota 1",
+                            "2": "Kota 2",
+                            "3": "Kota 3",
+                            "4": "Kota 4"
+                        }
+                    }
+                },
+                "eras": {
+                    "eraNames": {
+                        "0": "Kristo asati auya",
+                        "1": "Kristo ashaya"
+                    },
+                    "eraAbbr": {
+                        "0": "BC",
+                        "1": "AD"
+                    }
+                },
+                "dateFormats": {
+                    "full": "EEEE, d MMMM y",
+                    "long": "d MMMM y",
+                    "medium": "d MMM y",
+                    "short": "dd/MM/y"
+                },
+                "timeFormats": {
+                    "full": "h:mm:ss a zzzz",
+                    "long": "h:mm:ss a z",
+                    "medium": "h:mm:ss a",
+                    "short": "h:mm a"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M/d",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "MMMMd": "MMMM d",
+                        "MMMMEd": "E, MMMM d",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMEd": "E, M/d/y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E, MMM d, y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            }
+        }
+    },
+    "numbers": {
+        "currencyFormats-numberSystem-latn": {
+            "standard": {
+                "currencyFormat": {
+                    "pattern": "¤#,##0.00;(¤#,##0.00)"
+                }
+            }
+        }
+    }
+}

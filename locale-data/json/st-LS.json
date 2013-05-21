@@ -1,0 +1,104 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "st",
+        "territory": "LS"
+    },
+    "numbers": {
+        "currencies": {
+            "LSL": {
+                "symbol": "M"
+            },
+            "ZAR": {
+                "symbol": "R"
+            }
+        },
+        "decimalFormats-numberSystem-latn": {
+            "standard": {
+                "decimalFormat": {
+                    "pattern": "#,##0.###"
+                }
+            }
+        },
+        "percentFormats-numberSystem-latn": {
+            "standard": {
+                "percentFormat": {
+                    "pattern": "#,##0%"
+                }
+            }
+        },
+        "currencyFormats-numberSystem-latn": {
+            "standard": {
+                "currencyFormat": {
+                    "pattern": "¤#,##0.00"
+                }
+            }
+        }
+    },
+    "dates": {
+        "calendars": {
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "Phe",
+                            "2": "Kol",
+                            "3": "Ube",
+                            "4": "Mme",
+                            "5": "Mot",
+                            "6": "Jan",
+                            "7": "Upu",
+                            "8": "Pha",
+                            "9": "Leo",
+                            "10": "Mph",
+                            "11": "Pun",
+                            "12": "Tsh"
+                        },
+                        "wide": {
+                            "1": "Phesekgong",
+                            "2": "Hlakola",
+                            "3": "Hlakubele",
+                            "4": "Mmese",
+                            "5": "Motsheanong",
+                            "6": "Phupjane",
+                            "7": "Phupu",
+                            "8": "Phata",
+                            "9": "Leotshe",
+                            "10": "Mphalane",
+                            "11": "Pundungwane",
+                            "12": "Tshitwe"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "Son",
+                            "mon": "Mma",
+                            "tue": "Bed",
+                            "wed": "Rar",
+                            "thu": "Ne",
+                            "fri": "Hla",
+                            "sat": "Moq"
+                        },
+                        "wide": {
+                            "sun": "Sontaha",
+                            "mon": "Mmantaha",
+                            "tue": "Labobedi",
+                            "wed": "Laboraru",
+                            "thu": "Labone",
+                            "fri": "Labohlane",
+                            "sat": "Moqebelo"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

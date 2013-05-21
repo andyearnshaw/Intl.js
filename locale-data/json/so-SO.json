@@ -1,0 +1,218 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "so",
+        "territory": "SO"
+    },
+    "dates": {
+        "calendars": {
+            "generic": {
+                "dateFormats": {
+                    "full": "EEEE, MMMM dd, y G",
+                    "long": "dd MMMM y G",
+                    "medium": "dd-MMM-y G",
+                    "short": "dd/MM/yy GGGGG"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M/d",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "MMMMd": "MMMM d",
+                        "MMMMEd": "E, MMMM d",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMEd": "E, M/d/y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E, MMM d, y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            },
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "Kob",
+                            "2": "Lab",
+                            "3": "Sad",
+                            "4": "Afr",
+                            "5": "Sha",
+                            "6": "Lix",
+                            "7": "Tod",
+                            "8": "Sid",
+                            "9": "Sag",
+                            "10": "Tob",
+                            "11": "KIT",
+                            "12": "LIT"
+                        },
+                        "wide": {
+                            "1": "Bisha Koobaad",
+                            "2": "Bisha Labaad",
+                            "3": "Bisha Saddexaad",
+                            "4": "Bisha Afraad",
+                            "5": "Bisha Shanaad",
+                            "6": "Bisha Lixaad",
+                            "7": "Bisha Todobaad",
+                            "8": "Bisha Sideedaad",
+                            "9": "Bisha Sagaalaad",
+                            "10": "Bisha Tobnaad",
+                            "11": "Bisha Kow iyo Tobnaad",
+                            "12": "Bisha Laba iyo Tobnaad"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "1": "K",
+                            "2": "L",
+                            "3": "S",
+                            "4": "A",
+                            "5": "S",
+                            "6": "L",
+                            "7": "T",
+                            "8": "S",
+                            "9": "S",
+                            "10": "T",
+                            "11": "K",
+                            "12": "L"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "Axd",
+                            "mon": "Isn",
+                            "tue": "Tal",
+                            "wed": "Arb",
+                            "thu": "Kha",
+                            "fri": "Jim",
+                            "sat": "Sab"
+                        },
+                        "wide": {
+                            "sun": "Axad",
+                            "mon": "Isniin",
+                            "tue": "Talaado",
+                            "wed": "Arbaco",
+                            "thu": "Khamiis",
+                            "fri": "Jimco",
+                            "sat": "Sabti"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "sun": "A",
+                            "mon": "I",
+                            "tue": "T",
+                            "wed": "A",
+                            "thu": "K",
+                            "fri": "J",
+                            "sat": "S"
+                        }
+                    }
+                },
+                "quarters": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "R1",
+                            "2": "R2",
+                            "3": "R3",
+                            "4": "R4"
+                        },
+                        "wide": {
+                            "1": "Rubaca 1aad",
+                            "2": "Rubaca 2aad",
+                            "3": "Rubaca 3aad",
+                            "4": "Rubaca 4aad"
+                        }
+                    }
+                },
+                "dayPeriods": {
+                    "format": {
+                        "wide": {
+                            "am": "sn.",
+                            "pm": "gn."
+                        }
+                    }
+                },
+                "eras": {
+                    "eraNames": {
+                        "0": "Ciise ka hor (CS)",
+                        "1": "Ciise ka dib (CS)"
+                    },
+                    "eraAbbr": {
+                        "0": "CK",
+                        "1": "CD"
+                    }
+                },
+                "dateFormats": {
+                    "full": "EEEE, MMMM dd, y",
+                    "long": "dd MMMM y",
+                    "medium": "dd-MMM-y",
+                    "short": "dd/MM/yy"
+                },
+                "timeFormats": {
+                    "full": "h:mm:ss a zzzz",
+                    "long": "h:mm:ss a z",
+                    "medium": "h:mm:ss a",
+                    "short": "h:mm a"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M/d",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "MMMMd": "MMMM d",
+                        "MMMMEd": "E, MMMM d",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMEd": "E, M/d/y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E, MMM d, y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            }
+        }
+    },
+    "numbers": {
+        "currencyFormats-numberSystem-latn": {
+            "standard": {
+                "currencyFormat": {
+                    "pattern": "¤#,##0.00"
+                }
+            }
+        },
+        "currencies": {
+            "SOS": {
+                "symbol": "S"
+            }
+        }
+    }
+}

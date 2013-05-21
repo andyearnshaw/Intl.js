@@ -1,0 +1,217 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "kde"
+    },
+    "dates": {
+        "calendars": {
+            "generic": {
+                "dateFormats": {
+                    "full": "EEEE, d MMMM y G",
+                    "long": "d MMMM y G",
+                    "medium": "d MMM y G",
+                    "short": "dd/MM/y GGGGG"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M/d",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "MMMMd": "MMMM d",
+                        "MMMMEd": "E, MMMM d",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMEd": "E, M/d/y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E, MMM d, y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            },
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "Jan",
+                            "2": "Feb",
+                            "3": "Mac",
+                            "4": "Apr",
+                            "5": "Mei",
+                            "6": "Jun",
+                            "7": "Jul",
+                            "8": "Ago",
+                            "9": "Sep",
+                            "10": "Okt",
+                            "11": "Nov",
+                            "12": "Des"
+                        },
+                        "wide": {
+                            "1": "Mwedi Ntandi",
+                            "2": "Mwedi wa Pili",
+                            "3": "Mwedi wa Tatu",
+                            "4": "Mwedi wa Nchechi",
+                            "5": "Mwedi wa Nnyano",
+                            "6": "Mwedi wa Nnyano na Umo",
+                            "7": "Mwedi wa Nnyano na Mivili",
+                            "8": "Mwedi wa Nnyano na Mitatu",
+                            "9": "Mwedi wa Nnyano na Nchechi",
+                            "10": "Mwedi wa Nnyano na Nnyano",
+                            "11": "Mwedi wa Nnyano na Nnyano na U",
+                            "12": "Mwedi wa Nnyano na Nnyano na M"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "1": "J",
+                            "2": "F",
+                            "3": "M",
+                            "4": "A",
+                            "5": "M",
+                            "6": "J",
+                            "7": "J",
+                            "8": "A",
+                            "9": "S",
+                            "10": "O",
+                            "11": "N",
+                            "12": "D"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "Ll2",
+                            "mon": "Ll3",
+                            "tue": "Ll4",
+                            "wed": "Ll5",
+                            "thu": "Ll6",
+                            "fri": "Ll7",
+                            "sat": "Ll1"
+                        },
+                        "wide": {
+                            "sun": "Liduva lyapili",
+                            "mon": "Liduva lyatatu",
+                            "tue": "Liduva lyanchechi",
+                            "wed": "Liduva lyannyano",
+                            "thu": "Liduva lyannyano na linji",
+                            "fri": "Liduva lyannyano na mavili",
+                            "sat": "Liduva litandi"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "sun": "2",
+                            "mon": "3",
+                            "tue": "4",
+                            "wed": "5",
+                            "thu": "6",
+                            "fri": "7",
+                            "sat": "1"
+                        }
+                    }
+                },
+                "quarters": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "L1",
+                            "2": "L2",
+                            "3": "L3",
+                            "4": "L4"
+                        },
+                        "wide": {
+                            "1": "Lobo 1",
+                            "2": "Lobo 2",
+                            "3": "Lobo 3",
+                            "4": "Lobo 4"
+                        }
+                    }
+                },
+                "dayPeriods": {
+                    "format": {
+                        "wide": {
+                            "am": "Muhi",
+                            "pm": "Chilo"
+                        }
+                    }
+                },
+                "eras": {
+                    "eraNames": {
+                        "0": "Akanapawa Yesu",
+                        "1": "Nankuida Yesu"
+                    },
+                    "eraAbbr": {
+                        "0": "AY",
+                        "1": "NY"
+                    }
+                },
+                "dateFormats": {
+                    "full": "EEEE, d MMMM y",
+                    "long": "d MMMM y",
+                    "medium": "d MMM y",
+                    "short": "dd/MM/y"
+                },
+                "timeFormats": {
+                    "full": "h:mm:ss a zzzz",
+                    "long": "h:mm:ss a z",
+                    "medium": "h:mm:ss a",
+                    "short": "h:mm a"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M/d",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "MMMMd": "MMMM d",
+                        "MMMMEd": "E, MMMM d",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMEd": "E, M/d/y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E, MMM d, y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            }
+        }
+    },
+    "numbers": {
+        "currencyFormats-numberSystem-latn": {
+            "standard": {
+                "currencyFormat": {
+                    "pattern": "¤#,##0.00;(¤#,##0.00)"
+                }
+            }
+        },
+        "currencies": {
+            "TZS": {
+                "symbol": "TSh"
+            }
+        }
+    }
+}

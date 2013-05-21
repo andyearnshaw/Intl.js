@@ -1,0 +1,1274 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "si",
+        "territory": "LK"
+    },
+    "dates": {
+        "calendars": {
+            "generic": {
+                "dateFormats": {
+                    "full": "G y MMMM d, EEEE",
+                    "long": "G y MMMM d",
+                    "medium": "G y MMM d",
+                    "short": "GGGGG y/MM/dd"
+                },
+                "dateTimeFormats": {
+                    "full": "{1} {0}",
+                    "long": "{1} {0}",
+                    "medium": "{1} {0}",
+                    "short": "{1} {0}",
+                    "availableFormats": {
+                        "d": "d",
+                        "Ed": "d E",
+                        "h": "a h",
+                        "H": "HH",
+                        "hm": "a h.mm",
+                        "Hm": "HH:mm",
+                        "hms": "a h.mm.ss",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M-d",
+                        "MEd": "M-d, E",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "MMM d E",
+                        "ms": "mm.ss",
+                        "y": "y",
+                        "yM": "y-M",
+                        "yMd": "y-M-d",
+                        "yMEd": "y-M-d, E",
+                        "yMMM": "y MMM",
+                        "yMMMd": "y MMM d",
+                        "yMMMEd": "y MMM d, E",
+                        "yQQQ": "y QQQ",
+                        "yQQQQ": "y QQQQ"
+                    }
+                }
+            },
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "ජන",
+                            "2": "පෙබ",
+                            "3": "මාර්තු",
+                            "4": "අප්‍රේල්",
+                            "5": "මැයි",
+                            "6": "ජූනි",
+                            "7": "ජූලි",
+                            "8": "අගෝ",
+                            "9": "සැප්",
+                            "10": "ඔක්",
+                            "11": "නොවැ",
+                            "12": "දෙසැ"
+                        },
+                        "narrow": {
+                            "1": "ජ",
+                            "2": "පෙ",
+                            "3": "මා",
+                            "4": "අ",
+                            "5": "මැ",
+                            "6": "ජූ",
+                            "7": "ජූ",
+                            "8": "අ",
+                            "9": "සැ",
+                            "10": "ඔ",
+                            "11": "නෙ",
+                            "12": "දෙ"
+                        },
+                        "wide": {
+                            "1": "ජනවාරි",
+                            "2": "පෙබරවාරි",
+                            "3": "මාර්තු",
+                            "4": "අප්‍රේල්",
+                            "5": "මැයි",
+                            "6": "ජූනි",
+                            "7": "ජූලි",
+                            "8": "අගෝස්තු",
+                            "9": "සැප්තැම්බර්",
+                            "10": "ඔක්තෝබර්",
+                            "11": "නොවැම්බර්",
+                            "12": "දෙසැම්බර්"
+                        }
+                    },
+                    "stand-alone": {
+                        "abbreviated": {
+                            "1": "ජන",
+                            "2": "පෙබ",
+                            "3": "මාර්",
+                            "4": "අප්‍රේල්",
+                            "5": "මැයි",
+                            "6": "ජූනි",
+                            "7": "ජූලි",
+                            "8": "අගෝ",
+                            "9": "සැප්",
+                            "10": "ඔක්",
+                            "11": "නොවැ",
+                            "12": "දෙසැ"
+                        },
+                        "narrow": {
+                            "1": "ජ",
+                            "2": "පෙ",
+                            "3": "මා",
+                            "4": "අ",
+                            "5": "මැ",
+                            "6": "ජූ",
+                            "7": "ජූ",
+                            "8": "අ",
+                            "9": "සැ",
+                            "10": "ඔ",
+                            "11": "නෙ",
+                            "12": "දෙ"
+                        },
+                        "wide": {
+                            "1": "ජනවාරි",
+                            "2": "පෙබරවාරි",
+                            "3": "මාර්තු",
+                            "4": "අප්‍රේල්",
+                            "5": "මැයි",
+                            "6": "ජූනි",
+                            "7": "ජූලි",
+                            "8": "අගෝස්තු",
+                            "9": "සැප්තැම්බර්",
+                            "10": "ඔක්තෝබර්",
+                            "11": "නොවැම්බර්",
+                            "12": "දෙසැම්බර්"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "ඉරි",
+                            "mon": "සඳු",
+                            "tue": "අඟ",
+                            "wed": "බදා",
+                            "thu": "බ්‍රහ",
+                            "fri": "සිකු",
+                            "sat": "සෙන"
+                        },
+                        "narrow": {
+                            "sun": "ඉ",
+                            "mon": "ස",
+                            "tue": "අ",
+                            "wed": "බ",
+                            "thu": "බ්‍ර",
+                            "fri": "සි",
+                            "sat": "සෙ"
+                        },
+                        "short": {
+                            "sun": "ඉ",
+                            "mon": "ස",
+                            "tue": "අ",
+                            "wed": "බ",
+                            "thu": "බ්‍ර",
+                            "fri": "සි",
+                            "sat": "සෙ"
+                        },
+                        "wide": {
+                            "sun": "ඉරිදා",
+                            "mon": "සඳුදා",
+                            "tue": "අඟහරුවාදා",
+                            "wed": "බදාදා",
+                            "thu": "බ්‍රහස්පතින්දා",
+                            "fri": "සිකුරාදා",
+                            "sat": "සෙනසුරාදා"
+                        }
+                    },
+                    "stand-alone": {
+                        "abbreviated": {
+                            "sun": "ඉරි",
+                            "mon": "සඳු",
+                            "tue": "අඟ",
+                            "wed": "බදා",
+                            "thu": "බ්‍රහ",
+                            "fri": "සිකු",
+                            "sat": "සෙන"
+                        },
+                        "narrow": {
+                            "sun": "ඉ",
+                            "mon": "ස",
+                            "tue": "අ",
+                            "wed": "බ",
+                            "thu": "බ්‍ර",
+                            "fri": "සි",
+                            "sat": "සෙ"
+                        },
+                        "short": {
+                            "sun": "ඉරි",
+                            "mon": "සඳු",
+                            "tue": "අඟ",
+                            "wed": "බදා",
+                            "thu": "බ්‍රහ",
+                            "fri": "සිකු",
+                            "sat": "සෙන"
+                        },
+                        "wide": {
+                            "sun": "ඉරිදා",
+                            "mon": "සඳුදා",
+                            "tue": "අඟහරුවාදා",
+                            "wed": "බදාදා",
+                            "thu": "බ්‍රහස්පතින්දා",
+                            "fri": "සිකුරාදා",
+                            "sat": "සෙනසුරාදා"
+                        }
+                    }
+                },
+                "quarters": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "කාර්:1",
+                            "2": "කාර්:2",
+                            "3": "කාර්:3",
+                            "4": "කාර්:4"
+                        },
+                        "narrow": {
+                            "1": "1",
+                            "2": "2",
+                            "3": "3",
+                            "4": "4"
+                        },
+                        "wide": {
+                            "1": "1 වන කාර්තුව",
+                            "2": "2 වන කාර්තුව",
+                            "3": "3 වන කාර්තුව",
+                            "4": "4 වන කාර්තුව"
+                        }
+                    },
+                    "stand-alone": {
+                        "abbreviated": {
+                            "1": "කාර්:1",
+                            "2": "කාර්:2",
+                            "3": "කාර්:3",
+                            "4": "කාර්:4"
+                        },
+                        "narrow": {
+                            "1": "1",
+                            "2": "2",
+                            "3": "3",
+                            "4": "4"
+                        },
+                        "wide": {
+                            "1": "1 වන කාර්තුව",
+                            "2": "2 වන කාර්තුව",
+                            "3": "3 වන කාර්තුව",
+                            "4": "4 වන කාර්තුව"
+                        }
+                    }
+                },
+                "dayPeriods": {
+                    "format": {
+                        "wide": {
+                            "am": "පෙ.ව.",
+                            "pm": "ප.ව."
+                        }
+                    }
+                },
+                "eras": {
+                    "eraNames": {
+                        "0": "ක්‍රිස්තු පූර්‍ව",
+                        "1": "ක්‍රිස්තු වර්‍ෂ"
+                    },
+                    "eraAbbr": {
+                        "0": "ක්‍රි.පූ.",
+                        "1": "ක්‍රි.ව."
+                    }
+                },
+                "dateFormats": {
+                    "full": "y MMMM d, EEEE",
+                    "long": "y MMMM d",
+                    "medium": "y MMM d",
+                    "short": "y/MM/dd"
+                },
+                "timeFormats": {
+                    "full": "a HH:mm:ss zzzz",
+                    "long": "a h:mm:ss z",
+                    "medium": "a h.mm.ss",
+                    "short": "a h.mm"
+                },
+                "dateTimeFormats": {
+                    "full": "{1} {0}",
+                    "long": "{1} {0}",
+                    "medium": "{1} {0}",
+                    "short": "{1} {0}",
+                    "availableFormats": {
+                        "d": "d",
+                        "Ed": "d E",
+                        "h": "a h",
+                        "H": "HH",
+                        "hm": "a h.mm",
+                        "Hm": "HH:mm",
+                        "hms": "a h.mm.ss",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M-d",
+                        "MEd": "M-d, E",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "MMM d E",
+                        "ms": "mm.ss",
+                        "y": "y",
+                        "yM": "y-M",
+                        "yMd": "y-M-d",
+                        "yMEd": "y-M-d, E",
+                        "yMMM": "y MMM",
+                        "yMMMd": "y MMM d",
+                        "yMMMEd": "y MMM d, E",
+                        "yQQQ": "y QQQ",
+                        "yQQQQ": "y QQQQ"
+                    }
+                }
+            }
+        },
+        "timeZoneNames": {
+            "zone": {
+                "America": {
+                    "Antigua": {
+                        "exemplarCity": "ඇන්ටිගුවා"
+                    },
+                    "Argentina": {
+                        "San_Juan": {
+                            "exemplarCity": "ශාන්ත ජුවාන්"
+                        },
+                        "San_Luis": {
+                            "exemplarCity": "ශාන්ත ලුවිස්"
+                        }
+                    },
+                    "Aruba": {
+                        "exemplarCity": "අරූබා"
+                    },
+                    "Barbados": {
+                        "exemplarCity": "බාබඩෝස්"
+                    },
+                    "Belize": {
+                        "exemplarCity": "බේලිස්"
+                    },
+                    "Blanc-Sablon": {
+                        "exemplarCity": "බ්ලැන්ක්-සැබ්ලන්"
+                    },
+                    "Bogota": {
+                        "exemplarCity": "බොගොටා"
+                    },
+                    "Buenos_Aires": {
+                        "exemplarCity": "බුවනෝස් අයර්ස්"
+                    },
+                    "Cambridge_Bay": {
+                        "exemplarCity": "කේම්බ්‍රිජ් බොක්ක"
+                    },
+                    "Cayman": {
+                        "exemplarCity": "කේමන්"
+                    },
+                    "Chicago": {
+                        "exemplarCity": "චිකාගෝ"
+                    },
+                    "Coral_Harbour": {
+                        "exemplarCity": "ඇටිකොකන්"
+                    },
+                    "Costa_Rica": {
+                        "exemplarCity": "කොස්ටරිකා"
+                    },
+                    "Dawson": {
+                        "exemplarCity": "ඩෝසන්"
+                    },
+                    "Dawson_Creek": {
+                        "exemplarCity": "ඩෝසන් ක්‍රීක්"
+                    },
+                    "Dominica": {
+                        "exemplarCity": "ඩොමිනිකා"
+                    },
+                    "Edmonton": {
+                        "exemplarCity": "එඩ්මන්ටන්"
+                    },
+                    "El_Salvador": {
+                        "exemplarCity": "එල්සැල්වදෝර්"
+                    },
+                    "Glace_Bay": {
+                        "exemplarCity": "ග්ලේස් බොක්ක"
+                    },
+                    "Goose_Bay": {
+                        "exemplarCity": "ගූස් බොක්ක"
+                    },
+                    "Grenada": {
+                        "exemplarCity": "ග්‍රැනඩා"
+                    },
+                    "Guadeloupe": {
+                        "exemplarCity": "ග්වාඩ්ලෝප්"
+                    },
+                    "Guatemala": {
+                        "exemplarCity": "ගෝතමාලාව"
+                    },
+                    "Guyana": {
+                        "exemplarCity": "ගයනාව"
+                    },
+                    "Halifax": {
+                        "exemplarCity": "හොලිෆැක්ස්"
+                    },
+                    "Havana": {
+                        "exemplarCity": "හවානා"
+                    },
+                    "Indiana": {
+                        "Petersburg": {
+                            "exemplarCity": "පීටර්ස්බර්ග්, ඉන්දියානා"
+                        },
+                        "Tell_City": {
+                            "exemplarCity": "ටෙල් නගරය, ඉන්දියානා"
+                        },
+                        "Knox": {
+                            "exemplarCity": "නොක්ස්, ඉන්දියානා"
+                        }
+                    },
+                    "Inuvik": {
+                        "exemplarCity": "ඉනුවික්"
+                    },
+                    "Iqaluit": {
+                        "exemplarCity": "ඉකාලුයිට්"
+                    },
+                    "Jamaica": {
+                        "exemplarCity": "ජැමෙයිකා"
+                    },
+                    "La_Paz": {
+                        "exemplarCity": "ලා පස්"
+                    },
+                    "Los_Angeles": {
+                        "exemplarCity": "ලොස් ඇන්ජලීස්"
+                    },
+                    "Martinique": {
+                        "exemplarCity": "මාටිනික්"
+                    },
+                    "Mexico_City": {
+                        "exemplarCity": "මෙක්සිකෝ නගරය"
+                    },
+                    "Moncton": {
+                        "exemplarCity": "මොන්ක්ටන්"
+                    },
+                    "Montreal": {
+                        "exemplarCity": "මොන්ට්‍රියල්"
+                    },
+                    "New_York": {
+                        "exemplarCity": "නිව්යෝක්"
+                    },
+                    "Nipigon": {
+                        "exemplarCity": "නිපිගන්"
+                    },
+                    "Panama": {
+                        "exemplarCity": "පැනමා"
+                    },
+                    "Pangnirtung": {
+                        "exemplarCity": "පැන්නීටන්"
+                    },
+                    "Phoenix": {
+                        "exemplarCity": "පීනික්ස්"
+                    },
+                    "Puerto_Rico": {
+                        "exemplarCity": "පුවටොරිකෝව"
+                    },
+                    "Rainy_River": {
+                        "exemplarCity": "රෙයිනි ගඟ"
+                    },
+                    "Rankin_Inlet": {
+                        "exemplarCity": "රැන්කින් පිවිසුම"
+                    },
+                    "Regina": {
+                        "exemplarCity": "රෙජිනා"
+                    },
+                    "Resolute": {
+                        "exemplarCity": "රෙසොලුට්"
+                    },
+                    "Santiago": {
+                        "exemplarCity": "සන්තියාගෝ"
+                    },
+                    "Sao_Paulo": {
+                        "exemplarCity": "සාවෝ පෝලො"
+                    },
+                    "St_Barthelemy": {
+                        "exemplarCity": "ශාන්ත බෙත්ලහෙම"
+                    },
+                    "St_Johns": {
+                        "exemplarCity": "ශාන්ත ජෝන්ගේ"
+                    },
+                    "St_Kitts": {
+                        "exemplarCity": "ශාන්ත කිට්ස්"
+                    },
+                    "St_Lucia": {
+                        "exemplarCity": "ශාන්ත ලුසියා"
+                    },
+                    "St_Thomas": {
+                        "exemplarCity": "ශාන්ත තෝමස්"
+                    },
+                    "St_Vincent": {
+                        "exemplarCity": "ශාන්ත වින්ට්සන්"
+                    },
+                    "Thunder_Bay": {
+                        "exemplarCity": "තන්ඩර් බොක්ක"
+                    },
+                    "Toronto": {
+                        "exemplarCity": "ටොරන්ටෝ"
+                    },
+                    "Whitehorse": {
+                        "exemplarCity": "වයිට්හවුස්"
+                    },
+                    "Yellowknife": {
+                        "exemplarCity": "යෙලෝනයිෆ"
+                    }
+                },
+                "Atlantic": {
+                    "Bermuda": {
+                        "exemplarCity": "බර්මියුඩාව"
+                    },
+                    "Canary": {
+                        "exemplarCity": "කෙනරි"
+                    },
+                    "Cape_Verde": {
+                        "exemplarCity": "කේප් වර්ඩ්"
+                    },
+                    "South_Georgia": {
+                        "exemplarCity": "දකුණු ජෝර්ජියාව"
+                    },
+                    "St_Helena": {
+                        "exemplarCity": "ශා. හෙලේනා"
+                    },
+                    "Stanley": {
+                        "exemplarCity": "ස්ටැන්ලි"
+                    }
+                },
+                "Europe": {
+                    "Amsterdam": {
+                        "exemplarCity": "ඇම්ස්ට්‍රඩෑම්"
+                    },
+                    "Belgrade": {
+                        "exemplarCity": "බෙල්ග්‍රේඩ්ඩ්"
+                    },
+                    "Berlin": {
+                        "exemplarCity": "බර්ලින්"
+                    },
+                    "Brussels": {
+                        "exemplarCity": "බ්‍රසල්ස්"
+                    },
+                    "Copenhagen": {
+                        "exemplarCity": "කොපර්හේගන්"
+                    },
+                    "Dublin": {
+                        "exemplarCity": "ඩබ්ලින්"
+                    },
+                    "Helsinki": {
+                        "exemplarCity": "හෙල්සින්කි"
+                    },
+                    "Istanbul": {
+                        "exemplarCity": "ඉස්තාන්බුල්"
+                    },
+                    "Jersey": {
+                        "exemplarCity": "ජර්සි"
+                    },
+                    "Lisbon": {
+                        "exemplarCity": "ලිස්බන්"
+                    },
+                    "London": {
+                        "exemplarCity": "ලන්ඩන්"
+                    },
+                    "Luxembourg": {
+                        "exemplarCity": "ලක්ස්සැම්බර්ග්"
+                    },
+                    "Madrid": {
+                        "exemplarCity": "මැඩ්රිඩ්"
+                    },
+                    "Monaco": {
+                        "exemplarCity": "මොනැකෝ"
+                    },
+                    "Moscow": {
+                        "exemplarCity": "මොස්කව්"
+                    },
+                    "Oslo": {
+                        "exemplarCity": "ඔස්ලෝ"
+                    },
+                    "Paris": {
+                        "exemplarCity": "පැරිස්ස්"
+                    },
+                    "Rome": {
+                        "exemplarCity": "රෝමය"
+                    },
+                    "San_Marino": {
+                        "exemplarCity": "සැන් මැරිනෝ"
+                    },
+                    "Stockholm": {
+                        "exemplarCity": "ස්ටොක්හෝම්"
+                    },
+                    "Vatican": {
+                        "exemplarCity": "වෙටිකන්"
+                    },
+                    "Vienna": {
+                        "exemplarCity": "වියනා"
+                    },
+                    "Zurich": {
+                        "exemplarCity": "සූරිච්"
+                    }
+                },
+                "Africa": {
+                    "Abidjan": {
+                        "exemplarCity": "අබිජාන්"
+                    },
+                    "Addis_Ababa": {
+                        "exemplarCity": "අඩිස් අබා"
+                    },
+                    "Bujumbura": {
+                        "exemplarCity": "බුජම්බුරා"
+                    },
+                    "Cairo": {
+                        "exemplarCity": "කයිරෝ"
+                    },
+                    "Dakar": {
+                        "exemplarCity": "ඩකර්"
+                    },
+                    "Djibouti": {
+                        "exemplarCity": "ජිබුටි"
+                    },
+                    "Harare": {
+                        "exemplarCity": "හරාරේ"
+                    },
+                    "Johannesburg": {
+                        "exemplarCity": "ජොහෑනස්බර්ග්"
+                    },
+                    "Kampala": {
+                        "exemplarCity": "කම්පාලා"
+                    },
+                    "Kinshasa": {
+                        "exemplarCity": "කින්ශාසා"
+                    },
+                    "Lagos": {
+                        "exemplarCity": "ලාගෝස්"
+                    },
+                    "Luanda": {
+                        "exemplarCity": "ලුවන්ඩා"
+                    },
+                    "Lusaka": {
+                        "exemplarCity": "ලුසාකා"
+                    },
+                    "Mogadishu": {
+                        "exemplarCity": "මොගඩිෂු"
+                    },
+                    "Nairobi": {
+                        "exemplarCity": "නයිරෝබි"
+                    },
+                    "Tripoli": {
+                        "exemplarCity": "ට්‍රිෙපාලි"
+                    },
+                    "Tunis": {
+                        "exemplarCity": "ටියුනිස්"
+                    }
+                },
+                "Asia": {
+                    "Aden": {
+                        "exemplarCity": "ඒඩ්න්"
+                    },
+                    "Amman": {
+                        "exemplarCity": "අම්මාන්"
+                    },
+                    "Baghdad": {
+                        "exemplarCity": "බැග්ඩෑඩ්"
+                    },
+                    "Bahrain": {
+                        "exemplarCity": "බහරේන්"
+                    },
+                    "Bangkok": {
+                        "exemplarCity": "බැංකොක්"
+                    },
+                    "Beirut": {
+                        "exemplarCity": "බීරුට්"
+                    },
+                    "Brunei": {
+                        "exemplarCity": "බෲනායි"
+                    },
+                    "Calcutta": {
+                        "exemplarCity": "කල්කටා"
+                    },
+                    "Colombo": {
+                        "exemplarCity": "කොළඹ"
+                    },
+                    "Damascus": {
+                        "exemplarCity": "ඩැමස්කස්"
+                    },
+                    "Dhaka": {
+                        "exemplarCity": "ධකා"
+                    },
+                    "Dili": {
+                        "exemplarCity": "දිල්ලි"
+                    },
+                    "Dubai": {
+                        "exemplarCity": "ඩුබායි"
+                    },
+                    "Gaza": {
+                        "exemplarCity": "ගාසා"
+                    },
+                    "Hong_Kong": {
+                        "exemplarCity": "හොංකොං"
+                    },
+                    "Jakarta": {
+                        "exemplarCity": "ජකර්තා"
+                    },
+                    "Jayapura": {
+                        "exemplarCity": "ජයපුර"
+                    },
+                    "Jerusalem": {
+                        "exemplarCity": "ජෙරුසලම්"
+                    },
+                    "Kabul": {
+                        "exemplarCity": "කාබුල්"
+                    },
+                    "Karachi": {
+                        "exemplarCity": "කරච්චිචි"
+                    },
+                    "Katmandu": {
+                        "exemplarCity": "කත්මන්දු"
+                    },
+                    "Kuwait": {
+                        "exemplarCity": "කුවේට්"
+                    },
+                    "Macau": {
+                        "exemplarCity": "මැකාවු"
+                    },
+                    "Manila": {
+                        "exemplarCity": "මැනිලා"
+                    },
+                    "Muscat": {
+                        "exemplarCity": "මස්කට්"
+                    },
+                    "Qatar": {
+                        "exemplarCity": "ක්ටාර්"
+                    },
+                    "Rangoon": {
+                        "exemplarCity": "රැංගුන්"
+                    },
+                    "Riyadh": {
+                        "exemplarCity": "රියාද්"
+                    },
+                    "Saigon": {
+                        "exemplarCity": "හෝචි මිං නගරය"
+                    },
+                    "Seoul": {
+                        "exemplarCity": "සෝල්"
+                    },
+                    "Shanghai": {
+                        "exemplarCity": "ශැන්හයි"
+                    },
+                    "Singapore": {
+                        "exemplarCity": "සිංගප්පූරුව"
+                    },
+                    "Taipei": {
+                        "exemplarCity": "තායිපෙ"
+                    },
+                    "Tbilisi": {
+                        "exemplarCity": "බිලිසි"
+                    },
+                    "Tehran": {
+                        "exemplarCity": "ටෙහෙරාන්"
+                    },
+                    "Thimphu": {
+                        "exemplarCity": "තිම්පු"
+                    },
+                    "Tokyo": {
+                        "exemplarCity": "ටෝකියෝ"
+                    }
+                },
+                "Indian": {
+                    "Cocos": {
+                        "exemplarCity": "කොකොස්"
+                    },
+                    "Maldives": {
+                        "exemplarCity": "මාල දිවයින"
+                    },
+                    "Mayotte": {
+                        "exemplarCity": "මයෝටි"
+                    }
+                },
+                "Australia": {
+                    "Adelaide": {
+                        "exemplarCity": "ඇඩිලේඩ්"
+                    },
+                    "Brisbane": {
+                        "exemplarCity": "බ්‍රිස්බේන්"
+                    },
+                    "Darwin": {
+                        "exemplarCity": "ඩාවින්"
+                    },
+                    "Hobart": {
+                        "exemplarCity": "හෝබාර්ට්"
+                    },
+                    "Melbourne": {
+                        "exemplarCity": "මෙල්බෝර්න්"
+                    },
+                    "Perth": {
+                        "exemplarCity": "පර්ත්"
+                    },
+                    "Sydney": {
+                        "exemplarCity": "සිඩ්නි"
+                    }
+                },
+                "Pacific": {
+                    "Auckland": {
+                        "exemplarCity": "ඕක්ලන්තය"
+                    },
+                    "Chatham": {
+                        "exemplarCity": "චැතෑම්"
+                    },
+                    "Fiji": {
+                        "exemplarCity": "ෆීජි"
+                    },
+                    "Galapagos": {
+                        "exemplarCity": "ගලපගෝස්"
+                    },
+                    "Guam": {
+                        "exemplarCity": "ගුවාම්"
+                    },
+                    "Honolulu": {
+                        "exemplarCity": "හොනොලුලු"
+                    },
+                    "Johnston": {
+                        "exemplarCity": "ජොන්ස්ටන්"
+                    },
+                    "Norfolk": {
+                        "exemplarCity": "නෝෆෝක්"
+                    }
+                },
+                "Antarctica": {
+                    "Davis": {
+                        "exemplarCity": "ඩේවිස්"
+                    }
+                },
+                "Etc": {
+                    "Unknown": {
+                        "exemplarCity": "හඳුනා නොගත් නගරය"
+                    }
+                }
+            },
+            "metazone": {
+                "Afghanistan": {
+                    "long": {
+                        "standard": "ඇෆ්ගනිස්ථාන වේලාව"
+                    }
+                },
+                "Africa_Eastern": {
+                    "long": {
+                        "standard": "නැගෙනහිර අප්‍රිකානු වේලාව"
+                    }
+                },
+                "Africa_Southern": {
+                    "long": {
+                        "standard": "දකුණු අප්‍රිකානු වේලාව"
+                    }
+                },
+                "Africa_Western": {
+                    "long": {
+                        "generic": "බටහිර අප්‍රිකානු වේලාව",
+                        "standard": "බටහිර අප්‍රිකානු සම්මත වේලාව",
+                        "daylight": "බටහිර අප්‍රිකානු ගිම්හාන වේලාව"
+                    }
+                },
+                "Alaska": {
+                    "long": {
+                        "generic": "ඇලස්කා වේලාව",
+                        "standard": "ඇලස්කා සම්මත වේලාව",
+                        "daylight": "ඇලස්කා දිවා කාලය"
+                    }
+                },
+                "Amazon": {
+                    "long": {
+                        "generic": "ඇමර්සන් වේලාව",
+                        "standard": "ඇමර්සන් සම්මත වේලාව",
+                        "daylight": "ඇමර්සන් ග්‍රීෂ්ම කාලය"
+                    }
+                },
+                "America_Central": {
+                    "long": {
+                        "generic": "උතුරු ඇමරිකානු මධ්‍යම වේලාව",
+                        "standard": "උතුරු ඇමරිකානු මධ්‍යම සම්මත වේලාව",
+                        "daylight": "උතුරු ඇමරිකානු මධ්‍යම දිවා කාලය"
+                    }
+                },
+                "America_Eastern": {
+                    "long": {
+                        "generic": "උතුරු ඇමරිකානු නැගෙනහිර වේලාව",
+                        "standard": "උතුරු ඇමරිකානු නැගෙනහිර සම්මත වේලාව",
+                        "daylight": "උතුරු ඇමරිකානු නැගෙනහිර දිවා කාලය"
+                    }
+                },
+                "America_Mountain": {
+                    "long": {
+                        "generic": "උතුරු ඇමරිකානු කඳුකර වේලාව",
+                        "standard": "උතුරු ඇමරිකානු කඳුකර සම්මත වේලාව",
+                        "daylight": "උතුරු ඇමරිකානු කඳුකර දිවා කාලය"
+                    }
+                },
+                "America_Pacific": {
+                    "long": {
+                        "generic": "උතුරු ඇමරිකානු පැසිෆික් වේලාව",
+                        "standard": "උතුරු ඇමරිකානු පැසිෆික් සම්මත වේලාව",
+                        "daylight": "උතුරු ඇමරිකානු පැසිෆික් දිවා කාලය"
+                    }
+                },
+                "Arabian": {
+                    "long": {
+                        "generic": "අරාබි වේලාව",
+                        "standard": "අරාබි සම්මත වේලාව",
+                        "daylight": "අරාබි දහවල් වේලාව"
+                    }
+                },
+                "Argentina": {
+                    "long": {
+                        "generic": "ආර්ජන්ටිනා වේලාව",
+                        "standard": "ආර්ජන්ටිනා සම්මත වේලාව",
+                        "daylight": "ආර්ජන්ටිනා ග්‍රීෂ්ම කාලය"
+                    }
+                },
+                "Argentina_Western": {
+                    "long": {
+                        "generic": "බටහිර ආර්ජන්ටිනා වේලාව",
+                        "standard": "බටහිර ආර්ජන්ටිනා සම්මත වේලාව",
+                        "daylight": "බටහිර ආර්ජන්ටිනා ග්‍රීෂ්ම කාලය"
+                    }
+                },
+                "Atlantic": {
+                    "long": {
+                        "generic": "අත්ලාන්තික් වේලාව",
+                        "standard": "අත්ලාන්තික් සම්මත වේලාව",
+                        "daylight": "අත්ලාන්තික් දිවා කාලය"
+                    }
+                },
+                "Australia_Central": {
+                    "long": {
+                        "generic": "මධ්‍යම ඕස්ට්‍රේලියානු වේලාව",
+                        "standard": "ඕස්ට්‍රේලියානු සම්මත වේලාව",
+                        "daylight": "මධ්‍යම ඔස්ටේලියානු දහවල් වේලාව"
+                    }
+                },
+                "Australia_CentralWestern": {
+                    "long": {
+                        "generic": "මධ්‍යම බටහිර ඔස්ටේලියානු වේලාව",
+                        "standard": "මධ්‍යම බටහිර ඔස්ටේලියානු සම්මත වේලාව",
+                        "daylight": "මධ්‍යම බටහිර ඔස්ටේලියානු දහවල් වේලාව"
+                    }
+                },
+                "Australia_Eastern": {
+                    "long": {
+                        "generic": "නැගෙනහිර ඕස්ට්‍රේලියානු වේලාව",
+                        "standard": "නැගෙනහිර ඕස්ට්‍රේලියානු සම්මත වේලාව",
+                        "daylight": "නැඟෙනහිර ඕස්ටේලියානු දහවල් වේලාව"
+                    }
+                },
+                "Australia_Western": {
+                    "long": {
+                        "generic": "බටහිර ඕස්ට්‍රේලියානු වේලාව",
+                        "standard": "බටහිර ඕස්ට්‍රේලියානු සම්මත වේලාව",
+                        "daylight": "බටහිර ඔස්ටේලියානු දහවල් වේලාව"
+                    }
+                },
+                "Bangladesh": {
+                    "long": {
+                        "generic": "බංගලාදේශ වේලාව",
+                        "standard": "බංගලාදේශ සම්මත වේලාව",
+                        "daylight": "බංගලාදේශ ග්‍රීෂ්ම කාලය"
+                    }
+                },
+                "Bhutan": {
+                    "long": {
+                        "standard": "භුතාන වේලාව"
+                    }
+                },
+                "Bolivia": {
+                    "long": {
+                        "standard": "බොලිවියා වේලාව"
+                    }
+                },
+                "Brasilia": {
+                    "long": {
+                        "generic": "බ්‍රසීල වේලාව",
+                        "standard": "බ්‍රසීල සම්මත වේලාව",
+                        "daylight": "බ්‍රසීල ග්‍රීෂ්ම කාලය"
+                    }
+                },
+                "Cape_Verde": {
+                    "long": {
+                        "generic": "කේප්වේඩ් වේලාව",
+                        "standard": "කේප්වේඩ් සම්මත වේලාව",
+                        "daylight": "කේප්වේඩ් ග්‍රීෂ්ම කාලය"
+                    }
+                },
+                "Chile": {
+                    "long": {
+                        "generic": "චිලී වේලාව",
+                        "standard": "චිලී සම්මත වේලාව",
+                        "daylight": "චිලී ග්‍රීෂ්ම කාලය"
+                    }
+                },
+                "China": {
+                    "long": {
+                        "generic": "චීන වේලාව",
+                        "standard": "චීන සම්මත වේලාව",
+                        "daylight": "චීන දහවල් වේලාව"
+                    }
+                },
+                "Colombia": {
+                    "long": {
+                        "generic": "කොලොම්බියා වේලාව",
+                        "standard": "කොලොම්බියා සම්මත වේලාව",
+                        "daylight": "කොලොම්බියා ග්‍රීෂ්ම කාලය"
+                    }
+                },
+                "Cuba": {
+                    "long": {
+                        "generic": "කියුබානු වේලාව",
+                        "standard": "කියුබානු සම්මත වේලාව",
+                        "daylight": "කියුබානු දිවා කාලය"
+                    }
+                },
+                "Easter": {
+                    "long": {
+                        "generic": "ඊස්ටර් දූපත් වේලාව",
+                        "standard": "ඊස්ටර් දූපත් සම්මත වේලාව",
+                        "daylight": "ඊස්ටර් දූපත් ග්‍රීෂ්ම කාලය"
+                    }
+                },
+                "Ecuador": {
+                    "long": {
+                        "standard": "ඉක්වදෝර් වේලාව"
+                    }
+                },
+                "Europe_Central": {
+                    "long": {
+                        "generic": "මධ්‍යම යුරෝපීය වේලාව",
+                        "standard": "මධ්‍යම යුරෝපීය සම්මත වේලාව",
+                        "daylight": "මධ්‍යම යුරෝපීය ග්‍රීෂ්ම ඍතු වේලාව"
+                    }
+                },
+                "Europe_Eastern": {
+                    "long": {
+                        "generic": "නැගෙනහිර යුරෝපීය වේලාව",
+                        "standard": "නැගෙනහිර යුරෝපීය සම්මත වේලාව",
+                        "daylight": "නැගෙනහිර යුරෝපීය ග්‍රීෂ්ම ඍතු වේලාව"
+                    }
+                },
+                "Europe_Western": {
+                    "long": {
+                        "generic": "බටහිර යුරෝපීය වේලාව",
+                        "standard": "බටහිර යුරෝපීය සම්මත වේලාව",
+                        "daylight": "බටහිර යුරෝපීය ග්‍රීෂ්ම ඍතු වේලාව"
+                    }
+                },
+                "Falkland": {
+                    "long": {
+                        "generic": "ෆෝක්ලන්ඩ් දූපත් වේලාව",
+                        "standard": "ෆෝක්ලන්ඩ් දූපත් සම්මත වේලාව",
+                        "daylight": "ෆෝක්ලන්ඩ් දූපත් ග්‍රීෂ්ම කාලය"
+                    }
+                },
+                "French_Guiana": {
+                    "long": {
+                        "standard": "ප්‍රංශ ගයනා වේලාව"
+                    }
+                },
+                "Galapagos": {
+                    "long": {
+                        "standard": "ගලපගොස් වේලාව"
+                    }
+                },
+                "GMT": {
+                    "long": {
+                        "standard": "ග්‍රීන්විච් මධ්‍යම වේලාව"
+                    }
+                },
+                "Greenland_Eastern": {
+                    "long": {
+                        "generic": "නැගෙනහිර ග්‍රීන්ලන්ත වේලාව",
+                        "standard": "නැගෙනහිර ග්‍රීන්ලන්ත සම්මත වේලාව",
+                        "daylight": "නැගෙනහිර ග්‍රීන්ලන්ත ග්‍රීෂ්ම කාලය"
+                    }
+                },
+                "Greenland_Western": {
+                    "long": {
+                        "generic": "බටහිර ග්‍රීන්ලන්ත වේලාව",
+                        "standard": "බටහිර ග්‍රීන්ලන්ත සම්මත වේලාව",
+                        "daylight": "බටහිර ග්‍රීන්ලන්ත ග්‍රීෂ්ම කාලය"
+                    }
+                },
+                "Guyana": {
+                    "long": {
+                        "standard": "ගයනා වේලාව"
+                    }
+                },
+                "India": {
+                    "long": {
+                        "standard": "ඉන්දියානු වේලාව"
+                    }
+                },
+                "Indochina": {
+                    "long": {
+                        "standard": "ඉන්දුචීන වේලාව"
+                    }
+                },
+                "Indonesia_Central": {
+                    "long": {
+                        "standard": "මධ්‍යම ඉන්දුනීසියානු වේලාව"
+                    }
+                },
+                "Indonesia_Eastern": {
+                    "long": {
+                        "standard": "නැගෙනහිර ඉන්දුනීසියානු වේලාව"
+                    }
+                },
+                "Indonesia_Western": {
+                    "long": {
+                        "standard": "බටහිර ඉන්දුනීසියානු වේලාව"
+                    }
+                },
+                "Iran": {
+                    "long": {
+                        "generic": "ඉරාන වේලාව",
+                        "standard": "ඉරාන සම්මත වේලාව",
+                        "daylight": "ඉරාන දිවා කාලය"
+                    }
+                },
+                "Israel": {
+                    "long": {
+                        "generic": "ඊශ්‍රායල වේලාව",
+                        "standard": "ඊශ්‍රායල සම්මත වේලාව",
+                        "daylight": "ඊශ්‍රායල දහවල් වේලාව"
+                    }
+                },
+                "Japan": {
+                    "long": {
+                        "generic": "ජපාන වේලාව",
+                        "standard": "ජපාන සම්මත වේලාව",
+                        "daylight": "ජපාන දහවල් වේලාව"
+                    }
+                },
+                "Korea": {
+                    "long": {
+                        "generic": "කොරියානු වේලාව",
+                        "standard": "කොරියානු සම්මත වේලාව",
+                        "daylight": "කොරියානු දහවල් වේලාව"
+                    }
+                },
+                "Lanka": {
+                    "long": {
+                        "standard": "ශ්‍රී ලංකා වේලාව"
+                    }
+                },
+                "Maldives": {
+                    "long": {
+                        "standard": "මාලදිවයින් වේලාව"
+                    }
+                },
+                "Moscow": {
+                    "long": {
+                        "generic": "මොස්කව් වේලාව",
+                        "standard": "මොස්කව් සම්මත",
+                        "daylight": "මොස්කව් ග්‍රීෂ්ම ඍතු වේලාව"
+                    }
+                },
+                "Nepal": {
+                    "long": {
+                        "standard": "නේපාල වේලාව"
+                    }
+                },
+                "Newfoundland": {
+                    "long": {
+                        "generic": "නිව්ෆවුන්ලන්ත වේලාව",
+                        "standard": "නිව්ෆවුන්ලන්ත සම්මත වේලාව",
+                        "daylight": "නිව්ෆවුන්ලන්ත දිවා කාලය"
+                    }
+                },
+                "Noronha": {
+                    "long": {
+                        "generic": "ෆර්නැන්ඩෝ ඩි නොරොන්හා වේලාව",
+                        "standard": "ෆර්නැන්ඩෝ ඩි නොරොන්හා සම්මත වේලාව",
+                        "daylight": "ෆර්නැන්ඩෝ ඩි නොරොන්හා ග්‍රීෂ්ම කාලය"
+                    }
+                },
+                "Pakistan": {
+                    "long": {
+                        "generic": "පාකිස්ථාන වේලාව",
+                        "standard": "පාකිස්ථාන සම්මත වේලාව",
+                        "daylight": "පාකිස්ථාන ග්‍රීෂ්ම කාලය"
+                    }
+                },
+                "Paraguay": {
+                    "long": {
+                        "generic": "පැරගුවේ වේලාව",
+                        "standard": "පැරගුවේ සම්මත වේලාව",
+                        "daylight": "පැරගුවේ ග්‍රීෂ්ම කාලය"
+                    }
+                },
+                "Peru": {
+                    "long": {
+                        "generic": "පේරු වේලාව",
+                        "standard": "පේරු සම්මත වේලාව",
+                        "daylight": "පේරු ග්‍රීෂ්ම කාලය"
+                    }
+                },
+                "Pierre_Miquelon": {
+                    "long": {
+                        "generic": "ශාන්ත පියරේ සහ මැකෝලන් වේලාව",
+                        "standard": "ශාන්ත පියරේ සහ මැකෝලන් සම්මත වේලාව",
+                        "daylight": "ශාන්ත පියරේ සහ මැකෝලන් දිවා කාලය"
+                    }
+                },
+                "Suriname": {
+                    "long": {
+                        "standard": "සුරිනාම වේලාව"
+                    }
+                },
+                "Uruguay": {
+                    "long": {
+                        "generic": "උරුගුවේ වේලාව",
+                        "standard": "උරුගුවේ සම්මත වේලාව",
+                        "daylight": "උරුගුවේ ග්‍රීෂ්ම කාලය"
+                    }
+                },
+                "Venezuela": {
+                    "long": {
+                        "standard": "වෙනිසියුලා වේලාව"
+                    }
+                }
+            }
+        }
+    },
+    "numbers": {
+        "decimalFormats-numberSystem-latn": {
+            "standard": {
+                "decimalFormat": {
+                    "pattern": "#,##,##0.###"
+                }
+            }
+        },
+        "percentFormats-numberSystem-latn": {
+            "standard": {
+                "percentFormat": {
+                    "pattern": "#,##,##0%"
+                }
+            }
+        },
+        "currencyFormats-numberSystem-latn": {
+            "standard": {
+                "currencyFormat": {
+                    "pattern": "¤ #,##,##0.00"
+                }
+            }
+        },
+        "currencies": {
+            "BMD": {
+                "symbol": "බ.ඩො."
+            },
+            "CAD": {
+                "symbol": "කැ.ඩො."
+            },
+            "LKR": {
+                "symbol": "රු."
+            }
+        }
+    }
+}

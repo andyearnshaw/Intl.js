@@ -1,0 +1,218 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "naq",
+        "territory": "NA"
+    },
+    "dates": {
+        "calendars": {
+            "generic": {
+                "dateFormats": {
+                    "full": "EEEE, d MMMM y G",
+                    "long": "d MMMM y G",
+                    "medium": "d MMM y G",
+                    "short": "dd/MM/y GGGGG"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M/d",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "MMMMd": "MMMM d",
+                        "MMMMEd": "E, MMMM d",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMEd": "E, M/d/y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E, MMM d, y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            },
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "Jan",
+                            "2": "Feb",
+                            "3": "Mar",
+                            "4": "Apr",
+                            "5": "May",
+                            "6": "Jun",
+                            "7": "Jul",
+                            "8": "Aug",
+                            "9": "Sep",
+                            "10": "Oct",
+                            "11": "Nov",
+                            "12": "Dec"
+                        },
+                        "wide": {
+                            "1": "ǃKhanni",
+                            "2": "ǃKhanǀgôab",
+                            "3": "ǀKhuuǁkhâb",
+                            "4": "ǃHôaǂkhaib",
+                            "5": "ǃKhaitsâb",
+                            "6": "Gamaǀaeb",
+                            "7": "ǂKhoesaob",
+                            "8": "Aoǁkhuumûǁkhâb",
+                            "9": "Taraǀkhuumûǁkhâb",
+                            "10": "ǂNûǁnâiseb",
+                            "11": "ǀHooǂgaeb",
+                            "12": "Hôasoreǁkhâb"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "1": "J",
+                            "2": "F",
+                            "3": "M",
+                            "4": "A",
+                            "5": "M",
+                            "6": "J",
+                            "7": "J",
+                            "8": "A",
+                            "9": "S",
+                            "10": "O",
+                            "11": "N",
+                            "12": "D"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "Son",
+                            "mon": "Ma",
+                            "tue": "De",
+                            "wed": "Wu",
+                            "thu": "Do",
+                            "fri": "Fr",
+                            "sat": "Sat"
+                        },
+                        "wide": {
+                            "sun": "Sontaxtsees",
+                            "mon": "Mantaxtsees",
+                            "tue": "Denstaxtsees",
+                            "wed": "Wunstaxtsees",
+                            "thu": "Dondertaxtsees",
+                            "fri": "Fraitaxtsees",
+                            "sat": "Satertaxtsees"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "sun": "S",
+                            "mon": "M",
+                            "tue": "E",
+                            "wed": "W",
+                            "thu": "D",
+                            "fri": "F",
+                            "sat": "A"
+                        }
+                    }
+                },
+                "quarters": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "KW1",
+                            "2": "KW2",
+                            "3": "KW3",
+                            "4": "KW4"
+                        },
+                        "wide": {
+                            "1": "1ro kwartals",
+                            "2": "2ǁî kwartals",
+                            "3": "3ǁî kwartals",
+                            "4": "4ǁî kwartals"
+                        }
+                    }
+                },
+                "dayPeriods": {
+                    "format": {
+                        "wide": {
+                            "am": "ǁgoagas",
+                            "pm": "ǃuias"
+                        }
+                    }
+                },
+                "eras": {
+                    "eraNames": {
+                        "0": "Xristub aiǃâ",
+                        "1": "Xristub khaoǃgâ"
+                    },
+                    "eraAbbr": {
+                        "0": "BC",
+                        "1": "AD"
+                    }
+                },
+                "dateFormats": {
+                    "full": "EEEE, d MMMM y",
+                    "long": "d MMMM y",
+                    "medium": "d MMM y",
+                    "short": "dd/MM/y"
+                },
+                "timeFormats": {
+                    "full": "h:mm:ss a zzzz",
+                    "long": "h:mm:ss a z",
+                    "medium": "h:mm:ss a",
+                    "short": "h:mm a"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M/d",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "MMMMd": "MMMM d",
+                        "MMMMEd": "E, MMMM d",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMEd": "E, M/d/y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E, MMM d, y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            }
+        }
+    },
+    "numbers": {
+        "currencyFormats-numberSystem-latn": {
+            "standard": {
+                "currencyFormat": {
+                    "pattern": "¤#,##0.00"
+                }
+            }
+        },
+        "currencies": {
+            "NAD": {
+                "symbol": "$"
+            }
+        }
+    }
+}

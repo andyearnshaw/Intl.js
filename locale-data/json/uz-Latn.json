@@ -1,0 +1,147 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "uz",
+        "script": "Latn"
+    },
+    "dates": {
+        "calendars": {
+            "generic": {
+                "dateFormats": {
+                    "full": "EEEE, G y MMMM dd",
+                    "long": "G y MMMM d",
+                    "medium": "G y MMM d",
+                    "short": "GGGGG yy/MM/dd"
+                }
+            },
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "Yanv",
+                            "2": "Fev",
+                            "3": "Mar",
+                            "4": "Apr",
+                            "5": "May",
+                            "6": "Iyun",
+                            "7": "Iyul",
+                            "8": "Avg",
+                            "9": "Sen",
+                            "10": "Okt",
+                            "11": "Noya",
+                            "12": "Dek"
+                        },
+                        "wide": {
+                            "1": "Yanvar",
+                            "2": "Fevral",
+                            "3": "Mart",
+                            "4": "Aprel",
+                            "5": "May",
+                            "6": "Iyun",
+                            "7": "Iyul",
+                            "8": "Avgust",
+                            "9": "Sentyabr",
+                            "10": "Oktyabr",
+                            "11": "Noyabr",
+                            "12": "Dekabr"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "1": "Y",
+                            "2": "F",
+                            "3": "M",
+                            "4": "A",
+                            "5": "M",
+                            "6": "I",
+                            "7": "I",
+                            "8": "A",
+                            "9": "S",
+                            "10": "O",
+                            "11": "N",
+                            "12": "D"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "Yaksh",
+                            "mon": "Dush",
+                            "tue": "Sesh",
+                            "wed": "Chor",
+                            "thu": "Pay",
+                            "fri": "Cum",
+                            "sat": "Shan"
+                        },
+                        "wide": {
+                            "sun": "yakshanba",
+                            "mon": "dushanba",
+                            "tue": "seshanba",
+                            "wed": "chorshanba",
+                            "thu": "payshanba",
+                            "fri": "cuma",
+                            "sat": "shanba"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "sun": "Y",
+                            "mon": "D",
+                            "tue": "S",
+                            "wed": "C",
+                            "thu": "P",
+                            "fri": "C",
+                            "sat": "S"
+                        }
+                    }
+                },
+                "dateFormats": {
+                    "full": "EEEE, y MMMM dd",
+                    "long": "y MMMM d",
+                    "medium": "y MMM d",
+                    "short": "yy/MM/dd"
+                },
+                "timeFormats": {
+                    "full": "HH:mm:ss zzzz",
+                    "long": "HH:mm:ss z",
+                    "medium": "HH:mm:ss",
+                    "short": "HH:mm"
+                }
+            },
+            "islamic": {
+                "months": {
+                    "format": {
+                        "wide": {
+                            "1": "Muharram",
+                            "2": "Safar",
+                            "3": "Robiʼ ul-avval",
+                            "4": "Robiʼ ul-oxir",
+                            "5": "Jumad ul-avval",
+                            "6": "Jumad ul-oxir",
+                            "7": "Rajab",
+                            "8": "Shaʼbon",
+                            "9": "Ramazon",
+                            "10": "Shavvol",
+                            "11": "Zul-qaʼda",
+                            "12": "Zul-hijja"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "numbers": {
+        "currencies": {
+            "UZS": {
+                "symbol": "soʻm"
+            }
+        }
+    }
+}

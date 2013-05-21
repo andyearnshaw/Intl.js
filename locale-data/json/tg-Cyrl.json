@@ -1,0 +1,118 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "tg",
+        "script": "Cyrl"
+    },
+    "dates": {
+        "calendars": {
+            "generic": {
+                "dateFormats": {
+                    "full": "EEEE, G y MMMM dd",
+                    "long": "G y MMMM d",
+                    "medium": "G y MMM d",
+                    "short": "GGGGG yy/MM/dd"
+                }
+            },
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "Янв",
+                            "2": "Фев",
+                            "3": "Мар",
+                            "4": "Апр",
+                            "5": "Май",
+                            "6": "Июн",
+                            "7": "Июл",
+                            "8": "Авг",
+                            "9": "Сен",
+                            "10": "Окт",
+                            "11": "Ноя",
+                            "12": "Дек"
+                        },
+                        "wide": {
+                            "1": "Январ",
+                            "2": "Феврал",
+                            "3": "Март",
+                            "4": "Апрел",
+                            "5": "Май",
+                            "6": "Июн",
+                            "7": "Июл",
+                            "8": "Август",
+                            "9": "Сентябр",
+                            "10": "Октябр",
+                            "11": "Ноябр",
+                            "12": "Декабр"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "Яшб",
+                            "mon": "Дшб",
+                            "tue": "Сшб",
+                            "wed": "Чшб",
+                            "thu": "Пшб",
+                            "fri": "Ҷмъ",
+                            "sat": "Шнб"
+                        },
+                        "wide": {
+                            "sun": "Якшанбе",
+                            "mon": "Душанбе",
+                            "tue": "Сешанбе",
+                            "wed": "Чоршанбе",
+                            "thu": "Панҷшанбе",
+                            "fri": "Ҷумъа",
+                            "sat": "Шанбе"
+                        }
+                    }
+                },
+                "dayPeriods": {
+                    "format": {
+                        "wide": {
+                            "am": "пе. чо.",
+                            "pm": "па. чо."
+                        }
+                    }
+                },
+                "eras": {
+                    "eraNames": {
+                        "0": "Пеш аз милод",
+                        "1": "ПаМ"
+                    },
+                    "eraAbbr": {
+                        "0": "ПеМ",
+                        "1": "ПаМ"
+                    }
+                },
+                "dateFormats": {
+                    "full": "EEEE, y MMMM dd",
+                    "long": "y MMMM d",
+                    "medium": "y MMM d",
+                    "short": "yy/MM/dd"
+                },
+                "timeFormats": {
+                    "full": "HH:mm:ss zzzz",
+                    "long": "HH:mm:ss z",
+                    "medium": "HH:mm:ss",
+                    "short": "HH:mm"
+                }
+            }
+        }
+    },
+    "numbers": {
+        "currencies": {
+            "TJS": {
+                "symbol": "сом"
+            }
+        }
+    }
+}

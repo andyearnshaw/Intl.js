@@ -1,0 +1,205 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "nd",
+        "territory": "ZW"
+    },
+    "dates": {
+        "calendars": {
+            "generic": {
+                "dateFormats": {
+                    "full": "EEEE, d MMMM y G",
+                    "long": "d MMMM y G",
+                    "medium": "d MMM y G",
+                    "short": "dd/MM/y GGGGG"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M/d",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "MMMMd": "MMMM d",
+                        "MMMMEd": "E, MMMM d",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMEd": "E, M/d/y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E, MMM d, y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            },
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "Zib",
+                            "2": "Nhlo",
+                            "3": "Mbi",
+                            "4": "Mab",
+                            "5": "Nkw",
+                            "6": "Nhla",
+                            "7": "Ntu",
+                            "8": "Ncw",
+                            "9": "Mpan",
+                            "10": "Mfu",
+                            "11": "Lwe",
+                            "12": "Mpal"
+                        },
+                        "wide": {
+                            "1": "Zibandlela",
+                            "2": "Nhlolanja",
+                            "3": "Mbimbitho",
+                            "4": "Mabasa",
+                            "5": "Nkwenkwezi",
+                            "6": "Nhlangula",
+                            "7": "Ntulikazi",
+                            "8": "Ncwabakazi",
+                            "9": "Mpandula",
+                            "10": "Mfumfu",
+                            "11": "Lwezi",
+                            "12": "Mpalakazi"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "1": "Z",
+                            "2": "N",
+                            "3": "M",
+                            "4": "M",
+                            "5": "N",
+                            "6": "N",
+                            "7": "N",
+                            "8": "N",
+                            "9": "M",
+                            "10": "M",
+                            "11": "L",
+                            "12": "M"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "Son",
+                            "mon": "Mvu",
+                            "tue": "Sib",
+                            "wed": "Sit",
+                            "thu": "Sin",
+                            "fri": "Sih",
+                            "sat": "Mgq"
+                        },
+                        "wide": {
+                            "sun": "Sonto",
+                            "mon": "Mvulo",
+                            "tue": "Sibili",
+                            "wed": "Sithathu",
+                            "thu": "Sine",
+                            "fri": "Sihlanu",
+                            "sat": "Mgqibelo"
+                        }
+                    },
+                    "stand-alone": {
+                        "narrow": {
+                            "sun": "S",
+                            "mon": "M",
+                            "tue": "S",
+                            "wed": "S",
+                            "thu": "S",
+                            "fri": "S",
+                            "sat": "M"
+                        }
+                    }
+                },
+                "quarters": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "K1",
+                            "2": "K2",
+                            "3": "K3",
+                            "4": "K4"
+                        },
+                        "wide": {
+                            "1": "Kota 1",
+                            "2": "Kota 2",
+                            "3": "Kota 3",
+                            "4": "Kota 4"
+                        }
+                    }
+                },
+                "eras": {
+                    "eraNames": {
+                        "0": "UKristo angakabuyi",
+                        "1": "Ukristo ebuyile"
+                    },
+                    "eraAbbr": {
+                        "0": "BC",
+                        "1": "AD"
+                    }
+                },
+                "dateFormats": {
+                    "full": "EEEE, d MMMM y",
+                    "long": "d MMMM y",
+                    "medium": "d MMM y",
+                    "short": "dd/MM/y"
+                },
+                "timeFormats": {
+                    "full": "h:mm:ss a zzzz",
+                    "long": "h:mm:ss a z",
+                    "medium": "h:mm:ss a",
+                    "short": "h:mm a"
+                },
+                "dateTimeFormats": {
+                    "availableFormats": {
+                        "d": "d",
+                        "hm": "h:mm a",
+                        "Hm": "HH:mm",
+                        "Hms": "HH:mm:ss",
+                        "M": "L",
+                        "Md": "M/d",
+                        "MEd": "E, M/d",
+                        "MMM": "LLL",
+                        "MMMd": "MMM d",
+                        "MMMEd": "E, MMM d",
+                        "MMMMd": "MMMM d",
+                        "MMMMEd": "E, MMMM d",
+                        "ms": "mm:ss",
+                        "y": "y",
+                        "yM": "M/y",
+                        "yMEd": "E, M/d/y",
+                        "yMMM": "MMM y",
+                        "yMMMEd": "E, MMM d, y",
+                        "yMMMM": "MMMM y",
+                        "yQQQ": "QQQ y",
+                        "yQQQQ": "QQQQ y"
+                    }
+                }
+            }
+        }
+    },
+    "numbers": {
+        "currencyFormats-numberSystem-latn": {
+            "standard": {
+                "currencyFormat": {
+                    "pattern": "¤#,##0.00;(¤#,##0.00)"
+                }
+            }
+        }
+    }
+}

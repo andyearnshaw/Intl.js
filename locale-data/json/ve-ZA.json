@@ -1,0 +1,117 @@
+{
+    "identity": {
+        "version": {
+            "@cldrVersion": "23.1",
+            "@number": "$Revision: 8245 $"
+        },
+        "generation": {
+            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
+        },
+        "language": "ve",
+        "territory": "ZA"
+    },
+    "dates": {
+        "calendars": {
+            "gregorian": {
+                "months": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "Pha",
+                            "2": "Luh",
+                            "3": "Ṱhf",
+                            "4": "Lam",
+                            "5": "Shu",
+                            "6": "Lwi",
+                            "7": "Lwa",
+                            "8": "Ṱha",
+                            "9": "Khu",
+                            "10": "Tsh",
+                            "11": "Ḽar",
+                            "12": "Nye"
+                        },
+                        "wide": {
+                            "1": "Phando",
+                            "2": "Luhuhi",
+                            "3": "Ṱhafamuhwe",
+                            "4": "Lambamai",
+                            "5": "Shundunthule",
+                            "6": "Fulwi",
+                            "7": "Fulwana",
+                            "8": "Ṱhangule",
+                            "9": "Khubvumedzi",
+                            "10": "Tshimedzi",
+                            "11": "Ḽara",
+                            "12": "Nyendavhusiku"
+                        }
+                    }
+                },
+                "days": {
+                    "format": {
+                        "abbreviated": {
+                            "sun": "Swo",
+                            "mon": "Mus",
+                            "tue": "Vhi",
+                            "wed": "Rar",
+                            "thu": "Ṋa",
+                            "fri": "Ṱan",
+                            "sat": "Mug"
+                        },
+                        "wide": {
+                            "sun": "Swondaha",
+                            "mon": "Musumbuluwo",
+                            "tue": "Ḽavhuvhili",
+                            "wed": "Ḽavhuraru",
+                            "thu": "Ḽavhuṋa",
+                            "fri": "Ḽavhuṱanu",
+                            "sat": "Mugivhela"
+                        }
+                    }
+                },
+                "quarters": {
+                    "format": {
+                        "abbreviated": {
+                            "1": "K1",
+                            "2": "K2",
+                            "3": "K3",
+                            "4": "K4"
+                        },
+                        "wide": {
+                            "1": "Kotara ya u thoma",
+                            "2": "Kotara ya vhuvhili",
+                            "3": "Kotara ya vhuraru",
+                            "4": "Kotara ya vhuṋa"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "numbers": {
+        "decimalFormats-numberSystem-latn": {
+            "standard": {
+                "decimalFormat": {
+                    "pattern": "#,##0.###"
+                }
+            }
+        },
+        "percentFormats-numberSystem-latn": {
+            "standard": {
+                "percentFormat": {
+                    "pattern": "#,##0%"
+                }
+            }
+        },
+        "currencyFormats-numberSystem-latn": {
+            "standard": {
+                "currencyFormat": {
+                    "pattern": "¤#,##0.00"
+                }
+            }
+        },
+        "currencies": {
+            "ZAR": {
+                "symbol": "R"
+            }
+        }
+    }
+}
