@@ -2807,7 +2807,7 @@ function addLocaleData (data) {
         var formats,
             cas     = data.dates.calendars,
             defCa   = cas['default'] || 'gregorian',
-            ca      = [ defCa ],
+            ca      = [ caMap[defCa] ],
             patterns= [],
             timeFormats = cas[defCa].timeFormats,
             dateFormats = cas[defCa].dateFormats,
@@ -2818,7 +2818,16 @@ function addLocaleData (data) {
 
         // Get calendars supported by this locale
         for (var cal in cas) {
-            if (!hop.call(cas, cal) || cal === defCa)
+            if (!hop.call(cas, cal))
+                continue;
+
+            // Rename cldr calendar names to unicode extension names
+            if (caMap.hasOwnProperty(cal)) {
+                cas[caMap[cal]] = cas[cal];
+                delete cas[cal];
+            }
+
+            if (cal === defCa)
                 continue;
 
             // Refer to our earlier calendar->unicode extension mappings
