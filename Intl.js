@@ -319,7 +319,7 @@ function /* 6.3.1 */IsWellFormedCurrencyCode(currency) {
 
         // 2. Let `normalized` be the result of mapping c to upper case as described
         //    in 6.1.
-        normalized = toLatinUperCase(c);
+        normalized = toLatinUpperCase(c);
 
     // 3. If the string length of normalized is not 3, return false.
     // 4. If normalized contains any character that is not in the range "A" to "Z"
@@ -979,7 +979,7 @@ function /*10.1.1.1 */InitializeCollator (collator, locales, options) {
     // 5. Else
     else
         // a. Let options be ToObject(options).
-        options = ToObject(options);
+        options = toObject(options);
 
     var
     // 6. Let u be the result of calling the GetOption abstract operation (defined in
