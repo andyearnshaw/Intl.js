@@ -945,6 +945,11 @@ Intl.Collator = function (/* [locales [, options]]*/) {
     return InitializeCollator(toObject(this), locales, options);
 };
 
+// Must explicitly set prototypes as unwritable
+defineProperty(Intl.Collator, 'prototype', {
+    writable: false
+});
+
 /**
  * The abstract operation InitializeCollator accepts the arguments collator
  * (which must be an object), locales, and options. It initializes collator as a
@@ -1204,6 +1209,11 @@ Intl.NumberFormat = function (/* [locales [, options]]*/) {
     }
     return InitializeNumberFormat(toObject(this), locales, options);
 };
+
+// Must explicitly set prototypes as unwritable
+defineProperty(Intl.NumberFormat, 'prototype', {
+    writable: false
+});
 
 /**
  * The abstract operation InitializeNumberFormat accepts the arguments
@@ -1820,6 +1830,9 @@ var numSys = {
         ],
         internal = getInternalProperties(this);
 
+    if (!internal['[[initializedNumberFormat]]'])
+        throw new TypeError('`this` value for resolvedOptions() is not an initialized Intl.NumberFormat object.');
+
     props.forEach(function (el) {
         var val;
         if ((val = internal['[['+el+']]']) !== undefined)
@@ -1841,6 +1854,11 @@ Intl.DateTimeFormat = function (/* [locales [, options]]*/) {
     }
     return InitializeDateTimeFormat(toObject(this), locales, options);
 };
+
+// Must explicitly set prototypes as unwritable
+defineProperty(Intl.DateTimeFormat, 'prototype', {
+    writable: false
+});
 
 /**
  * The abstract operation InitializeDateTimeFormat accepts the arguments dateTimeFormat
@@ -2553,6 +2571,9 @@ function ToLocalTime(date, calendar, timeZone) {
             'pattern'
         ],
         internal = getInternalProperties(this);
+
+    if (!internal['[[initializedDateTimeFormat]]'])
+        throw new TypeError('`this` value for resolvedOptions() is not an initialized Intl.DateTimeFormat object.');
 
     for (var i = 0, max = props.length; i < max; i++) {
         if ((val = internal['[['+ props[i] +']]']) !== undefined)
