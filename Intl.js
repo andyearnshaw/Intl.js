@@ -319,7 +319,7 @@ function /* 6.3.1 */IsWellFormedCurrencyCode(currency) {
 
         // 2. Let `normalized` be the result of mapping c to upper case as described
         //    in 6.1.
-        normalized = c.toUpperCase();
+        normalized = toLatinUperCase(c);
 
     // 3. If the string length of normalized is not 3, return false.
     // 4. If normalized contains any character that is not in the range "A" to "Z"
@@ -2988,6 +2988,22 @@ if (typeof window !== 'undefined')
 
 // Helper functions
 // ================
+
+/**
+ * Convert only a-z to uppercase as per section 6.1 of the spec
+ */
+function toLatinUpperCase(str) {
+    var i = str.length;
+
+    while (i--) {
+        var ch = str.charAt(i);
+
+        if (ch >= "a" && ch <= "z")
+            str = str.slice(0, i) + ch.toUpperCase() + str.slice(i+1);
+    }
+
+    return str;
+}
 
 /**
  * Mimics ES5's abstract ToObject() function
