@@ -2490,7 +2490,7 @@ function FormatDateTime(dateTimeFormat, x) {
         // a. If pm is true, then let fv be an implementation and locale dependent String
         //    value representing “post meridiem”; else let fv be an implementation and
         //    locale dependent String value representing “ante meridiem”.
-        fv = ca.dayPeriods.format.abbreviated[pm ? 'pm' : 'am'];
+        fv = ca.dayPeriods.format.wide[pm ? 'pm' : 'am'];
 
         // b. Replace the substring of result that consists of "{ampm}", with fv.
         result = result.replace('{ampm}', fv);
@@ -2797,7 +2797,7 @@ function addLocaleData (data) {
     if (data.dates) {
         var formats,
             cas     = data.dates.calendars,
-            defCa   = cas['default'],
+            defCa   = cas['default'] || 'gregorian',
             ca      = [ defCa ],
             patterns= [],
             timeFormats = cas[defCa].timeFormats,
@@ -2805,7 +2805,7 @@ function addLocaleData (data) {
             dtFormats   = cas[defCa].dateTimeFormats.availableFormats,
 
             // The default time format gives us some needed information
-            timeFormat = timeFormats[timeFormats['default']].timeFormat.pattern;
+            timeFormat = timeFormats.medium.timeFormat;
 
         // Get calendars supported by this locale
         for (var cal in cas) {
