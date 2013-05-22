@@ -19,7 +19,7 @@ var
     // We use this a lot (and need it for proto-less objects)
     hop = Object.prototype.hasOwnProperty,
 
-    //
+    // Naive defineProperty for compatibility
     defineProperty = Object.defineProperty || function (obj, name, desc) {
         if (desc.get && obj.__defineGetter__)
             obj.__defineGetter(name, desc.get);
@@ -49,6 +49,9 @@ var
 
     // Private object houses our locale data for each locale
     localeData = {},
+
+    // Default locale is the first-added locale data for us
+    defaultLocale,
 
     // Object housing internal properties for constructors
     internals = objCreate(null),
@@ -298,7 +301,7 @@ function /* 6.2.3 */CanonicalizeLanguageTag (locale) {
  * host environment’s current locale.
  */
 function /* 6.2.4 */DefaultLocale () {
-    return typeof navigator === 'object' ? navigator.language || '(default)': '(default)';
+    return defaultLocale;
 }
 
 // Sect 6.3 Currency Codes
@@ -2726,8 +2729,14 @@ function addLocaleData (data) {
         locale += '-' + add;
     if (add = data.identity.territory)
         locale += '-' + add;
+    if (add = data.identity.variant)
+        locale += '-' + add;
 
     localeData[locale] = data;
+
+    // If this is the first set of locale data added, make it the default
+    if (defaultLocale === undefined)
+        defaultLocale = locale;
 
     // Add to Collator internal properties as per 10.2.3
     if (data.characters) {
