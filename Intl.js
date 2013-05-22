@@ -40,11 +40,20 @@ var
         }
     },
 
-    // Create an object with the specified prototype (2nd arg isn't necessary for Intl)
-    objCreate = Object.create || function (proto) {
+    // Create an object with the specified prototype (2nd arg required for Record)
+    objCreate = Object.create || function (proto, props) {
+        var obj;
+
         function F() {}
         F.prototype = proto;
-        return new F();
+        obj = new F();
+
+        for (var k in props) {
+            if (props.hasOwnProperty(k))
+                defineProperty(obj, k, props[k]);
+        }
+
+        return obj;
     },
 
     // Private object houses our locale data for each locale
@@ -490,7 +499,7 @@ function /* 9.2.3 */LookupMatcher (availableLocales, requestedLocales) {
 
     var
         // 5. Let result be a new Record.
-        result = objCreate(null);
+        result = new Record();
 
     // 6. If availableLocale is not undefined, then
     if (availableLocale !== undefined) {
@@ -607,7 +616,7 @@ function /* 9.2.5 */ResolveLocale (availableLocales, requestedLocales, options,
 
     var
         // 6. Let result be a new Record.
-        result = {};
+        result = new Record();
 
     // 7. Set result.[[dataLocale]] to foundLocale.
     result['[[dataLocale]]'] = foundLocale;
@@ -816,7 +825,7 @@ function /*9.2.8 */SupportedLocales (availableLocales, requestedLocales, options
     if (options !== undefined) {
         var
             // a. Let options be ToObject(options).
-            options = toObject(options),
+            options = new Record(toObject(options)),
             // b. Let matcher be the result of calling the [[Get]] internal method of
             //    options with argument "localeMatcher".
             matcher = options.localeMatcher;
@@ -1008,7 +1017,7 @@ function /*10.1.1.1 */InitializeCollator (collator, locales, options) {
 
     var
     // 10. Let opt be a new Record.
-        opt = {},
+        opt = new Record(),
 
     // 11. Let matcher be the result of calling the GetOption abstract operation with
     //     arguments options, "localeMatcher", "string", a List containing the two String
@@ -1260,7 +1269,8 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
 
     var
     // 6. Let opt be a new Record.
-        opt = {},
+        opt = new Record(),
+
     // 7. Let matcher be the result of calling the GetOption abstract operation
     //    (defined in 9.2.9) with the arguments options, "localeMatcher", "string",
     //    a List containing the two String values "lookup" and "best fit", and
@@ -1822,7 +1832,8 @@ var numSys = {
  * are not assigned.
  */
 /* 11.3.3 */Intl.NumberFormat.prototype.resolvedOptions = function () {
-    var ret   = {},
+    var val,
+        descs = new Record(),
         props = [
             'locale', 'numberingSystem', 'style', 'currency', 'currencyDisplay',
             'minimumIntegerDigits', 'minimumFractionDigits', 'maximumFractionDigits',
@@ -1833,13 +1844,12 @@ var numSys = {
     if (!internal['[[initializedNumberFormat]]'])
         throw new TypeError('`this` value for resolvedOptions() is not an initialized Intl.NumberFormat object.');
 
-    props.forEach(function (el) {
-        var val;
-        if ((val = internal['[['+el+']]']) !== undefined)
-            ret[el] = val;
-    });
+    for (var i = 0, max = props.length; i < max; i++) {
+        if ((val = internal['[['+ props[i] +']]']) !== undefined)
+            descs[props[i]] = { value: val, writable: true, configurable: true, enumerable: true };
+    }
 
-    return ret;
+    return objCreate({}, descs);
 };
 
 // 12.1 The Intl.DateTimeFormat constructor
@@ -1896,7 +1906,7 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
         options = ToDateTimeOptions(options, 'any', 'date'),
 
     // 5. Let opt be a new Record.
-        opt = objCreate(null);
+        opt = new Record();
 
     // 6. Let matcher be the result of calling the GetOption abstract operation
     //    (defined in 9.2.9) with arguments options, "localeMatcher", "string", a List
@@ -1950,7 +1960,7 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
         //    NOTE: If an implementation accepts additional time zone values, as permitted
         //          under certain conditions by the Conformance clause, different casing
         //          rules apply.
-        tz = String(tz).toUpperCase();
+        tz = toLatinUpperCase(tz);
 
         // c. If tz is not "UTC", then throw a RangeError exception.
         // ###TODO: accept more time zones###
@@ -1962,7 +1972,7 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
     internal['[[timeZone]]'] = tz;
 
     // 18. Let opt be a new Record.
-    opt = objCreate(null);
+    opt = new Record();
 
     // 19. For each row of Table 3, except the header row, do:
     for (var prop in dateTimeComponents) {
@@ -2014,14 +2024,11 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
         if (!hop.call(dateTimeComponents, prop))
             continue;
 
-        var
         // a. Let prop be the name given in the Property column of the row.
         // b. Let pDesc be the result of calling the [[GetOwnProperty]] internal method of
         //    bestFormat with argument prop.
-            pDesc = bestFormat[prop];
-
         // c. If pDesc is not undefined, then
-        if (pDesc !== undefined) {
+        if (bestFormat.hasOwnProperty(prop)) {
             var
             // i. Let p be the result of calling the [[Get]] internal method of bestFormat
             //    with argument prop.
@@ -2108,10 +2115,10 @@ var dateTimeComponents = {
  * When the ToDateTimeOptions abstract operation is called with arguments options,
  * required, and defaults, the following steps are taken:
  */
-function ToDateTimeOptions(options, required, defaults) {
+function ToDateTimeOptions (options, required, defaults) {
     // 1. If options is undefined, then let options be null, else let options be
     //    ToObject(options).
-    options = options === undefined ? null : toObject(options);
+    options = options === undefined ? null : new Record(toObject(options));
 
     var
     // 2. Let create be the standard built-in function object defined in ES5, 15.2.3.5.
@@ -2222,7 +2229,7 @@ function BasicFormatMatcher (options, formats) {
             //     with argument property.
             // iii. If formatPropDesc is not undefined, then
                 // 1. Let formatProp be the result of calling the [[Get]] internal method of format with argument property.
-                formatProp = format[property];
+                formatProp = format.hasOwnProperty(property) ? format[property] : undefined;
 
             // iv. If optionsProp is undefined and formatProp is not undefined, then decrease score by
             //     additionPenalty.
@@ -2539,7 +2546,7 @@ function ToLocalTime(date, calendar, timeZone) {
     // 2. Return a Record with fields [[weekday]], [[era]], [[year]], [[month]], [[day]],
     //    [[hour]], [[minute]], [[second]], and [[inDST]], each with the corresponding
     //    calculated value.
-    return {
+    return new Record({
         '[[weekday]]': d.getDay(),
         '[[era]]'    : +(d.getFullYear >= 0),
         '[[year]]'   : d.getFullYear(),
@@ -2549,7 +2556,7 @@ function ToLocalTime(date, calendar, timeZone) {
         '[[minute]]' : d.getMinutes(),
         '[[second]]' : d.getSeconds(),
         '[[inDST]]'  : false // ###TODO###
-    };
+    });
 }
 
 /**
@@ -2562,7 +2569,7 @@ function ToLocalTime(date, calendar, timeZone) {
  */
 /* 12.3.3 */Intl.DateTimeFormat.prototype.resolvedOptions = function () {
     var val,
-        ret   = {},
+        descs = new Record(),
         props = [
             'locale', 'calendar', 'numberingSystem', 'timeZone', 'hour12', 'weekday',
             'era', 'year', 'month', 'day', 'hour', 'minute', 'second', 'timeZoneName',
@@ -2577,10 +2584,10 @@ function ToLocalTime(date, calendar, timeZone) {
 
     for (var i = 0, max = props.length; i < max; i++) {
         if ((val = internal['[['+ props[i] +']]']) !== undefined)
-            ret[props[i]] = val;
+            descs[props[i]] = { value: val, writable: true, configurable: true, enumerable: true };
     }
 
-    return ret;
+    return objCreate({}, descs);
 };
 
 // Sect 13 Locale Sensitive Functions of the ECMAScript Language Specification
@@ -3020,9 +3027,26 @@ if (typeof window !== 'undefined')
 // ================
 
 /**
+ * A map that doesn't contain Object in its prototype chain
+ */
+function Record (obj) {
+    var props = objCreate(null);
+
+    if (obj != null && typeof(obj) === 'object') {
+        for (var k in obj) {
+            if (obj.hasOwnProperty(k)) {
+                props[k] = { value: obj[k] };
+            }
+        }
+    }
+
+    return objCreate(null, props);
+}
+
+/**
  * Convert only a-z to uppercase as per section 6.1 of the spec
  */
-function toLatinUpperCase(str) {
+function toLatinUpperCase (str) {
     var i = str.length;
 
     while (i--) {
