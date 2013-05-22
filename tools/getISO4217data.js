@@ -34,10 +34,11 @@ var
         });
 
         res.on('end', function () {
-            while (evil.exec(xml) && isFinite(RegExp.$2))
-                obj[RegExp.$1] = +RegExp.$2;
+            while (evil.exec(xml))
+                if (isFinite(RegExp.$2))
+                    obj[RegExp.$1] = +RegExp.$2;
 
-            process.stdout.write(JSON.stringify(obj, null, 4) + '\n');
+            process.stdout.write(JSON.stringify(obj, null, 4).replace(/"(\w+)":/g, "$1:") + '\n');
         });
     });
 
