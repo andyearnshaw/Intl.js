@@ -2483,12 +2483,12 @@ function FormatDateTime(dateTimeFormat, x) {
 
                 switch (p) {
                     case 'month':
-                        fv = ca.months[ca.months['default']][size][tm['[['+ p +']]']];
+                        fv = ca.months[ca.months['default'] || 'format'][size][tm['[['+ p +']]']];
                         break;
 
                     // For weekdays, we need to refer to our `weekdays` array
                     case 'weekday':
-                        fv = ca.days[ca.days['default']][size][weekdays[tm['[['+ p +']]']]];
+                        fv = ca.days[ca.days['default'] || 'format'][size][weekdays[tm['[['+ p +']]']]];
                         break;
 
                     case 'timeZoneName':
