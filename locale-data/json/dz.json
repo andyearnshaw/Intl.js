@@ -1384,6 +1384,30 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ".",
+            "group": ",",
+            "list": ";",
+            "percentSign": "%",
+            "plusSign": "+",
+            "minusSign": "-",
+            "exponential": "E",
+            "perMille": "‰",
+            "infinity": "∞",
+            "nan": "NaN"
+        },
+        "symbols-numberSystem-tibt": {
+            "decimal": ".",
+            "group": ",",
+            "list": "དང་",
+            "percentSign": "%",
+            "plusSign": "+",
+            "minusSign": "-",
+            "exponential": "E",
+            "perMille": "‰",
+            "infinity": "གྲངས་མེད",
+            "nan": "ཨང་མད"
+        },
         "decimalFormats-numberSystem-latn": {
             "standard": {
                 "decimalFormat": {

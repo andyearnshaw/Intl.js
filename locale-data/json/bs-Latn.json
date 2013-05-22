@@ -2095,6 +2095,10 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ",",
+            "group": "."
+        },
         "currencies": {
             "BAM": {
                 "symbol": "KM"

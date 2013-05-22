@@ -10,6 +10,214 @@
         "language": "ar",
         "territory": "LY"
     },
+    "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ",",
+            "group": ".",
+            "list": ";",
+            "percentSign": "%",
+            "plusSign": "+",
+            "minusSign": "-",
+            "exponential": "E",
+            "perMille": "‰",
+            "infinity": "∞",
+            "nan": "NaN"
+        },
+        "symbols-numberSystem-arab": {
+            "decimal": "٫",
+            "group": "٬",
+            "list": "؛",
+            "percentSign": "٪",
+            "plusSign": "+",
+            "minusSign": "-",
+            "exponential": "اس",
+            "perMille": "؉",
+            "infinity": "∞",
+            "nan": "ليس رقم"
+        },
+        "decimalFormats-numberSystem-arab": {
+            "standard": {
+                "decimalFormat": {
+                    "pattern": "#0.###;#0.###-"
+                }
+            }
+        },
+        "decimalFormats-numberSystem-latn": {
+            "standard": {
+                "decimalFormat": {
+                    "pattern": "#,##0.###;#,##0.###-"
+                }
+            }
+        },
+        "percentFormats-numberSystem-arab": {
+            "standard": {
+                "percentFormat": {
+                    "pattern": "#,##0%"
+                }
+            }
+        },
+        "percentFormats-numberSystem-latn": {
+            "standard": {
+                "percentFormat": {
+                    "pattern": "#,##0%"
+                }
+            }
+        },
+        "currencyFormats-numberSystem-arab": {
+            "standard": {
+                "currencyFormat": {
+                    "pattern": "¤ #0.00;¤ #0.00-"
+                }
+            },
+            "unitPattern-count-zero": "{0} {1}",
+            "unitPattern-count-one": "{0} {1}",
+            "unitPattern-count-two": "{0} {1}",
+            "unitPattern-count-few": "{0} {1}",
+            "unitPattern-count-many": "{0} {1}",
+            "unitPattern-count-other": "{0} {1}"
+        },
+        "currencyFormats-numberSystem-latn": {
+            "standard": {
+                "currencyFormat": {
+                    "pattern": "¤ #,##0.00;¤ #,##0.00-"
+                }
+            },
+            "unitPattern-count-zero": "{0} {1}",
+            "unitPattern-count-one": "{0} {1}",
+            "unitPattern-count-two": "{0} {1}",
+            "unitPattern-count-few": "{0} {1}",
+            "unitPattern-count-many": "{0} {1}",
+            "unitPattern-count-other": "{0} {1}"
+        },
+        "currencies": {
+            "AED": {
+                "symbol": "د.إ.‏"
+            },
+            "AUD": {
+                "symbol": "AU$"
+            },
+            "BHD": {
+                "symbol": "د.ب.‏"
+            },
+            "BRL": {
+                "symbol": "R$"
+            },
+            "CAD": {
+                "symbol": "CA$"
+            },
+            "CNY": {
+                "symbol": "ي.ص"
+            },
+            "DZD": {
+                "symbol": "د.ج.‏"
+            },
+            "EGP": {
+                "symbol": "ج.م.‏"
+            },
+            "EUR": {
+                "symbol": "€"
+            },
+            "GBP": {
+                "symbol": "£"
+            },
+            "HKD": {
+                "symbol": "HK$"
+            },
+            "ILS": {
+                "symbol": "₪"
+            },
+            "INR": {
+                "symbol": "ر.ه.‏"
+            },
+            "IQD": {
+                "symbol": "د.ع.‏"
+            },
+            "JOD": {
+                "symbol": "د.أ.‏"
+            },
+            "JPY": {
+                "symbol": "JP¥"
+            },
+            "KMF": {
+                "symbol": "ف.ج.ق.‏"
+            },
+            "KRW": {
+                "symbol": "₩"
+            },
+            "KWD": {
+                "symbol": "د.ك.‏"
+            },
+            "LBP": {
+                "symbol": "ل.ل.‏"
+            },
+            "LYD": {
+                "symbol": "د.ل.‏"
+            },
+            "MAD": {
+                "symbol": "د.م.‏"
+            },
+            "MRO": {
+                "symbol": "أ.م.‏"
+            },
+            "MXN": {
+                "symbol": "MX$"
+            },
+            "NZD": {
+                "symbol": "NZ$"
+            },
+            "OMR": {
+                "symbol": "ر.ع.‏"
+            },
+            "QAR": {
+                "symbol": "ر.ق.‏"
+            },
+            "SAR": {
+                "symbol": "ر.س.‏"
+            },
+            "SDD": {
+                "symbol": "د.س.‏"
+            },
+            "SDP": {
+                "symbol": "ج.س.‏"
+            },
+            "SYP": {
+                "symbol": "ل.س.‏"
+            },
+            "THB": {
+                "symbol": "฿"
+            },
+            "TND": {
+                "symbol": "د.ت.‏"
+            },
+            "TWD": {
+                "symbol": "NT$"
+            },
+            "USD": {
+                "symbol": "US$"
+            },
+            "VND": {
+                "symbol": "₫"
+            },
+            "XAF": {
+                "symbol": "FCFA"
+            },
+            "XCD": {
+                "symbol": "EC$"
+            },
+            "XOF": {
+                "symbol": "CFA"
+            },
+            "XPF": {
+                "symbol": "CFPF"
+            },
+            "XXX": {
+                "symbol": "***"
+            },
+            "YER": {
+                "symbol": "ر.ي.‏"
+            }
+        }
+    },
     "dates": {
         "calendars": {
             "buddhist": {
@@ -2918,190 +3126,6 @@
                         "daylight": "توقيت يكاترينبورغ الصيفي"
                     }
                 }
-            }
-        }
-    },
-    "numbers": {
-        "decimalFormats-numberSystem-arab": {
-            "standard": {
-                "decimalFormat": {
-                    "pattern": "#0.###;#0.###-"
-                }
-            }
-        },
-        "decimalFormats-numberSystem-latn": {
-            "standard": {
-                "decimalFormat": {
-                    "pattern": "#,##0.###;#,##0.###-"
-                }
-            }
-        },
-        "percentFormats-numberSystem-arab": {
-            "standard": {
-                "percentFormat": {
-                    "pattern": "#,##0%"
-                }
-            }
-        },
-        "percentFormats-numberSystem-latn": {
-            "standard": {
-                "percentFormat": {
-                    "pattern": "#,##0%"
-                }
-            }
-        },
-        "currencyFormats-numberSystem-arab": {
-            "standard": {
-                "currencyFormat": {
-                    "pattern": "¤ #0.00;¤ #0.00-"
-                }
-            },
-            "unitPattern-count-zero": "{0} {1}",
-            "unitPattern-count-one": "{0} {1}",
-            "unitPattern-count-two": "{0} {1}",
-            "unitPattern-count-few": "{0} {1}",
-            "unitPattern-count-many": "{0} {1}",
-            "unitPattern-count-other": "{0} {1}"
-        },
-        "currencyFormats-numberSystem-latn": {
-            "standard": {
-                "currencyFormat": {
-                    "pattern": "¤ #,##0.00;¤ #,##0.00-"
-                }
-            },
-            "unitPattern-count-zero": "{0} {1}",
-            "unitPattern-count-one": "{0} {1}",
-            "unitPattern-count-two": "{0} {1}",
-            "unitPattern-count-few": "{0} {1}",
-            "unitPattern-count-many": "{0} {1}",
-            "unitPattern-count-other": "{0} {1}"
-        },
-        "currencies": {
-            "AED": {
-                "symbol": "د.إ.‏"
-            },
-            "AUD": {
-                "symbol": "AU$"
-            },
-            "BHD": {
-                "symbol": "د.ب.‏"
-            },
-            "BRL": {
-                "symbol": "R$"
-            },
-            "CAD": {
-                "symbol": "CA$"
-            },
-            "CNY": {
-                "symbol": "ي.ص"
-            },
-            "DZD": {
-                "symbol": "د.ج.‏"
-            },
-            "EGP": {
-                "symbol": "ج.م.‏"
-            },
-            "EUR": {
-                "symbol": "€"
-            },
-            "GBP": {
-                "symbol": "£"
-            },
-            "HKD": {
-                "symbol": "HK$"
-            },
-            "ILS": {
-                "symbol": "₪"
-            },
-            "INR": {
-                "symbol": "ر.ه.‏"
-            },
-            "IQD": {
-                "symbol": "د.ع.‏"
-            },
-            "JOD": {
-                "symbol": "د.أ.‏"
-            },
-            "JPY": {
-                "symbol": "JP¥"
-            },
-            "KMF": {
-                "symbol": "ف.ج.ق.‏"
-            },
-            "KRW": {
-                "symbol": "₩"
-            },
-            "KWD": {
-                "symbol": "د.ك.‏"
-            },
-            "LBP": {
-                "symbol": "ل.ل.‏"
-            },
-            "LYD": {
-                "symbol": "د.ل.‏"
-            },
-            "MAD": {
-                "symbol": "د.م.‏"
-            },
-            "MRO": {
-                "symbol": "أ.م.‏"
-            },
-            "MXN": {
-                "symbol": "MX$"
-            },
-            "NZD": {
-                "symbol": "NZ$"
-            },
-            "OMR": {
-                "symbol": "ر.ع.‏"
-            },
-            "QAR": {
-                "symbol": "ر.ق.‏"
-            },
-            "SAR": {
-                "symbol": "ر.س.‏"
-            },
-            "SDD": {
-                "symbol": "د.س.‏"
-            },
-            "SDP": {
-                "symbol": "ج.س.‏"
-            },
-            "SYP": {
-                "symbol": "ل.س.‏"
-            },
-            "THB": {
-                "symbol": "฿"
-            },
-            "TND": {
-                "symbol": "د.ت.‏"
-            },
-            "TWD": {
-                "symbol": "NT$"
-            },
-            "USD": {
-                "symbol": "US$"
-            },
-            "VND": {
-                "symbol": "₫"
-            },
-            "XAF": {
-                "symbol": "FCFA"
-            },
-            "XCD": {
-                "symbol": "EC$"
-            },
-            "XOF": {
-                "symbol": "CFA"
-            },
-            "XPF": {
-                "symbol": "CFPF"
-            },
-            "XXX": {
-                "symbol": "***"
-            },
-            "YER": {
-                "symbol": "ر.ي.‏"
             }
         }
     }

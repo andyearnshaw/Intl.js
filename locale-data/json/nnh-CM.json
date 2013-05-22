@@ -196,6 +196,12 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ",",
+            "group": ".",
+            "list": ",",
+            "percentSign": "%"
+        },
         "currencies": {
             "XAF": {
                 "symbol": "FCFA"

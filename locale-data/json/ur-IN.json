@@ -34,6 +34,30 @@
             "unitPattern-count-one": "{0} {1}",
             "unitPattern-count-other": "{0} {1}"
         },
+        "symbols-numberSystem-arabext": {
+            "decimal": ".",
+            "group": ",",
+            "list": ";",
+            "percentSign": "%",
+            "plusSign": "+",
+            "minusSign": "-",
+            "exponential": "ق",
+            "perMille": "‰",
+            "infinity": "∞",
+            "nan": "یہ عدد نہیں"
+        },
+        "symbols-numberSystem-latn": {
+            "decimal": ".",
+            "group": ",",
+            "list": ";",
+            "percentSign": "%",
+            "plusSign": "+",
+            "minusSign": "-",
+            "exponential": "E",
+            "perMille": "‰",
+            "infinity": "∞",
+            "nan": "NaN"
+        },
         "currencies": {
             "AUD": {
                 "symbol": "A$"

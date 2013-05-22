@@ -158,6 +158,10 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ",",
+            "group": "."
+        },
         "currencies": {
             "XAF": {
                 "symbol": "FCFA"

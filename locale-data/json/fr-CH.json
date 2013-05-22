@@ -2192,6 +2192,18 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ".",
+            "group": "'",
+            "list": ";",
+            "percentSign": "%",
+            "plusSign": "+",
+            "minusSign": "-",
+            "exponential": "E",
+            "perMille": "‰",
+            "infinity": "∞",
+            "nan": "NaN"
+        },
         "currencyFormats-numberSystem-latn": {
             "standard": {
                 "currencyFormat": {

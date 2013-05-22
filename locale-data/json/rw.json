@@ -106,6 +106,10 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ",",
+            "group": "."
+        },
         "currencies": {
             "RWF": {
                 "symbol": "RF"

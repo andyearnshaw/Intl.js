@@ -16,6 +16,14 @@
                 "symbol": "CN¥"
             }
         },
+        "symbols-numberSystem-latn": {
+            "decimal": ".",
+            "group": ",",
+            "nan": "NaN"
+        },
+        "symbols-numberSystem-tibt": {
+            "nan": "ཨང་མེན་"
+        },
         "decimalFormats-numberSystem-latn": {
             "standard": {
                 "decimalFormat": {

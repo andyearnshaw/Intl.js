@@ -2466,6 +2466,18 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ".",
+            "group": ",",
+            "list": ";",
+            "percentSign": "%",
+            "plusSign": "+",
+            "minusSign": "-",
+            "exponential": "ಈ",
+            "perMille": "‰",
+            "infinity": "∞",
+            "nan": "NaN"
+        },
         "decimalFormats-numberSystem-latn": {
             "standard": {
                 "decimalFormat": {

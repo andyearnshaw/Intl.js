@@ -187,6 +187,10 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ",",
+            "group": " "
+        },
         "currencyFormats-numberSystem-latn": {
             "standard": {
                 "currencyFormat": {

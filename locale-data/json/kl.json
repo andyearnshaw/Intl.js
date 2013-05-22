@@ -298,6 +298,18 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ",",
+            "group": ".",
+            "list": ";",
+            "percentSign": "%",
+            "plusSign": "+",
+            "minusSign": "−",
+            "exponential": "×10^",
+            "perMille": "‰",
+            "infinity": "∞",
+            "nan": "¤¤¤"
+        },
         "decimalFormats-numberSystem-latn": {
             "standard": {
                 "decimalFormat": {

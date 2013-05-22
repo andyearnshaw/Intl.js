@@ -139,6 +139,10 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ",",
+            "group": " "
+        },
         "currencies": {
             "UZS": {
                 "symbol": "сўм"

@@ -76,6 +76,10 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ",",
+            "group": " "
+        },
         "decimalFormats-numberSystem-latn": {
             "standard": {
                 "decimalFormat": {

@@ -115,6 +115,10 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ".",
+            "group": ","
+        },
         "currencies": {
             "CNY": {
                 "symbol": "¥"

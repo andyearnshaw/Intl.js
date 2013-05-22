@@ -435,6 +435,10 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ",",
+            "group": "’"
+        },
         "currencyFormats-numberSystem-latn": {
             "unitPattern-count-one": "{0} {1}",
             "unitPattern-count-other": "{0} {1}"

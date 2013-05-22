@@ -19,6 +19,10 @@
                 "symbol": "Lek"
             }
         },
+        "symbols-numberSystem-latn": {
+            "decimal": ",",
+            "group": " "
+        },
         "currencyFormats-numberSystem-latn": {
             "standard": {
                 "currencyFormat": {

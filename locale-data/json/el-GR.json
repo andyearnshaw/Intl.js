@@ -2592,6 +2592,18 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ",",
+            "group": ".",
+            "list": ",",
+            "percentSign": "%",
+            "plusSign": "+",
+            "minusSign": "-",
+            "exponential": "e",
+            "perMille": "‰",
+            "infinity": "∞",
+            "nan": "NaN"
+        },
         "decimalFormats-numberSystem-latn": {
             "standard": {
                 "decimalFormat": {

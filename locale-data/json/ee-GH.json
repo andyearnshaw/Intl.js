@@ -2704,6 +2704,9 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "nan": "mnn"
+        },
         "currencyFormats-numberSystem-latn": {
             "standard": {
                 "currencyFormat": {

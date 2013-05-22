@@ -177,6 +177,10 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ",",
+            "group": " "
+        },
         "currencies": {
             "KGS": {
                 "symbol": "сом"

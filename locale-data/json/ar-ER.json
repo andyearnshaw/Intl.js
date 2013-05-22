@@ -142,6 +142,30 @@
                 "symbol": "ر.ي.‏"
             }
         },
+        "symbols-numberSystem-arab": {
+            "decimal": "٫",
+            "group": "٬",
+            "list": "؛",
+            "percentSign": "٪",
+            "plusSign": "+",
+            "minusSign": "-",
+            "exponential": "اس",
+            "perMille": "؉",
+            "infinity": "∞",
+            "nan": "ليس رقم"
+        },
+        "symbols-numberSystem-latn": {
+            "decimal": ".",
+            "group": ",",
+            "list": ";",
+            "percentSign": "%",
+            "plusSign": "+",
+            "minusSign": "-",
+            "exponential": "E",
+            "perMille": "‰",
+            "infinity": "∞",
+            "nan": "NaN"
+        },
         "decimalFormats-numberSystem-arab": {
             "standard": {
                 "decimalFormat": {

@@ -2305,6 +2305,19 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ",",
+            "group": " ",
+            "list": ";",
+            "percentSign": "%",
+            "plusSign": "+",
+            "minusSign": "−",
+            "exponential": "×10^",
+            "perMille": "‰",
+            "infinity": "∞",
+            "nan": "¤¤¤",
+            "currencyDecimal": ":"
+        },
         "decimalFormats-numberSystem-latn": {
             "standard": {
                 "decimalFormat": {

@@ -172,6 +172,17 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-arabext": {
+            "decimal": "٫",
+            "group": "٬",
+            "percentSign": "٪",
+            "exponential": "×۱۰^"
+        },
+        "symbols-numberSystem-latn": {
+            "decimal": ",",
+            "group": ".",
+            "minusSign": "−"
+        },
         "currencyFormats-numberSystem-latn": {
             "standard": {
                 "currencyFormat": {

@@ -1340,6 +1340,12 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ".",
+            "group": ",",
+            "list": ";",
+            "minusSign": "-"
+        },
         "currencies": {
             "NPR": {
                 "symbol": "नेरू"

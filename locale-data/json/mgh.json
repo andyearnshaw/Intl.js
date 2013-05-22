@@ -187,6 +187,10 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ",",
+            "group": "."
+        },
         "currencies": {
             "MZN": {
                 "symbol": "MTn"

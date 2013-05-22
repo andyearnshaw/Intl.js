@@ -201,6 +201,9 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "group": " "
+        },
         "currencyFormats-numberSystem-latn": {
             "standard": {
                 "currencyFormat": {

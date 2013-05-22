@@ -194,6 +194,9 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "group": " "
+        },
         "currencies": {
             "MUR": {
                 "symbol": "Rs"

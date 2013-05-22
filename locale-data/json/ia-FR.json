@@ -174,5 +174,11 @@
                 }
             }
         }
+    },
+    "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ",",
+            "group": "."
+        }
     }
 }

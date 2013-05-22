@@ -232,6 +232,15 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "decimal": ",",
+            "group": ".",
+            "percentSign": "%",
+            "plusSign": "+",
+            "minusSign": "-",
+            "perMille": "‰",
+            "infinity": "∞"
+        },
         "decimalFormats-numberSystem-latn": {
             "standard": {
                 "decimalFormat": {

@@ -62,7 +62,7 @@ process.on('SIGINT', cleanUp);
 // -n (fullnumbers)        (true|false)    Whether the output JSON should output data for all numbering systems, even those not used in the locale
 // -o (other)      (true|false)    Whether to write out the 'other' section, which contains any unmatched paths
 // -k (konfig)     .*      LDML to JSON configuration file
-child = spawn('java', [ '-DCLDR_DIR='+cldr, '-cp', jPath + clsPaths.join(':'+jPath), cls, '-d', out, '-k', cfg/*, '-men.*' */]);
+child = spawn('java', [ '-DCLDR_DIR='+cldr, '-cp', jPath + clsPaths.join(':'+jPath), cls, '-d', out, '-k', cfg/*, '-men.*'*/ ]);
 
 child.stdout.on('data', function (data) {
     if (data.toString().indexOf('Processing') >= 0)

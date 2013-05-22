@@ -2553,6 +2553,21 @@
                 "symbol": "৳"
             }
         },
+        "symbols-numberSystem-beng": {
+            "nan": "সংখ্যা না"
+        },
+        "symbols-numberSystem-latn": {
+            "decimal": ".",
+            "group": ",",
+            "list": ";",
+            "percentSign": "%",
+            "plusSign": "+",
+            "minusSign": "-",
+            "exponential": "E",
+            "perMille": "‰",
+            "infinity": "∞",
+            "nan": "NaN"
+        },
         "decimalFormats-numberSystem-latn": {
             "standard": {
                 "decimalFormat": {

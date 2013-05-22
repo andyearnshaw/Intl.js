@@ -132,6 +132,19 @@
         }
     },
     "numbers": {
+        "symbols-numberSystem-arabext": {
+            "decimal": "٫",
+            "group": "٬",
+            "percentSign": "٪",
+            "exponential": "×۱۰^"
+        },
+        "symbols-numberSystem-latn": {
+            "decimal": ",",
+            "group": ".",
+            "percentSign": "%",
+            "minusSign": "−",
+            "exponential": "E"
+        },
         "currencyFormats-numberSystem-latn": {
             "standard": {
                 "currencyFormat": {

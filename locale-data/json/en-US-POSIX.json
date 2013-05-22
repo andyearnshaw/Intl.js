@@ -12,6 +12,18 @@
         "variant": "POSIX"
     },
     "numbers": {
+        "symbols-numberSystem-latn": {
+            "perMille": "0/00",
+            "infinity": "INF",
+            "decimal": ".",
+            "group": ",",
+            "list": ";",
+            "percentSign": "%",
+            "plusSign": "+",
+            "minusSign": "-",
+            "exponential": "E",
+            "nan": "NaN"
+        },
         "decimalFormats-numberSystem-latn": {
             "standard": {
                 "decimalFormat": {
