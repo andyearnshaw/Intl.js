@@ -1195,7 +1195,7 @@ var collatorOptions = {
     }
 };
 
-/* 10.2.2 */Intl.Collator.supportedLocalesOf = function () {
+/* 10.2.2 */Intl.Collator.supportedLocalesOf = function (locales) {
     // When the supportedLocalesOf method of Intl.Collator is called, the following steps
     // are taken:
 
@@ -2402,16 +2402,17 @@ function BestFitFormatMatcher (options, formats) {
             var
             // a. Let F be a Function object, with internal properties set as
             //    specified for built-in functions in ES5, 15, or successor, and the
-            //    length property set to 1, that takes the argument value and
+            //    length property set to 0, that takes the argument date and
             //    performs the following steps:
-                F = function (date) {
+                F = function () {
                     //   i. If date is not provided or is undefined, then let x be the
                     //      result as if by the expression Date.now() where Date.now is
                     //      the standard built-in function defined in ES5, 15.9.4.4.
                     //  ii. Else let x be ToNumber(date).
                     // iii. Return the result of calling the FormatDateTime abstract
                     //      operation (defined below) with arguments this and x.
-                    return FormatDateTime(this, /* x = */Number(date === undefined ? Date.now() : date));
+                    var x = Number(arguments.length === 0 ? Date.now() : arguments[0]);
+                    return FormatDateTime(this, x);
                 },
             // b. Let bind be the standard built-in function object defined in ES5,
             //    15.3.4.5.
