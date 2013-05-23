@@ -3,9 +3,10 @@ if (typeof window !== 'undefined')
     window.OldIntl = window.Intl;
 
 var Intl = /*window.Intl || */(function (Intl) {
-// Copyright 2013 Andy Earnshaw, MIT License
 
 /**
+ * @preserve Copyright 2013 Andy Earnshaw, MIT License
+ *
  * Implements the ECMAScript Internationalization API in ES5-compatible environments,
  * following the ECMA-402 specification as closely as possible
  *
