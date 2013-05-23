@@ -15,7 +15,11 @@ the native API in environments that support it, or `Intl.js` for legacy or unsup
 environments.
 
 ## <a id=status></a>Status
-`Intl.js` isn't yet ready for production environments. Current progress is as follows:
+`Intl.js` isn't yet ready for production environments. test402 has been integrated into
+the project and tells us there's still a lot of work to be done.  The latest test, run on
+May 23 2013, scored 70 out of 153.
+
+Current progress is as follows:
 
 ### Implemented
  - All internal methods except for some that are implementation dependent
@@ -44,10 +48,8 @@ environments.
  - Properties of the `String` prototype object
  - Test suites
 
-None of the implementation has been tested for compliance as of yet, and a few of the
-implemented functions may currently be non-conforming and/or incomplete.  Those functions
-have comments marked as 'TODO' in the source code.
-[test402](http://test262.ecmascript.org/testcases_intl402.html) integration is planned.
+A few of the implemented functions may currently be non-conforming and/or incomplete.  
+Most of those functions have comments marked as 'TODO' in the source code.
 
 ## Compatibility
 Intl.js is designed to be compatible with ECMAScript 3.1 environments in order to
