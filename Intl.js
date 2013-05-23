@@ -425,6 +425,7 @@ function /* 9.2.1 */CanonicalizeLocaleList (locales) {
         // d. Increase k by 1.
         k++;
     }
+
     // 9. Return seen.
     return seen;
 }
@@ -974,8 +975,12 @@ defineProperty(Intl.Collator, 'prototype', {
  * Collator object.
  */
 function /*10.1.1.1 */InitializeCollator (collator, locales, options) {
+    var
     // This will be a internal properties object if we're not already initialized
-    var internal = getInternalProperties(collator);
+        internal = getInternalProperties(collator),
+
+    // Create an object whose props can be used to restore the values of RegExp props
+        regexpState = createRegExpRestore();
 
     // The following steps are taken:
 
@@ -1169,6 +1174,9 @@ function /*10.1.1.1 */InitializeCollator (collator, locales, options) {
 
     // 26. Set the [[initializedCollator]] internal property of collator to true.
     internal['[[initializedCollator]]'] = ip;
+
+    // Restore the RegExp properties
+    regexpState.exp.test(regexpState.input);
 }
 
 /**
@@ -1239,8 +1247,12 @@ defineProperty(Intl.NumberFormat, 'prototype', {
  * numberFormat as a NumberFormat object.
  */
 function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
+    var
     // This will be a internal properties object if we're not already initialized
-    var internal = getInternalProperties(numberFormat);
+        internal = getInternalProperties(numberFormat),
+
+    // Create an object whose props can be used to restore the values of RegExp props
+        regexpState = createRegExpRestore();
 
     // 1. If numberFormat has an [[initializedIntlObject]] internal property with
     // value true, throw a TypeError exception.
@@ -1467,6 +1479,9 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
     // 43. Set the [[initializedNumberFormat]] internal property of numberFormat to
     //     true.
     internal['[[initializedNumberFormat]]'] = true;
+
+    // Restore the RegExp properties
+    regexpState.exp.test(regexpState.input);
 }
 
 function CurrencyDigits(currency) {
@@ -1487,6 +1502,9 @@ function CurrencyDigits(currency) {
  */
 /* 11.2.2 */Intl.NumberFormat.supportedLocalesOf = function (locales /*[, options]*/) {
     var
+    // Create an object whose props can be used to restore the values of RegExp props
+        regexpState = createRegExpRestore(),
+
     // 1. If options is not provided, then let options be undefined.
         options = arguments[1],
     // 2. Let availableLocales be the value of the [[availableLocales]] internal
@@ -1496,6 +1514,9 @@ function CurrencyDigits(currency) {
     // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
     //    abstract operation (defined in 9.2.1) with argument locales.
         requestedLocales = CanonicalizeLocaleList(locales);
+
+    // Restore the RegExp properties
+    regexpState.exp.test(regexpState.input);
 
     // 4. Return the result of calling the SupportedLocales abstract operation
     //    (defined in 9.2.8) with arguments availableLocales, requestedLocales,
@@ -1560,6 +1581,10 @@ function CurrencyDigits(currency) {
  */
 function FormatNumber (numberFormat, x) {
     var n,
+
+    // Create an object whose props can be used to restore the values of RegExp props
+        regexpState = createRegExpRestore(),
+
         internal = getInternalProperties(numberFormat),
         locale = internal['[[locale]]'],
         nums   = internal['[[numberingSystem]]'],
@@ -1695,6 +1720,10 @@ function FormatNumber (numberFormat, x) {
         // e. Replace the substring "{currency}" within result with cd.
         result = result.replace('{currency}', cd);
     }
+
+    // Restore the RegExp properties
+    regexpState.exp.test(regexpState.input);
+
     // 7. Return result.
     return result;
 }
@@ -1885,8 +1914,12 @@ defineProperty(Intl.DateTimeFormat, 'prototype', {
  * DateTimeFormat object.
  */
 function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options) {
+    var
     // This will be a internal properties object if we're not already initialized
-    var internal = getInternalProperties(dateTimeFormat);
+        internal = getInternalProperties(dateTimeFormat),
+
+    // Create an object whose props can be used to restore the values of RegExp props
+        regexpState = createRegExpRestore();
 
     // 1. If dateTimeFormat has an [[initializedIntlObject]] internal property with
     //    value true, throw a TypeError exception.
@@ -2102,6 +2135,9 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
     // 36. Set the [[initializedDateTimeFormat]] internal property of dateTimeFormat to
     //     true.
     internal['[[initializedDateTimeFormat]]'] = true;
+
+    // Restore the RegExp properties
+    regexpState.exp.test(regexpState.input);
 }
 
 /**
@@ -2318,6 +2354,9 @@ function BestFitFormatMatcher (options, formats) {
  */
 /* 12.2.1 */Intl.DateTimeFormat.supportedLocalesOf = function (locales/*, [options]*/) {
     var
+    // Create an object whose props can be used to restore the values of RegExp props
+        regexpState = createRegExpRestore(),
+
     // 1. If options is not provided, then let options be undefined.
         options = arguments[1],
 
@@ -2329,6 +2368,9 @@ function BestFitFormatMatcher (options, formats) {
     // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
     //    abstract operation (defined in 9.2.1) with argument locales.
         requestedLocales = CanonicalizeLocaleList(locales);
+
+    // Restore the RegExp properties
+    regexpState.exp.test(regexpState.input);
 
     // 4. Return the result of calling the SupportedLocales abstract operation
     //    (defined in 9.2.8) with arguments availableLocales, requestedLocales,
@@ -2401,6 +2443,9 @@ function FormatDateTime(dateTimeFormat, x) {
 
     var
         internal = dateTimeFormat.__getInternalProperties(secret),
+
+        // Creating restore point for properties on the RegExp object... please wait
+        regexpState = createRegExpRestore();
 
     // 2. Let locale be the value of the [[locale]] internal property of dateTimeFormat.
         locale = internal['[[locale]]'],
@@ -2532,6 +2577,10 @@ function FormatDateTime(dateTimeFormat, x) {
         // b. Replace the substring of result that consists of "{ampm}", with fv.
         result = result.replace('{ampm}', fv);
     }
+
+    // Restore properties of the RegExp object
+    regexpState.exp.test(regexpState.input);
+
     // 9. Return result.
     return result;
 }
@@ -2760,7 +2809,10 @@ function addLocaleData (data) {
         throw new Error('Must pass valid CLDR data parsed into a JavaScript object.');
 
     var add,
-        locale = data.identity.language;
+        locale = data.identity.language,
+
+        // Make sure we can restore the properties of the RegExp object
+        regexpState = createRegExpRestore();
 
     if (add = data.identity.script)
         locale += '-' + add;
@@ -2904,6 +2956,9 @@ function addLocaleData (data) {
             hour12: !/H|K/.test(timeFormat)
         };
     }
+
+    // Finally, restore the RegExp properties
+    regexpState.exp.test(regexpState.input);
 }
 
 var
@@ -3050,6 +3105,22 @@ function Record (obj) {
     }
 
     return objCreate(null, props);
+}
+
+/**
+ * Constructs a regular expression to restore tainted RegExp properties
+ */
+function createRegExpRestore () {
+    var lm  = RegExp.lastMatch,
+        ret = {
+           input: RegExp.input
+        };
+
+    for (var i = 1; i <= 9 && RegExp['$'+i]; i++)
+        lm = lm.replace(RegExp['$'+i], '(' + RegExp['$'+i] + ')');
+
+    ret.exp = new RegExp(lm, RegExp.multiline ? 'm' : '');
+    return ret;
 }
 
 /**
