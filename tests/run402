@@ -1,0 +1,11 @@
+#!/bin/sh
+
+command -v d8 >/dev/null 2>&1 || { echo >&2 "Could not find the d8 executable in your path."; exit 1; }
+command -v python >/dev/null 2>&1 || { echo >&2 "Could not find python in your path."; exit 1; }
+
+INTL=../Intl.min.js
+LOCALES=../locale-data/jsonp/de-DE.js
+TESTDIR=./test262
+TEST262="$TESTDIR/tools/packaging/test262.py"
+
+python $TEST262 --command "d8 $INTL $LOCALES" --tests="$TESTDIR" --summary intl402 > ./test262.log

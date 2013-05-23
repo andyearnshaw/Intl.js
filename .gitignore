@@ -3,3 +3,6 @@ cldr/
 
 # test262 compiled python files
 *.pyc
+
+# Ignore test262 output
+*.log
