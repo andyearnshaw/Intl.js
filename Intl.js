@@ -49,7 +49,7 @@ var
         obj = new F();
 
         for (var k in props) {
-            if (props.hasOwnProperty(k))
+            if (hop.call(props, k))
                 defineProperty(obj, k, props[k]);
         }
 
@@ -2070,7 +2070,7 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
         // b. Let pDesc be the result of calling the [[GetOwnProperty]] internal method of
         //    bestFormat with argument prop.
         // c. If pDesc is not undefined, then
-        if (bestFormat.hasOwnProperty(prop)) {
+        if (hop.call(bestFormat, prop)) {
             var
             // i. Let p be the result of calling the [[Get]] internal method of bestFormat
             //    with argument prop.
@@ -2274,7 +2274,7 @@ function BasicFormatMatcher (options, formats) {
             //     with argument property.
             // iii. If formatPropDesc is not undefined, then
                 // 1. Let formatProp be the result of calling the [[Get]] internal method of format with argument property.
-                formatProp = format.hasOwnProperty(property) ? format[property] : undefined;
+                formatProp = hop.call(format, property) ? format[property] : undefined;
 
             // iv. If optionsProp is undefined and formatProp is not undefined, then decrease score by
             //     additionPenalty.
@@ -2444,8 +2444,8 @@ function FormatDateTime(dateTimeFormat, x) {
     var
         internal = dateTimeFormat.__getInternalProperties(secret),
 
-        // Creating restore point for properties on the RegExp object... please wait
-        regexpState = createRegExpRestore();
+    // Creating restore point for properties on the RegExp object... please wait
+        regexpState = createRegExpRestore(),
 
     // 2. Let locale be the value of the [[locale]] internal property of dateTimeFormat.
         locale = internal['[[locale]]'],
@@ -2911,7 +2911,7 @@ function addLocaleData (data) {
                 continue;
 
             // Rename cldr calendar names to unicode extension names
-            if (caMap.hasOwnProperty(cal)) {
+            if (hop.call(caMap, cal)) {
                 cas[caMap[cal]] = cas[cal];
                 delete cas[cal];
             }
@@ -3097,8 +3097,13 @@ function Record (obj) {
     var props = objCreate(null);
 
     if (obj != null && typeof(obj) === 'object') {
+        // If object is already a Record-like object return it
+        if (Object.getPrototypeOf && !Object.getPrototypeOf(obj))
+            return obj;
+
+        // Else copy its properties into descriptor objects
         for (var k in obj) {
-            if (obj.hasOwnProperty(k)) {
+            if (hop.call(obj, k)) {
                 props[k] = { value: obj[k] };
             }
         }
