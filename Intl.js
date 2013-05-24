@@ -5,7 +5,7 @@ if (typeof window !== 'undefined')
 var Intl = /*window.Intl || */(function (Intl) {
 
 /**
- * @preserve Copyright 2013 Andy Earnshaw, MIT License
+ * @license Copyright 2013 Andy Earnshaw, MIT License
  *
  * Implements the ECMAScript Internationalization API in ES5-compatible environments,
  * following the ECMA-402 specification as closely as possible
@@ -3121,12 +3121,35 @@ function createRegExpRestore () {
     var lm  = RegExp.lastMatch,
         ret = {
            input: RegExp.input
-        };
+        },
+        esc = /[.?*+^$[\]\\(){}|-]/g,
+        reg = [],
+        cap = {};
 
-    for (var i = 1; i <= 9 && RegExp['$'+i]; i++)
-        lm = lm.replace(RegExp['$'+i], '(' + RegExp['$'+i] + ')');
+    // Create a snapshot of all the 'captured' properties
+    for (var i = 1; i <= 9; i++)
+        cap['$'+i] = RegExp['$'+i];
 
-    ret.exp = new RegExp(lm, RegExp.multiline ? 'm' : '');
+    // Now, iterate over them
+    for (var i = 1; i <= 9; i++) {
+        var m = cap['$'+i];
+
+        // If it's empty, add an empty capturing group
+        if (!m)
+            lm = '()' + lm;
+
+        // Else find the string in lm and escape & wrap it to capture it
+        else
+            lm = lm.replace(m, '(' + m.replace(esc, '\\$0') + ')');
+
+        // Push it to the reg and chop lm to make sure further groups come after
+        reg.push(lm.slice(0, lm.indexOf('(') + 1));
+        lm = lm.slice(lm.indexOf('(') + 1);
+    }
+
+    // Create the regular expression that will reconstruct the RegExp properties
+    ret.exp = new RegExp(reg.join('') + lm, RegExp.multiline ? 'm' : '');
+
     return ret;
 }
 
