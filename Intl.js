@@ -1341,6 +1341,9 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
     //     of r.[[nu]].
     internal['[[numberingSystem]]'] = r['[[nu]]'];
 
+    // The specification doesn't tell us to do this, but it's helpful later on
+    internal['[[dataLocale]]'] = r['[[dataLocale]]'];
+
     var
     // 14. Let dataLocale be the value of r.[[dataLocale]].
         dataLocale = r['[[dataLocale]]'],
@@ -1522,10 +1525,13 @@ function CurrencyDigits(currency) {
 
     // 1. If options is not provided, then let options be undefined.
         options = arguments[1],
+
     // 2. Let availableLocales be the value of the [[availableLocales]] internal
     //    property of the standard built-in object that is the initial value of
     //    Intl.NumberFormat.
+
         availableLocales = internals.NumberFormat['[[availableLocales]]'],
+
     // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
     //    abstract operation (defined in 9.2.1) with argument locales.
         requestedLocales = CanonicalizeLocaleList(locales);
@@ -1606,7 +1612,7 @@ function FormatNumber (numberFormat, x) {
         regexpState = createRegExpRestore(),
 
         internal = getInternalProperties(numberFormat),
-        locale = internal['[[locale]]'],
+        locale = internal['[[dataLocale]]'],
         nums   = internal['[[numberingSystem]]'],
         data   = localeData[locale].numbers,
         ild    = data['symbols-numberSystem-' + nums],
@@ -2018,6 +2024,9 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
     // 13. Set the [[numberingSystem]] internal property of dateTimeFormat to the value of
     //     r.[[nu]].
     internal['[[numberingSystem]]'] = r['[[nu]]'];
+
+    // The specification doesn't tell us to do this, but it's helpful later on
+    internal['[[dataLocale]]'] = r['[[dataLocale]]'];
 
     var
     // 14. Let dataLocale be the value of r.[[dataLocale]].
@@ -2507,8 +2516,11 @@ function FormatDateTime(dateTimeFormat, x) {
     // 6. Let result be the value of the [[pattern]] internal property of dateTimeFormat.
         result = internal['[[pattern]]'],
 
+    // Need the locale minus any extensions
+        dataLocale = internal['[[dataLocale]]'],
+
     // Need the calendar data from CLDR
-        ca = localeData[locale].dates.calendars[internal['[[calendar]]']];
+        ca = localeData[dataLocale].dates.calendars[internal['[[calendar]]']];
 
     // 7. For each row of Table 3, except the header row, do:
     for (var p in dateTimeComponents) {
