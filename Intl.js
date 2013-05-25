@@ -2702,6 +2702,10 @@ function ToLocalTime(date, calendar, timeZone) {
     writable: true,
     configurable: true,
     value: function () {
+        // Satisfy test 13.2.1_1
+        if (Object.prototype.toString.call(this) !== '[object Number]')
+            throw new TypeError('`this` value must be a number for Number.prototype.toLocaleString()');
+
         // 1. Let x be this Number value (as defined in ES5, 15.7.4).
         // 2. If locales is not provided, then let locales be undefined.
         // 3. If options is not provided, then let options be undefined.
@@ -2722,6 +2726,10 @@ function ToLocalTime(date, calendar, timeZone) {
     writable: true,
     configurable: true,
     value: function () {
+        // Satisfy test 13.3.0_1
+        if (Object.prototype.toString.call(this) !== '[object Date]')
+            throw new TypeError('`this` value must be a Date instance for Date.prototype.toLocaleString()');
+
         var
         // 1. Let x be this time value (as defined in ES5, 15.9.5).
             x = +this;
@@ -2760,6 +2768,10 @@ function ToLocalTime(date, calendar, timeZone) {
     writable: true,
     configurable: true,
     value: function () {
+        // Satisfy test 13.3.0_1
+        if (Object.prototype.toString.call(this) !== '[object Date]')
+            throw new TypeError('`this` value must be a Date instance for Date.prototype.toLocaleDateString()');
+
         var
         // 1. Let x be this time value (as defined in ES5, 15.9.5).
             x = +this;
@@ -2798,6 +2810,10 @@ function ToLocalTime(date, calendar, timeZone) {
     writable: true,
     configurable: true,
     value: function () {
+        // Satisfy test 13.3.0_1
+        if (Object.prototype.toString.call(this) !== '[object Date]')
+            throw new TypeError('`this` value must be a Date instance for Date.prototype.toLocaleTimeString()');
+
         var
         // 1. Let x be this time value (as defined in ES5, 15.9.5).
             x = +this;
