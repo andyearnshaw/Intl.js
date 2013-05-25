@@ -955,22 +955,25 @@ function /* 9.2.10 */GetNumberOption (options, property, minimum, maximum, fallb
 // 10.1 The Intl.Collator constructor
 // ==================================
 
+// Define the Collator constructor internally so it cannot be tainted
+function CollatorConstructor () {
+    var locales = arguments[0];
+    var options = arguments[1];
+
+    if (!this || this === Intl) {
+        return new Intl.Collator(locales, options);
+    }
+    return InitializeCollator(toObject(this), locales, options);
+}
+
 defineProperty(Intl, 'Collator', {
     configurable: true,
     writable: true,
-    value: function (/* [locales [, options]]*/) {
-        var locales = arguments[0];
-        var options = arguments[1];
-
-        if (!this || this === Intl) {
-            return new Intl.Collator(locales, options);
-        }
-        return InitializeCollator(toObject(this), locales, options);
-    }
+    value: CollatorConstructor
 });
 
 // Must explicitly set prototypes as unwritable
-defineProperty(Intl.Collator, 'prototype', {
+defineProperty(CollatorConstructor, 'prototype', {
     writable: false
 });
 
@@ -1231,18 +1234,21 @@ var collatorOptions = {
 // 11.1 The Intl.NumberFormat constructor
 // ======================================
 
+// Define the NumberFormat constructor internally so it cannot be tainted
+function NumberFormatConstructor () {
+    var locales = arguments[0];
+    var options = arguments[1];
+
+    if (!this || this === Intl) {
+        return new Intl.NumberFormat(locales, options);
+    }
+    return InitializeNumberFormat(toObject(this), locales, options);
+}
+
 defineProperty(Intl, 'NumberFormat', {
     configurable: true,
     writable: true,
-    value: function (/* [locales [, options]]*/) {
-        var locales = arguments[0];
-        var options = arguments[1];
-
-        if (!this || this === Intl) {
-            return new Intl.NumberFormat(locales, options);
-        }
-        return InitializeNumberFormat(toObject(this), locales, options);
-    }
+    value: NumberFormatConstructor
 });
 
 // Must explicitly set prototypes as unwritable
@@ -1912,22 +1918,25 @@ var numSys = {
 // 12.1 The Intl.DateTimeFormat constructor
 // ==================================
 
+// Define the DateTimeFormat constructor internally so it cannot be tainted
+function DateTimeFormatConstructor () {
+    var locales = arguments[0];
+    var options = arguments[1];
+
+    if (!this || this === Intl) {
+        return new Intl.DateTimeFormat(locales, options);
+    }
+    return InitializeDateTimeFormat(toObject(this), locales, options);
+}
+
 defineProperty(Intl, 'DateTimeFormat', {
     configurable: true,
     writable: true,
-    value: function (/* [locales [, options]]*/) {
-        var locales = arguments[0];
-        var options = arguments[1];
-
-        if (!this || this === Intl) {
-            return new Intl.DateTimeFormat(locales, options);
-        }
-        return InitializeDateTimeFormat(toObject(this), locales, options);
-    }
+    value: DateTimeFormatConstructor
 });
 
 // Must explicitly set prototypes as unwritable
-defineProperty(Intl.DateTimeFormat, 'prototype', {
+defineProperty(DateTimeFormatConstructor, 'prototype', {
     writable: false
 });
 
@@ -2701,7 +2710,7 @@ function ToLocalTime(date, calendar, timeZone) {
         //    Intl.NumberFormat is the standard built-in constructor defined in 11.1.3.
         // 5. Return the result of calling the FormatNumber abstract operation
         //    (defined in 11.3.2) with arguments numberFormat and x.
-        return FormatNumber(new Intl.NumberFormat(arguments[0], arguments[1]), this);
+        return FormatNumber(new NumberFormatConstructor(arguments[0], arguments[1]), this);
     }
 });
 
@@ -2735,7 +2744,7 @@ function ToLocalTime(date, calendar, timeZone) {
         // 6. Let dateTimeFormat be the result of creating a new object as if by the
         //    expression new Intl.DateTimeFormat(locales, options) where
         //    Intl.DateTimeFormat is the standard built-in constructor defined in 12.1.3.
-            dateTimeFormat = new Intl.DateTimeFormat(locales, options);
+            dateTimeFormat = new DateTimeFormatConstructor(locales, options);
 
         // 7. Return the result of calling the FormatDateTime abstract operation (defined
         //    in 12.3.2) with arguments dateTimeFormat and x.
@@ -2773,7 +2782,7 @@ function ToLocalTime(date, calendar, timeZone) {
         // 6. Let dateTimeFormat be the result of creating a new object as if by the
         //    expression new Intl.DateTimeFormat(locales, options) where
         //    Intl.DateTimeFormat is the standard built-in constructor defined in 12.1.3.
-            dateTimeFormat = new Intl.DateTimeFormat(locales, options);
+            dateTimeFormat = new DateTimeFormatConstructor(locales, options);
 
         // 7. Return the result of calling the FormatDateTime abstract operation (defined
         //    in 12.3.2) with arguments dateTimeFormat and x.
@@ -2811,7 +2820,7 @@ function ToLocalTime(date, calendar, timeZone) {
         // 6. Let dateTimeFormat be the result of creating a new object as if by the
         //    expression new Intl.DateTimeFormat(locales, options) where
         //    Intl.DateTimeFormat is the standard built-in constructor defined in 12.1.3.
-            dateTimeFormat = new Intl.DateTimeFormat(locales, options);
+            dateTimeFormat = new DateTimeFormatConstructor(locales, options);
 
         // 7. Return the result of calling the FormatDateTime abstract operation (defined
         //    in 12.3.2) with arguments dateTimeFormat and x.
