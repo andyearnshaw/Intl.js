@@ -1546,7 +1546,11 @@ function CurrencyDigits(currency) {
  */
 /* 11.3.2 */defineProperty(Intl.NumberFormat.prototype, 'format', {
     get: function () {
-        var internal = getInternalProperties(this);
+        var internal = this != null && typeof this === 'object' && getInternalProperties(this);
+
+        // Satisfy test 11.3_b
+        if (!internal || !internal['[[initializedNumberFormat]]'])
+            throw new TypeError('`this` value for format() is not an initialized Intl.NumberFormat object.');
 
         // The value of the [[Get]] attribute is a function that takes the following
         // steps:
@@ -1886,9 +1890,10 @@ var numSys = {
             'minimumIntegerDigits', 'minimumFractionDigits', 'maximumFractionDigits',
             'minimumSignificantDigits', 'maximumSignificantDigits', 'useGrouping'
         ],
-        internal = getInternalProperties(this);
+        internal = this != null && typeof this === 'object' && getInternalProperties(this);
 
-    if (!internal['[[initializedNumberFormat]]'])
+    // Satisfy test 11.3_b
+    if (!internal || !internal['[[initializedNumberFormat]]'])
         throw new TypeError('`this` value for resolvedOptions() is not an initialized Intl.NumberFormat object.');
 
     for (var i = 0, max = props.length; i < max; i++) {
@@ -2404,7 +2409,11 @@ function BestFitFormatMatcher (options, formats) {
  */
 /* 12.3.2 */defineProperty(Intl.DateTimeFormat.prototype, 'format', {
     get: function () {
-        var internal = getInternalProperties(this);
+        var internal = this != null && typeof this === 'object' && getInternalProperties(this);
+
+        // Satisfy test 12.3_b
+        if (!internal || !internal['[[initializedDateTimeFormat]]'])
+            throw new TypeError('`this` value for format() is not an initialized Intl.DateTimeFormat object.');
 
         // The value of the [[Get]] attribute is a function that takes the following
         // steps:
@@ -2649,9 +2658,10 @@ function ToLocalTime(date, calendar, timeZone) {
             // Not part of the spec, but in here for debugging purposes
             'pattern'
         ],
-        internal = getInternalProperties(this);
+        internal = this != null && typeof this === 'object' && getInternalProperties(this);
 
-    if (!internal['[[initializedDateTimeFormat]]'])
+    // Satisfy test 12.3_b
+    if (!internal || !internal['[[initializedDateTimeFormat]]'])
         throw new TypeError('`this` value for resolvedOptions() is not an initialized Intl.DateTimeFormat object.');
 
     for (var i = 0, max = props.length; i < max; i++) {
