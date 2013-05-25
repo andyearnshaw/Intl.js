@@ -955,15 +955,19 @@ function /* 9.2.10 */GetNumberOption (options, property, minimum, maximum, fallb
 // 10.1 The Intl.Collator constructor
 // ==================================
 
-Intl.Collator = function (/* [locales [, options]]*/) {
-    var locales = arguments[0];
-    var options = arguments[1];
+defineProperty(Intl, 'Collator', {
+    configurable: true,
+    writable: true,
+    value: function (/* [locales [, options]]*/) {
+        var locales = arguments[0];
+        var options = arguments[1];
 
-    if (!this || this === Intl) {
-        return new Intl.Collator(locales, options);
+        if (!this || this === Intl) {
+            return new Intl.Collator(locales, options);
+        }
+        return InitializeCollator(toObject(this), locales, options);
     }
-    return InitializeCollator(toObject(this), locales, options);
-};
+});
 
 // Must explicitly set prototypes as unwritable
 defineProperty(Intl.Collator, 'prototype', {
@@ -1227,15 +1231,19 @@ var collatorOptions = {
 // 11.1 The Intl.NumberFormat constructor
 // ======================================
 
-Intl.NumberFormat = function (/* [locales [, options]]*/) {
-    var locales = arguments[0];
-    var options = arguments[1];
+defineProperty(Intl, 'NumberFormat', {
+    configurable: true,
+    writable: true,
+    value: function (/* [locales [, options]]*/) {
+        var locales = arguments[0];
+        var options = arguments[1];
 
-    if (!this || this === Intl) {
-        return new Intl.NumberFormat(locales, options);
+        if (!this || this === Intl) {
+            return new Intl.NumberFormat(locales, options);
+        }
+        return InitializeNumberFormat(toObject(this), locales, options);
     }
-    return InitializeNumberFormat(toObject(this), locales, options);
-};
+});
 
 // Must explicitly set prototypes as unwritable
 defineProperty(Intl.NumberFormat, 'prototype', {
@@ -1894,15 +1902,19 @@ var numSys = {
 // 12.1 The Intl.DateTimeFormat constructor
 // ==================================
 
-Intl.DateTimeFormat = function (/* [locales [, options]]*/) {
-    var locales = arguments[0];
-    var options = arguments[1];
+defineProperty(Intl, 'DateTimeFormat', {
+    configurable: true,
+    writable: true,
+    value: function (/* [locales [, options]]*/) {
+        var locales = arguments[0];
+        var options = arguments[1];
 
-    if (!this || this === Intl) {
-        return new Intl.DateTimeFormat(locales, options);
+        if (!this || this === Intl) {
+            return new Intl.DateTimeFormat(locales, options);
+        }
+        return InitializeDateTimeFormat(toObject(this), locales, options);
     }
-    return InitializeDateTimeFormat(toObject(this), locales, options);
-};
+});
 
 // Must explicitly set prototypes as unwritable
 defineProperty(Intl.DateTimeFormat, 'prototype', {
