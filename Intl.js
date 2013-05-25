@@ -3127,23 +3127,13 @@ if (typeof window !== 'undefined')
 /**
  * A map that doesn't contain Object in its prototype chain
  */
+Record.prototype = objCreate(null);
 function Record (obj) {
-    var props = objCreate(null);
-
-    if (obj != null && typeof(obj) === 'object') {
-        // If object is already a Record-like object return it
-        if (Object.getPrototypeOf && !Object.getPrototypeOf(obj))
-            return obj;
-
-        // Else copy its properties into descriptor objects
-        for (var k in obj) {
-            if (hop.call(obj, k)) {
-                props[k] = { value: obj[k] };
-            }
-        }
+    // Copy only own properties over unless this object is already a Record instance
+    for (var k in obj) {
+        if (obj instanceof Record || hop.call(obj, k))
+            defineProperty(this, k, { value: obj[k], enumerable: true, writable: true, configurable: true });
     }
-
-    return objCreate(null, props);
 }
 
 /**
