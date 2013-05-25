@@ -1545,6 +1545,7 @@ function CurrencyDigits(currency) {
  * NumberFormat object.
  */
 /* 11.3.2 */defineProperty(Intl.NumberFormat.prototype, 'format', {
+    configurable: true,
     get: function () {
         var internal = this != null && typeof this === 'object' && getInternalProperties(this);
 
@@ -1882,27 +1883,31 @@ var numSys = {
  * useGrouping. Properties whose corresponding internal properties are not present
  * are not assigned.
  */
-/* 11.3.3 */Intl.NumberFormat.prototype.resolvedOptions = function () {
-    var val,
-        descs = new Record(),
-        props = [
-            'locale', 'numberingSystem', 'style', 'currency', 'currencyDisplay',
-            'minimumIntegerDigits', 'minimumFractionDigits', 'maximumFractionDigits',
-            'minimumSignificantDigits', 'maximumSignificantDigits', 'useGrouping'
-        ],
-        internal = this != null && typeof this === 'object' && getInternalProperties(this);
+/* 11.3.3 */defineProperty(Intl.NumberFormat.prototype, 'resolvedOptions', {
+    configurable: true,
+    writable: true,
+    value: function () {
+        var val,
+            descs = new Record(),
+            props = [
+                'locale', 'numberingSystem', 'style', 'currency', 'currencyDisplay',
+                'minimumIntegerDigits', 'minimumFractionDigits', 'maximumFractionDigits',
+                'minimumSignificantDigits', 'maximumSignificantDigits', 'useGrouping'
+            ],
+            internal = this != null && typeof this === 'object' && getInternalProperties(this);
 
-    // Satisfy test 11.3_b
-    if (!internal || !internal['[[initializedNumberFormat]]'])
-        throw new TypeError('`this` value for resolvedOptions() is not an initialized Intl.NumberFormat object.');
+        // Satisfy test 11.3_b
+        if (!internal || !internal['[[initializedNumberFormat]]'])
+            throw new TypeError('`this` value for resolvedOptions() is not an initialized Intl.NumberFormat object.');
 
-    for (var i = 0, max = props.length; i < max; i++) {
-        if ((val = internal['[['+ props[i] +']]']) !== undefined)
-            descs[props[i]] = { value: val, writable: true, configurable: true, enumerable: true };
+        for (var i = 0, max = props.length; i < max; i++) {
+            if ((val = internal['[['+ props[i] +']]']) !== undefined)
+                descs[props[i]] = { value: val, writable: true, configurable: true, enumerable: true };
+        }
+
+        return objCreate({}, descs);
     }
-
-    return objCreate({}, descs);
-};
+});
 
 // 12.1 The Intl.DateTimeFormat constructor
 // ==================================
@@ -2408,6 +2413,7 @@ function BestFitFormatMatcher (options, formats) {
  * DateTimeFormat object.
  */
 /* 12.3.2 */defineProperty(Intl.DateTimeFormat.prototype, 'format', {
+    configurable: true,
     get: function () {
         var internal = this != null && typeof this === 'object' && getInternalProperties(this);
 
@@ -2648,29 +2654,33 @@ function ToLocalTime(date, calendar, timeZone) {
  * hour, minute, second, and timeZoneName. Properties whose corresponding internal
  * properties are not present are not assigned.
  */
-/* 12.3.3 */Intl.DateTimeFormat.prototype.resolvedOptions = function () {
-    var val,
-        descs = new Record(),
-        props = [
-            'locale', 'calendar', 'numberingSystem', 'timeZone', 'hour12', 'weekday',
-            'era', 'year', 'month', 'day', 'hour', 'minute', 'second', 'timeZoneName',
+/* 12.3.3 */defineProperty(Intl.DateTimeFormat.prototype, 'resolvedOptions', {
+    writable: true,
+    configurable: true,
+    value: function () {
+        var val,
+            descs = new Record(),
+            props = [
+                'locale', 'calendar', 'numberingSystem', 'timeZone', 'hour12', 'weekday',
+                'era', 'year', 'month', 'day', 'hour', 'minute', 'second', 'timeZoneName',
 
-            // Not part of the spec, but in here for debugging purposes
-            'pattern'
-        ],
-        internal = this != null && typeof this === 'object' && getInternalProperties(this);
+                // Not part of the spec, but in here for debugging purposes
+                'pattern'
+            ],
+            internal = this != null && typeof this === 'object' && getInternalProperties(this);
 
-    // Satisfy test 12.3_b
-    if (!internal || !internal['[[initializedDateTimeFormat]]'])
-        throw new TypeError('`this` value for resolvedOptions() is not an initialized Intl.DateTimeFormat object.');
+        // Satisfy test 12.3_b
+        if (!internal || !internal['[[initializedDateTimeFormat]]'])
+            throw new TypeError('`this` value for resolvedOptions() is not an initialized Intl.DateTimeFormat object.');
 
-    for (var i = 0, max = props.length; i < max; i++) {
-        if ((val = internal['[['+ props[i] +']]']) !== undefined)
-            descs[props[i]] = { value: val, writable: true, configurable: true, enumerable: true };
+        for (var i = 0, max = props.length; i < max; i++) {
+            if ((val = internal['[['+ props[i] +']]']) !== undefined)
+                descs[props[i]] = { value: val, writable: true, configurable: true, enumerable: true };
+        }
+
+        return objCreate({}, descs);
     }
-
-    return objCreate({}, descs);
-};
+});
 
 // Sect 13 Locale Sensitive Functions of the ECMAScript Language Specification
 // ===========================================================================
