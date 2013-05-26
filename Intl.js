@@ -1846,7 +1846,8 @@ function ToRawPrecision (x, minPrecision, maxPrecision) {
  */
 function ToRawFixed (x, minInteger, minFraction, maxFraction) {
     // (or not because Number.toPrototype.toFixed does a lot of it for us)
-    var
+    var idx,
+
         // We can pick up after the fixed formatted string (m) is created
         m   = Number.prototype.toFixed.call(x, maxFraction),
 
@@ -1858,7 +1859,17 @@ function ToRawFixed (x, minInteger, minFraction, maxFraction) {
         igr = m.split(".")[0].length,  // int is a reserved word
 
         // 6. Let cut be maxFraction – minFraction.
-        cut = maxFraction - minFraction;
+        cut = maxFraction - minFraction,
+
+        exp = (idx = m.indexOf('e')) > -1 ? m.slice(idx + 1) : 0;
+
+    if (exp) {
+        m = m.slice(0, idx).replace('.', '');
+        m += Array(exp - (m.length - 1) + 1).join('0')
+          + '.' + Array(maxFraction + 1).join('0');
+
+        igr = m.length;
+    }
 
     // 7. Repeat while cut > 0 and the last character of m is "0":
     while (cut > 0 && m.slice(-1) === "0") {
