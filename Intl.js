@@ -1779,28 +1779,58 @@ function ToRawPrecision (x, minPrecision, maxPrecision) {
         //    possible. If there are two such sets of e and n, pick the e and n for
         //    which n × 10ᵉ⁻ᵖ⁺¹ is larger.
 
-        var
-        // Skip a few steps... cheat a little...
-            m = Number.prototype.toPrecision.call(x, maxPrecision);
+        var idx,
+
+            // toPrecision already does most of this for us
+            m = Number.prototype.toPrecision.call(x, maxPrecision),
+
+            // Get the exponential value
+            e = (idx = m.indexOf('e')) > -1 ? Number(m.slice(idx + 1))
+                    : ((idx = m.indexOf('.')) > -1 ? idx - 1 : m.length - 1);
+
+        // Get the numbers without the decimal point
+        m = m.slice(0, m.indexOf('e') > -1 ? idx : m.length).replace('.', '');
     }
 
-    // ...
+    // 4. If e ≥ p, then
+    if (e >= p)
+        // a. Return the concatenation of m and e-p+1 occurrences of the character "0".
+        return m + Array(e-p+1 + 1).join('0');
+
+    // 5. If e = p-1, then
+    else if (e === p - 1)
+        // a. Return m.
+        return m;
+
+    // 6. If e ≥ 0, then
+    else if (e >= 0)
+        // a. Let m be the concatenation of the first e+1 characters of m, the character
+        //    ".", and the remaining p–(e+1) characters of m.
+        m = m.slice(0, e + 1) + '.' + m.slice(e + 1);
+
+    // 7. If e < 0, then
+    else if (e < 0)
+        // a. Let m be the concatenation of the String "0.", –(e+1) occurrences of the
+        //    character "0", and the string m.
+        m = '0.' + Array (-(e+1) + 1).join('0') + m;
+
     // 8. If m contains the character ".", and maxPrecision > minPrecision, then
-    if (m.indexOf(".") >= 0) {
+    if (m.indexOf(".") >= 0 && maxPrecision > minPrecision) {
         var
         // a. Let cut be maxPrecision – minPrecision.
             cut = maxPrecision - minPrecision;
 
         // b. Repeat while cut > 0 and the last character of m is "0":
-        while (cut > 0 && m.slice(-1) === '0') {
+        while (cut > 0 && m.charAt(m.length-1) === '0') {
             //  i. Remove the last character from m.
             m = m.slice(0, -1);
 
             //  ii. Decrease cut by 1.
             cut--;
         }
+
         // c. If the last character of m is ".", then
-        if (m.slice(-1) === '.')
+        if (m.charAt(m.length-1) === '.')
             //    i. Remove the last character from m.
             m = m.slice(0, -1);
     }
