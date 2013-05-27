@@ -17,7 +17,7 @@ environments.
 ## <a id=status></a>Status
 `Intl.js` isn't yet ready for production environments. test402 has been integrated into
 the project and tells us there's still a lot of work to be done.  The latest test, run on
-May 23 2013, scored 70 out of 153.
+May 27 2013, scored 90 out of 153<sup>*</sup>.
 
 Current progress is as follows:
 
@@ -50,6 +50,9 @@ Current progress is as follows:
 
 A few of the implemented functions may currently be non-conforming and/or incomplete.  
 Most of those functions have comments marked as 'TODO' in the source code.
+
+<sup>*</sup> some of the tests cannot be passed from an ES5 implementation because they
+check for native behaviour.  The majority of them should be passable, though.
 
 ## Compatibility
 Intl.js is designed to be compatible with ECMAScript 3.1 environments in order to
