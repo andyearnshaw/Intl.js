@@ -1192,6 +1192,9 @@ function /*10.1.1.1 */InitializeCollator (collator, locales, options) {
 
     // Restore the RegExp properties
     regexpState.exp.test(regexpState.input);
+
+    // Return the newly initialised object
+    return collator;
 }
 
 /**
@@ -1210,26 +1213,30 @@ var collatorOptions = {
     }
 };
 
-/* 10.2.2 */Intl.Collator.supportedLocalesOf = function (locales) {
-    // When the supportedLocalesOf method of Intl.Collator is called, the following steps
-    // are taken:
+/* 10.2.2 */defineProperty(Intl.Collator, 'supportedLocalesOf', {
+    configurable: true,
+    writable: true,
+    value: function (locales) {
+        // When the supportedLocalesOf method of Intl.Collator is called, the following steps
+        // are taken:
 
-    var
-    // 1. If options is not provided, then let options be undefined.
-        options = arguments[1],
+        var
+        // 1. If options is not provided, then let options be undefined.
+            options = arguments[1],
 
-    // 2. Let availableLocales be the value of the [[availableLocales]] internal property
-    //    of the standard built-in object that is the initial value of Intl.Collator.
-        availableLocales = internals.Collator['[[availableLocales]]'],
+        // 2. Let availableLocales be the value of the [[availableLocales]] internal property
+        //    of the standard built-in object that is the initial value of Intl.Collator.
+            availableLocales = internals.Collator['[[availableLocales]]'],
 
-    // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
-    //    abstract operation (defined in 9.2.1) with argument locales.
-        requestedLocales = CanonicalizeLocaleList(locales);
+        // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
+        //    abstract operation (defined in 9.2.1) with argument locales.
+            requestedLocales = CanonicalizeLocaleList(locales);
 
-    // 4. Return the result of calling the SupportedLocales abstract operation (defined in
-    //    9.2.8) with arguments availableLocales, requestedLocales, and options.
-    return SupportedLocales(availableLocales, requestedLocales, options);
-};
+        // 4. Return the result of calling the SupportedLocales abstract operation (defined in
+        //    9.2.8) with arguments availableLocales, requestedLocales, and options.
+        return SupportedLocales(availableLocales, requestedLocales, options);
+    }
+});
 
 /* 10.2.3 */internals.Collator = {
     '[[availableLocales]]': [],
@@ -1249,6 +1256,7 @@ function NumberFormatConstructor () {
     if (!this || this === Intl) {
         return new Intl.NumberFormat(locales, options);
     }
+
     return InitializeNumberFormat(toObject(this), locales, options);
 }
 
@@ -1507,6 +1515,9 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
 
     // Restore the RegExp properties
     regexpState.exp.test(regexpState.input);
+
+    // Return the newly initialised object
+    return numberFormat;
 }
 
 function CurrencyDigits(currency) {
@@ -1525,32 +1536,36 @@ function CurrencyDigits(currency) {
  * When the supportedLocalesOf method of Intl.NumberFormat is called, the
  * following steps are taken:
  */
-/* 11.2.2 */Intl.NumberFormat.supportedLocalesOf = function (locales /*[, options]*/) {
-    var
-    // Create an object whose props can be used to restore the values of RegExp props
-        regexpState = createRegExpRestore(),
+/* 11.2.2 */defineProperty(Intl.NumberFormat, 'supportedLocalesOf', {
+    configurable: true,
+    writable: true,
+    value: function (locales) {
+        var
+        // Create an object whose props can be used to restore the values of RegExp props
+            regexpState = createRegExpRestore(),
 
-    // 1. If options is not provided, then let options be undefined.
-        options = arguments[1],
+        // 1. If options is not provided, then let options be undefined.
+            options = arguments[1],
 
-    // 2. Let availableLocales be the value of the [[availableLocales]] internal
-    //    property of the standard built-in object that is the initial value of
-    //    Intl.NumberFormat.
+        // 2. Let availableLocales be the value of the [[availableLocales]] internal
+        //    property of the standard built-in object that is the initial value of
+        //    Intl.NumberFormat.
 
-        availableLocales = internals.NumberFormat['[[availableLocales]]'],
+            availableLocales = internals.NumberFormat['[[availableLocales]]'],
 
-    // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
-    //    abstract operation (defined in 9.2.1) with argument locales.
-        requestedLocales = CanonicalizeLocaleList(locales);
+        // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
+        //    abstract operation (defined in 9.2.1) with argument locales.
+            requestedLocales = CanonicalizeLocaleList(locales);
 
-    // Restore the RegExp properties
-    regexpState.exp.test(regexpState.input);
+        // Restore the RegExp properties
+        regexpState.exp.test(regexpState.input);
 
-    // 4. Return the result of calling the SupportedLocales abstract operation
-    //    (defined in 9.2.8) with arguments availableLocales, requestedLocales,
-    //    and options.
-    return SupportedLocales(availableLocales, requestedLocales, options);
-};
+        // 4. Return the result of calling the SupportedLocales abstract operation
+        //    (defined in 9.2.8) with arguments availableLocales, requestedLocales,
+        //    and options.
+        return SupportedLocales(availableLocales, requestedLocales, options);
+    }
+});
 
 /* 11.2.3 */internals.NumberFormat = {
     '[[availableLocales]]': [],
@@ -2236,6 +2251,9 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
 
     // Restore the RegExp properties
     regexpState.exp.test(regexpState.input);
+
+    // Return the newly initialised object
+    return dateTimeFormat;
 }
 
 /**
@@ -2450,31 +2468,35 @@ function BestFitFormatMatcher (options, formats) {
  * When the supportedLocalesOf method of Intl.DateTimeFormat is called, the
  * following steps are taken:
  */
-/* 12.2.1 */Intl.DateTimeFormat.supportedLocalesOf = function (locales/*, [options]*/) {
-    var
-    // Create an object whose props can be used to restore the values of RegExp props
-        regexpState = createRegExpRestore(),
+/* 12.2.2 */defineProperty(Intl.DateTimeFormat, 'supportedLocalesOf', {
+    configurable: true,
+    writable: true,
+    value: function (locales/*, [options]*/) {
+        var
+        // Create an object whose props can be used to restore the values of RegExp props
+            regexpState = createRegExpRestore(),
 
-    // 1. If options is not provided, then let options be undefined.
+        // 1. If options is not provided, then let options be undefined.
         options = arguments[1],
 
-    // 2. Let availableLocales be the value of the [[availableLocales]] internal
-    //    property of the standard built-in object that is the initial value of
-    //    Intl.NumberFormat.
+        // 2. Let availableLocales be the value of the [[availableLocales]] internal
+        //    property of the standard built-in object that is the initial value of
+        //    Intl.NumberFormat.
         availableLocales = internals.DateTimeFormat['[[availableLocales]]'],
 
-    // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
-    //    abstract operation (defined in 9.2.1) with argument locales.
+        // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
+        //    abstract operation (defined in 9.2.1) with argument locales.
         requestedLocales = CanonicalizeLocaleList(locales);
 
-    // Restore the RegExp properties
-    regexpState.exp.test(regexpState.input);
+        // Restore the RegExp properties
+        regexpState.exp.test(regexpState.input);
 
-    // 4. Return the result of calling the SupportedLocales abstract operation
-    //    (defined in 9.2.8) with arguments availableLocales, requestedLocales,
-    //    and options.
-    return SupportedLocales(availableLocales, requestedLocales, options);
-};
+        // 4. Return the result of calling the SupportedLocales abstract operation
+        //    (defined in 9.2.8) with arguments availableLocales, requestedLocales,
+        //    and options.
+        return SupportedLocales(availableLocales, requestedLocales, options);
+    }
+});
 
 /* 12.2.3 */internals.DateTimeFormat = {
     '[[availableLocales]]': [],
