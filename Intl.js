@@ -72,6 +72,13 @@ var
     // CLDR weekday key mappings
     weekdays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'],
 
+    // Each constructor prototype should be an instance of the constructor itself, but we
+    // can't initialise them as such until some locale data has been added, so this is how
+    // we keep track
+    collatorProtoInitialised = false,
+    numberFormatProtoInitialised = false,
+    dateTimeFormatProtoInitialised = false,
+
     // Some regular expressions we're using
     expInsertGroups = /(?=(?!^)(?:\d{3})+(?!\d))/g,
     expCurrencyCode = /^[A-Z]{3}$/,
@@ -3012,6 +3019,12 @@ function addLocaleData (data) {
                 }
             }
         };
+
+        // 11.3 (the NumberFormat prototype object is an Intl.NumberFormat instance)
+        if (!numberFormatProtoInitialised) {
+            InitializeNumberFormat(Intl.NumberFormat.prototype);
+            numberFormatProtoInitialised = true;
+        }
     }
     if (data.dates) {
         var formats,
@@ -3076,6 +3089,12 @@ function addLocaleData (data) {
             // time patterns
             hour12: !/H|K/.test(timeFormat)
         };
+
+        // 11.3 (the NumberFormat prototype object is an Intl.NumberFormat instance)
+        if (!dateTimeFormatProtoInitialised) {
+            InitializeDateTimeFormat(Intl.DateTimeFormat.prototype);
+            dateTimeFormatProtoInitialised = true;
+        }
     }
 
     // Finally, restore the RegExp properties
