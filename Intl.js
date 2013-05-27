@@ -1002,7 +1002,7 @@ function /*10.1.1.1 */InitializeCollator (collator, locales, options) {
     // 1. If collator has an [[initializedIntlObject]] internal property with value true,
     //    throw a TypeError exception.
     if (internal['[[initializedIntlObject]]'] === true)
-        throw new TypeError('Collator object has already been initialized');
+        throw new TypeError('`this` object has already been initialized as an Intl object');
 
     // 2. Set the [[initializedIntlObject]] internal property of collator to true.
     internal['[[initializedIntlObject]]'] = true;
@@ -1279,7 +1279,7 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
     // 1. If numberFormat has an [[initializedIntlObject]] internal property with
     // value true, throw a TypeError exception.
     if (internal['[[initializedIntlObject]]'] === true)
-        throw new TypeError('NumberFormat object already initialized');
+        throw new TypeError('`this` object has already been initialized as an Intl object');
 
     // Need this to access the `internal` object
     defineProperty(numberFormat, '__getInternalProperties', {
@@ -2019,7 +2019,7 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
     // 1. If dateTimeFormat has an [[initializedIntlObject]] internal property with
     //    value true, throw a TypeError exception.
     if (internal['[[initializedIntlObject]]'] === true)
-        throw new TypeError('NumberFormat object already initialized');
+        throw new TypeError('`this` object has already been initialized as an Intl object');
 
     // Need this to access the `internal` object
     defineProperty(dateTimeFormat, '__getInternalProperties', {
