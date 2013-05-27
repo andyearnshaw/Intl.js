@@ -1781,12 +1781,21 @@ function ToRawPrecision (x, minPrecision, maxPrecision) {
 
         var idx,
 
+            isInt = x % 1,
+
+            // Fix floating point precision issues in Chrome and Firefox
+            pre = isInt ? Math.pow(10, maxPrecision) : 1,
+
             // toPrecision already does most of this for us
-            m = Number.prototype.toPrecision.call(x, maxPrecision),
+            m = Number.prototype.toPrecision.call(x*pre, maxPrecision),
 
             // Get the exponential value
             e = (idx = m.indexOf('e')) > -1 ? Number(m.slice(idx + 1))
                     : ((idx = m.indexOf('.')) > -1 ? idx - 1 : m.length - 1);
+
+        // Multiplying by 10^maxPrecision means we need to take that away from e
+        if (isInt)
+            e -= maxPrecision;
 
         // Get the numbers without the decimal point
         m = m.slice(0, m.indexOf('e') > -1 ? idx : m.length).replace('.', '');
