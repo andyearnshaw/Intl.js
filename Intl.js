@@ -1213,37 +1213,18 @@ var collatorOptions = {
     }
 };
 
-/* 10.2.2 */defineProperty(Intl.Collator, 'supportedLocalesOf', {
-    configurable: true,
-    writable: true,
-    value: function (locales) {
-        // When the supportedLocalesOf method of Intl.Collator is called, the following steps
-        // are taken:
-
-        var
-        // 1. If options is not provided, then let options be undefined.
-            options = arguments[1],
-
-        // 2. Let availableLocales be the value of the [[availableLocales]] internal property
-        //    of the standard built-in object that is the initial value of Intl.Collator.
-            availableLocales = internals.Collator['[[availableLocales]]'],
-
-        // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
-        //    abstract operation (defined in 9.2.1) with argument locales.
-            requestedLocales = CanonicalizeLocaleList(locales);
-
-        // 4. Return the result of calling the SupportedLocales abstract operation (defined in
-        //    9.2.8) with arguments availableLocales, requestedLocales, and options.
-        return SupportedLocales(availableLocales, requestedLocales, options);
-    }
-});
-
 /* 10.2.3 */internals.Collator = {
     '[[availableLocales]]': [],
     '[[relevantExtensionKeys]]': ['co', 'kn', 'kf'],
     '[[sortLocaleData]]': {},
     '[[searchLocaleData]]': {}
 };
+
+/* 10.2.2 */defineProperty(Intl.Collator, 'supportedLocalesOf', {
+    configurable: true,
+    writable: true,
+    value: supportedLocalesOf.bind(internals.Collator)
+});
 
 // 11.1 The Intl.NumberFormat constructor
 // ======================================
@@ -1532,6 +1513,12 @@ function CurrencyDigits(currency) {
                 : 2;
 }
 
+/* 11.2.3 */internals.NumberFormat = {
+    '[[availableLocales]]': [],
+    '[[relevantExtensionKeys]]': ['nu'],
+    '[[localeData]]': {}
+};
+
 /**
  * When the supportedLocalesOf method of Intl.NumberFormat is called, the
  * following steps are taken:
@@ -1539,39 +1526,8 @@ function CurrencyDigits(currency) {
 /* 11.2.2 */defineProperty(Intl.NumberFormat, 'supportedLocalesOf', {
     configurable: true,
     writable: true,
-    value: function (locales) {
-        var
-        // Create an object whose props can be used to restore the values of RegExp props
-            regexpState = createRegExpRestore(),
-
-        // 1. If options is not provided, then let options be undefined.
-            options = arguments[1],
-
-        // 2. Let availableLocales be the value of the [[availableLocales]] internal
-        //    property of the standard built-in object that is the initial value of
-        //    Intl.NumberFormat.
-
-            availableLocales = internals.NumberFormat['[[availableLocales]]'],
-
-        // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
-        //    abstract operation (defined in 9.2.1) with argument locales.
-            requestedLocales = CanonicalizeLocaleList(locales);
-
-        // Restore the RegExp properties
-        regexpState.exp.test(regexpState.input);
-
-        // 4. Return the result of calling the SupportedLocales abstract operation
-        //    (defined in 9.2.8) with arguments availableLocales, requestedLocales,
-        //    and options.
-        return SupportedLocales(availableLocales, requestedLocales, options);
-    }
+    value: supportedLocalesOf.bind(internals.NumberFormat)
 });
-
-/* 11.2.3 */internals.NumberFormat = {
-    '[[availableLocales]]': [],
-    '[[relevantExtensionKeys]]': ['nu'],
-    '[[localeData]]': {}
-};
 
 /**
  * This named accessor property returns a function that formats a number
@@ -2464,6 +2420,12 @@ function BestFitFormatMatcher (options, formats) {
     return BasicFormatMatcher(options, formats);
 }
 
+/* 12.2.3 */internals.DateTimeFormat = {
+    '[[availableLocales]]': [],
+    '[[relevantExtensionKeys]]': ['ca', 'nu'],
+    '[[localeData]]': {}
+};
+
 /**
  * When the supportedLocalesOf method of Intl.DateTimeFormat is called, the
  * following steps are taken:
@@ -2471,38 +2433,8 @@ function BestFitFormatMatcher (options, formats) {
 /* 12.2.2 */defineProperty(Intl.DateTimeFormat, 'supportedLocalesOf', {
     configurable: true,
     writable: true,
-    value: function (locales/*, [options]*/) {
-        var
-        // Create an object whose props can be used to restore the values of RegExp props
-            regexpState = createRegExpRestore(),
-
-        // 1. If options is not provided, then let options be undefined.
-        options = arguments[1],
-
-        // 2. Let availableLocales be the value of the [[availableLocales]] internal
-        //    property of the standard built-in object that is the initial value of
-        //    Intl.NumberFormat.
-        availableLocales = internals.DateTimeFormat['[[availableLocales]]'],
-
-        // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
-        //    abstract operation (defined in 9.2.1) with argument locales.
-        requestedLocales = CanonicalizeLocaleList(locales);
-
-        // Restore the RegExp properties
-        regexpState.exp.test(regexpState.input);
-
-        // 4. Return the result of calling the SupportedLocales abstract operation
-        //    (defined in 9.2.8) with arguments availableLocales, requestedLocales,
-        //    and options.
-        return SupportedLocales(availableLocales, requestedLocales, options);
-    }
+    value: supportedLocalesOf.bind(internals.DateTimeFormat)
 });
-
-/* 12.2.3 */internals.DateTimeFormat = {
-    '[[availableLocales]]': [],
-    '[[relevantExtensionKeys]]': ['ca', 'nu'],
-    '[[localeData]]': {}
-};
 
 /**
  * This named accessor property returns a function that formats a number
@@ -3251,6 +3183,45 @@ if (typeof window !== 'undefined')
 
 // Helper functions
 // ================
+
+/**
+ * A merge of the Intl.{Constructor}.supportedLocalesOf functions
+ * To make life easier, the function should be bound to the constructor's internal
+ * properties object.
+ */
+function supportedLocalesOf(locales) {
+    /*jshint validthis:true */
+
+    // Bound functions only have the `this` value altered if being used as a constructor,
+    // this lets us imitate a native function that has no constructor
+    if (!hop.call(this, '[[availableLocales]]'))
+        throw new TypeError('supportedLocalesOf() is not a constructor');
+
+    var
+    // Create an object whose props can be used to restore the values of RegExp props
+        regexpState = createRegExpRestore(),
+
+    // 1. If options is not provided, then let options be undefined.
+        options = arguments[1],
+
+    // 2. Let availableLocales be the value of the [[availableLocales]] internal
+    //    property of the standard built-in object that is the initial value of
+    //    Intl.NumberFormat.
+
+        availableLocales = this['[[availableLocales]]'],
+
+    // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
+    //    abstract operation (defined in 9.2.1) with argument locales.
+        requestedLocales = CanonicalizeLocaleList(locales);
+
+    // Restore the RegExp properties
+    regexpState.exp.test(regexpState.input);
+
+    // 4. Return the result of calling the SupportedLocales abstract operation
+    //    (defined in 9.2.8) with arguments availableLocales, requestedLocales,
+    //    and options.
+    return SupportedLocales(availableLocales, requestedLocales, options);
+}
 
 /**
  * A map that doesn't contain Object in its prototype chain
