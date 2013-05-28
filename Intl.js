@@ -221,10 +221,10 @@ var
     expBCP47Syntax = RegExp('^(?:'+langtag+'|'+privateuse+'|'+grandfathered+')$', 'i');
 
     // Match duplicate variants in a language tag
-    expVariantDupes = RegExp('\\b('+variant+')-(?:\\w{4,8}-)*\\1\\b', 'i');
+    expVariantDupes = RegExp('^(?!x).*?-('+variant+')-(?:\\w{4,8}-(?!x-))*\\1\\b', 'i');
 
-    // Match duplicate singletons in a language tag
-    expSingletonDupes = RegExp('\\b('+singleton+')-(?:\\w+-)*\\1\\b', 'i');
+    // Match duplicate singletons in a language tag (except in private use)
+    expSingletonDupes = RegExp('^(?!x).*?-('+singleton+')-(?:\\w+-(?!x-))*\\1\\b', 'i');
 
     // Match all extension sequences
     expExtSequences = RegExp('-'+extension, 'ig');
