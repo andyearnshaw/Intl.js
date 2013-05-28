@@ -1,11 +1,17 @@
 #!/bin/sh
 
-command -v d8 >/dev/null 2>&1 || { echo >&2 "Could not find the d8 executable in your path."; exit 1; }
-command -v python >/dev/null 2>&1 || { echo >&2 "Could not find python in your path."; exit 1; }
+command -v python >/dev/null 2>&1 || { echo >&2 "Could not find python in your path (test262 requires it)."; exit 1; }
 
+EXEC=`command -v d8 || command -v js` || { echo >&2 "Could not find the d8 or js executables in your path."; exit 1; }
+CMD=`basename $EXEC`
 INTL=../Intl.min.js
-LOCALES=../locale-data/jsonp/de-DE.js
+LOCALES=../locale-data/jsonp/en-GB.js
 TESTDIR=./test262
 TEST262="$TESTDIR/tools/packaging/test262.py"
 
-python $TEST262 --command "d8 $INTL $LOCALES" --tests="$TESTDIR" --summary intl402 > ./test262.log
+# TODO: Need to get this working with multiple locale files
+if [ "$CMD" = "js" ]; then
+    python $TEST262 --command "$EXEC -f $INTL -f $LOCALES -f" --tests="$TESTDIR" --summary intl402 > ./test262.log
+else
+    python $TEST262 --command "$EXEC $INTL $LOCALES" --tests="$TESTDIR" --summary intl402 > ./test262.log
+fi
