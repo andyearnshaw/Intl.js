@@ -57,6 +57,20 @@ var
         return obj;
     },
 
+    // Snapshot some (hopefully still) native built-ins
+    arrSlice = Array.prototype.slice,
+    arrConcat = Array.prototype.concat,
+
+    // Naive Function.prototype.bind for compatibility
+    fnBind = Function.prototype.bind || function (thisObj) {
+        var fn = this,
+            args = arrSlice.call(arguments, 1);
+
+        return function () {
+            fn.apply(thisObj, arrConcat.call(args, arrSlice.call(arguments)));
+        };
+    },
+
     // Private object houses our locale data for each locale
     localeData = {},
 
@@ -1223,7 +1237,7 @@ var collatorOptions = {
 /* 10.2.2 */defineProperty(Intl.Collator, 'supportedLocalesOf', {
     configurable: true,
     writable: true,
-    value: supportedLocalesOf.bind(internals.Collator)
+    value: fnBind.call(supportedLocalesOf, internals.Collator)
 });
 
 // 11.1 The Intl.NumberFormat constructor
@@ -1526,7 +1540,7 @@ function CurrencyDigits(currency) {
 /* 11.2.2 */defineProperty(Intl.NumberFormat, 'supportedLocalesOf', {
     configurable: true,
     writable: true,
-    value: supportedLocalesOf.bind(internals.NumberFormat)
+    value: fnBind.call(supportedLocalesOf, internals.NumberFormat)
 });
 
 /**
@@ -1566,7 +1580,7 @@ function CurrencyDigits(currency) {
             // c. Let bf be the result of calling the [[Call]] internal method of
             //    bind with F as the this value and an argument list containing
             //    the single item this.
-                bf = F.bind(this);
+                bf = fnBind.call(F, this);
             // d. Set the [[boundFormat]] internal property of this NumberFormat
             //    object to bf.
             internal['[[boundFormat]]'] = bf;
@@ -2433,7 +2447,7 @@ function BestFitFormatMatcher (options, formats) {
 /* 12.2.2 */defineProperty(Intl.DateTimeFormat, 'supportedLocalesOf', {
     configurable: true,
     writable: true,
-    value: supportedLocalesOf.bind(internals.DateTimeFormat)
+    value: fnBind.call(supportedLocalesOf, internals.DateTimeFormat)
 });
 
 /**
@@ -2476,7 +2490,7 @@ function BestFitFormatMatcher (options, formats) {
             // c. Let bf be the result of calling the [[Call]] internal method of
             //    bind with F as the this value and an argument list containing
             //    the single item this.
-                bf = F.bind(this);
+                bf = fnBind.call(F, this);
             // d. Set the [[boundFormat]] internal property of this NumberFormat
             //    object to bf.
             internal['[[boundFormat]]'] = bf;
