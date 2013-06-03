@@ -19,7 +19,7 @@
  * @result {Boolean} whether the test succeeded.
  */
 function testWithIntlConstructors(f) {
-    var constructors = ["Collator", "NumberFormat", "DateTimeFormat"];
+    var constructors = [/*"Collator",*/ "NumberFormat", "DateTimeFormat"];
     return constructors.every(function (constructor) {
         var Constructor = Intl[constructor];
         var result;
@@ -159,7 +159,7 @@ function getLocaleSupportInfo(Constructor) {
             allTags.push(language + "-" + country);
         }
     }
-    
+
     var supported = [];
     var byFallback = [];
     var unsupported = [];
@@ -174,16 +174,16 @@ function getLocaleSupportInfo(Constructor) {
             unsupported.push(request);
         }
     }
-    
+
     localeSupportInfo[constructorName] = {
         supported: supported,
         byFallback: byFallback,
         unsupported: unsupported
     };
-    
+
     return localeSupportInfo[constructorName];
 }
-        
+
 
 /**
  * @description Tests whether locale is a String value representing a
@@ -675,7 +675,7 @@ function testOption(Constructor, property, type, values, fallback, testOptions) 
     var isOptional = testOptions !== undefined && testOptions.isOptional === true;
     var noReturn = testOptions !== undefined && testOptions.noReturn === true;
     var isILD = testOptions !== undefined && testOptions.isILD === true;
-    
+
     function addExtraOptions(options, value, testOptions) {
         if (testOptions !== undefined && testOptions.extra !== undefined) {
             var extra;
@@ -907,7 +907,7 @@ function testForUnwantedRegExpChanges(testFunc) {
  */
 
 function isValidNumberingSystem(name) {
-    
+
     // source: CLDR file common/bcp47/number.xml; version CLDR 21.
     var numberingSystems = [
         "arab",
@@ -940,7 +940,7 @@ function isValidNumberingSystem(name) {
         "kali",
         "khmr",
         "knda",
-        "osma",            
+        "osma",
         "lana",
         "lanatham",
         "laoo",
@@ -972,14 +972,14 @@ function isValidNumberingSystem(name) {
         "traditio",
         "vaii"
     ];
-    
+
     var excluded = [
         "finance",
         "native",
         "traditio"
     ];
-        
-    
+
+
     return numberingSystems.indexOf(name) !== -1 && excluded.indexOf(name) === -1;
 }
 
@@ -1031,7 +1031,7 @@ function testNumberFormat(locales, numberingSystems, options, testData) {
         numberingSystems.forEach(function (numbering) {
             var digits = numberingSystemDigits[numbering];
             var format = new Intl.NumberFormat([locale + "-u-nu-" + numbering], options);
-    
+
             function getPatternParts(positive) {
                 var n = positive ? 1.1 : -1.1;
                 var formatted = format.format(n);
@@ -1044,31 +1044,31 @@ function testNumberFormat(locales, numberingSystems, options, testData) {
                 }
                 return match;
             }
-            
+
             function toNumbering(raw) {
                 return raw.replace(/[0-9]/g, function (digit) {
                     return digits[digit.charCodeAt(0) - "0".charCodeAt(0)];
                 });
             }
-            
+
             function buildExpected(raw, patternParts) {
                 var period = raw.indexOf(".");
                 if (period === -1) {
                     return patternParts[1] + toNumbering(raw) + patternParts[3];
                 } else {
-                    return patternParts[1] + 
+                    return patternParts[1] +
                         toNumbering(raw.substring(0, period)) +
                         patternParts[2] +
                         toNumbering(raw.substring(period + 1)) +
                         patternParts[3];
                 }
             }
-            
+
             if (format.resolvedOptions().numberingSystem === numbering) {
                 // figure out prefixes, infixes, suffixes for positive and negative values
                 var posPatternParts = getPatternParts(true);
                 var negPatternParts = getPatternParts(false);
-                
+
                 Object.getOwnPropertyNames(testData).forEach(function (input) {
                     var rawExpected = testData[input];
                     var patternParts;
@@ -1110,7 +1110,7 @@ function getDateTimeComponents() {
  */
 
 function getDateTimeComponentValues(component) {
-    
+
     var components = {
         weekday: ["narrow", "short", "long"],
         era: ["narrow", "short", "long"],
@@ -1122,7 +1122,7 @@ function getDateTimeComponentValues(component) {
         second: ["2-digit", "numeric"],
         timeZoneName: ["short", "long"]
     };
-    
+
     var result = components[component];
     if (result === undefined) {
         $ERROR("Internal error: No values defined for date-time component " + component + ".");
