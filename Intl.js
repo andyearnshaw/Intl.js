@@ -416,7 +416,7 @@ function /* 9.2.1 */CanonicalizeLocaleList (locales) {
 
             // ii. If the type of kValue is not String or Object, then throw a
             //     TypeError exception.
-            if (typeof kValue !== 'string' && typeof kValue !== 'object')
+            if (kValue == null || (typeof kValue !== 'string' && typeof kValue !== 'object'))
                 throw new TypeError('String or Object type expected');
 
             var
