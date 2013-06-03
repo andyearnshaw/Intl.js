@@ -71,9 +71,6 @@ var
         };
     },
 
-    // Private object houses our locale data for each locale
-    localeData = {},
-
     // Default locale is the first-added locale data for us
     defaultLocale,
 
@@ -892,11 +889,8 @@ function /*9.2.8 */SupportedLocales (availableLocales, requestedLocales, options
         if (!hop.call(subset, P))
             continue;
 
-        var
-            // a. Let desc be the result of calling the [[GetOwnProperty]] internal
-            //    method of subset with P.
-            desc = subset[P];
-
+        // a. Let desc be the result of calling the [[GetOwnProperty]] internal
+        //    method of subset with P.
         // b. Set desc.[[Writable]] to false.
         // c. Set desc.[[Configurable]] to false.
         // d. Call the [[DefineOwnProperty]] internal method of subset with P, desc,
@@ -1062,10 +1056,10 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
     var
     // 9. Let NumberFormat be the standard built-in object that is the initial value
     //    of Intl.NumberFormat.
-        NumberFormat = Intl.NumberFormat,
     // 10. Let localeData be the value of the [[localeData]] internal property of
     //     NumberFormat.
         localeData = internals.NumberFormat['[[localeData]]'],
+
     // 11. Let r be the result of calling the ResolveLocale abstract operation
     //     (defined in 9.2.5) with the [[availableLocales]] internal property of
     //     NumberFormat, requestedLocales, opt, the [[relevantExtensionKeys]]
@@ -1089,6 +1083,7 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
     var
     // 14. Let dataLocale be the value of r.[[dataLocale]].
         dataLocale = r['[[dataLocale]]'],
+
     // 15. Let s be the result of calling the GetOption abstract operation with the
     //     arguments options, "style", "string", a List containing the three String
     //     values "decimal", "percent", and "currency", and "decimal".
@@ -1139,7 +1134,6 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
     if (s === 'currency')
         internal['[[currencyDisplay]]'] = cd;
 
-
     var
     // 23. Let mnid be the result of calling the GetNumberOption abstract operation
     //     (defined in 9.2.10) with arguments options, "minimumIntegerDigits", 1, 21,
@@ -1167,6 +1161,7 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
     //     be max(mnfd, 3).
         mxfdDefault = s === 'currency' ? Math.max(mnfd, cDigits)
                     : (s === 'percent' ? Math.max(mnfd, 0) : Math.max(mnfd, 3)),
+
     // 29. Let mxfd be the result of calling the GetNumberOption abstract operation
     //     with arguments options, "maximumFractionDigits", mnfd, 20, and mxfdDefault.
         mxfd = GetNumberOption(options, 'maximumFractionDigits', mnfd, 20, mxfdDefault);
@@ -1178,6 +1173,7 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
     // 31. Let mnsd be the result of calling the [[Get]] internal method of options
     //     with argument "minimumSignificantDigits".
         mnsd = options.minimumSignificantDigits,
+
     // 32. Let mxsd be the result of calling the [[Get]] internal method of options
     //     with argument "maximumSignificantDigits".
         mxsd = options.maximumSignificantDigits;
@@ -1188,6 +1184,7 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
         //    operation with arguments options, "minimumSignificantDigits", 1, 21,
         //    and 1.
         mnsd = GetNumberOption(options, 'minimumSignificantDigits', 1, 21, 1);
+
         // b. Let mxsd be the result of calling the GetNumberOption abstract
         //     operation with arguments options, "maximumSignificantDigits", mnsd,
         //     21, and 21.
@@ -1211,12 +1208,12 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
     // 36. Let dataLocaleData be the result of calling the [[Get]] internal method of
     //     localeData with argument dataLocale.
         dataLocaleData = localeData[dataLocale],
+
     // 37. Let patterns be the result of calling the [[Get]] internal method of
     //     dataLocaleData with argument "patterns".
         patterns = dataLocaleData.patterns;
 
     // 38. Assert: patterns is an object (see 11.2.3)
-
 
     var
     // 39. Let stylePatterns be the result of calling the [[Get]] internal method of
@@ -1307,12 +1304,14 @@ function CurrencyDigits(currency) {
                     //      operation (defined below) with arguments this and x.
                     return FormatNumber(this, /* x = */Number(value));
                 },
+
             // b. Let bind be the standard built-in function object defined in ES5,
             //    15.3.4.5.
             // c. Let bf be the result of calling the [[Call]] internal method of
             //    bind with F as the this value and an argument list containing
             //    the single item this.
                 bf = fnBind.call(F, this);
+
             // d. Set the [[boundFormat]] internal property of this NumberFormat
             //    object to bf.
             internal['[[boundFormat]]'] = bf;
@@ -1338,8 +1337,8 @@ function FormatNumber (numberFormat, x) {
         internal = getInternalProperties(numberFormat),
         locale = internal['[[dataLocale]]'],
         nums   = internal['[[numberingSystem]]'],
-        data   = localeData[locale].numbers,
-        ild    = data['symbols-numberSystem-' + nums],
+        data   = internals.NumberFormat['[[localeData]]'][locale],
+        ild    = data.symbols[nums] || data.symbols.latn,
 
     // 1. Let negative be false.
         negative = false;
@@ -1454,12 +1453,14 @@ function FormatNumber (numberFormat, x) {
         //    numberFormat is "code", then let cd be currency.
         if (internal['[[currencyDisplay]]'] === 'code')
             cd = currency;
+
         // c. Else if the value of the [[currencyDisplay]] internal property of
         //    numberFormat is "symbol", then let cd be an ILD string representing
         //    currency in short form. If the implementation does not have such a
         //    representation of currency, then use currency itself.
         else if (internal['[[currencyDisplay]]'] === 'symbol')
-            cd = cData ? cData.symbol : currency;
+            cd = cData || currency;
+
         // d. Else if the value of the [[currencyDisplay]] internal property of
         //    numberFormat is "name", then let cd be an ILD string representing
         //    currency in long form. If the implementation does not have such a
@@ -2277,7 +2278,7 @@ function FormatDateTime(dateTimeFormat, x) {
         dataLocale = internal['[[dataLocale]]'],
 
     // Need the calendar data from CLDR
-        ca = localeData[dataLocale].dates.calendars[internal['[[calendar]]']];
+        ca = internals.DateTimeFormat['[[localeData]]'][dataLocale].calendars[internal['[[calendar]]']];
 
     // 7. For each row of Table 3, except the header row, do:
     for (var p in dateTimeComponents) {
@@ -2345,18 +2346,14 @@ function FormatDateTime(dateTimeFormat, x) {
             //     "timeZoneName", then the String value may also depend on the value of
             //     the [[inDST]] field of tm.
             else if (/^(?:narrow|short|long)$/.test(f)) {
-                var
-                // CLDR formats are 'abbreviated', 'wide' or 'narrow'
-                    size = f === 'short' ? 'abbreviated' : (f === 'long' ? 'wide' : f);
-
                 switch (p) {
                     case 'month':
-                        fv = ca.months[ca.months['default'] || 'format'][size][tm['[['+ p +']]']];
+                        fv = ca.months[f][tm['[['+ p +']]']];
                         break;
 
                     // For weekdays, we need to refer to our `weekdays` array
                     case 'weekday':
-                        fv = ca.days[ca.days['default'] || 'format'][size][weekdays[tm['[['+ p +']]']]];
+                        fv = ca.days[f][weekdays[tm['[['+ p +']]']]];
                         break;
 
                     case 'timeZoneName':
@@ -2379,7 +2376,7 @@ function FormatDateTime(dateTimeFormat, x) {
         // a. If pm is true, then let fv be an implementation and locale dependent String
         //    value representing “post meridiem”; else let fv be an implementation and
         //    locale dependent String value representing “ante meridiem”.
-        fv = ca.dayPeriods.format.wide[pm ? 'pm' : 'am'];
+        fv = ca.dayPeriods[pm ? 'pm' : 'am'];
 
         // b. Replace the substring of result that consists of "{ampm}", with fv.
         result = result.replace('{ampm}', fv);
@@ -2614,17 +2611,6 @@ function ToLocalTime(date, calendar, timeZone) {
 });
 
 /**
- * The Unicode CLDR lists the full names for calendars, but we need to map some
- * of them to their unicode extension equivalents, e.g. 'gregorian' should be
- * 'gregory' (as in the '-u-ca-gregory' extension)
- */
-var caMap = {
-    gregorian: 'gregory',
-    'ethiopic-amete-alam':'ethioaa',
-    'islamic-civil': 'islamicc'
-};
-
-/**
  * Can't really ship a single script with data for hundreds of locales, so we provide
  * this __addLocaleData method as a means for the developer to add the data on an
  * as-needed basis
@@ -2633,148 +2619,31 @@ defineProperty(Intl, '__addLocaleData', {
     value: addLocaleData
 });
 function addLocaleData (data) {
-    if (!data.identity)
-        throw new Error('Must pass valid CLDR data parsed into a JavaScript object.');
-
-    var add,
-        locale = data.identity.language,
-
-        // Make sure we can restore the properties of the RegExp object
-        regexpState = createRegExpRestore();
-
-    if (add = data.identity.script)
-        locale += '-' + add;
-    if (add = data.identity.territory)
-        locale += '-' + add;
-    if (add = data.identity.variant)
-        locale += '-' + add;
-
-    localeData[locale] = data;
+    if (!IsStructurallyValidLanguageTag(data.locale))
+        throw new Error("Object passed doesn't identify itself with a valid language tag");
 
     // If this is the first set of locale data added, make it the default
     if (defaultLocale === undefined)
-        defaultLocale = locale;
+        defaultLocale = data.locale;
+
+    // Both NumberFormat and DateTimeFormat require number data, so throw if it isn't present
+    if (!data.number)
+        throw new Error("Object passed doesn't contain locale data for Intl.NumberFormat");
 
     // Add to NumberFormat internal properties as per 11.2.3
-    if (data.numbers) {
-        var defNumSys = data.numbers.defaultNumberingSystem || 'latn',
-            nu = [ defNumSys ],
+    internals.NumberFormat['[[availableLocales]]'].push(data.locale);
+    internals.NumberFormat['[[localeData]]'][data.locale] = data.number;
 
-            // 11.2.3 says nu can't contain these:
-            nuNo = {
-                'native': 1,
-                traditio: 1,
-                finance:  1
-            };
-
-        for (var k in data.numbers.otherNumberingSystems) {
-            var v = data.numbers.otherNumberingSystems[k];
-
-            if (v != defNumSys && !hop.call(nuNo, v))
-                nu.push(v);
-        }
-
-        // Build patterns for each number style
-        var currencyPattern =
-                data.numbers['currencyFormats-numberSystem-'+defNumSys]
-                    .standard.currencyFormat.pattern
-                        .split(';')[0]
-                        .replace('#,##0.00', '{number}')
-                        .replace('¤', '{currency}'),
-
-            percentPattern =
-                data.numbers['percentFormats-numberSystem-'+defNumSys]
-                    .standard.percentFormat.pattern
-                        .replace('#,##0', '{number}');
-
-        internals.NumberFormat['[[availableLocales]]'].push(locale);
-        internals.NumberFormat['[[localeData]]'][locale] = {
-            nu: nu,
-            patterns: {
-                decimal: {
-                    positivePattern: '{number}',
-                    negativePattern: '-{number}'
-                },
-                percent: {
-                    positivePattern: percentPattern,
-                    negativePattern: '-' + percentPattern
-                },
-                currency: {
-                    positivePattern: currencyPattern,
-                    negativePattern: '-' + currencyPattern
-                }
-            }
-        };
-
-        // 11.3 (the NumberFormat prototype object is an Intl.NumberFormat instance)
-        if (!numberFormatProtoInitialised) {
-            InitializeNumberFormat(Intl.NumberFormat.prototype);
-            numberFormatProtoInitialised = true;
-        }
+    // 11.3 (the NumberFormat prototype object is an Intl.NumberFormat instance)
+    if (!numberFormatProtoInitialised) {
+        InitializeNumberFormat(Intl.NumberFormat.prototype);
+        numberFormatProtoInitialised = true;
     }
-    if (data.dates) {
-        var formats,
-            cas     = data.dates.calendars,
-            defCa   = cas['default'] || 'gregorian',
-            ca      = [ caMap[defCa] ],
-            patterns= [],
-            timeFormats = cas[defCa].timeFormats,
-            dateFormats = cas[defCa].dateFormats,
-            dtFormats   = cas[defCa].dateTimeFormats.availableFormats,
 
-            // The default time format gives us some needed information
-            timeFormat = timeFormats.medium.timeFormat;
-
-        // Get calendars supported by this locale
-        for (var cal in cas) {
-            if (!hop.call(cas, cal))
-                continue;
-
-            // Rename cldr calendar names to unicode extension names
-            if (hop.call(caMap, cal)) {
-                cas[caMap[cal]] = cas[cal];
-                delete cas[cal];
-            }
-
-            if (cal === defCa)
-                continue;
-
-            // Refer to our earlier calendar->unicode extension mappings
-            ca.push(caMap[cal] || cal);
-        }
-
-        // Merge all the patterns listed in the default calendar
-        for (var pattern in dateFormats) {
-            if (hop.call(dateFormats, pattern) && typeof dateFormats[pattern] === 'object')
-                patterns.push(dateFormats[pattern].dateFormat.pattern);
-        }
-
-        for (var pattern in timeFormats) {
-            if (hop.call(timeFormats, pattern) && typeof timeFormats[pattern] === 'object')
-                patterns.push(timeFormats[pattern].timeFormat.pattern);
-        }
-
-        for (var pattern in dtFormats) {
-            if (hop.call(dtFormats, pattern))
-                patterns.push(dtFormats[pattern]);
-        }
-        formats = createDateTimeFormats(patterns);
-
-        internals.DateTimeFormat['[[availableLocales]]'].push(locale);
-        internals.DateTimeFormat['[[localeData]]'][locale] = {
-            nu: nu,
-            ca: ca,
-
-            formats: formats,
-
-            // Locales using 0-11 and 1-24 hours have 'k' or 'K' in their
-            // default time patterns, hour0 signifies 1-12 and 0-23
-            hourNo0: !/k/i.test(timeFormat),
-
-            // Locales defaulting to 24hr time have 'H' or 'K' in their default
-            // time patterns
-            hour12: !/H|K/.test(timeFormat)
-        };
+    if (data.date) {
+        data.date.nu = data.number.nu;
+        internals.DateTimeFormat['[[availableLocales]]'].push(data.locale);
+        internals.DateTimeFormat['[[localeData]]'][data.locale] = data.date;
 
         // 11.3 (the NumberFormat prototype object is an Intl.NumberFormat instance)
         if (!dateTimeFormatProtoInitialised) {
@@ -2782,125 +2651,11 @@ function addLocaleData (data) {
             dateTimeFormatProtoInitialised = true;
         }
     }
-
-    // Finally, restore the RegExp properties
-    regexpState.exp.test(regexpState.input);
-}
-
-var
-    // Match these datetime components in a CLDR pattern
-    expDTComponents = /[Eec]{1,6}|G{1,5}|(?:[yYu]+|U{1,5})|[ML]{1,5}|d{1,2}|a|[hk]{1,2}|m{1,2}|s{1,2}|z{1,4}/g,
-
-    // Skip over patterns with these datetime components
-    unwantedDTCs = /[QxXVOvZASjgFDwWIQqH]/,
-
-    // Maps the number of characters in a CLDR pattern to the specification
-    dtcLengthMap = {
-        month:   [ 'numeric', '2-digit', 'short', 'long', 'narrow' ],
-        weekday: [ 'short', 'short', 'short', 'long', 'narrow' ],
-        era:     [ 'short', 'short', 'short', 'long', 'narrow' ]
-    };
-/**
- * Converts the CLDR availableFormats into the objects and patterns required by
- * the ECMAScript Internationalization API specification.
- *
- * The specification requires we support at least the following subsets of the
- * dateTimeComponents listed above:
- *
- *   - 'weekday', 'year', 'month', 'day', 'hour', 'minute', 'second'
- *   - 'weekday', 'year', 'month', 'day'
- *   - 'year', 'month', 'day'
- *   - 'year', 'month'
- *   - 'month', 'day'
- *   - 'hour', 'minute', 'second'
- *   - 'hour', 'minute'
- *
- * However, since they recommend the CLDR data, we're going to assume that each locale
- * within the CLDR supports at least these subsets (and variants thereof), so
- * it's easier to just iterate over what the CLDR gives us an map it accordingly.
- */
-function createDateTimeFormats(availableFormats) {
-    /*jshint loopfunc:true */ /* Will consider moving the function later */
-    var formats = [];
-
-    for (var format in availableFormats) {
-        // Prevent iterating over 'inherited' properties or patterns with
-        // datetime components we're not using (or '[hH]' patterns without 'a')
-        if (!hop.call(availableFormats, format) || unwantedDTCs.test(availableFormats[format]))
-            continue;
-
-        var formatObj = {};
-
-        // Replace the pattern string with the one required by the specification, whilst
-        // at the same time evaluating it for the subsets and formats
-        formatObj.pattern = availableFormats[format].replace(expDTComponents, function ($0) {
-            var subsetProp;
-
-            // See which symbol we're dealing with
-            switch ($0.charAt(0)) {
-                case 'E':
-                case 'e':
-                case 'c':
-                    formatObj.weekday = dtcLengthMap.weekday[$0.length-1];
-                    return '{weekday}';
-
-                // Not supported yet
-                case 'G':
-                    formatObj.era = dtcLengthMap.era[$0.length-1];
-                    return '{era}';
-
-                case 'y':
-                case 'Y':
-                case 'u':
-                case 'U':
-                    formatObj.year = $0.length === 2 ? '2-digit' : 'numeric';
-                    return '{year}';
-
-                case 'M':
-                case 'L':
-                    formatObj.month = dtcLengthMap.month[$0.length-1];
-                    return '{month}';
-
-                case 'd':
-                    formatObj.day = $0.length === 2 ? '2-digit' : 'numeric';
-                    return '{day}';
-
-                case 'a':
-                    return '{ampm}';
-
-                case 'h':
-                case 'k':
-                    formatObj.hour = $0.length === 2 ? '2-digit' : 'numeric';
-                    return '{hour}';
-
-                case 'm':
-                    formatObj.minute = $0.length === 2 ? '2-digit' : 'numeric';
-                    return '{minute}';
-
-                case 's':
-                    formatObj.second = $0.length === 2 ? '2-digit' : 'numeric';
-                    return '{second}';
-
-                case 'z':
-                    formatObj.timeZoneName = $0.length < 4 ? 'short' : 'long';
-                    return '{timeZoneName}';
-            }
-        });
-
-        if (formatObj.pattern.indexOf('{ampm}') > -1) {
-            formatObj.pattern12 = formatObj.pattern;
-            formatObj.pattern = formatObj.pattern.replace(/\s?{ampm}(?:\s(?![^\s]))?/, '');
-        }
-
-        formats.push(formatObj);
-    }
-
-    return formats;
 }
 
 // Exposed for debugging
 if (typeof window !== 'undefined')
-    window.IntlLocaleData = localeData;
+    window.IntlLocaleData = internals;
 
 // Helper functions
 // ================

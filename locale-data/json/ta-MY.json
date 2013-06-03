@@ -1,2563 +1,1072 @@
 {
-    "identity": {
-        "version": {
-            "@cldrVersion": "23.1",
-            "@number": "$Revision: 8245 $"
-        },
-        "generation": {
-            "@date": "$Date: 2013-02-24 22:19:26 -0600 (Sun, 24 Feb 2013) $"
-        },
-        "language": "ta",
-        "territory": "MY"
-    },
-    "dates": {
-        "timeZoneNames": {
-            "metazone": {
-                "Brunei": {
-                    "long": {
-                        "standard": "புருணை டாரு சலாம் நேரம்"
-                    }
-                },
-                "Indonesia_Central": {
-                    "long": {
-                        "standard": "மத்திய இந்தோனேசிய நேரம்"
-                    }
-                },
-                "Indonesia_Eastern": {
-                    "long": {
-                        "standard": "கிழக்கத்திய இந்தோனேசிய நேரம்"
-                    }
-                },
-                "Indonesia_Western": {
-                    "long": {
-                        "standard": "மேற்கத்திய இந்தோனேசிய நேரம்"
-                    }
-                },
-                "Malaysia": {
-                    "long": {
-                        "standard": "மலேசிய நேரம்"
-                    },
-                    "short": {
-                        "standard": "MYT"
-                    }
-                },
-                "Singapore": {
-                    "long": {
-                        "standard": "சிங்கப்பூர் நேரம்"
-                    },
-                    "short": {
-                        "standard": "SGT"
-                    }
-                },
-                "Acre": {
-                    "long": {
-                        "generic": "அக்ரே நேரம்",
-                        "standard": "அக்ரே தர நேரம்",
-                        "daylight": "அக்ரே கோடை நேரம்"
-                    }
-                },
-                "Afghanistan": {
-                    "long": {
-                        "standard": "ஆஃப்கானிஸ்தான் நேரம்"
-                    }
-                },
-                "Africa_Central": {
-                    "long": {
-                        "standard": "மத்திய ஆப்பிரிக்க நேரம்"
-                    }
-                },
-                "Africa_Eastern": {
-                    "long": {
-                        "standard": "கிழக்கு ஆப்பிரிக்க நேரம்"
-                    }
-                },
-                "Africa_Southern": {
-                    "long": {
-                        "standard": "தென் ஆப்பிரிக்க நேரப்படி"
-                    }
-                },
-                "Africa_Western": {
-                    "long": {
-                        "generic": "மேற்கு ஆப்பிரிக்க நேரம்",
-                        "standard": "மேற்கு ஆப்ரிக்க தர நேரம்",
-                        "daylight": "மேற்கு ஆப்பிரிக்கா கோடை நேரம்"
-                    }
-                },
-                "Alaska": {
-                    "long": {
-                        "generic": "அலாஸ்கா நேரம்",
-                        "standard": "அலாஸ்கா தர நேரம்",
-                        "daylight": "அலாஸ்கா பகலொளி நேரம்"
-                    }
-                },
-                "Almaty": {
-                    "long": {
-                        "generic": "அல்மாடி நேரம்",
-                        "standard": "அல்மாடி தர நேரம்",
-                        "daylight": "அல்மாடி கோடை நேரம்"
-                    }
-                },
-                "Amazon": {
-                    "long": {
-                        "generic": "அமேசான் நேரம்",
-                        "standard": "அமேசான் தர நேரம்",
-                        "daylight": "அமேசான் கோடை நேரம்"
-                    }
-                },
-                "America_Central": {
-                    "long": {
-                        "generic": "மத்திய நேரம்",
-                        "standard": "மத்திய தர நேரம்",
-                        "daylight": "மத்திய பகலொளி நேரம்"
-                    }
-                },
-                "America_Eastern": {
-                    "long": {
-                        "generic": "கிழக்கத்திய நேரம்",
-                        "standard": "கிழக்கத்திய தர நேரம்",
-                        "daylight": "கிழக்கத்திய பகலொளி நேரம்"
-                    }
-                },
-                "America_Mountain": {
-                    "long": {
-                        "generic": "மவுன்டைன் நேரம்",
-                        "standard": "மவுன்டைன் தர நேரம்",
-                        "daylight": "மவுன்டைன் பகலொளி நேரம்"
-                    }
-                },
-                "America_Pacific": {
-                    "long": {
-                        "generic": "பசிபிக் நேரம்",
-                        "standard": "பசிபிக் தர நேரம்",
-                        "daylight": "பசிபிக் பகலொளி நேரம்"
-                    }
-                },
-                "Anadyr": {
-                    "long": {
-                        "generic": "அனடீர் நேரம்",
-                        "standard": "அனாடையர் தர நேரம்",
-                        "daylight": "அனாடையர் கோடை நேரம்"
-                    }
-                },
-                "Aqtau": {
-                    "long": {
-                        "generic": "அட்டௌ நேரம்",
-                        "standard": "அட்டௌ தர நேரம்",
-                        "daylight": "அட்டௌ கோடை நேரம்"
-                    }
-                },
-                "Aqtobe": {
-                    "long": {
-                        "generic": "அட்டோபே நேரம்",
-                        "standard": "அட்டோபே தர நேரம்",
-                        "daylight": "அட்டோபே கோடை நேரம்"
-                    }
-                },
-                "Arabian": {
-                    "long": {
-                        "generic": "அரேபியன் நேரம்",
-                        "standard": "அரேபியன் தர நேரம்",
-                        "daylight": "அரேபியன் பகலொளி நேரம்"
-                    }
-                },
-                "Argentina": {
-                    "long": {
-                        "generic": "அர்ஜென்டினா நேரம்",
-                        "standard": "அர்ஜென்டினா தர நேரம்",
-                        "daylight": "அர்ஜென்டினா கோடை நேரம்"
-                    }
-                },
-                "Argentina_Western": {
-                    "long": {
-                        "generic": "மேற்கத்திய அர்ஜென்டினா நேரம்",
-                        "standard": "மேற்கத்திய அர்ஜென்டினா தர நேரம்",
-                        "daylight": "மேற்கத்திய அர்ஜென்டினா கோடை நேரம்"
-                    }
-                },
-                "Armenia": {
-                    "long": {
-                        "generic": "ஆர்மேனியா நேரம்",
-                        "standard": "அர்மேனியா தர நேரம்",
-                        "daylight": "ஆர்மேனியா கோடை நேரம்"
-                    }
-                },
-                "Atlantic": {
-                    "long": {
-                        "generic": "அட்லாண்டிக் நேரம்",
-                        "standard": "அட்லாண்டிக் தர நேரம்",
-                        "daylight": "அட்லாண்டிக் பகலொளி நேரம்"
-                    }
-                },
-                "Australia_Central": {
-                    "long": {
-                        "generic": "மத்திய ஆஸ்திரேலியா நேரம்",
-                        "standard": "ஆஸ்திரேலியன் மத்திய தர நேரம்",
-                        "daylight": "ஆஸ்திரேலியன் மத்திய பகலொளி நேரம்"
-                    }
-                },
-                "Australia_CentralWestern": {
-                    "long": {
-                        "generic": "ஆஸ்திரேலியன் மத்திய மேற்கத்திய நேரம்",
-                        "standard": "ஆஸ்திரேலியன் மத்திய மேற்கத்திய தர நேரம்",
-                        "daylight": "ஆஸ்திரேலியன் மத்திய மேற்கத்திய பகலொளி நேரம்"
-                    }
-                },
-                "Australia_Eastern": {
-                    "long": {
-                        "generic": "மத்திய கிழக்கத்திய ஆஸ்திரேலிய நேரம்",
-                        "standard": "ஆஸ்திரேலியன் கிழக்கத்திய தர நேரம்",
-                        "daylight": "ஆஸ்திரேலியன் மத்திய கிழக்கத்திய பகலொளி நேரம்"
-                    }
-                },
-                "Australia_Western": {
-                    "long": {
-                        "generic": "மேற்கத்திய ஆஸ்திரேலிய நேரம்",
-                        "standard": "ஆஸ்திரேலியன் மேற்கத்திய தர நேரம்",
-                        "daylight": "ஆஸ்திரேலியன் மேற்கத்திய பகலொளி நேரம்"
-                    }
-                },
-                "Azerbaijan": {
-                    "long": {
-                        "generic": "அசர்பைஜான் நேரம்",
-                        "standard": "அசர்பைஜான் தர நேரம்",
-                        "daylight": "அசர்பைஜான் கோடை நேரம்"
-                    }
-                },
-                "Azores": {
-                    "long": {
-                        "generic": "அசோர்ஸ் நேரம்",
-                        "standard": "அஜோர்ஸ் தர நேரம்",
-                        "daylight": "அசோர்ஸ் கோடை நேரம்"
-                    }
-                },
-                "Bangladesh": {
-                    "long": {
-                        "generic": "வங்கதேச நேரம்",
-                        "standard": "வங்கதேச நேரப்படி",
-                        "daylight": "வங்கதேச கோடை நேரம்"
-                    }
-                },
-                "Bhutan": {
-                    "long": {
-                        "standard": "பூட்டான் நேரம்"
-                    }
-                },
-                "Bolivia": {
-                    "long": {
-                        "standard": "பொலிவியா நேரம்"
-                    }
-                },
-                "Brasilia": {
-                    "long": {
-                        "generic": "ப்ரசிலியா நேரம்",
-                        "standard": "ப்ரசிலியா தர நேரம்",
-                        "daylight": "ப்ரசிலியா கோடை நேரம்"
-                    }
-                },
-                "Cape_Verde": {
-                    "long": {
-                        "generic": "கேப் வேர்டே நேரம்",
-                        "standard": "கபே வெர்டே தர நேரம்",
-                        "daylight": "கேப் வேர்டே கோடை நேரம்"
-                    }
-                },
-                "Chamorro": {
-                    "long": {
-                        "standard": "சாமோரோ நேரப்படி"
-                    }
-                },
-                "Chatham": {
-                    "long": {
-                        "generic": "சத்தாம் நேரம்",
-                        "standard": "சத்தாம் நேரப்படி",
-                        "daylight": "சத்தாம் பகலொளி நேரம்"
-                    }
-                },
-                "Chile": {
-                    "long": {
-                        "generic": "சிலி நேரம்",
-                        "standard": "சிலி தர நேரம்",
-                        "daylight": "சிலி கோடை நேரம்"
-                    }
-                },
-                "China": {
-                    "long": {
-                        "generic": "சீனா நேரம்",
-                        "standard": "சீன நேரப்படி",
-                        "daylight": "சீனா பகலொளி நேரம்"
-                    }
-                },
-                "Choibalsan": {
-                    "long": {
-                        "generic": "சோய்பால்சன் நேரம்",
-                        "standard": "சோய்பல்சன் தர நேரம்",
-                        "daylight": "சோய்பல்சன் கோடை நேரம்"
-                    }
-                },
-                "Christmas": {
-                    "long": {
-                        "standard": "கிறிஸ்துமஸ் தீவு நேரம்"
-                    }
-                },
-                "Cocos": {
-                    "long": {
-                        "standard": "கோகோஸ் தீவுகள் நேரம்"
-                    }
-                },
-                "Colombia": {
-                    "long": {
-                        "generic": "கொலம்பியா நேரம்",
-                        "standard": "கொலம்பியா தர நேரம்",
-                        "daylight": "கொலம்பியா கோடை நேரம்"
-                    }
-                },
-                "Cook": {
-                    "long": {
-                        "generic": "குக் தீவுகள் நேரம்",
-                        "standard": "குக் தீவுகள் நேரப்படி",
-                        "daylight": "குக் தீவுகள் அரை கோடை நேரம்"
-                    }
-                },
-                "Cuba": {
-                    "long": {
-                        "generic": "கியூபா நேரம்",
-                        "standard": "கியூபா தர நேரம்",
-                        "daylight": "கியூபா பகலொளி நேரம்"
-                    }
-                },
-                "Davis": {
-                    "long": {
-                        "standard": "டேவிஸ் நேரம்"
-                    }
-                },
-                "DumontDUrville": {
-                    "long": {
-                        "standard": "ட்யூமோண்ட்-டி உர்வில்லே நேரம்"
-                    }
-                },
-                "East_Timor": {
-                    "long": {
-                        "standard": "கிழக்கு திமோர் நேரம்"
-                    }
-                },
-                "Easter": {
-                    "long": {
-                        "generic": "ஈஸ்டர் தீவு நேரம்",
-                        "standard": "ஈஸ்டர் தீவு தர நேரம்",
-                        "daylight": "ஈஸ்டர் தீவு கோடை நேரம்"
-                    }
-                },
-                "Ecuador": {
-                    "long": {
-                        "standard": "ஈக்வெடார் நேரம்"
-                    }
-                },
-                "Europe_Central": {
-                    "long": {
-                        "generic": "மத்திய ஐரோப்பிய நேரம்",
-                        "standard": "மத்திய ஐரோப்பியன் தர நேரம்",
-                        "daylight": "மத்திய ஐரோப்பிய கோடை நேரம்"
-                    }
-                },
-                "Europe_Eastern": {
-                    "long": {
-                        "generic": "கிழக்கித்திய ஐரோப்பிய நேரம்",
-                        "standard": "கிழக்கத்திய ஐரோப்பியன் தர நேரம்",
-                        "daylight": "கிழக்கித்திய ஐரோப்பிய கோடை நேரம்"
-                    }
-                },
-                "Europe_Western": {
-                    "long": {
-                        "generic": "மேற்கத்திய ஐரோப்பிய நேரம்",
-                        "standard": "மேற்கத்திய ஐரோப்பியன் தர நேரம்",
-                        "daylight": "மேற்கத்திய ஐரோப்பிய கோடை நேரம்"
-                    }
-                },
-                "Falkland": {
-                    "long": {
-                        "generic": "ஃபாக்லாந்து தீவுகள் நேரம்",
-                        "standard": "ஃபாக்லாந்து தீவுகள் நேரப்படி",
-                        "daylight": "ஃபாக்லாந்து தீவுகள் கோடை நேரம்"
-                    }
-                },
-                "Fiji": {
-                    "long": {
-                        "generic": "ஃபிஜி நேரம்",
-                        "standard": "ஃபிஜி நேரப்படி",
-                        "daylight": "ஃபிஜி கோடை நேரம்"
-                    }
-                },
-                "French_Guiana": {
-                    "long": {
-                        "standard": "ஃபிரஞ்சு கயானா நேரம்"
-                    }
-                },
-                "French_Southern": {
-                    "long": {
-                        "standard": "ஃபிரஞ்சு தெற்கத்திய மற்றும் அண்டார்டிக் நேரம்"
-                    }
-                },
-                "Galapagos": {
-                    "long": {
-                        "standard": "கலபகோஸ் நேரம்"
-                    }
-                },
-                "Gambier": {
-                    "long": {
-                        "standard": "கேம்பியர் நேரம்"
-                    }
-                },
-                "Georgia": {
-                    "long": {
-                        "generic": "ஜார்ஜியா நேரம்",
-                        "standard": "ஜார்ஜியா தர நேரம்",
-                        "daylight": "ஜார்ஜியா கோடை நேரம்"
-                    }
-                },
-                "Gilbert_Islands": {
-                    "long": {
-                        "standard": "கில்பர்ட் தீவுகள் நேரம்"
-                    }
-                },
-                "GMT": {
-                    "long": {
-                        "standard": "கிரீன்விச் இடைநிலை நேரம்"
-                    }
-                },
-                "Greenland_Eastern": {
-                    "long": {
-                        "generic": "கிழக்கு கிரீன்லாந்து நேரம்",
-                        "standard": "கிழக்கு க்ரீன்லாந்து தர நேரம்",
-                        "daylight": "கிழக்கு கிரீன்லாந்து கோடை நேரம்"
-                    }
-                },
-                "Greenland_Western": {
-                    "long": {
-                        "generic": "மேற்கு கிரீன்லாந்து நேரம்",
-                        "standard": "மேற்கு க்ரீன்லாந்து தர நேரம்",
-                        "daylight": "மேற்கு கிரீன்லாந்து கோடை நேரம்"
-                    }
-                },
-                "Guam": {
-                    "long": {
-                        "standard": "கம் தர நேரம்"
-                    }
-                },
-                "Gulf": {
-                    "long": {
-                        "standard": "வளைகுடா நேரப்படி"
-                    }
-                },
-                "Guyana": {
-                    "long": {
-                        "standard": "கயானா நேரம்"
-                    }
-                },
-                "Hawaii_Aleutian": {
-                    "long": {
-                        "generic": "ஹவாய்-அலேஸியன் நேரம்",
-                        "standard": "ஹவாய்-அலேடன் தர நேரம்",
-                        "daylight": "ஹவாய்-அலேஸியன் பகலொளி நேரம்"
-                    }
-                },
-                "Hong_Kong": {
-                    "long": {
-                        "generic": "ஹாங் காங் நேரம்",
-                        "standard": "ஹாங் காங் தர நேரம்",
-                        "daylight": "ஹாங் காங் கோடை நேரம்"
-                    }
-                },
-                "Hovd": {
-                    "long": {
-                        "generic": "ஹோவ்த் நேரம்",
-                        "standard": "ஹோவ்த் தர நேரம்",
-                        "daylight": "ஹோவ்த் கோடை நேரம்"
-                    }
-                },
-                "India": {
-                    "long": {
-                        "standard": "இந்திய தர நேரம்"
-                    },
-                    "short": {
-                        "standard": "IST"
-                    }
-                },
-                "Indian_Ocean": {
-                    "long": {
-                        "standard": "இந்திய பெருங்கடல் நேரம்"
-                    }
-                },
-                "Indochina": {
-                    "long": {
-                        "standard": "இந்தோசீனா நேரம்"
-                    }
-                },
-                "Iran": {
-                    "long": {
-                        "generic": "ஈரான் நேரம்",
-                        "standard": "ஈரான் தர நேரம்",
-                        "daylight": "ஈரான் பகலொளி நேரம்"
-                    }
-                },
-                "Irkutsk": {
-                    "long": {
-                        "generic": "இர்குட்ஸ்க் நேரம்",
-                        "standard": "இர்குட்ஸ்க் தர நேரம்",
-                        "daylight": "இர்குட்ஸ்க் கோடை நேரம்"
-                    }
-                },
-                "Israel": {
-                    "long": {
-                        "generic": "இஸ்ரேல் நேரம்",
-                        "standard": "இஸ்ரேல் தர நேரம்",
-                        "daylight": "இஸ்ரேல் பகலொளி நேரம்"
-                    }
-                },
-                "Japan": {
-                    "long": {
-                        "generic": "ஜப்பான் நேரம்",
-                        "standard": "ஜப்பான் தர நேரம்",
-                        "daylight": "ஜப்பான் பகலொளி நேரம்"
-                    }
-                },
-                "Kamchatka": {
-                    "long": {
-                        "generic": "பெட்ரோபவ்லோவ்ஸ்க் கம்சட்ஸ்கி நேரம்",
-                        "standard": "பெட்ரோபவ்லோவ்ஸ்க் கம்சட்ஸ்கி தர நேரம்",
-                        "daylight": "பெட்ரோபவ்லோவ்ஸ்க் கம்சட்ஸ்கி கோடை நேரம்"
-                    }
-                },
-                "Kazakhstan_Eastern": {
-                    "long": {
-                        "standard": "கிழக்கு கஜகஸ்தான் நேரம்"
-                    }
-                },
-                "Kazakhstan_Western": {
-                    "long": {
-                        "standard": "மேற்கு கஜகஸ்தான் நேரம்"
-                    }
-                },
-                "Korea": {
-                    "long": {
-                        "generic": "கொரியன் நேரம்",
-                        "standard": "கொரியன் தர நேரம்",
-                        "daylight": "கொரியன் பகலொளி நேரம்"
-                    }
-                },
-                "Kosrae": {
-                    "long": {
-                        "standard": "கோஸ்ரே நேரம்"
-                    }
-                },
-                "Krasnoyarsk": {
-                    "long": {
-                        "generic": "க்ரஸ்னோயார்ஸ்க் நேரம்",
-                        "standard": "க்ரஸ்னோயார்ஸ்க் தர நேரம்",
-                        "daylight": "க்ரஸ்னோயார்ஸ்க் கோடை நேரம்"
-                    }
-                },
-                "Kyrgystan": {
-                    "long": {
-                        "standard": "கிர்கிஸ்தான் நேரம்"
-                    }
-                },
-                "Lanka": {
-                    "long": {
-                        "standard": "லங்கா நேரம்"
-                    }
-                },
-                "Line_Islands": {
-                    "long": {
-                        "standard": "லைன் தீவுகள் நேரம்"
-                    }
-                },
-                "Lord_Howe": {
-                    "long": {
-                        "generic": "லார்ட் ஹோவ் நேரம்",
-                        "standard": "லார்ட் ஹோவ் தர நேரம்",
-                        "daylight": "லார்ட் ஹோவ் பகலொளி நேரம்"
-                    }
-                },
-                "Macau": {
-                    "long": {
-                        "generic": "மக்காவ் நேரம்",
-                        "standard": "மக்காவ் தர நேரம்",
-                        "daylight": "மக்காவ் கோடை நேரம்"
-                    }
-                },
-                "Macquarie": {
-                    "long": {
-                        "standard": "மாக்கியூரி தீவு நேரம்"
-                    }
-                },
-                "Magadan": {
-                    "long": {
-                        "generic": "மகதன் நேரம்",
-                        "standard": "மகதன் தர நேரம்",
-                        "daylight": "மகதன் கோடை நேரம்"
-                    }
-                },
-                "Maldives": {
-                    "long": {
-                        "standard": "மாலத்தீவு நேரம்"
-                    }
-                },
-                "Marquesas": {
-                    "long": {
-                        "standard": "மார்கியூசாஸ் நேரம்"
-                    }
-                },
-                "Marshall_Islands": {
-                    "long": {
-                        "standard": "மார்ஷல் தீவுகள் நேரம்"
-                    }
-                },
-                "Mauritius": {
-                    "long": {
-                        "generic": "மொரிஷியஸ் நேரம்",
-                        "standard": "மொரிஷியஸ் தர நேரம்",
-                        "daylight": "மொரிஷியஸ் கோடை நேரம்"
-                    }
-                },
-                "Mawson": {
-                    "long": {
-                        "standard": "மவுசன் நேரம்"
-                    }
-                },
-                "Mongolia": {
-                    "long": {
-                        "generic": "உலான் பாடர் நேரம்",
-                        "standard": "உலன் பாடர் தர நேரம்",
-                        "daylight": "உலன் பாடர் கோடை நேரம்"
-                    }
-                },
-                "Moscow": {
-                    "long": {
-                        "generic": "மாஸ்கோ நேரம்",
-                        "standard": "மாஸ்கோ தர நேரம்",
-                        "daylight": "மாஸ்கோ கோடை நேரம்"
-                    }
-                },
-                "Myanmar": {
-                    "long": {
-                        "standard": "மியான்மர் நேரம்"
-                    }
-                },
-                "Nauru": {
-                    "long": {
-                        "standard": "நவ்ரூ நேரம்"
-                    }
-                },
-                "Nepal": {
-                    "long": {
-                        "standard": "நேபால் நேரம்"
-                    }
-                },
-                "New_Caledonia": {
-                    "long": {
-                        "generic": "நியூ கலிடோனியா நேரம்",
-                        "standard": "நியூ கலிடோனியா நேரப்படி",
-                        "daylight": "நியூ கலிடோனியா கோடை நேரம்"
-                    }
-                },
-                "New_Zealand": {
-                    "long": {
-                        "generic": "நியூசிலாந்து நேரம்",
-                        "standard": "நியூசிலாந்து நேரப்படி",
-                        "daylight": "நியூசிலாந்து பகலொளி நேரம்"
-                    }
-                },
-                "Newfoundland": {
-                    "long": {
-                        "generic": "நியு பௌண்ட்லாந்து நேரம்",
-                        "standard": "நியு பௌண்ட்லாந்து தர நேரம்",
-                        "daylight": "நியு பௌண்ட்லாந்து பகலொளி நேரம்"
-                    }
-                },
-                "Niue": {
-                    "long": {
-                        "standard": "நியு நேரம்"
-                    }
-                },
-                "Norfolk": {
-                    "long": {
-                        "standard": "நோர்ஃபோக் தீவுகள் நேரம்"
-                    }
-                },
-                "Noronha": {
-                    "long": {
-                        "generic": "பெர்னாண்டோ டி நோரன்ஹா நேரம்",
-                        "standard": "பெர்னான்டோ டி நோரோன்ஹா தர நேரம்",
-                        "daylight": "பெர்னான்டோ டி நோரோன்ஹா கோடை நேரம்"
-                    }
-                },
-                "North_Mariana": {
-                    "long": {
-                        "standard": "வடக்கு மரினா தீவுகள் நேரம்"
-                    }
-                },
-                "Novosibirsk": {
-                    "long": {
-                        "generic": "நோவோசிபிரிஸ்க் நேரம்",
-                        "standard": "நோவோசிபிருஸ்க் தர நேரம்",
-                        "daylight": "நோவோசிபிருஸ்க் கோடை நேரம்"
-                    }
-                },
-                "Omsk": {
-                    "long": {
-                        "generic": "ஓம்ஸ்க் நேரம்",
-                        "standard": "ஒம்ஸ்க் தர நேரம்",
-                        "daylight": "ஒம்ஸ்க் கோடை நேரம்"
-                    }
-                },
-                "Pakistan": {
-                    "long": {
-                        "generic": "பாகிஸ்தான் நேரம்",
-                        "standard": "பாகிஸ்தான் தர நேரம்",
-                        "daylight": "பாகிஸ்தான் கோடை நேரம்"
-                    }
-                },
-                "Palau": {
-                    "long": {
-                        "standard": "பாலவ் நேரம்"
-                    }
-                },
-                "Papua_New_Guinea": {
-                    "long": {
-                        "standard": "பபுவா நியூ கினியா நேரம்"
-                    }
-                },
-                "Paraguay": {
-                    "long": {
-                        "generic": "பராகுவே நேரம்",
-                        "standard": "பராகுவே தர நேரம்",
-                        "daylight": "பராகுவே கோடை நேரம்"
-                    }
-                },
-                "Peru": {
-                    "long": {
-                        "generic": "பெரு நேரம்",
-                        "standard": "பெரு தர நேரம்",
-                        "daylight": "பெரு கோடை நேரம்"
-                    }
-                },
-                "Philippines": {
-                    "long": {
-                        "generic": "பிலிப்பைன் நேரம்",
-                        "standard": "பிலிப்பைன் நேரப்படி",
-                        "daylight": "பிலிப்பைன் கோடை நேரம்"
-                    }
-                },
-                "Phoenix_Islands": {
-                    "long": {
-                        "standard": "ஃபோனிக்ஸ் தீவுகள் நேரம்"
-                    }
-                },
-                "Pierre_Miquelon": {
-                    "long": {
-                        "generic": "செயின்ட் பியரி மற்றும் மிக்குயிலான் நேரம்",
-                        "standard": "செயின்ட் பியரி மற்றும் மிக்குயிலான் தர நேரம்",
-                        "daylight": "செயின்ட் பியரி மற்றும் மிக்குயிலான் பகலொளி நேரம்"
-                    }
-                },
-                "Pitcairn": {
-                    "long": {
-                        "standard": "பிட்கார்ன் நேரம்"
-                    }
-                },
-                "Ponape": {
-                    "long": {
-                        "standard": "போனாபே நேரம்"
-                    }
-                },
-                "Qyzylorda": {
-                    "long": {
-                        "generic": "கைஜைலோர்டா நேரம்",
-                        "standard": "கைஜைலோர்டா தர நேரம்",
-                        "daylight": "கைஜைலோர்டா கோடை நேரம்"
-                    }
-                },
-                "Reunion": {
-                    "long": {
-                        "standard": "ரீயூனியன் நேரம்"
-                    }
-                },
-                "Rothera": {
-                    "long": {
-                        "standard": "ரோதேரா நேரம்"
-                    }
-                },
-                "Sakhalin": {
-                    "long": {
-                        "generic": "சகலின் நேரம்",
-                        "standard": "சகலின் தர நேரம்",
-                        "daylight": "சகலின் கோடை நேரம்"
-                    }
-                },
-                "Samara": {
-                    "long": {
-                        "generic": "சமரா நேரம்",
-                        "standard": "சமரா தர நேரம்",
-                        "daylight": "சமரா கோடை நேரம்"
-                    }
-                },
-                "Samoa": {
-                    "long": {
-                        "generic": "சமோயா நேரம்",
-                        "standard": "சமோயா தர நேரம்",
-                        "daylight": "சமோயா கோடை நேரம்"
-                    }
-                },
-                "Seychelles": {
-                    "long": {
-                        "standard": "சீசெல்லெஸ் நேரம்"
-                    }
-                },
-                "Solomon": {
-                    "long": {
-                        "standard": "சாலமன் தீவுகள் நேரம்"
-                    }
-                },
-                "South_Georgia": {
-                    "long": {
-                        "standard": "தெற்கு ஜார்ஜியா நேரம்"
-                    }
-                },
-                "Suriname": {
-                    "long": {
-                        "standard": "சூரினாம் நேரம்"
-                    }
-                },
-                "Syowa": {
-                    "long": {
-                        "standard": "ஸ்யோவா நேரம்"
-                    }
-                },
-                "Tahiti": {
-                    "long": {
-                        "standard": "தஹிதி நேரம்"
-                    }
-                },
-                "Taipei": {
-                    "long": {
-                        "generic": "தைபே நேரம்",
-                        "standard": "தைபே தர நேரம்",
-                        "daylight": "தைபே பகலொளி நேரம்"
-                    }
-                },
-                "Tajikistan": {
-                    "long": {
-                        "standard": "தஜிகிஸ்தான் நேரம்"
-                    }
-                },
-                "Tokelau": {
-                    "long": {
-                        "standard": "டோக்கெலாவ் நேரம்"
-                    }
-                },
-                "Tonga": {
-                    "long": {
-                        "generic": "டோங்கா நேரம்",
-                        "standard": "டோங்கா நேரப்படி",
-                        "daylight": "டோங்கா கோடை நேரம்"
-                    }
-                },
-                "Truk": {
-                    "long": {
-                        "standard": "சுக் நேரம்"
-                    }
-                },
-                "Turkmenistan": {
-                    "long": {
-                        "generic": "துர்க்மெனிஸ்தான் நேரம்",
-                        "standard": "துர்க்மெனிஸ்தான் நேரப்படி",
-                        "daylight": "துர்க்மெனிஸ்தான் கோடை நேரம்"
-                    }
-                },
-                "Tuvalu": {
-                    "long": {
-                        "standard": "துவாலு நேரம்"
-                    }
-                },
-                "Uruguay": {
-                    "long": {
-                        "generic": "உருகுவே நேரம்",
-                        "standard": "உருகுவே தர நேரம்",
-                        "daylight": "உருகுவே கோடை நேரம்"
-                    }
-                },
-                "Uzbekistan": {
-                    "long": {
-                        "generic": "உஸ்பெகிஸ்தான் நேரம்",
-                        "standard": "உஸ்பெகிஸ்தான் நேரப்படி",
-                        "daylight": "உஸ்பெகிஸ்தான் கோடை நேரம்"
-                    }
-                },
-                "Vanuatu": {
-                    "long": {
-                        "generic": "வனுவாட்டு நேரம்",
-                        "standard": "வனுவாட்டு நேரப்படி",
-                        "daylight": "வனுவாட்டு கோடை நேரம்"
-                    }
-                },
-                "Venezuela": {
-                    "long": {
-                        "standard": "வெனிசுலா நேரம்"
-                    }
-                },
-                "Vladivostok": {
-                    "long": {
-                        "generic": "வல்டிவோஸ்டோக் நேரம்",
-                        "standard": "வ்லடிவோஸ்டோக் தர நேரம்",
-                        "daylight": "வ்லடிவோஸ்டோக் கோடை நேரம்"
-                    }
-                },
-                "Volgograd": {
-                    "long": {
-                        "generic": "வோல்கோக்ராட் நேரம்",
-                        "standard": "வோல்கோக்ராட் தர நேரம்",
-                        "daylight": "வோல்கோக்ராட் கோடை நேரம்"
-                    }
-                },
-                "Vostok": {
-                    "long": {
-                        "standard": "வோஸ்டோக் நேரம்"
-                    }
-                },
-                "Wake": {
-                    "long": {
-                        "standard": "வேக் தீவு நேரம்"
-                    }
-                },
-                "Wallis": {
-                    "long": {
-                        "standard": "வாலிஸ் மற்றும் ஃப்யூடுனா நேரம்"
-                    }
-                },
-                "Yakutsk": {
-                    "long": {
-                        "generic": "யகுட்ஸ்க் நேரம்",
-                        "standard": "யகுட்ஸ்க் தர நேரம்",
-                        "daylight": "யகுட்ஸ்க் கோடை நேரம்"
-                    }
-                },
-                "Yekaterinburg": {
-                    "long": {
-                        "generic": "யேகாடெரின்பர்க் நேரம்",
-                        "standard": "யேகாடெரின்பர்க் தர நேரம்",
-                        "daylight": "யெகடெரின்பர்க் கோடை நேரம்"
-                    }
-                }
+    "locale": "ta-MY",
+    "date": {
+        "ca": [
+            "gregory",
+            "hebrew",
+            "japanese",
+            "ethioaa",
+            "indian",
+            "chinese",
+            "buddhist",
+            "coptic",
+            "ethiopic",
+            "persian",
+            "roc",
+            "generic",
+            "islamic"
+        ],
+        "hourNo0": true,
+        "hour12": true,
+        "formats": [
+            {
+                "hour": "numeric",
+                "minute": "2-digit",
+                "second": "2-digit",
+                "timeZoneName": "long",
+                "pattern": "{hour}:{minute}:{second} {timeZoneName}",
+                "pattern12": "{hour}:{minute}:{second} {ampm} {timeZoneName}"
             },
-            "zone": {
-                "America": {
-                    "Adak": {
-                        "exemplarCity": "அடக்"
-                    },
-                    "Anchorage": {
-                        "exemplarCity": "அங்கரேஜ்"
-                    },
-                    "Anguilla": {
-                        "exemplarCity": "அங்குயுலா"
-                    },
-                    "Antigua": {
-                        "exemplarCity": "ஆன்டிகுவா"
-                    },
-                    "Araguaina": {
-                        "exemplarCity": "அரகுவாய்னா"
-                    },
-                    "Argentina": {
-                        "Rio_Gallegos": {
-                            "exemplarCity": "ரியோ கேலிகாஸ்"
-                        },
-                        "San_Juan": {
-                            "exemplarCity": "சான் ஜுவான்"
-                        },
-                        "Ushuaia": {
-                            "exemplarCity": "உஷுவாயா"
-                        },
-                        "La_Rioja": {
-                            "exemplarCity": "லாரியோஜா"
-                        },
-                        "San_Luis": {
-                            "exemplarCity": "சான் லூயி"
-                        },
-                        "Salta": {
-                            "exemplarCity": "சால்டா"
-                        },
-                        "Tucuman": {
-                            "exemplarCity": "துகுமன்"
-                        }
-                    },
-                    "Aruba": {
-                        "exemplarCity": "அரூபா"
-                    },
-                    "Asuncion": {
-                        "exemplarCity": "அஸன்சியன்"
-                    },
-                    "Bahia": {
-                        "exemplarCity": "பஹாய்"
-                    },
-                    "Barbados": {
-                        "exemplarCity": "பார்படாஸ்"
-                    },
-                    "Belem": {
-                        "exemplarCity": "பெலெம்"
-                    },
-                    "Belize": {
-                        "exemplarCity": "பெலிஸ்"
-                    },
-                    "Blanc-Sablon": {
-                        "exemplarCity": "ப்லாங்க்-சப்லான்"
-                    },
-                    "Boa_Vista": {
-                        "exemplarCity": "போவா விஸ்டா"
-                    },
-                    "Bogota": {
-                        "exemplarCity": "போகோடா"
-                    },
-                    "Boise": {
-                        "exemplarCity": "போய்ஸ்"
-                    },
-                    "Buenos_Aires": {
-                        "exemplarCity": "பவுனஸ் ஏர்ஸ்"
-                    },
-                    "Cambridge_Bay": {
-                        "exemplarCity": "கேம்பிரிட்ஜ் பே"
-                    },
-                    "Campo_Grande": {
-                        "exemplarCity": "கேம்போ கிராண்டே"
-                    },
-                    "Cancun": {
-                        "exemplarCity": "கன்குன்"
-                    },
-                    "Caracas": {
-                        "exemplarCity": "கேராகஸ்"
-                    },
-                    "Catamarca": {
-                        "exemplarCity": "கடமரகா"
-                    },
-                    "Cayenne": {
-                        "exemplarCity": "கெய்ன்"
-                    },
-                    "Cayman": {
-                        "exemplarCity": "கேமன்"
-                    },
-                    "Chicago": {
-                        "exemplarCity": "சிகாகோ"
-                    },
-                    "Chihuahua": {
-                        "exemplarCity": "சிஹூவாஹுவா"
-                    },
-                    "Coral_Harbour": {
-                        "exemplarCity": "அடிகோகன்"
-                    },
-                    "Cordoba": {
-                        "exemplarCity": "கார்டோபா"
-                    },
-                    "Costa_Rica": {
-                        "exemplarCity": "கோஸ்டா ரிகா"
-                    },
-                    "Cuiaba": {
-                        "exemplarCity": "குயாபே"
-                    },
-                    "Curacao": {
-                        "exemplarCity": "க்யூராகோ"
-                    },
-                    "Danmarkshavn": {
-                        "exemplarCity": "டென்மார்க்ஷாவ்ன்"
-                    },
-                    "Dawson": {
-                        "exemplarCity": "டாவ்சன்"
-                    },
-                    "Dawson_Creek": {
-                        "exemplarCity": "டாவ்சன் கிரீக்"
-                    },
-                    "Denver": {
-                        "exemplarCity": "தேன்வர்"
-                    },
-                    "Detroit": {
-                        "exemplarCity": "டெட்ராய்ட்"
-                    },
-                    "Dominica": {
-                        "exemplarCity": "டொமினிகா"
-                    },
-                    "Edmonton": {
-                        "exemplarCity": "எட்மான்டான்"
-                    },
-                    "Eirunepe": {
-                        "exemplarCity": "ஈருனெபே"
-                    },
-                    "El_Salvador": {
-                        "exemplarCity": "எல் சால்வேடார்"
-                    },
-                    "Fortaleza": {
-                        "exemplarCity": "ஃபார்டெல்சா"
-                    },
-                    "Glace_Bay": {
-                        "exemplarCity": "கிலாஸ் போ"
-                    },
-                    "Godthab": {
-                        "exemplarCity": "கோத்தப்"
-                    },
-                    "Goose_Bay": {
-                        "exemplarCity": "கூஸ் பே"
-                    },
-                    "Grand_Turk": {
-                        "exemplarCity": "கிராண்ட் துர்க்"
-                    },
-                    "Grenada": {
-                        "exemplarCity": "கிரேனடா"
-                    },
-                    "Guadeloupe": {
-                        "exemplarCity": "கவுடேலூப்"
-                    },
-                    "Guatemala": {
-                        "exemplarCity": "கவுதமாலா"
-                    },
-                    "Guayaquil": {
-                        "exemplarCity": "குவாயகில்"
-                    },
-                    "Guyana": {
-                        "exemplarCity": "கயானா"
-                    },
-                    "Halifax": {
-                        "exemplarCity": "ஹலிஃபேக்ஸ்"
-                    },
-                    "Havana": {
-                        "exemplarCity": "ஹவானா"
-                    },
-                    "Hermosillo": {
-                        "exemplarCity": "ஹெர்மோசிலோ"
-                    },
-                    "Indiana": {
-                        "Vincennes": {
-                            "exemplarCity": "விண்செனேஸ், இண்டியானா"
-                        },
-                        "Petersburg": {
-                            "exemplarCity": "பீட்டர்ஸ்பெர்க், இண்டியானா"
-                        },
-                        "Tell_City": {
-                            "exemplarCity": "டெல் சிட்டி, இண்டியானா"
-                        },
-                        "Knox": {
-                            "exemplarCity": "நாக்ஸ், இண்டியானா"
-                        },
-                        "Winamac": {
-                            "exemplarCity": "வினாமேக், இண்டியானா"
-                        },
-                        "Marengo": {
-                            "exemplarCity": "மரென்கோ, இண்டியானா"
-                        },
-                        "Vevay": {
-                            "exemplarCity": "வேவே, இண்டியானா"
-                        }
-                    },
-                    "Indianapolis": {
-                        "exemplarCity": "இந்தியானாபோலிஸ்"
-                    },
-                    "Inuvik": {
-                        "exemplarCity": "இனுவிக்"
-                    },
-                    "Iqaluit": {
-                        "exemplarCity": "இகாலூயித்"
-                    },
-                    "Jamaica": {
-                        "exemplarCity": "ஜமைக்கா"
-                    },
-                    "Jujuy": {
-                        "exemplarCity": "ஜூஜுய்"
-                    },
-                    "Juneau": {
-                        "exemplarCity": "ஜுனியூ"
-                    },
-                    "Kentucky": {
-                        "Monticello": {
-                            "exemplarCity": "மான்டிசெல்லோ, கென்டக்கி"
-                        }
-                    },
-                    "La_Paz": {
-                        "exemplarCity": "லா பாஸ்"
-                    },
-                    "Lima": {
-                        "exemplarCity": "லிமா"
-                    },
-                    "Los_Angeles": {
-                        "exemplarCity": "லாஸ் ஏஞ்சல்ஸ்"
-                    },
-                    "Louisville": {
-                        "exemplarCity": "லோய்ஸ்வில்லே"
-                    },
-                    "Lower_Princes": {
-                        "exemplarCity": "லோயர் பிரின்ச்ஸ் குவாட்டர்"
-                    },
-                    "Maceio": {
-                        "exemplarCity": "மேகியோ"
-                    },
-                    "Managua": {
-                        "exemplarCity": "மானாகுவா"
-                    },
-                    "Manaus": {
-                        "exemplarCity": "மனாவுஸ்"
-                    },
-                    "Marigot": {
-                        "exemplarCity": "மாரிகாட்"
-                    },
-                    "Martinique": {
-                        "exemplarCity": "மார்ட்டினிக்"
-                    },
-                    "Mazatlan": {
-                        "exemplarCity": "மஸட்லன்"
-                    },
-                    "Mendoza": {
-                        "exemplarCity": "மென்டோஷா"
-                    },
-                    "Menominee": {
-                        "exemplarCity": "மெனோமி"
-                    },
-                    "Merida": {
-                        "exemplarCity": "மெரிடா"
-                    },
-                    "Mexico_City": {
-                        "exemplarCity": "மெக்ஸிகோ நகரம்"
-                    },
-                    "Miquelon": {
-                        "exemplarCity": "மிக்யூலன்"
-                    },
-                    "Moncton": {
-                        "exemplarCity": "மாங்டான்"
-                    },
-                    "Monterrey": {
-                        "exemplarCity": "மான்டெர்ரே"
-                    },
-                    "Montevideo": {
-                        "exemplarCity": "மொண்டேவீடியோ"
-                    },
-                    "Montreal": {
-                        "exemplarCity": "மான்ட்ரியல்"
-                    },
-                    "Montserrat": {
-                        "exemplarCity": "மான்ஸ்ரேட்"
-                    },
-                    "Nassau": {
-                        "exemplarCity": "நசவ்"
-                    },
-                    "New_York": {
-                        "exemplarCity": "நியூயார்க்"
-                    },
-                    "Nipigon": {
-                        "exemplarCity": "நிபிகான்"
-                    },
-                    "Nome": {
-                        "exemplarCity": "நோம்"
-                    },
-                    "Noronha": {
-                        "exemplarCity": "நோரன்ஹா"
-                    },
-                    "North_Dakota": {
-                        "Beulah": {
-                            "exemplarCity": "பெவுலா, வடக்கு டகோட்டா"
-                        },
-                        "New_Salem": {
-                            "exemplarCity": "நியூ சலேம், வடக்கு டகோடா"
-                        },
-                        "Center": {
-                            "exemplarCity": "மையம், வடக்கு டகோடா"
-                        }
-                    },
-                    "Panama": {
-                        "exemplarCity": "பனாமா"
-                    },
-                    "Pangnirtung": {
-                        "exemplarCity": "பாங்னிர்துங்"
-                    },
-                    "Paramaribo": {
-                        "exemplarCity": "பரமரிபோ"
-                    },
-                    "Phoenix": {
-                        "exemplarCity": "ஃபோனிக்ஸ்"
-                    },
-                    "Port-au-Prince": {
-                        "exemplarCity": "போர்ட்-வ்-பிரின்ஸ்"
-                    },
-                    "Port_of_Spain": {
-                        "exemplarCity": "போர்ட் ஆஃப் ஸ்பெயின்"
-                    },
-                    "Porto_Velho": {
-                        "exemplarCity": "போர்ட்டோ வெல்ஹோ"
-                    },
-                    "Puerto_Rico": {
-                        "exemplarCity": "புயர்டோ ரிகோ"
-                    },
-                    "Rainy_River": {
-                        "exemplarCity": "ரெய்னி ரிவர்"
-                    },
-                    "Rankin_Inlet": {
-                        "exemplarCity": "ரான்கின் இன்லெட்"
-                    },
-                    "Recife": {
-                        "exemplarCity": "ரெஸிஃபி"
-                    },
-                    "Regina": {
-                        "exemplarCity": "ரெகினா"
-                    },
-                    "Resolute": {
-                        "exemplarCity": "ரெசலூட்"
-                    },
-                    "Rio_Branco": {
-                        "exemplarCity": "ரியோ பிரான்கோ"
-                    },
-                    "Santarem": {
-                        "exemplarCity": "சான்டரெம்"
-                    },
-                    "Santiago": {
-                        "exemplarCity": "சாண்டியாகோ"
-                    },
-                    "Santo_Domingo": {
-                        "exemplarCity": "சாண்டோ டோமிங்கோ"
-                    },
-                    "Sao_Paulo": {
-                        "exemplarCity": "சவோ பவுலோ"
-                    },
-                    "Scoresbysund": {
-                        "exemplarCity": "ஸ்கோர்ஸ்பீ சண்ட்"
-                    },
-                    "Shiprock": {
-                        "exemplarCity": "ஷிப்ரோக்"
-                    },
-                    "St_Barthelemy": {
-                        "exemplarCity": "செயின்ட் பார்தேலெமி"
-                    },
-                    "St_Johns": {
-                        "exemplarCity": "செயின்ட் ஜான்ஸ்"
-                    },
-                    "St_Kitts": {
-                        "exemplarCity": "செயின்ட் கீட்ஸ்"
-                    },
-                    "St_Lucia": {
-                        "exemplarCity": "செயிண்ட் லூசியா"
-                    },
-                    "St_Thomas": {
-                        "exemplarCity": "செயின்ட் தாமஸ்"
-                    },
-                    "St_Vincent": {
-                        "exemplarCity": "செயிண்ட் வின்சென்ட்"
-                    },
-                    "Swift_Current": {
-                        "exemplarCity": "ஸ்விஃப்ட் கரண்ட்"
-                    },
-                    "Tegucigalpa": {
-                        "exemplarCity": "தெகுசிகல்பா"
-                    },
-                    "Thule": {
-                        "exemplarCity": "துலே"
-                    },
-                    "Thunder_Bay": {
-                        "exemplarCity": "தண்டர் பே"
-                    },
-                    "Tijuana": {
-                        "exemplarCity": "டிஜுவானா"
-                    },
-                    "Toronto": {
-                        "exemplarCity": "டொரொன்டோ"
-                    },
-                    "Tortola": {
-                        "exemplarCity": "டோர்டோலா"
-                    },
-                    "Vancouver": {
-                        "exemplarCity": "வாங்கூவர்"
-                    },
-                    "Whitehorse": {
-                        "exemplarCity": "வொயிட்ஹார்ஸ்"
-                    },
-                    "Winnipeg": {
-                        "exemplarCity": "வின்னிபெக்"
-                    },
-                    "Yakutat": {
-                        "exemplarCity": "யகுடட்"
-                    },
-                    "Yellowknife": {
-                        "exemplarCity": "யெல்லோநைஃப்"
-                    }
-                },
-                "Atlantic": {
-                    "Azores": {
-                        "exemplarCity": "அசோரஸ்"
-                    },
-                    "Bermuda": {
-                        "exemplarCity": "பெர்முடா"
-                    },
-                    "Canary": {
-                        "exemplarCity": "கேனரி"
-                    },
-                    "Cape_Verde": {
-                        "exemplarCity": "கேப் வெர்ட்"
-                    },
-                    "Faeroe": {
-                        "exemplarCity": "பேரோ"
-                    },
-                    "Madeira": {
-                        "exemplarCity": "மடிரா"
-                    },
-                    "Reykjavik": {
-                        "exemplarCity": "ரேக்ஜாவிக்"
-                    },
-                    "South_Georgia": {
-                        "exemplarCity": "தெற்கு ஜார்ஜியா"
-                    },
-                    "St_Helena": {
-                        "exemplarCity": "செயின்ட் ஹெலினா"
-                    },
-                    "Stanley": {
-                        "exemplarCity": "ஸ்டேன்லி"
-                    }
-                },
-                "Europe": {
-                    "Amsterdam": {
-                        "exemplarCity": "ஆம்ஸ்டர்டம்"
-                    },
-                    "Andorra": {
-                        "exemplarCity": "அண்டோரா"
-                    },
-                    "Athens": {
-                        "exemplarCity": "ஏதேன்ஸ்"
-                    },
-                    "Belgrade": {
-                        "exemplarCity": "பெல்க்ரேடு"
-                    },
-                    "Berlin": {
-                        "exemplarCity": "பெர்லின்"
-                    },
-                    "Bratislava": {
-                        "exemplarCity": "பிரடிஸ்லாவா"
-                    },
-                    "Brussels": {
-                        "exemplarCity": "புருசேல்ஸ்"
-                    },
-                    "Bucharest": {
-                        "exemplarCity": "புசாரெஸ்ட்"
-                    },
-                    "Budapest": {
-                        "exemplarCity": "புடாபெஸ்ட்"
-                    },
-                    "Chisinau": {
-                        "exemplarCity": "சிசினவ்"
-                    },
-                    "Copenhagen": {
-                        "exemplarCity": "கோபென்ஹகன்"
-                    },
-                    "Dublin": {
-                        "exemplarCity": "டப்ளின்"
-                    },
-                    "Gibraltar": {
-                        "exemplarCity": "ஜிப்ரால்டர்"
-                    },
-                    "Guernsey": {
-                        "exemplarCity": "கர்னஸே"
-                    },
-                    "Helsinki": {
-                        "exemplarCity": "ஹெல்சிங்கி"
-                    },
-                    "Isle_of_Man": {
-                        "exemplarCity": "ஐல் ஆஃப் மேன்"
-                    },
-                    "Istanbul": {
-                        "exemplarCity": "இஸ்தான்புல்"
-                    },
-                    "Jersey": {
-                        "exemplarCity": "ஜெர்சி"
-                    },
-                    "Kaliningrad": {
-                        "exemplarCity": "கலினின்கிராடு"
-                    },
-                    "Kiev": {
-                        "exemplarCity": "கீவ்"
-                    },
-                    "Lisbon": {
-                        "exemplarCity": "லிஸ்பன்"
-                    },
-                    "Ljubljana": {
-                        "exemplarCity": "லுஜுபுல்ஜானா"
-                    },
-                    "London": {
-                        "exemplarCity": "லண்டன்"
-                    },
-                    "Luxembourg": {
-                        "exemplarCity": "லக்சம்பர்க்"
-                    },
-                    "Madrid": {
-                        "exemplarCity": "மாட்ரிட்"
-                    },
-                    "Malta": {
-                        "exemplarCity": "மால்டா"
-                    },
-                    "Mariehamn": {
-                        "exemplarCity": "மரிஹமன்"
-                    },
-                    "Minsk": {
-                        "exemplarCity": "மின்ஸ்க்"
-                    },
-                    "Monaco": {
-                        "exemplarCity": "மொனாக்கோ"
-                    },
-                    "Moscow": {
-                        "exemplarCity": "மாஸ்கோ"
-                    },
-                    "Oslo": {
-                        "exemplarCity": "ஓஸ்லோ"
-                    },
-                    "Paris": {
-                        "exemplarCity": "பாரிஸ்"
-                    },
-                    "Podgorica": {
-                        "exemplarCity": "போட்கோரிகா"
-                    },
-                    "Prague": {
-                        "exemplarCity": "ப்ராக்"
-                    },
-                    "Riga": {
-                        "exemplarCity": "ரிகா"
-                    },
-                    "Rome": {
-                        "exemplarCity": "ரோம்"
-                    },
-                    "Samara": {
-                        "exemplarCity": "சமாரா"
-                    },
-                    "San_Marino": {
-                        "exemplarCity": "சான் மாரினோ"
-                    },
-                    "Sarajevo": {
-                        "exemplarCity": "சராஜேவோ"
-                    },
-                    "Simferopol": {
-                        "exemplarCity": "சிம்ஃபெரோபோல்"
-                    },
-                    "Skopje": {
-                        "exemplarCity": "ஸ்கோப்ஜே"
-                    },
-                    "Sofia": {
-                        "exemplarCity": "சோஃபியா"
-                    },
-                    "Stockholm": {
-                        "exemplarCity": "ஸ்டாக்ஹோம்"
-                    },
-                    "Tallinn": {
-                        "exemplarCity": "டலின்"
-                    },
-                    "Tirane": {
-                        "exemplarCity": "திரானே"
-                    },
-                    "Uzhgorod": {
-                        "exemplarCity": "உஜ்கோரோட்"
-                    },
-                    "Vaduz": {
-                        "exemplarCity": "வதுஸ்"
-                    },
-                    "Vatican": {
-                        "exemplarCity": "வாடிகன்"
-                    },
-                    "Vienna": {
-                        "exemplarCity": "வியன்னா"
-                    },
-                    "Vilnius": {
-                        "exemplarCity": "வில்னியஸ்"
-                    },
-                    "Volgograd": {
-                        "exemplarCity": "வோல்கோகார்டு"
-                    },
-                    "Warsaw": {
-                        "exemplarCity": "வார்ஸா"
-                    },
-                    "Zagreb": {
-                        "exemplarCity": "ஸக்ரெப்"
-                    },
-                    "Zaporozhye": {
-                        "exemplarCity": "ஜபோரோஸியே"
-                    },
-                    "Zurich": {
-                        "exemplarCity": "ஜூரிக்"
-                    }
-                },
-                "Africa": {
-                    "Abidjan": {
-                        "exemplarCity": "அபிட்ஜான்"
-                    },
-                    "Accra": {
-                        "exemplarCity": "அக்ரா"
-                    },
-                    "Addis_Ababa": {
-                        "exemplarCity": "ஆட்டிஸ் அபாபா"
-                    },
-                    "Algiers": {
-                        "exemplarCity": "அல்கியர்ஸ்"
-                    },
-                    "Asmera": {
-                        "exemplarCity": "அஸ்மாரா"
-                    },
-                    "Bamako": {
-                        "exemplarCity": "பமாகோ"
-                    },
-                    "Bangui": {
-                        "exemplarCity": "பேங்குயீ"
-                    },
-                    "Banjul": {
-                        "exemplarCity": "பஞ்சுல்"
-                    },
-                    "Bissau": {
-                        "exemplarCity": "பிஸாவ்"
-                    },
-                    "Blantyre": {
-                        "exemplarCity": "பிளான்டையர்"
-                    },
-                    "Brazzaville": {
-                        "exemplarCity": "பிராஸாவில்லி"
-                    },
-                    "Bujumbura": {
-                        "exemplarCity": "புஜும்புரா"
-                    },
-                    "Cairo": {
-                        "exemplarCity": "கெய்ரோ"
-                    },
-                    "Casablanca": {
-                        "exemplarCity": "காஸாபிளான்கா"
-                    },
-                    "Ceuta": {
-                        "exemplarCity": "சியூட்டா"
-                    },
-                    "Conakry": {
-                        "exemplarCity": "கோனக்ரே"
-                    },
-                    "Dakar": {
-                        "exemplarCity": "தாக்கர்"
-                    },
-                    "Dar_es_Salaam": {
-                        "exemplarCity": "தார் ஸ் சலாம்"
-                    },
-                    "Djibouti": {
-                        "exemplarCity": "டிஜிபவ்டி"
-                    },
-                    "Douala": {
-                        "exemplarCity": "தவுலா"
-                    },
-                    "El_Aaiun": {
-                        "exemplarCity": "எல் ஆயுன்"
-                    },
-                    "Freetown": {
-                        "exemplarCity": "ஃப்ரீடவுன்"
-                    },
-                    "Gaborone": {
-                        "exemplarCity": "கபோரோன்"
-                    },
-                    "Harare": {
-                        "exemplarCity": "ஹராரே"
-                    },
-                    "Johannesburg": {
-                        "exemplarCity": "ஜோஹன்னஸ்பெர்க்"
-                    },
-                    "Kampala": {
-                        "exemplarCity": "கம்பாலா"
-                    },
-                    "Khartoum": {
-                        "exemplarCity": "கார்டோம்"
-                    },
-                    "Kigali": {
-                        "exemplarCity": "கிகலி"
-                    },
-                    "Kinshasa": {
-                        "exemplarCity": "கின்ஷசா"
-                    },
-                    "Lagos": {
-                        "exemplarCity": "லாகோஸ்"
-                    },
-                    "Libreville": {
-                        "exemplarCity": "லிப்ரேவில்லே"
-                    },
-                    "Lome": {
-                        "exemplarCity": "லோம்"
-                    },
-                    "Luanda": {
-                        "exemplarCity": "லுவான்டா"
-                    },
-                    "Lubumbashi": {
-                        "exemplarCity": "லுபும்பாஷி"
-                    },
-                    "Lusaka": {
-                        "exemplarCity": "லுசாகா"
-                    },
-                    "Malabo": {
-                        "exemplarCity": "மாலபோ"
-                    },
-                    "Maputo": {
-                        "exemplarCity": "மபுடோ"
-                    },
-                    "Maseru": {
-                        "exemplarCity": "மசேரு"
-                    },
-                    "Mbabane": {
-                        "exemplarCity": "அம்பபான்"
-                    },
-                    "Mogadishu": {
-                        "exemplarCity": "மோகாதிஷு"
-                    },
-                    "Monrovia": {
-                        "exemplarCity": "மான்ரோவியா"
-                    },
-                    "Nairobi": {
-                        "exemplarCity": "நைரோபி"
-                    },
-                    "Ndjamena": {
-                        "exemplarCity": "நிட்ஜமேனா"
-                    },
-                    "Niamey": {
-                        "exemplarCity": "நியாமே"
-                    },
-                    "Nouakchott": {
-                        "exemplarCity": "நவுக்சோத்"
-                    },
-                    "Ouagadougou": {
-                        "exemplarCity": "அவுகடவ்கு"
-                    },
-                    "Porto-Novo": {
-                        "exemplarCity": "போர்ட்டோ-நோவோ"
-                    },
-                    "Sao_Tome": {
-                        "exemplarCity": "சாவோ டோமே"
-                    },
-                    "Tripoli": {
-                        "exemplarCity": "த்ரிபோலி"
-                    },
-                    "Tunis": {
-                        "exemplarCity": "டுனிஸ்"
-                    },
-                    "Windhoek": {
-                        "exemplarCity": "வைண்ட்ஹோக்"
-                    }
-                },
-                "Asia": {
-                    "Aden": {
-                        "exemplarCity": "ஏதேன்"
-                    },
-                    "Almaty": {
-                        "exemplarCity": "அல்மாதி"
-                    },
-                    "Amman": {
-                        "exemplarCity": "அம்மான்"
-                    },
-                    "Anadyr": {
-                        "exemplarCity": "அனடீர்"
-                    },
-                    "Aqtau": {
-                        "exemplarCity": "அக்தவ்"
-                    },
-                    "Aqtobe": {
-                        "exemplarCity": "அக்டோப்"
-                    },
-                    "Ashgabat": {
-                        "exemplarCity": "அஷ்காபாத்"
-                    },
-                    "Baghdad": {
-                        "exemplarCity": "பாக்தாத்"
-                    },
-                    "Bahrain": {
-                        "exemplarCity": "பஹ்ரெய்ன்"
-                    },
-                    "Baku": {
-                        "exemplarCity": "பாக்கூ"
-                    },
-                    "Bangkok": {
-                        "exemplarCity": "பாங்காக்"
-                    },
-                    "Beirut": {
-                        "exemplarCity": "பெய்ரூட்"
-                    },
-                    "Bishkek": {
-                        "exemplarCity": "பிஷ்கெக்"
-                    },
-                    "Brunei": {
-                        "exemplarCity": "புருனே"
-                    },
-                    "Calcutta": {
-                        "exemplarCity": "கொல்கத்தா"
-                    },
-                    "Choibalsan": {
-                        "exemplarCity": "சோய்பால்சான்"
-                    },
-                    "Chongqing": {
-                        "exemplarCity": "சாங்குயிங்"
-                    },
-                    "Colombo": {
-                        "exemplarCity": "கொழும்பு"
-                    },
-                    "Damascus": {
-                        "exemplarCity": "டமாஸ்கஸ்"
-                    },
-                    "Dhaka": {
-                        "exemplarCity": "டாக்கா"
-                    },
-                    "Dili": {
-                        "exemplarCity": "டிலி"
-                    },
-                    "Dubai": {
-                        "exemplarCity": "துபாய்"
-                    },
-                    "Dushanbe": {
-                        "exemplarCity": "துஷன்பே"
-                    },
-                    "Gaza": {
-                        "exemplarCity": "காஸா"
-                    },
-                    "Harbin": {
-                        "exemplarCity": "ஹர்பின்"
-                    },
-                    "Hong_Kong": {
-                        "exemplarCity": "ஹாங்காங்"
-                    },
-                    "Hovd": {
-                        "exemplarCity": "ஹோவ்த்"
-                    },
-                    "Irkutsk": {
-                        "exemplarCity": "இர்குட்ஸ்க்"
-                    },
-                    "Jakarta": {
-                        "exemplarCity": "ஜகார்த்தா"
-                    },
-                    "Jayapura": {
-                        "exemplarCity": "ஜெயபூரா"
-                    },
-                    "Jerusalem": {
-                        "exemplarCity": "ஜெருசலேம்"
-                    },
-                    "Kabul": {
-                        "exemplarCity": "காபூல்"
-                    },
-                    "Kamchatka": {
-                        "exemplarCity": "காம்சட்கா"
-                    },
-                    "Karachi": {
-                        "exemplarCity": "கராச்சி"
-                    },
-                    "Kashgar": {
-                        "exemplarCity": "கஷ்கர்"
-                    },
-                    "Katmandu": {
-                        "exemplarCity": "காத்மாண்டு"
-                    },
-                    "Krasnoyarsk": {
-                        "exemplarCity": "கிராஸ்னோயார்க்ஸ்"
-                    },
-                    "Kuala_Lumpur": {
-                        "exemplarCity": "கோலாலம்பூர்"
-                    },
-                    "Kuching": {
-                        "exemplarCity": "குசிங்"
-                    },
-                    "Kuwait": {
-                        "exemplarCity": "குவைத்"
-                    },
-                    "Macau": {
-                        "exemplarCity": "மகவ்"
-                    },
-                    "Magadan": {
-                        "exemplarCity": "மகதன்"
-                    },
-                    "Makassar": {
-                        "exemplarCity": "மக்கஸர்"
-                    },
-                    "Manila": {
-                        "exemplarCity": "மணிலா"
-                    },
-                    "Muscat": {
-                        "exemplarCity": "மஸ்கட்"
-                    },
-                    "Nicosia": {
-                        "exemplarCity": "நிகோசியா"
-                    },
-                    "Novosibirsk": {
-                        "exemplarCity": "நோவோசீபிர்ஸ்க்"
-                    },
-                    "Omsk": {
-                        "exemplarCity": "ஓம்ஸ்க்"
-                    },
-                    "Oral": {
-                        "exemplarCity": "ஓரல்"
-                    },
-                    "Phnom_Penh": {
-                        "exemplarCity": "ஃப்னோம் பென்"
-                    },
-                    "Pontianak": {
-                        "exemplarCity": "போனடியானாக்"
-                    },
-                    "Pyongyang": {
-                        "exemplarCity": "பியோங்கியாங்"
-                    },
-                    "Qatar": {
-                        "exemplarCity": "கத்தார்"
-                    },
-                    "Qyzylorda": {
-                        "exemplarCity": "கிஸிலோர்டா"
-                    },
-                    "Rangoon": {
-                        "exemplarCity": "ரங்கூன்"
-                    },
-                    "Riyadh": {
-                        "exemplarCity": "ரியாத்"
-                    },
-                    "Saigon": {
-                        "exemplarCity": "ஹோ தி மின் சிட்டி"
-                    },
-                    "Sakhalin": {
-                        "exemplarCity": "சகலின்"
-                    },
-                    "Samarkand": {
-                        "exemplarCity": "சமர்கந்து"
-                    },
-                    "Seoul": {
-                        "exemplarCity": "சீயோல்"
-                    },
-                    "Shanghai": {
-                        "exemplarCity": "ஷாங்காய்"
-                    },
-                    "Singapore": {
-                        "exemplarCity": "சிங்கப்பூர்"
-                    },
-                    "Taipei": {
-                        "exemplarCity": "தைபை"
-                    },
-                    "Tashkent": {
-                        "exemplarCity": "தாஷ்கண்ட்"
-                    },
-                    "Tbilisi": {
-                        "exemplarCity": "த்பிலிசி"
-                    },
-                    "Tehran": {
-                        "exemplarCity": "டெஹ்ரன்"
-                    },
-                    "Thimphu": {
-                        "exemplarCity": "திம்பு"
-                    },
-                    "Tokyo": {
-                        "exemplarCity": "டோக்கியோ"
-                    },
-                    "Ulaanbaatar": {
-                        "exemplarCity": "உலான்பாட்டர்"
-                    },
-                    "Urumqi": {
-                        "exemplarCity": "உரும்கி"
-                    },
-                    "Vientiane": {
-                        "exemplarCity": "வியன்டியன்"
-                    },
-                    "Vladivostok": {
-                        "exemplarCity": "விலாத்திவொஸ்தோக்"
-                    },
-                    "Yakutsk": {
-                        "exemplarCity": "யகுட்ஸ்க்"
-                    },
-                    "Yekaterinburg": {
-                        "exemplarCity": "யெகாடிரின்பர்க்"
-                    },
-                    "Yerevan": {
-                        "exemplarCity": "ஏரேவன்"
-                    }
-                },
-                "Indian": {
-                    "Antananarivo": {
-                        "exemplarCity": "ஆண்டனநரிவோ"
-                    },
-                    "Chagos": {
-                        "exemplarCity": "சாகோஸ்"
-                    },
-                    "Christmas": {
-                        "exemplarCity": "கிறிஸ்மஸ்"
-                    },
-                    "Cocos": {
-                        "exemplarCity": "கோகோஸ்"
-                    },
-                    "Comoro": {
-                        "exemplarCity": "கொமரோ"
-                    },
-                    "Kerguelen": {
-                        "exemplarCity": "கெர்யூலென்"
-                    },
-                    "Mahe": {
-                        "exemplarCity": "மாஹி"
-                    },
-                    "Maldives": {
-                        "exemplarCity": "மாலத்தீவுகள்"
-                    },
-                    "Mauritius": {
-                        "exemplarCity": "மொரிஷியஸ்"
-                    },
-                    "Mayotte": {
-                        "exemplarCity": "மயோட்டி"
-                    },
-                    "Reunion": {
-                        "exemplarCity": "ரியூனியன்"
-                    }
-                },
-                "Australia": {
-                    "Adelaide": {
-                        "exemplarCity": "அடேலைட்"
-                    },
-                    "Brisbane": {
-                        "exemplarCity": "பிரிஸ்பேன்"
-                    },
-                    "Broken_Hill": {
-                        "exemplarCity": "புரோக்கன் ஹில்"
-                    },
-                    "Currie": {
-                        "exemplarCity": "கியூரி"
-                    },
-                    "Darwin": {
-                        "exemplarCity": "டார்வின்"
-                    },
-                    "Eucla": {
-                        "exemplarCity": "யூக்லா"
-                    },
-                    "Hobart": {
-                        "exemplarCity": "ஹொபார்ட்"
-                    },
-                    "Lindeman": {
-                        "exemplarCity": "லின்டெமன்"
-                    },
-                    "Lord_Howe": {
-                        "exemplarCity": "லார்டு ஹோவே"
-                    },
-                    "Melbourne": {
-                        "exemplarCity": "மெல்போர்ன்"
-                    },
-                    "Perth": {
-                        "exemplarCity": "பெர்த்"
-                    },
-                    "Sydney": {
-                        "exemplarCity": "சிட்னி"
-                    }
-                },
-                "Pacific": {
-                    "Apia": {
-                        "exemplarCity": "அபியா"
-                    },
-                    "Auckland": {
-                        "exemplarCity": "ஆக்லாந்து"
-                    },
-                    "Chatham": {
-                        "exemplarCity": "சாதம்"
-                    },
-                    "Easter": {
-                        "exemplarCity": "ஈஸ்டர்"
-                    },
-                    "Efate": {
-                        "exemplarCity": "ஈஃபேட்"
-                    },
-                    "Enderbury": {
-                        "exemplarCity": "எண்டர்பரி"
-                    },
-                    "Fakaofo": {
-                        "exemplarCity": "ஃபகாஃபோ"
-                    },
-                    "Fiji": {
-                        "exemplarCity": "ஃபிஜி"
-                    },
-                    "Funafuti": {
-                        "exemplarCity": "ஃபுனாஃபுடி"
-                    },
-                    "Galapagos": {
-                        "exemplarCity": "கலபகோஸ்"
-                    },
-                    "Gambier": {
-                        "exemplarCity": "கேம்பியர்"
-                    },
-                    "Guadalcanal": {
-                        "exemplarCity": "கவுடால்கேனல்"
-                    },
-                    "Guam": {
-                        "exemplarCity": "குவாம்"
-                    },
-                    "Honolulu": {
-                        "exemplarCity": "ஹானலுலு"
-                    },
-                    "Johnston": {
-                        "exemplarCity": "ஜோன்ஸ்டன்"
-                    },
-                    "Kiritimati": {
-                        "exemplarCity": "க்ரிமடி"
-                    },
-                    "Kosrae": {
-                        "exemplarCity": "கோஸ்ரே"
-                    },
-                    "Kwajalein": {
-                        "exemplarCity": "க்வாஜாலீயன்"
-                    },
-                    "Majuro": {
-                        "exemplarCity": "மஜுரோ"
-                    },
-                    "Marquesas": {
-                        "exemplarCity": "மார்குசாஸ்"
-                    },
-                    "Midway": {
-                        "exemplarCity": "மிட்வே"
-                    },
-                    "Nauru": {
-                        "exemplarCity": "நவ்ரூ"
-                    },
-                    "Niue": {
-                        "exemplarCity": "நியு"
-                    },
-                    "Norfolk": {
-                        "exemplarCity": "நார்ஃபோக்"
-                    },
-                    "Noumea": {
-                        "exemplarCity": "நவுமியா"
-                    },
-                    "Pago_Pago": {
-                        "exemplarCity": "பேகோ பேகோ"
-                    },
-                    "Palau": {
-                        "exemplarCity": "பாலவ்"
-                    },
-                    "Pitcairn": {
-                        "exemplarCity": "பிட்காரின்"
-                    },
-                    "Ponape": {
-                        "exemplarCity": "ஃபோன்பெய்"
-                    },
-                    "Port_Moresby": {
-                        "exemplarCity": "போர்ட் மோர்ஸ்பை"
-                    },
-                    "Rarotonga": {
-                        "exemplarCity": "ரரோடோங்கா"
-                    },
-                    "Saipan": {
-                        "exemplarCity": "சைபன்"
-                    },
-                    "Tahiti": {
-                        "exemplarCity": "தாஹிதி"
-                    },
-                    "Tarawa": {
-                        "exemplarCity": "தராவா"
-                    },
-                    "Tongatapu": {
-                        "exemplarCity": "டோன்கடப்பு"
-                    },
-                    "Truk": {
-                        "exemplarCity": "சூக்"
-                    },
-                    "Wake": {
-                        "exemplarCity": "வேக்"
-                    },
-                    "Wallis": {
-                        "exemplarCity": "வாலிஸ்"
-                    }
-                },
-                "Arctic": {
-                    "Longyearbyen": {
-                        "exemplarCity": "லாங்கர்பியன்"
-                    }
-                },
-                "Antarctica": {
-                    "Casey": {
-                        "exemplarCity": "கேஸி"
-                    },
-                    "Davis": {
-                        "exemplarCity": "டேவிஸ்"
-                    },
-                    "DumontDUrville": {
-                        "exemplarCity": "குமான்ட் டுவிரேல்"
-                    },
-                    "Mawson": {
-                        "exemplarCity": "மவுசன்"
-                    },
-                    "McMurdo": {
-                        "exemplarCity": "மெக்மர்டோ"
-                    },
-                    "Palmer": {
-                        "exemplarCity": "பால்மர்"
-                    },
-                    "Rothera": {
-                        "exemplarCity": "ரோதேரா"
-                    },
-                    "South_Pole": {
-                        "exemplarCity": "தென் துருவம்"
-                    },
-                    "Syowa": {
-                        "exemplarCity": "ஸ்யோவா"
-                    },
-                    "Vostok": {
-                        "exemplarCity": "வோஸ்டோக்"
-                    }
-                },
-                "Etc": {
-                    "Unknown": {
-                        "exemplarCity": "தெரியாத நகரம்"
-                    }
-                }
+            {
+                "hour": "numeric",
+                "minute": "2-digit",
+                "second": "2-digit",
+                "timeZoneName": "short",
+                "pattern": "{hour}:{minute}:{second} {timeZoneName}",
+                "pattern12": "{hour}:{minute}:{second} {ampm} {timeZoneName}"
+            },
+            {
+                "hour": "numeric",
+                "minute": "2-digit",
+                "second": "2-digit",
+                "pattern": "{hour}:{minute}:{second}",
+                "pattern12": "{hour}:{minute}:{second} {ampm}"
+            },
+            {
+                "hour": "numeric",
+                "minute": "2-digit",
+                "pattern": "{hour}:{minute}",
+                "pattern12": "{hour}:{minute} {ampm}"
+            },
+            {
+                "weekday": "long",
+                "day": "numeric",
+                "month": "long",
+                "year": "numeric",
+                "pattern": "{weekday}, {day} {month}, {year}"
+            },
+            {
+                "day": "numeric",
+                "month": "long",
+                "year": "numeric",
+                "pattern": "{day} {month}, {year}"
+            },
+            {
+                "day": "numeric",
+                "month": "short",
+                "year": "numeric",
+                "pattern": "{day} {month}, {year}"
+            },
+            {
+                "day": "numeric",
+                "month": "numeric",
+                "year": "2-digit",
+                "pattern": "{day}-{month}-{year}"
+            },
+            {
+                "day": "numeric",
+                "pattern": "{day}"
+            },
+            {
+                "day": "numeric",
+                "month": "numeric",
+                "year": "numeric",
+                "pattern": "{day}/{month}/{year}"
+            },
+            {
+                "weekday": "short",
+                "day": "numeric",
+                "month": "short",
+                "pattern": "{weekday}, {day} {month}"
+            },
+            {
+                "hour": "numeric",
+                "minute": "2-digit",
+                "pattern": "{hour}:{minute}",
+                "pattern12": "{hour}:{minute} {ampm}"
+            },
+            {
+                "year": "numeric",
+                "pattern": "{year}"
+            },
+            {
+                "hour": "numeric",
+                "pattern": "{hour}",
+                "pattern12": "{hour} {ampm}"
+            },
+            {
+                "month": "short",
+                "pattern": "{month}"
+            },
+            {
+                "minute": "2-digit",
+                "second": "2-digit",
+                "pattern": "{minute}:{second}"
+            },
+            {
+                "day": "2-digit",
+                "month": "2-digit",
+                "pattern": "{day}-{month}"
+            },
+            {
+                "month": "numeric",
+                "pattern": "{month}"
+            },
+            {
+                "era": "short",
+                "year": "numeric",
+                "month": "short",
+                "pattern": "{era} {year} {month}"
+            },
+            {
+                "hour": "numeric",
+                "minute": "2-digit",
+                "second": "2-digit",
+                "pattern": "{hour}:{minute}:{second}",
+                "pattern12": "{hour}:{minute}:{second} {ampm}"
+            },
+            {
+                "day": "numeric",
+                "month": "short",
+                "pattern": "{day} {month}"
+            },
+            {
+                "day": "numeric",
+                "month": "numeric",
+                "pattern": "{day}/{month}"
+            },
+            {
+                "day": "numeric",
+                "month": "short",
+                "year": "numeric",
+                "pattern": "{day} {month}, {year}"
+            },
+            {
+                "month": "2-digit",
+                "year": "numeric",
+                "pattern": "{month}-{year}"
+            },
+            {
+                "era": "short",
+                "year": "numeric",
+                "month": "short",
+                "day": "numeric",
+                "pattern": "{era} {year} {month} {day}"
+            },
+            {
+                "day": "numeric",
+                "weekday": "short",
+                "pattern": "{day} {weekday}"
+            },
+            {
+                "weekday": "short",
+                "day": "numeric",
+                "month": "numeric",
+                "year": "numeric",
+                "pattern": "{weekday}, {day}/{month}/{year}"
+            },
+            {
+                "month": "numeric",
+                "year": "numeric",
+                "pattern": "{month}/{year}"
+            },
+            {
+                "day": "numeric",
+                "month": "long",
+                "pattern": "{day} {month}"
+            },
+            {
+                "era": "short",
+                "year": "numeric",
+                "pattern": "{era} {year}"
+            },
+            {
+                "weekday": "short",
+                "day": "numeric",
+                "month": "short",
+                "year": "numeric",
+                "pattern": "{weekday}, {day} {month}, {year}"
+            },
+            {
+                "era": "short",
+                "year": "numeric",
+                "month": "short",
+                "day": "numeric",
+                "weekday": "short",
+                "pattern": "{era} {year} {month} {day}, {weekday}"
+            },
+            {
+                "month": "long",
+                "year": "numeric",
+                "pattern": "{month} {year}"
+            },
+            {
+                "weekday": "short",
+                "day": "numeric",
+                "month": "numeric",
+                "pattern": "{weekday}, {day}/{month}"
+            },
+            {
+                "month": "short",
+                "year": "numeric",
+                "pattern": "{month} {year}"
             }
-        },
+        ],
         "calendars": {
-            "generic": {
-                "dateFormats": {
-                    "full": "EEEE, d MMMM, y G",
-                    "long": "d MMMM, y G",
-                    "medium": "d MMM, y G",
-                    "short": "d-M-yy GGGGG"
-                },
-                "dateTimeFormats": {
-                    "full": "{1} {0}",
-                    "long": "{1} {0}",
-                    "medium": "{1} {0}",
-                    "short": "{1} {0}",
-                    "availableFormats": {
-                        "d": "d",
-                        "Ed": "d E",
-                        "h": "h a",
-                        "H": "HH",
-                        "hm": "h:mm a",
-                        "Hm": "HH:mm",
-                        "hms": "h:mm:ss a",
-                        "Hms": "HH:mm:ss",
-                        "M": "L",
-                        "Md": "d/M",
-                        "MEd": "E, d/M",
-                        "MMdd": "dd-MM",
-                        "MMM": "LLL",
-                        "MMMd": "d MMM",
-                        "MMMEd": "E, d MMM",
-                        "MMMMd": "d MMMM",
-                        "ms": "mm:ss",
-                        "y": "y",
-                        "yM": "M/y",
-                        "yMd": "d/M/y",
-                        "yMEd": "E, d/M/y",
-                        "yMM": "MM-y",
-                        "yMMM": "MMM y",
-                        "yMMMd": "d MMM, y",
-                        "yMMMEd": "E, d MMM, y",
-                        "yMMMM": "MMMM y",
-                        "yQQQ": "QQQ y",
-                        "yQQQQ": "QQQQ y"
-                    }
+            "ethioaa": {
+                "eras": {
+                    "short": [
+                        "ERA0"
+                    ]
                 }
             },
-            "gregorian": {
+            "roc": {
+                "eras": {
+                    "short": [
+                        "Before R.O.C.",
+                        "R.O.C."
+                    ]
+                }
+            },
+            "indian": {
                 "months": {
-                    "format": {
-                        "abbreviated": {
-                            "1": "ஜன.",
-                            "2": "பிப்.",
-                            "3": "மார்.",
-                            "4": "ஏப்.",
-                            "5": "மே",
-                            "6": "ஜூன்",
-                            "7": "ஜூலை",
-                            "8": "ஆக.",
-                            "9": "செப்.",
-                            "10": "அக்.",
-                            "11": "நவ.",
-                            "12": "டிச."
-                        },
-                        "narrow": {
-                            "1": "ஜ",
-                            "2": "பி",
-                            "3": "மா",
-                            "4": "ஏ",
-                            "5": "மே",
-                            "6": "ஜூ",
-                            "7": "ஜூ",
-                            "8": "ஆ",
-                            "9": "செ",
-                            "10": "அ",
-                            "11": "ந",
-                            "12": "டி"
-                        },
-                        "wide": {
-                            "1": "ஜனவரி",
-                            "2": "பிப்ரவரி",
-                            "3": "மார்ச்",
-                            "4": "ஏப்ரல்",
-                            "5": "மே",
-                            "6": "ஜூன்",
-                            "7": "ஜூலை",
-                            "8": "ஆகஸ்ட்",
-                            "9": "செப்டம்பர்",
-                            "10": "அக்டோபர்",
-                            "11": "நவம்பர்",
-                            "12": "டிசம்பர்"
-                        }
-                    },
-                    "stand-alone": {
-                        "abbreviated": {
-                            "1": "ஜன.",
-                            "2": "பிப்.",
-                            "3": "மார்.",
-                            "4": "ஏப்.",
-                            "5": "மே",
-                            "6": "ஜூன்",
-                            "7": "ஜூலை",
-                            "8": "ஆக.",
-                            "9": "செப்.",
-                            "10": "அக்.",
-                            "11": "நவ.",
-                            "12": "டிச."
-                        },
-                        "narrow": {
-                            "1": "ஜ",
-                            "2": "பி",
-                            "3": "மா",
-                            "4": "ஏ",
-                            "5": "மே",
-                            "6": "ஜூ",
-                            "7": "ஜூ",
-                            "8": "ஆ",
-                            "9": "செ",
-                            "10": "அ",
-                            "11": "ந",
-                            "12": "டி"
-                        },
-                        "wide": {
-                            "1": "ஜனவரி",
-                            "2": "பிப்ரவரி",
-                            "3": "மார்ச்",
-                            "4": "ஏப்ரல்",
-                            "5": "மே",
-                            "6": "ஜூன்",
-                            "7": "ஜூலை",
-                            "8": "ஆகஸ்டு",
-                            "9": "செப்டம்பர்",
-                            "10": "அக்டோபர்",
-                            "11": "நவம்பர்",
-                            "12": "டிசம்பர்"
-                        }
-                    }
-                },
-                "days": {
-                    "format": {
-                        "abbreviated": {
-                            "sun": "ஞா",
-                            "mon": "தி",
-                            "tue": "செ",
-                            "wed": "பு",
-                            "thu": "வி",
-                            "fri": "வெ",
-                            "sat": "ச"
-                        },
-                        "short": {
-                            "sun": "ஞா",
-                            "mon": "தி",
-                            "tue": "செ",
-                            "wed": "பு",
-                            "thu": "வி",
-                            "fri": "வெ",
-                            "sat": "ச"
-                        },
-                        "wide": {
-                            "sun": "ஞாயிறு",
-                            "mon": "திங்கள்",
-                            "tue": "செவ்வாய்",
-                            "wed": "புதன்",
-                            "thu": "வியாழன்",
-                            "fri": "வெள்ளி",
-                            "sat": "சனி"
-                        }
-                    },
-                    "stand-alone": {
-                        "narrow": {
-                            "sun": "ஞா",
-                            "mon": "தி",
-                            "tue": "செ",
-                            "wed": "பு",
-                            "thu": "வி",
-                            "fri": "வெ",
-                            "sat": "ச"
-                        },
-                        "short": {
-                            "sun": "ஞா",
-                            "mon": "தி",
-                            "tue": "செ",
-                            "wed": "பு",
-                            "thu": "வி",
-                            "fri": "வெ",
-                            "sat": "ச"
-                        },
-                        "wide": {
-                            "sun": "ஞாயிறு",
-                            "mon": "திங்கள்",
-                            "tue": "செவ்வாய்",
-                            "wed": "புதன்",
-                            "thu": "வியாழன்",
-                            "fri": "வெள்ளி",
-                            "sat": "சனி"
-                        }
-                    }
-                },
-                "quarters": {
-                    "format": {
-                        "abbreviated": {
-                            "1": "காலாண்டு1",
-                            "2": "காலாண்டு2",
-                            "3": "காலாண்டு3",
-                            "4": "காலாண்டு4"
-                        },
-                        "narrow": {
-                            "1": "1",
-                            "2": "2",
-                            "3": "3",
-                            "4": "4"
-                        },
-                        "wide": {
-                            "1": "முதல் காலாண்டு",
-                            "2": "இரண்டாம் காலாண்டு",
-                            "3": "மூன்றாம் காலாண்டு",
-                            "4": "நான்காம் காலாண்டு"
-                        }
-                    },
-                    "stand-alone": {
-                        "abbreviated": {
-                            "1": "காலாண்டு1",
-                            "2": "காலாண்டு2",
-                            "3": "காலாண்டு3",
-                            "4": "காலாண்டு4"
-                        },
-                        "narrow": {
-                            "1": "1",
-                            "2": "2",
-                            "3": "3",
-                            "4": "4"
-                        },
-                        "wide": {
-                            "1": "முதல் காலாண்டு",
-                            "2": "இரண்டாம் காலாண்டு",
-                            "3": "மூன்றாம் காலாண்டு",
-                            "4": "நான்காம் காலாண்டு"
-                        }
-                    }
-                },
-                "dayPeriods": {
-                    "format": {
-                        "abbreviated": {
-                            "am": "முற்பகல்",
-                            "pm": "பிற்பகல்"
-                        },
-                        "narrow": {
-                            "am": "AM",
-                            "pm": "PM"
-                        },
-                        "wide": {
-                            "am": "AM",
-                            "pm": "PM"
-                        }
-                    }
+                    "long": [
+                        "Chaitra",
+                        "Vaisakha",
+                        "Jyaistha",
+                        "Asadha",
+                        "Sravana",
+                        "Bhadra",
+                        "Asvina",
+                        "Kartika",
+                        "Agrahayana",
+                        "Pausa",
+                        "Magha",
+                        "Phalguna"
+                    ]
                 },
                 "eras": {
-                    "eraNames": {
-                        "0": "கிறிஸ்துவுக்கு முன்",
-                        "1": "அனோ டோமினி"
-                    },
-                    "eraAbbr": {
-                        "0": "கி.மு.",
-                        "1": "கி.பி."
-                    }
+                    "short": [
+                        "SAKA"
+                    ]
+                }
+            },
+            "persian": {
+                "months": {
+                    "long": [
+                        "Farvardin",
+                        "Ordibehesht",
+                        "Khordad",
+                        "Tir",
+                        "Mordad",
+                        "Shahrivar",
+                        "Mehr",
+                        "Aban",
+                        "Azar",
+                        "Dey",
+                        "Bahman",
+                        "Esfand"
+                    ]
                 },
-                "dateFormats": {
-                    "full": "EEEE, d MMMM, y",
-                    "long": "d MMMM, y",
-                    "medium": "d MMM, y",
-                    "short": "d-M-yy"
+                "eras": {
+                    "short": [
+                        "AP"
+                    ]
+                }
+            },
+            "islamic": {
+                "months": {
+                    "short": [
+                        "Muh.",
+                        "Saf.",
+                        "Rab. I",
+                        "Rab. II",
+                        "Jum. I",
+                        "Jum. II",
+                        "Raj.",
+                        "Sha.",
+                        "Ram.",
+                        "Shaw.",
+                        "Dhuʻl-Q.",
+                        "Dhuʻl-H."
+                    ],
+                    "long": [
+                        "Muharram",
+                        "Safar",
+                        "Rabiʻ I",
+                        "Rabiʻ II",
+                        "Jumada I",
+                        "Jumada II",
+                        "Rajab",
+                        "Shaʻban",
+                        "Ramadan",
+                        "Shawwal",
+                        "Dhuʻl-Qiʻdah",
+                        "Dhuʻl-Hijjah"
+                    ]
                 },
-                "timeFormats": {
-                    "full": "h:mm:ss a zzzz",
-                    "long": "h:mm:ss a z",
-                    "medium": "h:mm:ss a",
-                    "short": "h:mm a"
+                "eras": {
+                    "short": [
+                        "AH"
+                    ]
+                }
+            },
+            "generic": {
+                "months": {
+                    "long": [
+                        "Month1",
+                        "Month2",
+                        "Month3",
+                        "Month4",
+                        "Month5",
+                        "Month6",
+                        "Month7",
+                        "Month8",
+                        "Month9",
+                        "Month10",
+                        "Month11",
+                        "Month12"
+                    ]
                 },
-                "dateTimeFormats": {
-                    "full": "{1} {0}",
-                    "long": "{1} {0}",
-                    "medium": "{1} {0}",
-                    "short": "{1} {0}",
-                    "availableFormats": {
-                        "d": "d",
-                        "Ed": "d E",
-                        "h": "h a",
-                        "H": "HH",
-                        "hm": "h:mm a",
-                        "Hm": "HH:mm",
-                        "hms": "h:mm:ss a",
-                        "Hms": "HH:mm:ss",
-                        "M": "L",
-                        "Md": "d/M",
-                        "MEd": "E, d/M",
-                        "MMdd": "dd-MM",
-                        "MMM": "LLL",
-                        "MMMd": "d MMM",
-                        "MMMEd": "E, d MMM",
-                        "MMMMd": "d MMMM",
-                        "ms": "mm:ss",
-                        "y": "y",
-                        "yM": "M/y",
-                        "yMd": "d/M/y",
-                        "yMEd": "E, d/M/y",
-                        "yMM": "MM-y",
-                        "yMMM": "MMM y",
-                        "yMMMd": "d MMM, y",
-                        "yMMMEd": "E, d MMM, y",
-                        "yMMMM": "MMMM y",
-                        "yQQQ": "QQQ y",
-                        "yQQQQ": "QQQQ y"
-                    }
+                "eras": {
+                    "short": [
+                        "ERA0",
+                        "ERA1"
+                    ]
+                }
+            },
+            "gregory": {
+                "months": {
+                    "narrow": [
+                        "ஜ",
+                        "பி",
+                        "மா",
+                        "ஏ",
+                        "மே",
+                        "ஜூ",
+                        "ஜூ",
+                        "ஆ",
+                        "செ",
+                        "அ",
+                        "ந",
+                        "டி"
+                    ],
+                    "short": [
+                        "ஜன.",
+                        "பிப்.",
+                        "மார்.",
+                        "ஏப்.",
+                        "மே",
+                        "ஜூன்",
+                        "ஜூலை",
+                        "ஆக.",
+                        "செப்.",
+                        "அக்.",
+                        "நவ.",
+                        "டிச."
+                    ],
+                    "long": [
+                        "ஜனவரி",
+                        "பிப்ரவரி",
+                        "மார்ச்",
+                        "ஏப்ரல்",
+                        "மே",
+                        "ஜூன்",
+                        "ஜூலை",
+                        "ஆகஸ்ட்",
+                        "செப்டம்பர்",
+                        "அக்டோபர்",
+                        "நவம்பர்",
+                        "டிசம்பர்"
+                    ]
+                },
+                "days": {
+                    "narrow": [
+                        "ஞா",
+                        "தி",
+                        "செ",
+                        "பு",
+                        "வி",
+                        "வெ",
+                        "ச"
+                    ],
+                    "short": [
+                        "ஞா",
+                        "தி",
+                        "செ",
+                        "பு",
+                        "வி",
+                        "வெ",
+                        "ச"
+                    ],
+                    "long": [
+                        "ஞாயிறு",
+                        "திங்கள்",
+                        "செவ்வாய்",
+                        "புதன்",
+                        "வியாழன்",
+                        "வெள்ளி",
+                        "சனி"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "கி.மு.",
+                        "கி.பி."
+                    ],
+                    "long": [
+                        "கிறிஸ்துவுக்கு முன்",
+                        "அனோ டோமினி"
+                    ]
+                },
+                "dayPeriods": {
+                    "am": "AM",
+                    "pm": "PM"
+                }
+            },
+            "japanese": {
+                "eras": {
+                    "narrow": [
+                        "Taika (645-650)",
+                        "Hakuchi (650-671)",
+                        "Hakuhō (672-686)",
+                        "Shuchō (686-701)",
+                        "Taihō (701-704)",
+                        "Keiun (704-708)",
+                        "Wadō (708-715)",
+                        "Reiki (715-717)",
+                        "Yōrō (717-724)",
+                        "Jinki (724-729)",
+                        "Tempyō (729-749)",
+                        "Tempyō-kampō (749-749)",
+                        "Tempyō-shōhō (749-757)",
+                        "Tempyō-hōji (757-765)",
+                        "Temphō-jingo (765-767)",
+                        "Jingo-keiun (767-770)",
+                        "Hōki (770-780)",
+                        "Ten-ō (781-782)",
+                        "Enryaku (782-806)",
+                        "Daidō (806-810)",
+                        "Kōnin (810-824)",
+                        "Tenchō (824-834)",
+                        "Jōwa (834-848)",
+                        "Kajō (848-851)",
+                        "Ninju (851-854)",
+                        "Saiko (854-857)",
+                        "Tennan (857-859)",
+                        "Jōgan (859-877)",
+                        "Genkei (877-885)",
+                        "Ninna (885-889)",
+                        "Kampyō (889-898)",
+                        "Shōtai (898-901)",
+                        "Engi (901-923)",
+                        "Enchō (923-931)",
+                        "Shōhei (931-938)",
+                        "Tengyō (938-947)",
+                        "Tenryaku (947-957)",
+                        "Tentoku (957-961)",
+                        "Ōwa (961-964)",
+                        "Kōhō (964-968)",
+                        "Anna (968-970)",
+                        "Tenroku (970-973)",
+                        "Ten-en (973-976)",
+                        "Jōgen (976-978)",
+                        "Tengen (978-983)",
+                        "Eikan (983-985)",
+                        "Kanna (985-987)",
+                        "Ei-en (987-989)",
+                        "Eiso (989-990)",
+                        "Shōryaku (990-995)",
+                        "Chōtoku (995-999)",
+                        "Chōhō (999-1004)",
+                        "Kankō (1004-1012)",
+                        "Chōwa (1012-1017)",
+                        "Kannin (1017-1021)",
+                        "Jian (1021-1024)",
+                        "Manju (1024-1028)",
+                        "Chōgen (1028-1037)",
+                        "Chōryaku (1037-1040)",
+                        "Chōkyū (1040-1044)",
+                        "Kantoku (1044-1046)",
+                        "Eishō (1046-1053)",
+                        "Tengi (1053-1058)",
+                        "Kōhei (1058-1065)",
+                        "Jiryaku (1065-1069)",
+                        "Enkyū (1069-1074)",
+                        "Shōho (1074-1077)",
+                        "Shōryaku (1077-1081)",
+                        "Eiho (1081-1084)",
+                        "Ōtoku (1084-1087)",
+                        "Kanji (1087-1094)",
+                        "Kaho (1094-1096)",
+                        "Eichō (1096-1097)",
+                        "Shōtoku (1097-1099)",
+                        "Kōwa (1099-1104)",
+                        "Chōji (1104-1106)",
+                        "Kashō (1106-1108)",
+                        "Tennin (1108-1110)",
+                        "Ten-ei (1110-1113)",
+                        "Eikyū (1113-1118)",
+                        "Gen-ei (1118-1120)",
+                        "Hoan (1120-1124)",
+                        "Tenji (1124-1126)",
+                        "Daiji (1126-1131)",
+                        "Tenshō (1131-1132)",
+                        "Chōshō (1132-1135)",
+                        "Hoen (1135-1141)",
+                        "Eiji (1141-1142)",
+                        "Kōji (1142-1144)",
+                        "Tenyō (1144-1145)",
+                        "Kyūan (1145-1151)",
+                        "Ninpei (1151-1154)",
+                        "Kyūju (1154-1156)",
+                        "Hogen (1156-1159)",
+                        "Heiji (1159-1160)",
+                        "Eiryaku (1160-1161)",
+                        "Ōho (1161-1163)",
+                        "Chōkan (1163-1165)",
+                        "Eiman (1165-1166)",
+                        "Nin-an (1166-1169)",
+                        "Kaō (1169-1171)",
+                        "Shōan (1171-1175)",
+                        "Angen (1175-1177)",
+                        "Jishō (1177-1181)",
+                        "Yōwa (1181-1182)",
+                        "Juei (1182-1184)",
+                        "Genryuku (1184-1185)",
+                        "Bunji (1185-1190)",
+                        "Kenkyū (1190-1199)",
+                        "Shōji (1199-1201)",
+                        "Kennin (1201-1204)",
+                        "Genkyū (1204-1206)",
+                        "Ken-ei (1206-1207)",
+                        "Shōgen (1207-1211)",
+                        "Kenryaku (1211-1213)",
+                        "Kenpō (1213-1219)",
+                        "Shōkyū (1219-1222)",
+                        "Jōō (1222-1224)",
+                        "Gennin (1224-1225)",
+                        "Karoku (1225-1227)",
+                        "Antei (1227-1229)",
+                        "Kanki (1229-1232)",
+                        "Jōei (1232-1233)",
+                        "Tempuku (1233-1234)",
+                        "Bunryaku (1234-1235)",
+                        "Katei (1235-1238)",
+                        "Ryakunin (1238-1239)",
+                        "En-ō (1239-1240)",
+                        "Ninji (1240-1243)",
+                        "Kangen (1243-1247)",
+                        "Hōji (1247-1249)",
+                        "Kenchō (1249-1256)",
+                        "Kōgen (1256-1257)",
+                        "Shōka (1257-1259)",
+                        "Shōgen (1259-1260)",
+                        "Bun-ō (1260-1261)",
+                        "Kōchō (1261-1264)",
+                        "Bun-ei (1264-1275)",
+                        "Kenji (1275-1278)",
+                        "Kōan (1278-1288)",
+                        "Shōō (1288-1293)",
+                        "Einin (1293-1299)",
+                        "Shōan (1299-1302)",
+                        "Kengen (1302-1303)",
+                        "Kagen (1303-1306)",
+                        "Tokuji (1306-1308)",
+                        "Enkei (1308-1311)",
+                        "Ōchō (1311-1312)",
+                        "Shōwa (1312-1317)",
+                        "Bunpō (1317-1319)",
+                        "Genō (1319-1321)",
+                        "Genkyō (1321-1324)",
+                        "Shōchū (1324-1326)",
+                        "Kareki (1326-1329)",
+                        "Gentoku (1329-1331)",
+                        "Genkō (1331-1334)",
+                        "Kemmu (1334-1336)",
+                        "Engen (1336-1340)",
+                        "Kōkoku (1340-1346)",
+                        "Shōhei (1346-1370)",
+                        "Kentoku (1370-1372)",
+                        "Bunchũ (1372-1375)",
+                        "Tenju (1375-1379)",
+                        "Kōryaku (1379-1381)",
+                        "Kōwa (1381-1384)",
+                        "Genchũ (1384-1392)",
+                        "Meitoku (1384-1387)",
+                        "Kakei (1387-1389)",
+                        "Kōō (1389-1390)",
+                        "Meitoku (1390-1394)",
+                        "Ōei (1394-1428)",
+                        "Shōchō (1428-1429)",
+                        "Eikyō (1429-1441)",
+                        "Kakitsu (1441-1444)",
+                        "Bun-an (1444-1449)",
+                        "Hōtoku (1449-1452)",
+                        "Kyōtoku (1452-1455)",
+                        "Kōshō (1455-1457)",
+                        "Chōroku (1457-1460)",
+                        "Kanshō (1460-1466)",
+                        "Bunshō (1466-1467)",
+                        "Ōnin (1467-1469)",
+                        "Bunmei (1469-1487)",
+                        "Chōkyō (1487-1489)",
+                        "Entoku (1489-1492)",
+                        "Meiō (1492-1501)",
+                        "Bunki (1501-1504)",
+                        "Eishō (1504-1521)",
+                        "Taiei (1521-1528)",
+                        "Kyōroku (1528-1532)",
+                        "Tenmon (1532-1555)",
+                        "Kōji (1555-1558)",
+                        "Eiroku (1558-1570)",
+                        "Genki (1570-1573)",
+                        "Tenshō (1573-1592)",
+                        "Bunroku (1592-1596)",
+                        "Keichō (1596-1615)",
+                        "Genwa (1615-1624)",
+                        "Kan-ei (1624-1644)",
+                        "Shōho (1644-1648)",
+                        "Keian (1648-1652)",
+                        "Shōō (1652-1655)",
+                        "Meiryaku (1655-1658)",
+                        "Manji (1658-1661)",
+                        "Kanbun (1661-1673)",
+                        "Enpō (1673-1681)",
+                        "Tenwa (1681-1684)",
+                        "Jōkyō (1684-1688)",
+                        "Genroku (1688-1704)",
+                        "Hōei (1704-1711)",
+                        "Shōtoku (1711-1716)",
+                        "Kyōhō (1716-1736)",
+                        "Genbun (1736-1741)",
+                        "Kanpō (1741-1744)",
+                        "Enkyō (1744-1748)",
+                        "Kan-en (1748-1751)",
+                        "Hōryaku (1751-1764)",
+                        "Meiwa (1764-1772)",
+                        "An-ei (1772-1781)",
+                        "Tenmei (1781-1789)",
+                        "Kansei (1789-1801)",
+                        "Kyōwa (1801-1804)",
+                        "Bunka (1804-1818)",
+                        "Bunsei (1818-1830)",
+                        "Tenpō (1830-1844)",
+                        "Kōka (1844-1848)",
+                        "Kaei (1848-1854)",
+                        "Ansei (1854-1860)",
+                        "Man-en (1860-1861)",
+                        "Bunkyū (1861-1864)",
+                        "Genji (1864-1865)",
+                        "Keiō (1865-1868)",
+                        "M",
+                        "T",
+                        "S",
+                        "H"
+                    ],
+                    "short": [
+                        "Taika (645-650)",
+                        "Hakuchi (650-671)",
+                        "Hakuhō (672-686)",
+                        "Shuchō (686-701)",
+                        "Taihō (701-704)",
+                        "Keiun (704-708)",
+                        "Wadō (708-715)",
+                        "Reiki (715-717)",
+                        "Yōrō (717-724)",
+                        "Jinki (724-729)",
+                        "Tempyō (729-749)",
+                        "Tempyō-kampō (749-749)",
+                        "Tempyō-shōhō (749-757)",
+                        "Tempyō-hōji (757-765)",
+                        "Temphō-jingo (765-767)",
+                        "Jingo-keiun (767-770)",
+                        "Hōki (770-780)",
+                        "Ten-ō (781-782)",
+                        "Enryaku (782-806)",
+                        "Daidō (806-810)",
+                        "Kōnin (810-824)",
+                        "Tenchō (824-834)",
+                        "Jōwa (834-848)",
+                        "Kajō (848-851)",
+                        "Ninju (851-854)",
+                        "Saiko (854-857)",
+                        "Tennan (857-859)",
+                        "Jōgan (859-877)",
+                        "Genkei (877-885)",
+                        "Ninna (885-889)",
+                        "Kampyō (889-898)",
+                        "Shōtai (898-901)",
+                        "Engi (901-923)",
+                        "Enchō (923-931)",
+                        "Shōhei (931-938)",
+                        "Tengyō (938-947)",
+                        "Tenryaku (947-957)",
+                        "Tentoku (957-961)",
+                        "Ōwa (961-964)",
+                        "Kōhō (964-968)",
+                        "Anna (968-970)",
+                        "Tenroku (970-973)",
+                        "Ten-en (973-976)",
+                        "Jōgen (976-978)",
+                        "Tengen (978-983)",
+                        "Eikan (983-985)",
+                        "Kanna (985-987)",
+                        "Ei-en (987-989)",
+                        "Eiso (989-990)",
+                        "Shōryaku (990-995)",
+                        "Chōtoku (995-999)",
+                        "Chōhō (999-1004)",
+                        "Kankō (1004-1012)",
+                        "Chōwa (1012-1017)",
+                        "Kannin (1017-1021)",
+                        "Jian (1021-1024)",
+                        "Manju (1024-1028)",
+                        "Chōgen (1028-1037)",
+                        "Chōryaku (1037-1040)",
+                        "Chōkyū (1040-1044)",
+                        "Kantoku (1044-1046)",
+                        "Eishō (1046-1053)",
+                        "Tengi (1053-1058)",
+                        "Kōhei (1058-1065)",
+                        "Jiryaku (1065-1069)",
+                        "Enkyū (1069-1074)",
+                        "Shōho (1074-1077)",
+                        "Shōryaku (1077-1081)",
+                        "Eiho (1081-1084)",
+                        "Ōtoku (1084-1087)",
+                        "Kanji (1087-1094)",
+                        "Kaho (1094-1096)",
+                        "Eichō (1096-1097)",
+                        "Shōtoku (1097-1099)",
+                        "Kōwa (1099-1104)",
+                        "Chōji (1104-1106)",
+                        "Kashō (1106-1108)",
+                        "Tennin (1108-1110)",
+                        "Ten-ei (1110-1113)",
+                        "Eikyū (1113-1118)",
+                        "Gen-ei (1118-1120)",
+                        "Hoan (1120-1124)",
+                        "Tenji (1124-1126)",
+                        "Daiji (1126-1131)",
+                        "Tenshō (1131-1132)",
+                        "Chōshō (1132-1135)",
+                        "Hoen (1135-1141)",
+                        "Eiji (1141-1142)",
+                        "Kōji (1142-1144)",
+                        "Tenyō (1144-1145)",
+                        "Kyūan (1145-1151)",
+                        "Ninpei (1151-1154)",
+                        "Kyūju (1154-1156)",
+                        "Hogen (1156-1159)",
+                        "Heiji (1159-1160)",
+                        "Eiryaku (1160-1161)",
+                        "Ōho (1161-1163)",
+                        "Chōkan (1163-1165)",
+                        "Eiman (1165-1166)",
+                        "Nin-an (1166-1169)",
+                        "Kaō (1169-1171)",
+                        "Shōan (1171-1175)",
+                        "Angen (1175-1177)",
+                        "Jishō (1177-1181)",
+                        "Yōwa (1181-1182)",
+                        "Juei (1182-1184)",
+                        "Genryuku (1184-1185)",
+                        "Bunji (1185-1190)",
+                        "Kenkyū (1190-1199)",
+                        "Shōji (1199-1201)",
+                        "Kennin (1201-1204)",
+                        "Genkyū (1204-1206)",
+                        "Ken-ei (1206-1207)",
+                        "Shōgen (1207-1211)",
+                        "Kenryaku (1211-1213)",
+                        "Kenpō (1213-1219)",
+                        "Shōkyū (1219-1222)",
+                        "Jōō (1222-1224)",
+                        "Gennin (1224-1225)",
+                        "Karoku (1225-1227)",
+                        "Antei (1227-1229)",
+                        "Kanki (1229-1232)",
+                        "Jōei (1232-1233)",
+                        "Tempuku (1233-1234)",
+                        "Bunryaku (1234-1235)",
+                        "Katei (1235-1238)",
+                        "Ryakunin (1238-1239)",
+                        "En-ō (1239-1240)",
+                        "Ninji (1240-1243)",
+                        "Kangen (1243-1247)",
+                        "Hōji (1247-1249)",
+                        "Kenchō (1249-1256)",
+                        "Kōgen (1256-1257)",
+                        "Shōka (1257-1259)",
+                        "Shōgen (1259-1260)",
+                        "Bun-ō (1260-1261)",
+                        "Kōchō (1261-1264)",
+                        "Bun-ei (1264-1275)",
+                        "Kenji (1275-1278)",
+                        "Kōan (1278-1288)",
+                        "Shōō (1288-1293)",
+                        "Einin (1293-1299)",
+                        "Shōan (1299-1302)",
+                        "Kengen (1302-1303)",
+                        "Kagen (1303-1306)",
+                        "Tokuji (1306-1308)",
+                        "Enkei (1308-1311)",
+                        "Ōchō (1311-1312)",
+                        "Shōwa (1312-1317)",
+                        "Bunpō (1317-1319)",
+                        "Genō (1319-1321)",
+                        "Genkyō (1321-1324)",
+                        "Shōchū (1324-1326)",
+                        "Kareki (1326-1329)",
+                        "Gentoku (1329-1331)",
+                        "Genkō (1331-1334)",
+                        "Kemmu (1334-1336)",
+                        "Engen (1336-1340)",
+                        "Kōkoku (1340-1346)",
+                        "Shōhei (1346-1370)",
+                        "Kentoku (1370-1372)",
+                        "Bunchū (1372-1375)",
+                        "Tenju (1375-1379)",
+                        "Kōryaku (1379-1381)",
+                        "Kōwa (1381-1384)",
+                        "Genchū (1384-1392)",
+                        "Meitoku (1384-1387)",
+                        "Kakei (1387-1389)",
+                        "Kōō (1389-1390)",
+                        "Meitoku (1390-1394)",
+                        "Ōei (1394-1428)",
+                        "Shōchō (1428-1429)",
+                        "Eikyō (1429-1441)",
+                        "Kakitsu (1441-1444)",
+                        "Bun-an (1444-1449)",
+                        "Hōtoku (1449-1452)",
+                        "Kyōtoku (1452-1455)",
+                        "Kōshō (1455-1457)",
+                        "Chōroku (1457-1460)",
+                        "Kanshō (1460-1466)",
+                        "Bunshō (1466-1467)",
+                        "Ōnin (1467-1469)",
+                        "Bunmei (1469-1487)",
+                        "Chōkyō (1487-1489)",
+                        "Entoku (1489-1492)",
+                        "Meiō (1492-1501)",
+                        "Bunki (1501-1504)",
+                        "Eishō (1504-1521)",
+                        "Taiei (1521-1528)",
+                        "Kyōroku (1528-1532)",
+                        "Tenmon (1532-1555)",
+                        "Kōji (1555-1558)",
+                        "Eiroku (1558-1570)",
+                        "Genki (1570-1573)",
+                        "Tenshō (1573-1592)",
+                        "Bunroku (1592-1596)",
+                        "Keichō (1596-1615)",
+                        "Genwa (1615-1624)",
+                        "Kan-ei (1624-1644)",
+                        "Shōho (1644-1648)",
+                        "Keian (1648-1652)",
+                        "Shōō (1652-1655)",
+                        "Meiryaku (1655-1658)",
+                        "Manji (1658-1661)",
+                        "Kanbun (1661-1673)",
+                        "Enpō (1673-1681)",
+                        "Tenwa (1681-1684)",
+                        "Jōkyō (1684-1688)",
+                        "Genroku (1688-1704)",
+                        "Hōei (1704-1711)",
+                        "Shōtoku (1711-1716)",
+                        "Kyōhō (1716-1736)",
+                        "Genbun (1736-1741)",
+                        "Kanpō (1741-1744)",
+                        "Enkyō (1744-1748)",
+                        "Kan-en (1748-1751)",
+                        "Hōryaku (1751-1764)",
+                        "Meiwa (1764-1772)",
+                        "An-ei (1772-1781)",
+                        "Tenmei (1781-1789)",
+                        "Kansei (1789-1801)",
+                        "Kyōwa (1801-1804)",
+                        "Bunka (1804-1818)",
+                        "Bunsei (1818-1830)",
+                        "Tenpō (1830-1844)",
+                        "Kōka (1844-1848)",
+                        "Kaei (1848-1854)",
+                        "Ansei (1854-1860)",
+                        "Man-en (1860-1861)",
+                        "Bunkyū (1861-1864)",
+                        "Genji (1864-1865)",
+                        "Keiō (1865-1868)",
+                        "Meiji",
+                        "Taishō",
+                        "Shōwa",
+                        "Heisei"
+                    ]
+                }
+            },
+            "ethiopic": {
+                "months": {
+                    "long": [
+                        "Meskerem",
+                        "Tekemt",
+                        "Hedar",
+                        "Tahsas",
+                        "Ter",
+                        "Yekatit",
+                        "Megabit",
+                        "Miazia",
+                        "Genbot",
+                        "Sene",
+                        "Hamle",
+                        "Nehasse",
+                        "Pagumen"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "ERA0",
+                        "ERA1"
+                    ]
+                }
+            },
+            "coptic": {
+                "months": {
+                    "long": [
+                        "Tout",
+                        "Baba",
+                        "Hator",
+                        "Kiahk",
+                        "Toba",
+                        "Amshir",
+                        "Baramhat",
+                        "Baramouda",
+                        "Bashans",
+                        "Paona",
+                        "Epep",
+                        "Mesra",
+                        "Nasie"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "ERA0",
+                        "ERA1"
+                    ]
+                }
+            },
+            "buddhist": {
+                "eras": {
+                    "short": [
+                        "BE"
+                    ]
+                }
+            },
+            "chinese": {
+                "months": {
+                    "long": [
+                        "Month1",
+                        "Month2",
+                        "Month3",
+                        "Month4",
+                        "Month5",
+                        "Month6",
+                        "Month7",
+                        "Month8",
+                        "Month9",
+                        "Month10",
+                        "Month11",
+                        "Month12"
+                    ]
+                }
+            },
+            "hebrew": {
+                "months": {
+                    "long": [
+                        "Tishri",
+                        "Heshvan",
+                        "Kislev",
+                        "Tevet",
+                        "Shevat",
+                        "Adar I",
+                        "Adar",
+                        "Nisan",
+                        "Iyar",
+                        "Sivan",
+                        "Tamuz",
+                        "Av",
+                        "Elul",
+                        "Adar II"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "AM"
+                    ]
                 }
             }
         }
     },
-    "numbers": {
-        "decimalFormats-numberSystem-latn": {
-            "standard": {
-                "decimalFormat": {
-                    "pattern": "#,##0.###"
-                }
-            }
-        },
-        "percentFormats-numberSystem-latn": {
-            "standard": {
-                "percentFormat": {
-                    "pattern": "#,##0%"
-                }
-            }
-        },
-        "currencyFormats-numberSystem-latn": {
-            "standard": {
-                "currencyFormat": {
-                    "pattern": "¤ #,##0.00"
-                }
+    "number": {
+        "nu": [
+            "latn"
+        ],
+        "patterns": {
+            "decimal": {
+                "positivePattern": "{number}",
+                "negativePattern": "-{number}"
             },
-            "unitPattern-count-one": "{0} {1}",
-            "unitPattern-count-other": "{0} {1}"
+            "currency": {
+                "positivePattern": "{currency} {number}",
+                "negativePattern": "-{currency} {number}"
+            },
+            "percent": {
+                "positivePattern": "{number}%",
+                "negativePattern": "-{number}%"
+            }
+        },
+        "symbols": {
+            "latn": {
+                "decimal": ".",
+                "group": ",",
+                "nan": "NaN",
+                "percent": "%",
+                "infinity": "∞"
+            }
         },
         "currencies": {
-            "MYR": {
-                "symbol": "RM"
-            },
-            "SGD": {
-                "symbol": "S$"
-            },
-            "CAD": {
-                "symbol": "CA$"
-            },
-            "USD": {
-                "symbol": "US$"
-            }
-        },
-        "symbols-numberSystem-latn": {
-            "decimal": ".",
-            "group": ",",
-            "list": ";",
-            "percentSign": "%",
-            "plusSign": "+",
-            "minusSign": "-",
-            "exponential": "E",
-            "perMille": "‰",
-            "infinity": "∞",
-            "nan": "NaN"
+            "MYR": "RM",
+            "SGD": "S$",
+            "CAD": "CA$",
+            "USD": "US$",
+            "AUD": "A$",
+            "BRL": "R$",
+            "CNY": "CN¥",
+            "EUR": "€",
+            "GBP": "£",
+            "HKD": "HK$",
+            "ILS": "₪",
+            "INR": "₹",
+            "JPY": "JP¥",
+            "KRW": "₩",
+            "MXN": "MX$",
+            "NZD": "NZ$",
+            "THB": "฿",
+            "TWD": "NT$",
+            "VND": "₫",
+            "XAF": "FCFA",
+            "XCD": "EC$",
+            "XOF": "CFA",
+            "XPF": "CFPF"
         }
     }
 }

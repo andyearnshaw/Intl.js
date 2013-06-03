@@ -1,3973 +1,1217 @@
 {
-    "identity": {
-        "version": {
-            "@cldrVersion": "23.1",
-            "@number": "$Revision: 8671 $"
-        },
-        "generation": {
-            "@date": "$Date: 2013-05-03 14:17:48 -0500 (Fri, 03 May 2013) $"
-        },
-        "language": "ja"
-    },
-    "dates": {
+    "locale": "ja",
+    "date": {
+        "ca": [
+            "gregory",
+            "hebrew",
+            "japanese",
+            "roc",
+            "indian",
+            "chinese",
+            "buddhist",
+            "coptic",
+            "ethiopic",
+            "persian",
+            "ethioaa",
+            "generic",
+            "islamic"
+        ],
+        "hourNo0": true,
+        "hour12": false,
+        "formats": [
+            {
+                "year": "numeric",
+                "month": "numeric",
+                "day": "numeric",
+                "weekday": "long",
+                "pattern": "{year}年{month}月{day}日{weekday}"
+            },
+            {
+                "year": "numeric",
+                "month": "numeric",
+                "day": "numeric",
+                "pattern": "{year}年{month}月{day}日"
+            },
+            {
+                "year": "numeric",
+                "month": "2-digit",
+                "day": "2-digit",
+                "pattern": "{year}/{month}/{day}"
+            },
+            {
+                "year": "numeric",
+                "month": "2-digit",
+                "day": "2-digit",
+                "pattern": "{year}/{month}/{day}"
+            },
+            {
+                "day": "numeric",
+                "pattern": "{day}日"
+            },
+            {
+                "year": "numeric",
+                "month": "numeric",
+                "day": "numeric",
+                "pattern": "{year}/{month}/{day}"
+            },
+            {
+                "month": "numeric",
+                "day": "numeric",
+                "weekday": "short",
+                "pattern": "{month}月{day}日({weekday})"
+            },
+            {
+                "minute": "2-digit",
+                "pattern": "K:{minute}",
+                "pattern12": "{ampm}K:{minute}"
+            },
+            {
+                "year": "numeric",
+                "pattern": "{year}年"
+            },
+            {
+                "pattern": "K時",
+                "pattern12": "{ampm}K時"
+            },
+            {
+                "month": "numeric",
+                "pattern": "{month}月"
+            },
+            {
+                "year": "numeric",
+                "month": "numeric",
+                "day": "numeric",
+                "weekday": "long",
+                "pattern": "{year}/{month}/{day}{weekday}"
+            },
+            {
+                "minute": "2-digit",
+                "second": "2-digit",
+                "pattern": "{minute}:{second}"
+            },
+            {
+                "month": "numeric",
+                "day": "numeric",
+                "weekday": "long",
+                "pattern": "{month}月{day}日{weekday}"
+            },
+            {
+                "month": "numeric",
+                "pattern": "{month}月"
+            },
+            {
+                "era": "short",
+                "year": "numeric",
+                "month": "numeric",
+                "pattern": "{era}{year}年{month}月"
+            },
+            {
+                "minute": "2-digit",
+                "second": "2-digit",
+                "pattern": "K:{minute}:{second}",
+                "pattern12": "{ampm}K:{minute}:{second}"
+            },
+            {
+                "month": "numeric",
+                "day": "numeric",
+                "weekday": "long",
+                "pattern": "{month}/{day}{weekday}"
+            },
+            {
+                "month": "numeric",
+                "day": "numeric",
+                "pattern": "{month}月{day}日"
+            },
+            {
+                "month": "numeric",
+                "day": "numeric",
+                "pattern": "{month}/{day}"
+            },
+            {
+                "year": "numeric",
+                "month": "numeric",
+                "day": "numeric",
+                "pattern": "{year}年{month}月{day}日"
+            },
+            {
+                "year": "numeric",
+                "month": "2-digit",
+                "pattern": "{year}/{month}"
+            },
+            {
+                "day": "numeric",
+                "weekday": "long",
+                "pattern": "{day}日{weekday}"
+            },
+            {
+                "era": "short",
+                "year": "numeric",
+                "month": "numeric",
+                "day": "numeric",
+                "pattern": "{era}{year}年{month}月{day}日"
+            },
+            {
+                "day": "numeric",
+                "weekday": "short",
+                "pattern": "{day}日({weekday})"
+            },
+            {
+                "era": "short",
+                "year": "numeric",
+                "month": "numeric",
+                "day": "numeric",
+                "weekday": "long",
+                "pattern": "{era}{year}年{month}月{day}日{weekday}"
+            },
+            {
+                "year": "numeric",
+                "month": "numeric",
+                "day": "numeric",
+                "weekday": "short",
+                "pattern": "{year}/{month}/{day}({weekday})"
+            },
+            {
+                "year": "numeric",
+                "month": "numeric",
+                "pattern": "{year}/{month}"
+            },
+            {
+                "era": "short",
+                "year": "numeric",
+                "pattern": "{era}{year}年"
+            },
+            {
+                "year": "numeric",
+                "month": "numeric",
+                "day": "numeric",
+                "weekday": "long",
+                "pattern": "{year}年{month}月{day}日{weekday}"
+            },
+            {
+                "year": "numeric",
+                "month": "numeric",
+                "day": "numeric",
+                "weekday": "short",
+                "pattern": "{year}年{month}月{day}日({weekday})"
+            },
+            {
+                "era": "short",
+                "year": "numeric",
+                "month": "numeric",
+                "day": "numeric",
+                "weekday": "short",
+                "pattern": "{era}{year}年{month}月{day}日({weekday})"
+            },
+            {
+                "month": "numeric",
+                "day": "numeric",
+                "weekday": "short",
+                "pattern": "{month}/{day}({weekday})"
+            },
+            {
+                "year": "numeric",
+                "month": "numeric",
+                "pattern": "{year}年{month}月"
+            }
+        ],
         "calendars": {
-            "buddhist": {
+            "roc": {
                 "eras": {
-                    "eraNames": {
-                        "0": "仏暦"
-                    },
-                    "eraAbbr": {
-                        "0": "BE"
-                    }
-                },
-                "dateFormats": {
-                    "full": "GGGGy年M月d日EEEE",
-                    "long": "GGGGy年M月d日",
-                    "medium": "Gy/MM/dd",
-                    "short": "Gy/MM/dd"
-                },
-                "dateTimeFormats": {
-                    "availableFormats": {
-                        "d": "d日",
-                        "Ed": "d日(E)",
-                        "EEEEd": "d日EEEE",
-                        "Gy": "GGGGy年",
-                        "GyMd": "GGGGy年M月d日",
-                        "GyMMM": "GGGGy年M月",
-                        "GyMMMd": "GGGGy年M月d日",
-                        "GyMMMEd": "GGGGy年M月d日(E)",
-                        "GyMMMEEEEd": "GGGGy年M月d日EEEE",
-                        "h": "aK時",
-                        "H": "H時",
-                        "hm": "aK:mm",
-                        "Hm": "H:mm",
-                        "hms": "aK:mm:ss",
-                        "Hms": "H:mm:ss",
-                        "M": "M月",
-                        "Md": "M/d",
-                        "MEd": "M/d(E)",
-                        "MEEEEd": "M/dEEEE",
-                        "MMM": "M月",
-                        "MMMd": "M月d日",
-                        "MMMEd": "M月d日(E)",
-                        "MMMEEEEd": "M月d日EEEE",
-                        "ms": "mm:ss",
-                        "y": "GGGGy年",
-                        "yyyy": "GGGGy年",
-                        "yyyyM": "GGGGy年M月",
-                        "yyyyMd": "Gy/M/d",
-                        "yyyyMEd": "GGGGy年M/d(E)",
-                        "yyyyMEEEEd": "GGGGy年M/dEEEE",
-                        "yyyyMM": "Gy/MM",
-                        "yyyyMMM": "GGGGy年M月",
-                        "yyyyMMMd": "GGGGy年M月d日",
-                        "yyyyMMMEd": "GGGGy年M月d日(E)",
-                        "yyyyMMMEEEEd": "GGGGy年M月d日EEEE",
-                        "yyyyQQQ": "GGGGy QQQ",
-                        "yyyyQQQQ": "GGGGy第Q四半期"
-                    }
+                    "short": [
+                        "民国前",
+                        "民国"
+                    ]
                 }
             },
-            "chinese": {
-                "months": {
-                    "format": {
-                        "narrow": {
-                            "1": "正",
-                            "2": "二",
-                            "3": "三",
-                            "4": "四",
-                            "5": "五",
-                            "6": "六",
-                            "7": "七",
-                            "8": "八",
-                            "9": "九",
-                            "10": "十",
-                            "11": "十一",
-                            "12": "十二"
-                        },
-                        "wide": {
-                            "1": "正月",
-                            "2": "二月",
-                            "3": "三月",
-                            "4": "四月",
-                            "5": "五月",
-                            "6": "六月",
-                            "7": "七月",
-                            "8": "八月",
-                            "9": "九月",
-                            "10": "十月",
-                            "11": "十一月",
-                            "12": "十二月"
-                        }
-                    },
-                    "stand-alone": {
-                        "narrow": {
-                            "1": "正",
-                            "2": "二",
-                            "3": "三",
-                            "4": "四",
-                            "5": "五",
-                            "6": "六",
-                            "7": "七",
-                            "8": "八",
-                            "9": "九",
-                            "10": "十",
-                            "11": "十一",
-                            "12": "十二"
-                        }
-                    }
-                },
-                "monthPatterns": {
-                    "format": {
-                        "wide": {
-                            "leap": "閏{0}"
-                        }
-                    },
-                    "numeric": {
-                        "all": {
-                            "leap": "閏{0}"
-                        }
-                    },
-                    "stand-alone": {
-                        "narrow": {
-                            "leap": "閏{0}"
-                        }
-                    }
-                },
-                "cyclicNameSets": {
-                    "dayParts": {
-                        "format": {
-                            "abbreviated": {
-                                "1": "子",
-                                "2": "丑",
-                                "3": "寅",
-                                "4": "卯",
-                                "5": "辰",
-                                "6": "巳",
-                                "7": "午",
-                                "8": "未",
-                                "9": "申",
-                                "10": "酉",
-                                "11": "戌",
-                                "12": "亥"
-                            }
-                        }
-                    },
-                    "years": {
-                        "format": {
-                            "abbreviated": {
-                                "1": "甲子",
-                                "2": "乙丑",
-                                "3": "丙寅",
-                                "4": "丁卯",
-                                "5": "戊辰",
-                                "6": "己巳",
-                                "7": "庚午",
-                                "8": "辛未",
-                                "9": "壬申",
-                                "10": "癸酉",
-                                "11": "甲戌",
-                                "12": "乙亥",
-                                "13": "丙子",
-                                "14": "丁丑",
-                                "15": "戊寅",
-                                "16": "己卯",
-                                "17": "庚辰",
-                                "18": "辛巳",
-                                "19": "壬午",
-                                "20": "癸未",
-                                "21": "甲申",
-                                "22": "乙酉",
-                                "23": "丙戌",
-                                "24": "丁亥",
-                                "25": "戊子",
-                                "26": "己丑",
-                                "27": "庚寅",
-                                "28": "辛卯",
-                                "29": "壬辰",
-                                "30": "癸巳",
-                                "31": "甲午",
-                                "32": "乙未",
-                                "33": "丙申",
-                                "34": "丁酉",
-                                "35": "戊戌",
-                                "36": "己亥",
-                                "37": "庚子",
-                                "38": "辛丑",
-                                "39": "壬寅",
-                                "40": "癸卯",
-                                "41": "甲辰",
-                                "42": "乙巳",
-                                "43": "丙午",
-                                "44": "丁未",
-                                "45": "戊申",
-                                "46": "己酉",
-                                "47": "庚戌",
-                                "48": "辛亥",
-                                "49": "壬子",
-                                "50": "癸丑",
-                                "51": "甲寅",
-                                "52": "乙卯",
-                                "53": "丙辰",
-                                "54": "丁巳",
-                                "55": "戊午",
-                                "56": "己未",
-                                "57": "庚申",
-                                "58": "辛酉",
-                                "59": "壬戌",
-                                "60": "癸亥"
-                            }
-                        }
-                    },
-                    "zodiacs": {
-                        "format": {
-                            "abbreviated": {
-                                "1": "鼠",
-                                "2": "牛",
-                                "3": "虎",
-                                "4": "兎",
-                                "5": "竜",
-                                "6": "蛇",
-                                "7": "馬",
-                                "8": "羊",
-                                "9": "猿",
-                                "10": "鶏",
-                                "11": "犬",
-                                "12": "猪"
-                            }
-                        }
-                    }
-                },
-                "dateFormats": {
-                    "full": {
-                        "_value": "U年MMMd日EEEE",
-                        "@numbers": "hanidec"
-                    },
-                    "long": {
-                        "_value": "U年MMMd日",
-                        "@numbers": "hanidec"
-                    },
-                    "medium": {
-                        "_value": "U年MMMd日",
-                        "@numbers": "hanidec"
-                    },
-                    "short": "U-M-d"
-                },
-                "dateTimeFormats": {
-                    "availableFormats": {
-                        "d": "d日",
-                        "Ed": "d日(E)",
-                        "EEEEd": "d日EEEE",
-                        "Gy": "U年",
-                        "GyMMM": "U年MMM",
-                        "GyMMMd": "U年MMMd日",
-                        "GyMMMEd": "U年MMMd日(E)",
-                        "GyMMMEEEEd": "U年MMMd日EEEE",
-                        "h": "aK時",
-                        "H": "H時",
-                        "hm": "aK:mm",
-                        "Hm": "H:mm",
-                        "hms": "aK:mm:ss",
-                        "Hms": "H:mm:ss",
-                        "M": "MMM",
-                        "Md": "M/d",
-                        "MEd": "M/d(E)",
-                        "MEEEEd": "M/dEEEE",
-                        "MMMd": "MMMd日",
-                        "MMMEd": "MMMd日(E)",
-                        "MMMEEEEd": "MMMd日EEEE",
-                        "y": "U年",
-                        "yMd": "U年M月d日",
-                        "yyyy": "U年",
-                        "yyyyM": "U年M月",
-                        "yyyyMd": "U年M月d日",
-                        "yyyyMEd": "U年M月d日(E)",
-                        "yyyyMEEEEd": "U年M月d日EEEE",
-                        "yyyyMMM": "U年MMM",
-                        "yyyyMMMd": "U年MMMd日",
-                        "yyyyMMMEd": "U年MMMd日(E)",
-                        "yyyyMMMEEEEd": "U年MMMd日EEEE",
-                        "yyyyQQQ": "U/QQQ",
-                        "yyyyQQQQ": "UQQQQ"
-                    }
-                }
-            },
-            "coptic": {
-                "months": {
-                    "format": {
-                        "abbreviated": {
-                            "1": "トウト",
-                            "2": "ババ",
-                            "3": "ハトール",
-                            "4": "キアック",
-                            "5": "トーバ",
-                            "6": "アムシール",
-                            "7": "バラムハート",
-                            "8": "バラモウダ",
-                            "9": "バシャンス",
-                            "10": "パオーナ",
-                            "11": "エペープ",
-                            "12": "メスラ",
-                            "13": "ナシエ"
-                        },
-                        "narrow": {
-                            "1": "1",
-                            "2": "2",
-                            "3": "3",
-                            "4": "4",
-                            "5": "5",
-                            "6": "6",
-                            "7": "7",
-                            "8": "8",
-                            "9": "9",
-                            "10": "10",
-                            "11": "11",
-                            "12": "12",
-                            "13": "13"
-                        },
-                        "wide": {
-                            "1": "トウト",
-                            "2": "ババ",
-                            "3": "ハトール",
-                            "4": "キアック",
-                            "5": "トーバ",
-                            "6": "アムシール",
-                            "7": "バラムハート",
-                            "8": "バラモウダ",
-                            "9": "バシャンス",
-                            "10": "パオーナ",
-                            "11": "エペープ",
-                            "12": "メスラ",
-                            "13": "ナシエ"
-                        }
-                    },
-                    "stand-alone": {
-                        "abbreviated": {
-                            "1": "トウト",
-                            "2": "ババ",
-                            "3": "ハトール",
-                            "4": "キアック",
-                            "5": "トーバ",
-                            "6": "アムシール",
-                            "7": "バラムハート",
-                            "8": "バラモウダ",
-                            "9": "バシャンス",
-                            "10": "パオーナ",
-                            "11": "エペープ",
-                            "12": "メスラ",
-                            "13": "ナシエ"
-                        },
-                        "narrow": {
-                            "1": "1",
-                            "2": "2",
-                            "3": "3",
-                            "4": "4",
-                            "5": "5",
-                            "6": "6",
-                            "7": "7",
-                            "8": "8",
-                            "9": "9",
-                            "10": "10",
-                            "11": "11",
-                            "12": "12",
-                            "13": "13"
-                        },
-                        "wide": {
-                            "1": "トウト",
-                            "2": "ババ",
-                            "3": "ハトール",
-                            "4": "キアック",
-                            "5": "トーバ",
-                            "6": "アムシール",
-                            "7": "バラムハート",
-                            "8": "バラモウダ",
-                            "9": "バシャンス",
-                            "10": "パオーナ",
-                            "11": "エペープ",
-                            "12": "メスラ",
-                            "13": "ナシエ"
-                        }
-                    }
-                }
-            },
-            "ethiopic": {
-                "months": {
-                    "format": {
-                        "abbreviated": {
-                            "1": "メスケレム",
-                            "2": "テケムト",
-                            "3": "ヘダル",
-                            "4": "ターサス",
-                            "5": "テル",
-                            "6": "イェカティト",
-                            "7": "メガビト",
-                            "8": "ミアジア",
-                            "9": "ゲンボト",
-                            "10": "セネ",
-                            "11": "ハムレ",
-                            "12": "ネハッセ",
-                            "13": "パグメン"
-                        },
-                        "narrow": {
-                            "1": "1",
-                            "2": "2",
-                            "3": "3",
-                            "4": "4",
-                            "5": "5",
-                            "6": "6",
-                            "7": "7",
-                            "8": "8",
-                            "9": "9",
-                            "10": "10",
-                            "11": "11",
-                            "12": "12",
-                            "13": "13"
-                        },
-                        "wide": {
-                            "1": "メスケレム",
-                            "2": "テケムト",
-                            "3": "ヘダル",
-                            "4": "ターサス",
-                            "5": "テル",
-                            "6": "イェカティト",
-                            "7": "メガビト",
-                            "8": "ミアジア",
-                            "9": "ゲンボト",
-                            "10": "セネ",
-                            "11": "ハムレ",
-                            "12": "ネハッセ",
-                            "13": "パグメン"
-                        }
-                    },
-                    "stand-alone": {
-                        "abbreviated": {
-                            "1": "メスケレム",
-                            "2": "テケムト",
-                            "3": "ヘダル",
-                            "4": "ターサス",
-                            "5": "テル",
-                            "6": "イェカティト",
-                            "7": "メガビト",
-                            "8": "ミアジア",
-                            "9": "ゲンボト",
-                            "10": "セネ",
-                            "11": "ハムレ",
-                            "12": "ネハッセ",
-                            "13": "パグメン"
-                        },
-                        "narrow": {
-                            "1": "1",
-                            "2": "2",
-                            "3": "3",
-                            "4": "4",
-                            "5": "5",
-                            "6": "6",
-                            "7": "7",
-                            "8": "8",
-                            "9": "9",
-                            "10": "10",
-                            "11": "11",
-                            "12": "12",
-                            "13": "13"
-                        },
-                        "wide": {
-                            "1": "メスケレム",
-                            "2": "テケムト",
-                            "3": "ヘダル",
-                            "4": "ターサス",
-                            "5": "テル",
-                            "6": "イェカティト",
-                            "7": "メガビト",
-                            "8": "ミアジア",
-                            "9": "ゲンボト",
-                            "10": "セネ",
-                            "11": "ハムレ",
-                            "12": "ネハッセ",
-                            "13": "パグメン"
-                        }
-                    }
-                }
-            },
-            "generic": {
-                "dateFormats": {
-                    "full": "Gy年M月d日EEEE",
-                    "long": "Gy年M月d日",
-                    "medium": "Gy/MM/dd",
-                    "short": "Gy/MM/dd"
-                },
-                "dateTimeFormats": {
-                    "full": "{1} {0}",
-                    "long": "{1} {0}",
-                    "medium": "{1} {0}",
-                    "short": "{1} {0}",
-                    "availableFormats": {
-                        "d": "d日",
-                        "Ed": "d日(E)",
-                        "EEEEd": "d日EEEE",
-                        "Gy": "Gy年",
-                        "GyMMM": "Gy年M月",
-                        "GyMMMd": "Gy年M月d日",
-                        "GyMMMEd": "Gy年M月d日(E)",
-                        "GyMMMEEEEd": "Gy年M月d日EEEE",
-                        "h": "aK時",
-                        "H": "H時",
-                        "hm": "aK:mm",
-                        "Hm": "H:mm",
-                        "hms": "aK:mm:ss",
-                        "Hms": "H:mm:ss",
-                        "M": "M月",
-                        "Md": "M/d",
-                        "MEd": "M/d(E)",
-                        "MEEEEd": "M/dEEEE",
-                        "MMM": "M月",
-                        "MMMd": "M月d日",
-                        "MMMEd": "M月d日(E)",
-                        "MMMEEEEd": "M月d日EEEE",
-                        "ms": "mm:ss",
-                        "y": "Gy年",
-                        "yyyy": "Gy年",
-                        "yyyyM": "Gy/M",
-                        "yyyyMd": "Gy/M/d",
-                        "yyyyMEd": "Gy/M/d(E)",
-                        "yyyyMEEEEd": "Gy/M/dEEEE",
-                        "yyyyMMM": "Gy年M月",
-                        "yyyyMMMd": "Gy年M月d日",
-                        "yyyyMMMEd": "Gy年M月d日(E)",
-                        "yyyyMMMEEEEd": "Gy年M月d日EEEE",
-                        "yyyyQQQ": "Gy/QQQ",
-                        "yyyyQQQQ": "GyQQQQ"
-                    }
-                }
-            },
-            "gregorian": {
-                "months": {
-                    "format": {
-                        "wide": {
-                            "1": "1月",
-                            "2": "2月",
-                            "3": "3月",
-                            "4": "4月",
-                            "5": "5月",
-                            "6": "6月",
-                            "7": "7月",
-                            "8": "8月",
-                            "9": "9月",
-                            "10": "10月",
-                            "11": "11月",
-                            "12": "12月"
-                        }
-                    },
-                    "stand-alone": {
-                        "narrow": {
-                            "1": "1",
-                            "2": "2",
-                            "3": "3",
-                            "4": "4",
-                            "5": "5",
-                            "6": "6",
-                            "7": "7",
-                            "8": "8",
-                            "9": "9",
-                            "10": "10",
-                            "11": "11",
-                            "12": "12"
-                        }
-                    }
-                },
-                "days": {
-                    "format": {
-                        "abbreviated": {
-                            "sun": "日",
-                            "mon": "月",
-                            "tue": "火",
-                            "wed": "水",
-                            "thu": "木",
-                            "fri": "金",
-                            "sat": "土"
-                        },
-                        "short": {
-                            "sun": "日",
-                            "mon": "月",
-                            "tue": "火",
-                            "wed": "水",
-                            "thu": "木",
-                            "fri": "金",
-                            "sat": "土"
-                        },
-                        "wide": {
-                            "sun": "日曜日",
-                            "mon": "月曜日",
-                            "tue": "火曜日",
-                            "wed": "水曜日",
-                            "thu": "木曜日",
-                            "fri": "金曜日",
-                            "sat": "土曜日"
-                        }
-                    },
-                    "stand-alone": {
-                        "narrow": {
-                            "sun": "日",
-                            "mon": "月",
-                            "tue": "火",
-                            "wed": "水",
-                            "thu": "木",
-                            "fri": "金",
-                            "sat": "土"
-                        },
-                        "short": {
-                            "sun": "日",
-                            "mon": "月",
-                            "tue": "火",
-                            "wed": "水",
-                            "thu": "木",
-                            "fri": "金",
-                            "sat": "土"
-                        }
-                    }
-                },
-                "quarters": {
-                    "format": {
-                        "abbreviated": {
-                            "1": "1Q",
-                            "2": "2Q",
-                            "3": "3Q",
-                            "4": "4Q"
-                        },
-                        "narrow": {
-                            "1": "1",
-                            "2": "2",
-                            "3": "3",
-                            "4": "4"
-                        },
-                        "wide": {
-                            "1": "第1四半期",
-                            "2": "第2四半期",
-                            "3": "第3四半期",
-                            "4": "第4四半期"
-                        }
-                    },
-                    "stand-alone": {
-                        "abbreviated": {
-                            "1": "Q1",
-                            "2": "Q2",
-                            "3": "Q3",
-                            "4": "Q4"
-                        },
-                        "narrow": {
-                            "1": "1",
-                            "2": "2",
-                            "3": "3",
-                            "4": "4"
-                        }
-                    }
-                },
-                "dayPeriods": {
-                    "format": {
-                        "wide": {
-                            "am": "午前",
-                            "noon": "正午",
-                            "pm": "午後"
-                        }
-                    }
-                },
+            "ethioaa": {
                 "eras": {
-                    "eraNames": {
-                        "0": "紀元前",
-                        "1": "西暦"
-                    },
-                    "eraAbbr": {
-                        "0": "紀元前",
-                        "1": "西暦"
-                    },
-                    "eraNarrow": {
-                        "0": "BC",
-                        "1": "AD"
-                    }
-                },
-                "dateFormats": {
-                    "full": "y年M月d日EEEE",
-                    "long": "y年M月d日",
-                    "medium": "y/MM/dd",
-                    "short": "y/MM/dd"
-                },
-                "timeFormats": {
-                    "full": "H時mm分ss秒 zzzz",
-                    "long": "H:mm:ss z",
-                    "medium": "H:mm:ss",
-                    "short": "H:mm"
-                },
-                "dateTimeFormats": {
-                    "full": "{1} {0}",
-                    "long": "{1} {0}",
-                    "medium": "{1} {0}",
-                    "short": "{1} {0}",
-                    "availableFormats": {
-                        "d": "d日",
-                        "Ed": "d日(E)",
-                        "EEEEd": "d日EEEE",
-                        "Gy": "Gy年",
-                        "GyMMM": "Gy年M月",
-                        "GyMMMd": "Gy年M月d日",
-                        "GyMMMEd": "Gy年M月d日(E)",
-                        "GyMMMEEEEd": "Gy年M月d日EEEE",
-                        "h": "aK時",
-                        "H": "H時",
-                        "hm": "aK:mm",
-                        "Hm": "H:mm",
-                        "hms": "aK:mm:ss",
-                        "Hms": "H:mm:ss",
-                        "M": "M月",
-                        "Md": "M/d",
-                        "MEd": "M/d(E)",
-                        "MEEEEd": "M/dEEEE",
-                        "MMM": "M月",
-                        "MMMd": "M月d日",
-                        "MMMEd": "M月d日(E)",
-                        "MMMEEEEd": "M月d日EEEE",
-                        "ms": "mm:ss",
-                        "y": "y年",
-                        "yM": "y/M",
-                        "yMd": "y/M/d",
-                        "yMEd": "y/M/d(E)",
-                        "yMEEEEd": "y/M/dEEEE",
-                        "yMM": "y/MM",
-                        "yMMM": "y年M月",
-                        "yMMMd": "y年M月d日",
-                        "yMMMEd": "y年M月d日(E)",
-                        "yMMMEEEEd": "y年M月d日EEEE",
-                        "yQQQ": "y/QQQ",
-                        "yQQQQ": "yQQQQ"
-                    }
-                }
-            },
-            "hebrew": {
-                "months": {
-                    "format": {
-                        "abbreviated": {
-                            "1": "ティスレ",
-                            "2": "へシボン",
-                            "3": "キスレブ",
-                            "4": "テベット",
-                            "5": "シバット",
-                            "6": "アダル I",
-                            "7": "アダル",
-                            "8": "ニサン",
-                            "9": "イヤル",
-                            "10": "シバン",
-                            "11": "タムズ",
-                            "12": "アヴ",
-                            "13": "エルル",
-                            "7-yeartype-leap": "アダル II"
-                        },
-                        "narrow": {
-                            "1": "1",
-                            "2": "2",
-                            "3": "3",
-                            "4": "4",
-                            "5": "5",
-                            "6": "6",
-                            "7": "7",
-                            "8": "8",
-                            "9": "9",
-                            "10": "10",
-                            "11": "11",
-                            "12": "12",
-                            "13": "13",
-                            "7-yeartype-leap": "7"
-                        },
-                        "wide": {
-                            "1": "ティスレ",
-                            "2": "へシボン",
-                            "3": "キスレブ",
-                            "4": "テベット",
-                            "5": "シバット",
-                            "6": "アダル I",
-                            "7": "アダル",
-                            "8": "ニサン",
-                            "9": "イヤル",
-                            "10": "シバン",
-                            "11": "タムズ",
-                            "12": "アヴ",
-                            "13": "エルル",
-                            "7-yeartype-leap": "アダル II"
-                        }
-                    },
-                    "stand-alone": {
-                        "abbreviated": {
-                            "1": "ティスレ",
-                            "2": "へシボン",
-                            "3": "キスレブ",
-                            "4": "テベット",
-                            "5": "シバット",
-                            "6": "アダル I",
-                            "7": "アダル",
-                            "8": "ニサン",
-                            "9": "イヤル",
-                            "10": "シバン",
-                            "11": "タムズ",
-                            "12": "アヴ",
-                            "13": "エルル",
-                            "7-yeartype-leap": "アダル II"
-                        },
-                        "narrow": {
-                            "1": "1",
-                            "2": "2",
-                            "3": "3",
-                            "4": "4",
-                            "5": "5",
-                            "6": "6",
-                            "7": "7",
-                            "8": "8",
-                            "9": "9",
-                            "10": "10",
-                            "11": "11",
-                            "12": "12",
-                            "13": "13",
-                            "7-yeartype-leap": "7"
-                        },
-                        "wide": {
-                            "1": "ティスレ",
-                            "2": "へシボン",
-                            "3": "キスレブ",
-                            "4": "テベット",
-                            "5": "シバット",
-                            "6": "アダル I",
-                            "7": "アダル",
-                            "8": "ニサン",
-                            "9": "イヤル",
-                            "10": "シバン",
-                            "11": "タムズ",
-                            "12": "アヴ",
-                            "13": "エルル",
-                            "7-yeartype-leap": "アダル II"
-                        }
-                    }
-                },
-                "eras": {
-                    "eraAbbr": {
-                        "0": "AM"
-                    }
+                    "short": [
+                        "ERA0"
+                    ]
                 }
             },
             "indian": {
                 "months": {
-                    "format": {
-                        "abbreviated": {
-                            "1": "カイトラ",
-                            "2": "ヴァイサカ",
-                            "3": "ジャイスタ",
-                            "4": "アーサダ",
-                            "5": "スラバナ",
-                            "6": "バードラ",
-                            "7": "アスビナ",
-                            "8": "カルディカ",
-                            "9": "アヴラハヤナ",
-                            "10": "パウサ",
-                            "11": "マーガ",
-                            "12": "パルグナ"
-                        },
-                        "narrow": {
-                            "1": "1",
-                            "2": "2",
-                            "3": "3",
-                            "4": "4",
-                            "5": "5",
-                            "6": "6",
-                            "7": "7",
-                            "8": "8",
-                            "9": "9",
-                            "10": "10",
-                            "11": "11",
-                            "12": "12"
-                        },
-                        "wide": {
-                            "1": "カイトラ",
-                            "2": "ヴァイサカ",
-                            "3": "ジャイスタ",
-                            "4": "アーサダ",
-                            "5": "スラバナ",
-                            "6": "バードラ",
-                            "7": "アスビナ",
-                            "8": "カルディカ",
-                            "9": "アヴラハヤナ",
-                            "10": "パウサ",
-                            "11": "マーガ",
-                            "12": "パルグナ"
-                        }
-                    },
-                    "stand-alone": {
-                        "abbreviated": {
-                            "1": "カイトラ",
-                            "2": "ヴァイサカ",
-                            "3": "ジャイスタ",
-                            "4": "アーサダ",
-                            "5": "スラバナ",
-                            "6": "バードラ",
-                            "7": "アスビナ",
-                            "8": "カルディカ",
-                            "9": "アヴラハヤナ",
-                            "10": "パウサ",
-                            "11": "マーガ",
-                            "12": "パルグナ"
-                        },
-                        "narrow": {
-                            "1": "1",
-                            "2": "2",
-                            "3": "3",
-                            "4": "4",
-                            "5": "5",
-                            "6": "6",
-                            "7": "7",
-                            "8": "8",
-                            "9": "9",
-                            "10": "10",
-                            "11": "11",
-                            "12": "12"
-                        },
-                        "wide": {
-                            "1": "カイトラ",
-                            "2": "ヴァイサカ",
-                            "3": "ジャイスタ",
-                            "4": "アーサダ",
-                            "5": "スラバナ",
-                            "6": "バードラ",
-                            "7": "アスビナ",
-                            "8": "カルディカ",
-                            "9": "アヴラハヤナ",
-                            "10": "パウサ",
-                            "11": "マーガ",
-                            "12": "パルグナ"
-                        }
-                    }
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "short": [
+                        "カイトラ",
+                        "ヴァイサカ",
+                        "ジャイスタ",
+                        "アーサダ",
+                        "スラバナ",
+                        "バードラ",
+                        "アスビナ",
+                        "カルディカ",
+                        "アヴラハヤナ",
+                        "パウサ",
+                        "マーガ",
+                        "パルグナ"
+                    ],
+                    "long": [
+                        "カイトラ",
+                        "ヴァイサカ",
+                        "ジャイスタ",
+                        "アーサダ",
+                        "スラバナ",
+                        "バードラ",
+                        "アスビナ",
+                        "カルディカ",
+                        "アヴラハヤナ",
+                        "パウサ",
+                        "マーガ",
+                        "パルグナ"
+                    ]
                 },
                 "eras": {
-                    "eraAbbr": {
-                        "0": "サカ"
-                    }
-                }
-            },
-            "islamic": {
-                "months": {
-                    "format": {
-                        "abbreviated": {
-                            "1": "ムハッラム",
-                            "2": "サフアル",
-                            "3": "ラビー・ウル・アウワル",
-                            "4": "ラビー・ウッ・サーニー",
-                            "5": "ジュマーダル・アウワル",
-                            "6": "ジュマーダッサーニー",
-                            "7": "ラジャブ",
-                            "8": "シャアバーン",
-                            "9": "ラマダーン",
-                            "10": "シャウワール",
-                            "11": "ズル・カイダ",
-                            "12": "ズル・ヒッジャ"
-                        },
-                        "narrow": {
-                            "1": "1",
-                            "2": "2",
-                            "3": "3",
-                            "4": "4",
-                            "5": "5",
-                            "6": "6",
-                            "7": "7",
-                            "8": "8",
-                            "9": "9",
-                            "10": "10",
-                            "11": "11",
-                            "12": "12"
-                        },
-                        "wide": {
-                            "1": "ムハッラム",
-                            "2": "サフアル",
-                            "3": "ラビー・ウル・アウワル",
-                            "4": "ラビー・ウッ・サーニー",
-                            "5": "ジュマーダル・アウワル",
-                            "6": "ジュマーダッサーニー",
-                            "7": "ラジャブ",
-                            "8": "シャアバーン",
-                            "9": "ラマダーン",
-                            "10": "シャウワール",
-                            "11": "ズル・カイダ",
-                            "12": "ズル・ヒッジャ"
-                        }
-                    },
-                    "stand-alone": {
-                        "abbreviated": {
-                            "1": "ムハッラム",
-                            "2": "サフアル",
-                            "3": "ラビー・ウル・アウワル",
-                            "4": "ラビー・ウッ・サーニー",
-                            "5": "ジュマーダル・アウワル",
-                            "6": "ジュマーダッサーニー",
-                            "7": "ラジャブ",
-                            "8": "シャアバーン",
-                            "9": "ラマダーン",
-                            "10": "シャウワール",
-                            "11": "ズル・カイダ",
-                            "12": "ズル・ヒッジャ"
-                        },
-                        "narrow": {
-                            "1": "1",
-                            "2": "2",
-                            "3": "3",
-                            "4": "4",
-                            "5": "5",
-                            "6": "6",
-                            "7": "7",
-                            "8": "8",
-                            "9": "9",
-                            "10": "10",
-                            "11": "11",
-                            "12": "12"
-                        },
-                        "wide": {
-                            "1": "ムハッラム",
-                            "2": "サフアル",
-                            "3": "ラビー・ウル・アウワル",
-                            "4": "ラビー・ウッ・サーニー",
-                            "5": "ジュマーダル・アウワル",
-                            "6": "ジュマーダッサーニー",
-                            "7": "ラジャブ",
-                            "8": "シャアバーン",
-                            "9": "ラマダーン",
-                            "10": "シャウワール",
-                            "11": "ズル・カイダ",
-                            "12": "ズル・ヒッジャ"
-                        }
-                    }
-                },
-                "eras": {
-                    "eraAbbr": {
-                        "0": "AH"
-                    }
-                }
-            },
-            "japanese": {
-                "eras": {
-                    "eraAbbr": {
-                        "0": "大化",
-                        "1": "白雉",
-                        "2": "白鳯",
-                        "3": "朱鳥",
-                        "4": "大宝",
-                        "5": "慶雲",
-                        "6": "和銅",
-                        "7": "霊亀",
-                        "8": "養老",
-                        "9": "神亀",
-                        "10": "天平",
-                        "11": "天平感宝",
-                        "12": "天平勝宝",
-                        "13": "天平宝字",
-                        "14": "天平神護",
-                        "15": "神護景雲",
-                        "16": "宝亀",
-                        "17": "天応",
-                        "18": "延暦",
-                        "19": "大同",
-                        "20": "弘仁",
-                        "21": "天長",
-                        "22": "承和",
-                        "23": "嘉祥",
-                        "24": "仁寿",
-                        "25": "斉衡",
-                        "26": "天安",
-                        "27": "貞観",
-                        "28": "元慶",
-                        "29": "仁和",
-                        "30": "寛平",
-                        "31": "昌泰",
-                        "32": "延喜",
-                        "33": "延長",
-                        "34": "承平",
-                        "35": "天慶",
-                        "36": "天暦",
-                        "37": "天徳",
-                        "38": "応和",
-                        "39": "康保",
-                        "40": "安和",
-                        "41": "天禄",
-                        "42": "天延",
-                        "43": "貞元",
-                        "44": "天元",
-                        "45": "永観",
-                        "46": "寛和",
-                        "47": "永延",
-                        "48": "永祚",
-                        "49": "正暦",
-                        "50": "長徳",
-                        "51": "長保",
-                        "52": "寛弘",
-                        "53": "長和",
-                        "54": "寛仁",
-                        "55": "治安",
-                        "56": "万寿",
-                        "57": "長元",
-                        "58": "長暦",
-                        "59": "長久",
-                        "60": "寛徳",
-                        "61": "永承",
-                        "62": "天喜",
-                        "63": "康平",
-                        "64": "治暦",
-                        "65": "延久",
-                        "66": "承保",
-                        "67": "承暦",
-                        "68": "永保",
-                        "69": "応徳",
-                        "70": "寛治",
-                        "71": "嘉保",
-                        "72": "永長",
-                        "73": "承徳",
-                        "74": "康和",
-                        "75": "長治",
-                        "76": "嘉承",
-                        "77": "天仁",
-                        "78": "天永",
-                        "79": "永久",
-                        "80": "元永",
-                        "81": "保安",
-                        "82": "天治",
-                        "83": "大治",
-                        "84": "天承",
-                        "85": "長承",
-                        "86": "保延",
-                        "87": "永治",
-                        "88": "康治",
-                        "89": "天養",
-                        "90": "久安",
-                        "91": "仁平",
-                        "92": "久寿",
-                        "93": "保元",
-                        "94": "平治",
-                        "95": "永暦",
-                        "96": "応保",
-                        "97": "長寛",
-                        "98": "永万",
-                        "99": "仁安",
-                        "100": "嘉応",
-                        "101": "承安",
-                        "102": "安元",
-                        "103": "治承",
-                        "104": "養和",
-                        "105": "寿永",
-                        "106": "元暦",
-                        "107": "文治",
-                        "108": "建久",
-                        "109": "正治",
-                        "110": "建仁",
-                        "111": "元久",
-                        "112": "建永",
-                        "113": "承元",
-                        "114": "建暦",
-                        "115": "建保",
-                        "116": "承久",
-                        "117": "貞応",
-                        "118": "元仁",
-                        "119": "嘉禄",
-                        "120": "安貞",
-                        "121": "寛喜",
-                        "122": "貞永",
-                        "123": "天福",
-                        "124": "文暦",
-                        "125": "嘉禎",
-                        "126": "暦仁",
-                        "127": "延応",
-                        "128": "仁治",
-                        "129": "寛元",
-                        "130": "宝治",
-                        "131": "建長",
-                        "132": "康元",
-                        "133": "正嘉",
-                        "134": "正元",
-                        "135": "文応",
-                        "136": "弘長",
-                        "137": "文永",
-                        "138": "建治",
-                        "139": "弘安",
-                        "140": "正応",
-                        "141": "永仁",
-                        "142": "正安",
-                        "143": "乾元",
-                        "144": "嘉元",
-                        "145": "徳治",
-                        "146": "延慶",
-                        "147": "応長",
-                        "148": "正和",
-                        "149": "文保",
-                        "150": "元応",
-                        "151": "元亨",
-                        "152": "正中",
-                        "153": "嘉暦",
-                        "154": "元徳",
-                        "155": "元弘",
-                        "156": "建武",
-                        "157": "延元",
-                        "158": "興国",
-                        "159": "正平",
-                        "160": "建徳",
-                        "161": "文中",
-                        "162": "天授",
-                        "163": "康暦",
-                        "164": "弘和",
-                        "165": "元中",
-                        "166": "至徳",
-                        "167": "嘉慶",
-                        "168": "康応",
-                        "169": "明徳",
-                        "170": "応永",
-                        "171": "正長",
-                        "172": "永享",
-                        "173": "嘉吉",
-                        "174": "文安",
-                        "175": "宝徳",
-                        "176": "享徳",
-                        "177": "康正",
-                        "178": "長禄",
-                        "179": "寛正",
-                        "180": "文正",
-                        "181": "応仁",
-                        "182": "文明",
-                        "183": "長享",
-                        "184": "延徳",
-                        "185": "明応",
-                        "186": "文亀",
-                        "187": "永正",
-                        "188": "大永",
-                        "189": "享禄",
-                        "190": "天文",
-                        "191": "弘治",
-                        "192": "永禄",
-                        "193": "元亀",
-                        "194": "天正",
-                        "195": "文禄",
-                        "196": "慶長",
-                        "197": "元和",
-                        "198": "寛永",
-                        "199": "正保",
-                        "200": "慶安",
-                        "201": "承応",
-                        "202": "明暦",
-                        "203": "万治",
-                        "204": "寛文",
-                        "205": "延宝",
-                        "206": "天和",
-                        "207": "貞享",
-                        "208": "元禄",
-                        "209": "宝永",
-                        "210": "正徳",
-                        "211": "享保",
-                        "212": "元文",
-                        "213": "寛保",
-                        "214": "延享",
-                        "215": "寛延",
-                        "216": "宝暦",
-                        "217": "明和",
-                        "218": "安永",
-                        "219": "天明",
-                        "220": "寛政",
-                        "221": "享和",
-                        "222": "文化",
-                        "223": "文政",
-                        "224": "天保",
-                        "225": "弘化",
-                        "226": "嘉永",
-                        "227": "安政",
-                        "228": "万延",
-                        "229": "文久",
-                        "230": "元治",
-                        "231": "慶応",
-                        "232": "明治",
-                        "233": "大正",
-                        "234": "昭和",
-                        "235": "平成"
-                    },
-                    "eraNarrow": {
-                        "0": "大化",
-                        "1": "白雉",
-                        "2": "白鳯",
-                        "3": "朱鳥",
-                        "4": "大宝",
-                        "5": "慶雲",
-                        "6": "和銅",
-                        "7": "霊亀",
-                        "8": "養老",
-                        "9": "神亀",
-                        "10": "天平",
-                        "11": "天平感宝",
-                        "12": "天平勝宝",
-                        "13": "天平宝字",
-                        "14": "天平神護",
-                        "15": "神護景雲",
-                        "16": "宝亀",
-                        "17": "天応",
-                        "18": "延暦",
-                        "19": "大同",
-                        "20": "弘仁",
-                        "21": "天長",
-                        "22": "承和",
-                        "23": "嘉祥",
-                        "24": "仁寿",
-                        "25": "斉衡",
-                        "26": "天安",
-                        "27": "貞観",
-                        "28": "元慶",
-                        "29": "仁和",
-                        "30": "寛平",
-                        "31": "昌泰",
-                        "32": "延喜",
-                        "33": "延長",
-                        "34": "承平",
-                        "35": "天慶",
-                        "36": "天暦",
-                        "37": "天徳",
-                        "38": "応和",
-                        "39": "康保",
-                        "40": "安和",
-                        "41": "天禄",
-                        "42": "天延",
-                        "43": "貞元",
-                        "44": "天元",
-                        "45": "永観",
-                        "46": "寛和",
-                        "47": "永延",
-                        "48": "永祚",
-                        "49": "正暦",
-                        "50": "長徳",
-                        "51": "長保",
-                        "52": "寛弘",
-                        "53": "長和",
-                        "54": "寛仁",
-                        "55": "治安",
-                        "56": "万寿",
-                        "57": "長元",
-                        "58": "長暦",
-                        "59": "長久",
-                        "60": "寛徳",
-                        "61": "永承",
-                        "62": "天喜",
-                        "63": "康平",
-                        "64": "治暦",
-                        "65": "延久",
-                        "66": "承保",
-                        "67": "承暦",
-                        "68": "永保",
-                        "69": "応徳",
-                        "70": "寛治",
-                        "71": "嘉保",
-                        "72": "永長",
-                        "73": "承徳",
-                        "74": "康和",
-                        "75": "長治",
-                        "76": "嘉承",
-                        "77": "天仁",
-                        "78": "天永",
-                        "79": "永久",
-                        "80": "元永",
-                        "81": "保安",
-                        "82": "天治",
-                        "83": "大治",
-                        "84": "天承",
-                        "85": "長承",
-                        "86": "保延",
-                        "87": "永治",
-                        "88": "康治",
-                        "89": "天養",
-                        "90": "久安",
-                        "91": "仁平",
-                        "92": "久寿",
-                        "93": "保元",
-                        "94": "平治",
-                        "95": "永暦",
-                        "96": "応保",
-                        "97": "長寛",
-                        "98": "永万",
-                        "99": "仁安",
-                        "100": "嘉応",
-                        "101": "承安",
-                        "102": "安元",
-                        "103": "治承",
-                        "104": "養和",
-                        "105": "寿永",
-                        "106": "元暦",
-                        "107": "文治",
-                        "108": "建久",
-                        "109": "正治",
-                        "110": "建仁",
-                        "111": "元久",
-                        "112": "建永",
-                        "113": "承元",
-                        "114": "建暦",
-                        "115": "建保",
-                        "116": "承久",
-                        "117": "貞応",
-                        "118": "元仁",
-                        "119": "嘉禄",
-                        "120": "安貞",
-                        "121": "寛喜",
-                        "122": "貞永",
-                        "123": "天福",
-                        "124": "文暦",
-                        "125": "嘉禎",
-                        "126": "暦仁",
-                        "127": "延応",
-                        "128": "仁治",
-                        "129": "寛元",
-                        "130": "宝治",
-                        "131": "建長",
-                        "132": "康元",
-                        "133": "正嘉",
-                        "134": "正元",
-                        "135": "文応",
-                        "136": "弘長",
-                        "137": "文永",
-                        "138": "建治",
-                        "139": "弘安",
-                        "140": "正応",
-                        "141": "永仁",
-                        "142": "正安",
-                        "143": "乾元",
-                        "144": "嘉元",
-                        "145": "徳治",
-                        "146": "延慶",
-                        "147": "応長",
-                        "148": "正和",
-                        "149": "文保",
-                        "150": "元応",
-                        "151": "元亨",
-                        "152": "正中",
-                        "153": "嘉暦",
-                        "154": "元徳",
-                        "155": "元弘",
-                        "156": "建武",
-                        "157": "延元",
-                        "158": "興国",
-                        "159": "正平",
-                        "160": "建徳",
-                        "161": "文中",
-                        "162": "天授",
-                        "163": "康暦",
-                        "164": "弘和",
-                        "165": "元中",
-                        "166": "至徳",
-                        "167": "嘉慶",
-                        "168": "康応",
-                        "169": "明徳",
-                        "170": "応永",
-                        "171": "正長",
-                        "172": "永享",
-                        "173": "嘉吉",
-                        "174": "文安",
-                        "175": "宝徳",
-                        "176": "享徳",
-                        "177": "康正",
-                        "178": "長禄",
-                        "179": "寛正",
-                        "180": "文正",
-                        "181": "応仁",
-                        "182": "文明",
-                        "183": "長享",
-                        "184": "延徳",
-                        "185": "明応",
-                        "186": "文亀",
-                        "187": "永正",
-                        "188": "大永",
-                        "189": "享禄",
-                        "190": "天文",
-                        "191": "弘治",
-                        "192": "永禄",
-                        "193": "元亀",
-                        "194": "天正",
-                        "195": "文禄",
-                        "196": "慶長",
-                        "197": "元和",
-                        "198": "寛永",
-                        "199": "正保",
-                        "200": "慶安",
-                        "201": "承応",
-                        "202": "明暦",
-                        "203": "万治",
-                        "204": "寛文",
-                        "205": "延宝",
-                        "206": "天和",
-                        "207": "貞享",
-                        "208": "元禄",
-                        "209": "宝永",
-                        "210": "正徳",
-                        "211": "享保",
-                        "212": "元文",
-                        "213": "寛保",
-                        "214": "延享",
-                        "215": "寛延",
-                        "216": "宝暦",
-                        "217": "明和",
-                        "218": "安永",
-                        "219": "天明",
-                        "220": "寛政",
-                        "221": "享和",
-                        "222": "文化",
-                        "223": "文政",
-                        "224": "天保",
-                        "225": "弘化",
-                        "226": "嘉永",
-                        "227": "安政",
-                        "228": "万延",
-                        "229": "文久",
-                        "230": "元治",
-                        "231": "慶応",
-                        "232": "明",
-                        "233": "大",
-                        "234": "昭",
-                        "235": "平"
-                    }
-                },
-                "dateFormats": {
-                    "full": "Gy年M月d日EEEE",
-                    "long": "Gy年M月d日",
-                    "medium": "Gy年M月d日",
-                    "short": "Gyy/MM/dd"
-                },
-                "dateTimeFormats": {
-                    "full": "{1} {0}",
-                    "long": "{1} {0}",
-                    "medium": "{1} {0}",
-                    "short": "{1} {0}",
-                    "availableFormats": {
-                        "d": "d日",
-                        "Ed": "d日(E)",
-                        "EEEEd": "d日EEEE",
-                        "Gy": "Gy年",
-                        "GyMMM": "Gy年M月",
-                        "GyMMMd": "Gy年M月d日",
-                        "GyMMMEd": "Gy年M月d日(E)",
-                        "GyMMMEEEEd": "Gy年M月d日EEEE",
-                        "h": "aK時",
-                        "H": "H時",
-                        "hm": "aK:mm",
-                        "Hm": "H:mm",
-                        "hms": "aK:mm:ss",
-                        "Hms": "H:mm:ss",
-                        "M": "M月",
-                        "Md": "M/d",
-                        "MEd": "M/d(E)",
-                        "MEEEEd": "M/dEEEE",
-                        "MMM": "M月",
-                        "MMMd": "M月d日",
-                        "MMMEd": "M月d日(E)",
-                        "MMMEEEEd": "M月d日EEEE",
-                        "ms": "mm:ss",
-                        "y": "Gy年",
-                        "yyyy": "Gy年",
-                        "yyyyMd": "Gy/M/d",
-                        "yyyyMEd": "Gy/M/d(E)",
-                        "yyyyMEEEEd": "Gy/M/dEEEE",
-                        "yyyyMM": "Gy/MM",
-                        "yyyyMMM": "Gy年M月",
-                        "yyyyMMMd": "Gy年M月d日",
-                        "yyyyMMMEd": "Gy年M月d日(E)",
-                        "yyyyMMMEEEEd": "Gy年M月d日EEEE",
-                        "yyyyQQQ": "Gy/QQQ",
-                        "yyyyQQQQ": "GyQQQQ"
-                    }
+                    "short": [
+                        "サカ"
+                    ]
                 }
             },
             "persian": {
                 "months": {
-                    "format": {
-                        "abbreviated": {
-                            "1": "ファルヴァルディーン",
-                            "2": "オルディーベヘシュト",
-                            "3": "ホルダード",
-                            "4": "ティール",
-                            "5": "モルダード",
-                            "6": "シャハリーヴァル",
-                            "7": "メフル",
-                            "8": "アーバーン",
-                            "9": "アーザル",
-                            "10": "デイ",
-                            "11": "バフマン",
-                            "12": "エスファンド"
-                        },
-                        "narrow": {
-                            "1": "1",
-                            "2": "2",
-                            "3": "3",
-                            "4": "4",
-                            "5": "5",
-                            "6": "6",
-                            "7": "7",
-                            "8": "8",
-                            "9": "9",
-                            "10": "10",
-                            "11": "11",
-                            "12": "12"
-                        },
-                        "wide": {
-                            "1": "ファルヴァルディーン",
-                            "2": "オルディーベヘシュト",
-                            "3": "ホルダード",
-                            "4": "ティール",
-                            "5": "モルダード",
-                            "6": "シャハリーヴァル",
-                            "7": "メフル",
-                            "8": "アーバーン",
-                            "9": "アーザル",
-                            "10": "デイ",
-                            "11": "バフマン",
-                            "12": "エスファンド"
-                        }
-                    },
-                    "stand-alone": {
-                        "abbreviated": {
-                            "1": "ファルヴァルディーン",
-                            "2": "オルディーベヘシュト",
-                            "3": "ホルダード",
-                            "4": "ティール",
-                            "5": "モルダード",
-                            "6": "シャハリーヴァル",
-                            "7": "メフル",
-                            "8": "アーバーン",
-                            "9": "アーザル",
-                            "10": "デイ",
-                            "11": "バフマン",
-                            "12": "エスファンド"
-                        },
-                        "narrow": {
-                            "1": "1",
-                            "2": "2",
-                            "3": "3",
-                            "4": "4",
-                            "5": "5",
-                            "6": "6",
-                            "7": "7",
-                            "8": "8",
-                            "9": "9",
-                            "10": "10",
-                            "11": "11",
-                            "12": "12"
-                        },
-                        "wide": {
-                            "1": "ファルヴァルディーン",
-                            "2": "オルディーベヘシュト",
-                            "3": "ホルダード",
-                            "4": "ティール",
-                            "5": "モルダード",
-                            "6": "シャハリーヴァル",
-                            "7": "メフル",
-                            "8": "アーバーン",
-                            "9": "アーザル",
-                            "10": "デイ",
-                            "11": "バフマン",
-                            "12": "エスファンド"
-                        }
-                    }
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "short": [
+                        "ファルヴァルディーン",
+                        "オルディーベヘシュト",
+                        "ホルダード",
+                        "ティール",
+                        "モルダード",
+                        "シャハリーヴァル",
+                        "メフル",
+                        "アーバーン",
+                        "アーザル",
+                        "デイ",
+                        "バフマン",
+                        "エスファンド"
+                    ],
+                    "long": [
+                        "ファルヴァルディーン",
+                        "オルディーベヘシュト",
+                        "ホルダード",
+                        "ティール",
+                        "モルダード",
+                        "シャハリーヴァル",
+                        "メフル",
+                        "アーバーン",
+                        "アーザル",
+                        "デイ",
+                        "バフマン",
+                        "エスファンド"
+                    ]
                 },
                 "eras": {
-                    "eraAbbr": {
-                        "0": "AP"
-                    }
+                    "short": [
+                        "AP"
+                    ]
                 }
             },
-            "roc": {
+            "islamic": {
+                "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "short": [
+                        "ムハッラム",
+                        "サフアル",
+                        "ラビー・ウル・アウワル",
+                        "ラビー・ウッ・サーニー",
+                        "ジュマーダル・アウワル",
+                        "ジュマーダッサーニー",
+                        "ラジャブ",
+                        "シャアバーン",
+                        "ラマダーン",
+                        "シャウワール",
+                        "ズル・カイダ",
+                        "ズル・ヒッジャ"
+                    ],
+                    "long": [
+                        "ムハッラム",
+                        "サフアル",
+                        "ラビー・ウル・アウワル",
+                        "ラビー・ウッ・サーニー",
+                        "ジュマーダル・アウワル",
+                        "ジュマーダッサーニー",
+                        "ラジャブ",
+                        "シャアバーン",
+                        "ラマダーン",
+                        "シャウワール",
+                        "ズル・カイダ",
+                        "ズル・ヒッジャ"
+                    ]
+                },
                 "eras": {
-                    "eraAbbr": {
-                        "0": "民国前",
-                        "1": "民国"
-                    }
-                }
-            }
-        },
-        "timeZoneNames": {
-            "zone": {
-                "America": {
-                    "Adak": {
-                        "exemplarCity": "アダック"
-                    },
-                    "Anchorage": {
-                        "exemplarCity": "アンカレッジ"
-                    },
-                    "Anguilla": {
-                        "exemplarCity": "アンギラ"
-                    },
-                    "Antigua": {
-                        "exemplarCity": "アンティグア"
-                    },
-                    "Araguaina": {
-                        "exemplarCity": "アラグァイナ"
-                    },
-                    "Argentina": {
-                        "Rio_Gallegos": {
-                            "exemplarCity": "リオガジェゴス"
-                        },
-                        "San_Juan": {
-                            "exemplarCity": "サンファン"
-                        },
-                        "Ushuaia": {
-                            "exemplarCity": "ウシュアイア"
-                        },
-                        "La_Rioja": {
-                            "exemplarCity": "ラリオハ"
-                        },
-                        "San_Luis": {
-                            "exemplarCity": "サンルイス"
-                        },
-                        "Salta": {
-                            "exemplarCity": "サルタ"
-                        },
-                        "Tucuman": {
-                            "exemplarCity": "トゥクマン"
-                        }
-                    },
-                    "Aruba": {
-                        "exemplarCity": "アルバ"
-                    },
-                    "Asuncion": {
-                        "exemplarCity": "アスンシオン"
-                    },
-                    "Bahia": {
-                        "exemplarCity": "バイーア"
-                    },
-                    "Barbados": {
-                        "exemplarCity": "バルバドス"
-                    },
-                    "Belem": {
-                        "exemplarCity": "ベレン"
-                    },
-                    "Belize": {
-                        "exemplarCity": "ベリーズ"
-                    },
-                    "Blanc-Sablon": {
-                        "exemplarCity": "ブラン・サブロン"
-                    },
-                    "Boa_Vista": {
-                        "exemplarCity": "ボアビスタ"
-                    },
-                    "Bogota": {
-                        "exemplarCity": "ボゴタ"
-                    },
-                    "Boise": {
-                        "exemplarCity": "ボイシ"
-                    },
-                    "Buenos_Aires": {
-                        "exemplarCity": "ブエノスアイレス"
-                    },
-                    "Cambridge_Bay": {
-                        "exemplarCity": "ケンブリッジベイ"
-                    },
-                    "Campo_Grande": {
-                        "exemplarCity": "カンポグランデ"
-                    },
-                    "Cancun": {
-                        "exemplarCity": "カンクン"
-                    },
-                    "Caracas": {
-                        "exemplarCity": "カラカス"
-                    },
-                    "Catamarca": {
-                        "exemplarCity": "カタマルカ"
-                    },
-                    "Cayenne": {
-                        "exemplarCity": "カイエンヌ"
-                    },
-                    "Cayman": {
-                        "exemplarCity": "ケイマン"
-                    },
-                    "Chicago": {
-                        "exemplarCity": "シカゴ"
-                    },
-                    "Chihuahua": {
-                        "exemplarCity": "チワワ"
-                    },
-                    "Coral_Harbour": {
-                        "exemplarCity": "アティコカン"
-                    },
-                    "Cordoba": {
-                        "exemplarCity": "コルドバ"
-                    },
-                    "Costa_Rica": {
-                        "exemplarCity": "コスタリカ"
-                    },
-                    "Cuiaba": {
-                        "exemplarCity": "クイアバ"
-                    },
-                    "Curacao": {
-                        "exemplarCity": "キュラソー"
-                    },
-                    "Danmarkshavn": {
-                        "exemplarCity": "デンマークシャウン"
-                    },
-                    "Dawson": {
-                        "exemplarCity": "ドーソン"
-                    },
-                    "Dawson_Creek": {
-                        "exemplarCity": "ドーソンクリーク"
-                    },
-                    "Denver": {
-                        "exemplarCity": "デンバー"
-                    },
-                    "Detroit": {
-                        "exemplarCity": "デトロイト"
-                    },
-                    "Dominica": {
-                        "exemplarCity": "ドミニカ"
-                    },
-                    "Edmonton": {
-                        "exemplarCity": "エドモントン"
-                    },
-                    "Eirunepe": {
-                        "exemplarCity": "エイルネペ"
-                    },
-                    "El_Salvador": {
-                        "exemplarCity": "エルサルバドル"
-                    },
-                    "Fortaleza": {
-                        "exemplarCity": "フォルタレザ"
-                    },
-                    "Glace_Bay": {
-                        "exemplarCity": "グレースベイ"
-                    },
-                    "Godthab": {
-                        "exemplarCity": "ゴッドホープ"
-                    },
-                    "Goose_Bay": {
-                        "exemplarCity": "グースベイ"
-                    },
-                    "Grand_Turk": {
-                        "exemplarCity": "グランドターク"
-                    },
-                    "Grenada": {
-                        "exemplarCity": "グレナダ"
-                    },
-                    "Guadeloupe": {
-                        "exemplarCity": "グアダループ"
-                    },
-                    "Guatemala": {
-                        "exemplarCity": "グアテマラ"
-                    },
-                    "Guayaquil": {
-                        "exemplarCity": "グアヤキル"
-                    },
-                    "Guyana": {
-                        "exemplarCity": "ガイアナ"
-                    },
-                    "Halifax": {
-                        "exemplarCity": "ハリファクス"
-                    },
-                    "Havana": {
-                        "exemplarCity": "ハバナ"
-                    },
-                    "Hermosillo": {
-                        "exemplarCity": "エルモシヨ"
-                    },
-                    "Indiana": {
-                        "Vincennes": {
-                            "exemplarCity": "インディアナ州ビンセンス"
-                        },
-                        "Petersburg": {
-                            "exemplarCity": "インディアナ州ピーターズバーグ"
-                        },
-                        "Tell_City": {
-                            "exemplarCity": "インディアナ州テルシティ"
-                        },
-                        "Knox": {
-                            "exemplarCity": "インディアナ州ノックス"
-                        },
-                        "Winamac": {
-                            "exemplarCity": "インディアナ州ウィナマック"
-                        },
-                        "Marengo": {
-                            "exemplarCity": "インディアナ州マレンゴ"
-                        },
-                        "Vevay": {
-                            "exemplarCity": "インディアナ州ビベー"
-                        }
-                    },
-                    "Indianapolis": {
-                        "exemplarCity": "インディアナポリス"
-                    },
-                    "Inuvik": {
-                        "exemplarCity": "イヌヴィク"
-                    },
-                    "Iqaluit": {
-                        "exemplarCity": "イカルイット"
-                    },
-                    "Jamaica": {
-                        "exemplarCity": "ジャマイカ"
-                    },
-                    "Jujuy": {
-                        "exemplarCity": "フフイ"
-                    },
-                    "Juneau": {
-                        "exemplarCity": "ジュノー"
-                    },
-                    "Kentucky": {
-                        "Monticello": {
-                            "exemplarCity": "ケンタッキー州モンティチェロ"
-                        }
-                    },
-                    "La_Paz": {
-                        "exemplarCity": "ラパス"
-                    },
-                    "Lima": {
-                        "exemplarCity": "リマ"
-                    },
-                    "Los_Angeles": {
-                        "exemplarCity": "ロサンゼルス"
-                    },
-                    "Louisville": {
-                        "exemplarCity": "ルイビル"
-                    },
-                    "Lower_Princes": {
-                        "exemplarCity": "ローワー・プリンセズ・クウォーター"
-                    },
-                    "Maceio": {
-                        "exemplarCity": "マセイオ"
-                    },
-                    "Managua": {
-                        "exemplarCity": "マナグア"
-                    },
-                    "Manaus": {
-                        "exemplarCity": "マナウス"
-                    },
-                    "Marigot": {
-                        "exemplarCity": "マリゴ"
-                    },
-                    "Martinique": {
-                        "exemplarCity": "マルティニーク"
-                    },
-                    "Mazatlan": {
-                        "exemplarCity": "マサトラン"
-                    },
-                    "Mendoza": {
-                        "exemplarCity": "メンドーサ"
-                    },
-                    "Menominee": {
-                        "exemplarCity": "メノミニー"
-                    },
-                    "Merida": {
-                        "exemplarCity": "メリダ"
-                    },
-                    "Mexico_City": {
-                        "exemplarCity": "メキシコシティー"
-                    },
-                    "Miquelon": {
-                        "exemplarCity": "ミクロン島"
-                    },
-                    "Moncton": {
-                        "exemplarCity": "モンクトン"
-                    },
-                    "Monterrey": {
-                        "exemplarCity": "モンテレイ"
-                    },
-                    "Montevideo": {
-                        "exemplarCity": "モンテビデオ"
-                    },
-                    "Montreal": {
-                        "exemplarCity": "モントリオール"
-                    },
-                    "Montserrat": {
-                        "exemplarCity": "モントセラト"
-                    },
-                    "Nassau": {
-                        "exemplarCity": "ナッソー"
-                    },
-                    "New_York": {
-                        "exemplarCity": "ニューヨーク"
-                    },
-                    "Nipigon": {
-                        "exemplarCity": "ニピゴン"
-                    },
-                    "Nome": {
-                        "exemplarCity": "ノーム"
-                    },
-                    "Noronha": {
-                        "exemplarCity": "ノローニャ"
-                    },
-                    "North_Dakota": {
-                        "Beulah": {
-                            "exemplarCity": "ノースダコタ州ビューラー"
-                        },
-                        "New_Salem": {
-                            "exemplarCity": "ノースダコタ州ニューセーラム"
-                        },
-                        "Center": {
-                            "exemplarCity": "ノースダコタ州センター"
-                        }
-                    },
-                    "Panama": {
-                        "exemplarCity": "パナマ"
-                    },
-                    "Pangnirtung": {
-                        "exemplarCity": "パンナータング"
-                    },
-                    "Paramaribo": {
-                        "exemplarCity": "パラマリボ"
-                    },
-                    "Phoenix": {
-                        "exemplarCity": "フェニックス"
-                    },
-                    "Port-au-Prince": {
-                        "exemplarCity": "ポルトープランス"
-                    },
-                    "Port_of_Spain": {
-                        "exemplarCity": "ポートオブスペイン"
-                    },
-                    "Porto_Velho": {
-                        "exemplarCity": "ポルトベーリョ"
-                    },
-                    "Puerto_Rico": {
-                        "exemplarCity": "プエルトリコ"
-                    },
-                    "Rainy_River": {
-                        "exemplarCity": "レイニーリバー"
-                    },
-                    "Rankin_Inlet": {
-                        "exemplarCity": "ランキンインレット"
-                    },
-                    "Recife": {
-                        "exemplarCity": "レシフェ"
-                    },
-                    "Regina": {
-                        "exemplarCity": "レジャイナ"
-                    },
-                    "Resolute": {
-                        "exemplarCity": "レゾリュート"
-                    },
-                    "Rio_Branco": {
-                        "exemplarCity": "リオブランコ"
-                    },
-                    "Santarem": {
-                        "exemplarCity": "サンタレム"
-                    },
-                    "Santiago": {
-                        "exemplarCity": "サンチアゴ"
-                    },
-                    "Santo_Domingo": {
-                        "exemplarCity": "サントドミンゴ"
-                    },
-                    "Sao_Paulo": {
-                        "exemplarCity": "サンパウロ"
-                    },
-                    "Scoresbysund": {
-                        "exemplarCity": "スコルズビスーン"
-                    },
-                    "Shiprock": {
-                        "exemplarCity": "シップロック"
-                    },
-                    "St_Barthelemy": {
-                        "exemplarCity": "サン・バルテルミー"
-                    },
-                    "St_Johns": {
-                        "exemplarCity": "セントジョンズ"
-                    },
-                    "St_Kitts": {
-                        "exemplarCity": "セントキッツ"
-                    },
-                    "St_Lucia": {
-                        "exemplarCity": "セントルシア"
-                    },
-                    "St_Thomas": {
-                        "exemplarCity": "セントトーマス"
-                    },
-                    "St_Vincent": {
-                        "exemplarCity": "セントビンセント"
-                    },
-                    "Swift_Current": {
-                        "exemplarCity": "スウィフトカレント"
-                    },
-                    "Tegucigalpa": {
-                        "exemplarCity": "テグシガルパ"
-                    },
-                    "Thule": {
-                        "exemplarCity": "チューレ"
-                    },
-                    "Thunder_Bay": {
-                        "exemplarCity": "サンダーベイ"
-                    },
-                    "Tijuana": {
-                        "exemplarCity": "ティフアナ"
-                    },
-                    "Toronto": {
-                        "exemplarCity": "トロント"
-                    },
-                    "Tortola": {
-                        "exemplarCity": "トルトーラ"
-                    },
-                    "Vancouver": {
-                        "exemplarCity": "バンクーバー"
-                    },
-                    "Whitehorse": {
-                        "exemplarCity": "ホワイトホース"
-                    },
-                    "Winnipeg": {
-                        "exemplarCity": "ウィニペグ"
-                    },
-                    "Yakutat": {
-                        "exemplarCity": "ヤクタット"
-                    },
-                    "Yellowknife": {
-                        "exemplarCity": "イエローナイフ"
-                    }
-                },
-                "Atlantic": {
-                    "Azores": {
-                        "exemplarCity": "アゾレス"
-                    },
-                    "Bermuda": {
-                        "exemplarCity": "バミューダ"
-                    },
-                    "Canary": {
-                        "exemplarCity": "カナリア"
-                    },
-                    "Cape_Verde": {
-                        "exemplarCity": "カーボベルデ"
-                    },
-                    "Faeroe": {
-                        "exemplarCity": "フェロー"
-                    },
-                    "Madeira": {
-                        "exemplarCity": "マデイラ"
-                    },
-                    "Reykjavik": {
-                        "exemplarCity": "レイキャビク"
-                    },
-                    "South_Georgia": {
-                        "exemplarCity": "サウスジョージア"
-                    },
-                    "St_Helena": {
-                        "exemplarCity": "セントヘレナ"
-                    },
-                    "Stanley": {
-                        "exemplarCity": "スタンレー"
-                    }
-                },
-                "Europe": {
-                    "Amsterdam": {
-                        "exemplarCity": "アムステルダム"
-                    },
-                    "Andorra": {
-                        "exemplarCity": "アンドラ"
-                    },
-                    "Athens": {
-                        "exemplarCity": "アテネ"
-                    },
-                    "Belgrade": {
-                        "exemplarCity": "ベオグラード"
-                    },
-                    "Berlin": {
-                        "exemplarCity": "ベルリン"
-                    },
-                    "Bratislava": {
-                        "exemplarCity": "ブラチスラバ"
-                    },
-                    "Brussels": {
-                        "exemplarCity": "ブリュッセル"
-                    },
-                    "Bucharest": {
-                        "exemplarCity": "ブカレスト"
-                    },
-                    "Budapest": {
-                        "exemplarCity": "ブダペスト"
-                    },
-                    "Chisinau": {
-                        "exemplarCity": "キシナウ"
-                    },
-                    "Copenhagen": {
-                        "exemplarCity": "コペンハーゲン"
-                    },
-                    "Dublin": {
-                        "long": {
-                            "daylight": "アイルランド夏時間"
-                        },
-                        "exemplarCity": "ダブリン"
-                    },
-                    "Gibraltar": {
-                        "exemplarCity": "ジブラルタル"
-                    },
-                    "Guernsey": {
-                        "exemplarCity": "ガーンジー"
-                    },
-                    "Helsinki": {
-                        "exemplarCity": "ヘルシンキ"
-                    },
-                    "Isle_of_Man": {
-                        "exemplarCity": "マン島"
-                    },
-                    "Istanbul": {
-                        "exemplarCity": "イスタンブール"
-                    },
-                    "Jersey": {
-                        "exemplarCity": "ジャージー"
-                    },
-                    "Kaliningrad": {
-                        "exemplarCity": "カリーニングラード"
-                    },
-                    "Kiev": {
-                        "exemplarCity": "キエフ"
-                    },
-                    "Lisbon": {
-                        "exemplarCity": "リスボン"
-                    },
-                    "Ljubljana": {
-                        "exemplarCity": "リュブリャナ"
-                    },
-                    "London": {
-                        "long": {
-                            "daylight": "英国夏時間"
-                        },
-                        "exemplarCity": "ロンドン"
-                    },
-                    "Luxembourg": {
-                        "exemplarCity": "ルクセンブルグ"
-                    },
-                    "Madrid": {
-                        "exemplarCity": "マドリード"
-                    },
-                    "Malta": {
-                        "exemplarCity": "マルタ"
-                    },
-                    "Mariehamn": {
-                        "exemplarCity": "マリエハムン"
-                    },
-                    "Minsk": {
-                        "exemplarCity": "ミンスク"
-                    },
-                    "Monaco": {
-                        "exemplarCity": "モナコ"
-                    },
-                    "Moscow": {
-                        "exemplarCity": "モスクワ"
-                    },
-                    "Oslo": {
-                        "exemplarCity": "オスロ"
-                    },
-                    "Paris": {
-                        "exemplarCity": "パリ"
-                    },
-                    "Podgorica": {
-                        "exemplarCity": "ポドゴリツァ"
-                    },
-                    "Prague": {
-                        "exemplarCity": "プラハ"
-                    },
-                    "Riga": {
-                        "exemplarCity": "リガ"
-                    },
-                    "Rome": {
-                        "exemplarCity": "ローマ"
-                    },
-                    "Samara": {
-                        "exemplarCity": "サマラ"
-                    },
-                    "San_Marino": {
-                        "exemplarCity": "サンマリノ"
-                    },
-                    "Sarajevo": {
-                        "exemplarCity": "サラエボ"
-                    },
-                    "Simferopol": {
-                        "exemplarCity": "シンフェロポリ"
-                    },
-                    "Skopje": {
-                        "exemplarCity": "スコピエ"
-                    },
-                    "Sofia": {
-                        "exemplarCity": "ソフィア"
-                    },
-                    "Stockholm": {
-                        "exemplarCity": "ストックホルム"
-                    },
-                    "Tallinn": {
-                        "exemplarCity": "タリン"
-                    },
-                    "Tirane": {
-                        "exemplarCity": "ティラナ"
-                    },
-                    "Uzhgorod": {
-                        "exemplarCity": "ウージュホロド"
-                    },
-                    "Vaduz": {
-                        "exemplarCity": "ファドゥーツ"
-                    },
-                    "Vatican": {
-                        "exemplarCity": "バチカン"
-                    },
-                    "Vienna": {
-                        "exemplarCity": "ウィーン"
-                    },
-                    "Vilnius": {
-                        "exemplarCity": "ヴィリニュス"
-                    },
-                    "Volgograd": {
-                        "exemplarCity": "ボルゴグラード"
-                    },
-                    "Warsaw": {
-                        "exemplarCity": "ワルシャワ"
-                    },
-                    "Zagreb": {
-                        "exemplarCity": "ザグレブ"
-                    },
-                    "Zaporozhye": {
-                        "exemplarCity": "ザポリージャ"
-                    },
-                    "Zurich": {
-                        "exemplarCity": "チューリッヒ"
-                    }
-                },
-                "Africa": {
-                    "Abidjan": {
-                        "exemplarCity": "アビジャン"
-                    },
-                    "Accra": {
-                        "exemplarCity": "アクラ"
-                    },
-                    "Addis_Ababa": {
-                        "exemplarCity": "アジスアベバ"
-                    },
-                    "Algiers": {
-                        "exemplarCity": "アルジェ"
-                    },
-                    "Asmera": {
-                        "exemplarCity": "アスマラ"
-                    },
-                    "Bamako": {
-                        "exemplarCity": "バマコ"
-                    },
-                    "Bangui": {
-                        "exemplarCity": "バンギ"
-                    },
-                    "Banjul": {
-                        "exemplarCity": "バンジュール"
-                    },
-                    "Bissau": {
-                        "exemplarCity": "ビサウ"
-                    },
-                    "Blantyre": {
-                        "exemplarCity": "ブランタイヤ"
-                    },
-                    "Brazzaville": {
-                        "exemplarCity": "ブラザビル"
-                    },
-                    "Bujumbura": {
-                        "exemplarCity": "ブジュンブラ"
-                    },
-                    "Cairo": {
-                        "exemplarCity": "カイロ"
-                    },
-                    "Casablanca": {
-                        "exemplarCity": "カサブランカ"
-                    },
-                    "Ceuta": {
-                        "exemplarCity": "セウタ"
-                    },
-                    "Conakry": {
-                        "exemplarCity": "コナクリ"
-                    },
-                    "Dakar": {
-                        "exemplarCity": "ダカール"
-                    },
-                    "Dar_es_Salaam": {
-                        "exemplarCity": "ダルエスサラーム"
-                    },
-                    "Djibouti": {
-                        "exemplarCity": "ジブチ"
-                    },
-                    "Douala": {
-                        "exemplarCity": "ドゥアラ"
-                    },
-                    "El_Aaiun": {
-                        "exemplarCity": "アイウン"
-                    },
-                    "Freetown": {
-                        "exemplarCity": "フリータウン"
-                    },
-                    "Gaborone": {
-                        "exemplarCity": "ハボローネ"
-                    },
-                    "Harare": {
-                        "exemplarCity": "ハラレ"
-                    },
-                    "Johannesburg": {
-                        "exemplarCity": "ヨハネスブルグ"
-                    },
-                    "Kampala": {
-                        "exemplarCity": "カンパラ"
-                    },
-                    "Khartoum": {
-                        "exemplarCity": "ハルツーム"
-                    },
-                    "Kigali": {
-                        "exemplarCity": "キガリ"
-                    },
-                    "Kinshasa": {
-                        "exemplarCity": "キンシャサ"
-                    },
-                    "Lagos": {
-                        "exemplarCity": "ラゴス"
-                    },
-                    "Libreville": {
-                        "exemplarCity": "リーブルヴィル"
-                    },
-                    "Lome": {
-                        "exemplarCity": "ロメ"
-                    },
-                    "Luanda": {
-                        "exemplarCity": "ルアンダ"
-                    },
-                    "Lubumbashi": {
-                        "exemplarCity": "ルブンバシ"
-                    },
-                    "Lusaka": {
-                        "exemplarCity": "ルサカ"
-                    },
-                    "Malabo": {
-                        "exemplarCity": "マラボ"
-                    },
-                    "Maputo": {
-                        "exemplarCity": "マプト"
-                    },
-                    "Maseru": {
-                        "exemplarCity": "マセル"
-                    },
-                    "Mbabane": {
-                        "exemplarCity": "ムババーネ"
-                    },
-                    "Mogadishu": {
-                        "exemplarCity": "モガディシオ"
-                    },
-                    "Monrovia": {
-                        "exemplarCity": "モンロビア"
-                    },
-                    "Nairobi": {
-                        "exemplarCity": "ナイロビ"
-                    },
-                    "Ndjamena": {
-                        "exemplarCity": "ンジャメナ"
-                    },
-                    "Niamey": {
-                        "exemplarCity": "ニアメ"
-                    },
-                    "Nouakchott": {
-                        "exemplarCity": "ヌアクショット"
-                    },
-                    "Ouagadougou": {
-                        "exemplarCity": "ワガドゥグー"
-                    },
-                    "Porto-Novo": {
-                        "exemplarCity": "ポルトノボ"
-                    },
-                    "Sao_Tome": {
-                        "exemplarCity": "サントメ"
-                    },
-                    "Tripoli": {
-                        "exemplarCity": "トリポリ"
-                    },
-                    "Tunis": {
-                        "exemplarCity": "チュニス"
-                    },
-                    "Windhoek": {
-                        "exemplarCity": "ウィントフック"
-                    }
-                },
-                "Asia": {
-                    "Aden": {
-                        "exemplarCity": "アデン"
-                    },
-                    "Almaty": {
-                        "exemplarCity": "アルマトイ"
-                    },
-                    "Amman": {
-                        "exemplarCity": "アンマン"
-                    },
-                    "Anadyr": {
-                        "exemplarCity": "アナディリ"
-                    },
-                    "Aqtau": {
-                        "exemplarCity": "アクタウ"
-                    },
-                    "Aqtobe": {
-                        "exemplarCity": "アクトベ"
-                    },
-                    "Ashgabat": {
-                        "exemplarCity": "アシガバード"
-                    },
-                    "Baghdad": {
-                        "exemplarCity": "バグダッド"
-                    },
-                    "Bahrain": {
-                        "exemplarCity": "バーレーン"
-                    },
-                    "Baku": {
-                        "exemplarCity": "バクー"
-                    },
-                    "Bangkok": {
-                        "exemplarCity": "バンコク"
-                    },
-                    "Beirut": {
-                        "exemplarCity": "ベイルート"
-                    },
-                    "Bishkek": {
-                        "exemplarCity": "ビシュケク"
-                    },
-                    "Brunei": {
-                        "exemplarCity": "ブルネイ"
-                    },
-                    "Calcutta": {
-                        "exemplarCity": "コルカタ"
-                    },
-                    "Choibalsan": {
-                        "exemplarCity": "チョイバルサン"
-                    },
-                    "Chongqing": {
-                        "exemplarCity": "重慶"
-                    },
-                    "Colombo": {
-                        "exemplarCity": "コロンボ"
-                    },
-                    "Damascus": {
-                        "exemplarCity": "ダマスカス"
-                    },
-                    "Dhaka": {
-                        "exemplarCity": "ダッカ"
-                    },
-                    "Dili": {
-                        "exemplarCity": "ディリ"
-                    },
-                    "Dubai": {
-                        "exemplarCity": "ドバイ"
-                    },
-                    "Dushanbe": {
-                        "exemplarCity": "ドゥシャンベ"
-                    },
-                    "Gaza": {
-                        "exemplarCity": "ガザ"
-                    },
-                    "Harbin": {
-                        "exemplarCity": "ハルビン"
-                    },
-                    "Hong_Kong": {
-                        "exemplarCity": "香港"
-                    },
-                    "Hovd": {
-                        "exemplarCity": "ホブド"
-                    },
-                    "Irkutsk": {
-                        "exemplarCity": "イルクーツク"
-                    },
-                    "Jakarta": {
-                        "exemplarCity": "ジャカルタ"
-                    },
-                    "Jayapura": {
-                        "exemplarCity": "ジャヤプラ"
-                    },
-                    "Jerusalem": {
-                        "exemplarCity": "エルサレム"
-                    },
-                    "Kabul": {
-                        "exemplarCity": "カブール"
-                    },
-                    "Kamchatka": {
-                        "exemplarCity": "カムチャッカ"
-                    },
-                    "Karachi": {
-                        "exemplarCity": "カラチ"
-                    },
-                    "Kashgar": {
-                        "exemplarCity": "カシュガル"
-                    },
-                    "Katmandu": {
-                        "exemplarCity": "カトマンズ"
-                    },
-                    "Krasnoyarsk": {
-                        "exemplarCity": "クラスノヤルスク"
-                    },
-                    "Kuala_Lumpur": {
-                        "exemplarCity": "クアラルンプール"
-                    },
-                    "Kuching": {
-                        "exemplarCity": "クチン"
-                    },
-                    "Kuwait": {
-                        "exemplarCity": "クウェート"
-                    },
-                    "Macau": {
-                        "exemplarCity": "マカオ"
-                    },
-                    "Magadan": {
-                        "exemplarCity": "マガダン"
-                    },
-                    "Makassar": {
-                        "exemplarCity": "マカッサル"
-                    },
-                    "Manila": {
-                        "exemplarCity": "マニラ"
-                    },
-                    "Muscat": {
-                        "exemplarCity": "マスカット"
-                    },
-                    "Nicosia": {
-                        "exemplarCity": "ニコシア"
-                    },
-                    "Novosibirsk": {
-                        "exemplarCity": "ノヴォシビルスク"
-                    },
-                    "Omsk": {
-                        "exemplarCity": "オムスク"
-                    },
-                    "Oral": {
-                        "exemplarCity": "オラル"
-                    },
-                    "Phnom_Penh": {
-                        "exemplarCity": "プノンペン"
-                    },
-                    "Pontianak": {
-                        "exemplarCity": "ポンティアナック"
-                    },
-                    "Pyongyang": {
-                        "exemplarCity": "平壌"
-                    },
-                    "Qatar": {
-                        "exemplarCity": "カタール"
-                    },
-                    "Qyzylorda": {
-                        "exemplarCity": "クズロルダ"
-                    },
-                    "Rangoon": {
-                        "exemplarCity": "ラングーン"
-                    },
-                    "Riyadh": {
-                        "exemplarCity": "リヤド"
-                    },
-                    "Saigon": {
-                        "exemplarCity": "ホーチミン"
-                    },
-                    "Sakhalin": {
-                        "exemplarCity": "サハリン"
-                    },
-                    "Samarkand": {
-                        "exemplarCity": "サマルカンド"
-                    },
-                    "Seoul": {
-                        "exemplarCity": "ソウル"
-                    },
-                    "Shanghai": {
-                        "exemplarCity": "上海"
-                    },
-                    "Singapore": {
-                        "exemplarCity": "シンガポール"
-                    },
-                    "Taipei": {
-                        "exemplarCity": "台北"
-                    },
-                    "Tashkent": {
-                        "exemplarCity": "タシケント"
-                    },
-                    "Tbilisi": {
-                        "exemplarCity": "トビリシ"
-                    },
-                    "Tehran": {
-                        "exemplarCity": "テヘラン"
-                    },
-                    "Thimphu": {
-                        "exemplarCity": "ティンプー"
-                    },
-                    "Tokyo": {
-                        "exemplarCity": "東京"
-                    },
-                    "Ulaanbaatar": {
-                        "exemplarCity": "ウランバートル"
-                    },
-                    "Urumqi": {
-                        "exemplarCity": "ウルムチ"
-                    },
-                    "Vientiane": {
-                        "exemplarCity": "ビエンチャン"
-                    },
-                    "Vladivostok": {
-                        "exemplarCity": "ウラジオストク"
-                    },
-                    "Yakutsk": {
-                        "exemplarCity": "ヤクーツク"
-                    },
-                    "Yekaterinburg": {
-                        "exemplarCity": "エカテリンブルグ"
-                    },
-                    "Yerevan": {
-                        "exemplarCity": "エレバン"
-                    }
-                },
-                "Indian": {
-                    "Antananarivo": {
-                        "exemplarCity": "アンタナナリボ"
-                    },
-                    "Chagos": {
-                        "exemplarCity": "チャゴス"
-                    },
-                    "Christmas": {
-                        "exemplarCity": "クリスマス島"
-                    },
-                    "Cocos": {
-                        "exemplarCity": "ココス諸島"
-                    },
-                    "Comoro": {
-                        "exemplarCity": "コモロ"
-                    },
-                    "Kerguelen": {
-                        "exemplarCity": "ケルゲレン諸島"
-                    },
-                    "Mahe": {
-                        "exemplarCity": "マヘ"
-                    },
-                    "Maldives": {
-                        "exemplarCity": "モルディブ"
-                    },
-                    "Mauritius": {
-                        "exemplarCity": "モーリシャス"
-                    },
-                    "Mayotte": {
-                        "exemplarCity": "マヨット"
-                    },
-                    "Reunion": {
-                        "exemplarCity": "レユニオン"
-                    }
-                },
-                "Australia": {
-                    "Adelaide": {
-                        "exemplarCity": "アデレード"
-                    },
-                    "Brisbane": {
-                        "exemplarCity": "ブリスベン"
-                    },
-                    "Broken_Hill": {
-                        "exemplarCity": "ブロークンヒル"
-                    },
-                    "Currie": {
-                        "exemplarCity": "カリー"
-                    },
-                    "Darwin": {
-                        "exemplarCity": "ダーウィン"
-                    },
-                    "Eucla": {
-                        "exemplarCity": "ユークラ"
-                    },
-                    "Hobart": {
-                        "exemplarCity": "ホバート"
-                    },
-                    "Lindeman": {
-                        "exemplarCity": "リンデマン"
-                    },
-                    "Lord_Howe": {
-                        "exemplarCity": "ロードハウ"
-                    },
-                    "Melbourne": {
-                        "exemplarCity": "メルボルン"
-                    },
-                    "Perth": {
-                        "exemplarCity": "パース"
-                    },
-                    "Sydney": {
-                        "exemplarCity": "シドニー"
-                    }
-                },
-                "Pacific": {
-                    "Apia": {
-                        "exemplarCity": "アピア"
-                    },
-                    "Auckland": {
-                        "exemplarCity": "オークランド"
-                    },
-                    "Chatham": {
-                        "exemplarCity": "チャタム"
-                    },
-                    "Easter": {
-                        "exemplarCity": "イースター島"
-                    },
-                    "Efate": {
-                        "exemplarCity": "エフェテ島"
-                    },
-                    "Enderbury": {
-                        "exemplarCity": "エンダーベリー島"
-                    },
-                    "Fakaofo": {
-                        "exemplarCity": "ファカオフォ"
-                    },
-                    "Fiji": {
-                        "exemplarCity": "フィジー"
-                    },
-                    "Funafuti": {
-                        "exemplarCity": "フナフティ"
-                    },
-                    "Galapagos": {
-                        "exemplarCity": "ガラパゴス"
-                    },
-                    "Gambier": {
-                        "exemplarCity": "ガンビエ諸島"
-                    },
-                    "Guadalcanal": {
-                        "exemplarCity": "ガダルカナル"
-                    },
-                    "Guam": {
-                        "exemplarCity": "グアム"
-                    },
-                    "Honolulu": {
-                        "exemplarCity": "ホノルル"
-                    },
-                    "Johnston": {
-                        "exemplarCity": "ジョンストン島"
-                    },
-                    "Kiritimati": {
-                        "exemplarCity": "キリスィマスィ島"
-                    },
-                    "Kosrae": {
-                        "exemplarCity": "コスラエ"
-                    },
-                    "Kwajalein": {
-                        "exemplarCity": "クェゼリン"
-                    },
-                    "Majuro": {
-                        "exemplarCity": "マジュロ"
-                    },
-                    "Marquesas": {
-                        "exemplarCity": "マルキーズ"
-                    },
-                    "Midway": {
-                        "exemplarCity": "ミッドウェー島"
-                    },
-                    "Nauru": {
-                        "exemplarCity": "ナウル"
-                    },
-                    "Niue": {
-                        "exemplarCity": "ニウエ"
-                    },
-                    "Norfolk": {
-                        "exemplarCity": "ノーフォーク島"
-                    },
-                    "Noumea": {
-                        "exemplarCity": "ヌメア"
-                    },
-                    "Pago_Pago": {
-                        "exemplarCity": "パゴパゴ"
-                    },
-                    "Palau": {
-                        "exemplarCity": "パラオ"
-                    },
-                    "Pitcairn": {
-                        "exemplarCity": "ピトケアン諸島"
-                    },
-                    "Ponape": {
-                        "exemplarCity": "ポンペイ島"
-                    },
-                    "Port_Moresby": {
-                        "exemplarCity": "ポートモレスビー"
-                    },
-                    "Rarotonga": {
-                        "exemplarCity": "ラロトンガ"
-                    },
-                    "Saipan": {
-                        "exemplarCity": "サイパン"
-                    },
-                    "Tahiti": {
-                        "exemplarCity": "タヒチ"
-                    },
-                    "Tarawa": {
-                        "exemplarCity": "タラワ"
-                    },
-                    "Tongatapu": {
-                        "exemplarCity": "トンガタプ"
-                    },
-                    "Truk": {
-                        "exemplarCity": "チューク"
-                    },
-                    "Wake": {
-                        "exemplarCity": "ウェーク島"
-                    },
-                    "Wallis": {
-                        "exemplarCity": "ウォリス諸島"
-                    }
-                },
-                "Arctic": {
-                    "Longyearbyen": {
-                        "exemplarCity": "ロングイェールビーン"
-                    }
-                },
-                "Antarctica": {
-                    "Casey": {
-                        "exemplarCity": "ケーシー基地"
-                    },
-                    "Davis": {
-                        "exemplarCity": "デービス基地"
-                    },
-                    "DumontDUrville": {
-                        "exemplarCity": "デュモン・デュルビル基地"
-                    },
-                    "Mawson": {
-                        "exemplarCity": "モーソン基地"
-                    },
-                    "McMurdo": {
-                        "exemplarCity": "マクマード基地"
-                    },
-                    "Palmer": {
-                        "exemplarCity": "パーマー基地"
-                    },
-                    "Rothera": {
-                        "exemplarCity": "ロゼラ基地"
-                    },
-                    "South_Pole": {
-                        "exemplarCity": "サウスポール基地"
-                    },
-                    "Syowa": {
-                        "exemplarCity": "昭和基地"
-                    },
-                    "Vostok": {
-                        "exemplarCity": "ボストーク基地"
-                    }
-                },
-                "Etc": {
-                    "Unknown": {
-                        "exemplarCity": "地域不明"
-                    }
+                    "short": [
+                        "AH"
+                    ]
                 }
             },
-            "metazone": {
-                "Acre": {
-                    "long": {
-                        "generic": "アクレ時間",
-                        "standard": "アクレ標準時",
-                        "daylight": "アクレ夏時間"
-                    }
-                },
-                "Afghanistan": {
-                    "long": {
-                        "standard": "アフガニスタン時間"
-                    }
-                },
-                "Africa_Central": {
-                    "long": {
-                        "standard": "中央アフリカ時間"
-                    }
-                },
-                "Africa_Eastern": {
-                    "long": {
-                        "standard": "東アフリカ時間"
-                    }
-                },
-                "Africa_Southern": {
-                    "long": {
-                        "standard": "南アフリカ時間"
-                    }
-                },
-                "Africa_Western": {
-                    "long": {
-                        "generic": "西アフリカ時間",
-                        "standard": "西アフリカ標準時",
-                        "daylight": "西アフリカ夏時間"
-                    }
-                },
-                "Alaska": {
-                    "long": {
-                        "generic": "アラスカ時間",
-                        "standard": "アラスカ標準時",
-                        "daylight": "アラスカ夏時間"
-                    }
-                },
-                "Almaty": {
-                    "long": {
-                        "generic": "アルトマイ時間",
-                        "standard": "アルトマイ標準時",
-                        "daylight": "アルマトイ夏時間"
-                    }
-                },
-                "Amazon": {
-                    "long": {
-                        "generic": "アマゾン時間",
-                        "standard": "アマゾン標準時",
-                        "daylight": "アマゾン夏時間"
-                    }
-                },
-                "America_Central": {
-                    "long": {
-                        "generic": "アメリカ中部時間",
-                        "standard": "アメリカ中部標準時",
-                        "daylight": "アメリカ中部夏時間"
-                    }
-                },
-                "America_Eastern": {
-                    "long": {
-                        "generic": "アメリカ東部時間",
-                        "standard": "アメリカ東部標準時",
-                        "daylight": "アメリカ東部夏時間"
-                    }
-                },
-                "America_Mountain": {
-                    "long": {
-                        "generic": "アメリカ山地時間",
-                        "standard": "アメリカ山地標準時",
-                        "daylight": "アメリカ山地夏時間"
-                    }
-                },
-                "America_Pacific": {
-                    "long": {
-                        "generic": "アメリカ太平洋時間",
-                        "standard": "アメリカ太平洋標準時",
-                        "daylight": "アメリカ太平洋夏時間"
-                    }
-                },
-                "Anadyr": {
-                    "long": {
-                        "generic": "アナディリ時間",
-                        "standard": "アナディリ標準時",
-                        "daylight": "アナディリ夏時間"
-                    }
-                },
-                "Aqtau": {
-                    "long": {
-                        "generic": "アクタウ時間",
-                        "standard": "アクタウ標準時",
-                        "daylight": "アクタウ夏時間"
-                    }
-                },
-                "Aqtobe": {
-                    "long": {
-                        "generic": "アクトベ時間",
-                        "standard": "アクトベ標準時",
-                        "daylight": "アクトベ夏時間"
-                    }
-                },
-                "Arabian": {
-                    "long": {
-                        "generic": "アラビア時間",
-                        "standard": "アラビア標準時",
-                        "daylight": "アラビア夏時間"
-                    }
-                },
-                "Argentina": {
-                    "long": {
-                        "generic": "アルゼンチン時間",
-                        "standard": "アルゼンチン標準時",
-                        "daylight": "アルゼンチン夏時間"
-                    }
-                },
-                "Argentina_Western": {
-                    "long": {
-                        "generic": "西部アルゼンチン時間",
-                        "standard": "西部アルゼンチン標準時",
-                        "daylight": "西部アルゼンチン夏時間"
-                    }
-                },
-                "Armenia": {
-                    "long": {
-                        "generic": "アルメニア時間",
-                        "standard": "アルメニア標準時",
-                        "daylight": "アルメニア夏時間"
-                    }
-                },
-                "Atlantic": {
-                    "long": {
-                        "generic": "大西洋時間",
-                        "standard": "大西洋標準時",
-                        "daylight": "大西洋夏時間"
-                    }
-                },
-                "Australia_Central": {
-                    "long": {
-                        "generic": "オーストラリア中部時間",
-                        "standard": "オーストラリア中部標準時",
-                        "daylight": "オーストラリア中部夏時間"
-                    }
-                },
-                "Australia_CentralWestern": {
-                    "long": {
-                        "generic": "オーストラリア中西部時間",
-                        "standard": "オーストラリア中西部標準時",
-                        "daylight": "オーストラリア中西部夏時間"
-                    }
-                },
-                "Australia_Eastern": {
-                    "long": {
-                        "generic": "オーストラリア東部時間",
-                        "standard": "オーストラリア東部標準時",
-                        "daylight": "オーストラリア東部夏時間"
-                    }
-                },
-                "Australia_Western": {
-                    "long": {
-                        "generic": "オーストラリア西部時間",
-                        "standard": "オーストラリア西部標準時",
-                        "daylight": "オーストラリア西部夏時間"
-                    }
-                },
-                "Azerbaijan": {
-                    "long": {
-                        "generic": "アゼルバイジャン時間",
-                        "standard": "アゼルバイジャン標準時",
-                        "daylight": "アゼルバイジャン夏時間"
-                    }
-                },
-                "Azores": {
-                    "long": {
-                        "generic": "アゾレス時間",
-                        "standard": "アゾレス標準時",
-                        "daylight": "アゾレス夏時間"
-                    }
-                },
-                "Bangladesh": {
-                    "long": {
-                        "generic": "バングラデシュ時間",
-                        "standard": "バングラデシュ標準時",
-                        "daylight": "バングラデシュ夏時間"
-                    }
-                },
-                "Bhutan": {
-                    "long": {
-                        "standard": "ブータン時間"
-                    }
-                },
-                "Bolivia": {
-                    "long": {
-                        "standard": "ボリビア時間"
-                    }
-                },
-                "Brasilia": {
-                    "long": {
-                        "generic": "ブラジリア時間",
-                        "standard": "ブラジリア標準時",
-                        "daylight": "ブラジリア夏時間"
-                    }
-                },
-                "Brunei": {
-                    "long": {
-                        "standard": "ブルネイ・ダルサラーム時間"
-                    }
-                },
-                "Cape_Verde": {
-                    "long": {
-                        "generic": "カーボベルデ時間",
-                        "standard": "カーボベルデ標準時",
-                        "daylight": "カーボベルデ夏時間"
-                    }
-                },
-                "Casey": {
-                    "long": {
-                        "standard": "ケイシー基地時間"
-                    }
-                },
-                "Chamorro": {
-                    "long": {
-                        "standard": "チャモロ時間"
-                    }
-                },
-                "Chatham": {
-                    "long": {
-                        "generic": "チャタム時間",
-                        "standard": "チャタム標準時",
-                        "daylight": "チャタム夏時間"
-                    }
-                },
-                "Chile": {
-                    "long": {
-                        "generic": "チリ時間",
-                        "standard": "チリ標準時",
-                        "daylight": "チリ夏時間"
-                    }
-                },
-                "China": {
-                    "long": {
-                        "generic": "中国時間",
-                        "standard": "中国標準時",
-                        "daylight": "中国夏時間"
-                    }
-                },
-                "Choibalsan": {
-                    "long": {
-                        "generic": "チョイバルサン時間",
-                        "standard": "チョイバルサン標準時",
-                        "daylight": "チョイバルサン夏時間"
-                    }
-                },
-                "Christmas": {
-                    "long": {
-                        "standard": "クリスマス島時間"
-                    }
-                },
-                "Cocos": {
-                    "long": {
-                        "standard": "ココス諸島時間"
-                    }
-                },
-                "Colombia": {
-                    "long": {
-                        "generic": "コロンビア時間",
-                        "standard": "コロンビア標準時",
-                        "daylight": "コロンビア夏時間"
-                    }
-                },
-                "Cook": {
-                    "long": {
-                        "generic": "クック諸島時間",
-                        "standard": "クック諸島標準時",
-                        "daylight": "クック諸島夏時間"
-                    }
-                },
-                "Cuba": {
-                    "long": {
-                        "generic": "キューバ時間",
-                        "standard": "キューバ標準時",
-                        "daylight": "キューバ夏時間"
-                    }
-                },
-                "Davis": {
-                    "long": {
-                        "standard": "デービス基地時間"
-                    }
-                },
-                "DumontDUrville": {
-                    "long": {
-                        "standard": "デュモン・デュルヴィル基地時間"
-                    }
-                },
-                "East_Timor": {
-                    "long": {
-                        "standard": "東ティモール時間"
-                    }
-                },
-                "Easter": {
-                    "long": {
-                        "generic": "イースター島時間",
-                        "standard": "イースター島標準時",
-                        "daylight": "イースター島夏時間"
-                    }
-                },
-                "Ecuador": {
-                    "long": {
-                        "standard": "エクアドル時間"
-                    }
-                },
-                "Europe_Central": {
-                    "long": {
-                        "generic": "中央ヨーロッパ時間",
-                        "standard": "中央ヨーロッパ標準時",
-                        "daylight": "中央ヨーロッパ夏時間"
-                    }
-                },
-                "Europe_Eastern": {
-                    "long": {
-                        "generic": "東ヨーロッパ時間",
-                        "standard": "東ヨーロッパ標準時",
-                        "daylight": "東ヨーロッパ夏時間"
-                    }
-                },
-                "Europe_Western": {
-                    "long": {
-                        "generic": "西ヨーロッパ時間",
-                        "standard": "西ヨーロッパ標準時",
-                        "daylight": "西ヨーロッパ夏時間"
-                    }
-                },
-                "Falkland": {
-                    "long": {
-                        "generic": "フォークランド諸島時間",
-                        "standard": "フォークランド諸島標準時",
-                        "daylight": "フォークランド諸島夏時間"
-                    }
-                },
-                "Fiji": {
-                    "long": {
-                        "generic": "フィジー時間",
-                        "standard": "フィジー標準時",
-                        "daylight": "フィジー夏時間"
-                    }
-                },
-                "French_Guiana": {
-                    "long": {
-                        "standard": "仏領ギアナ時間"
-                    }
-                },
-                "French_Southern": {
-                    "long": {
-                        "standard": "仏領南方南極時間"
-                    }
-                },
-                "Galapagos": {
-                    "long": {
-                        "standard": "ガラパゴス時間"
-                    }
-                },
-                "Gambier": {
-                    "long": {
-                        "standard": "ガンビエ諸島時間"
-                    }
-                },
-                "Georgia": {
-                    "long": {
-                        "generic": "グルジア時間",
-                        "standard": "グルジア標準時",
-                        "daylight": "グルジア夏時間"
-                    }
-                },
-                "Gilbert_Islands": {
-                    "long": {
-                        "standard": "ギルバート諸島時間"
-                    }
-                },
-                "GMT": {
-                    "long": {
-                        "standard": "グリニッジ標準時"
-                    }
-                },
-                "Greenland_Eastern": {
-                    "long": {
-                        "generic": "グリーンランド東部時間",
-                        "standard": "グリーンランド東部標準時",
-                        "daylight": "グリーンランド東部夏時間"
-                    }
-                },
-                "Greenland_Western": {
-                    "long": {
-                        "generic": "グリーンランド西部時間",
-                        "standard": "グリーンランド西部標準時",
-                        "daylight": "グリーンランド西部夏時間"
-                    }
-                },
-                "Guam": {
-                    "long": {
-                        "standard": "グアム時間"
-                    }
-                },
-                "Gulf": {
-                    "long": {
-                        "standard": "湾岸時間"
-                    }
-                },
-                "Guyana": {
-                    "long": {
-                        "standard": "ガイアナ時間"
-                    }
-                },
-                "Hawaii_Aleutian": {
-                    "long": {
-                        "generic": "ハワイ・アリューシャン時間",
-                        "standard": "ハワイ・アリューシャン標準時",
-                        "daylight": "ハワイ・アリューシャン夏時間"
-                    }
-                },
-                "Hong_Kong": {
-                    "long": {
-                        "generic": "香港時間",
-                        "standard": "香港標準時",
-                        "daylight": "香港夏時間"
-                    }
-                },
-                "Hovd": {
-                    "long": {
-                        "generic": "ホブド時間",
-                        "standard": "ホブド標準時",
-                        "daylight": "ホブド夏時間"
-                    }
-                },
-                "India": {
-                    "long": {
-                        "standard": "インド時間"
-                    }
-                },
-                "Indian_Ocean": {
-                    "long": {
-                        "standard": "インド洋時間"
-                    }
-                },
-                "Indochina": {
-                    "long": {
-                        "standard": "インドシナ時間"
-                    }
-                },
-                "Indonesia_Central": {
-                    "long": {
-                        "standard": "インドネシア中部時間"
-                    }
-                },
-                "Indonesia_Eastern": {
-                    "long": {
-                        "standard": "インドネシア東部時間"
-                    }
-                },
-                "Indonesia_Western": {
-                    "long": {
-                        "standard": "インドネシア西部時間"
-                    }
-                },
-                "Iran": {
-                    "long": {
-                        "generic": "イラン時間",
-                        "standard": "イラン標準時",
-                        "daylight": "イラン夏時間"
-                    }
-                },
-                "Irkutsk": {
-                    "long": {
-                        "generic": "イルクーツク時間",
-                        "standard": "イルクーツク標準時",
-                        "daylight": "イルクーツク夏時間"
-                    }
-                },
-                "Israel": {
-                    "long": {
-                        "generic": "イスラエル時間",
-                        "standard": "イスラエル標準時",
-                        "daylight": "イスラエル夏時間"
-                    }
-                },
-                "Japan": {
-                    "long": {
-                        "generic": "日本時間",
-                        "standard": "日本標準時",
-                        "daylight": "日本夏時間"
-                    },
-                    "short": {
-                        "generic": "∅∅∅",
-                        "standard": "JST",
-                        "daylight": "JDT"
-                    }
-                },
-                "Kamchatka": {
-                    "long": {
-                        "generic": "ペトロパブロフスク・カムチャツキー時間",
-                        "standard": "ペトロパブロフスク・カムチャツキー標準時",
-                        "daylight": "ペトロパブロフスク・カムチャツキー夏時間"
-                    }
-                },
-                "Kazakhstan_Eastern": {
-                    "long": {
-                        "standard": "東カザフスタン時間"
-                    }
-                },
-                "Kazakhstan_Western": {
-                    "long": {
-                        "standard": "西カザフスタン時間"
-                    }
-                },
-                "Korea": {
-                    "long": {
-                        "generic": "韓国時間",
-                        "standard": "韓国標準時",
-                        "daylight": "韓国夏時間"
-                    }
-                },
-                "Kosrae": {
-                    "long": {
-                        "standard": "コスラエ時間"
-                    }
-                },
-                "Krasnoyarsk": {
-                    "long": {
-                        "generic": "クラスノヤルスク時間",
-                        "standard": "クラスノヤルスク標準時",
-                        "daylight": "クラスノヤルスク夏時間"
-                    }
-                },
-                "Kyrgystan": {
-                    "long": {
-                        "standard": "キルギスタン時間"
-                    }
-                },
-                "Lanka": {
-                    "long": {
-                        "standard": "ランカ時間"
-                    }
-                },
-                "Line_Islands": {
-                    "long": {
-                        "standard": "ライン諸島時間"
-                    }
-                },
-                "Lord_Howe": {
-                    "long": {
-                        "generic": "ロードハウ時間",
-                        "standard": "ロードハウ標準時",
-                        "daylight": "ロードハウ夏時間"
-                    }
-                },
-                "Macau": {
-                    "long": {
-                        "generic": "マカオ時間",
-                        "standard": "マカオ標準時",
-                        "daylight": "マカオ夏時間"
-                    }
-                },
-                "Macquarie": {
-                    "long": {
-                        "standard": "マッコーリー島時間"
-                    }
-                },
-                "Magadan": {
-                    "long": {
-                        "generic": "マガダン時間",
-                        "standard": "マガダン標準時",
-                        "daylight": "マガダン夏時間"
-                    }
-                },
-                "Malaysia": {
-                    "long": {
-                        "standard": "マレーシア時間"
-                    }
-                },
-                "Maldives": {
-                    "long": {
-                        "standard": "モルディブ時間"
-                    }
-                },
-                "Marquesas": {
-                    "long": {
-                        "standard": "マルキーズ時間"
-                    }
-                },
-                "Marshall_Islands": {
-                    "long": {
-                        "standard": "マーシャル諸島時間"
-                    }
-                },
-                "Mauritius": {
-                    "long": {
-                        "generic": "モーリシャス時間",
-                        "standard": "モーリシャス標準時",
-                        "daylight": "モーリシャス夏時間"
-                    }
-                },
-                "Mawson": {
-                    "long": {
-                        "standard": "モーソン基地時間"
-                    }
-                },
-                "Mongolia": {
-                    "long": {
-                        "generic": "ウランバートル時間",
-                        "standard": "ウランバートル標準時",
-                        "daylight": "ウランバートル夏時間"
-                    }
-                },
-                "Moscow": {
-                    "long": {
-                        "generic": "モスクワ時間",
-                        "standard": "モスクワ標準時",
-                        "daylight": "モスクワ夏時間"
-                    }
-                },
-                "Myanmar": {
-                    "long": {
-                        "standard": "ミャンマー時間"
-                    }
-                },
-                "Nauru": {
-                    "long": {
-                        "standard": "ナウル時間"
-                    }
-                },
-                "Nepal": {
-                    "long": {
-                        "standard": "ネパール時間"
-                    }
-                },
-                "New_Caledonia": {
-                    "long": {
-                        "generic": "ニューカレドニア時間",
-                        "standard": "ニューカレドニア標準時",
-                        "daylight": "ニューカレドニア夏時間"
-                    }
-                },
-                "New_Zealand": {
-                    "long": {
-                        "generic": "ニュージーランド時間",
-                        "standard": "ニュージーランド標準時",
-                        "daylight": "ニュージーランド夏時間"
-                    }
-                },
-                "Newfoundland": {
-                    "long": {
-                        "generic": "ニューファンドランド時間",
-                        "standard": "ニューファンドランド標準時",
-                        "daylight": "ニューファンドランド夏時間"
-                    }
-                },
-                "Niue": {
-                    "long": {
-                        "standard": "ニウエ時間"
-                    }
-                },
-                "Norfolk": {
-                    "long": {
-                        "standard": "ノーフォーク島時間"
-                    }
-                },
-                "Noronha": {
-                    "long": {
-                        "generic": "フェルナンド・デ・ノローニャ時間",
-                        "standard": "フェルナンド・デ・ノローニャ標準時",
-                        "daylight": "フェルナンド・デ・ノローニャ夏時間"
-                    }
-                },
-                "North_Mariana": {
-                    "long": {
-                        "standard": "北マリアナ諸島時間"
-                    }
-                },
-                "Novosibirsk": {
-                    "long": {
-                        "generic": "ノヴォシビルスク時間",
-                        "standard": "ノヴォシビルスク標準時",
-                        "daylight": "ノヴォシビルスク夏時間"
-                    }
-                },
-                "Omsk": {
-                    "long": {
-                        "generic": "オムスク時間",
-                        "standard": "オムスク標準時",
-                        "daylight": "オムスク夏時間"
-                    }
-                },
-                "Pakistan": {
-                    "long": {
-                        "generic": "パキスタン時間",
-                        "standard": "パキスタン標準時",
-                        "daylight": "パキスタン夏時間"
-                    }
-                },
-                "Palau": {
-                    "long": {
-                        "standard": "パラオ時間"
-                    }
-                },
-                "Papua_New_Guinea": {
-                    "long": {
-                        "standard": "パプアニューギニア時間"
-                    }
-                },
-                "Paraguay": {
-                    "long": {
-                        "generic": "パラグアイ時間",
-                        "standard": "パラグアイ標準時",
-                        "daylight": "パラグアイ夏時間"
-                    }
-                },
-                "Peru": {
-                    "long": {
-                        "generic": "ペルー時間",
-                        "standard": "ペルー標準時",
-                        "daylight": "ペルー夏時間"
-                    }
-                },
-                "Philippines": {
-                    "long": {
-                        "generic": "フィリピン時間",
-                        "standard": "フィリピン標準時",
-                        "daylight": "フィリピン夏時間"
-                    }
-                },
-                "Phoenix_Islands": {
-                    "long": {
-                        "standard": "フェニックス諸島時間"
-                    }
-                },
-                "Pierre_Miquelon": {
-                    "long": {
-                        "generic": "サンピエール・ミクロン時間",
-                        "standard": "サンピエール・ミクロン標準時",
-                        "daylight": "サンピエール・ミクロン夏時間"
-                    }
-                },
-                "Pitcairn": {
-                    "long": {
-                        "standard": "ピトケアン時間"
-                    }
-                },
-                "Ponape": {
-                    "long": {
-                        "standard": "ポナペ時間"
-                    }
-                },
-                "Qyzylorda": {
-                    "long": {
-                        "generic": "クズロルダ時間",
-                        "standard": "クズロルダ標準時",
-                        "daylight": "クズロルダ夏時間"
-                    }
-                },
-                "Reunion": {
-                    "long": {
-                        "standard": "レユニオン時間"
-                    }
-                },
-                "Rothera": {
-                    "long": {
-                        "standard": "ロゼラ基地時間"
-                    }
-                },
-                "Sakhalin": {
-                    "long": {
-                        "generic": "サハリン時間",
-                        "standard": "サハリン標準時",
-                        "daylight": "サハリン夏時間"
-                    }
-                },
-                "Samara": {
-                    "long": {
-                        "generic": "サマラ時間",
-                        "standard": "サマラ標準時",
-                        "daylight": "サマラ夏時間"
-                    }
-                },
-                "Samoa": {
-                    "long": {
-                        "generic": "サモア時間",
-                        "standard": "サモア標準時",
-                        "daylight": "サモア夏時間"
-                    }
-                },
-                "Seychelles": {
-                    "long": {
-                        "standard": "セーシェル時間"
-                    }
-                },
-                "Singapore": {
-                    "long": {
-                        "standard": "シンガポール時間"
-                    }
-                },
-                "Solomon": {
-                    "long": {
-                        "standard": "ソロモン諸島時間"
-                    }
-                },
-                "South_Georgia": {
-                    "long": {
-                        "standard": "サウスジョージア時間"
-                    }
-                },
-                "Suriname": {
-                    "long": {
-                        "standard": "スリナム時間"
-                    }
-                },
-                "Syowa": {
-                    "long": {
-                        "standard": "昭和基地時間"
-                    }
-                },
-                "Tahiti": {
-                    "long": {
-                        "standard": "タヒチ時間"
-                    }
-                },
-                "Taipei": {
-                    "long": {
-                        "generic": "台北時間",
-                        "standard": "台北標準時",
-                        "daylight": "台北夏時間"
-                    }
-                },
-                "Tajikistan": {
-                    "long": {
-                        "standard": "タジキスタン時間"
-                    }
-                },
-                "Tokelau": {
-                    "long": {
-                        "standard": "トケラウ時間"
-                    }
-                },
-                "Tonga": {
-                    "long": {
-                        "generic": "トンガ時間",
-                        "standard": "トンガ標準時",
-                        "daylight": "トンガ夏時間"
-                    }
-                },
-                "Truk": {
-                    "long": {
-                        "standard": "チューク時間"
-                    }
-                },
-                "Turkmenistan": {
-                    "long": {
-                        "generic": "トルクメニスタン時間",
-                        "standard": "トルクメニスタン標準時",
-                        "daylight": "トルクメニスタン夏時間"
-                    }
-                },
-                "Tuvalu": {
-                    "long": {
-                        "standard": "ツバル時間"
-                    }
-                },
-                "Uruguay": {
-                    "long": {
-                        "generic": "ウルグアイ時間",
-                        "standard": "ウルグアイ標準時",
-                        "daylight": "ウルグアイ夏時間"
-                    }
-                },
-                "Uzbekistan": {
-                    "long": {
-                        "generic": "ウズベキスタン時間",
-                        "standard": "ウズベキスタン標準時",
-                        "daylight": "ウズベキスタン夏時間"
-                    }
-                },
-                "Vanuatu": {
-                    "long": {
-                        "generic": "バヌアツ時間",
-                        "standard": "バヌアツ標準時",
-                        "daylight": "バヌアツ夏時間"
-                    }
-                },
-                "Venezuela": {
-                    "long": {
-                        "standard": "ベネズエラ時間"
-                    }
-                },
-                "Vladivostok": {
-                    "long": {
-                        "generic": "ウラジオストク時間",
-                        "standard": "ウラジオストク標準時",
-                        "daylight": "ウラジオストク夏時間"
-                    }
-                },
-                "Volgograd": {
-                    "long": {
-                        "generic": "ボルゴグラード時間",
-                        "standard": "ヴォルゴグラード標準時",
-                        "daylight": "ボルゴグラード夏時間"
-                    }
-                },
-                "Vostok": {
-                    "long": {
-                        "standard": "ボストーク基地時間"
-                    }
-                },
-                "Wake": {
-                    "long": {
-                        "standard": "ウェーク島時間"
-                    }
-                },
-                "Wallis": {
-                    "long": {
-                        "standard": "ウォリス・フツナ時間"
-                    }
-                },
-                "Yakutsk": {
-                    "long": {
-                        "generic": "ヤクーツク時間",
-                        "standard": "ヤクーツク標準時",
-                        "daylight": "ヤクーツク夏時間"
-                    }
-                },
-                "Yekaterinburg": {
-                    "long": {
-                        "generic": "エカテリンブルグ時間",
-                        "standard": "エカテリンブルグ標準時",
-                        "daylight": "エカテリンブルグ夏時間"
-                    }
+            "generic": {
+                "months": {
+                    "long": [
+                        "Month1",
+                        "Month2",
+                        "Month3",
+                        "Month4",
+                        "Month5",
+                        "Month6",
+                        "Month7",
+                        "Month8",
+                        "Month9",
+                        "Month10",
+                        "Month11",
+                        "Month12"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "ERA0",
+                        "ERA1"
+                    ]
+                }
+            },
+            "gregory": {
+                "months": {
+                    "long": [
+                        "1月",
+                        "2月",
+                        "3月",
+                        "4月",
+                        "5月",
+                        "6月",
+                        "7月",
+                        "8月",
+                        "9月",
+                        "10月",
+                        "11月",
+                        "12月"
+                    ]
+                },
+                "days": {
+                    "narrow": [
+                        "日",
+                        "月",
+                        "火",
+                        "水",
+                        "木",
+                        "金",
+                        "土"
+                    ],
+                    "short": [
+                        "日",
+                        "月",
+                        "火",
+                        "水",
+                        "木",
+                        "金",
+                        "土"
+                    ],
+                    "long": [
+                        "日曜日",
+                        "月曜日",
+                        "火曜日",
+                        "水曜日",
+                        "木曜日",
+                        "金曜日",
+                        "土曜日"
+                    ]
+                },
+                "eras": {
+                    "narrow": [
+                        "BC",
+                        "AD"
+                    ],
+                    "short": [
+                        "紀元前",
+                        "西暦"
+                    ],
+                    "long": [
+                        "紀元前",
+                        "西暦"
+                    ]
+                },
+                "dayPeriods": {
+                    "am": "午前",
+                    "pm": "午後"
+                }
+            },
+            "japanese": {
+                "eras": {
+                    "narrow": [
+                        "大化",
+                        "白雉",
+                        "白鳯",
+                        "朱鳥",
+                        "大宝",
+                        "慶雲",
+                        "和銅",
+                        "霊亀",
+                        "養老",
+                        "神亀",
+                        "天平",
+                        "天平感宝",
+                        "天平勝宝",
+                        "天平宝字",
+                        "天平神護",
+                        "神護景雲",
+                        "宝亀",
+                        "天応",
+                        "延暦",
+                        "大同",
+                        "弘仁",
+                        "天長",
+                        "承和",
+                        "嘉祥",
+                        "仁寿",
+                        "斉衡",
+                        "天安",
+                        "貞観",
+                        "元慶",
+                        "仁和",
+                        "寛平",
+                        "昌泰",
+                        "延喜",
+                        "延長",
+                        "承平",
+                        "天慶",
+                        "天暦",
+                        "天徳",
+                        "応和",
+                        "康保",
+                        "安和",
+                        "天禄",
+                        "天延",
+                        "貞元",
+                        "天元",
+                        "永観",
+                        "寛和",
+                        "永延",
+                        "永祚",
+                        "正暦",
+                        "長徳",
+                        "長保",
+                        "寛弘",
+                        "長和",
+                        "寛仁",
+                        "治安",
+                        "万寿",
+                        "長元",
+                        "長暦",
+                        "長久",
+                        "寛徳",
+                        "永承",
+                        "天喜",
+                        "康平",
+                        "治暦",
+                        "延久",
+                        "承保",
+                        "承暦",
+                        "永保",
+                        "応徳",
+                        "寛治",
+                        "嘉保",
+                        "永長",
+                        "承徳",
+                        "康和",
+                        "長治",
+                        "嘉承",
+                        "天仁",
+                        "天永",
+                        "永久",
+                        "元永",
+                        "保安",
+                        "天治",
+                        "大治",
+                        "天承",
+                        "長承",
+                        "保延",
+                        "永治",
+                        "康治",
+                        "天養",
+                        "久安",
+                        "仁平",
+                        "久寿",
+                        "保元",
+                        "平治",
+                        "永暦",
+                        "応保",
+                        "長寛",
+                        "永万",
+                        "仁安",
+                        "嘉応",
+                        "承安",
+                        "安元",
+                        "治承",
+                        "養和",
+                        "寿永",
+                        "元暦",
+                        "文治",
+                        "建久",
+                        "正治",
+                        "建仁",
+                        "元久",
+                        "建永",
+                        "承元",
+                        "建暦",
+                        "建保",
+                        "承久",
+                        "貞応",
+                        "元仁",
+                        "嘉禄",
+                        "安貞",
+                        "寛喜",
+                        "貞永",
+                        "天福",
+                        "文暦",
+                        "嘉禎",
+                        "暦仁",
+                        "延応",
+                        "仁治",
+                        "寛元",
+                        "宝治",
+                        "建長",
+                        "康元",
+                        "正嘉",
+                        "正元",
+                        "文応",
+                        "弘長",
+                        "文永",
+                        "建治",
+                        "弘安",
+                        "正応",
+                        "永仁",
+                        "正安",
+                        "乾元",
+                        "嘉元",
+                        "徳治",
+                        "延慶",
+                        "応長",
+                        "正和",
+                        "文保",
+                        "元応",
+                        "元亨",
+                        "正中",
+                        "嘉暦",
+                        "元徳",
+                        "元弘",
+                        "建武",
+                        "延元",
+                        "興国",
+                        "正平",
+                        "建徳",
+                        "文中",
+                        "天授",
+                        "康暦",
+                        "弘和",
+                        "元中",
+                        "至徳",
+                        "嘉慶",
+                        "康応",
+                        "明徳",
+                        "応永",
+                        "正長",
+                        "永享",
+                        "嘉吉",
+                        "文安",
+                        "宝徳",
+                        "享徳",
+                        "康正",
+                        "長禄",
+                        "寛正",
+                        "文正",
+                        "応仁",
+                        "文明",
+                        "長享",
+                        "延徳",
+                        "明応",
+                        "文亀",
+                        "永正",
+                        "大永",
+                        "享禄",
+                        "天文",
+                        "弘治",
+                        "永禄",
+                        "元亀",
+                        "天正",
+                        "文禄",
+                        "慶長",
+                        "元和",
+                        "寛永",
+                        "正保",
+                        "慶安",
+                        "承応",
+                        "明暦",
+                        "万治",
+                        "寛文",
+                        "延宝",
+                        "天和",
+                        "貞享",
+                        "元禄",
+                        "宝永",
+                        "正徳",
+                        "享保",
+                        "元文",
+                        "寛保",
+                        "延享",
+                        "寛延",
+                        "宝暦",
+                        "明和",
+                        "安永",
+                        "天明",
+                        "寛政",
+                        "享和",
+                        "文化",
+                        "文政",
+                        "天保",
+                        "弘化",
+                        "嘉永",
+                        "安政",
+                        "万延",
+                        "文久",
+                        "元治",
+                        "慶応",
+                        "明",
+                        "大",
+                        "昭",
+                        "平"
+                    ],
+                    "short": [
+                        "大化",
+                        "白雉",
+                        "白鳯",
+                        "朱鳥",
+                        "大宝",
+                        "慶雲",
+                        "和銅",
+                        "霊亀",
+                        "養老",
+                        "神亀",
+                        "天平",
+                        "天平感宝",
+                        "天平勝宝",
+                        "天平宝字",
+                        "天平神護",
+                        "神護景雲",
+                        "宝亀",
+                        "天応",
+                        "延暦",
+                        "大同",
+                        "弘仁",
+                        "天長",
+                        "承和",
+                        "嘉祥",
+                        "仁寿",
+                        "斉衡",
+                        "天安",
+                        "貞観",
+                        "元慶",
+                        "仁和",
+                        "寛平",
+                        "昌泰",
+                        "延喜",
+                        "延長",
+                        "承平",
+                        "天慶",
+                        "天暦",
+                        "天徳",
+                        "応和",
+                        "康保",
+                        "安和",
+                        "天禄",
+                        "天延",
+                        "貞元",
+                        "天元",
+                        "永観",
+                        "寛和",
+                        "永延",
+                        "永祚",
+                        "正暦",
+                        "長徳",
+                        "長保",
+                        "寛弘",
+                        "長和",
+                        "寛仁",
+                        "治安",
+                        "万寿",
+                        "長元",
+                        "長暦",
+                        "長久",
+                        "寛徳",
+                        "永承",
+                        "天喜",
+                        "康平",
+                        "治暦",
+                        "延久",
+                        "承保",
+                        "承暦",
+                        "永保",
+                        "応徳",
+                        "寛治",
+                        "嘉保",
+                        "永長",
+                        "承徳",
+                        "康和",
+                        "長治",
+                        "嘉承",
+                        "天仁",
+                        "天永",
+                        "永久",
+                        "元永",
+                        "保安",
+                        "天治",
+                        "大治",
+                        "天承",
+                        "長承",
+                        "保延",
+                        "永治",
+                        "康治",
+                        "天養",
+                        "久安",
+                        "仁平",
+                        "久寿",
+                        "保元",
+                        "平治",
+                        "永暦",
+                        "応保",
+                        "長寛",
+                        "永万",
+                        "仁安",
+                        "嘉応",
+                        "承安",
+                        "安元",
+                        "治承",
+                        "養和",
+                        "寿永",
+                        "元暦",
+                        "文治",
+                        "建久",
+                        "正治",
+                        "建仁",
+                        "元久",
+                        "建永",
+                        "承元",
+                        "建暦",
+                        "建保",
+                        "承久",
+                        "貞応",
+                        "元仁",
+                        "嘉禄",
+                        "安貞",
+                        "寛喜",
+                        "貞永",
+                        "天福",
+                        "文暦",
+                        "嘉禎",
+                        "暦仁",
+                        "延応",
+                        "仁治",
+                        "寛元",
+                        "宝治",
+                        "建長",
+                        "康元",
+                        "正嘉",
+                        "正元",
+                        "文応",
+                        "弘長",
+                        "文永",
+                        "建治",
+                        "弘安",
+                        "正応",
+                        "永仁",
+                        "正安",
+                        "乾元",
+                        "嘉元",
+                        "徳治",
+                        "延慶",
+                        "応長",
+                        "正和",
+                        "文保",
+                        "元応",
+                        "元亨",
+                        "正中",
+                        "嘉暦",
+                        "元徳",
+                        "元弘",
+                        "建武",
+                        "延元",
+                        "興国",
+                        "正平",
+                        "建徳",
+                        "文中",
+                        "天授",
+                        "康暦",
+                        "弘和",
+                        "元中",
+                        "至徳",
+                        "嘉慶",
+                        "康応",
+                        "明徳",
+                        "応永",
+                        "正長",
+                        "永享",
+                        "嘉吉",
+                        "文安",
+                        "宝徳",
+                        "享徳",
+                        "康正",
+                        "長禄",
+                        "寛正",
+                        "文正",
+                        "応仁",
+                        "文明",
+                        "長享",
+                        "延徳",
+                        "明応",
+                        "文亀",
+                        "永正",
+                        "大永",
+                        "享禄",
+                        "天文",
+                        "弘治",
+                        "永禄",
+                        "元亀",
+                        "天正",
+                        "文禄",
+                        "慶長",
+                        "元和",
+                        "寛永",
+                        "正保",
+                        "慶安",
+                        "承応",
+                        "明暦",
+                        "万治",
+                        "寛文",
+                        "延宝",
+                        "天和",
+                        "貞享",
+                        "元禄",
+                        "宝永",
+                        "正徳",
+                        "享保",
+                        "元文",
+                        "寛保",
+                        "延享",
+                        "寛延",
+                        "宝暦",
+                        "明和",
+                        "安永",
+                        "天明",
+                        "寛政",
+                        "享和",
+                        "文化",
+                        "文政",
+                        "天保",
+                        "弘化",
+                        "嘉永",
+                        "安政",
+                        "万延",
+                        "文久",
+                        "元治",
+                        "慶応",
+                        "明治",
+                        "大正",
+                        "昭和",
+                        "平成"
+                    ]
+                }
+            },
+            "ethiopic": {
+                "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13"
+                    ],
+                    "short": [
+                        "メスケレム",
+                        "テケムト",
+                        "ヘダル",
+                        "ターサス",
+                        "テル",
+                        "イェカティト",
+                        "メガビト",
+                        "ミアジア",
+                        "ゲンボト",
+                        "セネ",
+                        "ハムレ",
+                        "ネハッセ",
+                        "パグメン"
+                    ],
+                    "long": [
+                        "メスケレム",
+                        "テケムト",
+                        "ヘダル",
+                        "ターサス",
+                        "テル",
+                        "イェカティト",
+                        "メガビト",
+                        "ミアジア",
+                        "ゲンボト",
+                        "セネ",
+                        "ハムレ",
+                        "ネハッセ",
+                        "パグメン"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "ERA0",
+                        "ERA1"
+                    ]
+                }
+            },
+            "coptic": {
+                "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13"
+                    ],
+                    "short": [
+                        "トウト",
+                        "ババ",
+                        "ハトール",
+                        "キアック",
+                        "トーバ",
+                        "アムシール",
+                        "バラムハート",
+                        "バラモウダ",
+                        "バシャンス",
+                        "パオーナ",
+                        "エペープ",
+                        "メスラ",
+                        "ナシエ"
+                    ],
+                    "long": [
+                        "トウト",
+                        "ババ",
+                        "ハトール",
+                        "キアック",
+                        "トーバ",
+                        "アムシール",
+                        "バラムハート",
+                        "バラモウダ",
+                        "バシャンス",
+                        "パオーナ",
+                        "エペープ",
+                        "メスラ",
+                        "ナシエ"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "ERA0",
+                        "ERA1"
+                    ]
+                }
+            },
+            "buddhist": {
+                "eras": {
+                    "short": [
+                        "BE"
+                    ],
+                    "long": [
+                        "仏暦"
+                    ]
+                }
+            },
+            "chinese": {
+                "months": {
+                    "narrow": [
+                        "正",
+                        "二",
+                        "三",
+                        "四",
+                        "五",
+                        "六",
+                        "七",
+                        "八",
+                        "九",
+                        "十",
+                        "十一",
+                        "十二"
+                    ],
+                    "long": [
+                        "正月",
+                        "二月",
+                        "三月",
+                        "四月",
+                        "五月",
+                        "六月",
+                        "七月",
+                        "八月",
+                        "九月",
+                        "十月",
+                        "十一月",
+                        "十二月"
+                    ]
+                }
+            },
+            "hebrew": {
+                "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "7"
+                    ],
+                    "short": [
+                        "ティスレ",
+                        "へシボン",
+                        "キスレブ",
+                        "テベット",
+                        "シバット",
+                        "アダル I",
+                        "アダル",
+                        "ニサン",
+                        "イヤル",
+                        "シバン",
+                        "タムズ",
+                        "アヴ",
+                        "エルル",
+                        "アダル II"
+                    ],
+                    "long": [
+                        "ティスレ",
+                        "へシボン",
+                        "キスレブ",
+                        "テベット",
+                        "シバット",
+                        "アダル I",
+                        "アダル",
+                        "ニサン",
+                        "イヤル",
+                        "シバン",
+                        "タムズ",
+                        "アヴ",
+                        "エルル",
+                        "アダル II"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "AM"
+                    ]
                 }
             }
         }
     },
-    "numbers": {
-        "symbols-numberSystem-latn": {
-            "decimal": ".",
-            "group": ",",
-            "list": ";",
-            "percentSign": "%",
-            "plusSign": "+",
-            "minusSign": "-",
-            "exponential": "E",
-            "perMille": "‰",
-            "infinity": "∞",
-            "nan": "NaN"
-        },
-        "decimalFormats-numberSystem-latn": {
-            "standard": {
-                "decimalFormat": {
-                    "pattern": "#,##0.###"
-                }
-            }
-        },
-        "percentFormats-numberSystem-latn": {
-            "standard": {
-                "percentFormat": {
-                    "pattern": "#,##0%"
-                }
-            }
-        },
-        "currencyFormats-numberSystem-latn": {
-            "standard": {
-                "currencyFormat": {
-                    "pattern": "¤#,##0.00"
-                }
+    "number": {
+        "nu": [
+            "latn"
+        ],
+        "patterns": {
+            "decimal": {
+                "positivePattern": "{number}",
+                "negativePattern": "-{number}"
             },
-            "unitPattern-count-other": "{0} {1}"
+            "currency": {
+                "positivePattern": "{currency}{number}",
+                "negativePattern": "-{currency}{number}"
+            },
+            "percent": {
+                "positivePattern": "{number}%",
+                "negativePattern": "-{number}%"
+            }
+        },
+        "symbols": {
+            "latn": {
+                "decimal": ".",
+                "group": ",",
+                "nan": "NaN",
+                "percent": "%",
+                "infinity": "∞"
+            }
         },
         "currencies": {
-            "AUD": {
-                "symbol": "AU$"
-            },
-            "BRL": {
-                "symbol": "R$"
-            },
-            "CAD": {
-                "symbol": "CA$"
-            },
-            "CNY": {
-                "symbol": "元"
-            },
-            "EUR": {
-                "symbol": "€"
-            },
-            "GBP": {
-                "symbol": "£"
-            },
-            "HKD": {
-                "symbol": "HK$"
-            },
-            "ILS": {
-                "symbol": "₪"
-            },
-            "INR": {
-                "symbol": "₹"
-            },
-            "JPY": {
-                "symbol": "￥"
-            },
-            "KRW": {
-                "symbol": "￦"
-            },
-            "MXN": {
-                "symbol": "MX$"
-            },
-            "NZD": {
-                "symbol": "NZ$"
-            },
-            "THB": {
-                "symbol": "฿"
-            },
-            "TWD": {
-                "symbol": "NT$"
-            },
-            "USD": {
-                "symbol": "$"
-            },
-            "VND": {
-                "symbol": "₫"
-            },
-            "XAF": {
-                "symbol": "FCFA"
-            },
-            "XCD": {
-                "symbol": "EC$"
-            },
-            "XOF": {
-                "symbol": "CFA"
-            },
-            "XPF": {
-                "symbol": "CFPF"
-            }
+            "AUD": "AU$",
+            "BRL": "R$",
+            "CAD": "CA$",
+            "CNY": "元",
+            "EUR": "€",
+            "GBP": "£",
+            "HKD": "HK$",
+            "ILS": "₪",
+            "INR": "₹",
+            "JPY": "￥",
+            "KRW": "￦",
+            "MXN": "MX$",
+            "NZD": "NZ$",
+            "THB": "฿",
+            "TWD": "NT$",
+            "USD": "$",
+            "VND": "₫",
+            "XAF": "FCFA",
+            "XCD": "EC$",
+            "XOF": "CFA",
+            "XPF": "CFPF"
         }
     }
 }
