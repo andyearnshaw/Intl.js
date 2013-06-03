@@ -54,6 +54,23 @@ Most of those functions have comments marked as 'TODO' in the source code.
 <sup>*</sup> some of the tests cannot be passed from an ES5 implementation because they
 check for native behaviour.  The majority of them should be passable, though.
 
+## What about Intl.Collator?
+
+Providing an `Intl.Collator` implementation is no longer a goal of this project. There
+are several reasons, including:
+
+ - The CLDR convertor does not automatically convert collation data to JSON
+ - The Unicode Collation Algorithm is more complicated that originally anticipated,
+   and would increase the code size of Intl.js too much.
+ - The Default Unicode Collation Element Table is huge, even after compression, and 
+   converting to a native JavaScript object would probably make it slightly larger.
+   Server-side JavaScript environments will soon already support Intl.Collator,
+   and we can't really expect client environments to download this data.
+
+There are some local environments where it might be useful, such as a Smart TV platform,
+desktop widget or something, but `String.prototype.localeCompare` is probably good enough
+in those platforms and the gain from an implementation just wouldn't be worth it.
+
 ## Compatibility
 Intl.js is designed to be compatible with ECMAScript 3.1 environments in order to
 follow the specification as closely as possible. However, some consideration is given
