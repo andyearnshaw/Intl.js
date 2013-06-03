@@ -1674,7 +1674,7 @@ var numSys = {
     configurable: true,
     writable: true,
     value: function () {
-        var val,
+        var prop,
             descs = new Record(),
             props = [
                 'locale', 'numberingSystem', 'style', 'currency', 'currencyDisplay',
@@ -1688,8 +1688,8 @@ var numSys = {
             throw new TypeError('`this` value for resolvedOptions() is not an initialized Intl.NumberFormat object.');
 
         for (var i = 0, max = props.length; i < max; i++) {
-            if ((val = internal['[['+ props[i] +']]']) !== undefined)
-                descs[props[i]] = { value: val, writable: true, configurable: true, enumerable: true };
+            if (hop.call(internal, prop = '[['+ props[i] +']]'))
+                descs[props[i]] = { value: internal[prop], writable: true, configurable: true, enumerable: true };
         }
 
         return objCreate({}, descs);
@@ -2433,7 +2433,7 @@ function ToLocalTime(date, calendar, timeZone) {
     writable: true,
     configurable: true,
     value: function () {
-        var val,
+        var prop,
             descs = new Record(),
             props = [
                 'locale', 'calendar', 'numberingSystem', 'timeZone', 'hour12', 'weekday',
@@ -2449,8 +2449,8 @@ function ToLocalTime(date, calendar, timeZone) {
             throw new TypeError('`this` value for resolvedOptions() is not an initialized Intl.DateTimeFormat object.');
 
         for (var i = 0, max = props.length; i < max; i++) {
-            if ((val = internal['[['+ props[i] +']]']) !== undefined)
-                descs[props[i]] = { value: val, writable: true, configurable: true, enumerable: true };
+            if (hop.call(internal, prop = '[[' + props[i] + ']]'))
+                descs[props[i]] = { value: internal[prop], writable: true, configurable: true, enumerable: true };
         }
 
         return objCreate({}, descs);
