@@ -3,51 +3,45 @@
     "date": {
         "ca": [
             "gregory",
-            "hebrew",
-            "japanese",
-            "roc",
-            "indian",
-            "chinese",
-            "buddhist",
+            "islamic",
             "coptic",
-            "ethiopic",
-            "persian",
-            "ethioaa",
+            "indian",
+            "roc",
             "generic",
-            "islamic"
+            "chinese",
+            "hebrew",
+            "persian",
+            "japanese",
+            "buddhist",
+            "ethioaa",
+            "ethiopic"
         ],
         "hourNo0": true,
         "hour12": false,
         "formats": [
             {
-                "weekday": "long",
-                "day": "numeric",
-                "month": "long",
-                "era": "short",
+                "weekday": "short",
                 "year": "numeric",
-                "pattern": "{weekday}ທີ {day} {month} {era} {year}"
-            },
-            {
-                "day": "numeric",
-                "month": "long",
-                "year": "numeric",
-                "pattern": "{day} {month} {year}"
-            },
-            {
-                "day": "numeric",
                 "month": "short",
-                "year": "numeric",
-                "pattern": "{day} {month} {year}"
+                "day": "numeric",
+                "hour": "numeric",
+                "minute": "2-digit",
+                "second": "2-digit",
+                "pattern": "{weekday}, {year} {month} {day}, {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {year} {month} {day}, {hour}:{minute}:{second} {ampm}"
             },
             {
-                "day": "numeric",
-                "month": "numeric",
+                "weekday": "short",
                 "year": "numeric",
-                "pattern": "{day}/{month}/{year}"
+                "month": "short",
+                "day": "numeric",
+                "pattern": "{weekday}, {year} {month} {day}"
             },
             {
+                "year": "numeric",
+                "month": "short",
                 "day": "numeric",
-                "pattern": "{day}"
+                "pattern": "{year} {month} {day}"
             },
             {
                 "year": "numeric",
@@ -56,51 +50,14 @@
                 "pattern": "{year}-{month}-{day}"
             },
             {
-                "weekday": "short",
-                "month": "short",
-                "day": "numeric",
-                "pattern": "{weekday} {month} {day}"
-            },
-            {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "pattern": "{hour}:{minute}",
-                "pattern12": "{hour}:{minute} {ampm}"
-            },
-            {
                 "year": "numeric",
-                "pattern": "{year}"
-            },
-            {
-                "hour": "numeric",
-                "pattern": "{hour} ໂມງ",
-                "pattern12": "{hour} ໂມງ{ampm}"
-            },
-            {
-                "month": "short",
-                "pattern": "{month}"
-            },
-            {
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": "{minute}:{second}"
-            },
-            {
                 "month": "numeric",
-                "pattern": "{month}"
+                "pattern": "{year}-{month}"
             },
             {
-                "era": "short",
                 "year": "numeric",
                 "month": "short",
-                "pattern": "{era} {year} {month}"
-            },
-            {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": "{hour}:{minute}:{second}",
-                "pattern12": "{hour}:{minute}:{second} {ampm}"
+                "pattern": "{year} {month}"
             },
             {
                 "month": "short",
@@ -113,83 +70,20 @@
                 "pattern": "{month}-{day}"
             },
             {
-                "year": "numeric",
-                "month": "short",
-                "day": "numeric",
-                "pattern": "{year} {month} {day}"
+                "hour": "numeric",
+                "minute": "2-digit",
+                "second": "2-digit",
+                "pattern": "{hour}:{minute}:{second}",
+                "pattern12": "{hour}:{minute}:{second} {ampm}"
             },
             {
-                "era": "short",
-                "year": "numeric",
-                "month": "short",
-                "day": "numeric",
-                "pattern": "{era} {year} {month} {day}"
-            },
-            {
-                "day": "numeric",
-                "weekday": "short",
-                "pattern": "{day} {weekday}"
-            },
-            {
-                "weekday": "short",
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{weekday}, {year}-{month}-{day}"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "pattern": "{year}-{month}"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "pattern": "{era} {year}"
-            },
-            {
-                "weekday": "short",
-                "year": "numeric",
-                "month": "short",
-                "day": "numeric",
-                "pattern": "{weekday}, {year} {month} {day}"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "month": "short",
-                "day": "numeric",
-                "weekday": "short",
-                "pattern": "{era} {year} {month} {day}, {weekday}"
-            },
-            {
-                "weekday": "short",
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{weekday}, {month}-{day}"
-            },
-            {
-                "year": "numeric",
-                "month": "short",
-                "pattern": "{year} {month}"
+                "hour": "numeric",
+                "minute": "2-digit",
+                "pattern": "{hour}:{minute}",
+                "pattern12": "{hour}:{minute} {ampm}"
             }
         ],
         "calendars": {
-            "roc": {
-                "eras": {
-                    "short": [
-                        "ກ່ອນ R.O.C.",
-                        "R.O.C."
-                    ]
-                }
-            },
-            "ethioaa": {
-                "eras": {
-                    "short": [
-                        "ERA0"
-                    ]
-                }
-            },
             "indian": {
                 "months": {
                     "narrow": [
@@ -239,217 +133,6 @@
                     "short": [
                         "ມ.ສ."
                     ]
-                }
-            },
-            "persian": {
-                "months": {
-                    "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
-                    ],
-                    "short": [
-                        "ຟາຣວາດິນ",
-                        "ອໍຣດີບີເຫຣດ",
-                        "ຄໍຣເດດ",
-                        "ແຕຣ",
-                        "ມໍຣເດດ",
-                        "ຊາຣຫິວາ",
-                        "ເມີ",
-                        "ອາບານ",
-                        "ອາຊາ",
-                        "ດີຣ",
-                        "ບຣາມານ",
-                        "ເອສຟານ"
-                    ],
-                    "long": [
-                        "ຟຣາວາດິນ",
-                        "ອໍຣດີບີເຫຣດ",
-                        "ຄໍຣເດດ",
-                        "ແຕຣ",
-                        "ມໍຣດາເ",
-                        "ຊາຣຫິວາ",
-                        "ເມີ",
-                        "ອາບານ",
-                        "ອາຊາຣ",
-                        "ດີຣ",
-                        "ບຣາແມນ",
-                        "ເອສຟານ"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "ປີເປີເຊຍ"
-                    ]
-                }
-            },
-            "islamic": {
-                "months": {
-                    "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
-                    ],
-                    "short": [
-                        "ມຸຮັດ",
-                        "ເຄາະ",
-                        "ຮອດບີ 1",
-                        "ຮອກບີ 2",
-                        "ນຸມາ 1",
-                        "ນຸມາ 2",
-                        "ເຮາະ",
-                        "ຊະອ໌",
-                        "ເຮາະມະ",
-                        "ເຊົາ",
-                        "ຊຸລກິອຸ",
-                        "ຊຸລຫິຈ"
-                    ],
-                    "long": [
-                        "ມຸຣະຮອມ",
-                        "ຊາຟາຣ",
-                        "ຮາບີ 1",
-                        "ຮາບີ 2",
-                        "ຈຸມາດາ 1",
-                        "ຈຸມາດາ 2",
-                        "ຮາຈັບ",
-                        "ຊະບານ",
-                        "ຮາມາດອນ",
-                        "ເຊົາວັດ",
-                        "ດຸອັດກິດະ",
-                        "ດຸອັດກິຈະ"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "AH"
-                    ]
-                }
-            },
-            "generic": {
-                "months": {
-                    "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "ERA0",
-                        "ERA1"
-                    ]
-                }
-            },
-            "gregory": {
-                "months": {
-                    "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
-                    ],
-                    "short": [
-                        "ມ.ກ.",
-                        "ກ.ພ.",
-                        "ມ.ນ.",
-                        "ມ.ສ.",
-                        "ພ.ພ.",
-                        "ມິ.ຖ.",
-                        "ກ.ລ.",
-                        "ສ.ຫ.",
-                        "ກ.ຍ.",
-                        "ຕ.ລ.",
-                        "ພ.ຈ.",
-                        "ທ.ວ."
-                    ],
-                    "long": [
-                        "ມັງກອນ",
-                        "ກຸມພາ",
-                        "ມີນາ",
-                        "ເມສາ",
-                        "ພຶດສະພາ",
-                        "ມິຖຸນາ",
-                        "ກໍລະກົດ",
-                        "ສິງຫາ",
-                        "ກັນຍາ",
-                        "ຕຸລາ",
-                        "ພະຈິກ",
-                        "ທັນວາ"
-                    ]
-                },
-                "days": {
-                    "narrow": [
-                        "ອທ.",
-                        "ຈ.",
-                        "ອ.",
-                        "ພ.",
-                        "ພຫ.",
-                        "ສກ.",
-                        "ສ."
-                    ],
-                    "short": [
-                        "ອາ.",
-                        "ຈ.",
-                        "ອ.",
-                        "ພ.",
-                        "ພຫ.",
-                        "ສກ.",
-                        "ສ."
-                    ],
-                    "long": [
-                        "ວັນອາທິດ",
-                        "ວັນຈັນ",
-                        "ວັນອັງຄານ",
-                        "ວັນພຸດ",
-                        "ວັນພະຫັດ",
-                        "ວັນສຸກ",
-                        "ວັນເສົາ"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "ບີຊີ",
-                        "ຄ.ສ."
-                    ]
-                },
-                "dayPeriods": {
-                    "am": "ກ່ອນທ່ຽງ",
-                    "pm": "ຫຼັງທ່ຽງ"
                 }
             },
             "japanese": {
@@ -932,6 +615,13 @@
                     ]
                 }
             },
+            "ethioaa": {
+                "eras": {
+                    "short": [
+                        "ERA0"
+                    ]
+                }
+            },
             "ethiopic": {
                 "months": {
                     "narrow": [
@@ -987,6 +677,319 @@
                     ]
                 }
             },
+            "gregory": {
+                "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "short": [
+                        "ມ.ກ.",
+                        "ກ.ພ.",
+                        "ມ.ນ.",
+                        "ມ.ສ.",
+                        "ພ.ພ.",
+                        "ມິ.ຖ.",
+                        "ກ.ລ.",
+                        "ສ.ຫ.",
+                        "ກ.ຍ.",
+                        "ຕ.ລ.",
+                        "ພ.ຈ.",
+                        "ທ.ວ."
+                    ],
+                    "long": [
+                        "ມັງກອນ",
+                        "ກຸມພາ",
+                        "ມີນາ",
+                        "ເມສາ",
+                        "ພຶດສະພາ",
+                        "ມິຖຸນາ",
+                        "ກໍລະກົດ",
+                        "ສິງຫາ",
+                        "ກັນຍາ",
+                        "ຕຸລາ",
+                        "ພະຈິກ",
+                        "ທັນວາ"
+                    ]
+                },
+                "days": {
+                    "narrow": [
+                        "ອທ.",
+                        "ຈ.",
+                        "ອ.",
+                        "ພ.",
+                        "ພຫ.",
+                        "ສກ.",
+                        "ສ."
+                    ],
+                    "short": [
+                        "ອາ.",
+                        "ຈ.",
+                        "ອ.",
+                        "ພ.",
+                        "ພຫ.",
+                        "ສກ.",
+                        "ສ."
+                    ],
+                    "long": [
+                        "ວັນອາທິດ",
+                        "ວັນຈັນ",
+                        "ວັນອັງຄານ",
+                        "ວັນພຸດ",
+                        "ວັນພະຫັດ",
+                        "ວັນສຸກ",
+                        "ວັນເສົາ"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "ບີຊີ",
+                        "ຄ.ສ."
+                    ]
+                },
+                "dayPeriods": {
+                    "am": "ກ່ອນທ່ຽງ",
+                    "pm": "ຫຼັງທ່ຽງ"
+                }
+            },
+            "buddhist": {
+                "eras": {
+                    "short": [
+                        "ພ.ສ."
+                    ]
+                }
+            },
+            "islamic": {
+                "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "short": [
+                        "ມຸຮັດ",
+                        "ເຄາະ",
+                        "ຮອດບີ 1",
+                        "ຮອກບີ 2",
+                        "ນຸມາ 1",
+                        "ນຸມາ 2",
+                        "ເຮາະ",
+                        "ຊະອ໌",
+                        "ເຮາະມະ",
+                        "ເຊົາ",
+                        "ຊຸລກິອຸ",
+                        "ຊຸລຫິຈ"
+                    ],
+                    "long": [
+                        "ມຸຣະຮອມ",
+                        "ຊາຟາຣ",
+                        "ຮາບີ 1",
+                        "ຮາບີ 2",
+                        "ຈຸມາດາ 1",
+                        "ຈຸມາດາ 2",
+                        "ຮາຈັບ",
+                        "ຊະບານ",
+                        "ຮາມາດອນ",
+                        "ເຊົາວັດ",
+                        "ດຸອັດກິດະ",
+                        "ດຸອັດກິຈະ"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "AH"
+                    ]
+                }
+            },
+            "persian": {
+                "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "short": [
+                        "ຟາຣວາດິນ",
+                        "ອໍຣດີບີເຫຣດ",
+                        "ຄໍຣເດດ",
+                        "ແຕຣ",
+                        "ມໍຣເດດ",
+                        "ຊາຣຫິວາ",
+                        "ເມີ",
+                        "ອາບານ",
+                        "ອາຊາ",
+                        "ດີຣ",
+                        "ບຣາມານ",
+                        "ເອສຟານ"
+                    ],
+                    "long": [
+                        "ຟຣາວາດິນ",
+                        "ອໍຣດີບີເຫຣດ",
+                        "ຄໍຣເດດ",
+                        "ແຕຣ",
+                        "ມໍຣດາເ",
+                        "ຊາຣຫິວາ",
+                        "ເມີ",
+                        "ອາບານ",
+                        "ອາຊາຣ",
+                        "ດີຣ",
+                        "ບຣາແມນ",
+                        "ເອສຟານ"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "ປີເປີເຊຍ"
+                    ]
+                }
+            },
+            "hebrew": {
+                "months": {
+                    "short": [
+                        "ທຣິດຣີ",
+                        "ເຮວານ",
+                        "ກິດເລບ",
+                        "ເຕເວດ",
+                        "ຊີວັດ",
+                        "ອາດາ I",
+                        "ອາດາ",
+                        "ນິດຊານ",
+                        "ອີຍາຣ",
+                        "ສີວານ",
+                        "ຕາມູ",
+                        "ເອບ",
+                        "ອີລູ",
+                        "ອາດາ II"
+                    ],
+                    "long": [
+                        "ທຣິດຣີ",
+                        "ເຮວານ",
+                        "ກິດເລບ",
+                        "ເຕເວດ",
+                        "ຊີວັດ",
+                        "ອາດາ I",
+                        "ອາດາ",
+                        "ນິດຊານ",
+                        "ອີຍາ",
+                        "ສີວານ",
+                        "ຕາມູ",
+                        "ເອບ",
+                        "ອີລູ",
+                        "ອາດ II"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "AM"
+                    ]
+                }
+            },
+            "chinese": {
+                "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "short": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "long": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ]
+                }
+            },
+            "generic": {
+                "months": {
+                    "long": [
+                        "Month1",
+                        "Month2",
+                        "Month3",
+                        "Month4",
+                        "Month5",
+                        "Month6",
+                        "Month7",
+                        "Month8",
+                        "Month9",
+                        "Month10",
+                        "Month11",
+                        "Month12"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "ERA0",
+                        "ERA1"
+                    ]
+                }
+            },
+            "roc": {
+                "eras": {
+                    "short": [
+                        "ກ່ອນ R.O.C.",
+                        "R.O.C."
+                    ]
+                }
+            },
             "coptic": {
                 "months": {
                     "narrow": [
@@ -1039,100 +1042,6 @@
                     "short": [
                         "ERA0",
                         "ERA1"
-                    ]
-                }
-            },
-            "buddhist": {
-                "eras": {
-                    "short": [
-                        "ພ.ສ."
-                    ]
-                }
-            },
-            "chinese": {
-                "months": {
-                    "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
-                    ],
-                    "short": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
-                    ],
-                    "long": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
-                    ]
-                }
-            },
-            "hebrew": {
-                "months": {
-                    "short": [
-                        "ທຣິດຣີ",
-                        "ເຮວານ",
-                        "ກິດເລບ",
-                        "ເຕເວດ",
-                        "ຊີວັດ",
-                        "ອາດາ I",
-                        "ອາດາ",
-                        "ນິດຊານ",
-                        "ອີຍາຣ",
-                        "ສີວານ",
-                        "ຕາມູ",
-                        "ເອບ",
-                        "ອີລູ",
-                        "ອາດາ II"
-                    ],
-                    "long": [
-                        "ທຣິດຣີ",
-                        "ເຮວານ",
-                        "ກິດເລບ",
-                        "ເຕເວດ",
-                        "ຊີວັດ",
-                        "ອາດາ I",
-                        "ອາດາ",
-                        "ນິດຊານ",
-                        "ອີຍາ",
-                        "ສີວານ",
-                        "ຕາມູ",
-                        "ເອບ",
-                        "ອີລູ",
-                        "ອາດ II"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "AM"
                     ]
                 }
             }

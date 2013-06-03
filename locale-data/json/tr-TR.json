@@ -3,56 +3,45 @@
     "date": {
         "ca": [
             "gregory",
-            "hebrew",
-            "japanese",
-            "roc",
-            "persian",
-            "chinese",
-            "buddhist",
+            "islamic",
             "coptic",
-            "ethiopic",
             "indian",
-            "ethioaa",
+            "roc",
             "generic",
-            "islamic"
+            "chinese",
+            "hebrew",
+            "persian",
+            "japanese",
+            "buddhist",
+            "ethioaa",
+            "ethiopic"
         ],
         "hourNo0": true,
         "hour12": false,
         "formats": [
             {
                 "day": "numeric",
-                "month": "long",
+                "month": "short",
                 "year": "numeric",
-                "weekday": "long",
+                "weekday": "short",
+                "hour": "numeric",
+                "minute": "2-digit",
+                "second": "2-digit",
+                "pattern": "{day} {month} {year} {weekday} {hour}:{minute}:{second}",
+                "pattern12": "{day} {month} {year} {weekday} {hour}:{minute}:{second} {ampm}"
+            },
+            {
+                "day": "numeric",
+                "month": "short",
+                "year": "numeric",
+                "weekday": "short",
                 "pattern": "{day} {month} {year} {weekday}"
             },
             {
-                "day": "numeric",
-                "month": "long",
-                "year": "numeric",
-                "pattern": "{day} {month} {year}"
-            },
-            {
-                "day": "numeric",
+                "day": "2-digit",
                 "month": "short",
                 "year": "numeric",
                 "pattern": "{day} {month} {year}"
-            },
-            {
-                "day": "numeric",
-                "month": "2-digit",
-                "year": "numeric",
-                "pattern": "{day}.{month}.{year}"
-            },
-            {
-                "day": "2-digit",
-                "month": "long",
-                "weekday": "short",
-                "pattern": "{day} {month} {weekday}"
-            },
-            {
-                "day": "numeric",
-                "pattern": "{day}"
             },
             {
                 "day": "2-digit",
@@ -61,51 +50,14 @@
                 "pattern": "{day}.{month}.{year}"
             },
             {
-                "day": "numeric",
-                "month": "long",
-                "weekday": "short",
-                "pattern": "{day} {month} {weekday}"
-            },
-            {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "pattern": "{hour}:{minute}",
-                "pattern12": "{hour}:{minute} {ampm}"
-            },
-            {
+                "month": "2-digit",
                 "year": "numeric",
-                "pattern": "{year}"
-            },
-            {
-                "hour": "numeric",
-                "pattern": "{hour}",
-                "pattern12": "{hour} {ampm}"
-            },
-            {
-                "month": "short",
-                "pattern": "{month}"
-            },
-            {
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": "{minute}:{second}"
-            },
-            {
-                "month": "numeric",
-                "pattern": "{month}"
+                "pattern": "{month}/{year}"
             },
             {
                 "month": "short",
                 "year": "numeric",
-                "era": "short",
-                "pattern": "{month} {year} {era}"
-            },
-            {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": "{hour}:{minute}:{second}",
-                "pattern12": "{hour}:{minute}:{second} {ampm}"
+                "pattern": "{month} {year}"
             },
             {
                 "day": "numeric",
@@ -118,126 +70,20 @@
                 "pattern": "{day}/{month}"
             },
             {
-                "day": "2-digit",
-                "month": "short",
-                "year": "numeric",
-                "pattern": "{day} {month} {year}"
-            },
-            {
-                "month": "2-digit",
-                "year": "numeric",
-                "pattern": "{month}.{year}"
-            },
-            {
-                "day": "2-digit",
-                "month": "short",
-                "year": "numeric",
-                "era": "short",
-                "pattern": "{day} {month} {year} {era}"
-            },
-            {
-                "day": "numeric",
-                "weekday": "short",
-                "pattern": "{day} {weekday}"
-            },
-            {
-                "day": "2-digit",
-                "month": "2-digit",
-                "year": "numeric",
-                "weekday": "short",
-                "pattern": "{day}.{month}.{year} {weekday}"
-            },
-            {
-                "month": "2-digit",
-                "year": "numeric",
-                "pattern": "{month}/{year}"
-            },
-            {
-                "day": "2-digit",
-                "month": "long",
-                "pattern": "{day} {month}"
-            },
-            {
-                "year": "numeric",
-                "era": "short",
-                "pattern": "{year} {era}"
-            },
-            {
-                "day": "numeric",
-                "month": "short",
-                "year": "numeric",
-                "weekday": "short",
-                "pattern": "{day} {month} {year} {weekday}"
-            },
-            {
-                "day": "numeric",
-                "month": "short",
-                "year": "numeric",
-                "era": "short",
-                "weekday": "short",
-                "pattern": "{day} {month} {year} {era} {weekday}"
-            },
-            {
-                "month": "long",
-                "year": "numeric",
-                "pattern": "{month} {year}"
-            },
-            {
-                "day": "2-digit",
-                "month": "2-digit",
-                "weekday": "short",
-                "pattern": "{day}/{month} {weekday}"
-            },
-            {
-                "month": "short",
-                "year": "numeric",
-                "pattern": "{month} {year}"
-            },
-            {
+                "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{minute}:{second}"
+                "pattern": "{hour}:{minute}:{second}",
+                "pattern12": "{hour}:{minute}:{second} {ampm}"
+            },
+            {
+                "hour": "numeric",
+                "minute": "2-digit",
+                "pattern": "{hour}:{minute}",
+                "pattern12": "{hour}:{minute} {ampm}"
             }
         ],
         "calendars": {
-            "roc": {
-                "eras": {
-                    "short": [
-                        "Before R.O.C.",
-                        "Minguo"
-                    ]
-                }
-            },
-            "ethioaa": {
-                "eras": {
-                    "short": [
-                        "ERA0"
-                    ]
-                }
-            },
-            "persian": {
-                "months": {
-                    "long": [
-                        "Ferverdin",
-                        "Ordibeheşt",
-                        "Hordad",
-                        "Tir",
-                        "Mordad",
-                        "Şehriver",
-                        "Mehr",
-                        "Aban",
-                        "Azer",
-                        "Dey",
-                        "Behmen",
-                        "Esfend"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "AP"
-                    ]
-                }
-            },
             "indian": {
                 "months": {
                     "long": [
@@ -259,156 +105,6 @@
                     "short": [
                         "SAKA"
                     ]
-                }
-            },
-            "islamic": {
-                "months": {
-                    "short": [
-                        "Muharrem",
-                        "Safer",
-                        "Rebiülevvel",
-                        "Rebiülahir",
-                        "Cemaziyelevvel",
-                        "Cemaziyelahir",
-                        "Recep",
-                        "Şaban",
-                        "Ramazan",
-                        "Şevval",
-                        "Zilkade",
-                        "Zilhicce"
-                    ],
-                    "long": [
-                        "Muharrem",
-                        "Safer",
-                        "Rebiülevvel",
-                        "Rebiülahir",
-                        "Cemaziyelevvel",
-                        "Cemaziyelahir",
-                        "Recep",
-                        "Şaban",
-                        "Ramazan",
-                        "Şevval",
-                        "Zilkade",
-                        "Zilhicce"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "AH"
-                    ]
-                }
-            },
-            "generic": {
-                "months": {
-                    "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "ERA0",
-                        "ERA1"
-                    ]
-                }
-            },
-            "gregory": {
-                "months": {
-                    "narrow": [
-                        "O",
-                        "Ş",
-                        "M",
-                        "N",
-                        "M",
-                        "H",
-                        "T",
-                        "A",
-                        "E",
-                        "E",
-                        "K",
-                        "A"
-                    ],
-                    "short": [
-                        "Oca",
-                        "Şub",
-                        "Mar",
-                        "Nis",
-                        "May",
-                        "Haz",
-                        "Tem",
-                        "Ağu",
-                        "Eyl",
-                        "Eki",
-                        "Kas",
-                        "Ara"
-                    ],
-                    "long": [
-                        "Ocak",
-                        "Şubat",
-                        "Mart",
-                        "Nisan",
-                        "Mayıs",
-                        "Haziran",
-                        "Temmuz",
-                        "Ağustos",
-                        "Eylül",
-                        "Ekim",
-                        "Kasım",
-                        "Aralık"
-                    ]
-                },
-                "days": {
-                    "narrow": [
-                        "Pa",
-                        "Pt",
-                        "Sa",
-                        "Ça",
-                        "Pe",
-                        "Cu",
-                        "Ct"
-                    ],
-                    "short": [
-                        "Paz",
-                        "Pzt",
-                        "Sal",
-                        "Çar",
-                        "Per",
-                        "Cum",
-                        "Cmt"
-                    ],
-                    "long": [
-                        "Pazar",
-                        "Pazartesi",
-                        "Salı",
-                        "Çarşamba",
-                        "Perşembe",
-                        "Cuma",
-                        "Cumartesi"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "MÖ",
-                        "MS"
-                    ],
-                    "long": [
-                        "Milattan Önce",
-                        "Milattan Sonra"
-                    ]
-                },
-                "dayPeriods": {
-                    "am": "ÖÖ",
-                    "pm": "ÖS"
                 }
             },
             "japanese": {
@@ -891,6 +587,13 @@
                     ]
                 }
             },
+            "ethioaa": {
+                "eras": {
+                    "short": [
+                        "ERA0"
+                    ]
+                }
+            },
             "ethiopic": {
                 "months": {
                     "long": [
@@ -916,29 +619,93 @@
                     ]
                 }
             },
-            "coptic": {
+            "gregory": {
                 "months": {
+                    "narrow": [
+                        "O",
+                        "Ş",
+                        "M",
+                        "N",
+                        "M",
+                        "H",
+                        "T",
+                        "A",
+                        "E",
+                        "E",
+                        "K",
+                        "A"
+                    ],
+                    "short": [
+                        "Oca",
+                        "Şub",
+                        "Mar",
+                        "Nis",
+                        "May",
+                        "Haz",
+                        "Tem",
+                        "Ağu",
+                        "Eyl",
+                        "Eki",
+                        "Kas",
+                        "Ara"
+                    ],
                     "long": [
-                        "Tût",
-                        "Bâbe",
-                        "Hatur",
-                        "Keyhek",
-                        "Tûbe",
-                        "Imşir",
-                        "Bermuhat",
-                        "Bermude",
-                        "Peyştes",
-                        "Bune",
-                        "Ebip",
-                        "Mısrî",
-                        "Nesî"
+                        "Ocak",
+                        "Şubat",
+                        "Mart",
+                        "Nisan",
+                        "Mayıs",
+                        "Haziran",
+                        "Temmuz",
+                        "Ağustos",
+                        "Eylül",
+                        "Ekim",
+                        "Kasım",
+                        "Aralık"
+                    ]
+                },
+                "days": {
+                    "narrow": [
+                        "Pa",
+                        "Pt",
+                        "Sa",
+                        "Ça",
+                        "Pe",
+                        "Cu",
+                        "Ct"
+                    ],
+                    "short": [
+                        "Paz",
+                        "Pzt",
+                        "Sal",
+                        "Çar",
+                        "Per",
+                        "Cum",
+                        "Cmt"
+                    ],
+                    "long": [
+                        "Pazar",
+                        "Pazartesi",
+                        "Salı",
+                        "Çarşamba",
+                        "Perşembe",
+                        "Cuma",
+                        "Cumartesi"
                     ]
                 },
                 "eras": {
                     "short": [
-                        "ERA0",
-                        "ERA1"
+                        "MÖ",
+                        "MS"
+                    ],
+                    "long": [
+                        "Milattan Önce",
+                        "Milattan Sonra"
                     ]
+                },
+                "dayPeriods": {
+                    "am": "ÖÖ",
+                    "pm": "ÖS"
                 }
             },
             "buddhist": {
@@ -948,21 +715,63 @@
                     ]
                 }
             },
-            "chinese": {
+            "islamic": {
+                "months": {
+                    "short": [
+                        "Muharrem",
+                        "Safer",
+                        "Rebiülevvel",
+                        "Rebiülahir",
+                        "Cemaziyelevvel",
+                        "Cemaziyelahir",
+                        "Recep",
+                        "Şaban",
+                        "Ramazan",
+                        "Şevval",
+                        "Zilkade",
+                        "Zilhicce"
+                    ],
+                    "long": [
+                        "Muharrem",
+                        "Safer",
+                        "Rebiülevvel",
+                        "Rebiülahir",
+                        "Cemaziyelevvel",
+                        "Cemaziyelahir",
+                        "Recep",
+                        "Şaban",
+                        "Ramazan",
+                        "Şevval",
+                        "Zilkade",
+                        "Zilhicce"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "AH"
+                    ]
+                }
+            },
+            "persian": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "Ferverdin",
+                        "Ordibeheşt",
+                        "Hordad",
+                        "Tir",
+                        "Mordad",
+                        "Şehriver",
+                        "Mehr",
+                        "Aban",
+                        "Azer",
+                        "Dey",
+                        "Behmen",
+                        "Esfend"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "AP"
                     ]
                 }
             },
@@ -988,6 +797,81 @@
                 "eras": {
                     "short": [
                         "AM"
+                    ]
+                }
+            },
+            "chinese": {
+                "months": {
+                    "long": [
+                        "Month1",
+                        "Month2",
+                        "Month3",
+                        "Month4",
+                        "Month5",
+                        "Month6",
+                        "Month7",
+                        "Month8",
+                        "Month9",
+                        "Month10",
+                        "Month11",
+                        "Month12"
+                    ]
+                }
+            },
+            "generic": {
+                "months": {
+                    "long": [
+                        "Month1",
+                        "Month2",
+                        "Month3",
+                        "Month4",
+                        "Month5",
+                        "Month6",
+                        "Month7",
+                        "Month8",
+                        "Month9",
+                        "Month10",
+                        "Month11",
+                        "Month12"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "ERA0",
+                        "ERA1"
+                    ]
+                }
+            },
+            "roc": {
+                "eras": {
+                    "short": [
+                        "Before R.O.C.",
+                        "Minguo"
+                    ]
+                }
+            },
+            "coptic": {
+                "months": {
+                    "long": [
+                        "Tût",
+                        "Bâbe",
+                        "Hatur",
+                        "Keyhek",
+                        "Tûbe",
+                        "Imşir",
+                        "Bermuhat",
+                        "Bermude",
+                        "Peyştes",
+                        "Bune",
+                        "Ebip",
+                        "Mısrî",
+                        "Nesî"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "ERA0",
+                        "ERA1"
                     ]
                 }
             }

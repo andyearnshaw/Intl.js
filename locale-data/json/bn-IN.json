@@ -3,85 +3,45 @@
     "date": {
         "ca": [
             "gregory",
-            "hebrew",
-            "japanese",
-            "ethioaa",
-            "indian",
-            "chinese",
             "buddhist",
             "coptic",
-            "ethiopic",
-            "persian",
+            "indian",
             "roc",
             "generic",
-            "islamic"
+            "chinese",
+            "hebrew",
+            "persian",
+            "ethioaa",
+            "islamic",
+            "japanese",
+            "ethiopic"
         ],
         "hourNo0": true,
         "hour12": true,
         "formats": [
             {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "second": "2-digit",
-                "timeZoneName": "long",
-                "pattern": "{hour}:{minute}:{second} {timeZoneName}",
-                "pattern12": "{hour}:{minute}:{second} {ampm} {timeZoneName}"
-            },
-            {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "second": "2-digit",
-                "timeZoneName": "short",
-                "pattern": "{hour}:{minute}:{second} {timeZoneName}",
-                "pattern12": "{hour}:{minute}:{second} {ampm} {timeZoneName}"
-            },
-            {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": "{hour}:{minute}:{second}",
-                "pattern12": "{hour}:{minute}:{second} {ampm}"
-            },
-            {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "pattern": "{hour}:{minute}",
-                "pattern12": "{hour}:{minute} {ampm}"
-            },
-            {
-                "weekday": "long",
+                "weekday": "short",
                 "day": "numeric",
-                "month": "long",
+                "month": "short",
+                "year": "numeric",
+                "hour": "numeric",
+                "minute": "2-digit",
+                "second": "2-digit",
+                "pattern": "{weekday}, {day} {month}, {year} {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day} {month}, {year} {hour}:{minute}:{second} {ampm}"
+            },
+            {
+                "weekday": "short",
+                "day": "numeric",
+                "month": "short",
                 "year": "numeric",
                 "pattern": "{weekday}, {day} {month}, {year}"
             },
             {
                 "day": "numeric",
-                "month": "long",
-                "year": "numeric",
-                "pattern": "{day} {month}, {year}"
-            },
-            {
-                "day": "numeric",
                 "month": "short",
                 "year": "numeric",
                 "pattern": "{day} {month}, {year}"
-            },
-            {
-                "day": "numeric",
-                "month": "numeric",
-                "year": "2-digit",
-                "pattern": "{day}/{month}/{year}"
-            },
-            {
-                "weekday": "short",
-                "day": "numeric",
-                "month": "long",
-                "pattern": "{weekday} {day} {month}"
-            },
-            {
-                "day": "numeric",
-                "pattern": "{day}"
             },
             {
                 "day": "numeric",
@@ -90,56 +50,14 @@
                 "pattern": "{day}/{month}/{year}"
             },
             {
-                "weekday": "short",
-                "day": "numeric",
-                "month": "short",
-                "pattern": "{weekday} {day} {month}"
-            },
-            {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "pattern": "{hour}:{minute}",
-                "pattern12": "{hour}:{minute} {ampm}"
-            },
-            {
-                "year": "numeric",
-                "pattern": "{year}"
-            },
-            {
-                "hour": "numeric",
-                "pattern": "{hour}",
-                "pattern12": "{hour} {ampm}"
-            },
-            {
-                "month": "short",
-                "pattern": "{month}"
-            },
-            {
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": "{minute}:{second}"
-            },
-            {
-                "day": "2-digit",
-                "month": "2-digit",
-                "pattern": "{day}-{month}"
-            },
-            {
                 "month": "numeric",
-                "pattern": "{month}"
-            },
-            {
-                "era": "short",
                 "year": "numeric",
-                "month": "short",
-                "pattern": "{era} {year} {month}"
+                "pattern": "{month}/{year}"
             },
             {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": "{hour}:{minute}:{second}",
-                "pattern12": "{hour}:{minute}:{second} {ampm}"
+                "month": "short",
+                "year": "numeric",
+                "pattern": "{month} {year}"
             },
             {
                 "day": "numeric",
@@ -152,98 +70,20 @@
                 "pattern": "{day}/{month}"
             },
             {
-                "day": "numeric",
-                "month": "short",
-                "year": "numeric",
-                "pattern": "{day} {month}, {year}"
+                "hour": "numeric",
+                "minute": "2-digit",
+                "second": "2-digit",
+                "pattern": "{hour}:{minute}:{second}",
+                "pattern12": "{hour}:{minute}:{second} {ampm}"
             },
             {
-                "month": "2-digit",
-                "year": "numeric",
-                "pattern": "{month}-{year}"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "month": "short",
-                "day": "numeric",
-                "pattern": "{era} {year} {month} {day}"
-            },
-            {
-                "day": "numeric",
-                "weekday": "short",
-                "pattern": "{day} {weekday}"
-            },
-            {
-                "weekday": "short",
-                "day": "numeric",
-                "month": "numeric",
-                "year": "numeric",
-                "pattern": "{weekday}, {day}/{month}/{year}"
-            },
-            {
-                "month": "numeric",
-                "year": "numeric",
-                "pattern": "{month}/{year}"
-            },
-            {
-                "day": "numeric",
-                "month": "long",
-                "pattern": "{day} {month}"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "pattern": "{era} {year}"
-            },
-            {
-                "weekday": "short",
-                "day": "numeric",
-                "month": "short",
-                "year": "numeric",
-                "pattern": "{weekday}, {day} {month}, {year}"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "month": "short",
-                "day": "numeric",
-                "weekday": "short",
-                "pattern": "{era} {year} {month} {day}, {weekday}"
-            },
-            {
-                "month": "long",
-                "year": "numeric",
-                "pattern": "{month} {year}"
-            },
-            {
-                "weekday": "short",
-                "day": "numeric",
-                "month": "numeric",
-                "pattern": "{weekday}, {day}-{month}"
-            },
-            {
-                "month": "short",
-                "year": "numeric",
-                "pattern": "{month} {year}"
+                "hour": "numeric",
+                "minute": "2-digit",
+                "pattern": "{hour}:{minute}",
+                "pattern12": "{hour}:{minute} {ampm}"
             }
         ],
         "calendars": {
-            "ethioaa": {
-                "eras": {
-                    "short": [
-                        "ERA0"
-                    ]
-                }
-            },
-            "roc": {
-                "eras": {
-                    "short": [
-                        "Before R.O.C.",
-                        "R.O.C."
-                    ]
-                }
-            },
             "indian": {
                 "months": {
                     "long": [
@@ -267,145 +107,11 @@
                     ]
                 }
             },
-            "persian": {
-                "months": {
-                    "long": [
-                        "Farvardin",
-                        "Ordibehesht",
-                        "Khordad",
-                        "Tir",
-                        "Mordad",
-                        "Shahrivar",
-                        "Mehr",
-                        "Aban",
-                        "Azar",
-                        "Dey",
-                        "Bahman",
-                        "Esfand"
-                    ]
-                },
+            "ethioaa": {
                 "eras": {
                     "short": [
-                        "AP"
+                        "ERA0"
                     ]
-                }
-            },
-            "islamic": {
-                "months": {
-                    "short": [
-                        "Muh.",
-                        "Saf.",
-                        "Rab. I",
-                        "Rab. II",
-                        "Jum. I",
-                        "Jum. II",
-                        "Raj.",
-                        "Sha.",
-                        "Ram.",
-                        "Shaw.",
-                        "Dhuʻl-Q.",
-                        "Dhuʻl-H."
-                    ],
-                    "long": [
-                        "মহররম",
-                        "সফর",
-                        "রবিউল আউয়াল",
-                        "রবিউস সানি",
-                        "জমাদিউল আউয়াল",
-                        "জমাদিউস সানি",
-                        "রজব",
-                        "শা'বান",
-                        "রমজান",
-                        "শাওয়াল",
-                        "জ্বিলকদ",
-                        "জ্বিলহজ্জ"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "যুগ"
-                    ]
-                }
-            },
-            "generic": {
-                "months": {
-                    "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "ERA0",
-                        "ERA1"
-                    ]
-                }
-            },
-            "gregory": {
-                "months": {
-                    "long": [
-                        "জানুয়ারী",
-                        "ফেব্রুয়ারী",
-                        "মার্চ",
-                        "এপ্রিল",
-                        "মে",
-                        "জুন",
-                        "জুলাই",
-                        "আগস্ট",
-                        "সেপ্টেম্বর",
-                        "অক্টোবর",
-                        "নভেম্বর",
-                        "ডিসেম্বর"
-                    ]
-                },
-                "days": {
-                    "narrow": [
-                        "রঃ",
-                        "সোঃ",
-                        "মঃ",
-                        "বুঃ",
-                        "বৃঃ",
-                        "শুঃ",
-                        "শোঃ"
-                    ],
-                    "short": [
-                        "রবি",
-                        "সোম",
-                        "মঙ্গল",
-                        "বুধ",
-                        "বৃহস্পতি",
-                        "শুক্র",
-                        "শনি"
-                    ],
-                    "long": [
-                        "রবিবার",
-                        "সোমবার",
-                        "মঙ্গলবার",
-                        "বুধবার",
-                        "বৃহষ্পতিবার",
-                        "শুক্রবার",
-                        "শনিবার"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "খৃষ্টপূর্ব",
-                        "খৃষ্টাব্দ"
-                    ]
-                },
-                "dayPeriods": {
-                    "am": "পূর্বাহ্ণ",
-                    "pm": "অপরাহ্ণ"
                 }
             },
             "japanese": {
@@ -913,28 +619,97 @@
                     ]
                 }
             },
-            "coptic": {
+            "gregory": {
                 "months": {
                     "long": [
-                        "Tout",
-                        "Baba",
-                        "Hator",
-                        "Kiahk",
-                        "Toba",
-                        "Amshir",
-                        "Baramhat",
-                        "Baramouda",
-                        "Bashans",
-                        "Paona",
-                        "Epep",
-                        "Mesra",
-                        "Nasie"
+                        "জানুয়ারী",
+                        "ফেব্রুয়ারী",
+                        "মার্চ",
+                        "এপ্রিল",
+                        "মে",
+                        "জুন",
+                        "জুলাই",
+                        "আগস্ট",
+                        "সেপ্টেম্বর",
+                        "অক্টোবর",
+                        "নভেম্বর",
+                        "ডিসেম্বর"
+                    ]
+                },
+                "days": {
+                    "narrow": [
+                        "রঃ",
+                        "সোঃ",
+                        "মঃ",
+                        "বুঃ",
+                        "বৃঃ",
+                        "শুঃ",
+                        "শোঃ"
+                    ],
+                    "short": [
+                        "রবি",
+                        "সোম",
+                        "মঙ্গল",
+                        "বুধ",
+                        "বৃহস্পতি",
+                        "শুক্র",
+                        "শনি"
+                    ],
+                    "long": [
+                        "রবিবার",
+                        "সোমবার",
+                        "মঙ্গলবার",
+                        "বুধবার",
+                        "বৃহষ্পতিবার",
+                        "শুক্রবার",
+                        "শনিবার"
                     ]
                 },
                 "eras": {
                     "short": [
-                        "ERA0",
-                        "ERA1"
+                        "খৃষ্টপূর্ব",
+                        "খৃষ্টাব্দ"
+                    ]
+                },
+                "dayPeriods": {
+                    "am": "পূর্বাহ্ণ",
+                    "pm": "অপরাহ্ণ"
+                }
+            },
+            "islamic": {
+                "months": {
+                    "short": [
+                        "Muh.",
+                        "Saf.",
+                        "Rab. I",
+                        "Rab. II",
+                        "Jum. I",
+                        "Jum. II",
+                        "Raj.",
+                        "Sha.",
+                        "Ram.",
+                        "Shaw.",
+                        "Dhuʻl-Q.",
+                        "Dhuʻl-H."
+                    ],
+                    "long": [
+                        "মহররম",
+                        "সফর",
+                        "রবিউল আউয়াল",
+                        "রবিউস সানি",
+                        "জমাদিউল আউয়াল",
+                        "জমাদিউস সানি",
+                        "রজব",
+                        "শা'বান",
+                        "রমজান",
+                        "শাওয়াল",
+                        "জ্বিলকদ",
+                        "জ্বিলহজ্জ"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "যুগ"
                     ]
                 }
             },
@@ -945,21 +720,26 @@
                     ]
                 }
             },
-            "chinese": {
+            "persian": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "Farvardin",
+                        "Ordibehesht",
+                        "Khordad",
+                        "Tir",
+                        "Mordad",
+                        "Shahrivar",
+                        "Mehr",
+                        "Aban",
+                        "Azar",
+                        "Dey",
+                        "Bahman",
+                        "Esfand"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "AP"
                     ]
                 }
             },
@@ -985,6 +765,81 @@
                 "eras": {
                     "short": [
                         "AM"
+                    ]
+                }
+            },
+            "chinese": {
+                "months": {
+                    "long": [
+                        "Month1",
+                        "Month2",
+                        "Month3",
+                        "Month4",
+                        "Month5",
+                        "Month6",
+                        "Month7",
+                        "Month8",
+                        "Month9",
+                        "Month10",
+                        "Month11",
+                        "Month12"
+                    ]
+                }
+            },
+            "generic": {
+                "months": {
+                    "long": [
+                        "Month1",
+                        "Month2",
+                        "Month3",
+                        "Month4",
+                        "Month5",
+                        "Month6",
+                        "Month7",
+                        "Month8",
+                        "Month9",
+                        "Month10",
+                        "Month11",
+                        "Month12"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "ERA0",
+                        "ERA1"
+                    ]
+                }
+            },
+            "roc": {
+                "eras": {
+                    "short": [
+                        "Before R.O.C.",
+                        "R.O.C."
+                    ]
+                }
+            },
+            "coptic": {
+                "months": {
+                    "long": [
+                        "Tout",
+                        "Baba",
+                        "Hator",
+                        "Kiahk",
+                        "Toba",
+                        "Amshir",
+                        "Baramhat",
+                        "Baramouda",
+                        "Bashans",
+                        "Paona",
+                        "Epep",
+                        "Mesra",
+                        "Nasie"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "ERA0",
+                        "ERA1"
                     ]
                 }
             }

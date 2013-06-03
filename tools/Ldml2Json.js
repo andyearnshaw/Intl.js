@@ -271,19 +271,66 @@ function processObj(data) {
             };
         }
 
-        // Copy patterns, a concatenation of timeFormats, dateFormats and
-        // dateTimeFormats.availableFormats
-        if (frmt = defCa.timeFormats)
-            ret.date.formats = gopv(frmt);
+        /**
+         * The specification requires we support at least the following subsets of
+         * date/time components:
+         *
+         *   - 'weekday', 'year', 'month', 'day', 'hour', 'minute', 'second'
+         *   - 'weekday', 'year', 'month', 'day'
+         *   - 'year', 'month', 'day'
+         *   - 'year', 'month'
+         *   - 'month', 'day'
+         *   - 'hour', 'minute', 'second'
+         *   - 'hour', 'minute'
+         *
+         * We need to cherry pick at least these subsets from the CLDR data and convert
+         * them into the pattern objects used in the ECMA-402 API.
+         *
+         * The array below could be easily extended to include more formats
+         */
+        var formats = [
+                // 'weekday', 'year', 'month', 'day', 'hour', 'minute', 'second'
+                [ 'hms', 'yMMMEd' ],
 
-        if (frmt = defCa.dateFormats)
-            ret.date.formats = ret.date.formats.concat(gopv(frmt));
+                // 'weekday', 'year', 'month', 'day'
+                [ '', 'yMMMEd' ],
 
-        if (frmt = defCa.dateTimeFormats)
-            ret.date.formats = ret.date.formats.concat(gopv(frmt.availableFormats));
+                // 'year', 'month', 'day'
+                [ '', 'yMMMd'],
+                [ '', 'yMd' ],
 
-        ret.date.formats = ret.date.formats.map(createDateTimeFormats).filter(function (e) {
-            return e != null;
+                // 'year', 'month'
+                [ '', 'yM' ],
+                [ '', 'yMMM' ],
+
+                // 'month', 'day'
+                [ '', 'MMMd' ],
+                [ '', 'Md' ],
+
+                // 'hour', 'minute', 'second'
+                [ 'hms', '' ],
+
+                // 'hour', 'minute'
+                [ 'hm', '' ]
+            ],
+            avail = defCa.dateTimeFormats.availableFormats,
+            order = defCa.dateTimeFormats.medium,
+            verify = function (frmt) {
+                return (!frmt[0] || avail[frmt[0]]) && (!frmt[1] || avail[frmt[1]]);
+            };
+
+        // Make sure every local supports these minimum required formats
+        if (!formats.every(verify))
+            throw new Error(ret.locale + " doesn't support all date/time component subsets");
+
+        // Map the formats into a pattern for createDateTimeFormats
+        ret.date.formats = formats.map(function (frmt) {
+            return createDateTimeFormat(
+                order
+                    .replace('{0}', frmt[0] ? avail[frmt[0]] : '')
+                    .replace('{1}', frmt[1] ? avail[frmt[1]] : '')
+                    .replace(/^[^a-z0-9]+|[^a-z0-9]+$/gi, '')
+            );
         });
     });
 
@@ -320,23 +367,8 @@ var
 /**
  * Converts the CLDR availableFormats into the objects and patterns required by
  * the ECMAScript Internationalization API specification.
- *
- * The specification requires we support at least the following subsets of the
- * dateTimeComponents listed above:
- *
- *   - 'weekday', 'year', 'month', 'day', 'hour', 'minute', 'second'
- *   - 'weekday', 'year', 'month', 'day'
- *   - 'year', 'month', 'day'
- *   - 'year', 'month'
- *   - 'month', 'day'
- *   - 'hour', 'minute', 'second'
- *   - 'hour', 'minute'
- *
- * However, since they recommend the CLDR data, we're going to assume that each locale
- * within the CLDR supports at least these subsets (and variants thereof), so
- * it's easier to just iterate over what the CLDR gives us an map it accordingly.
  */
-function createDateTimeFormats(format) {
+function createDateTimeFormat(format) {
     if (unwantedDTCs.test(format))
         return undefined;
 

@@ -3,159 +3,23 @@
     "date": {
         "ca": [
             "gregory",
-            "hebrew",
-            "japanese",
-            "roc",
-            "indian",
-            "chinese",
-            "buddhist",
+            "islamic",
             "coptic",
-            "ethiopic",
-            "persian",
-            "ethioaa",
+            "indian",
+            "roc",
             "generic",
-            "islamic"
+            "chinese",
+            "hebrew",
+            "persian",
+            "japanese",
+            "buddhist",
+            "ethioaa",
+            "ethiopic"
         ],
         "hourNo0": true,
         "hour12": true,
         "formats": [
-            {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "second": "2-digit",
-                "timeZoneName": "long",
-                "pattern": " {hour}:{minute}:{second} {timeZoneName}",
-                "pattern12": "{ampm} {hour}:{minute}:{second} {timeZoneName}"
-            },
-            {
-                "weekday": "long",
-                "month": "long",
-                "day": "numeric",
-                "year": "numeric",
-                "pattern": "{weekday}, {month} {day} 'li' {year}",
-                "pattern12": "{weekday}, {month} {day} 'li{ampm}' {year}"
-            },
-            {
-                "month": "long",
-                "day": "numeric",
-                "year": "numeric",
-                "pattern": "{month} {day} 'li' {year}",
-                "pattern12": "{month} {day} 'li{ampm}' {year}"
-            },
-            {
-                "month": "short",
-                "day": "numeric",
-                "year": "numeric",
-                "pattern": "{month} {day} 'li', {year}",
-                "pattern12": "{month} {day} 'li{ampm}', {year}"
-            },
-            {
-                "month": "numeric",
-                "day": "numeric",
-                "year": "2-digit",
-                "pattern": "{month}/{day}/{year}"
-            },
-            {
-                "weekday": "short",
-                "month": "long",
-                "day": "numeric",
-                "pattern": "{weekday}, {month} {day} 'li'",
-                "pattern12": "{weekday}, {month} {day} 'li{ampm}'"
-            },
-            {
-                "day": "numeric",
-                "pattern": "{day}"
-            },
-            {
-                "month": "numeric",
-                "day": "numeric",
-                "year": "numeric",
-                "pattern": "{month}/{day}/{year}"
-            },
-            {
-                "weekday": "short",
-                "month": "short",
-                "day": "numeric",
-                "pattern": "{weekday}, {month} {day} 'li'",
-                "pattern12": "{weekday}, {month} {day} 'li{ampm}'"
-            },
-            {
-                "year": "numeric",
-                "pattern": "{year}"
-            },
-            {
-                "month": "short",
-                "pattern": "{month}"
-            },
-            {
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": "'ɖ{ampm}b{ampm}ƒoƒo' {minute}:{second}",
-                "pattern12": "'{ampm}ɖ{ampm}b{ampm}ƒoƒo' {minute}:{second}"
-            },
-            {
-                "month": "numeric",
-                "pattern": "{month}"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "month": "short",
-                "pattern": "{era} {year} {month}"
-            },
-            {
-                "month": "short",
-                "day": "numeric",
-                "pattern": "{month} {day} 'li'",
-                "pattern12": "{month} {day} 'li{ampm}'"
-            },
-            {
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{month}/{day}"
-            },
-            {
-                "month": "short",
-                "day": "numeric",
-                "year": "numeric",
-                "pattern": "{month} {day} 'li', {year}",
-                "pattern12": "{month} {day} 'li{ampm}', {year}"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "month": "short",
-                "day": "numeric",
-                "pattern": "{era} {year} {month} {day}"
-            },
-            {
-                "weekday": "short",
-                "day": "numeric",
-                "pattern": "{weekday} {day}"
-            },
-            {
-                "weekday": "short",
-                "month": "numeric",
-                "day": "numeric",
-                "year": "numeric",
-                "pattern": "{weekday}, {month}/{day}/{year}"
-            },
-            {
-                "month": "numeric",
-                "year": "numeric",
-                "pattern": "{month}/{year}"
-            },
-            {
-                "month": "long",
-                "day": "numeric",
-                "pattern": "{month} {day} 'li'",
-                "pattern12": "{month} {day} 'li{ampm}'"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "pattern": "{era} {year}"
-            },
+            null,
             {
                 "weekday": "short",
                 "month": "short",
@@ -164,46 +28,43 @@
                 "pattern": "{weekday}, {month} {day}, {year}"
             },
             {
-                "era": "short",
-                "year": "numeric",
                 "month": "short",
                 "day": "numeric",
-                "weekday": "short",
-                "pattern": "{era} {year} {month} {day}, {weekday}"
-            },
-            {
-                "month": "long",
                 "year": "numeric",
-                "pattern": "{month} {year}"
+                "pattern": "{month} {day} 'li', {year}",
+                "pattern12": "{month} {day} 'li{ampm}', {year}"
             },
             {
-                "weekday": "short",
                 "month": "numeric",
                 "day": "numeric",
-                "pattern": "{weekday}, {month}/{day}"
+                "year": "numeric",
+                "pattern": "{month}/{day}/{year}"
+            },
+            {
+                "month": "numeric",
+                "year": "numeric",
+                "pattern": "{month}/{year}"
             },
             {
                 "month": "short",
                 "year": "numeric",
                 "pattern": "{month} {year}"
-            }
+            },
+            {
+                "month": "short",
+                "day": "numeric",
+                "pattern": "{month} {day} 'li",
+                "pattern12": "{month} {day} 'li{ampm}"
+            },
+            {
+                "month": "numeric",
+                "day": "numeric",
+                "pattern": "{month}/{day}"
+            },
+            null,
+            null
         ],
         "calendars": {
-            "roc": {
-                "eras": {
-                    "short": [
-                        "hafi R.O.C.",
-                        "R.O.C."
-                    ]
-                }
-            },
-            "ethioaa": {
-                "eras": {
-                    "short": [
-                        "ERA0"
-                    ]
-                }
-            },
             "indian": {
                 "months": {
                     "short": [
@@ -239,197 +100,6 @@
                     "short": [
                         "SAKA"
                     ]
-                }
-            },
-            "persian": {
-                "months": {
-                    "short": [
-                        "dzv",
-                        "dzd",
-                        "ted",
-                        "afɔ",
-                        "dam",
-                        "mas",
-                        "sia",
-                        "dea",
-                        "any",
-                        "kel",
-                        "ade",
-                        "dzm"
-                    ],
-                    "long": [
-                        "dzove",
-                        "dzodze",
-                        "tedoxe",
-                        "afɔfiẽ",
-                        "damɛ",
-                        "masa",
-                        "siamlɔm",
-                        "deasiamime",
-                        "anyɔnyɔ",
-                        "kele",
-                        "adeɛmekpɔxe",
-                        "dzome"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "AP"
-                    ]
-                }
-            },
-            "islamic": {
-                "months": {
-                    "short": [
-                        "dzv",
-                        "dzd",
-                        "ted",
-                        "afɔ",
-                        "dam",
-                        "mas",
-                        "sia",
-                        "dea",
-                        "any",
-                        "kel",
-                        "ade",
-                        "dzm"
-                    ],
-                    "long": [
-                        "dzove",
-                        "dzodze",
-                        "tedoxe",
-                        "afɔfiẽ",
-                        "damɛ",
-                        "masa",
-                        "siamlɔm",
-                        "deasiamime",
-                        "anyɔnyɔ",
-                        "kele",
-                        "adeɛmekpɔxe",
-                        "dzome"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "AH"
-                    ]
-                }
-            },
-            "generic": {
-                "months": {
-                    "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "ERA0",
-                        "ERA1"
-                    ]
-                }
-            },
-            "gregory": {
-                "months": {
-                    "narrow": [
-                        "d",
-                        "d",
-                        "t",
-                        "a",
-                        "d",
-                        "m",
-                        "s",
-                        "d",
-                        "a",
-                        "k",
-                        "a",
-                        "d"
-                    ],
-                    "short": [
-                        "dzv",
-                        "dzd",
-                        "ted",
-                        "afɔ",
-                        "dam",
-                        "mas",
-                        "sia",
-                        "dea",
-                        "any",
-                        "kel",
-                        "ade",
-                        "dzm"
-                    ],
-                    "long": [
-                        "dzove",
-                        "dzodze",
-                        "tedoxe",
-                        "afɔfĩe",
-                        "dama",
-                        "masa",
-                        "siamlɔm",
-                        "deasiamime",
-                        "anyɔnyɔ",
-                        "kele",
-                        "adeɛmekpɔxe",
-                        "dzome"
-                    ]
-                },
-                "days": {
-                    "narrow": [
-                        "kɔs",
-                        "dzo",
-                        "bla",
-                        "kuɖ",
-                        "yaw",
-                        "fiɖ",
-                        "mem"
-                    ],
-                    "short": [
-                        "kɔs",
-                        "dzo",
-                        "bla",
-                        "kuɖ",
-                        "yaw",
-                        "fiɖ",
-                        "mem"
-                    ],
-                    "long": [
-                        "kɔsiɖa",
-                        "dzoɖa",
-                        "blaɖa",
-                        "kuɖa",
-                        "yawoɖa",
-                        "fiɖa",
-                        "memleɖa"
-                    ]
-                },
-                "eras": {
-                    "narrow": [
-                        "hY",
-                        "Yŋ"
-                    ],
-                    "short": [
-                        "hY",
-                        "Yŋ"
-                    ],
-                    "long": [
-                        "Hafi Yesu Va Do ŋgɔ",
-                        "Yesu Ŋɔli"
-                    ]
-                },
-                "dayPeriods": {
-                    "am": "ŋdi",
-                    "pm": "ɣetrɔ"
                 }
             },
             "japanese": {
@@ -912,6 +582,13 @@
                     ]
                 }
             },
+            "ethioaa": {
+                "eras": {
+                    "short": [
+                        "ERA0"
+                    ]
+                }
+            },
             "ethiopic": {
                 "months": {
                     "short": [
@@ -952,8 +629,22 @@
                     ]
                 }
             },
-            "coptic": {
+            "gregory": {
                 "months": {
+                    "narrow": [
+                        "d",
+                        "d",
+                        "t",
+                        "a",
+                        "d",
+                        "m",
+                        "s",
+                        "d",
+                        "a",
+                        "k",
+                        "a",
+                        "d"
+                    ],
                     "short": [
                         "dzv",
                         "dzd",
@@ -966,30 +657,69 @@
                         "any",
                         "kel",
                         "ade",
-                        "dzm",
-                        "foa"
+                        "dzm"
                     ],
                     "long": [
                         "dzove",
                         "dzodze",
                         "tedoxe",
-                        "afɔfiẽ",
-                        "damɛ",
+                        "afɔfĩe",
+                        "dama",
                         "masa",
                         "siamlɔm",
                         "deasiamime",
                         "anyɔnyɔ",
                         "kele",
                         "adeɛmekpɔxe",
-                        "dzome",
-                        "ƒoave"
+                        "dzome"
+                    ]
+                },
+                "days": {
+                    "narrow": [
+                        "kɔs",
+                        "dzo",
+                        "bla",
+                        "kuɖ",
+                        "yaw",
+                        "fiɖ",
+                        "mem"
+                    ],
+                    "short": [
+                        "kɔs",
+                        "dzo",
+                        "bla",
+                        "kuɖ",
+                        "yaw",
+                        "fiɖ",
+                        "mem"
+                    ],
+                    "long": [
+                        "kɔsiɖa",
+                        "dzoɖa",
+                        "blaɖa",
+                        "kuɖa",
+                        "yawoɖa",
+                        "fiɖa",
+                        "memleɖa"
                     ]
                 },
                 "eras": {
+                    "narrow": [
+                        "hY",
+                        "Yŋ"
+                    ],
                     "short": [
-                        "ERA0",
-                        "ERA1"
+                        "hY",
+                        "Yŋ"
+                    ],
+                    "long": [
+                        "Hafi Yesu Va Do ŋgɔ",
+                        "Yesu Ŋɔli"
                     ]
+                },
+                "dayPeriods": {
+                    "am": "ŋdi",
+                    "pm": "ɣetrɔ"
                 }
             },
             "buddhist": {
@@ -999,7 +729,7 @@
                     ]
                 }
             },
-            "chinese": {
+            "islamic": {
                 "months": {
                     "short": [
                         "dzv",
@@ -1028,6 +758,48 @@
                         "kele",
                         "adeɛmekpɔxe",
                         "dzome"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "AH"
+                    ]
+                }
+            },
+            "persian": {
+                "months": {
+                    "short": [
+                        "dzv",
+                        "dzd",
+                        "ted",
+                        "afɔ",
+                        "dam",
+                        "mas",
+                        "sia",
+                        "dea",
+                        "any",
+                        "kel",
+                        "ade",
+                        "dzm"
+                    ],
+                    "long": [
+                        "dzove",
+                        "dzodze",
+                        "tedoxe",
+                        "afɔfiẽ",
+                        "damɛ",
+                        "masa",
+                        "siamlɔm",
+                        "deasiamime",
+                        "anyɔnyɔ",
+                        "kele",
+                        "adeɛmekpɔxe",
+                        "dzome"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "AP"
                     ]
                 }
             },
@@ -1069,6 +841,110 @@
                 "eras": {
                     "short": [
                         "ŋdi"
+                    ]
+                }
+            },
+            "chinese": {
+                "months": {
+                    "short": [
+                        "dzv",
+                        "dzd",
+                        "ted",
+                        "afɔ",
+                        "dam",
+                        "mas",
+                        "sia",
+                        "dea",
+                        "any",
+                        "kel",
+                        "ade",
+                        "dzm"
+                    ],
+                    "long": [
+                        "dzove",
+                        "dzodze",
+                        "tedoxe",
+                        "afɔfiẽ",
+                        "damɛ",
+                        "masa",
+                        "siamlɔm",
+                        "deasiamime",
+                        "anyɔnyɔ",
+                        "kele",
+                        "adeɛmekpɔxe",
+                        "dzome"
+                    ]
+                }
+            },
+            "generic": {
+                "months": {
+                    "long": [
+                        "Month1",
+                        "Month2",
+                        "Month3",
+                        "Month4",
+                        "Month5",
+                        "Month6",
+                        "Month7",
+                        "Month8",
+                        "Month9",
+                        "Month10",
+                        "Month11",
+                        "Month12"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "ERA0",
+                        "ERA1"
+                    ]
+                }
+            },
+            "roc": {
+                "eras": {
+                    "short": [
+                        "hafi R.O.C.",
+                        "R.O.C."
+                    ]
+                }
+            },
+            "coptic": {
+                "months": {
+                    "short": [
+                        "dzv",
+                        "dzd",
+                        "ted",
+                        "afɔ",
+                        "dam",
+                        "mas",
+                        "sia",
+                        "dea",
+                        "any",
+                        "kel",
+                        "ade",
+                        "dzm",
+                        "foa"
+                    ],
+                    "long": [
+                        "dzove",
+                        "dzodze",
+                        "tedoxe",
+                        "afɔfiẽ",
+                        "damɛ",
+                        "masa",
+                        "siamlɔm",
+                        "deasiamime",
+                        "anyɔnyɔ",
+                        "kele",
+                        "adeɛmekpɔxe",
+                        "dzome",
+                        "ƒoave"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "ERA0",
+                        "ERA1"
                     ]
                 }
             }

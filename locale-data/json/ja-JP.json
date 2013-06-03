@@ -3,18 +3,18 @@
     "date": {
         "ca": [
             "gregory",
-            "hebrew",
-            "japanese",
-            "roc",
-            "indian",
-            "chinese",
-            "buddhist",
+            "islamic",
             "coptic",
-            "ethiopic",
-            "persian",
-            "ethioaa",
+            "indian",
+            "roc",
             "generic",
-            "islamic"
+            "chinese",
+            "hebrew",
+            "persian",
+            "japanese",
+            "buddhist",
+            "ethioaa",
+            "ethiopic"
         ],
         "hourNo0": true,
         "hour12": false,
@@ -23,87 +23,50 @@
                 "year": "numeric",
                 "month": "numeric",
                 "day": "numeric",
-                "weekday": "long",
-                "pattern": "{year}年{month}月{day}日{weekday}"
+                "weekday": "short",
+                "minute": "2-digit",
+                "second": "2-digit",
+                "pattern": "{year}年{month}月{day}日({weekday})K:{minute}:{second}",
+                "pattern12": "{year}年{month}月{day}日({weekday}) {ampm}K:{minute}:{second}"
             },
             {
                 "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{year}年{month}月{day}日"
-            },
-            {
-                "year": "numeric",
-                "month": "2-digit",
-                "day": "2-digit",
-                "pattern": "{year}/{month}/{day}"
-            },
-            {
-                "year": "numeric",
-                "month": "2-digit",
-                "day": "2-digit",
-                "pattern": "{year}/{month}/{day}"
-            },
-            {
-                "day": "numeric",
-                "pattern": "{day}日"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{year}/{month}/{day}"
-            },
-            {
                 "month": "numeric",
                 "day": "numeric",
                 "weekday": "short",
-                "pattern": "{month}月{day}日({weekday})"
-            },
-            {
-                "minute": "2-digit",
-                "pattern": "K:{minute}",
-                "pattern12": "{ampm}K:{minute}"
-            },
-            {
-                "year": "numeric",
-                "pattern": "{year}年"
-            },
-            {
-                "pattern": "K時",
-                "pattern12": "{ampm}K時"
-            },
-            {
-                "month": "numeric",
-                "pattern": "{month}月"
+                "pattern": "{year}年{month}月{day}日({weekday}"
             },
             {
                 "year": "numeric",
                 "month": "numeric",
                 "day": "numeric",
-                "weekday": "long",
-                "pattern": "{year}/{month}/{day}{weekday}"
+                "pattern": "{year}年{month}月{day}"
             },
             {
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": "{minute}:{second}"
+                "year": "numeric",
+                "month": "numeric",
+                "day": "numeric",
+                "pattern": "{year}/{month}/{day}"
+            },
+            {
+                "year": "numeric",
+                "month": "numeric",
+                "pattern": "{year}/{month}"
+            },
+            {
+                "year": "numeric",
+                "month": "numeric",
+                "pattern": "{year}年{month}"
             },
             {
                 "month": "numeric",
                 "day": "numeric",
-                "weekday": "long",
-                "pattern": "{month}月{day}日{weekday}"
+                "pattern": "{month}月{day}"
             },
             {
                 "month": "numeric",
-                "pattern": "{month}月"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "month": "numeric",
-                "pattern": "{era}{year}年{month}月"
+                "day": "numeric",
+                "pattern": "{month}/{day}"
             },
             {
                 "minute": "2-digit",
@@ -112,124 +75,12 @@
                 "pattern12": "{ampm}K:{minute}:{second}"
             },
             {
-                "month": "numeric",
-                "day": "numeric",
-                "weekday": "long",
-                "pattern": "{month}/{day}{weekday}"
-            },
-            {
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{month}月{day}日"
-            },
-            {
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{month}/{day}"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{year}年{month}月{day}日"
-            },
-            {
-                "year": "numeric",
-                "month": "2-digit",
-                "pattern": "{year}/{month}"
-            },
-            {
-                "day": "numeric",
-                "weekday": "long",
-                "pattern": "{day}日{weekday}"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{era}{year}年{month}月{day}日"
-            },
-            {
-                "day": "numeric",
-                "weekday": "short",
-                "pattern": "{day}日({weekday})"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "weekday": "long",
-                "pattern": "{era}{year}年{month}月{day}日{weekday}"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "weekday": "short",
-                "pattern": "{year}/{month}/{day}({weekday})"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "pattern": "{year}/{month}"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "pattern": "{era}{year}年"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "weekday": "long",
-                "pattern": "{year}年{month}月{day}日{weekday}"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "weekday": "short",
-                "pattern": "{year}年{month}月{day}日({weekday})"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "weekday": "short",
-                "pattern": "{era}{year}年{month}月{day}日({weekday})"
-            },
-            {
-                "month": "numeric",
-                "day": "numeric",
-                "weekday": "short",
-                "pattern": "{month}/{day}({weekday})"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "pattern": "{year}年{month}月"
+                "minute": "2-digit",
+                "pattern": "K:{minute}",
+                "pattern12": "{ampm}K:{minute}"
             }
         ],
         "calendars": {
-            "roc": {
-                "eras": {
-                    "short": [
-                        "民国前",
-                        "民国"
-                    ]
-                }
-            },
-            "ethioaa": {
-                "eras": {
-                    "short": [
-                        "ERA0"
-                    ]
-                }
-            },
             "indian": {
                 "months": {
                     "narrow": [
@@ -279,197 +130,6 @@
                     "short": [
                         "サカ"
                     ]
-                }
-            },
-            "persian": {
-                "months": {
-                    "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
-                    ],
-                    "short": [
-                        "ファルヴァルディーン",
-                        "オルディーベヘシュト",
-                        "ホルダード",
-                        "ティール",
-                        "モルダード",
-                        "シャハリーヴァル",
-                        "メフル",
-                        "アーバーン",
-                        "アーザル",
-                        "デイ",
-                        "バフマン",
-                        "エスファンド"
-                    ],
-                    "long": [
-                        "ファルヴァルディーン",
-                        "オルディーベヘシュト",
-                        "ホルダード",
-                        "ティール",
-                        "モルダード",
-                        "シャハリーヴァル",
-                        "メフル",
-                        "アーバーン",
-                        "アーザル",
-                        "デイ",
-                        "バフマン",
-                        "エスファンド"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "AP"
-                    ]
-                }
-            },
-            "islamic": {
-                "months": {
-                    "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
-                    ],
-                    "short": [
-                        "ムハッラム",
-                        "サフアル",
-                        "ラビー・ウル・アウワル",
-                        "ラビー・ウッ・サーニー",
-                        "ジュマーダル・アウワル",
-                        "ジュマーダッサーニー",
-                        "ラジャブ",
-                        "シャアバーン",
-                        "ラマダーン",
-                        "シャウワール",
-                        "ズル・カイダ",
-                        "ズル・ヒッジャ"
-                    ],
-                    "long": [
-                        "ムハッラム",
-                        "サフアル",
-                        "ラビー・ウル・アウワル",
-                        "ラビー・ウッ・サーニー",
-                        "ジュマーダル・アウワル",
-                        "ジュマーダッサーニー",
-                        "ラジャブ",
-                        "シャアバーン",
-                        "ラマダーン",
-                        "シャウワール",
-                        "ズル・カイダ",
-                        "ズル・ヒッジャ"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "AH"
-                    ]
-                }
-            },
-            "generic": {
-                "months": {
-                    "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "ERA0",
-                        "ERA1"
-                    ]
-                }
-            },
-            "gregory": {
-                "months": {
-                    "long": [
-                        "1月",
-                        "2月",
-                        "3月",
-                        "4月",
-                        "5月",
-                        "6月",
-                        "7月",
-                        "8月",
-                        "9月",
-                        "10月",
-                        "11月",
-                        "12月"
-                    ]
-                },
-                "days": {
-                    "narrow": [
-                        "日",
-                        "月",
-                        "火",
-                        "水",
-                        "木",
-                        "金",
-                        "土"
-                    ],
-                    "short": [
-                        "日",
-                        "月",
-                        "火",
-                        "水",
-                        "木",
-                        "金",
-                        "土"
-                    ],
-                    "long": [
-                        "日曜日",
-                        "月曜日",
-                        "火曜日",
-                        "水曜日",
-                        "木曜日",
-                        "金曜日",
-                        "土曜日"
-                    ]
-                },
-                "eras": {
-                    "narrow": [
-                        "BC",
-                        "AD"
-                    ],
-                    "short": [
-                        "紀元前",
-                        "西暦"
-                    ],
-                    "long": [
-                        "紀元前",
-                        "西暦"
-                    ]
-                },
-                "dayPeriods": {
-                    "am": "午前",
-                    "pm": "午後"
                 }
             },
             "japanese": {
@@ -952,6 +612,13 @@
                     ]
                 }
             },
+            "ethioaa": {
+                "eras": {
+                    "short": [
+                        "ERA0"
+                    ]
+                }
+            },
             "ethiopic": {
                 "months": {
                     "narrow": [
@@ -1007,7 +674,82 @@
                     ]
                 }
             },
-            "coptic": {
+            "gregory": {
+                "months": {
+                    "long": [
+                        "1月",
+                        "2月",
+                        "3月",
+                        "4月",
+                        "5月",
+                        "6月",
+                        "7月",
+                        "8月",
+                        "9月",
+                        "10月",
+                        "11月",
+                        "12月"
+                    ]
+                },
+                "days": {
+                    "narrow": [
+                        "日",
+                        "月",
+                        "火",
+                        "水",
+                        "木",
+                        "金",
+                        "土"
+                    ],
+                    "short": [
+                        "日",
+                        "月",
+                        "火",
+                        "水",
+                        "木",
+                        "金",
+                        "土"
+                    ],
+                    "long": [
+                        "日曜日",
+                        "月曜日",
+                        "火曜日",
+                        "水曜日",
+                        "木曜日",
+                        "金曜日",
+                        "土曜日"
+                    ]
+                },
+                "eras": {
+                    "narrow": [
+                        "BC",
+                        "AD"
+                    ],
+                    "short": [
+                        "紀元前",
+                        "西暦"
+                    ],
+                    "long": [
+                        "紀元前",
+                        "西暦"
+                    ]
+                },
+                "dayPeriods": {
+                    "am": "午前",
+                    "pm": "午後"
+                }
+            },
+            "buddhist": {
+                "eras": {
+                    "short": [
+                        "BE"
+                    ],
+                    "long": [
+                        "仏暦"
+                    ]
+                }
+            },
+            "islamic": {
                 "months": {
                     "narrow": [
                         "1",
@@ -1021,86 +763,91 @@
                         "9",
                         "10",
                         "11",
-                        "12",
-                        "13"
+                        "12"
                     ],
                     "short": [
-                        "トウト",
-                        "ババ",
-                        "ハトール",
-                        "キアック",
-                        "トーバ",
-                        "アムシール",
-                        "バラムハート",
-                        "バラモウダ",
-                        "バシャンス",
-                        "パオーナ",
-                        "エペープ",
-                        "メスラ",
-                        "ナシエ"
+                        "ムハッラム",
+                        "サフアル",
+                        "ラビー・ウル・アウワル",
+                        "ラビー・ウッ・サーニー",
+                        "ジュマーダル・アウワル",
+                        "ジュマーダッサーニー",
+                        "ラジャブ",
+                        "シャアバーン",
+                        "ラマダーン",
+                        "シャウワール",
+                        "ズル・カイダ",
+                        "ズル・ヒッジャ"
                     ],
                     "long": [
-                        "トウト",
-                        "ババ",
-                        "ハトール",
-                        "キアック",
-                        "トーバ",
-                        "アムシール",
-                        "バラムハート",
-                        "バラモウダ",
-                        "バシャンス",
-                        "パオーナ",
-                        "エペープ",
-                        "メスラ",
-                        "ナシエ"
+                        "ムハッラム",
+                        "サフアル",
+                        "ラビー・ウル・アウワル",
+                        "ラビー・ウッ・サーニー",
+                        "ジュマーダル・アウワル",
+                        "ジュマーダッサーニー",
+                        "ラジャブ",
+                        "シャアバーン",
+                        "ラマダーン",
+                        "シャウワール",
+                        "ズル・カイダ",
+                        "ズル・ヒッジャ"
                     ]
                 },
                 "eras": {
                     "short": [
-                        "ERA0",
-                        "ERA1"
+                        "AH"
                     ]
                 }
             },
-            "buddhist": {
-                "eras": {
-                    "short": [
-                        "BE"
-                    ],
-                    "long": [
-                        "仏暦"
-                    ]
-                }
-            },
-            "chinese": {
+            "persian": {
                 "months": {
                     "narrow": [
-                        "正",
-                        "二",
-                        "三",
-                        "四",
-                        "五",
-                        "六",
-                        "七",
-                        "八",
-                        "九",
-                        "十",
-                        "十一",
-                        "十二"
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "short": [
+                        "ファルヴァルディーン",
+                        "オルディーベヘシュト",
+                        "ホルダード",
+                        "ティール",
+                        "モルダード",
+                        "シャハリーヴァル",
+                        "メフル",
+                        "アーバーン",
+                        "アーザル",
+                        "デイ",
+                        "バフマン",
+                        "エスファンド"
                     ],
                     "long": [
-                        "正月",
-                        "二月",
-                        "三月",
-                        "四月",
-                        "五月",
-                        "六月",
-                        "七月",
-                        "八月",
-                        "九月",
-                        "十月",
-                        "十一月",
-                        "十二月"
+                        "ファルヴァルディーン",
+                        "オルディーベヘシュト",
+                        "ホルダード",
+                        "ティール",
+                        "モルダード",
+                        "シャハリーヴァル",
+                        "メフル",
+                        "アーバーン",
+                        "アーザル",
+                        "デイ",
+                        "バフマン",
+                        "エスファンド"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "AP"
                     ]
                 }
             },
@@ -1158,6 +905,125 @@
                 "eras": {
                     "short": [
                         "AM"
+                    ]
+                }
+            },
+            "chinese": {
+                "months": {
+                    "narrow": [
+                        "正",
+                        "二",
+                        "三",
+                        "四",
+                        "五",
+                        "六",
+                        "七",
+                        "八",
+                        "九",
+                        "十",
+                        "十一",
+                        "十二"
+                    ],
+                    "long": [
+                        "正月",
+                        "二月",
+                        "三月",
+                        "四月",
+                        "五月",
+                        "六月",
+                        "七月",
+                        "八月",
+                        "九月",
+                        "十月",
+                        "十一月",
+                        "十二月"
+                    ]
+                }
+            },
+            "generic": {
+                "months": {
+                    "long": [
+                        "Month1",
+                        "Month2",
+                        "Month3",
+                        "Month4",
+                        "Month5",
+                        "Month6",
+                        "Month7",
+                        "Month8",
+                        "Month9",
+                        "Month10",
+                        "Month11",
+                        "Month12"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "ERA0",
+                        "ERA1"
+                    ]
+                }
+            },
+            "roc": {
+                "eras": {
+                    "short": [
+                        "民国前",
+                        "民国"
+                    ]
+                }
+            },
+            "coptic": {
+                "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13"
+                    ],
+                    "short": [
+                        "トウト",
+                        "ババ",
+                        "ハトール",
+                        "キアック",
+                        "トーバ",
+                        "アムシール",
+                        "バラムハート",
+                        "バラモウダ",
+                        "バシャンス",
+                        "パオーナ",
+                        "エペープ",
+                        "メスラ",
+                        "ナシエ"
+                    ],
+                    "long": [
+                        "トウト",
+                        "ババ",
+                        "ハトール",
+                        "キアック",
+                        "トーバ",
+                        "アムシール",
+                        "バラムハート",
+                        "バラモウダ",
+                        "バシャンス",
+                        "パオーナ",
+                        "エペープ",
+                        "メスラ",
+                        "ナシエ"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "ERA0",
+                        "ERA1"
                     ]
                 }
             }

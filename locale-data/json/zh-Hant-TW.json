@@ -3,79 +3,45 @@
     "date": {
         "ca": [
             "gregory",
-            "hebrew",
-            "japanese",
-            "roc",
-            "indian",
-            "chinese",
-            "buddhist",
+            "islamic",
             "coptic",
-            "ethiopic",
-            "persian",
-            "ethioaa",
+            "indian",
+            "roc",
             "generic",
-            "islamic"
+            "chinese",
+            "hebrew",
+            "persian",
+            "japanese",
+            "buddhist",
+            "ethioaa",
+            "ethiopic"
         ],
         "hourNo0": true,
         "hour12": true,
         "formats": [
             {
-                "timeZoneName": "long",
+                "year": "numeric",
+                "month": "numeric",
+                "day": "numeric",
+                "weekday": "short",
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{timeZoneName}{hour}:{minute}:{second}",
-                "pattern12": "{timeZoneName}{ampm}{hour}:{minute}:{second}"
-            },
-            {
-                "timeZoneName": "short",
-                "hour": "numeric",
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": "{timeZoneName}{hour}:{minute}:{second}",
-                "pattern12": "{timeZoneName}{ampm}{hour}:{minute}:{second}"
-            },
-            {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": "{hour}:{minute}:{second}",
-                "pattern12": "{ampm}{hour}:{minute}:{second}"
-            },
-            {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "pattern": "{hour}:{minute}",
-                "pattern12": "{ampm}{hour}:{minute}"
+                "pattern": "{year}年{month}月{day}日{weekday}{hour}:{minute}:{second}",
+                "pattern12": "{year}年{month}月{day}日{weekday} {ampm}{hour}:{minute}:{second}"
             },
             {
                 "year": "numeric",
                 "month": "numeric",
                 "day": "numeric",
-                "weekday": "long",
+                "weekday": "short",
                 "pattern": "{year}年{month}月{day}日{weekday}"
             },
             {
                 "year": "numeric",
                 "month": "numeric",
                 "day": "numeric",
-                "pattern": "{year}年{month}月{day}日"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{year}年{month}月{day}日"
-            },
-            {
-                "year": "2-digit",
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{year}-{month}-{day}"
-            },
-            {
-                "day": "numeric",
-                "pattern": "{day}日"
+                "pattern": "{year}年{month}月{day}"
             },
             {
                 "year": "numeric",
@@ -84,54 +50,24 @@
                 "pattern": "{year}/{month}/{day}"
             },
             {
+                "year": "numeric",
+                "month": "numeric",
+                "pattern": "{year}/{month}"
+            },
+            {
+                "year": "numeric",
+                "month": "numeric",
+                "pattern": "{year}年{month}"
+            },
+            {
                 "month": "numeric",
                 "day": "numeric",
-                "weekday": "short",
-                "pattern": "{month}月{day}日{weekday}"
-            },
-            {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "pattern": "{hour}:{minute}",
-                "pattern12": "{ampm}{hour}:{minute}"
-            },
-            {
-                "year": "numeric",
-                "pattern": "{year}年"
-            },
-            {
-                "hour": "numeric",
-                "pattern": "{hour}时",
-                "pattern12": "{ampm}{hour}时"
-            },
-            {
-                "month": "short",
-                "pattern": "{month}"
-            },
-            {
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": "{minute}:{second}"
+                "pattern": "{month}月{day}"
             },
             {
                 "month": "numeric",
-                "day": "2-digit",
-                "pattern": "{month}月{day}日"
-            },
-            {
-                "month": "2-digit",
-                "day": "2-digit",
+                "day": "numeric",
                 "pattern": "{month}/{day}"
-            },
-            {
-                "month": "numeric",
-                "pattern": "{month}月"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "month": "numeric",
-                "pattern": "{era}{year}年{month}月"
             },
             {
                 "hour": "numeric",
@@ -141,103 +77,13 @@
                 "pattern12": "{ampm}{hour}:{minute}:{second}"
             },
             {
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{month}月{day}日"
-            },
-            {
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{month}/{day}"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{year}年{month}月{day}日"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "pattern": "{year}年{month}月"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{era}{year}年{month}月{day}日"
-            },
-            {
-                "day": "numeric",
-                "weekday": "short",
-                "pattern": "{day}日{weekday}"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "weekday": "short",
-                "pattern": "{year}/{month}/{day}{weekday}"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "pattern": "{year}/{month}"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "pattern": "{era}{year}年"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "weekday": "short",
-                "pattern": "{year}年{month}月{day}日{weekday}"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "weekday": "short",
-                "pattern": "{era}{year}年{month}月{day}日{weekday}"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "pattern": "{year}年{month}月"
-            },
-            {
-                "month": "numeric",
-                "day": "numeric",
-                "weekday": "short",
-                "pattern": "{month}/{day}{weekday}"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "pattern": "{year}年{month}月"
+                "hour": "numeric",
+                "minute": "2-digit",
+                "pattern": "{hour}:{minute}",
+                "pattern12": "{ampm}{hour}:{minute}"
             }
         ],
         "calendars": {
-            "roc": {
-                "eras": {
-                    "short": [
-                        "民国前",
-                        "民国"
-                    ]
-                }
-            },
-            "ethioaa": {
-                "eras": {
-                    "short": [
-                        "ERA0"
-                    ]
-                }
-            },
             "indian": {
                 "months": {
                     "narrow": [
@@ -287,225 +133,6 @@
                     "short": [
                         "印度历"
                     ]
-                }
-            },
-            "persian": {
-                "months": {
-                    "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
-                    ],
-                    "short": [
-                        "1月",
-                        "2月",
-                        "3月",
-                        "4月",
-                        "5月",
-                        "6月",
-                        "7月",
-                        "8月",
-                        "9月",
-                        "10月",
-                        "11月",
-                        "12月"
-                    ],
-                    "long": [
-                        "一月",
-                        "二月",
-                        "三月",
-                        "四月",
-                        "五月",
-                        "六月",
-                        "七月",
-                        "八月",
-                        "九月",
-                        "十月",
-                        "十一月",
-                        "十二月"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "波斯历"
-                    ]
-                }
-            },
-            "islamic": {
-                "months": {
-                    "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
-                    ],
-                    "short": [
-                        "1月",
-                        "2月",
-                        "3月",
-                        "4月",
-                        "5月",
-                        "6月",
-                        "7月",
-                        "8月",
-                        "9月",
-                        "10月",
-                        "11月",
-                        "12月"
-                    ],
-                    "long": [
-                        "一月",
-                        "二月",
-                        "三月",
-                        "四月",
-                        "五月",
-                        "六月",
-                        "七月",
-                        "八月",
-                        "九月",
-                        "十月",
-                        "十一月",
-                        "十二月"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "回历"
-                    ]
-                }
-            },
-            "generic": {
-                "months": {
-                    "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "ERA0",
-                        "ERA1"
-                    ]
-                }
-            },
-            "gregory": {
-                "months": {
-                    "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
-                    ],
-                    "short": [
-                        "1月",
-                        "2月",
-                        "3月",
-                        "4月",
-                        "5月",
-                        "6月",
-                        "7月",
-                        "8月",
-                        "9月",
-                        "10月",
-                        "11月",
-                        "12月"
-                    ],
-                    "long": [
-                        "一月",
-                        "二月",
-                        "三月",
-                        "四月",
-                        "五月",
-                        "六月",
-                        "七月",
-                        "八月",
-                        "九月",
-                        "十月",
-                        "十一月",
-                        "十二月"
-                    ]
-                },
-                "days": {
-                    "narrow": [
-                        "周日",
-                        "周一",
-                        "周二",
-                        "周三",
-                        "周四",
-                        "周五",
-                        "周六"
-                    ],
-                    "short": [
-                        "周日",
-                        "周一",
-                        "周二",
-                        "周三",
-                        "周四",
-                        "周五",
-                        "周六"
-                    ],
-                    "long": [
-                        "星期日",
-                        "星期一",
-                        "星期二",
-                        "星期三",
-                        "星期四",
-                        "星期五",
-                        "星期六"
-                    ]
-                },
-                "eras": {
-                    "narrow": [
-                        "公元前",
-                        "公元"
-                    ],
-                    "short": [
-                        "公元前",
-                        "公元"
-                    ],
-                    "long": [
-                        "公元前",
-                        "公元"
-                    ]
-                },
-                "dayPeriods": {
-                    "am": "上午",
-                    "pm": "下午"
                 }
             },
             "japanese": {
@@ -988,6 +615,13 @@
                     ]
                 }
             },
+            "ethioaa": {
+                "eras": {
+                    "short": [
+                        "ERA0"
+                    ]
+                }
+            },
             "ethiopic": {
                 "months": {
                     "narrow": [
@@ -1043,6 +677,327 @@
                     ]
                 }
             },
+            "gregory": {
+                "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "short": [
+                        "1月",
+                        "2月",
+                        "3月",
+                        "4月",
+                        "5月",
+                        "6月",
+                        "7月",
+                        "8月",
+                        "9月",
+                        "10月",
+                        "11月",
+                        "12月"
+                    ],
+                    "long": [
+                        "一月",
+                        "二月",
+                        "三月",
+                        "四月",
+                        "五月",
+                        "六月",
+                        "七月",
+                        "八月",
+                        "九月",
+                        "十月",
+                        "十一月",
+                        "十二月"
+                    ]
+                },
+                "days": {
+                    "narrow": [
+                        "周日",
+                        "周一",
+                        "周二",
+                        "周三",
+                        "周四",
+                        "周五",
+                        "周六"
+                    ],
+                    "short": [
+                        "周日",
+                        "周一",
+                        "周二",
+                        "周三",
+                        "周四",
+                        "周五",
+                        "周六"
+                    ],
+                    "long": [
+                        "星期日",
+                        "星期一",
+                        "星期二",
+                        "星期三",
+                        "星期四",
+                        "星期五",
+                        "星期六"
+                    ]
+                },
+                "eras": {
+                    "narrow": [
+                        "公元前",
+                        "公元"
+                    ],
+                    "short": [
+                        "公元前",
+                        "公元"
+                    ],
+                    "long": [
+                        "公元前",
+                        "公元"
+                    ]
+                },
+                "dayPeriods": {
+                    "am": "上午",
+                    "pm": "下午"
+                }
+            },
+            "buddhist": {
+                "eras": {
+                    "short": [
+                        "佛历"
+                    ]
+                }
+            },
+            "islamic": {
+                "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "short": [
+                        "1月",
+                        "2月",
+                        "3月",
+                        "4月",
+                        "5月",
+                        "6月",
+                        "7月",
+                        "8月",
+                        "9月",
+                        "10月",
+                        "11月",
+                        "12月"
+                    ],
+                    "long": [
+                        "一月",
+                        "二月",
+                        "三月",
+                        "四月",
+                        "五月",
+                        "六月",
+                        "七月",
+                        "八月",
+                        "九月",
+                        "十月",
+                        "十一月",
+                        "十二月"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "回历"
+                    ]
+                }
+            },
+            "persian": {
+                "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "short": [
+                        "1月",
+                        "2月",
+                        "3月",
+                        "4月",
+                        "5月",
+                        "6月",
+                        "7月",
+                        "8月",
+                        "9月",
+                        "10月",
+                        "11月",
+                        "12月"
+                    ],
+                    "long": [
+                        "一月",
+                        "二月",
+                        "三月",
+                        "四月",
+                        "五月",
+                        "六月",
+                        "七月",
+                        "八月",
+                        "九月",
+                        "十月",
+                        "十一月",
+                        "十二月"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "波斯历"
+                    ]
+                }
+            },
+            "hebrew": {
+                "months": {
+                    "short": [
+                        "1月",
+                        "2月",
+                        "3月",
+                        "4月",
+                        "5月",
+                        "6月",
+                        "7月",
+                        "8月",
+                        "9月",
+                        "10月",
+                        "11月",
+                        "12月",
+                        "13月",
+                        "闰7月"
+                    ],
+                    "long": [
+                        "一月",
+                        "二月",
+                        "三月",
+                        "四月",
+                        "五月",
+                        "六月",
+                        "七月",
+                        "八月",
+                        "九月",
+                        "十月",
+                        "十一月",
+                        "十二月",
+                        "十三月",
+                        "闰七月"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "希伯来历"
+                    ]
+                }
+            },
+            "chinese": {
+                "months": {
+                    "narrow": [
+                        "正",
+                        "二",
+                        "三",
+                        "四",
+                        "五",
+                        "六",
+                        "七",
+                        "八",
+                        "九",
+                        "十",
+                        "十一",
+                        "十二"
+                    ],
+                    "short": [
+                        "正月",
+                        "二月",
+                        "三月",
+                        "四月",
+                        "五月",
+                        "六月",
+                        "七月",
+                        "八月",
+                        "九月",
+                        "十月",
+                        "十一月",
+                        "十二月"
+                    ],
+                    "long": [
+                        "正月",
+                        "二月",
+                        "三月",
+                        "四月",
+                        "五月",
+                        "六月",
+                        "七月",
+                        "八月",
+                        "九月",
+                        "十月",
+                        "十一月",
+                        "十二月"
+                    ]
+                }
+            },
+            "generic": {
+                "months": {
+                    "long": [
+                        "Month1",
+                        "Month2",
+                        "Month3",
+                        "Month4",
+                        "Month5",
+                        "Month6",
+                        "Month7",
+                        "Month8",
+                        "Month9",
+                        "Month10",
+                        "Month11",
+                        "Month12"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "ERA0",
+                        "ERA1"
+                    ]
+                }
+            },
+            "roc": {
+                "eras": {
+                    "short": [
+                        "民国前",
+                        "民国"
+                    ]
+                }
+            },
             "coptic": {
                 "months": {
                     "narrow": [
@@ -1095,100 +1050,6 @@
                     "short": [
                         "ERA0",
                         "ERA1"
-                    ]
-                }
-            },
-            "buddhist": {
-                "eras": {
-                    "short": [
-                        "佛历"
-                    ]
-                }
-            },
-            "chinese": {
-                "months": {
-                    "narrow": [
-                        "正",
-                        "二",
-                        "三",
-                        "四",
-                        "五",
-                        "六",
-                        "七",
-                        "八",
-                        "九",
-                        "十",
-                        "十一",
-                        "十二"
-                    ],
-                    "short": [
-                        "正月",
-                        "二月",
-                        "三月",
-                        "四月",
-                        "五月",
-                        "六月",
-                        "七月",
-                        "八月",
-                        "九月",
-                        "十月",
-                        "十一月",
-                        "十二月"
-                    ],
-                    "long": [
-                        "正月",
-                        "二月",
-                        "三月",
-                        "四月",
-                        "五月",
-                        "六月",
-                        "七月",
-                        "八月",
-                        "九月",
-                        "十月",
-                        "十一月",
-                        "十二月"
-                    ]
-                }
-            },
-            "hebrew": {
-                "months": {
-                    "short": [
-                        "1月",
-                        "2月",
-                        "3月",
-                        "4月",
-                        "5月",
-                        "6月",
-                        "7月",
-                        "8月",
-                        "9月",
-                        "10月",
-                        "11月",
-                        "12月",
-                        "13月",
-                        "闰7月"
-                    ],
-                    "long": [
-                        "一月",
-                        "二月",
-                        "三月",
-                        "四月",
-                        "五月",
-                        "六月",
-                        "七月",
-                        "八月",
-                        "九月",
-                        "十月",
-                        "十一月",
-                        "十二月",
-                        "十三月",
-                        "闰七月"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "希伯来历"
                     ]
                 }
             }

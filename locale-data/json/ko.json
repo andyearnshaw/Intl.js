@@ -3,242 +3,56 @@
     "date": {
         "ca": [
             "gregory",
-            "hebrew",
-            "japanese",
-            "roc",
-            "indian",
-            "chinese",
-            "buddhist",
+            "islamic",
             "coptic",
-            "ethiopic",
-            "persian",
-            "ethioaa",
+            "indian",
+            "roc",
             "generic",
-            "islamic"
+            "chinese",
+            "hebrew",
+            "persian",
+            "japanese",
+            "buddhist",
+            "ethioaa",
+            "ethiopic"
         ],
         "hourNo0": true,
         "hour12": true,
         "formats": [
             {
-                "hour": "numeric",
-                "minute": "numeric",
-                "second": "numeric",
-                "timeZoneName": "long",
-                "pattern": " {hour}시 {minute}분 {second}초 {timeZoneName}",
-                "pattern12": "{ampm} {hour}시 {minute}분 {second}초 {timeZoneName}"
-            },
-            {
-                "hour": "numeric",
-                "minute": "numeric",
-                "second": "numeric",
-                "timeZoneName": "short",
-                "pattern": " {hour}시 {minute}분 {second}초 {timeZoneName}",
-                "pattern12": "{ampm} {hour}시 {minute}분 {second}초 {timeZoneName}"
-            },
-            {
+                "year": "numeric",
+                "month": "short",
+                "day": "numeric",
+                "weekday": "short",
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": " {hour}:{minute}:{second}",
-                "pattern12": "{ampm} {hour}:{minute}:{second}"
-            },
-            {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "pattern": " {hour}:{minute}",
-                "pattern12": "{ampm} {hour}:{minute}"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "weekday": "long",
-                "pattern": "{year}년 {month}월 {day}일 {weekday}"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{year}년 {month}월 {day}일"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{year}. {month}. {day}."
-            },
-            {
-                "year": "2-digit",
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{year}. {month}. {day}."
-            },
-            {
-                "day": "numeric",
-                "pattern": "{day}일"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{year}. {month}. {day}."
-            },
-            {
-                "month": "short",
-                "day": "numeric",
-                "weekday": "short",
-                "pattern": "{month} {day}일 ({weekday})"
-            },
-            {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "pattern": " {hour}:{minute}",
-                "pattern12": "{ampm} {hour}:{minute}"
-            },
-            {
-                "year": "numeric",
-                "pattern": "{year}년"
-            },
-            {
-                "hour": "numeric",
-                "pattern": " {hour}시",
-                "pattern12": "{ampm} {hour}시"
-            },
-            {
-                "month": "short",
-                "pattern": "{month}"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "weekday": "long",
-                "pattern": "{year}. {month}. {day}. {weekday}"
-            },
-            {
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": "{minute}:{second}"
-            },
-            {
-                "month": "short",
-                "day": "numeric",
-                "weekday": "long",
-                "pattern": "{month} {day}일 {weekday}"
-            },
-            {
-                "month": "numeric",
-                "pattern": "{month}월"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "month": "short",
-                "pattern": "{era} {year}년 {month}"
-            },
-            {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": " {hour}:{minute}:{second}",
-                "pattern12": "{ampm} {hour}:{minute}:{second}"
-            },
-            {
-                "month": "numeric",
-                "day": "numeric",
-                "weekday": "long",
-                "pattern": "{month}. {day}. {weekday}"
-            },
-            {
-                "month": "short",
-                "day": "numeric",
-                "pattern": "{month} {day}일"
-            },
-            {
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{month}. {day}."
-            },
-            {
-                "year": "numeric",
-                "month": "short",
-                "day": "numeric",
-                "pattern": "{year}년 {month} {day}일"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "pattern": "{year}. {month}."
-            },
-            {
-                "day": "numeric",
-                "weekday": "long",
-                "pattern": "{day}일 {weekday}"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "month": "short",
-                "day": "numeric",
-                "pattern": "{era} {year}년 {month} {day}일"
-            },
-            {
-                "day": "numeric",
-                "weekday": "short",
-                "pattern": "{day}일 ({weekday})"
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "month": "short",
-                "day": "numeric",
-                "weekday": "long",
-                "pattern": "{era} {year}년 {month} {day}일 {weekday}"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "weekday": "short",
-                "pattern": "{year}. {month}. {day}. ({weekday})"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "pattern": "{year}. {month}."
-            },
-            {
-                "era": "short",
-                "year": "numeric",
-                "pattern": "{era} {year}년"
-            },
-            {
-                "year": "numeric",
-                "month": "short",
-                "day": "numeric",
-                "weekday": "long",
-                "pattern": "{year}년 {month} {day}일 {weekday}"
+                "pattern": "{year}년 {month} {day}일 ({weekday}) {hour}:{minute}:{second}",
+                "pattern12": "{year}년 {month} {day}일 ({weekday}) {ampm} {hour}:{minute}:{second}"
             },
             {
                 "year": "numeric",
                 "month": "short",
                 "day": "numeric",
                 "weekday": "short",
-                "pattern": "{year}년 {month} {day}일 ({weekday})"
+                "pattern": "{year}년 {month} {day}일 ({weekday}"
             },
             {
-                "era": "short",
                 "year": "numeric",
                 "month": "short",
                 "day": "numeric",
-                "weekday": "short",
-                "pattern": "{era} {year}년 {month} {day}일 ({weekday})"
+                "pattern": "{year}년 {month} {day}"
             },
             {
+                "year": "numeric",
                 "month": "numeric",
                 "day": "numeric",
-                "weekday": "short",
-                "pattern": "{month}. {day}. ({weekday})"
+                "pattern": "{year}. {month}. {day}"
+            },
+            {
+                "year": "numeric",
+                "month": "numeric",
+                "pattern": "{year}. {month}"
             },
             {
                 "year": "numeric",
@@ -246,27 +60,30 @@
                 "pattern": "{year}년 {month}"
             },
             {
+                "month": "short",
+                "day": "numeric",
+                "pattern": "{month} {day}"
+            },
+            {
+                "month": "numeric",
+                "day": "numeric",
+                "pattern": "{month}. {day}"
+            },
+            {
+                "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{minute}:{second}"
+                "pattern": " {hour}:{minute}:{second}",
+                "pattern12": "{ampm} {hour}:{minute}:{second}"
+            },
+            {
+                "hour": "numeric",
+                "minute": "2-digit",
+                "pattern": " {hour}:{minute}",
+                "pattern12": "{ampm} {hour}:{minute}"
             }
         ],
         "calendars": {
-            "roc": {
-                "eras": {
-                    "short": [
-                        "중화민국전",
-                        "중화민국"
-                    ]
-                }
-            },
-            "ethioaa": {
-                "eras": {
-                    "short": [
-                        "ERA0"
-                    ]
-                }
-            },
             "indian": {
                 "months": {
                     "long": [
@@ -288,151 +105,6 @@
                     "short": [
                         "SAKA"
                     ]
-                }
-            },
-            "persian": {
-                "months": {
-                    "long": [
-                        "Farvardin",
-                        "Ordibehesht",
-                        "Khordad",
-                        "Tir",
-                        "Mordad",
-                        "Shahrivar",
-                        "Mehr",
-                        "Aban",
-                        "Azar",
-                        "Dey",
-                        "Bahman",
-                        "Esfand"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "AP"
-                    ]
-                }
-            },
-            "islamic": {
-                "months": {
-                    "short": [
-                        "Muh.",
-                        "Saf.",
-                        "Rab. I",
-                        "Rab. II",
-                        "Jum. I",
-                        "Jum. II",
-                        "Raj.",
-                        "Sha.",
-                        "Ram.",
-                        "Shaw.",
-                        "Dhuʻl-Q.",
-                        "Dhuʻl-H."
-                    ],
-                    "long": [
-                        "Muharram",
-                        "Safar",
-                        "Rabiʻ I",
-                        "Rabiʻ II",
-                        "Jumada I",
-                        "Jumada II",
-                        "Rajab",
-                        "Shaʻban",
-                        "Ramadan",
-                        "Shawwal",
-                        "Dhuʻl-Qiʻdah",
-                        "Dhuʻl-Hijjah"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "AH"
-                    ]
-                }
-            },
-            "generic": {
-                "months": {
-                    "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "ERA0",
-                        "ERA1"
-                    ]
-                }
-            },
-            "gregory": {
-                "months": {
-                    "long": [
-                        "1월",
-                        "2월",
-                        "3월",
-                        "4월",
-                        "5월",
-                        "6월",
-                        "7월",
-                        "8월",
-                        "9월",
-                        "10월",
-                        "11월",
-                        "12월"
-                    ]
-                },
-                "days": {
-                    "narrow": [
-                        "일",
-                        "월",
-                        "화",
-                        "수",
-                        "목",
-                        "금",
-                        "토"
-                    ],
-                    "short": [
-                        "일",
-                        "월",
-                        "화",
-                        "수",
-                        "목",
-                        "금",
-                        "토"
-                    ],
-                    "long": [
-                        "일요일",
-                        "월요일",
-                        "화요일",
-                        "수요일",
-                        "목요일",
-                        "금요일",
-                        "토요일"
-                    ]
-                },
-                "eras": {
-                    "short": [
-                        "기원전",
-                        "서기"
-                    ],
-                    "long": [
-                        "서력기원전",
-                        "서력기원"
-                    ]
-                },
-                "dayPeriods": {
-                    "am": "오전",
-                    "pm": "오후"
                 }
             },
             "japanese": {
@@ -915,6 +587,13 @@
                     ]
                 }
             },
+            "ethioaa": {
+                "eras": {
+                    "short": [
+                        "ERA0"
+                    ]
+                }
+            },
             "ethiopic": {
                 "months": {
                     "long": [
@@ -940,29 +619,65 @@
                     ]
                 }
             },
-            "coptic": {
+            "gregory": {
                 "months": {
                     "long": [
-                        "Tout",
-                        "Baba",
-                        "Hator",
-                        "Kiahk",
-                        "Toba",
-                        "Amshir",
-                        "Baramhat",
-                        "Baramouda",
-                        "Bashans",
-                        "Paona",
-                        "Epep",
-                        "Mesra",
-                        "Nasie"
+                        "1월",
+                        "2월",
+                        "3월",
+                        "4월",
+                        "5월",
+                        "6월",
+                        "7월",
+                        "8월",
+                        "9월",
+                        "10월",
+                        "11월",
+                        "12월"
+                    ]
+                },
+                "days": {
+                    "narrow": [
+                        "일",
+                        "월",
+                        "화",
+                        "수",
+                        "목",
+                        "금",
+                        "토"
+                    ],
+                    "short": [
+                        "일",
+                        "월",
+                        "화",
+                        "수",
+                        "목",
+                        "금",
+                        "토"
+                    ],
+                    "long": [
+                        "일요일",
+                        "월요일",
+                        "화요일",
+                        "수요일",
+                        "목요일",
+                        "금요일",
+                        "토요일"
                     ]
                 },
                 "eras": {
                     "short": [
-                        "ERA0",
-                        "ERA1"
+                        "기원전",
+                        "서기"
+                    ],
+                    "long": [
+                        "서력기원전",
+                        "서력기원"
                     ]
+                },
+                "dayPeriods": {
+                    "am": "오전",
+                    "pm": "오후"
                 }
             },
             "buddhist": {
@@ -972,21 +687,63 @@
                     ]
                 }
             },
-            "chinese": {
+            "islamic": {
+                "months": {
+                    "short": [
+                        "Muh.",
+                        "Saf.",
+                        "Rab. I",
+                        "Rab. II",
+                        "Jum. I",
+                        "Jum. II",
+                        "Raj.",
+                        "Sha.",
+                        "Ram.",
+                        "Shaw.",
+                        "Dhuʻl-Q.",
+                        "Dhuʻl-H."
+                    ],
+                    "long": [
+                        "Muharram",
+                        "Safar",
+                        "Rabiʻ I",
+                        "Rabiʻ II",
+                        "Jumada I",
+                        "Jumada II",
+                        "Rajab",
+                        "Shaʻban",
+                        "Ramadan",
+                        "Shawwal",
+                        "Dhuʻl-Qiʻdah",
+                        "Dhuʻl-Hijjah"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "AH"
+                    ]
+                }
+            },
+            "persian": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "Farvardin",
+                        "Ordibehesht",
+                        "Khordad",
+                        "Tir",
+                        "Mordad",
+                        "Shahrivar",
+                        "Mehr",
+                        "Aban",
+                        "Azar",
+                        "Dey",
+                        "Bahman",
+                        "Esfand"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "AP"
                     ]
                 }
             },
@@ -1012,6 +769,81 @@
                 "eras": {
                     "short": [
                         "AM"
+                    ]
+                }
+            },
+            "chinese": {
+                "months": {
+                    "long": [
+                        "Month1",
+                        "Month2",
+                        "Month3",
+                        "Month4",
+                        "Month5",
+                        "Month6",
+                        "Month7",
+                        "Month8",
+                        "Month9",
+                        "Month10",
+                        "Month11",
+                        "Month12"
+                    ]
+                }
+            },
+            "generic": {
+                "months": {
+                    "long": [
+                        "Month1",
+                        "Month2",
+                        "Month3",
+                        "Month4",
+                        "Month5",
+                        "Month6",
+                        "Month7",
+                        "Month8",
+                        "Month9",
+                        "Month10",
+                        "Month11",
+                        "Month12"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "ERA0",
+                        "ERA1"
+                    ]
+                }
+            },
+            "roc": {
+                "eras": {
+                    "short": [
+                        "중화민국전",
+                        "중화민국"
+                    ]
+                }
+            },
+            "coptic": {
+                "months": {
+                    "long": [
+                        "Tout",
+                        "Baba",
+                        "Hator",
+                        "Kiahk",
+                        "Toba",
+                        "Amshir",
+                        "Baramhat",
+                        "Baramouda",
+                        "Bashans",
+                        "Paona",
+                        "Epep",
+                        "Mesra",
+                        "Nasie"
+                    ]
+                },
+                "eras": {
+                    "short": [
+                        "ERA0",
+                        "ERA1"
                     ]
                 }
             }
