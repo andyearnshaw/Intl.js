@@ -24,7 +24,7 @@ var
     defineProperty = Object.defineProperty || function (obj, name, desc) {
         if (desc.get && obj.__defineGetter__)
             obj.__defineGetter(name, desc.get);
-        else
+        else if (desc.value || desc.get)
             obj[name] = desc.value || desc.get;
     },
 
@@ -896,6 +896,9 @@ function /*9.2.8 */SupportedLocales (availableLocales, requestedLocales, options
             writable: false, configurable: false, value: subset[P]
         });
     }
+    // "Freeze" the array so no new elements can be added
+    defineProperty(subset, 'length', { writable: false });
+
     // 5. Return subset
     return subset;
 }
