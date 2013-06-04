@@ -1,5 +1,5 @@
-__Polite Notice:__ this implementation is not yet ready for production environments.
-See [Status](#status) for more info.
+__Polite notice:__ `Intl.js` may not be ready for production environments yet.  See the
+[status section](#Status) for more information.
 
 In December 2012, ECMA International published the first edition of Standard ECMA-402,
 better known as the _ECMAScript Internationalization API_. This specification provides
@@ -15,9 +15,12 @@ the native API in environments that support it, or `Intl.js` for legacy or unsup
 environments.
 
 ## <a id=status></a>Status
-`Intl.js` isn't yet ready for production environments. test402 has been integrated into
-the project and tells us there's still a lot of work to be done.  The latest test, run on
-May 27 2013, scored 90 out of 153<sup>*</sup>.
+The latest test, run on Jun 04 2013, scored 101 out of 117<sup>\*</sup>. Although the
+majority of the failed tests are somewhat superficial, there are a few outstanding issues
+with `DateTimeFormat`.  Also, as the tests aren't run with all locales enabled, there may
+be some edge cases that have been missed.
+
+Aside from 1 issue with precision in Firefox, `NumberFormat` seems to be rather complete.
 
 Current progress is as follows:
 
@@ -44,15 +47,16 @@ Current progress is as follows:
    the IANA Language Subtag registry
  - `BestFitSupportedLocales` internal function
  - Implementation-dependent numbering system mappings
- - Collator objects (`Intl.Collator`)
+ - Collator objects (`Intl.Collator`) (see below)
  - Properties of the `String` prototype object
- - Test suites
 
 A few of the implemented functions may currently be non-conforming and/or incomplete.  
 Most of those functions have comments marked as 'TODO' in the source code.
 
-<sup>*</sup> some of the tests cannot be passed from an ES5 implementation because they
-check for native behaviour.  The majority of them should be passable, though.
+<sup>\*</sup> Tested with a handful of locales only. The test suite is run with
+Intl.Collator tests removed, and the Collator constructor removed from most other tests in
+the suite.  Also, some of the tests cannot be passed from an ES5 implementation because
+they check for native behaviour.
 
 ## What about Intl.Collator?
 
