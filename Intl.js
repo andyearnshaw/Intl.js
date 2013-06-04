@@ -80,9 +80,6 @@ var
     // Keep internal properties internal
     secret = Math.random(),
 
-    // CLDR weekday key mappings
-    weekdays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'],
-
     // Each constructor prototype should be an instance of the constructor itself, but we
     // can't initialise them as such until some locale data has been added, so this is how
     // we keep track
@@ -2353,7 +2350,7 @@ function FormatDateTime(dateTimeFormat, x) {
 
                     // For weekdays, we need to refer to our `weekdays` array
                     case 'weekday':
-                        fv = ca.days[f][weekdays[tm['[['+ p +']]']]];
+                        fv = ca.days[f][tm['[['+ p +']]']];
                         break;
 
                     case 'timeZoneName':
