@@ -58,8 +58,10 @@ var
     },
 
     // Snapshot some (hopefully still) native built-ins
-    arrSlice = Array.prototype.slice,
+    arrSlice  = Array.prototype.slice,
     arrConcat = Array.prototype.concat,
+    arrPush   = Array.prototype.push,
+    arrJoin   = Array.prototype.join,
 
     // Naive Function.prototype.bind for compatibility
     fnBind = Function.prototype.bind || function (thisObj) {
@@ -299,7 +301,7 @@ function /* 6.2.3 */CanonicalizeLanguageTag (locale) {
         else if (parts[i].length === 1 && parts[i] != 'x')
             break;
     }
-    locale = parts.join('-');
+    locale = arrJoin.call(parts, '-');
 
     // The steps laid out in RFC 5646 section 4.5 are as follows:
 
@@ -312,7 +314,7 @@ function /* 6.2.3 */CanonicalizeLanguageTag (locale) {
         // Replace all extensions with the joined, sorted array
         locale = locale.replace(
             RegExp('(?:' + expExtSequences.source + ')+', 'i'),
-            match.join('')
+            arrJoin.call(match, '')
         );
     }
 
@@ -371,11 +373,11 @@ function /* 9.2.1 */CanonicalizeLocaleList (locales) {
 
     // 1. If locales is undefined, then a. Return a new empty List
     if (locales === undefined)
-        return [];
+        return new List();
 
     var
         // 2. Let seen be a new empty List.
-        seen = [],
+        seen = new List(),
 
         // 3. If locales is a String value, then
         //    a. Let locales be a new array created as if by the expression new
@@ -434,7 +436,7 @@ function /* 9.2.1 */CanonicalizeLocaleList (locales) {
             // vi. If tag is not an element of seen, then append tag as the last
             //     element of seen.
             if (arrIndexOf.call(seen, tag) === -1)
-                seen.push(tag);
+                arrPush.call(seen, tag);
         }
 
         // d. Increase k by 1.
@@ -587,14 +589,10 @@ function /* 9.2.4 */BestFitMatcher (availableLocales, requestedLocales) {
  * best available language to meet the request. availableLocales and
  * requestedLocales must be provided as List values, options as a Record.
  */
-function /* 9.2.5 */ResolveLocale (availableLocales, requestedLocales, options,
-                                                 relevantExtensionKeys, localeData) {
-
-    if (availableLocales.length === 0)
-        throw new ReferenceError(
-            'No locale data has been provided for this object yet.'
-            + ' (protip: use Intl.__addLocaleData(data))'
-        );
+function /* 9.2.5 */ResolveLocale (availableLocales, requestedLocales, options, relevantExtensionKeys, localeData) {
+    if (availableLocales.length === 0) {
+        throw new ReferenceError('No locale data has been provided for this object yet.');
+    }
 
     // The following steps are taken:
     var
@@ -789,7 +787,7 @@ function /* 9.2.6 */LookupSupportedLocales (availableLocales, requestedLocales) 
         // 1. Let len be the number of elements in requestedLocales.
         len = requestedLocales.length,
         // 2. Let subset be a new empty List.
-        subset = [],
+        subset = new List(),
         // 3. Let k be 0.
         k = 0;
 
@@ -810,7 +808,7 @@ function /* 9.2.6 */LookupSupportedLocales (availableLocales, requestedLocales) 
         // d. If availableLocale is not undefined, then append locale to the end of
         //    subset.
         if (availableLocale !== undefined)
-            subset.push(locale);
+            arrPush.call(subset, locale);
 
         // e. Increment k by 1.
         k++;
@@ -819,7 +817,7 @@ function /* 9.2.6 */LookupSupportedLocales (availableLocales, requestedLocales) 
     var
         // 5. Let subsetArray be a new Array object whose elements are the same
         //    values in the same order as the elements of subset.
-        subsetArray = subset.slice(0);
+        subsetArray = arrSlice.call(subset);
 
     // 6. Return subsetArray.
     return subsetArray;
@@ -1047,8 +1045,7 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
     //    (defined in 9.2.9) with the arguments options, "localeMatcher", "string",
     //    a List containing the two String values "lookup" and "best fit", and
     //    "best fit".
-        matcher =  GetOption(options, 'localeMatcher', 'string', ['lookup', 'best fit'],
-                        'best fit');
+        matcher =  GetOption(options, 'localeMatcher', 'string', new List('lookup', 'best fit'), 'best fit');
 
     // 8. Set opt.[[localeMatcher]] to matcher.
     opt['[[localeMatcher]]'] = matcher;
@@ -1087,8 +1084,7 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
     // 15. Let s be the result of calling the GetOption abstract operation with the
     //     arguments options, "style", "string", a List containing the three String
     //     values "decimal", "percent", and "currency", and "decimal".
-        s = GetOption(options, 'style', 'string', ['decimal', 'percent', 'currency'],
-                'decimal');
+        s = GetOption(options, 'style', 'string', new List('decimal', 'percent', 'currency'), 'decimal');
 
     // 16. Set the [[style]] internal property of numberFormat to s.
     internal['[[style]]'] = s;
@@ -1126,8 +1122,7 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
     // 21. Let cd be the result of calling the GetOption abstract operation with the
     //     arguments options, "currencyDisplay", "string", a List containing the
     //     three String values "code", "symbol", and "name", and "symbol".
-        cd = GetOption(options, 'currencyDisplay', 'string',
-                ['code', 'symbol', 'name'], 'symbol');
+        cd = GetOption(options, 'currencyDisplay', 'string', new List('code', 'symbol', 'name'), 'symbol');
 
     // 22. If s is "currency", then set the [[currencyDisplay]] internal property of
     //     numberFormat to cd.
@@ -1425,7 +1420,7 @@ function FormatNumber (numberFormat, x) {
             var parts = n.split(ild.decimal);
             parts[0] = parts[0].replace(expInsertGroups, ild.group);
 
-            n = parts.join(ild.decimal);
+            n = arrJoin.call(parts, ild.decimal);
         }
     }
 
@@ -1493,7 +1488,7 @@ function ToRawPrecision (x, minPrecision, maxPrecision) {
     if (x === 0) {
         var
         // a. Let m be the String consisting of p occurrences of the character "0".
-            m = Array (p + 1).join('0'),
+            m = arrJoin.call(Array (p + 1), '0'),
         // b. Let e be 0.
             e = 0;
     }
@@ -1529,7 +1524,7 @@ function ToRawPrecision (x, minPrecision, maxPrecision) {
     // 4. If e ≥ p, then
     if (e >= p)
         // a. Return the concatenation of m and e-p+1 occurrences of the character "0".
-        return m + Array(e-p+1 + 1).join('0');
+        return m + arrJoin.call(Array(e-p+1 + 1), '0');
 
     // 5. If e = p-1, then
     else if (e === p - 1)
@@ -1546,7 +1541,7 @@ function ToRawPrecision (x, minPrecision, maxPrecision) {
     else if (e < 0)
         // a. Let m be the concatenation of the String "0.", –(e+1) occurrences of the
         //    character "0", and the string m.
-        m = '0.' + Array (-(e+1) + 1).join('0') + m;
+        m = '0.' + arrJoin.call(Array (-(e+1) + 1), '0') + m;
 
     // 8. If m contains the character ".", and maxPrecision > minPrecision, then
     if (m.indexOf(".") >= 0 && maxPrecision > minPrecision) {
@@ -1599,8 +1594,8 @@ function ToRawFixed (x, minInteger, minFraction, maxFraction) {
 
     if (exp) {
         m = m.slice(0, idx).replace('.', '');
-        m += Array(exp - (m.length - 1) + 1).join('0')
-          + '.' + Array(maxFraction + 1).join('0');
+        m += arrJoin.call(Array(exp - (m.length - 1) + 1), '0')
+          + '.' + arrJoin.call(Array(maxFraction + 1), '0');
 
         igr = m.length;
     }
@@ -1623,7 +1618,7 @@ function ToRawFixed (x, minInteger, minFraction, maxFraction) {
     if (igr < minInteger)
         // a. Let z be the String consisting of minInteger–int occurrences of the
         //    character "0".
-        var z = Array(minInteger - igr + 1).join("0");
+        var z = arrJoin.call(Array(minInteger - igr + 1), '0');
 
     // 10. Let m be the concatenation of Strings z and m.
     // 11. Return m.
@@ -1766,8 +1761,7 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
     // 6. Let matcher be the result of calling the GetOption abstract operation
     //    (defined in 9.2.9) with arguments options, "localeMatcher", "string", a List
     //    containing the two String values "lookup" and "best fit", and "best fit".
-        matcher = GetOption(options, 'localeMatcher', 'string',
-                                                    ['lookup', 'best fit'], 'best fit');
+        matcher = GetOption(options, 'localeMatcher', 'string', new List('lookup', 'best fit'), 'best fit');
 
     // 7. Set opt.[[localeMatcher]] to matcher.
     opt['[[localeMatcher]]'] = matcher;
@@ -1863,7 +1857,7 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
         // 25. Let matcher be the result of calling the GetOption abstract operation with
         //     arguments options, "formatMatcher", "string", a List containing the two String
         //     values "basic" and "best fit", and "best fit".
-        matcher = GetOption(options, 'formatMatcher', 'string', ['basic', 'best fit'], 'best fit');
+        matcher = GetOption(options, 'formatMatcher', 'string', new List('basic', 'best fit'), 'best fit');
 
     // 26. If matcher is "basic", then
     if (matcher === 'basic')
@@ -2712,6 +2706,18 @@ function Record (obj) {
 }
 
 /**
+ * An ordered list
+ */
+List.prototype = objCreate(null);
+function List() {
+    defineProperty(this, 'length', { writable:true, value: 0 });
+
+    if (arguments.length)
+        arrPush.apply(this, arrSlice.call(arguments));
+}
+
+
+/**
  * Constructs a regular expression to restore tainted RegExp properties
  */
 function createRegExpRestore () {
@@ -2720,7 +2726,7 @@ function createRegExpRestore () {
            input: RegExp.input
         },
         esc = /[.?*+^$[\]\\(){}|-]/g,
-        reg = [],
+        reg = new List(),
         cap = {};
 
     // Create a snapshot of all the 'captured' properties
@@ -2740,12 +2746,12 @@ function createRegExpRestore () {
             lm = lm.replace(m, '(' + m.replace(esc, '\\$0') + ')');
 
         // Push it to the reg and chop lm to make sure further groups come after
-        reg.push(lm.slice(0, lm.indexOf('(') + 1));
+        arrPush.call(reg, lm.slice(0, lm.indexOf('(') + 1));
         lm = lm.slice(lm.indexOf('(') + 1);
     }
 
     // Create the regular expression that will reconstruct the RegExp properties
-    ret.exp = new RegExp(reg.join('') + lm, RegExp.multiline ? 'm' : '');
+    ret.exp = new RegExp(arrJoin.call(reg, '') + lm, RegExp.multiline ? 'm' : '');
 
     return ret;
 }
