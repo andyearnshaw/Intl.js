@@ -15,12 +15,12 @@ the native API in environments that support it, or `Intl.js` for legacy or unsup
 environments.
 
 ## <a id=status></a>Status
-The latest test, run on Jun 04 2013, scored 101 out of 117<sup>\*</sup>. Although the
-majority of the failed tests are somewhat superficial, there are a few outstanding issues
-with `DateTimeFormat`.  Also, as the tests aren't run with all locales enabled, there may
-be some edge cases that have been missed.
+The latest test, run on Jun 04 2013, scored 99 out of 111 in SpiderMonkey<sup>\*</sup>.
+Although the majority of the failed tests are somewhat superficial, there are a few
+outstanding issues with `DateTimeFormat`.
 
-Aside from 1 issue with precision in Firefox, `NumberFormat` seems to be rather complete.
+Aside from 1 issue with floating point precision in Firefox/SpiderMonkey, `NumberFormat`
+seems to be rather complete.
 
 Current progress is as follows:
 
@@ -43,20 +43,18 @@ Current progress is as follows:
    - Properties of the `Date` prototype object ([13.3](http://www.ecma-international.org/ecma-402/1.0/#sec-13.3))
 
 ### Not Implemented
- - Canonicalizing language tags containing subtags that have a "Preferred-value" from 
-   the IANA Language Subtag registry
  - `BestFitSupportedLocales` internal function
  - Implementation-dependent numbering system mappings
+ - Calendars other than Gregorian
  - Collator objects (`Intl.Collator`) (see below)
  - Properties of the `String` prototype object
 
 A few of the implemented functions may currently be non-conforming and/or incomplete.  
 Most of those functions have comments marked as 'TODO' in the source code.
 
-<sup>\*</sup> Tested with a handful of locales only. The test suite is run with
-Intl.Collator tests removed, and the Collator constructor removed from most other tests in
-the suite.  Also, some of the tests cannot be passed from an ES5 implementation because
-they check for native behaviour.
+<sup>\*</sup> The test suite is run with Intl.Collator tests removed, and the Collator
+constructor removed from most other tests in the suite.  Also, some of the tests cannot be
+passed from an ES5 implementation because they check for native behaviour.
 
 ## What about Intl.Collator?
 
