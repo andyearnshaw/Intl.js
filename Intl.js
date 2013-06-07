@@ -82,6 +82,9 @@ var
     // Keep internal properties internal
     secret = Math.random(),
 
+    // An object map of date component keys, saves using a regex later
+    dateWidths = objCreate(null, { narrow:{}, short:{}, long:{} }),
+
     // Each constructor prototype should be an instance of the constructor itself, but we
     // can't initialise them as such until some locale data has been added, so this is how
     // we keep track
@@ -2373,7 +2376,8 @@ function FormatDateTime(dateTimeFormat, x) {
         dataLocale = internal['[[dataLocale]]'],
 
     // Need the calendar data from CLDR
-        ca = internals.DateTimeFormat['[[localeData]]'][dataLocale].calendars[internal['[[calendar]]']];
+        localeData = internals.DateTimeFormat['[[localeData]]'][dataLocale].calendars,
+        ca = internal['[[calendar]]'];
 
     // 7. For each row of Table 3, except the header row, do:
     for (var p in dateTimeComponents) {
@@ -2440,15 +2444,19 @@ function FormatDateTime(dateTimeFormat, x) {
             //     on whether dateTimeFormat has a [[day]] internal property. If p is
             //     "timeZoneName", then the String value may also depend on the value of
             //     the [[inDST]] field of tm.
-            else if (/^(?:narrow|short|long)$/.test(f)) {
+            else if (f in dateWidths) {
                 switch (p) {
                     case 'month':
-                        fv = ca.months[f][tm['[['+ p +']]']];
+                        fv = resolveDateString(localeData, ca, 'months', f, tm['[['+ p +']]']);
                         break;
 
-                    // For weekdays, we need to refer to our `weekdays` array
                     case 'weekday':
-                        fv = ca.days[f][tm['[['+ p +']]']];
+                        try {
+                            fv = resolveDateString(localeData, ca, 'days', f, tm['[['+ p +']]']);
+                            // fv = resolveDateString(ca.days, f)[tm['[['+ p +']]']];
+                        } catch (e) {
+                            throw new Error('Could not find weekday data for locale '+locale);
+                        }
                         break;
 
                     case 'timeZoneName':
@@ -2471,7 +2479,7 @@ function FormatDateTime(dateTimeFormat, x) {
         // a. If pm is true, then let fv be an implementation and locale dependent String
         //    value representing “post meridiem”; else let fv be an implementation and
         //    locale dependent String value representing “ante meridiem”.
-        fv = ca.dayPeriods[pm ? 'pm' : 'am'];
+        fv = resolveDateString(localeData, ca, 'dayPeriods', pm ? 'pm' : 'am');
 
         // b. Replace the substring of result that consists of "{ampm}", with fv.
         result = result.replace('{ampm}', fv);
@@ -2792,6 +2800,36 @@ function supportedLocalesOf(locales) {
     //    (defined in 9.2.8) with arguments availableLocales, requestedLocales,
     //    and options.
     return SupportedLocales(availableLocales, requestedLocales, options);
+}
+
+/**
+ * Returns a string for a date component, resolved using multiple inheritance as specified
+ * as specified in the Unicode Technical Standard 35.
+ */
+function resolveDateString(data, ca, component, width, key) {
+    // From http://www.unicode.org/reports/tr35/tr35.html#Multiple_Inheritance:
+    // 'In clearly specified instances, resources may inherit from within the same locale.
+    //  For example, ... the Buddhist calendar inherits from the Gregorian calendar.'
+    var obj = data[ca] && data[ca][component]
+                ? data[ca][component]
+                : data.gregory[component],
+
+        // "sideways" inheritance resolves strings when a key doesn't exist
+        alts = {
+            narrow: ['short', 'long'],
+            short:  ['long', 'narrow'],
+            long:   ['short', 'narrow']
+        },
+
+        //
+        resolved = hop.call(obj, width)
+                  ? obj[width]
+                  : hop.call(obj, alts[width][0])
+                      ? obj[alts[width][0]]
+                      : obj[alts[width][1]];
+
+    // `key` wouldn't be specified for components 'dayPeriods'
+    return key != null ? resolved[key] : resolved;
 }
 
 /**
