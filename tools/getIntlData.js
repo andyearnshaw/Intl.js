@@ -130,7 +130,8 @@ function get4217 () {
 
             res.on('end', function () {
                 while (evil.exec(xml))
-                    if (isFinite(RegExp.$2))
+                    // We already fallback to 2 as the number of digits
+                    if (isFinite(RegExp.$2) && RegExp.$2 != '2')
                         obj[RegExp.$1] = +RegExp.$2;
 
                 process.stdout.write(JSON.stringify(obj, null, 4).replace(/"(\w+)":/g, "$1:") + '\n');
