@@ -137,7 +137,9 @@ child.on('exit', function (err) {
  * Processes an object from CLDR format to an easier-to-parse format
  */
 function processObj(data) {
-    var gopn = Object.getOwnPropertyNames,
+    var
+        // Sort property name arrays to keep order and minimalise unnecessary file diffs
+        gopn = function (a) { return Object.getOwnPropertyNames(a).sort(); },
         test = RegExp.prototype.test,
 
         // Get own property values, useful for converting object map to array
@@ -163,7 +165,8 @@ function processObj(data) {
         defCa = data.dates.calendars.gregorian,
 
         // Any of the time format strings can give us some additional information
-        timeFormat = defCa.timeFormats[gopn(defCa.timeFormats)[0]],
+        defaultTimeFormat = defCa.timeFormats[gopn(defCa.timeFormats)[0]],
+        ampmTimeFormat    = defCa.dateTimeFormats.availableFormats.hms,
 
         id = data.identity,
 
@@ -179,16 +182,20 @@ function processObj(data) {
                 // Get supported calendars (as extension keys)
                 ca: gopn(data.dates.calendars)
                         .map(function (cal) { return caMap[cal] || cal; })
-                        // No default calendar in CLDR 23.1... so...
-                        .sort(function (a, b) { return a !== 'gregory' ? 1 : -1; }),
 
-                // Locales using 0-11 and 1-24 hours have 'k' or 'K' in their
-                // default time patterns, hour0 signifies 1-12 and 0-23
-                hourNo0: !/k/i.test(timeFormat),
+                        // Move 'gregory' (the default) to the front, the rest is
+                        // alphabetical
+                        .sort(function (a, b) {
+                            return -(a === 'gregory') + (b === 'gregory') || a.localeCompare(b);
+                        }),
 
-                // Locales defaulting to 24hr time have 'H' or 'K' in their
+                // Boolean value indicating whether hours from 1 to 12 (true) or from 0 to
+                // 11 (false) should be used. 'h' is 1 to 12, 'k' is 0 to 11.
+                hourNo0: /h/i.test(ampmTimeFormat),
+
+                // Locales defaulting to 24hr time have 'H' or 'k' in their
                 // default time patterns
-                hour12: !/H|K/.test(timeFormat),
+                hour12: !/H|k/.test(defaultTimeFormat),
 
                 formats: [],
                 calendars: {},
@@ -352,7 +359,7 @@ function copyLocaleData(to, from) {
 
 var
     // Match these datetime components in a CLDR pattern
-    expDTComponents = /[Eec]{1,6}|G{1,5}|(?:[yYu]+|U{1,5})|[ML]{1,5}|d{1,2}|a|[hk]{1,2}|m{1,2}|s{1,2}|z{1,4}/g,
+    expDTComponents = /[Eec]{1,6}|G{1,5}|(?:[yYu]+|U{1,5})|[ML]{1,5}|d{1,2}|a|[hkHK]{1,2}|m{1,2}|s{1,2}|z{1,4}/g,
 
     // Skip over patterns with these datetime components
     unwantedDTCs = /[QxXVOvZASjgFDwWIQqH]/,
@@ -412,7 +419,9 @@ function createDateTimeFormat(format) {
                 return '{ampm}';
 
             case 'h':
+            case 'H':
             case 'k':
+            case 'K':
                 formatObj.hour = $0.length === 2 ? '2-digit' : 'numeric';
                 return '{hour}';
 
@@ -432,7 +441,7 @@ function createDateTimeFormat(format) {
 
     if (formatObj.pattern.indexOf('{ampm}') > -1) {
         formatObj.pattern12 = formatObj.pattern;
-        formatObj.pattern = formatObj.pattern.replace(/\s?{ampm}(?:\s(?![^\s]))?/, '');
+        formatObj.pattern = formatObj.pattern.replace('{ampm}', '').trim();
     }
 
     return formatObj;
