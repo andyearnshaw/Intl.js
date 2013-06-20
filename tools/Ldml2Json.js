@@ -173,11 +173,14 @@ function processObj(data) {
     var
         // Sort property name arrays to keep order and minimalise unnecessary file diffs
         gopn = function (a) { return Object.getOwnPropertyNames(a).sort(); },
+
         test = RegExp.prototype.test,
 
-        // Get own property values, useful for converting object map to array
-        // when we don't care about the keys
-        gopv = function (o) { return o ? gopn(o).map(function (e) { return o[e]; }) : undefined; },
+        // Get own property values, useful for converting object map to array when we
+        // don't care about the keys.  Relies on predictable property ordering in V8.
+        gopv = function (o) {
+            return o ? Object.getOwnPropertyNames(o).map(function (e) { return o[e]; }) : undefined;
+        },
 
         // Copy numbering systems
         defaultNu   = data.numbers.defaultNumberingSystem,
