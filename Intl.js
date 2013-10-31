@@ -1,8 +1,9 @@
 /*jshint proto:true, eqnull:true, boss:true, laxbreak:true, newcap:false, shadow:true, funcscope:true */
-if (typeof window !== 'undefined')
-    window.OldIntl = window.Intl;
+(function (globals, Intl) {
 
-var Intl = /*window.Intl || */(function (Intl) {
+if (globals.Intl)
+    globals.OldIntl = globals.Intl;
+globals.Intl = Intl;
 
 /**
  * @license Copyright 2013 Andy Earnshaw, MIT License
@@ -2926,5 +2927,4 @@ function getInternalProperties (obj) {
         return objCreate(null);
 }
 
-return Intl;
-})({});
+})(this, {});
