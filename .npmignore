@@ -9,3 +9,9 @@ cldr/
 
 # d8 artifact
 .d8_history
+
+# The NPM package only needs runtime files.
+# (It doesn't need anything used during development of this library.)
+tools/
+tests/
+

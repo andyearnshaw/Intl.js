@@ -1,0 +1,28 @@
+{
+    "name": "Intl.js",
+    "version": "0.0.1",
+    "description": "polyfill the ECMA-402 Intl API (except collation)",
+    "main": "Intl.js",
+    "directories": {
+        "test": "tests"
+    },
+    "scripts": {
+        "test": "cd tests && ./run402"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/andyearnshaw/Intl.js"
+    },
+    "keywords": [
+        "intl",
+        "i18n",
+        "internationalization",
+        "ecma402",
+        "polyfill"
+    ],
+    "author": "Andy Earnshaw",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/andyearnshaw/Intl.js/issues"
+    }
+}
