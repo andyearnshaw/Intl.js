@@ -1,10 +1,3 @@
-/*jshint proto:true, eqnull:true, boss:true, laxbreak:true, newcap:false, shadow:true, funcscope:true */
-(function (globals, Intl) {
-
-if (globals.Intl)
-    globals.OldIntl = globals.Intl;
-globals.Intl = Intl;
-
 /**
  * @license Copyright 2013 Andy Earnshaw, MIT License
  *
@@ -15,6 +8,13 @@ globals.Intl = Intl;
  *
  * CLDR format locale data should be provided using Intl.__addLocaleData().
  */
+/*jshint proto:true, eqnull:true, boss:true, laxbreak:true, newcap:false, shadow:true, funcscope:true */
+
+(function (globals, Intl) {
+
+if (globals.Intl)
+    globals.OldIntl = globals.Intl;
+globals.Intl = Intl;
 
 "use strict";
 var
