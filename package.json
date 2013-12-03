@@ -2,7 +2,7 @@
     "name": "Intl.js",
     "version": "0.0.1",
     "description": "polyfill the ECMA-402 Intl API (except collation)",
-    "main": "Intl.js",
+    "main": "./lib",
     "directories": {
         "test": "tests"
     },
