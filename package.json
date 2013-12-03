@@ -4,7 +4,11 @@
     "description": "polyfill the ECMA-402 Intl API (except collation)",
     "main": "Intl.js",
     "directories": {
+        "lint": "jshint Intl.js",
         "test": "tests"
+    },
+    "devDependencies": {
+        "jshint": "~2.3.0"
     },
     "scripts": {
         "test": "cd tests && ./run402"

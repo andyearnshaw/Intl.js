@@ -9,3 +9,6 @@ cldr/
 
 # d8 artifact
 .d8_history
+
+# NPM packages installed locally
+node_modules
