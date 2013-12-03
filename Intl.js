@@ -10,14 +10,27 @@
  */
 /*jshint proto:true, eqnull:true, boss:true, laxbreak:true, newcap:false, shadow:true, funcscope:true */
 
-(function (globals, Intl) {
-
-if (globals.Intl)
-    globals.OldIntl = globals.Intl;
-globals.Intl = Intl;
-
+(function (root, factory) {
+    if (root && root.Intl) {
+        root.OldIntl = root.Intl;
+    }
+    // Follow Universal Module Definition, specifically...
+    // https://github.com/umdjs/umd/blob/master/returnExportsGlobal.js
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(function () {
+            return (root.Intl = factory());
+        });
+    } else if (typeof exports === 'object') {
+        module.exports = factory();
+    } else {
+        root.Intl = factory();
+    }
+})(this, function() {
 "use strict";
 var
+    Intl = {},
+
     // We use this a lot (and need it for proto-less objects)
     hop = Object.prototype.hasOwnProperty,
 
@@ -2927,4 +2940,5 @@ function getInternalProperties (obj) {
         return objCreate(null);
 }
 
-})(this, {});
+return Intl;
+});
