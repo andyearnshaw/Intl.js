@@ -90,3 +90,17 @@ in the [tools](https://github.com/andyearnshaw/Intl.js/tree/master/tools) folder
 
 Collation data isn't currently present since the `Intl.Collator` implementation isn't 
 finished.
+
+Contents of the `locale-data` directory are a modified form of the Unicode CLDR
+data found at http://www.unicode.org/cldr/data/.  See the `LICENSE.txt` file
+accompanying this software for terms of use.
+
+
+## License
+
+Copyright (c) 2013 Andy Earnshaw
+
+This software is licensed under the MIT license.  See the `LICENSE.txt` file
+accompanying this software for terms of use.
+
+
