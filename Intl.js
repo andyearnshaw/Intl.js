@@ -14,19 +14,18 @@
     if (root && root.Intl) {
         root.OldIntl = root.Intl;
     }
-    // Follow Universal Module Definition, specifically...
-    // https://github.com/umdjs/umd/blob/master/returnExportsGlobal.js
+    var Intl = factory();
+    // register in -all- the module systems (at once)
     if (typeof define === 'function' && define.amd) {
-        // AMD. Register as an anonymous module.
-        define(function () {
-            return (root.Intl = factory());
-        });
-    } else if (typeof exports === 'object') {
-        module.exports = factory();
-    } else {
-        root.Intl = factory();
+        defined('Intl', Intl);
     }
-})(this, function() {
+    if (typeof exports === 'object') {
+        module.exports = Intl;
+    }
+    if (root) {
+        root.Intl = Intl;
+    }
+})(typeof global !== 'undefined' ? global : this, function() {
 "use strict";
 var
     Intl = {},
