@@ -9,3 +9,6 @@ cldr/
 
 # d8 artifact
 .d8_history
+
+# npm
+node_modules

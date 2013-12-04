@@ -1,13 +1,19 @@
 {
-    "name": "Intl.js",
+    "name": "intl-polyfill",
     "version": "0.0.1",
     "description": "polyfill the ECMA-402 Intl API (except collation)",
     "main": "Intl.js",
     "directories": {
         "test": "tests"
     },
+    "devDependencies": {
+        "grunt": "~0.4.2",
+        "grunt-cli": "~0.1.11",
+        "grunt-contrib-uglify": "0.2.7"
+    },
     "scripts": {
-        "test": "cd tests && ./run402"
+        "test": "cd tests && ./run402",
+        "build": "grunt"
     },
     "repository": {
         "type": "git",
