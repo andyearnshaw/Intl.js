@@ -1,10 +1,9 @@
 {
-    "name": "Intl.js",
+    "name": "intl-polyfill",
     "version": "0.0.1",
     "description": "polyfill the ECMA-402 Intl API (except collation)",
     "main": "Intl.js",
     "directories": {
-        "lint": "jshint Intl.js",
         "test": "tests"
     },
     "devDependencies": {
@@ -16,6 +15,7 @@
     },
     "scripts": {
         "build": "grunt",
+        "lint": "jshint Intl.js",
         "test": "cd tests && ./run402"
     },
     "repository": {

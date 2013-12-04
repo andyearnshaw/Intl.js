@@ -90,3 +90,10 @@ in the [tools](https://github.com/andyearnshaw/Intl.js/tree/master/tools) folder
 
 Collation data isn't currently present since the `Intl.Collator` implementation isn't 
 finished.
+
+Contribute
+----------
+
+See the [CONTRIBUTING file][] for info.
+
+[CONTRIBUTING file]: https://github.com/andyearnshaw/Intl.js/blob/master/CONTRIBUTING.md
