@@ -17,6 +17,9 @@ var
     spawn = require('child_process').spawn,
     fs    = require('fs'),
 
+    copyright = 'This file is a modified form of the Unicode CLDR data found at http://www.unicode.org/cldr/data/.\n\nCOPYRIGHT AND PERMISSION NOTICE\n\nCopyright (c) 1991-2013 Unicode, Inc. All rights reserved. Distributed under the Terms of Use in http://www.unicode.org/copyright.html.',
+    copyrightJsonp = '/' + '*\n' + copyright + '\n*' + '/\n',
+
     // The 'callback' function for the JSONP files
     jsonpFn = 'Intl.__addLocaleData',
 
@@ -102,7 +105,8 @@ if (cldr) {
     child.on('exit', function (err) {
         if (err !== 0) {
             process.stderr.write(ldml2jsonErr);
-            process.stderr.write('\nLdml2JsonConverter exited with error code ' +err);
+            process.stderr.write('\nLdml2JsonConverter exited with error code ' + err + '\n');
+            //DEBUG process.stderr.write(['java', '-DCLDR_DIR='+cldr, '-cp', jPath + clsPaths.join(':'+jPath), cls, '-d', out, '-k', cfg/*, '-men.*'*/ ].join(' ') + '\n');
             process.exit(1);
         }
         else
@@ -126,7 +130,7 @@ function cldrToIntl() {
                 base;
 
     locales.forEach(function (dir) {
-        var json, obj;
+        var json, obj, objCopy;
 
         // The Ldml2JsonConverter tool creats directories even for locales that have
         // no data that we require
@@ -151,10 +155,14 @@ function cldrToIntl() {
         // Process our object into a format that can easily be parsed by Intl.js
         obj = processObj(obj);
 
-        process.stdout.write('\r\x1b[K\r\tWriting locale-data/json/'+ dir +'.json');
-        fs.writeFileSync('locale-data/json/'+ dir +'.json', JSON.stringify(obj, null, 4));
+        // We only want to embed the copyright in the json file (not jsonp).
+        objCopy = JSON.parse(JSON.stringify(obj));
+        objCopy.COPYRIGHT = copyright;
 
-        var jsonp = jsonpFn
+        process.stdout.write('\r\x1b[K\r\tWriting locale-data/json/'+ dir +'.json');
+        fs.writeFileSync('locale-data/json/'+ dir +'.json', JSON.stringify(objCopy, null, 4));
+
+        var jsonp = copyrightJsonp + jsonpFn
             + '('
             +     JSON.stringify(obj).replace(jsonpExp, '$1:')
             + ')';
