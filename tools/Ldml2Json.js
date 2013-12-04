@@ -105,7 +105,8 @@ if (cldr) {
     child.on('exit', function (err) {
         if (err !== 0) {
             process.stderr.write(ldml2jsonErr);
-            process.stderr.write('\nLdml2JsonConverter exited with error code ' +err);
+            process.stderr.write('\nLdml2JsonConverter exited with error code ' + err + '\n');
+            //DEBUG process.stderr.write(['java', '-DCLDR_DIR='+cldr, '-cp', jPath + clsPaths.join(':'+jPath), cls, '-d', out, '-k', cfg/*, '-men.*'*/ ].join(' ') + '\n');
             process.exit(1);
         }
         else

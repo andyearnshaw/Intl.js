@@ -101,7 +101,8 @@ accompanying this software for terms of use.
 * Visit http://cldr.unicode.org/index/downloads and choose a version, for example http://unicode.org/Public/cldr/23.1/.
 * Download `core.zip` and `tools.zip` to a folder/directory.
 * Unzip the zip files.
-* Run `node tools/Ldml2Json.js <folder>/tools` where `<folder>` is the location where you downloaded the zip files.
+    * (On a mac be sure the use the commandline `unzip` utility, as the Finder will do the wrong thing.)
+* Run `node tools/Ldml2Json.js <folder>` where `<folder>` is the location where you downloaded and unzipped the zip files.
 * TOOD... next steps...
 
 
