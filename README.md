@@ -96,6 +96,15 @@ data found at http://www.unicode.org/cldr/data/.  See the `LICENSE.txt` file
 accompanying this software for terms of use.
 
 
+### Rebuilding
+
+* Visit http://cldr.unicode.org/index/downloads and choose a version, for example http://unicode.org/Public/cldr/23.1/.
+* Download `core.zip` and `tools.zip` to a folder/directory.
+* Unzip the zip files.
+* Run `node tools/Ldml2Json.js <folder>/tools` where `<folder>` is the location where you downloaded the zip files.
+* TOOD... next steps...
+
+
 ## License
 
 Copyright (c) 2013 Andy Earnshaw
