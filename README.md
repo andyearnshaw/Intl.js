@@ -91,26 +91,16 @@ in the [tools](https://github.com/andyearnshaw/Intl.js/tree/master/tools) folder
 Collation data isn't currently present since the `Intl.Collator` implementation isn't 
 finished.
 
-Contribute
-----------
-
-See the [CONTRIBUTING file][] for info.
-
-[CONTRIBUTING file]: https://github.com/andyearnshaw/Intl.js/blob/master/CONTRIBUTING.md
-=======
 Contents of the `locale-data` directory are a modified form of the Unicode CLDR
 data found at http://www.unicode.org/cldr/data/.  See the `LICENSE.txt` file
 accompanying this software for terms of use.
 
 
-### Rebuilding
+## Contribute
 
-* Visit http://cldr.unicode.org/index/downloads and choose a version, for example http://unicode.org/Public/cldr/23.1/.
-* Download `core.zip` and `tools.zip` to a folder/directory.
-* Unzip the zip files.
-    * (On a mac be sure the use the commandline `unzip` utility, as the Finder will do the wrong thing.)
-* Run `node tools/Ldml2Json.js <folder>` where `<folder>` is the location where you downloaded and unzipped the zip files.
-* TOOD... next steps...
+See the [CONTRIBUTING file][] for info.
+
+[CONTRIBUTING file]: https://github.com/andyearnshaw/Intl.js/blob/master/CONTRIBUTING.md
 
 
 ## License
