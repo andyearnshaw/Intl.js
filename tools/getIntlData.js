@@ -5,7 +5,7 @@
  * Downloads and parses the IANA Language Subtag Registry into a JavaScript object that can
  * be used for mapping.
  *
- * http://www.iana.org/assignments/language-subtag-registry
+ * http://www.iana.org/assignments/language-subtag-registry/language-subtag-registry
  *
  * Also downloads the current currency & funds code list, Table A.1 of ISO 4217
  * and parses the code and minor unit value into a JavaScript object.
@@ -37,7 +37,7 @@ function getIANA () {
     var
         httpOpts = {
             host: 'www.iana.org',
-            path: '/assignments/language-subtag-registry'
+            path: '/assignments/language-subtag-registry/language-subtag-registry'
         },
         req = http.request(httpOpts, function (res) {
             var txt = '';
