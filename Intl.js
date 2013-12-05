@@ -9,6 +9,7 @@
  * CLDR format locale data should be provided using Intl.__addLocaleData().
  */
 /*jshint proto:true, eqnull:true, boss:true, laxbreak:true, newcap:false, shadow:true, funcscope:true */
+/*globals define, exports, module, window*/
 
 (function (root, factory) {
     if (root && root.Intl) {
