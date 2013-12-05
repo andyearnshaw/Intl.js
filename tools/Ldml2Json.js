@@ -18,7 +18,7 @@ var
     fs    = require('fs'),
 
     // The 'callback' function for the JSONP files
-    jsonpFn = 'Intl.__addLocaleData',
+    jsonpFn = 'IntlPolyfill.__addLocaleData',
 
     // Regex for converting locale JSON to object grammar, obviously simple and
     // incomplete but should be good enough for the CLDR JSON
