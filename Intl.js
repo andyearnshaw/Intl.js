@@ -6,25 +6,22 @@
  *
  * ECMA-402: http://ecma-international.org/ecma-402/1.0/
  *
- * CLDR format locale data should be provided using Intl.__addLocaleData().
+ * CLDR format locale data should be provided using IntlPolyfill.__addLocaleData().
  */
 /*jshint proto:true, eqnull:true, boss:true, laxbreak:true, newcap:false, shadow:true, funcscope:true */
 /*globals define, exports, module, window*/
 
-(function (root, factory) {
-    if (root && root.Intl) {
-        root.OldIntl = root.Intl;
-    }
-    var Intl = factory();
+(function (global, factory) {
+    var IntlPolyfill = factory();
     // register in -all- the module systems (at once)
     if (typeof define === 'function' && define.amd) {
-        defined('Intl', Intl);
+        define(IntlPolyfill);
     }
     if (typeof exports === 'object') {
-        module.exports = Intl;
+        module.exports = IntlPolyfill;
     }
-    if (root) {
-        root.Intl = Intl;
+    if (global) {
+        global.IntlPolyfill = IntlPolyfill;
     }
 })(typeof global !== 'undefined' ? global : this, function() {
 "use strict";
