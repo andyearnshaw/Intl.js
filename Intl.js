@@ -2718,19 +2718,22 @@ function ToLocalTime(date, calendar, timeZone) {
  * as-needed basis
  */
 defineProperty(Intl, '__addLocaleData', {
-    value: addLocaleData
-});
-function addLocaleData (data) {
-    if (!IsStructurallyValidLanguageTag(data.locale))
-        throw new Error("Object passed doesn't identify itself with a valid language tag");
+    value: function (data) {
+        if (!IsStructurallyValidLanguageTag(data.locale))
+            throw new Error("Object passed doesn't identify itself with a valid language tag");
 
+        addLocaleData(data, data.locale);
+    }
+});
+
+function addLocaleData (data, tag) {
     // Both NumberFormat and DateTimeFormat require number data, so throw if it isn't present
     if (!data.number)
         throw new Error("Object passed doesn't contain locale data for Intl.NumberFormat");
 
     var locale,
-        locales = [ data.locale ],
-        parts   = data.locale.split('-');
+        locales = [ tag ],
+        parts   = tag.split('-');
 
     // Create fallbacks for locale data with scripts, e.g. Latn, Hans, Vaii, etc
     if (parts.length > 2 && parts[1].length == 4)
@@ -2751,7 +2754,7 @@ function addLocaleData (data) {
 
     // If this is the first set of locale data added, make it the default
     if (defaultLocale === undefined)
-        defaultLocale = data.locale;
+        defaultLocale = tag;
 
     // 11.3 (the NumberFormat prototype object is an Intl.NumberFormat instance)
     if (!numberFormatProtoInitialised) {

@@ -4,15 +4,13 @@ command -v python >/dev/null 2>&1 || { echo >&2 "Could not find python in your p
 
 EXEC=`command -v d8 || command -v js` || { echo >&2 "Could not find the d8 or js executables in your path."; exit 1; }
 CMD=`basename $EXEC`
-INTL=../Intl.min.js
+INTL=../Intl.complete.js
 TESTDIR=./test262
 TEST262="$TESTDIR/tools/packaging/test262.py"
 
 # TODO: Need to get this working with multiple locale files
 if [ "$CMD" = "js" ]; then
-    LOCALES=`ls -d1 ../locale-data/jsonp/* | sed ':a;N;$!ba;s/\n/ -f /g' `
-    python $TEST262 --command "$EXEC -f $INTL -f $LOCALES -f" --tests="$TESTDIR" --summary intl402 > ./test262.log
+    python $TEST262 --command "$EXEC -f $INTL -f" --tests="$TESTDIR" --summary intl402 > ./test262.log
 else
-    LOCALES=`echo $(ls -d1 ../locale-data/jsonp/*)`
-    python $TEST262 --command "$EXEC $INTL $LOCALES" --tests="$TESTDIR" --summary intl402 > ./test262.log
+    python $TEST262 --command "$EXEC $INTL" --tests="$TESTDIR" --summary intl402 > ./test262.log
 fi
