@@ -1,0 +1,12 @@
+{
+	"name": "Intl.js",
+	"main": ["Intl.js", "Intl.min.js"],
+	"ignore": [
+		"/cldr",
+		"*.pyc",
+		"*.log",
+		".d8_history",
+		"/tools",
+		"/tests"
+	]
+}
