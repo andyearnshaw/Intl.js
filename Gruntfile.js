@@ -10,7 +10,7 @@ module.exports = function (grunt) {
             },
             alljs: {
                 src: 'locale-data/json/*.json',
-                dest: 'all.js',
+                dest: 'all.js'
             }
         },
         jshint: {
