@@ -30,6 +30,7 @@
         "polyfill"
     ],
     "author": "Andy Earnshaw",
+    "email": "andyearnshaw@gmail.com",
     "license": "MIT",
     "bugs": {
         "url": "https://github.com/andyearnshaw/Intl.js/issues"
