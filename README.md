@@ -1,6 +1,3 @@
-__Polite notice:__ `Intl.js` may not be ready for production environments yet.  See the
-[status section](#Status) for more information.
-
 In December 2012, ECMA International published the first edition of Standard ECMA-402,
 better known as the _ECMAScript Internationalization API_. This specification provides
 the framework to bring long overdue localisation methods to ECMAScript implementations.
@@ -13,6 +10,17 @@ current Firefox nightly builds.
 framework as described by the specification, so that developers can take advantage of
 the native API in environments that support it, or `Intl.js` for legacy or unsupporting
 environments.
+
+## <a id=start></a>Getting started
+For Node.js applications, you can install Intl.js using NPM:
+
+    npm install intl
+
+Intl.js is also available as a [Bower](http://bower.io) component for the front-end:
+
+    bower install intl
+
+For other setups, just clone the repo for the pre-built scripts and locale datafiles.
 
 ## <a id=status></a>Status
 The latest test, run on Jun 04 2013, scored 99 out of 111 in SpiderMonkey<sup>\*</sup>.
