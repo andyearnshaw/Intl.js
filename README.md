@@ -74,12 +74,8 @@ are several reasons, including:
    and would increase the code size of Intl.js too much.
  - The Default Unicode Collation Element Table is huge, even after compression, and 
    converting to a native JavaScript object would probably make it slightly larger.
-   Server-side JavaScript environments will soon already support Intl.Collator,
+   Server-side JavaScript environments will (hopefully) soon support Intl.Collator,
    and we can't really expect client environments to download this data.
-
-There are some local environments where it might be useful, such as a Smart TV platform,
-desktop widget or something, but `String.prototype.localeCompare` is probably good enough
-in those platforms and the gain from an implementation just wouldn't be worth it.
 
 ## Compatibility
 Intl.js is designed to be compatible with ECMAScript 3.1 environments in order to
@@ -88,16 +84,15 @@ to legacy (ES3) environments, and the goal of this project is to at least provid
 working, albeit non-compliant implementation where ES5 methods are unavailable.
 
 ## Locale Data
-The main `Intl.js` file contains no locale data itself.  Instead, the data should be
-provided, parsed into a JavaScript object, using the `Intl.__addLocaleData()` method.
-
 `Intl.js` uses the Unicode CLDR locale data, as recommended by the specification.
 The data is available in JSON format, or JSONP format in the [locale-data](https://github.com/andyearnshaw/Intl.js/tree/master/locale-data)
 folder.  This has been converted from CLDR version 23.1 using the script and config file
 in the [tools](https://github.com/andyearnshaw/Intl.js/tree/master/tools) folder.
 
-Collation data isn't currently present since the `Intl.Collator` implementation isn't 
-finished.
+The main `Intl.js` file contains no locale data itself.  In browser environments, the
+data should be provided, parsed into a JavaScript object, using the
+`Intl.__addLocaleData()` method.  In Node.js, or when using `Intl.complete.js`, the data
+is pre-compiled into the end of the file and does not need to be provided.
 
 Contents of the `locale-data` directory are a modified form of the Unicode CLDR
 data found at http://www.unicode.org/cldr/data/.  See the `LICENSE.txt` file
