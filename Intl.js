@@ -9,7 +9,7 @@
  * CLDR format locale data should be provided using IntlPolyfill.__addLocaleData().
  */
 /*jshint proto:true, eqnull:true, boss:true, laxbreak:true, newcap:false, shadow:true, funcscope:true */
-/*globals define, exports, module, window*/
+/*globals global, define, exports, module, window*/
 
 (function (global, factory) {
     var IntlPolyfill = factory();
@@ -2869,37 +2869,44 @@ function List() {
  * Constructs a regular expression to restore tainted RegExp properties
  */
 function createRegExpRestore () {
-    var lm  = RegExp.lastMatch,
-        ret = {
-           input: RegExp.input
-        },
-        esc = /[.?*+^$[\]\\(){}|-]/g,
+    var esc = /[.?*+^$[\]\\(){}|-]/g,
+        lm  = RegExp.lastMatch,
+        ml  = RegExp.multiline ? 'm' : '',
+        ret = { input: RegExp.input },
         reg = new List(),
+        has = false,
         cap = {};
 
     // Create a snapshot of all the 'captured' properties
     for (var i = 1; i <= 9; i++)
-        cap['$'+i] = RegExp['$'+i];
+        has = (cap['$'+i] = RegExp['$'+i]) || has;
 
-    // Now, iterate over them
-    for (var i = 1; i <= 9; i++) {
-        var m = cap['$'+i];
+    // Now we've snapshotted some properties, escape the lastMatch string
+    lm = lm.replace(esc, '\\$&');
 
-        // If it's empty, add an empty capturing group
-        if (!m)
-            lm = '()' + lm;
+    // If any of the captured strings were non-empty, iterate over them all
+    if (has) {
+        for (var i = 1; i <= 9; i++) {
+            var m = cap['$'+i];
 
-        // Else find the string in lm and escape & wrap it to capture it
-        else
-            lm = lm.replace(m, '(' + m.replace(esc, '\\$0') + ')');
+            // If it's empty, add an empty capturing group
+            if (!m)
+                lm = '()' + lm;
 
-        // Push it to the reg and chop lm to make sure further groups come after
-        arrPush.call(reg, lm.slice(0, lm.indexOf('(') + 1));
-        lm = lm.slice(lm.indexOf('(') + 1);
+            // Else find the string in lm and escape & wrap it to capture it
+            else {
+                m = m.replace(esc, '\\$&');
+                lm = lm.replace(m, '(' + m + ')');
+            }
+
+            // Push it to the reg and chop lm to make sure further groups come after
+            arrPush.call(reg, lm.slice(0, lm.indexOf('(') + 1));
+            lm = lm.slice(lm.indexOf('(') + 1);
+        }
     }
 
     // Create the regular expression that will reconstruct the RegExp properties
-    ret.exp = new RegExp(arrJoin.call(reg, '') + lm, RegExp.multiline ? 'm' : '');
+    ret.exp = new RegExp(arrJoin.call(reg, '') + lm, ml);
 
     return ret;
 }
