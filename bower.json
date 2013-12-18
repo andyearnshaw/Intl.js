@@ -1,6 +1,6 @@
 {
 	"name": "intl",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "polyfill the ECMA-402 Intl API (except collation)",
 	"main": ["Intl.js", "Intl.min.js"],
     "keywords": [
