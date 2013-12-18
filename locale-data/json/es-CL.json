@@ -27,15 +27,15 @@
                 "hour": "2-digit",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {day} '{day}{weekday}' {month} '{day}{weekday}' {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {day} '{day}{weekday}' {month} '{day}{weekday}' {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day} de {month} de {year} {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day} de {month} de {year} {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "short",
                 "day": "numeric",
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{weekday}, {day} '{day}{weekday}' {month} '{day}{weekday}' {year}"
+                "pattern": "{weekday}, {day} de {month} de {year}"
             },
             {
                 "day": "numeric",

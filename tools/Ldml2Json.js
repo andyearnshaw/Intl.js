@@ -39,8 +39,8 @@ var
 
     out = 'cldr/',
 
-    // Match these datetime components in a CLDR pattern
-    expDTComponents = /[Eec]{1,6}|G{1,5}|(?:[yYu]+|U{1,5})|[ML]{1,5}|d{1,2}|a|[hkHK]{1,2}|m{1,2}|s{1,2}|z{1,4}/g,
+    // Match these datetime components in a CLDR pattern, except those in single quotes
+    expDTComponents = /(?:[Eec]{1,6}|G{1,5}|(?:[yYu]+|U{1,5})|[ML]{1,5}|d{1,2}|a|[hkHK]{1,2}|m{1,2}|s{1,2}|z{1,4})(?=([^']*'[^']*')*[^']*$)/g,
 
     // Skip over patterns with these datetime components
     unwantedDTCs = /[QxXVOvZASjgFDwWIQqH]/,
@@ -458,6 +458,14 @@ function createDateTimeFormat(format) {
                 formatObj.timeZoneName = $0.length < 4 ? 'short' : 'long';
                 return '{timeZoneName}';
         }
+    });
+
+    // From http://www.unicode.org/reports/tr35/tr35-dates.html#Date_Format_Patterns:
+    //  'In patterns, two single quotes represents a literal single quote, either
+    //   inside or outside single quotes. Text within single quotes is not
+    //   interpreted in any way (except for two adjacent single quotes).'
+    formatObj.pattern = formatObj.pattern.replace(/'([^']*)'/g, function ($0, literal) {
+        return literal ? literal : "'";
     });
 
     if (formatObj.pattern.indexOf('{ampm}') > -1) {

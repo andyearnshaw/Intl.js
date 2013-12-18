@@ -21,29 +21,27 @@
         "formats": [
             {
                 "weekday": "short",
-                "year": "numeric",
                 "day": "numeric",
                 "month": "short",
+                "year": "numeric",
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday} , 'l{year}ɛ'̌ʼ {day} 'n' {month}, {year} {hour}:{minute}:{second} {ampm}",
-                "pattern12": "{weekday} , 'l{year}ɛ'̌ʼ {day} 'n{ampm}' {month}, {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday} , lyɛ̌ʼ {day} na {month}, {year} {hour}:{minute}:{second}",
+                "pattern12": "{weekday} , lyɛ̌ʼ {day} na {month}, {year} {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "short",
-                "year": "numeric",
                 "day": "numeric",
                 "month": "short",
-                "pattern": "{weekday} , 'l{year}ɛ'̌ʼ {day} 'n' {month}, {year}",
-                "pattern12": "{weekday} , 'l{year}ɛ'̌ʼ {day} 'n{ampm}' {month}, {year}"
+                "year": "numeric",
+                "pattern": "{weekday} , lyɛ̌ʼ {day} na {month}, {year}"
             },
             {
-                "year": "numeric",
                 "day": "numeric",
                 "month": "long",
-                "pattern": "l{year}ɛ'̌ʼ {day} 'n' {month}, {year}",
-                "pattern12": "l{year}ɛ'̌ʼ {day} 'n{ampm}' {month}, {year}"
+                "year": "numeric",
+                "pattern": "lyɛ̌ʼ {day} na' {month}, {year}"
             },
             {
                 "day": "numeric",

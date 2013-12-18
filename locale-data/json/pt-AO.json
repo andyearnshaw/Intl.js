@@ -27,22 +27,21 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {day} '{day}{weekday}' {month} '{day}{weekday}' {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {day} '{day}{weekday}' {month} '{day}{weekday}' {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day} de {month} de {year} {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day} de {month} de {year} {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "short",
                 "day": "numeric",
                 "month": "short",
                 "year": "numeric",
-                "pattern": "{weekday}, {day} '{day}{weekday}' {month} '{day}{weekday}' {year}"
+                "pattern": "{weekday}, {day} de {month} de {year}"
             },
             {
                 "day": "numeric",
-                "weekday": "short",
                 "month": "short",
                 "year": "numeric",
-                "pattern": "{day} '{day}{weekday}' {month} '{day}{weekday}' {year}"
+                "pattern": "{day} de {month} de {year}"
             },
             {
                 "day": "2-digit",
@@ -57,16 +56,13 @@
             },
             {
                 "month": "short",
-                "day": "numeric",
-                "weekday": "short",
                 "year": "numeric",
-                "pattern": "{month} '{day}{weekday}' {year}"
+                "pattern": "{month} de {year}"
             },
             {
                 "day": "numeric",
-                "weekday": "short",
                 "month": "short",
-                "pattern": "{day} '{day}{weekday}' {month}"
+                "pattern": "{day} de {month}"
             },
             {
                 "day": "numeric",

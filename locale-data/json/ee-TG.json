@@ -31,8 +31,7 @@
                 "month": "short",
                 "day": "numeric",
                 "year": "numeric",
-                "pattern": "{month} {day} 'li', {year}",
-                "pattern12": "{month} {day} 'li{ampm}', {year}"
+                "pattern": "{month} {day} lia, {year}"
             },
             {
                 "month": "numeric",
@@ -51,10 +50,8 @@
                 "pattern": "{month} {year}"
             },
             {
-                "month": "short",
-                "day": "numeric",
-                "pattern": "{month} {day} 'li",
-                "pattern12": "{month} {day} 'li{ampm}"
+                "pattern": "MMM d 'li",
+                "pattern12": "MMM d 'li{ampm}"
             },
             {
                 "month": "numeric",

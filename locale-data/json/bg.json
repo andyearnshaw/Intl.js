@@ -27,8 +27,8 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {day} {month} {year} 'г'., {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {day} {month} {year} 'г'., {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day} {month} {year} г., {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day} {month} {year} г., {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "short",
