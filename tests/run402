@@ -10,7 +10,7 @@ TEST262="$TESTDIR/tools/packaging/test262.py"
 
 # TODO: Need to get this working with multiple locale files
 if [ "$CMD" = "js" ]; then
-    python $TEST262 --command "$EXEC -f $INTL -f" --tests="$TESTDIR" --summary intl402 > ./test262.log
+    python $TEST262 --command "$EXEC -f $INTL -f test262assist.js -f" --tests="$TESTDIR" --summary intl402 > ./test262.log
 else
-    python $TEST262 --command "$EXEC $INTL" --tests="$TESTDIR" --summary intl402 > ./test262.log
+    python $TEST262 --command "$EXEC $INTL test262assist.js" --tests="$TESTDIR" --summary intl402 > ./test262.log
 fi

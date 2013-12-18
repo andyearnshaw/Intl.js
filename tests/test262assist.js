@@ -1,0 +1,1 @@
+var Intl = IntlPolyfill;
