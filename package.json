@@ -16,7 +16,7 @@
     "scripts": {
         "build": "grunt",
         "lint": "jshint Intl.js",
-        "test": "cd tests && ./run402"
+        "test": "cd tests && node noderunner.js"
     },
     "repository": {
         "type": "git",
