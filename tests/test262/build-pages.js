@@ -7,16 +7,16 @@ var LIBS = {
     SRC_DIR     = __dirname + '/test/suite/intl402',
     DEST_DIR    = __dirname + '/pages',
     INCLUDE_DIR = __dirname + '/test/harness',
-    LIB_PATH    = __dirname+ '/../../Intl.complete.js';
+    LIB_PATH    = __dirname+ '/../../Intl.complete.js',
+    INTL_LIB    = LIBS.fs.readFileSync(LIB_PATH).toString(),
 
-
-// Stuff defined outside of the $INCLUDE()ed files
-var HACKNESS = [
-    'var __globalObject = Function("return this;")();',
-    'function fnGlobalObject() {',
-    '    return __globalObject;',
-    '}'
-].join('\n');
+    // stuff defined in harness/*.js yet not pulled in via $INCLUDE()
+    HACKNESS = [
+        'var __globalObject = Function("return this;")();',
+        'function fnGlobalObject() {',
+        '    return __globalObject;',
+        '}'
+    ].join('\n');
 
 
 function mkdirp(dir) {
@@ -49,16 +49,13 @@ function processTest(content) {
 
 // Turns test into an HTML page.
 function wrapTest(content) {
+    // The weird "//" makes these html files also valid node.js scripts :)
     return [
-        '<html>',
-        '<body>',
-        '<script>',
-        LIBS.fs.readFileSync(LIB_PATH).toString(),
+        '//<html><body><script>',
+        INTL_LIB,
         HACKNESS,
         content,
-        '</script>',
-        '</body>',
-        '</html>'
+        '//</script></body></html>'
     ].join('\n');
 }
 
