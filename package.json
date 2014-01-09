@@ -7,6 +7,7 @@
         "test": "tests"
     },
     "devDependencies": {
+        "async": "~0.2.9",
         "grunt": "~0.4.2",
         "grunt-cli": "~0.1.11",
         "grunt-contrib-jshint": "~0.7.2",
