@@ -2076,7 +2076,17 @@ var dateTimeComponents = {
 function ToDateTimeOptions (options, required, defaults) {
     // 1. If options is undefined, then let options be null, else let options be
     //    ToObject(options).
-    options = options === undefined ? null : new Record(toObject(options));
+    if (options === undefined)
+        options = null;
+
+    else {
+        // (#12) options needs to be a Record, but it also needs to inherit properties
+        var opt2 = toObject(options);
+        options = new Record();
+
+        for (var k in opt2)
+            options[k] = opt2[k];
+    }
 
     var
     // 2. Let create be the standard built-in function object defined in ES5, 15.2.3.5.
