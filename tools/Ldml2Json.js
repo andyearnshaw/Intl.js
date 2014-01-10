@@ -1,4 +1,4 @@
-/*jshint laxbreak:true, shadow:true, boss:true, es5:true, eqnull:true */
+/*jshint laxbreak:true, shadow:true, boss:true, eqnull:true */
 /**
  * Converts Unicode CLDR data to JSON format for use with Intl.js
  * Copyright 2013 Andy Earnshaw, MIT License
@@ -56,6 +56,7 @@ function cleanUp () {
     // Need to reshow the blinking cursor
     process.stdout.write('\n\x1b[?12l\x1b[?25h\r' + Array(15).join(' '));
 }
+
 process.on('exit', cleanUp);
 process.on('SIGINT', cleanUp);
 process.chdir(__dirname + '/../');
@@ -140,10 +141,10 @@ function cldrToIntl() {
 
         // Need to copy in some language data that may not be present in territory data
         if (base && (obj.identity.territory || obj.identity.script) && obj.identity.language === base.identity.language)
-        copyLocaleData(obj, base);
+            copyLocaleData(obj, base);
 
         else if (!obj.identity.territory && !obj.identity.script && !obj.identity.variant)
-        base = obj;
+            base = obj;
 
         // Copy data from the root locale
         copyLocaleData(obj, root);
@@ -266,17 +267,19 @@ function processObj(data) {
 
     // Create number patterns from CLDR patterns
     if (ptn = data.numbers['decimalFormats-numberSystem-' + defaultNu] || data.numbers['decimalFormats-numberSystem-latn'])
-        ret.number.patterns.decimal = createNumberFormats(ptn.standard.decimalFormat.pattern);
+        ret.number.patterns.decimal = createNumberFormats(ptn.standard);
 
     if (ptn = data.numbers['currencyFormats-numberSystem-' + defaultNu] || data.numbers['currencyFormats-numberSystem-latn'])
-        ret.number.patterns.currency = createNumberFormats(ptn.standard.currencyFormat.pattern);
+        ret.number.patterns.currency = createNumberFormats(ptn.standard);
 
     if (ptn = data.numbers['percentFormats-numberSystem-' + defaultNu] || data.numbers['percentFormats-numberSystem-latn'])
-        ret.number.patterns.percent = createNumberFormats(ptn.standard.percentFormat.pattern);
+        ret.number.patterns.percent = createNumberFormats(ptn.standard);
 
     // Copy the currency symbols
-    for (var k in data.numbers.currencies)
-        ret.number.currencies[k] = data.numbers.currencies[k].symbol;
+    for (var k in data.numbers.currencies) {
+        if (k !== data.numbers.currencies[k].symbol)
+            ret.number.currencies[k] = data.numbers.currencies[k].symbol;
+    }
 
 
     // Copy the formatting information
