@@ -75,6 +75,9 @@ module.exports = function(grunt) {
                     return objStrs[str];
                 }
             }
+
+            else
+                return v;
         }
 
         fileData += 'var a='+ JSON.stringify(prims) +',b=[];';
