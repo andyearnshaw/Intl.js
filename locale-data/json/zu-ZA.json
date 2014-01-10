@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -192,6 +192,20 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
+                    ],
                     "short": [
                         "Jan",
                         "Feb",
@@ -245,7 +259,7 @@
                         "Msombuluko",
                         "Lwesibili",
                         "Lwesithathu",
-                        "uLwesine",
+                        "Lwesine",
                         "Lwesihlanu",
                         "Mgqibelo"
                     ]
@@ -253,7 +267,9 @@
                 "eras": {
                     "short": [
                         "BC",
-                        "AD"
+                        "AD",
+                        "BCE",
+                        "CE"
                     ]
                 },
                 "dayPeriods": {
@@ -870,7 +886,7 @@
             },
             "currency": {
                 "positivePattern": "{currency}{number}",
-                "negativePattern": "({currency}{number})"
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",

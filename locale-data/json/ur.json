@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -206,14 +206,28 @@
                         "N",
                         "D"
                     ],
+                    "short": [
+                        "جنوری",
+                        "فروری",
+                        "مارچ",
+                        "اپریل",
+                        "مئی",
+                        "جون",
+                        "جولائی",
+                        "اگست",
+                        "ستمبر",
+                        "اکتوبر",
+                        "نومبر",
+                        "دسمبر"
+                    ],
                     "long": [
                         "جنوری",
                         "فروری",
                         "مارچ",
                         "اپریل",
-                        "مئ",
+                        "مئی",
                         "جون",
-                        "جولائ",
+                        "جولائی",
                         "اگست",
                         "ستمبر",
                         "اکتوبر",
@@ -231,11 +245,20 @@
                         "جمعہ",
                         "ہفتہ"
                     ],
+                    "short": [
+                        "اتوار",
+                        "سوموار",
+                        "منگل",
+                        "بدھ",
+                        "جمعرات",
+                        "جمعہ",
+                        "ہفتہ"
+                    ],
                     "long": [
                         "اتوار",
-                        "پیر",
+                        "سوموار",
                         "منگل",
-                        "بده",
+                        "بدھ",
                         "جمعرات",
                         "جمعہ",
                         "ہفتہ"
@@ -244,7 +267,9 @@
                 "eras": {
                     "short": [
                         "ق م",
-                        "عیسوی سن"
+                        "عیسوی سن",
+                        "BCE",
+                        "CE"
                     ],
                     "long": [
                         "قبل مسیح",
@@ -865,8 +890,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency}{number}",
-                "negativePattern": "-{currency}{number}"
+                "positivePattern": "{currency}{number}‎",
+                "negativePattern": "-{currency}{number}‎"
             },
             "percent": {
                 "positivePattern": "{number}%",

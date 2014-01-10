@@ -27,8 +27,8 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{day} {month} {year} {weekday} {hour}:{minute}:{second}",
-                "pattern12": "{day} {month} {year} {weekday} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{day} {month} {year} {weekday}  {hour}:{minute}:{second}",
+                "pattern12": "{day} {month} {year} {weekday} {ampm} {hour}:{minute}:{second}"
             },
             {
                 "day": "numeric",
@@ -61,7 +61,7 @@
             },
             {
                 "day": "numeric",
-                "month": "long",
+                "month": "short",
                 "pattern": "{day} {month}"
             },
             {
@@ -74,13 +74,13 @@
                 "minute": "2-digit",
                 "second": "2-digit",
                 "pattern": "{hour}:{minute}:{second}",
-                "pattern12": "{hour}:{minute}:{second} {ampm}"
+                "pattern12": "{ampm} {hour}:{minute}:{second}"
             },
             {
                 "hour": "numeric",
                 "minute": "2-digit",
                 "pattern": "{hour}:{minute}",
-                "pattern12": "{hour}:{minute} {ampm}"
+                "pattern12": "{ampm} {hour}:{minute}"
             }
         ],
         "calendars": {
@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -267,7 +267,9 @@
                 "eras": {
                     "short": [
                         "MÖ",
-                        "MS"
+                        "MS",
+                        "İÖ",
+                        "İS"
                     ],
                     "long": [
                         "Milattan Önce",
@@ -360,7 +362,7 @@
                 },
                 "eras": {
                     "short": [
-                        "AH"
+                        "Hicri"
                     ]
                 }
             },
@@ -888,7 +890,7 @@
             },
             "currency": {
                 "positivePattern": "{number} {currency}",
-                "negativePattern": "({number} {currency})"
+                "negativePattern": "-{number} {currency}"
             },
             "percent": {
                 "positivePattern": "%{number}",

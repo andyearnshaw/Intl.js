@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -192,6 +192,20 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "Y",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "I",
+                        "I",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
+                    ],
                     "short": [
                         "Yanv",
                         "Fev",
@@ -222,13 +236,22 @@
                     ]
                 },
                 "days": {
+                    "narrow": [
+                        "Yaksh",
+                        "Dush",
+                        "Sesh",
+                        "Chor",
+                        "Pay",
+                        "Jum",
+                        "Shan"
+                    ],
                     "short": [
                         "Yaksh",
                         "Dush",
                         "Sesh",
                         "Chor",
                         "Pay",
-                        "Cum",
+                        "Jum",
                         "Shan"
                     ],
                     "long": [
@@ -237,14 +260,14 @@
                         "seshanba",
                         "chorshanba",
                         "payshanba",
-                        "cuma",
+                        "juma",
                         "shanba"
                     ]
                 },
                 "eras": {
                     "short": [
-                        "BCE",
-                        "CE"
+                        "M.A.",
+                        "E"
                     ]
                 },
                 "dayPeriods": {
@@ -878,7 +901,6 @@
             }
         },
         "currencies": {
-            "UZS": "soʻm",
             "AUD": "A$",
             "BRL": "R$",
             "CAD": "CA$",
@@ -895,6 +917,7 @@
             "THB": "฿",
             "TWD": "NT$",
             "USD": "US$",
+            "UZS": "soʻm",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",

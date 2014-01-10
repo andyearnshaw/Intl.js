@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -192,59 +192,82 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "Y",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "I",
+                        "I",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
+                    ],
                     "short": [
-                        "Янв",
-                        "Фев",
-                        "Мар",
-                        "Апр",
-                        "Май",
-                        "Июн",
-                        "Июл",
-                        "Авг",
-                        "Сен",
-                        "Окт",
-                        "Ноя",
-                        "Дек"
+                        "Yanv",
+                        "Fev",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Iyun",
+                        "Iyul",
+                        "Avg",
+                        "Sen",
+                        "Okt",
+                        "Noya",
+                        "Dek"
                     ],
                     "long": [
-                        "Январ",
-                        "Феврал",
-                        "Март",
-                        "Апрел",
-                        "Май",
-                        "Июн",
-                        "Июл",
-                        "Август",
-                        "Сентябр",
-                        "Октябр",
-                        "Ноябр",
-                        "Декабр"
+                        "Yanvar",
+                        "Fevral",
+                        "Mart",
+                        "Aprel",
+                        "May",
+                        "Iyun",
+                        "Iyul",
+                        "Avgust",
+                        "Sentyabr",
+                        "Oktyabr",
+                        "Noyabr",
+                        "Dekabr"
                     ]
                 },
                 "days": {
+                    "narrow": [
+                        "Yaksh",
+                        "Dush",
+                        "Sesh",
+                        "Chor",
+                        "Pay",
+                        "Jum",
+                        "Shan"
+                    ],
                     "short": [
-                        "Якш",
-                        "Душ",
-                        "Сеш",
-                        "Чор",
-                        "Пай",
-                        "Жум",
-                        "Шан"
+                        "Yaksh",
+                        "Dush",
+                        "Sesh",
+                        "Chor",
+                        "Pay",
+                        "Jum",
+                        "Shan"
                     ],
                     "long": [
-                        "якшанба",
-                        "душанба",
-                        "сешанба",
-                        "чоршанба",
-                        "пайшанба",
-                        "жума",
-                        "шанба"
+                        "yakshanba",
+                        "dushanba",
+                        "seshanba",
+                        "chorshanba",
+                        "payshanba",
+                        "juma",
+                        "shanba"
                     ]
                 },
                 "eras": {
                     "short": [
-                        "BCE",
-                        "CE"
+                        "M.A.",
+                        "E"
                     ]
                 },
                 "dayPeriods": {
@@ -317,18 +340,18 @@
                         "Dhuʻl-H."
                     ],
                     "long": [
-                        "Муҳаррам",
-                        "Сафар",
-                        "Рабиул-аввал",
-                        "Рабиул-охир",
-                        "Жумодиул-уло",
-                        "Жумодиул-ухро",
-                        "Ражаб",
-                        "Шаъбон",
-                        "Рамазон",
-                        "Шаввол",
-                        "Зил-қаъда",
-                        "Зил-ҳижжа"
+                        "Muharram",
+                        "Safar",
+                        "Robiʼ ul-avval",
+                        "Robiʼ ul-oxir",
+                        "Jumad ul-avval",
+                        "Jumad ul-oxir",
+                        "Rajab",
+                        "Shaʼbon",
+                        "Ramazon",
+                        "Shavvol",
+                        "Zul-qaʼda",
+                        "Zul-hijja"
                     ]
                 },
                 "eras": {
@@ -878,7 +901,6 @@
             }
         },
         "currencies": {
-            "UZS": "сўм",
             "AUD": "A$",
             "BRL": "R$",
             "CAD": "CA$",
@@ -895,6 +917,7 @@
             "THB": "฿",
             "TWD": "NT$",
             "USD": "US$",
+            "UZS": "soʻm",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",

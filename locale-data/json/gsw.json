@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -242,13 +242,23 @@
                     ]
                 },
                 "eras": {
+                    "narrow": [
+                        "v. Chr.",
+                        "n. Chr.",
+                        "vdZ",
+                        "dZ"
+                    ],
                     "short": [
                         "v. Chr.",
-                        "n. Chr."
+                        "n. Chr.",
+                        "v. d. Z.",
+                        "d. Z."
                     ],
                     "long": [
                         "v. Chr.",
-                        "n. Chr."
+                        "n. Chr.",
+                        "vor der gewöhnlichen Zeitrechnung",
+                        "der gewöhnlichen Zeitrechnung"
                     ]
                 },
                 "dayPeriods": {
@@ -883,7 +893,6 @@
         },
         "currencies": {
             "ATS": "öS",
-            "CHF": "CHF",
             "JPY": "¥",
             "USD": "$",
             "AUD": "A$",

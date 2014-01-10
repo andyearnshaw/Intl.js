@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -184,18 +184,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -207,19 +207,33 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "ك",
+                        "ش",
+                        "آ",
+                        "ن",
+                        "أ",
+                        "ح",
+                        "ت",
+                        "آ",
+                        "أ",
+                        "ت",
+                        "ت",
+                        "ك"
+                    ],
                     "short": [
-                        "يناير",
-                        "فبراير",
-                        "مارس",
-                        "أبريل",
-                        "مايو",
-                        "يونيو",
-                        "يوليو",
-                        "أغسطس",
-                        "سبتمبر",
-                        "أكتوبر",
-                        "نوفمبر",
-                        "ديسمبر"
+                        "كانون الثاني",
+                        "شباط",
+                        "آذار",
+                        "نيسان",
+                        "أيار",
+                        "حزيران",
+                        "تموز",
+                        "آب",
+                        "أيلول",
+                        "تشرين الأول",
+                        "تشرين الثاني",
+                        "كانون الأول"
                     ],
                     "long": [
                         "كانون الثاني",
@@ -662,7 +676,7 @@
                         "كوهو",
                         "آنا",
                         "تينروكو",
-                        "تن-ان",
+                        "تن-نن",
                         "جوجن",
                         "تنجن",
                         "إيكان",
@@ -899,11 +913,11 @@
         "patterns": {
             "decimal": {
                 "positivePattern": "{number}",
-                "negativePattern": "{number}-"
+                "negativePattern": "-{number}"
             },
             "currency": {
                 "positivePattern": "{currency} {number}",
-                "negativePattern": "{currency} {number}-"
+                "negativePattern": "-{currency} {number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -956,7 +970,8 @@
             "QAR": "ر.ق.‏",
             "SAR": "ر.س.‏",
             "SDD": "د.س.‏",
-            "SDP": "ج.س.‏",
+            "SDG": "ج.س.",
+            "SSP": "ج.ج.س.",
             "SYP": "ل.س.‏",
             "THB": "฿",
             "TND": "د.ت.‏",

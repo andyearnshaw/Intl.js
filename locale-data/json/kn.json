@@ -20,22 +20,22 @@
         "hour12": true,
         "formats": [
             {
-                "weekday": "short",
-                "month": "short",
                 "day": "numeric",
+                "month": "short",
                 "year": "numeric",
+                "weekday": "short",
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {month} {day}, {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {month} {day}, {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{day} {month}, {year} {weekday} {hour}:{minute}:{second}",
+                "pattern12": "{day} {month}, {year} {weekday} {hour}:{minute}:{second} {ampm}"
             },
             {
-                "weekday": "short",
-                "month": "short",
                 "day": "numeric",
+                "month": "short",
                 "year": "numeric",
-                "pattern": "{weekday}, {month} {day}, {year}"
+                "weekday": "short",
+                "pattern": "{day} {month}, {year} {weekday}"
             },
             {
                 "day": "numeric",
@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -207,25 +207,25 @@
                         "ಡಿ"
                     ],
                     "short": [
-                        "ಜನವರಿ",
-                        "ಫೆಬ್ರುವರಿ",
-                        "ಮಾರ್ಚ್",
-                        "ಏಪ್ರಿಲ್‌‌",
+                        "ಜನ.",
+                        "ಫೆಬ್ರು.",
+                        "ಮಾ",
+                        "ಏಪ್ರಿ.",
                         "ಮೇ",
-                        "ಜೂನ್",
-                        "ಜುಲೈ",
-                        "ಆಗಸ್ಟ್",
-                        "ಸೆಪ್ಟೆಂಬರ್‌",
-                        "ಅಕ್ಟೋಬರ್",
-                        "ನವೆಂಬರ್",
-                        "ಡಿಸೆಂಬರ್"
+                        "ಜೂ",
+                        "ಜು.",
+                        "ಆಗ.",
+                        "ಸೆಪ್ಟೆಂ.",
+                        "ಅಕ್ಟೋ.",
+                        "ನವೆಂ.",
+                        "ಡಿಸೆಂ."
                     ],
                     "long": [
-                        "ಜನವರೀ",
-                        "ಫೆಬ್ರವರೀ",
+                        "ಜನವರಿ",
+                        "ಫೆಬ್ರವರಿ",
                         "ಮಾರ್ಚ್",
-                        "ಎಪ್ರಿಲ್",
-                        "ಮೆ",
+                        "ಏಪ್ರಿಲ್",
+                        "ಮೇ",
                         "ಜೂನ್",
                         "ಜುಲೈ",
                         "ಆಗಸ್ಟ್",
@@ -237,7 +237,7 @@
                 },
                 "days": {
                     "narrow": [
-                        "ಭಾನು",
+                        "ರವಿ",
                         "ಸೋಮ",
                         "ಮಂಗಳ",
                         "ಬುಧ",
@@ -267,7 +267,8 @@
                 "eras": {
                     "short": [
                         "ಕ್ರಿ.ಪೂ",
-                        "ಜಾಹೀ"
+                        "ಜಾಹೀ",
+                        "ಸಾಮಾನ್ಯ ಯುಗ"
                     ],
                     "long": [
                         "ಈಸಪೂವ೯.",
@@ -888,7 +889,7 @@
             },
             "currency": {
                 "positivePattern": "{currency}{number}",
-                "negativePattern": "({currency}{number})"
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -922,10 +923,10 @@
             "TWD": "NT$",
             "USD": "US$",
             "VND": "₫",
-            "XAF": "FCFA",
             "XCD": "EC$",
             "XOF": "CFA",
-            "XPF": "CFPF"
+            "XPF": "CFPF",
+            "XAF": "FCFA"
         }
     }
 }

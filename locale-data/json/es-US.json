@@ -24,7 +24,7 @@
                 "month": "short",
                 "day": "numeric",
                 "year": "numeric",
-                "hour": "2-digit",
+                "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
                 "pattern": "{weekday}, {month} {day}, {year} {hour}:{minute}:{second}",
@@ -57,7 +57,7 @@
             {
                 "month": "short",
                 "year": "numeric",
-                "pattern": "{month} {year}"
+                "pattern": "{month} de {year}"
             },
             {
                 "month": "short",
@@ -70,14 +70,14 @@
                 "pattern": "{month}/{day}"
             },
             {
-                "hour": "2-digit",
+                "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
                 "pattern": "{hour}:{minute}:{second}",
                 "pattern12": "{hour}:{minute}:{second} {ampm}"
             },
             {
-                "hour": "2-digit",
+                "hour": "numeric",
                 "minute": "2-digit",
                 "pattern": "{hour}:{minute}",
                 "pattern12": "{hour}:{minute} {ampm}"
@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -188,27 +188,37 @@
                         "ERA0",
                         "ERA1"
                     ]
-                },
-                "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
                 }
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "E",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
+                    ],
                     "short": [
-                        "ene",
-                        "feb",
-                        "mar",
-                        "abr",
-                        "may",
-                        "jun",
-                        "jul",
-                        "ago",
-                        "sep",
-                        "oct",
-                        "nov",
-                        "dic"
+                        "ene.",
+                        "feb.",
+                        "mar.",
+                        "abr.",
+                        "may.",
+                        "jun.",
+                        "jul.",
+                        "ago.",
+                        "sept.",
+                        "oct.",
+                        "nov.",
+                        "dic."
                     ],
                     "long": [
                         "enero",
@@ -227,22 +237,22 @@
                 },
                 "days": {
                     "narrow": [
-                        "D",
-                        "L",
-                        "M",
-                        "X",
-                        "J",
-                        "V",
-                        "S"
+                        "DO",
+                        "LU",
+                        "MA",
+                        "MI",
+                        "JU",
+                        "VI",
+                        "SA"
                     ],
                     "short": [
-                        "dom",
-                        "lun",
-                        "mar",
-                        "mié",
-                        "jue",
-                        "vie",
-                        "sáb"
+                        "dom.",
+                        "lun.",
+                        "mar.",
+                        "mié.",
+                        "jue.",
+                        "vie.",
+                        "sáb."
                     ],
                     "long": [
                         "domingo",
@@ -256,8 +266,10 @@
                 },
                 "eras": {
                     "short": [
-                        "a.C.",
-                        "d.C."
+                        "a. C.",
+                        "d. C.",
+                        "a. e. c.",
+                        "e. c."
                     ],
                     "long": [
                         "antes de Cristo",
@@ -888,7 +900,7 @@
         "symbols": {
             "latn": {
                 "decimal": ",",
-                "group": ".",
+                "group": " ",
                 "nan": "NaN",
                 "percent": "%",
                 "infinity": "∞"
@@ -897,32 +909,14 @@
         "currencies": {
             "JPY": "¥",
             "USD": "$",
-            "AFN": "Af",
-            "ANG": "NAf.",
-            "AOA": "Kz",
             "ARS": "AR$",
             "AUD": "AU$",
-            "AWG": "Afl.",
-            "AZN": "man.",
-            "ESP": "₧",
-            "BRL": "R$",
             "CAD": "CA$",
-            "CNY": "CN¥",
-            "EUR": "€",
-            "GBP": "£",
-            "HKD": "HK$",
-            "ILS": "₪",
-            "INR": "₹",
-            "KRW": "₩",
+            "ESP": "₧",
             "MXN": "MX$",
-            "NZD": "NZ$",
-            "THB": "฿",
-            "TWD": "NT$",
-            "VND": "₫",
-            "XAF": "FCFA",
             "XCD": "EC$",
-            "XOF": "CFA",
-            "XPF": "CFPF"
+            "EUR": "€",
+            "XAF": "FCFA"
         }
     }
 }

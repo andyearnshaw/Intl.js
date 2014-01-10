@@ -20,44 +20,44 @@
         "hour12": false,
         "formats": [
             {
-                "weekday": "short",
+                "year": "numeric",
                 "month": "short",
                 "day": "numeric",
-                "year": "numeric",
+                "weekday": "short",
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {month} {day}, {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {month} {day}, {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{year}(e)ko {month} {day}, {weekday} {hour}:{minute}:{second}",
+                "pattern12": "{year}(e)ko {month} {day}, {weekday} {hour}:{minute}:{second} {ampm}"
             },
             {
+                "year": "numeric",
+                "month": "short",
+                "day": "numeric",
                 "weekday": "short",
-                "month": "short",
-                "day": "numeric",
-                "year": "numeric",
-                "pattern": "{weekday}, {month} {day}, {year}"
+                "pattern": "{year}(e)ko {month} {day}, {weekday}"
             },
             {
+                "year": "numeric",
                 "month": "short",
                 "day": "numeric",
-                "year": "numeric",
-                "pattern": "{month} {day}, {year}"
+                "pattern": "{year}(e)ko {month} {day}"
             },
             {
                 "year": "numeric",
                 "month": "numeric",
                 "day": "numeric",
-                "pattern": "{year}-{month}-{day}"
+                "pattern": "{year}/{month}/{day}"
             },
             {
                 "year": "numeric",
                 "month": "numeric",
-                "pattern": "{year}-{month}"
+                "pattern": "{year}/{month}"
             },
             {
-                "month": "short",
                 "year": "numeric",
-                "pattern": "{month} {year}"
+                "month": "short",
+                "pattern": "{year}(e)ko {month}"
             },
             {
                 "month": "short",
@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -192,33 +192,47 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "U",
+                        "O",
+                        "M",
+                        "A",
+                        "M",
+                        "E",
+                        "U",
+                        "A",
+                        "I",
+                        "U",
+                        "A",
+                        "A"
+                    ],
                     "short": [
-                        "urt",
-                        "ots",
-                        "mar",
-                        "api",
-                        "mai",
-                        "eka",
-                        "uzt",
-                        "abu",
-                        "ira",
-                        "urr",
-                        "aza",
-                        "abe"
+                        "urt.",
+                        "ots.",
+                        "mar.",
+                        "api.",
+                        "mai.",
+                        "eka.",
+                        "uzt.",
+                        "abu.",
+                        "ira.",
+                        "urr.",
+                        "aza.",
+                        "abe."
                     ],
                     "long": [
-                        "urtarrila",
-                        "otsaila",
-                        "martxoa",
-                        "apirila",
-                        "maiatza",
-                        "ekaina",
-                        "uztaila",
-                        "abuztua",
-                        "iraila",
-                        "urria",
-                        "azaroa",
-                        "abendua"
+                        "urtarrilak",
+                        "otsailak",
+                        "martxoak",
+                        "apirilak",
+                        "maiatzak",
+                        "ekainak",
+                        "uztailak",
+                        "abuztuak",
+                        "irailak",
+                        "urriak",
+                        "azaroak",
+                        "abenduak"
                     ]
                 },
                 "days": {
@@ -232,13 +246,13 @@
                         "lr."
                     ],
                     "short": [
-                        "ig",
-                        "al",
-                        "as",
-                        "az",
-                        "og",
-                        "or",
-                        "lr"
+                        "ig.",
+                        "al.",
+                        "ar.",
+                        "az.",
+                        "og.",
+                        "or.",
+                        "lr."
                     ],
                     "long": [
                         "igandea",
@@ -870,7 +884,7 @@
             },
             "currency": {
                 "positivePattern": "{number} {currency}",
-                "negativePattern": "({number} {currency})"
+                "negativePattern": "-{number} {currency}"
             },
             "percent": {
                 "positivePattern": "% {number}",
@@ -887,12 +901,11 @@
             }
         },
         "currencies": {
-            "ESP": "₧",
-            "XOF": "CFA",
             "AUD": "A$",
             "BRL": "R$",
             "CAD": "CA$",
             "CNY": "CN¥",
+            "ESP": "₧",
             "EUR": "€",
             "GBP": "£",
             "HKD": "HK$",
@@ -908,6 +921,7 @@
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",
+            "XOF": "CFA",
             "XPF": "CFPF"
         }
     }

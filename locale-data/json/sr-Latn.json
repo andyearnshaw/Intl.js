@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -909,32 +909,32 @@
             }
         },
         "currencies": {
-            "BAM": "KM",
-            "CZK": "Kč",
-            "JPY": "¥",
-            "PLN": "zl",
-            "RSD": "din.",
-            "TRY": "Tl",
             "AUD": "A$",
-            "BRL": "R$",
-            "CAD": "CA$",
+            "BAM": "KM",
             "CNY": "CN¥",
+            "CZK": "Kč",
             "EUR": "€",
             "GBP": "£",
             "HKD": "HK$",
             "ILS": "₪",
             "INR": "₹",
+            "JPY": "¥",
             "KRW": "₩",
-            "MXN": "MX$",
-            "NZD": "NZ$",
+            "PLN": "zl",
+            "RSD": "din.",
             "THB": "฿",
+            "TRY": "Tl",
             "TWD": "NT$",
-            "USD": "US$",
             "VND": "₫",
             "XAF": "FCFA",
-            "XCD": "EC$",
             "XOF": "CFA",
-            "XPF": "CFPF"
+            "XPF": "CFPF",
+            "BRL": "R$",
+            "CAD": "CA$",
+            "MXN": "MX$",
+            "NZD": "NZ$",
+            "USD": "US$",
+            "XCD": "EC$"
         }
     }
 }

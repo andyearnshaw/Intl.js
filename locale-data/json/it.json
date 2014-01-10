@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -265,13 +265,23 @@
                     ]
                 },
                 "eras": {
+                    "narrow": [
+                        "aC",
+                        "dC",
+                        "BCE",
+                        "CE"
+                    ],
                     "short": [
                         "aC",
-                        "dC"
+                        "dC",
+                        "BCE",
+                        "CE"
                     ],
                     "long": [
                         "a.C.",
-                        "d.C"
+                        "d.C.",
+                        "BCE",
+                        "CE"
                     ]
                 },
                 "dayPeriods": {
@@ -887,8 +897,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{number} {currency}",
+                "negativePattern": "-{number} {currency}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -905,32 +915,27 @@
             }
         },
         "currencies": {
-            "BGN": "Lv",
+            "AUD": "A$",
             "BRL": "R$",
             "CAD": "CA$",
-            "ISK": "Kr",
-            "MXN": "MX$",
-            "PGK": "K",
-            "RON": "L",
-            "TMT": "m",
-            "USD": "US$",
-            "XCD": "EC$",
-            "AUD": "A$",
             "CNY": "CN¥",
-            "EUR": "€",
             "GBP": "£",
             "HKD": "HK$",
             "ILS": "₪",
             "INR": "₹",
             "JPY": "JP¥",
             "KRW": "₩",
+            "MXN": "MX$",
             "NZD": "NZ$",
             "THB": "฿",
             "TWD": "NT$",
+            "USD": "US$",
             "VND": "₫",
             "XAF": "FCFA",
+            "XCD": "EC$",
             "XOF": "CFA",
-            "XPF": "CFPF"
+            "XPF": "CFPF",
+            "EUR": "€"
         }
     }
 }

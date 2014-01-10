@@ -27,8 +27,8 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{year} {month} {day}, {weekday} {hour}:{minute}:{second}",
-                "pattern12": "{year} {month} {day}, {weekday} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{year} {month} {day}, {weekday}, {hour}:{minute}:{second}",
+                "pattern12": "{year} {month} {day}, {weekday}, {hour}:{minute}:{second} {ampm}"
             },
             {
                 "year": "numeric",
@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -207,18 +207,18 @@
                         "१२"
                     ],
                     "short": [
-                        "जन",
-                        "फेब",
+                        "जनवरी",
+                        "फेब्रुअरी",
                         "मार्च",
-                        "अप्रि",
+                        "अप्रिल",
                         "मे",
                         "जुन",
-                        "जुला",
-                        "अग",
-                        "सेप्ट",
-                        "अक्टो",
-                        "नोभे",
-                        "डिसे"
+                        "जुलाई",
+                        "अगस्ट",
+                        "सेप्टेम्बर",
+                        "अक्टोबर",
+                        "नोभेम्बर",
+                        "डिसेम्बर"
                     ],
                     "long": [
                         "जनवरी",
@@ -883,8 +883,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{currency}{number}",
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -892,6 +892,13 @@
             }
         },
         "symbols": {
+            "deva": {
+                "decimal": ".",
+                "group": ",",
+                "nan": "NaN",
+                "percent": "%",
+                "infinity": "∞"
+            },
             "latn": {
                 "decimal": ".",
                 "group": ",",
@@ -901,7 +908,6 @@
             }
         },
         "currencies": {
-            "NPR": "नेरू",
             "AUD": "A$",
             "BRL": "R$",
             "CAD": "CA$",
@@ -914,6 +920,7 @@
             "JPY": "JP¥",
             "KRW": "₩",
             "MXN": "MX$",
+            "NPR": "नेरू",
             "NZD": "NZ$",
             "THB": "฿",
             "TWD": "NT$",

@@ -17,7 +17,7 @@
             "roc"
         ],
         "hourNo0": true,
-        "hour12": false,
+        "hour12": true,
         "formats": [
             {
                 "year": "numeric",
@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -237,20 +237,20 @@
                 },
                 "days": {
                     "narrow": [
-                        "ඉ",
-                        "ස",
-                        "අ",
-                        "බ",
-                        "බ්‍ර",
-                        "සි",
-                        "සෙ"
-                    ],
-                    "short": [
                         "ඉරි",
                         "සඳු",
                         "අඟ",
                         "බදා",
                         "බ්‍රහ",
+                        "සිකු",
+                        "සෙන"
+                    ],
+                    "short": [
+                        "ඉරිදා",
+                        "සඳුදා",
+                        "අඟහ",
+                        "බදාදා",
+                        "බ්‍රහස්",
                         "සිකු",
                         "සෙන"
                     ],
@@ -267,7 +267,9 @@
                 "eras": {
                     "short": [
                         "ක්‍රි.පූ.",
-                        "ක්‍රි.ව."
+                        "ක්‍රි.ව.",
+                        "පො.යු.පෙ",
+                        "පො.යු"
                     ],
                     "long": [
                         "ක්‍රිස්තු පූර්‍ව",
@@ -887,8 +889,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{currency}{number}",
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -905,11 +907,10 @@
             }
         },
         "currencies": {
-            "BMD": "බ.ඩො.",
-            "CAD": "කැ.ඩො.",
             "LKR": "රු.",
             "AUD": "A$",
             "BRL": "R$",
+            "CAD": "CA$",
             "CNY": "CN¥",
             "EUR": "€",
             "GBP": "£",

@@ -17,7 +17,7 @@
             "roc"
         ],
         "hourNo0": true,
-        "hour12": false,
+        "hour12": true,
         "formats": [
             {
                 "weekday": "short",
@@ -27,8 +27,8 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {month} {day}, {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {month} {day}, {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {month} {day}, {year}, {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {month} {day}, {year}, {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "short",
@@ -67,7 +67,7 @@
             {
                 "month": "numeric",
                 "day": "numeric",
-                "pattern": "{month}-{day}"
+                "pattern": "{month}/{day}"
             },
             {
                 "hour": "numeric",
@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -192,6 +192,20 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "E",
+                        "P",
+                        "M",
+                        "A",
+                        "M",
+                        "H",
+                        "H",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
+                    ],
                     "short": [
                         "Ene",
                         "Peb",
@@ -229,15 +243,15 @@
                         "Mi",
                         "Hu",
                         "Bi",
-                        "Sab"
+                        "Sa"
                     ],
                     "short": [
                         "Lin",
                         "Lun",
                         "Mar",
-                        "Mye",
+                        "Miy",
                         "Huw",
-                        "Bye",
+                        "Biy",
                         "Sab"
                     ],
                     "long": [
@@ -253,7 +267,9 @@
                 "eras": {
                     "short": [
                         "BC",
-                        "AD"
+                        "AD",
+                        "BCE",
+                        "CE"
                     ]
                 },
                 "dayPeriods": {
@@ -870,7 +886,7 @@
             },
             "currency": {
                 "positivePattern": "{currency}{number}",
-                "negativePattern": "({currency}{number})"
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -887,7 +903,6 @@
             }
         },
         "currencies": {
-            "PHP": "₱",
             "AUD": "A$",
             "BRL": "R$",
             "CAD": "CA$",
@@ -897,13 +912,14 @@
             "HKD": "HK$",
             "ILS": "₪",
             "INR": "₹",
-            "JPY": "JP¥",
+            "JPY": "¥",
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
+            "PHP": "₱",
             "THB": "฿",
             "TWD": "NT$",
-            "USD": "US$",
+            "USD": "$",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",

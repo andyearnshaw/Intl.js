@@ -27,8 +27,8 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {day} {month} {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {day} {month} {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day} {month} {year}, {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day} {month} {year}, {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "short",
@@ -52,7 +52,7 @@
             {
                 "month": "numeric",
                 "year": "numeric",
-                "pattern": "{month}-{year}"
+                "pattern": "{month}/{year}"
             },
             {
                 "month": "short",
@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -192,19 +192,47 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "ज",
+                        "फ़",
+                        "मा",
+                        "अ",
+                        "म",
+                        "जू",
+                        "जु",
+                        "अ",
+                        "सि",
+                        "अ",
+                        "न",
+                        "दि"
+                    ],
+                    "short": [
+                        "जन",
+                        "फ़र",
+                        "मार्च",
+                        "अप्रै",
+                        "मई",
+                        "जून",
+                        "जुला",
+                        "अग",
+                        "सितं",
+                        "अक्टू",
+                        "नवं",
+                        "दिसं"
+                    ],
                     "long": [
                         "जनवरी",
-                        "फरवरी",
+                        "फ़रवरी",
                         "मार्च",
                         "अप्रैल",
                         "मई",
                         "जून",
                         "जुलाई",
                         "अगस्त",
-                        "सितम्बर",
-                        "अक्तूबर",
-                        "नवम्बर",
-                        "दिसम्बर"
+                        "सितंबर",
+                        "अक्टूबर",
+                        "नवंबर",
+                        "दिसंबर"
                     ]
                 },
                 "days": {
@@ -218,28 +246,28 @@
                         "श"
                     ],
                     "short": [
-                        "रवि.",
-                        "सोम.",
-                        "मंगल.",
-                        "बुध.",
-                        "बृह.",
-                        "शुक्र.",
-                        "शनि."
+                        "रवि",
+                        "सोम",
+                        "मंगल",
+                        "बुध",
+                        "गुरु",
+                        "शुक्र",
+                        "शनि"
                     ],
                     "long": [
                         "रविवार",
                         "सोमवार",
                         "मंगलवार",
                         "बुधवार",
-                        "बृहस्पतिवार",
+                        "गुरुवार",
                         "शुक्रवार",
                         "शनिवार"
                     ]
                 },
                 "eras": {
                     "short": [
-                        "ईसापूर्व",
-                        "सन"
+                        "ईसा-पूर्व",
+                        "ईस्वी"
                     ]
                 },
                 "dayPeriods": {
@@ -274,6 +302,34 @@
             },
             "indian": {
                 "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "short": [
+                        "चैत्र",
+                        "वैशाख",
+                        "ज्येष्ठ",
+                        "आषाढ़",
+                        "श्रावण",
+                        "भाद्र",
+                        "अश्विन",
+                        "कार्तिक",
+                        "अग्रहायण",
+                        "पौष",
+                        "माघ",
+                        "फाल्गुन"
+                    ],
                     "long": [
                         "चैत्र",
                         "वैशाख",
@@ -291,7 +347,7 @@
                 },
                 "eras": {
                     "short": [
-                        "SAKA"
+                        "शक"
                     ]
                 }
             },
@@ -855,8 +911,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{currency}{number}",
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -888,7 +944,7 @@
             "NZD": "NZ$",
             "THB": "฿",
             "TWD": "NT$",
-            "USD": "US$",
+            "USD": "$",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",

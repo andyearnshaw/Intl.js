@@ -38,13 +38,13 @@
                 "pattern": "{weekday}, {day} {month} {year}"
             },
             {
-                "day": "2-digit",
+                "day": "numeric",
                 "month": "short",
                 "year": "numeric",
                 "pattern": "{day} {month} {year}"
             },
             {
-                "day": "2-digit",
+                "day": "numeric",
                 "month": "2-digit",
                 "year": "numeric",
                 "pattern": "{day}.{month}.{year}"
@@ -66,7 +66,7 @@
             },
             {
                 "day": "numeric",
-                "month": "numeric",
+                "month": "2-digit",
                 "pattern": "{day}.{month}"
             },
             {
@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -192,6 +192,20 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "я",
+                        "ф",
+                        "м",
+                        "а",
+                        "м",
+                        "ю",
+                        "ю",
+                        "а",
+                        "с",
+                        "о",
+                        "н",
+                        "д"
+                    ],
                     "short": [
                         "ян.",
                         "февр.",
@@ -255,8 +269,10 @@
                         "сл.н.е."
                     ],
                     "short": [
-                        "пр. н. е.",
-                        "от н. е."
+                        "пр.Хр.",
+                        "сл.Хр.",
+                        "пр.н.е.",
+                        "от н.е."
                     ],
                     "long": [
                         "пр.Хр.",
@@ -264,8 +280,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "пр. об.",
-                    "pm": "сл. об."
+                    "am": "пр.об.",
+                    "pm": "сл.об."
                 }
             },
             "hebrew": {
@@ -895,26 +911,10 @@
         },
         "currencies": {
             "BGN": "лв.",
-            "RUB": "Руб.",
-            "AUD": "A$",
-            "BRL": "R$",
-            "CAD": "CA$",
-            "CNY": "CN¥",
             "EUR": "€",
-            "GBP": "£",
-            "HKD": "HK$",
-            "ILS": "₪",
-            "INR": "₹",
-            "JPY": "JP¥",
-            "KRW": "₩",
-            "MXN": "MX$",
-            "NZD": "NZ$",
-            "THB": "฿",
-            "TWD": "NT$",
-            "USD": "US$",
-            "VND": "₫",
+            "RUB": "руб.",
+            "USD": "щ.д.",
             "XAF": "FCFA",
-            "XCD": "EC$",
             "XOF": "CFA",
             "XPF": "CFPF"
         }

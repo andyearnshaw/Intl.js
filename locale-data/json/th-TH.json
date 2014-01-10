@@ -6,6 +6,7 @@
             "buddhist",
             "chinese",
             "coptic",
+            "dangi",
             "ethioaa",
             "ethiopic",
             "generic",
@@ -27,8 +28,8 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday} {day} {month} {year}, {hour}:{minute}:{second}",
-                "pattern12": "{weekday} {day} {month} {year}, {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday} {day} {month} {year} {hour}:{minute}:{second}",
+                "pattern12": "{weekday} {day} {month} {year} {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "short",
@@ -195,6 +196,52 @@
                     ]
                 }
             },
+            "dangi": {
+                "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "short": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "long": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ]
+                }
+            },
             "ethiopic": {
                 "months": {
                     "narrow": [
@@ -260,18 +307,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -283,20 +330,6 @@
             },
             "gregory": {
                 "months": {
-                    "narrow": [
-                        "ม.ค.",
-                        "ก.พ.",
-                        "มี.ค.",
-                        "เม.ย.",
-                        "พ.ค.",
-                        "มิ.ย",
-                        "ก.ค.",
-                        "ส.ค.",
-                        "ก.ย.",
-                        "ต.ค.",
-                        "พ.ย.",
-                        "ธ.ค."
-                    ],
                     "short": [
                         "ม.ค.",
                         "ก.พ.",
@@ -358,15 +391,21 @@
                 "eras": {
                     "narrow": [
                         "ก่อน ค.ศ.",
-                        "ค.ศ."
+                        "ค.ศ.",
+                        "ก.ส.ศ.",
+                        "ส.ศ."
                     ],
                     "short": [
                         "ปีก่อน ค.ศ.",
-                        "ค.ศ."
+                        "ค.ศ.",
+                        "ก.ส.ศ.",
+                        "ส.ศ."
                     ],
                     "long": [
                         "ปีก่อนคริสต์ศักราช",
-                        "คริสต์ศักราช"
+                        "คริสต์ศักราช",
+                        "ก่อนสามัญศักราช",
+                        "สามัญศักราช"
                     ]
                 },
                 "dayPeriods": {
@@ -1072,7 +1111,7 @@
             },
             "currency": {
                 "positivePattern": "{currency}{number}",
-                "negativePattern": "({currency}{number})"
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",

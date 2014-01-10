@@ -21,53 +21,53 @@
         "formats": [
             {
                 "weekday": "short",
-                "year": "numeric",
-                "month": "short",
                 "day": "numeric",
+                "month": "short",
+                "year": "numeric",
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {year} {month} {day}, {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {year} {month} {day}, {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day} {month} {year}, {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day} {month} {year}, {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "short",
-                "year": "numeric",
-                "month": "short",
                 "day": "numeric",
-                "pattern": "{weekday}, {year} {month} {day}"
+                "month": "short",
+                "year": "numeric",
+                "pattern": "{weekday}, {day} {month} {year}"
             },
             {
-                "year": "numeric",
-                "month": "short",
                 "day": "numeric",
-                "pattern": "{year} {month} {day}"
+                "month": "short",
+                "year": "numeric",
+                "pattern": "{day} {month} {year}"
             },
             {
-                "year": "numeric",
+                "day": "numeric",
                 "month": "numeric",
-                "day": "numeric",
-                "pattern": "{year}-{month}-{day}"
-            },
-            {
                 "year": "numeric",
-                "month": "numeric",
-                "pattern": "{year}-{month}"
-            },
-            {
-                "year": "numeric",
-                "month": "short",
-                "pattern": "{year} {month}"
-            },
-            {
-                "month": "short",
-                "day": "numeric",
-                "pattern": "{month} {day}"
+                "pattern": "{day}/{month}/{year}"
             },
             {
                 "month": "numeric",
+                "year": "numeric",
+                "pattern": "{month}/{year}"
+            },
+            {
+                "month": "short",
+                "year": "numeric",
+                "pattern": "{month} {year}"
+            },
+            {
                 "day": "numeric",
-                "pattern": "{month}-{day}"
+                "month": "short",
+                "pattern": "{day} {month}"
+            },
+            {
+                "day": "numeric",
+                "month": "numeric",
+                "pattern": "{day}/{month}"
             },
             {
                 "hour": "numeric",
@@ -257,18 +257,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -325,22 +325,22 @@
                 },
                 "days": {
                     "narrow": [
-                        "ອທ.",
-                        "ຈ.",
-                        "ອ.",
-                        "ພ.",
-                        "ພຫ.",
-                        "ສກ.",
-                        "ສ."
+                        "ວັນອາທິດ",
+                        "ວັນຈັນ",
+                        "ວັນອັງຄານ",
+                        "ວັນພຸດ",
+                        "ວັນພະຫັດ",
+                        "ວັນສຸກ",
+                        "ວັນເສົາ"
                     ],
                     "short": [
-                        "ອາ.",
-                        "ຈ.",
-                        "ອ.",
-                        "ພ.",
-                        "ພຫ.",
-                        "ສກ.",
-                        "ສ."
+                        "ວັນອາທິດ",
+                        "ວັນຈັນ",
+                        "ວັນອັງຄານ",
+                        "ວັນພຸດ",
+                        "ວັນພະຫັດ",
+                        "ວັນສຸກ",
+                        "ວັນເສົາ"
                     ],
                     "long": [
                         "ວັນອາທິດ",
@@ -354,7 +354,7 @@
                 },
                 "eras": {
                     "short": [
-                        "ບີຊີ",
+                        "ກ່ອນ ຄ.ສ.",
                         "ຄ.ສ."
                     ]
                 },
@@ -1069,17 +1069,15 @@
             "latn": {
                 "decimal": ",",
                 "group": ".",
-                "nan": "NaN",
+                "nan": "ບໍ່ແມ່ນໂຕເລກ",
                 "percent": "%",
                 "infinity": "∞"
             }
         },
         "currencies": {
-            "CAD": "CA$",
-            "LAK": "₭",
-            "USD": "US$",
             "AUD": "A$",
             "BRL": "R$",
+            "CAD": "CA$",
             "CNY": "CN¥",
             "EUR": "€",
             "GBP": "£",
@@ -1088,10 +1086,12 @@
             "INR": "₹",
             "JPY": "JP¥",
             "KRW": "₩",
+            "LAK": "₭",
             "MXN": "MX$",
             "NZD": "NZ$",
             "THB": "฿",
             "TWD": "NT$",
+            "USD": "US$",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",

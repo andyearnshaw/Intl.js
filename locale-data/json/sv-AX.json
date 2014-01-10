@@ -6,6 +6,7 @@
             "buddhist",
             "chinese",
             "coptic",
+            "dangi",
             "ethioaa",
             "ethiopic",
             "generic",
@@ -94,18 +95,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -149,6 +150,7 @@
                     ]
                 }
             },
+            "dangi": {},
             "ethiopic": {
                 "months": {
                     "short": [
@@ -199,18 +201,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -297,15 +299,21 @@
                 "eras": {
                     "narrow": [
                         "f.Kr.",
-                        "e.Kr."
+                        "e.Kr.",
+                        "fvt",
+                        "vt"
                     ],
                     "short": [
                         "f.Kr.",
-                        "e.Kr."
+                        "e.Kr.",
+                        "f.v.t.",
+                        "v.t."
                     ],
                     "long": [
                         "före Kristus",
-                        "efter Kristus"
+                        "efter Kristus",
+                        "före västerländsk tideräkning",
+                        "västerländsk tideräkning"
                     ]
                 },
                 "dayPeriods": {
@@ -1012,13 +1020,14 @@
             "NOK": "NKr",
             "NZD": "NZ$",
             "SEK": "kr",
+            "SYP": "SY£",
             "THB": "TH฿",
             "TWD": "TW$",
             "USD": "US$",
             "VND": "VN₫",
+            "XCD": "EC$",
             "KRW": "₩",
             "XAF": "FCFA",
-            "XCD": "EC$",
             "XOF": "CFA",
             "XPF": "CFPF"
         }

@@ -6,6 +6,7 @@
             "buddhist",
             "chinese",
             "coptic",
+            "dangi",
             "ethioaa",
             "ethiopic",
             "generic",
@@ -99,6 +100,20 @@
             },
             "chinese": {
                 "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
                     "short": [
                         "1yuè",
                         "2yuè",
@@ -131,6 +146,21 @@
             },
             "coptic": {
                 "months": {
+                    "narrow": [
+                        "T",
+                        "B",
+                        "H",
+                        "K",
+                        "T",
+                        "A",
+                        "B",
+                        "B",
+                        "B",
+                        "B",
+                        "A",
+                        "M",
+                        "N"
+                    ],
                     "short": [
                         "tout",
                         "bâb.",
@@ -170,6 +200,52 @@
                     "long": [
                         "avant Dioclétien",
                         "après Dioclétien"
+                    ]
+                }
+            },
+            "dangi": {
+                "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "short": [
+                        "1yuè",
+                        "2yuè",
+                        "3yuè",
+                        "4yuè",
+                        "5yuè",
+                        "6yuè",
+                        "7yuè",
+                        "8yuè",
+                        "9yuè",
+                        "10yuè",
+                        "11yuè",
+                        "12yuè"
+                    ],
+                    "long": [
+                        "zhēngyuè",
+                        "èryuè",
+                        "sānyuè",
+                        "sìyuè",
+                        "wǔyuè",
+                        "liùyuè",
+                        "qīyuè",
+                        "bāyuè",
+                        "jiǔyuè",
+                        "shíyuè",
+                        "shíyīyuè",
+                        "shí’èryuè"
                     ]
                 }
             },
@@ -227,18 +303,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -323,9 +399,15 @@
                     ]
                 },
                 "eras": {
-                    "short": [
+                    "narrow": [
                         "av. J.-C.",
                         "ap. J.-C."
+                    ],
+                    "short": [
+                        "av. J.-C.",
+                        "ap. J.-C.",
+                        "AEC",
+                        "EC"
                     ],
                     "long": [
                         "avant Jésus-Christ",
@@ -339,6 +421,22 @@
             },
             "hebrew": {
                 "months": {
+                    "narrow": [
+                        "T",
+                        "H",
+                        "K",
+                        "T",
+                        "S",
+                        "A",
+                        "A",
+                        "N",
+                        "I",
+                        "S",
+                        "T",
+                        "A",
+                        "E",
+                        "A"
+                    ],
                     "short": [
                         "tis.",
                         "hes.",
@@ -374,7 +472,7 @@
                 },
                 "eras": {
                     "short": [
-                        "A.M."
+                        "AM"
                     ],
                     "long": [
                         "Anno Mundi"
@@ -383,6 +481,20 @@
             },
             "indian": {
                 "months": {
+                    "narrow": [
+                        "C",
+                        "V",
+                        "J",
+                        "Ā",
+                        "S",
+                        "B",
+                        "Ā",
+                        "K",
+                        "M",
+                        "P",
+                        "M",
+                        "P"
+                    ],
                     "short": [
                         "chai.",
                         "vai.",
@@ -437,16 +549,16 @@
                     "short": [
                         "mouh.",
                         "saf.",
-                        "rab.aw.",
-                        "rab.th.",
-                        "joum.oul.",
-                        "joum.tha.",
+                        "rab. aw.",
+                        "rab. th.",
+                        "joum. oul.",
+                        "joum. tha.",
                         "raj.",
                         "chaa.",
                         "ram.",
                         "chaw.",
-                        "dhou.q.",
-                        "dhou.h."
+                        "dhou. q.",
+                        "dhou. h."
                     ],
                     "long": [
                         "mouharram",
@@ -993,7 +1105,7 @@
             },
             "currency": {
                 "positivePattern": "{number} {currency}",
-                "negativePattern": "({number} {currency})"
+                "negativePattern": "-{number} {currency}"
             },
             "percent": {
                 "positivePattern": "{number} %",
@@ -1010,35 +1122,26 @@
             }
         },
         "currencies": {
-            "AFN": "AFN",
-            "BAM": "BAM",
-            "BDT": "BDT",
             "CAD": "$",
             "CNY": "CN¥",
-            "DJF": "DJF",
-            "IDR": "IDR",
-            "MMK": "MMK",
-            "MNT": "MNT",
-            "MVR": "MVR",
-            "MYR": "MYR",
-            "PGK": "PGK",
-            "TOP": "TOP",
-            "VUV": "VUV",
-            "WST": "WST",
-            "XOF": "F CFA",
-            "ADP": "₧A",
-            "ANG": "f.NA",
+            "ARS": "$AR",
             "AUD": "$AU",
             "BEF": "FB",
+            "BMD": "$BM",
             "BND": "$BN",
-            "BRL": "R$",
+            "BSD": "$BS",
+            "BZD": "$BZ",
+            "CLP": "$CL",
+            "COP": "$CO",
+            "CVE": "$CV",
             "CYP": "£CY",
-            "EEK": "krE",
-            "ESP": "₧",
+            "EGP": "£EG",
             "EUR": "€",
             "FJD": "$FJ",
+            "FKP": "£FK",
             "FRF": "F",
-            "GBP": "£UK",
+            "GBP": "£GB",
+            "GIP": "£GI",
             "HKD": "$HK",
             "IEP": "£IE",
             "ILP": "£IL",
@@ -1047,24 +1150,30 @@
             "ITL": "₤IT",
             "JPY": "¥JP",
             "KRW": "₩",
-            "LKR": "RsSL",
-            "LSL": "LLs",
+            "LBP": "£LB",
+            "LRD": "$LR",
             "MTP": "£MT",
-            "MXN": "$MEX",
-            "NPR": "RsNP",
+            "MXN": "$MX",
+            "NAD": "$NA",
             "NZD": "$NZ",
-            "PKR": "RsPK",
             "RHD": "$RH",
             "SBD": "$SB",
+            "SDG": "£SD",
             "SGD": "$SG",
+            "SHP": "£SH",
+            "SRD": "$SR",
+            "SSP": "£SS",
             "THB": "฿",
-            "TWD": "NT$",
+            "TTD": "$TT",
+            "TWD": "$TW",
             "USD": "$US",
+            "UYU": "$UY",
             "VND": "₫",
             "XAF": "FCFA",
-            "XCD": "$EC",
+            "XOF": "CFA",
             "XPF": "FCFP",
-            "ZWD": "$Z"
+            "BRL": "R$",
+            "XCD": "EC$"
         }
     }
 }

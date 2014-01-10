@@ -20,22 +20,22 @@
         "hour12": false,
         "formats": [
             {
-                "weekday": "short",
+                "year": "numeric",
                 "month": "short",
                 "day": "numeric",
-                "year": "numeric",
+                "weekday": "short",
                 "hour": "2-digit",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {month} {day}, {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {month} {day}, {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{year} {month} {day}, {weekday} {hour}:{minute}:{second}",
+                "pattern12": "{year} {month} {day}, {weekday} {hour}:{minute}:{second} {ampm}"
             },
             {
-                "weekday": "short",
+                "year": "numeric",
                 "month": "short",
                 "day": "numeric",
-                "year": "numeric",
-                "pattern": "{weekday}, {month} {day}, {year}"
+                "weekday": "short",
+                "pattern": "{year} {month} {day}, {weekday}"
             },
             {
                 "year": "numeric",
@@ -45,8 +45,8 @@
             },
             {
                 "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
+                "month": "2-digit",
+                "day": "2-digit",
                 "pattern": "{year}-{month}-{day}"
             },
             {
@@ -55,9 +55,9 @@
                 "pattern": "{year}-{month}"
             },
             {
-                "month": "short",
                 "year": "numeric",
-                "pattern": "{month}, {year}"
+                "month": "short",
+                "pattern": "{year} {month}"
             },
             {
                 "month": "short",
@@ -212,18 +212,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -310,15 +310,21 @@
                 "eras": {
                     "narrow": [
                         "pr. Kr.",
-                        "po Kr."
+                        "po Kr.",
+                        "prme",
+                        "pome"
                     ],
                     "short": [
                         "pr. Kr.",
-                        "po Kr."
+                        "po Kr.",
+                        "pr. m. e.",
+                        "po m. e."
                     ],
                     "long": [
                         "prieš Kristų",
-                        "po Kristaus"
+                        "po Kristaus",
+                        "prieš mūsų erą",
+                        "po mūsų erą"
                     ]
                 },
                 "dayPeriods": {
@@ -952,28 +958,8 @@
             }
         },
         "currencies": {
-            "AUD": "AU$",
-            "BRL": "R$",
-            "CAD": "CA$",
-            "CNY": "CN¥",
-            "EUR": "€",
-            "GBP": "£",
-            "HKD": "HK$",
-            "ILS": "₪",
-            "INR": "₹",
-            "JPY": "JP¥",
-            "KRW": "₩",
             "LTL": "Lt",
-            "MXN": "MX$",
-            "NZD": "NZ$",
-            "THB": "฿",
-            "TWD": "NT$",
-            "USD": "$",
-            "XCD": "EC$",
-            "VND": "₫",
-            "XAF": "FCFA",
-            "XOF": "CFA",
-            "XPF": "CFPF"
+            "EUR": "€"
         }
     }
 }

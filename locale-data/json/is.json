@@ -27,27 +27,27 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday} {day}. {month} {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday} {day}. {month} {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day}. {month} {year}, {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day}. {month} {year}, {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "short",
                 "day": "numeric",
                 "month": "short",
                 "year": "numeric",
-                "pattern": "{weekday} {day}. {month} {year}"
+                "pattern": "{weekday}, {day}. {month} {year}"
             },
             {
                 "day": "numeric",
                 "month": "short",
                 "year": "numeric",
-                "pattern": "{day} {month}, {year}"
+                "pattern": "{day}. {month} {year}"
             },
             {
                 "day": "numeric",
                 "month": "numeric",
                 "year": "numeric",
-                "pattern": "{day}/{month}/{year}"
+                "pattern": "{day}.{month}.{year}"
             },
             {
                 "month": "numeric",
@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -201,24 +201,24 @@
                         "J",
                         "J",
                         "Á",
-                        "L",
+                        "S",
                         "O",
                         "N",
                         "D"
                     ],
                     "short": [
-                        "jan",
-                        "feb",
-                        "mar",
-                        "apr",
+                        "jan.",
+                        "feb.",
+                        "mar.",
+                        "apr.",
                         "maí",
-                        "jún",
-                        "júl",
-                        "ágú",
-                        "sep",
-                        "okt",
-                        "nóv",
-                        "des"
+                        "jún.",
+                        "júl.",
+                        "ágú.",
+                        "sep.",
+                        "okt.",
+                        "nóv.",
+                        "des."
                     ],
                     "long": [
                         "janúar",
@@ -237,22 +237,22 @@
                 },
                 "days": {
                     "narrow": [
-                        "su",
-                        "má",
-                        "þr",
-                        "mi",
-                        "fi",
-                        "fö",
-                        "la"
+                        "su.",
+                        "má.",
+                        "þr.",
+                        "mi.",
+                        "fi.",
+                        "fö.",
+                        "la."
                     ],
                     "short": [
-                        "sun",
-                        "mán",
-                        "þri",
-                        "mið",
-                        "fim",
-                        "fös",
-                        "lau"
+                        "sun.",
+                        "mán.",
+                        "þri.",
+                        "mið.",
+                        "fim.",
+                        "fös.",
+                        "lau."
                     ],
                     "long": [
                         "sunnudagur",
@@ -267,15 +267,21 @@
                 "eras": {
                     "narrow": [
                         "f.k.",
-                        "e.k."
+                        "e.k.",
+                        "flt",
+                        "lt"
                     ],
                     "short": [
                         "f.Kr.",
-                        "e.Kr."
+                        "e.Kr.",
+                        "f.l.t.",
+                        "l.t."
                     ],
                     "long": [
                         "fyrir Krist",
-                        "eftir Krist"
+                        "eftir Krist",
+                        "fyrir látlaus tímatal",
+                        "látlaus tímatal"
                     ]
                 },
                 "dayPeriods": {
@@ -891,8 +897,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency}{number}",
-                "negativePattern": "({currency}{number})"
+                "positivePattern": "{number} {currency}",
+                "negativePattern": "-{number} {currency}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -909,27 +915,24 @@
             }
         },
         "currencies": {
-            "ISK": "kr",
-            "AUD": "A$",
-            "BRL": "R$",
-            "CAD": "CA$",
             "CNY": "CN¥",
             "EUR": "€",
+            "INR": "₹",
+            "ISK": "kr",
+            "JPY": "JP¥",
+            "THB": "฿",
+            "XAF": "FCFA",
+            "XOF": "CFA",
+            "AUD": "A$",
+            "BRL": "R$",
             "GBP": "£",
             "HKD": "HK$",
             "ILS": "₪",
-            "INR": "₹",
-            "JPY": "JP¥",
             "KRW": "₩",
-            "MXN": "MX$",
             "NZD": "NZ$",
-            "THB": "฿",
             "TWD": "NT$",
-            "USD": "US$",
             "VND": "₫",
-            "XAF": "FCFA",
             "XCD": "EC$",
-            "XOF": "CFA",
             "XPF": "CFPF"
         }
     }

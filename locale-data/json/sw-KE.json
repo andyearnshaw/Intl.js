@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -261,8 +261,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "asubuhi",
-                    "pm": "alasiri"
+                    "am": "AM",
+                    "pm": "PM"
                 }
             },
             "hebrew": {
@@ -891,8 +891,6 @@
             }
         },
         "currencies": {
-            "KES": "Ksh",
-            "TZS": "TSh",
             "AUD": "A$",
             "BRL": "R$",
             "CAD": "CA$",
@@ -903,11 +901,13 @@
             "ILS": "₪",
             "INR": "₹",
             "JPY": "JP¥",
+            "KES": "Ksh",
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
             "THB": "฿",
             "TWD": "NT$",
+            "TZS": "TSh",
             "USD": "US$",
             "VND": "₫",
             "XAF": "FCFA",

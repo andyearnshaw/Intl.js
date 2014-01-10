@@ -21,27 +21,27 @@
         "formats": [
             {
                 "weekday": "short",
-                "month": "short",
                 "day": "numeric",
+                "month": "short",
                 "year": "numeric",
-                "hour": "2-digit",
+                "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {month} {day}, {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {month} {day}, {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day} {month}, {year} {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day} {month}, {year} {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "short",
-                "month": "short",
                 "day": "numeric",
+                "month": "short",
                 "year": "numeric",
-                "pattern": "{weekday}, {month} {day}, {year}"
+                "pattern": "{weekday}, {day} {month}, {year}"
             },
             {
                 "day": "numeric",
                 "month": "short",
                 "year": "numeric",
-                "pattern": "{day}, {month} {year}"
+                "pattern": "{day} {month}, {year}"
             },
             {
                 "day": "numeric",
@@ -70,14 +70,14 @@
                 "pattern": "{day}/{month}"
             },
             {
-                "hour": "2-digit",
+                "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
                 "pattern": "{hour}:{minute}:{second}",
                 "pattern12": "{hour}:{minute}:{second} {ampm}"
             },
             {
-                "hour": "2-digit",
+                "hour": "numeric",
                 "minute": "2-digit",
                 "pattern": "{hour}:{minute}",
                 "pattern12": "{hour}:{minute} {ampm}"
@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -270,8 +270,10 @@
                         "ઇસ"
                     ],
                     "short": [
-                        "ઈલુના જન્મ પહેસાં",
-                        "ઇસવીસન"
+                        "ઈસુના જન્મ પહેલા",
+                        "ઇસવીસન",
+                        "સામાન્ય યુગ પહેલા",
+                        "સામાન્ય યુગ"
                     ],
                     "long": [
                         "ઈસવીસન પૂર્વે",
@@ -892,7 +894,7 @@
             },
             "currency": {
                 "positivePattern": "{currency}{number}",
-                "negativePattern": "({currency}{number})"
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",

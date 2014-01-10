@@ -20,22 +20,22 @@
         "hour12": false,
         "formats": [
             {
-                "day": "numeric",
-                "month": "short",
                 "year": "numeric",
+                "month": "short",
+                "day": "numeric",
                 "weekday": "short",
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{day} {month}, {year} թ., {weekday}, {hour}:{minute}:{second}",
-                "pattern12": "{day} {month}, {year} թ., {weekday}, {hour}:{minute}:{second} {ampm}"
+                "pattern": "{year}թ. {month} {day}, {weekday}, {hour}:{minute}:{second}",
+                "pattern12": "{year}թ. {month} {day}, {weekday}, {hour}:{minute}:{second} {ampm}"
             },
             {
-                "day": "numeric",
-                "month": "short",
                 "year": "numeric",
+                "month": "short",
+                "day": "numeric",
                 "weekday": "short",
-                "pattern": "{day} {month}, {year} թ., {weekday}"
+                "pattern": "{year}թ. {month} {day}, {weekday}"
             },
             {
                 "day": "numeric",
@@ -57,7 +57,7 @@
             {
                 "year": "numeric",
                 "month": "short",
-                "pattern": "{year} թ. {month}"
+                "pattern": "{year}թ. {month}"
             },
             {
                 "day": "numeric",
@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -215,10 +215,10 @@
                         "հնս",
                         "հլս",
                         "օգս",
-                        "սեպ",
-                        "հոկ",
-                        "նոյ",
-                        "դեկ"
+                        "սպտ",
+                        "հկտ",
+                        "նյմ",
+                        "դկտ"
                     ],
                     "long": [
                         "հունվարի",
@@ -240,19 +240,19 @@
                         "կիր",
                         "երկ",
                         "երք",
-                        "չոր",
+                        "չրք",
                         "հնգ",
                         "ուր",
-                        "շաբ"
+                        "շբթ"
                     ],
                     "short": [
                         "կիր",
                         "երկ",
                         "երք",
-                        "չոր",
+                        "չրք",
                         "հնգ",
                         "ուր",
-                        "շաբ"
+                        "շբթ"
                     ],
                     "long": [
                         "կիրակի",
@@ -922,8 +922,7 @@
             "XAF": "FCFA",
             "XCD": "EC$",
             "XOF": "CFA",
-            "XPF": "CFPF",
-            "ZMW": "ZMW"
+            "XPF": "CFPF"
         }
     }
 }

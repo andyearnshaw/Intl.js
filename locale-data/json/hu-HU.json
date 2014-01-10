@@ -47,12 +47,12 @@
                 "year": "numeric",
                 "month": "2-digit",
                 "day": "2-digit",
-                "pattern": "{year}.{month}.{day}"
+                "pattern": "{year}. {month}. {day}"
             },
             {
                 "year": "numeric",
                 "month": "numeric",
-                "pattern": "{year}.{month}"
+                "pattern": "{year}. {month}"
             },
             {
                 "year": "numeric",
@@ -122,18 +122,18 @@
                         "12"
                     ],
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -257,18 +257,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -288,7 +288,7 @@
                         "M",
                         "J",
                         "J",
-                        "Á",
+                        "A",
                         "Sz",
                         "O",
                         "N",
@@ -359,7 +359,9 @@
                     ],
                     "short": [
                         "i. e.",
-                        "i. sz."
+                        "i. sz.",
+                        "Kr. e.",
+                        "Kr. u."
                     ],
                     "long": [
                         "időszámításunk előtt",
@@ -395,7 +397,7 @@
                         "Kiszlév",
                         "Tévész",
                         "Svát",
-                        "Ádár risón",
+                        "Ádár I",
                         "Ádár",
                         "Niszán",
                         "Ijár",
@@ -403,7 +405,7 @@
                         "Tamuz",
                         "Áv",
                         "Elul",
-                        "Ádár séni"
+                        "Ádár II"
                     ]
                 },
                 "eras": {
@@ -1069,26 +1071,10 @@
             }
         },
         "currencies": {
-            "AUD": "AUD",
-            "BRL": "BRL",
-            "CAD": "CAD",
-            "CNY": "CNY",
-            "EUR": "EUR",
-            "GBP": "GBP",
-            "HKD": "HKD",
             "HUF": "Ft",
-            "ILS": "ILS",
-            "INR": "INR",
             "JPY": "¥",
-            "KRW": "KRW",
-            "MXN": "MXN",
-            "NZD": "NZD",
-            "THB": "THB",
-            "TWD": "TWD",
             "USD": "$",
-            "VND": "VND",
             "XAF": "FCFA",
-            "XCD": "XCD",
             "XOF": "CFA",
             "XPF": "CFPF"
         }

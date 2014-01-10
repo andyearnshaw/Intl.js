@@ -20,39 +20,39 @@
         "hour12": true,
         "formats": [
             {
-                "year": "numeric",
-                "month": "short",
-                "day": "numeric",
                 "weekday": "short",
+                "day": "numeric",
+                "month": "short",
+                "year": "numeric",
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{year} {month} {day}, {weekday} {hour}:{minute}:{second}",
-                "pattern12": "{year} {month} {day}, {weekday} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day} {month} {year} {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day} {month} {year} {hour}:{minute}:{second} {ampm}"
             },
             {
-                "year": "numeric",
-                "month": "short",
-                "day": "numeric",
                 "weekday": "short",
-                "pattern": "{year} {month} {day}, {weekday}"
-            },
-            {
-                "year": "numeric",
-                "month": "short",
                 "day": "numeric",
-                "pattern": "{year} {month} {day}"
+                "month": "short",
+                "year": "numeric",
+                "pattern": "{weekday}, {day} {month} {year}"
             },
             {
+                "day": "numeric",
+                "month": "short",
                 "year": "numeric",
-                "month": "2-digit",
-                "day": "2-digit",
-                "pattern": "{year}-{month}-{day}"
+                "pattern": "{day} {month} {year}"
             },
             {
+                "day": "numeric",
+                "month": "numeric",
                 "year": "numeric",
-                "month": "2-digit",
-                "pattern": "{year}-{month}"
+                "pattern": "{day}/{month}/{year}"
+            },
+            {
+                "month": "numeric",
+                "year": "numeric",
+                "pattern": "{month}-{year}"
             },
             {
                 "month": "short",
@@ -60,9 +60,9 @@
                 "pattern": "{month} {year}"
             },
             {
-                "month": "short",
                 "day": "numeric",
-                "pattern": "{month} {day}"
+                "month": "short",
+                "pattern": "{day} {month}"
             },
             {
                 "day": "numeric",
@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -192,6 +192,34 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "ਜ",
+                        "ਫ਼",
+                        "ਮਾ",
+                        "ਅ",
+                        "ਮ",
+                        "ਜੂ",
+                        "ਜੁ",
+                        "ਅ",
+                        "ਸ",
+                        "ਅ",
+                        "ਨ",
+                        "ਦ"
+                    ],
+                    "short": [
+                        "ਜਨਵਰੀ",
+                        "ਫ਼ਰਵਰੀ",
+                        "ਮਾਰਚ",
+                        "ਅਪ੍ਰੈਲ",
+                        "ਮਈ",
+                        "ਜੂਨ",
+                        "ਜੁਲਾਈ",
+                        "ਅਗਸਤ",
+                        "ਸਤੰਬਰ",
+                        "ਅਕਤੂਬਰ",
+                        "ਨਵੰਬਰ",
+                        "ਦਸੰਬਰ"
+                    ],
                     "long": [
                         "ਜਨਵਰੀ",
                         "ਫ਼ਰਵਰੀ",
@@ -208,13 +236,22 @@
                     ]
                 },
                 "days": {
+                    "narrow": [
+                        "ਐਤ.",
+                        "ਸੋਮ.",
+                        "ਮੰਗਲ.",
+                        "ਬੁਧ.",
+                        "ਵੀਰ.",
+                        "ਸ਼ੁੱਕਰ.",
+                        "ਸ਼ਨੀ."
+                    ],
                     "short": [
                         "ਐਤ.",
                         "ਸੋਮ.",
                         "ਮੰਗਲ.",
                         "ਬੁਧ.",
                         "ਵੀਰ.",
-                        "ਸ਼ੁਕਰ.",
+                        "ਸ਼ੁੱਕਰ.",
                         "ਸ਼ਨੀ."
                     ],
                     "long": [
@@ -224,18 +261,20 @@
                         "ਬੁਧਵਾਰ",
                         "ਵੀਰਵਾਰ",
                         "ਸ਼ੁੱਕਰਵਾਰ",
-                        "ਸ਼ਨੀਚਰਵਾਰ"
+                        "ਸ਼ਨੀਵਾਰ"
                     ]
                 },
                 "eras": {
                     "short": [
                         "ਈ. ਪੂ.",
-                        "ਸਾਲ"
+                        "ਸੰਨ",
+                        "ਈ. ਪੂ. ਯੁ.",
+                        "ਈ.ਯੁ."
                     ]
                 },
                 "dayPeriods": {
-                    "am": "ਪੂਰਵ ਦੁਪਹਿਰ",
-                    "pm": "ਬਾਅਦ ਦੁਪਹਿਰ"
+                    "am": "AM",
+                    "pm": "PM"
                 }
             },
             "hebrew": {

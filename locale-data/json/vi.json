@@ -257,18 +257,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -309,18 +309,18 @@
                         "thg 12"
                     ],
                     "long": [
-                        "tháng một",
-                        "tháng hai",
-                        "tháng ba",
-                        "tháng tư",
-                        "tháng năm",
-                        "tháng sáu",
-                        "tháng bảy",
-                        "tháng tám",
-                        "tháng chín",
-                        "tháng mười",
-                        "tháng mười một",
-                        "tháng mười hai"
+                        "tháng 1",
+                        "tháng 2",
+                        "tháng 3",
+                        "tháng 4",
+                        "tháng 5",
+                        "tháng 6",
+                        "tháng 7",
+                        "tháng 8",
+                        "tháng 9",
+                        "tháng 10",
+                        "tháng 11",
+                        "tháng 12"
                     ]
                 },
                 "days": {
@@ -343,17 +343,25 @@
                         "Th 7"
                     ],
                     "long": [
-                        "Chủ nhật",
-                        "Thứ hai",
-                        "Thứ ba",
-                        "Thứ tư",
-                        "Thứ năm",
-                        "Thứ sáu",
-                        "Thứ bảy"
+                        "Chủ Nhật",
+                        "Thứ Hai",
+                        "Thứ Ba",
+                        "Thứ Tư",
+                        "Thứ Năm",
+                        "Thứ Sáu",
+                        "Thứ Bảy"
                     ]
                 },
                 "eras": {
+                    "narrow": [
+                        "tr. CN",
+                        "sau CN"
+                    ],
                     "short": [
+                        "tr. CN",
+                        "sau CN"
+                    ],
+                    "long": [
                         "tr. CN",
                         "sau CN"
                     ]

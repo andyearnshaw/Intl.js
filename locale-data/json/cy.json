@@ -79,8 +79,8 @@
             {
                 "hour": "numeric",
                 "minute": "2-digit",
-                "pattern": "{hour}:{minute}",
-                "pattern12": "{hour}:{minute} {ampm}"
+                "pattern": "{hour}.{minute}",
+                "pattern12": "{hour}.{minute} {ampm}"
             }
         ],
         "calendars": {
@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -910,6 +910,7 @@
         },
         "currencies": {
             "AUD": "A$",
+            "BRL": "R$",
             "CAD": "CA$",
             "CNY": "CN¥",
             "EUR": "€",
@@ -921,16 +922,14 @@
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
+            "THB": "฿",
             "TWD": "NT$",
             "USD": "US$",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",
             "XOF": "CFA",
-            "XPF": "CFPF",
-            "ZMW": "ZMW",
-            "BRL": "R$",
-            "THB": "฿"
+            "XPF": "CFPF"
         }
     }
 }

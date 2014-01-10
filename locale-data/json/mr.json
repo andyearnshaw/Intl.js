@@ -21,27 +21,27 @@
         "formats": [
             {
                 "weekday": "short",
-                "month": "short",
                 "day": "numeric",
+                "month": "short",
                 "year": "numeric",
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {month} {day}, {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {month} {day}, {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day}, {month} {year}, {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day}, {month} {year}, {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "short",
-                "month": "short",
                 "day": "numeric",
+                "month": "short",
                 "year": "numeric",
-                "pattern": "{weekday}, {month} {day}, {year}"
+                "pattern": "{weekday}, {day}, {month} {year}"
             },
             {
                 "day": "numeric",
                 "month": "short",
                 "year": "numeric",
-                "pattern": "{day} {month} {year}"
+                "pattern": "{day} {month}, {year}"
             },
             {
                 "day": "numeric",
@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -192,6 +192,20 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "जा",
+                        "फे",
+                        "मा",
+                        "ए",
+                        "मे",
+                        "जू",
+                        "जु",
+                        "ऑ",
+                        "स",
+                        "ऑ",
+                        "नो",
+                        "डि"
+                    ],
                     "short": [
                         "जाने",
                         "फेब्रु",
@@ -201,8 +215,8 @@
                         "जून",
                         "जुलै",
                         "ऑग",
-                        "सेप्टें",
-                        "ऑक्ट",
+                        "सप्टें",
+                        "ऑक्टो",
                         "नोव्हें",
                         "डिसें"
                     ],
@@ -253,7 +267,9 @@
                 "eras": {
                     "short": [
                         "ईसापूर्व",
-                        "सन"
+                        "सन",
+                        "ईसापूर्व युग",
+                        "ईसायुग"
                     ],
                     "long": [
                         "ईसवीसनपूर्व",
@@ -261,8 +277,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "[AM]",
+                    "pm": "[PM]"
                 }
             },
             "hebrew": {
@@ -874,7 +890,7 @@
             },
             "currency": {
                 "positivePattern": "{currency}{number}",
-                "negativePattern": "({currency}{number})"
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -882,6 +898,13 @@
             }
         },
         "symbols": {
+            "deva": {
+                "decimal": ".",
+                "group": ",",
+                "nan": "NaN",
+                "percent": "%",
+                "infinity": "∞"
+            },
             "latn": {
                 "decimal": ".",
                 "group": ",",
@@ -906,7 +929,7 @@
             "NZD": "NZ$",
             "THB": "฿",
             "TWD": "NT$",
-            "USD": "US$",
+            "USD": "$",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",

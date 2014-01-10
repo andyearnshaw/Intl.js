@@ -122,18 +122,18 @@
                         "12"
                     ],
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -257,18 +257,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -358,7 +358,8 @@
                         "н.э."
                     ],
                     "short": [
-                        "до н.э.",
+                        "до н. э.",
+                        "н. э.",
                         "н.э."
                     ],
                     "long": [
@@ -1084,16 +1085,6 @@
         },
         "currencies": {
             "KZT": "₸",
-            "JPY": "¥",
-            "RUB": "руб.",
-            "RUR": "р.",
-            "SDG": "суданского фунта*",
-            "SSP": "южносуданского фунта",
-            "TMT": "ТМТ",
-            "TND": "тунисского динара*",
-            "UAH": "₴",
-            "USD": "$",
-            "XXX": "XXXX",
             "AUD": "A$",
             "BRL": "R$",
             "CAD": "CA$",
@@ -1103,16 +1094,23 @@
             "HKD": "HK$",
             "ILS": "₪",
             "INR": "₹",
+            "JPY": "¥",
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
+            "RUB": "руб.",
+            "RUR": "р.",
             "THB": "฿",
+            "TMT": "ТМТ",
             "TWD": "NT$",
+            "UAH": "₴",
+            "USD": "$",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",
             "XOF": "CFA",
-            "XPF": "CFPF"
+            "XPF": "CFPF",
+            "XXX": "XXXX"
         }
     }
 }

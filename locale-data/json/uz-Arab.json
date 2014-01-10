@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -192,6 +192,20 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "Y",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "I",
+                        "I",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
+                    ],
                     "short": [
                         "جنو",
                         "فبر",
@@ -222,6 +236,15 @@
                     ]
                 },
                 "days": {
+                    "narrow": [
+                        "Yaksh",
+                        "Dush",
+                        "Sesh",
+                        "Chor",
+                        "Pay",
+                        "Jum",
+                        "Shan"
+                    ],
                     "short": [
                         "ی.",
                         "د.",
@@ -317,18 +340,18 @@
                         "Dhuʻl-H."
                     ],
                     "long": [
-                        "Муҳаррам",
-                        "Сафар",
-                        "Рабиул-аввал",
-                        "Рабиул-охир",
-                        "Жумодиул-уло",
-                        "Жумодиул-ухро",
-                        "Ражаб",
-                        "Шаъбон",
-                        "Рамазон",
-                        "Шаввол",
-                        "Зил-қаъда",
-                        "Зил-ҳижжа"
+                        "Muharram",
+                        "Safar",
+                        "Robiʼ ul-avval",
+                        "Robiʼ ul-oxir",
+                        "Jumad ul-avval",
+                        "Jumad ul-oxir",
+                        "Rajab",
+                        "Shaʼbon",
+                        "Ramazon",
+                        "Shavvol",
+                        "Zul-qaʼda",
+                        "Zul-hijja"
                     ]
                 },
                 "eras": {
@@ -884,7 +907,6 @@
         },
         "currencies": {
             "AFN": "؋",
-            "UZS": "сўм",
             "AUD": "A$",
             "BRL": "R$",
             "CAD": "CA$",
@@ -901,6 +923,7 @@
             "THB": "฿",
             "TWD": "NT$",
             "USD": "US$",
+            "UZS": "soʻm",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",

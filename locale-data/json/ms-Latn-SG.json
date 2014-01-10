@@ -197,18 +197,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -242,7 +242,7 @@
                         "Mei",
                         "Jun",
                         "Jul",
-                        "Ogos",
+                        "Ogo",
                         "Sep",
                         "Okt",
                         "Nov",
@@ -912,7 +912,7 @@
             },
             "currency": {
                 "positivePattern": "{currency}{number}",
-                "negativePattern": "({currency}{number})"
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -930,6 +930,7 @@
         },
         "currencies": {
             "SGD": "$",
+            "AUD": "A$",
             "BRL": "R$",
             "CAD": "CA$",
             "CNY": "CN¥",
@@ -937,20 +938,19 @@
             "GBP": "£",
             "HKD": "HK$",
             "ILS": "₪",
-            "MXN": "MX$",
-            "MYR": "RM",
-            "XAF": "FCFA",
-            "XCD": "EC$",
-            "XOF": "CFA",
-            "AUD": "A$",
             "INR": "₹",
             "JPY": "JP¥",
             "KRW": "₩",
+            "MXN": "MX$",
+            "MYR": "RM",
             "NZD": "NZ$",
             "THB": "฿",
             "TWD": "NT$",
             "USD": "US$",
             "VND": "₫",
+            "XAF": "FCFA",
+            "XCD": "EC$",
+            "XOF": "CFA",
             "XPF": "CFPF"
         }
     }

@@ -60,9 +60,9 @@
                 "pattern": "{month} {year}"
             },
             {
-                "day": "numeric",
                 "month": "short",
-                "pattern": "{day} {month}"
+                "day": "numeric",
+                "pattern": "{month} {day}"
             },
             {
                 "day": "numeric",
@@ -93,19 +93,47 @@
             },
             "chinese": {
                 "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
+                    ],
+                    "short": [
+                        "மா1",
+                        "மா2",
+                        "மா3",
+                        "மா4",
+                        "மா5",
+                        "மா6",
+                        "மா7",
+                        "மா8",
+                        "மா9",
+                        "மா10",
+                        "மா11",
+                        "மா12"
+                    ],
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "மாதம்1",
+                        "மாதம்2",
+                        "மாதம்3",
+                        "மாதம்4",
+                        "மாதம்5",
+                        "மாதம்6",
+                        "மாதம்7",
+                        "மாதம்8",
+                        "மாதம்9",
+                        "மாதம்10",
+                        "மாதம்11",
+                        "மாதம்12"
                     ]
                 }
             },
@@ -169,18 +197,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -275,8 +303,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "முற்பகல்",
+                    "pm": "பிற்பகல்"
                 }
             },
             "hebrew": {
@@ -908,7 +936,10 @@
             "MYR": "RM",
             "SGD": "S$",
             "CAD": "CA$",
-            "USD": "US$",
+            "MXN": "MX$",
+            "USD": "$",
+            "XCD": "EC$",
+            "XOF": "CFA",
             "AUD": "A$",
             "BRL": "R$",
             "CNY": "CN¥",
@@ -919,14 +950,11 @@
             "INR": "₹",
             "JPY": "JP¥",
             "KRW": "₩",
-            "MXN": "MX$",
             "NZD": "NZ$",
             "THB": "฿",
             "TWD": "NT$",
             "VND": "₫",
             "XAF": "FCFA",
-            "XCD": "EC$",
-            "XOF": "CFA",
             "XPF": "CFPF"
         }
     }

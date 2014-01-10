@@ -17,7 +17,7 @@
             "roc"
         ],
         "hourNo0": true,
-        "hour12": true,
+        "hour12": false,
         "formats": [
             {
                 "weekday": "short",
@@ -27,8 +27,8 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {day} {month} {year} {hour}.{minute}.{second}.",
-                "pattern12": "{weekday}, {day} {month} {year} {hour}.{minute}.{second}.{ampm}"
+                "pattern": "{weekday}, {day} {month} {year} {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day} {month} {year} {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "short",
@@ -38,21 +38,21 @@
                 "pattern": "{weekday}, {day} {month} {year}"
             },
             {
-                "year": "numeric",
-                "month": "short",
                 "day": "numeric",
-                "pattern": "{year} {month} {day}"
+                "month": "short",
+                "year": "numeric",
+                "pattern": "{day} {month} {year}"
             },
             {
-                "year": "numeric",
-                "month": "2-digit",
                 "day": "2-digit",
-                "pattern": "{year}-{month}-{day}"
+                "month": "2-digit",
+                "year": "numeric",
+                "pattern": "{day}/{month}/{year}"
             },
             {
                 "month": "numeric",
                 "year": "numeric",
-                "pattern": "{month}.{year}"
+                "pattern": "{month}/{year}"
             },
             {
                 "month": "short",
@@ -65,22 +65,22 @@
                 "pattern": "{day} {month}"
             },
             {
-                "month": "numeric",
                 "day": "numeric",
-                "pattern": "{month}-{day}"
+                "month": "numeric",
+                "pattern": "{day}/{month}"
             },
             {
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{hour}.{minute}.{second}.",
-                "pattern12": "{hour}.{minute}.{second}.{ampm}"
+                "pattern": "{hour}:{minute}:{second}",
+                "pattern12": "{hour}:{minute}:{second} {ampm}"
             },
             {
                 "hour": "numeric",
                 "minute": "2-digit",
-                "pattern": "{hour}.{minute}.",
-                "pattern12": "{hour}.{minute}.{ampm}"
+                "pattern": "{hour}:{minute}",
+                "pattern12": "{hour}:{minute} {ampm}"
             }
         ],
         "calendars": {
@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -192,6 +192,20 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "J",
+                        "S",
+                        "M",
+                        "P",
+                        "M",
+                        "Q",
+                        "K",
+                        "G",
+                        "S",
+                        "T",
+                        "N",
+                        "D"
+                    ],
                     "short": [
                         "Jan",
                         "Shk",
@@ -222,6 +236,15 @@
                     ]
                 },
                 "days": {
+                    "narrow": [
+                        "Die",
+                        "Hën",
+                        "Mar",
+                        "Mër",
+                        "Enj",
+                        "Pre",
+                        "Sht"
+                    ],
                     "short": [
                         "Die",
                         "Hën",
@@ -242,14 +265,28 @@
                     ]
                 },
                 "eras": {
+                    "narrow": [
+                        "p.e.r.",
+                        "e.r.",
+                        "p.e.s.",
+                        "e.s."
+                    ],
                     "short": [
                         "p.e.r.",
-                        "n.e.r."
+                        "e.r.",
+                        "p.e.s",
+                        "e.s."
+                    ],
+                    "long": [
+                        "para erës së re",
+                        "erës së re",
+                        "para erës sonë",
+                        "erës sonë"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "PD",
-                    "pm": "MD"
+                    "am": "paradite",
+                    "pm": "pasdite"
                 }
             },
             "hebrew": {
@@ -860,8 +897,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency}{number}",
-                "negativePattern": "-{currency}{number}"
+                "positivePattern": "{number} {currency}",
+                "negativePattern": "-{number} {currency}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -878,7 +915,7 @@
             }
         },
         "currencies": {
-            "ALL": "Lek",
+            "ALL": "Lekë",
             "AUD": "A$",
             "BRL": "R$",
             "CAD": "CA$",

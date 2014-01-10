@@ -94,18 +94,18 @@
             "chinese": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 }
             },
@@ -169,18 +169,18 @@
             "generic": {
                 "months": {
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "M01",
+                        "M02",
+                        "M03",
+                        "M04",
+                        "M05",
+                        "M06",
+                        "M07",
+                        "M08",
+                        "M09",
+                        "M10",
+                        "M11",
+                        "M12"
                     ]
                 },
                 "eras": {
@@ -213,12 +213,12 @@
                         "ఏప్రి",
                         "మే",
                         "జూన్",
-                        "జూలై",
-                        "ఆగస్టు",
-                        "సెప్టెంబర్",
-                        "అక్టోబర్",
-                        "నవంబర్",
-                        "డిసెంబర్"
+                        "జులై",
+                        "ఆగ",
+                        "సెప్టెం",
+                        "అక్టో",
+                        "నవం",
+                        "డిసెం"
                     ],
                     "long": [
                         "జనవరి",
@@ -227,7 +227,7 @@
                         "ఎప్రిల్",
                         "మే",
                         "జూన్",
-                        "జూలై",
+                        "జులై",
                         "ఆగస్టు",
                         "సెప్టెంబర్",
                         "అక్టోబర్",
@@ -271,7 +271,9 @@
                     ],
                     "short": [
                         "క్రీపూ",
-                        "క్రీశ"
+                        "క్రీశ",
+                        "BCE",
+                        "CE"
                     ],
                     "long": [
                         "ఈసాపూర్వ.",
@@ -892,7 +894,7 @@
             },
             "currency": {
                 "positivePattern": "{currency}{number}",
-                "negativePattern": "({currency}{number})"
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -924,7 +926,7 @@
             "NZD": "NZ$",
             "THB": "฿",
             "TWD": "NT$",
-            "USD": "US$",
+            "USD": "$",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",
