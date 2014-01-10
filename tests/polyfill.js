@@ -1,1 +1,0 @@
-Intl = IntlPolyfill;
