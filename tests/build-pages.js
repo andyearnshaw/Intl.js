@@ -46,6 +46,26 @@ function processTest(content) {
     // Make sure to use our version (not one the browser might have).
     content = content.replace(/\bIntl\b/g, 'IntlPolyfill');
 
+    var explainV8OptOut = '// This test is disabled to avoid the v8 bug outlined at https://code.google.com/p/v8/issues/detail?id=2694';
+
+    // Due to a bug in v8, we need to disable parts of the _L15 tests that
+    // check the function property `length` is not writable
+    content = content.replace(/^(\s*)(?=.*throw.*The length property.*function must not be writable)/gm, '$1' + explainV8OptOut + '\n$&//');
+
+    // There's also part of the _L15 test that a JavaScript implementation
+    // cannot possibly pass, so we need to disable these parts too
+    var idxStart = content.search(/^(\s*)\/\/ The remaining sections have been moved to the end/m),
+        idxEnd   = content.search(/^\s+\/\/ passed the complete test/m);
+
+    if (idxStart > -1) {
+        content = [
+            content.slice(0, idxStart),
+            '\n// Intl.js cannot pass the following sections of this test:\n',
+            content.slice(idxStart + 1, idxEnd).replace(/^(?!$)/gm, '//$&'),
+            idxEnd > -1 ? content.slice(idxEnd) : ''
+        ].join('');
+    }
+
     return content;
 }
 
