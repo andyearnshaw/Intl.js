@@ -167,7 +167,7 @@ module.exports = function(grunt) {
                     grunt.log.ok(dir);
                     var files = grunt.file.expand(
                         LIBS.path.resolve(srcTestsDir, dir) + '/**'
-                    )
+                    );
                     files.forEach(function(srcPath) {
                         if (! grunt.file.isFile(srcPath)) {
                             return;
@@ -229,10 +229,10 @@ module.exports = function(grunt) {
             },
 
             function(asyncTaskDone) {
-                grunt.log.writeln('cleaning up temporary directory...');
+                grunt.log.writeln('cleaning up temporary directories...');
                 grunt.util.spawn({
                         cmd: 'rm',
-                        args: ['-rf', tempDir]
+                        args: ['-rf', tempDir, DEST_TESTS_DIR + '/test', DEST_TESTS_DIR + '/tools']
                 }, function(err) {
                     asyncTaskDone(err);
                 });
