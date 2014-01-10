@@ -6,10 +6,9 @@ Google have an implementation of this API that is available in recent versions o
 and Chrome/Chromium 24 and later. Mozilla also have a working implementation in the
 current Firefox nightly builds.
 
-`Intl.js` attempts to fill the void of availability for this API. It will provide the
-framework as described by the specification, so that developers can take advantage of
-the native API in environments that support it, or `Intl.js` for legacy or unsupporting
-environments.
+`Intl.js` fills the void of availability for this API. It will provide the framework as
+described by the specification, so that developers can take advantage of the native API
+in environments that support it, or `Intl.js` for legacy or unsupporting environments.
 
 ## <a id=start></a>Getting started
 For Node.js applications, you can install Intl.js using NPM:
@@ -23,9 +22,7 @@ Intl.js is also available as a [Bower](http://bower.io) component for the front-
 For other setups, just clone the repo for the pre-built scripts and locale datafiles.
 
 ## <a id=status></a>Status
-The latest test, run on Jun 04 2013, scored 99 out of 111 in SpiderMonkey<sup>\*</sup>.
-Although the majority of the failed tests are somewhat superficial, there are a few
-outstanding issues with `DateTimeFormat`.
+The latest test, run on January 10 2013, scored 111 out of 111<sup>\*</sup> in Node.js.
 
 Aside from 1 issue with floating point precision in Firefox/SpiderMonkey, `NumberFormat`
 seems to be rather complete.
@@ -54,6 +51,7 @@ Current progress is as follows:
  - `BestFitSupportedLocales` internal function
  - Implementation-dependent numbering system mappings
  - Calendars other than Gregorian
+ - Support for time zones
  - Collator objects (`Intl.Collator`) (see below)
  - Properties of the `String` prototype object
 
@@ -61,8 +59,11 @@ A few of the implemented functions may currently be non-conforming and/or incomp
 Most of those functions have comments marked as 'TODO' in the source code.
 
 <sup>\*</sup> The test suite is run with Intl.Collator tests removed, and the Collator
-constructor removed from most other tests in the suite.  Also, some of the tests cannot be
-passed from an ES5 implementation because they check for native behaviour.
+constructor removed from most other tests in the suite.  Also some parts of tests that
+cannot be passed by a JavaScript implementation have been disabled, as well as a small 
+part of the same tests that fail due to [this bug in v8][].
+
+ [this bug in v8]: https://code.google.com/p/v8/issues/detail?id=2694
 
 ## What about Intl.Collator?
 
