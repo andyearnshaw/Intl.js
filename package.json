@@ -1,6 +1,6 @@
 {
     "name": "intl",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Polyfill the ECMA-402 Intl API (except collation)",
     "main": "Intl.complete.js",
     "directories": {
