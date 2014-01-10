@@ -4,10 +4,10 @@ var LIBS = {
         fs:     require('fs'),
         path:   require('path')
     },
-    SRC_DIR     = __dirname + '/test/suite/intl402',
-    DEST_DIR    = __dirname + '/pages',
-    INCLUDE_DIR = __dirname + '/test/harness',
-    LIB_PATH    = __dirname+ '/../../Intl.complete.js',
+    SRC_DIR     = __dirname + '/test262/test/suite/intl402',
+    DEST_DIR    = __dirname + '/test262/pages',
+    INCLUDE_DIR = __dirname + '/test262/test/harness',
+    LIB_PATH    = __dirname + '/../Intl.complete.js',
     INTL_LIB    = LIBS.fs.readFileSync(LIB_PATH).toString(),
 
     // stuff defined in harness/*.js yet not pulled in via $INCLUDE()
