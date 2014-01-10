@@ -15,9 +15,12 @@ var LIBS = {
         'var __globalObject = Function("return this;")();',
         'function fnGlobalObject() {',
         '    return __globalObject;',
-        '}'
-    ].join('\n');
+        '}',
 
+        // Let the file be executed in Node.js
+        'if (typeof IntlPolyfill == "undefined" && __dirname)',
+        '    IntlPolyfill  = require("../../../../../Intl.complete.js");'
+    ].join('\n');
 
 function mkdirp(dir) {
     var parts = dir.split(LIBS.path.sep),
@@ -51,8 +54,7 @@ function processTest(content) {
 function wrapTest(content) {
     // The weird "//" makes these html files also valid node.js scripts :)
     return [
-        '//<html><body><script>',
-        INTL_LIB,
+        '//<html><body><script src="../../../../../Intl.complete.js"></script><script>',
         HACKNESS,
         content,
         '//</script></body></html>'

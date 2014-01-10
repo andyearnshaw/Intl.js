@@ -5,16 +5,21 @@ var LIBS = {
         path:   require('path'),
         vm:     require('vm')
     },
+    LIB_PATH = __dirname + '/../Intl.complete.js',
+    INTL_LIB = LIBS.fs.readFileSync(LIB_PATH).toString(),
     TEST_DIR = __dirname + '/test262/pages';
 
 
 // returns Error if test threw one
 function runTest(testPath) {
-    var content;
-    var sandbox = {};
+    var content,
+        context = LIBS.vm.createContext({});
+
     content = LIBS.fs.readFileSync(LIBS.path.resolve(TEST_DIR, testPath)).toString();
+    LIBS.vm.runInContext(INTL_LIB, context, LIB_PATH);
+
     try {
-        LIBS.vm.runInNewContext(content, sandbox, testPath);
+        LIBS.vm.runInContext(content, context, testPath);
     } catch (err) {
         return err;
     }
