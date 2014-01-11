@@ -87,7 +87,7 @@ working, albeit non-compliant implementation where ES5 methods are unavailable.
 ## Locale Data
 `Intl.js` uses the Unicode CLDR locale data, as recommended by the specification.
 The data is available in JSON format, or JSONP format in the [locale-data](https://github.com/andyearnshaw/Intl.js/tree/master/locale-data)
-folder.  This has been converted from CLDR version 23.1 using the script and config file
+folder.  This has been converted from CLDR version 24 using the script and config file
 in the [tools](https://github.com/andyearnshaw/Intl.js/tree/master/tools) folder.
 
 The main `Intl.js` file contains no locale data itself.  In browser environments, the
