@@ -11,7 +11,7 @@ var LIBS = {
     INTL_LIB    = LIBS.fs.readFileSync(LIB_PATH).toString(),
 
     WRAPPER_START = [
-        '//<html><body><script src="../../../../../Intl.complete.js"></script><script>',
+        '//<html><body>results: <span id="results">not yet run</span><script src="../../../../../Intl.complete.js"></script><script>',
 
         // stuff defined in harness/*.js yet not pulled in via $INCLUDE()
         'var __globalObject = Function("return this;")();',
@@ -33,7 +33,7 @@ var LIBS = {
         '    passed = true;',
         '} finally {',
         '    if (typeof document !== "undefined") {',
-        '        document.write("results: <span id=\\"results\\">" + (passed ? "passed" : "FAILED") + "</span>");',
+        '        document.getElementById("results").innerHTML = (passed ? "passed" : "FAILED");',
         '    }',
         '}',
         '//</script></body></html>'
