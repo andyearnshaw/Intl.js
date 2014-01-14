@@ -10,9 +10,6 @@ cldr/
 # d8 artifact
 .d8_history
 
-# Locale data is already present in Intl.complete.js
-locale-data/
-
 # The NPM package only needs runtime files.
 # (It doesn't need anything used during development of this library.)
 tools/
