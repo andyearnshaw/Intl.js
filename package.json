@@ -17,7 +17,7 @@
     "scripts": {
         "build": "grunt",
         "lint": "jshint Intl.js",
-        "test": "cd tests && node noderunner.js"
+        "test": "cd tests && node noderunner.js && node saucelabs.js"
     },
     "repository": {
         "type": "git",
