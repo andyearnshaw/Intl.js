@@ -1,5 +1,4 @@
 
-Error.stackTraceLimit = 50;
 
 var LIBS = {
         async:  require('async'),
@@ -115,13 +114,13 @@ function calculateGitDetails(state, done) {
             });
         },
         function(taskDone) {
-            runCommand(['git', 'for-each-ref', "--format='%(refname) %(objectname)'"], function(err, code, stdout, stderr) {
+            runCommand(['git', 'branch', '--all', '--contains', state.git.shasum], function(err, code, stdout, stderr) {
                 var matches;
                 if (err) {
                     taskDone(err);
                     return;
                 }
-                matches = stdout.match(new RegExp('refs\\/remotes\\/([^\\/]+)\\/([^\\/\\n\\s]+)\\s+' + state.git.shasum, 'm'));
+                matches = stdout.match(/remotes\/([^\/]+)\/([^\/\n\s]+)$/m);
                 if (matches) {
                     state.git.remote = matches[1];
                     state.git.branch = matches[2];
