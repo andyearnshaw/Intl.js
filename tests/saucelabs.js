@@ -77,6 +77,7 @@ function listTests() {
 
 
 function runCommand(command, done) {
+    console.log('COMMAND:', command.join(' '));
     var cmd = command.shift(),
         stdout = '',
         stderr = '',
@@ -111,6 +112,15 @@ function calculateGitDetails(state, done) {
             runCommand(['git', 'rev-parse', 'HEAD'], function(err, code, stdout, stderr) {
                 state.git.shasum = stdout.trim();
                 taskDone(err);
+            });
+        },
+        // DEBUGGING
+        function(taskDone) {
+            runCommand(['git', 'remote', '-v'], function(err, code, stdout, stderr) {
+                console.log(err);
+                console.log(stdout);
+                console.log(stderr);
+                taskDone();
             });
         },
         function(taskDone) {
