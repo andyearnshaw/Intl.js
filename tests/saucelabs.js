@@ -10,7 +10,7 @@ var LIBS = {
         wd:     require('wd')
     },
     TEST_DIR = LIBS.path.resolve(__dirname, 'test262', 'pages'),
-    BROWSER_CONCURRENCY = 4,
+    BROWSER_CONCURRENCY = 3,
     BROWSERS = [
         // hand-chosen from https://saucelabs.com/platforms
         {
