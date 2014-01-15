@@ -107,13 +107,18 @@ function runCommand(command, done) {
 
 function calculateGitDetails(state, done) {
     state.git = {};
+    if (process.env.TRAVIS) {
+        // travis makes this information easy to get
+        state.git.shasum = process.env.TRAVIS_COMMIT;
+        var parts = process.env.TRAVIS_REPO_SLUG.split('/');
+        state.git.user = parts[0];
+        state.git.repo = parts[1];
+        state.git.rawURL = 'https://rawgithub.com/' + state.git.user + '/' + state.git.repo + '/' + state.git.shasum + '/tests/test262/pages/';
+        done();
+        return;
+    }
     LIBS.async.series([
         function(taskDone) {
-            if (process.env.TRAVIS_COMMIT) {
-                state.git.shasum = process.env.TRAVIS_COMMIT;
-                taskDone();
-                return;
-            }
             runCommand(['git', 'rev-parse', 'HEAD'], function(err, code, stdout, stderr) {
                 if (err) {
                     taskDone(err);
@@ -124,15 +129,6 @@ function calculateGitDetails(state, done) {
                     taskDone(new Error("failed to find current commit"));
                     return;
                 }
-                taskDone();
-            });
-        },
-        // DEBUGGING
-        function(taskDone) {
-            runCommand(['git', 'remote', '-v'], function(err, code, stdout, stderr) {
-                console.log(err);
-                console.log(stdout);
-                console.log(stderr);
                 taskDone();
             });
         },
@@ -154,14 +150,6 @@ function calculateGitDetails(state, done) {
             });
         },
         function(taskDone) {
-            if (process.env.TRAVIS_REPO_SLUG) {
-                var parts = process.env.TRAVIS_REPO_SLUG.split('/');
-                state.git.user = parts[0];
-                state.git.repo = parts[1];
-                state.git.rawURL = 'https://rawgithub.com/' + state.git.user + '/' + state.git.repo + '/' + state.git.shasum + '/tests/test262/pages/';
-                taskDone();
-                return;
-            }
             runCommand(['git', 'config', '--get', ['remote', state.git.remote, 'url'].join('.')], function(err, code, stdout, stderr) {
                 var matches;
                 if (err) {
