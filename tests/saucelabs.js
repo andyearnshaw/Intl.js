@@ -16,13 +16,15 @@ var LIBS = {
             browserName: "iphone",
             version: "7",
             platform: "OS X 10.9",
-            "device-orientation": "portrait"
+            "device-orientation": "portrait",
+            "idle-timeout": 120 // this browser is stalling somewhere/somehow
         },
         {
             browserName: "android",
             version: "4.0",
             platform: "Linux",
-            "device-orientation": "portrait"
+            "device-orientation": "portrait",
+            "idle-timeout": 120 // this browser is stalling somewhere/somehow
         },
         {
             browserName: "firefox",
@@ -190,26 +192,6 @@ function runTestsInBrowser(state, browserConfig, done) {
     });
     caps.name = [browserConfig.browserName, browserConfig.version, browserConfig.platform].join(' - ');
 
-    function saveResults(test, out, err) {
-        if (err) {
-            if (err.cause)   { err = err.cause; }
-            if (err.value)   { err = err.value; }
-            if (err.message) { err = err.message; }
-            err = err.toString().split('\n')[0];
-        }
-        if (out === 'passed') {
-            state.results.passCount++;
-        } else {
-            failures++;
-            state.results.failCount++;
-            if (!state.results.failures[test]) {
-                state.results.failures[test] = {}
-            }
-            state.results.failures[test][browserString] = err || out || 'FAILED no results';
-            console.log('FAILED', test, browserString, (err || out || 'FAILED no results'));
-        }
-    }
-
     // open browser
     tasks.push(function(taskDone) {
         var sauceConfig = {
@@ -223,6 +205,12 @@ function runTestsInBrowser(state, browserConfig, done) {
             // http://about.travis-ci.org/docs/user/gui-and-headless-browsers/#Using-Sauce-Labs
             sauceConfig.hostname = 'localhost';
             sauceConfig.port = 4445;
+            sauceConfig['custom-data'] = {
+                gituser:    state.git.user,
+                gitrepo:    state.git.repo,
+                commit:     state.git.shasum
+            };
+            sauceConfig['record-video'] = false;
         }
         browser = LIBS.wd.remote(sauceConfig);
         browser.init(caps, taskDone);
@@ -232,17 +220,44 @@ function runTestsInBrowser(state, browserConfig, done) {
     state.tests.forEach(function(test) {
         tasks.push(function(taskDone) {
             var url = state.git.rawURL + test;
-            console.log(test, browserString);
+            console.log('TESTING', test, browserString);
+            function saveResult(out, err) {
+                var cookedErr = err;
+                if (err) {
+                    if (cookedErr.cause)   { cookedErr = cookedErr.cause; }
+                    if (cookedErr.value)   { cookedErr = cookedErr.value; }
+                    if (cookedErr.message) { cookedErr = cookedErr.message; }
+                    cookedErr = cookedErr.toString().split('\n')[0];
+                    cookedErr = cookedErr || out || 'FAILED no results';
+                    console.log('ERROR', err);
+                }
+                if (out === 'passed') {
+                    state.results.passCount++;
+                    console.log('PASSED', test, browserString);
+                } else {
+                    failures++;
+                    state.results.failCount++;
+                    if (!state.results.failures[test]) {
+                        state.results.failures[test] = {}
+                    }
+                    state.results.failures[test][browserString] = cookedErr;
+                    console.log('FAILED', test, browserString, cookedErr);
+                }
+                // This sometimes signifies a suacelabs browser that has gone awawy.
+                if ('ERROR Internal Server Error' === cookedErr) {
+                    taskDone(err);
+                } else {
+                    taskDone();
+                }
+            }
             browser.get(url, function() {
                 browser.elementById('results', function(err, el) {
                     if (err) {
-                        saveResults(test, null, err);
-                        taskDone();
+                        saveResult(null, err);
                         return;
                     }
                     el.text(function(err, out) {
-                        saveResults(test, out, err);
-                        taskDone();
+                        saveResult(out, err);
                     });
                 });
             });
@@ -256,8 +271,12 @@ function runTestsInBrowser(state, browserConfig, done) {
         });
     });
 
-    LIBS.async.series(tasks, function() {
+    LIBS.async.series(tasks, function(err) {
         console.log('================================================ DONE', browserString);
+        if (err) {
+            console.log('BROWSER FAILED');
+            console.log(err);
+        }
         done();
     });
 }
