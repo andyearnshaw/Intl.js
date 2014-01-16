@@ -292,10 +292,14 @@ function main() {
     };
     if (process.env.TRAVIS_JOB_NUMBER) {
         state.capabilities['tunnel-identifier'] = process.env.TRAVIS_JOB_NUMBER;
+        // we only need one of these to run on travis
+        if ('.1' !== process.env.TRAVIS_JOB_NUMBER.substr(-2)) {
+            console.log('NOOP -- only running on "first" (.1) travis job');
+            process.exit(0);
+        }
     }
-    if (process.env.TRAVIS_NODE_VERSION) {
+    if (process.env.TRAVIS) {
         state.capabilities.tags.push('CI');
-        state.capabilities.tags.push(process.env.TRAVIS_NODE_VERSION);
     }
     state.capabilities.build = process.env.TRAVIS_BUILD_NUMBER || process.pid;
     console.log(JSON.stringify(state.capabilities, null, 4));
