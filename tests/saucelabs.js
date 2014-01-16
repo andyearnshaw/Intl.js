@@ -13,19 +13,21 @@ var LIBS = {
     BROWSERS = [
         // hand-chosen from https://saucelabs.com/platforms
         {
-            browserName: "iphone",
-            version: "7",
-            platform: "OS X 10.9",
-            "device-orientation": "portrait",
-            "idle-timeout": 120 // this browser is stalling somewhere/somehow
-        },
-        {
             browserName: "android",
             version: "4.0",
             platform: "Linux",
             "device-orientation": "portrait",
             "idle-timeout": 120 // this browser is stalling somewhere/somehow
         },
+// This browser/driver will stop reporting tests results after a few tests.
+// This causes the saucelabs session to timeout and our travis job gets reaped.
+//      {
+//          browserName: "iphone",
+//          version: "7",
+//          platform: "OS X 10.9",
+//          "device-orientation": "portrait",
+//          "idle-timeout": 120 // this browser is stalling somewhere/somehow
+//      },
         {
             browserName: "firefox",
             version: "26",
@@ -79,7 +81,7 @@ function listTests() {
 
 
 function runCommand(command, done) {
-    console.log('COMMAND:', command.join(' '));
+    console.log('--COMMAND--', command.join(' '));
     var cmd = command.shift(),
         stdout = '',
         stderr = '',
@@ -220,13 +222,7 @@ function runTestsInBrowser(state, browserConfig, done) {
     state.tests.forEach(function(test) {
         tasks.push(function(taskDone) {
             var url = state.git.rawURL + test;
-            console.log('TESTING', test, browserString);
-
-            // This test appears to cause this browser to hang, eventually timing out in saucelabs.
-            if ('ch09/9.2/9.2.1_1.html' === test && 'iphone' === browserConfig.browserName && '7' === browserConfig.version) {
-                console.log('SKIPPED', test, browserString);
-                taskDone();
-            }
+            console.log('--TESTING--', test, browserString);
 
             function saveResult(out, err) {
                 var cookedErr = err;
@@ -236,11 +232,11 @@ function runTestsInBrowser(state, browserConfig, done) {
                     if (cookedErr.message) { cookedErr = cookedErr.message; }
                     cookedErr = cookedErr.toString().split('\n')[0];
                     cookedErr = cookedErr || out || 'FAILED no results';
-                    console.log('ERROR', err);
+                    console.log('--ERROR--', err);
                 }
                 if (out === 'passed') {
                     state.results.passCount++;
-                    console.log('PASSED', test, browserString);
+                    console.log('--PASSED--', test, browserString);
                 } else {
                     failures++;
                     state.results.failCount++;
@@ -248,7 +244,7 @@ function runTestsInBrowser(state, browserConfig, done) {
                         state.results.failures[test] = {}
                     }
                     state.results.failures[test][browserString] = cookedErr;
-                    console.log('FAILED', test, browserString, cookedErr);
+                    console.log('--FAILED--', test, browserString, cookedErr);
                 }
                 // This sometimes signifies a suacelabs browser that has gone awawy.
                 if ('ERROR Internal Server Error' === cookedErr) {
@@ -281,7 +277,7 @@ function runTestsInBrowser(state, browserConfig, done) {
     LIBS.async.series(tasks, function(err) {
         console.log('================================================ DONE', browserString);
         if (err) {
-            console.log('BROWSER FAILED');
+            console.log('--BROWSER FAILED--');
             console.log(err);
         }
         done();
