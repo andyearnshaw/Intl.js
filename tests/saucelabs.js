@@ -221,6 +221,13 @@ function runTestsInBrowser(state, browserConfig, done) {
         tasks.push(function(taskDone) {
             var url = state.git.rawURL + test;
             console.log('TESTING', test, browserString);
+
+            // This test appears to cause this browser to hang, eventually timing out in saucelabs.
+            if ('ch09/9.2/9.2.1_1.html' === test && 'iphone' === browserConfig.browserName && '7' === browserConfig.version) {
+                console.log('SKIPPED', test, browserString);
+                taskDone();
+            }
+
             function saveResult(out, err) {
                 var cookedErr = err;
                 if (err) {
