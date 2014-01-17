@@ -2546,10 +2546,7 @@ function ToLocalTime(date, calendar, timeZone) {
             descs = new Record(),
             props = [
                 'locale', 'calendar', 'numberingSystem', 'timeZone', 'hour12', 'weekday',
-                'era', 'year', 'month', 'day', 'hour', 'minute', 'second', 'timeZoneName',
-
-                // Not part of the spec, but in here for debugging purposes
-                'pattern'
+                'era', 'year', 'month', 'day', 'hour', 'minute', 'second', 'timeZoneName'
             ],
             internal = this != null && typeof this === 'object' && getInternalProperties(this);
 
@@ -2775,10 +2772,6 @@ function addLocaleData (data, tag) {
         dateTimeFormatProtoInitialised = true;
     }
 }
-
-// Exposed for debugging
-if (typeof window !== 'undefined')
-    window.IntlLocaleData = internals;
 
 // Helper functions
 // ================
