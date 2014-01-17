@@ -21,6 +21,14 @@ Intl.js is also available as a [Bower](http://bower.io) component for the front-
 
 For other setups, just clone the repo for the pre-built scripts and locale datafiles.
 
+In browser environments, the library will be defined as `IntlPolyfill` and not
+`Intl`.  An example of usage _might_ look like this:
+
+```javascript
+var nf = new (Intl || IntlPolyfill).NumberFormat(undefined, {style:'currency', currency:'GBP'});
+document.getElementById('price').textContent = nf.format(100);
+```
+
 ## <a id=status></a>Status
 The latest test, run on January 10 2013, scored 111 out of 111<sup>\*</sup> in Node.js.
 
