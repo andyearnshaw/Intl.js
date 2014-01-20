@@ -74,6 +74,7 @@ var
     arrPush   = Array.prototype.push,
     arrJoin   = Array.prototype.join,
     arrShift  = Array.prototype.shift,
+    arrUnshift= Array.prototype.unshift,
 
     // Naive Function.prototype.bind for compatibility
     fnBind = Function.prototype.bind || function (thisObj) {
@@ -104,7 +105,6 @@ var
     dateTimeFormatProtoInitialised = false,
 
     // Some regular expressions we're using
-    expInsertGroups = /(?=(?!^)(?:\d{3})+(?!\d))/g,
     expCurrencyCode = /^[A-Z]{3}$/,
     expUnicodeExSeq = /-u(?:-[0-9a-z]{2,8})+/gi, // See `extension` below
 
@@ -1517,8 +1517,43 @@ function FormatNumber (numberFormat, x) {
         //    is true, then insert an ILND String representing a grouping separator
         //    into an ILND set of locations within the integer part of n.
         if (internal['[[useGrouping]]'] === true) {
-            var parts = n.split(ild.decimal);
-            parts[0] = parts[0].replace(expInsertGroups, ild.group);
+            var
+                parts  = n.split(ild.decimal),
+                igr    = parts[0],
+
+                // Primary group represents the group closest to the decimal
+                pgSize = data.patterns.primaryGroupSize || 3,
+
+                // Secondary group is every other group
+                sgSize = data.patterns.secondaryGroupSize || pgSize;
+
+            // Group only if necessary
+            if (igr > pgSize) {
+                var
+                    groups = new List(),
+
+                    // Index of the primary grouping separator
+                    end    = igr.length - pgSize,
+
+                    // Starting index for our loop
+                    idx    = end % sgSize,
+
+                    start  = igr.slice(0, idx);
+
+                if (start.length)
+                    arrPush.call(groups, start);
+
+                // Loop to separate into secondary grouping digits
+                while (idx < end) {
+                    arrPush.call(groups, igr.slice(idx, idx + sgSize));
+                    idx += sgSize;
+                }
+
+                // Add the primary grouping digits
+                arrPush.call(groups, igr.slice(end));
+
+                parts[0] = arrJoin.call(groups, ild.group);
+            }
 
             n = arrJoin.call(parts, ild.decimal);
         }
