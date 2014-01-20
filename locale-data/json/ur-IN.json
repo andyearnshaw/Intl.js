@@ -896,7 +896,8 @@
             "percent": {
                 "positivePattern": "{number}%",
                 "negativePattern": "-{number}%"
-            }
+            },
+            "secondaryGroupSize": 2
         },
         "symbols": {
             "arabext": {

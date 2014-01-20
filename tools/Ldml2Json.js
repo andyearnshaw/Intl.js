@@ -275,6 +275,19 @@ function processObj(data) {
     if (ptn = data.numbers['percentFormats-numberSystem-' + defaultNu] || data.numbers['percentFormats-numberSystem-latn'])
         ret.number.patterns.percent = createNumberFormats(ptn.standard);
 
+    // Check the grouping sizes for locales that group irregularly
+    var pGroupSize = ptn.standard.match(/#+0/)[0].length,
+        groups = ptn.standard.split(',');
+
+    // The pattern in en-US-POSIX doesn't specify group sizes, and the default
+    // is 3 so we can leave those out
+    if (ptn.standard.indexOf(',') > -1 && pGroupSize !== 3)
+        ret.number.patterns.primaryGroupSize = pGroupSize;
+
+    // Look for secondary group size in the pattern, e.g. '#,##,##0%'
+    if (groups.length > 2)
+        ret.number.patterns.secondaryGroupSize = groups[1].length;
+
     // Copy the currency symbols
     for (var k in data.numbers.currencies) {
         if (k !== data.numbers.currencies[k].symbol)
