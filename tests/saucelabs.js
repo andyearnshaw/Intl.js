@@ -363,7 +363,7 @@ function runTestsInBrowser(state, browserConfig, done) {
             console.log('--BROWSER FAILED--');
             console.log(err);
         }
-        done();
+        done(err);
     });
 }
 
