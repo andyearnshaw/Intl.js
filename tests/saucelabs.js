@@ -168,7 +168,7 @@ function calculateGitDetails(state, done) {
                     taskDone(err);
                     return;
                 }
-                matches = stdout.trim().match(/([^:\/]+)\/(.+)\.git$/);
+                matches = stdout.trim().match(/([^:\/]+)\/([^\/]+)\.git$/);
                 if (matches) {
                     state.git.user = matches[1];
                     state.git.repo = matches[2];
@@ -337,7 +337,8 @@ function main() {
     console.log('================================================ START');
     LIBS.async.series([
         calculateGitDetails.bind(null, state),
-        runTests.bind(null, state)
+// DEBUGGING -- no point in trying this until we get the git details sorted
+//      runTests.bind(null, state)
     ], function(err) {
         console.log('================================================ DONE');
         if (err) {
