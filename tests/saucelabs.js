@@ -111,16 +111,24 @@ function runCommand(command, done) {
 
 function calculateGitDetails(state, done) {
     state.git = {};
-    if (process.env.TRAVIS) {
-        // travis makes this information easy to get
-        state.git.shasum = process.env.TRAVIS_COMMIT;
-        var parts = process.env.TRAVIS_REPO_SLUG.split('/');
-        state.git.user = parts[0];
-        state.git.repo = parts[1];
-        state.git.rawURL = 'https://rawgithub.com/' + state.git.user + '/' + state.git.repo + '/' + state.git.shasum + '/tests/test262/pages/';
-        done();
-        return;
-    }
+//TODO -- trying to get fallback mechanism to work on saucelabs
+//  if (process.env.TRAVIS) {
+//      // travis makes this information easy to get
+//      state.git.shasum = process.env.TRAVIS_COMMIT;
+//      var parts = process.env.TRAVIS_REPO_SLUG.split('/');
+//      state.git.user = parts[0];
+//      state.git.repo = parts[1];
+//      state.git.rawURL = 'https://rawgithub.com/' + state.git.user + '/' + state.git.repo + '/' + state.git.shasum + '/tests/test262/pages/';
+//      done();
+//      return;
+//  }
+    console.log('------------------------------------------------------------ DEBUGGING');
+    console.log('cwd', process.cwd());
+    console.log(LIBS.fs.readdirSync(process.cwd()));
+    console.log('cwd/..', LIBS.path.resolve(process.cwd(), '..'));
+    console.log(LIBS.fs.readdirSync(LIBS.path.resolve(process.cwd(), '..')));
+    console.log('------------------------------------------------------------');
+
     LIBS.async.series([
         function(taskDone) {
             runCommand(['git', 'rev-parse', 'HEAD'], function(err, code, stdout, stderr) {
