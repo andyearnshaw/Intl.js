@@ -98,12 +98,21 @@ function runCommand(command, done) {
         stderr += data;
     });
     pid.on('exit', function(code) {
+        // DEBUGGING
+        console.log(stdout);
+        console.log(stderr);
         done(err, code, stdout, stderr);
     });
     pid.on('error', function(err) {
+        // DEBUGGING
+        console.log(stdout);
+        console.log(stderr);
         done(err, err.code, stdout, stderr);
     });
     pid.on('uncaughtException', function(err) {
+        // DEBUGGING
+        console.log(stdout);
+        console.log(stderr);
         done(err, err.code || 1, stdout, stderr);
     });
 }
