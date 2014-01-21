@@ -98,55 +98,34 @@ function runCommand(command, done) {
         stderr += data;
     });
     pid.on('exit', function(code) {
-        // DEBUGGING
-        console.log(stdout);
-        console.log(stderr);
         done(err, code, stdout, stderr);
     });
     pid.on('error', function(err) {
-        // DEBUGGING
-        console.log(stdout);
-        console.log(stderr);
         done(err, err.code, stdout, stderr);
     });
     pid.on('uncaughtException', function(err) {
-        // DEBUGGING
-        console.log(stdout);
-        console.log(stderr);
         done(err, err.code || 1, stdout, stderr);
     });
 }
 
 
-function calculateGitDetails(state, done) {
-    state.git = {};
-//TODO -- trying to get fallback mechanism to work on saucelabs
-//  if (process.env.TRAVIS) {
-//      // travis makes this information easy to get
-//      state.git.shasum = process.env.TRAVIS_COMMIT;
-//      var parts = process.env.TRAVIS_REPO_SLUG.split('/');
-//      state.git.user = parts[0];
-//      state.git.repo = parts[1];
-//      state.git.rawURL = 'https://rawgithub.com/' + state.git.user + '/' + state.git.repo + '/' + state.git.shasum + '/tests/test262/pages/';
-//      done();
-//      return;
-//  }
-    console.log('------------------------------------------------------------ DEBUGGING');
-    console.log('cwd', process.cwd());
-    console.log(LIBS.fs.readdirSync(process.cwd()));
-    console.log('cwd/..', LIBS.path.resolve(process.cwd(), '..'));
-    console.log(LIBS.fs.readdirSync(LIBS.path.resolve(process.cwd(), '..')));
-    console.log('------------------------------------------------------------');
+function gitDetailsFromTravis(state, done) {
+    if (process.env.TRAVIS) {
+        // travis makes this information easy to get
+        state.git.shasum = process.env.TRAVIS_COMMIT;
+        var parts = process.env.TRAVIS_REPO_SLUG.split('/');
+        state.git.user = parts[0];
+        state.git.repo = parts[1];
+        state.git.rawURL = 'https://rawgithub.com/' + state.git.user + '/' + state.git.repo + '/' + state.git.shasum + '/tests/test262/pages/';
+        done(new Error('FOUND'));
+        return;
+    }
+    done();
+}
 
+
+function gitDetailsFromGit(state, done) {
     LIBS.async.series([
-        function(taskDone) {
-            // DEBUGGING
-            runCommand(['which', 'git'], function(err, code, stdout, stderr) {
-                console.log(stdout);
-                console.log(stderr);
-                taskDone(err);
-            });
-        },
         function(taskDone) {
             runCommand(['git', 'rev-parse', 'HEAD'], function(err, code, stdout, stderr) {
                 if (err) {
@@ -197,8 +176,87 @@ function calculateGitDetails(state, done) {
             });
         }
     ], function(err) {
+        if (err) {
+            console.log(err.message);
+            done();
+        }
+        else {
+            done(new Error('FOUND'));
+        }
+    });
+}
+
+
+function gitDetailsFromFilesystem(state, done) {
+    var gitDir = LIBS.path.resolve(process.cwd(), '..', '.git'),
+        config;
+
+    function readRef(ref) {
+        var path = LIBS.path.resolve(gitDir, ref),
+            contents = LIBS.fs.readFileSync(path).toString(),
+            matches;
+        while (matches = contents.match(/ref: (\S+)/)) {
+            path = LIBS.path.resolve(gitDir, matches[1]);
+            contents = LIBS.fs.readFileSync(path).toString();
+        }
+        return contents.trim();
+    }
+
+    state.git.shasum = readRef('HEAD');
+    if (! state.git.shasum) {
+        console.log("failed to find current commit");
+        done();
+        return;
+    }
+
+    LIBS.fs.readdirSync(LIBS.path.resolve(gitDir, 'refs', 'remotes')).forEach(function(remoteDir) {
+        LIBS.fs.readdirSync(LIBS.path.resolve(gitDir, 'refs', 'remotes', remoteDir)).forEach(function(branchFile) {
+            var contents = readRef(LIBS.path.join('refs', 'remotes', remoteDir, branchFile));
+            if (contents === state.git.shasum) {
+                state.git.remote = remoteDir;
+                state.git.branch = branchFile;
+            }
+        });
+    });
+    if (! state.git.remote) {
+        console.log('failed to find relevant remote for ' + state.git.shasum);
+        done();
+        return;
+    }
+
+    config = LIBS.fs.readFileSync(LIBS.path.resolve(gitDir, 'config')).toString();
+    config.split('\n[').forEach(function(conf) {
+        var matches = conf.match(/^remote "([^"]+)"\](.|\n)*url\s*=\s*\S+github\.com[:\/]([^\/]*)\/(.+)\.git/m);
+        if (matches && (matches[1] === state.git.remote)) {
+            state.git.user = matches[3];
+            state.git.repo = matches[4];
+            state.git.rawURL = 'https://rawgithub.com/' + state.git.user + '/' + state.git.repo + '/' + state.git.shasum + '/tests/test262/pages/';
+        }
+    });
+    if (! state.git.rawURL) {
+        console.log('failed to find repository URL for remote ' + state.git.remote);
+        done();
+        return;
+    }
+
+    done(new Error('FOUND'));
+}
+
+
+function calculateGitDetails(state, done) {
+    state.git = {};
+    LIBS.async.series([
+        gitDetailsFromTravis.bind(null, state),
+        gitDetailsFromGit.bind(null, state),
+        gitDetailsFromFilesystem.bind(null, state)
+    ], function(err) {
         console.log(JSON.stringify(state.git, null, 4));
-        done(err);
+        if (err && err.message === 'FOUND') {
+            done();
+        }
+        else {
+            done(new Error('failed to find git details'));
+        }
     });
 }
 
