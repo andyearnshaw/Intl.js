@@ -246,8 +246,7 @@ function gitDetailsFromFilesystem(state, done) {
 function calculateGitDetails(state, done) {
     state.git = {};
     LIBS.async.series([
-// DEBUGGING -- see if any of the others behave as expected on travis
-//      gitDetailsFromTravis.bind(null, state),
+        gitDetailsFromTravis.bind(null, state),
         gitDetailsFromGit.bind(null, state),
         gitDetailsFromFilesystem.bind(null, state)
     ], function(err) {
@@ -413,8 +412,7 @@ function main() {
     console.log('================================================ START');
     LIBS.async.series([
         calculateGitDetails.bind(null, state),
-// DEBUGGING -- no point in trying this until we get the git details sorted
-//      runTests.bind(null, state)
+        runTests.bind(null, state)
     ], function(err) {
         console.log('================================================ DONE');
         if (err) {
