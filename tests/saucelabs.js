@@ -140,6 +140,14 @@ function calculateGitDetails(state, done) {
 
     LIBS.async.series([
         function(taskDone) {
+            // DEBUGGING
+            runCommand(['git', '--version'], function(err, code, stdout, stderr) {
+                console.log(stdout);
+                console.log(stderr);
+                taskDone(err);
+            });
+        },
+        function(taskDone) {
             runCommand(['git', 'rev-parse', 'HEAD'], function(err, code, stdout, stderr) {
                 if (err) {
                     taskDone(err);
