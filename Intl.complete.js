@@ -2553,14 +2553,14 @@ function ToLocalTime(date, calendar, timeZone) {
     //    [[hour]], [[minute]], [[second]], and [[inDST]], each with the corresponding
     //    calculated value.
     return new Record({
-        '[[weekday]]': d.getDay(),
-        '[[era]]'    : +(d.getFullYear >= 0),
-        '[[year]]'   : d.getFullYear(),
-        '[[month]]'  : d.getMonth(),
-        '[[day]]'    : d.getDate(),
-        '[[hour]]'   : d.getHours(),
-        '[[minute]]' : d.getMinutes(),
-        '[[second]]' : d.getSeconds(),
+        '[[weekday]]': d.getUTCDay(),
+        '[[era]]'    : +(d.getUTCFullYear() >= 0),
+        '[[year]]'   : d.getUTCFullYear(),
+        '[[month]]'  : d.getUTCMonth(),
+        '[[day]]'    : d.getUTCDate(),
+        '[[hour]]'   : d.getUTCHours(),
+        '[[minute]]' : d.getUTCMinutes(),
+        '[[second]]' : d.getUTCSeconds(),
         '[[inDST]]'  : false // ###TODO###
     });
 }
