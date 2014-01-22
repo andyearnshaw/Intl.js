@@ -10,16 +10,33 @@ var LIBS = {
     LIB_PATH    = __dirname + '/../Intl.complete.js',
     INTL_LIB    = LIBS.fs.readFileSync(LIB_PATH).toString(),
 
-    // stuff defined in harness/*.js yet not pulled in via $INCLUDE()
-    HACKNESS = [
+    WRAPPER_START = [
+        '//<html><body>results: <span id="results">not yet run</span><script src="../../../../../Intl.complete.js"></script><script>',
+
+        // stuff defined in harness/*.js yet not pulled in via $INCLUDE()
         'var __globalObject = Function("return this;")();',
         'function fnGlobalObject() {',
         '    return __globalObject;',
         '}',
 
-        // Let the file be executed in Node.js
-        'if (typeof IntlPolyfill == "undefined" && __dirname)',
-        '    IntlPolyfill  = require("../../../../../Intl.complete.js");'
+        'function runTheTest() {'
+    ].join('\n'),
+
+    WRAPPER_END = [
+        '}',
+
+        // Selenium webdriver doesn't have an API to report whether the test
+        // threw an exception, so we need to capture that.
+        'var passed = false;',
+        'try {',
+        '    runTheTest();',
+        '    passed = true;',
+        '} finally {',
+        '    if (typeof document !== "undefined") {',
+        '        document.getElementById("results").innerHTML = (passed ? "passed" : "FAILED");',
+        '    }',
+        '}',
+        '//</script></body></html>'
     ].join('\n');
 
 function mkdirp(dir) {
@@ -74,10 +91,9 @@ function processTest(content) {
 function wrapTest(content) {
     // The weird "//" makes these html files also valid node.js scripts :)
     return [
-        '//<html><body><script src="../../../../../Intl.complete.js"></script><script>',
-        HACKNESS,
+        WRAPPER_START,
         content,
-        '//</script></body></html>'
+        WRAPPER_END
     ].join('\n');
 }
 
