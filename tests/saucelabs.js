@@ -369,12 +369,26 @@ function runTestsInBrowser(state, browserConfig, done) {
 
 
 function runTests(state, done) {
-    var q;
+    var q,
+        browserFailures = 0;
     // saucelabs FLOSS account has a low concurrency
     q = LIBS.async.queue(function(browser, browserDone) {
-        runTestsInBrowser(state, browser, browserDone);
+        runTestsInBrowser(state, browser, function(err) {
+            if (err) {
+                console.log(err.message);
+                browserFailures++;
+            }
+            browserDone();
+        });
     }, BROWSER_CONCURRENCY);
-    q.drain = done;
+    q.drain = function() {
+        if (browserFailures) {
+            done(new Error("some browsers failed"));
+        }
+        else {
+            done();
+        }
+    }
     q.push(BROWSERS);
 }
 
