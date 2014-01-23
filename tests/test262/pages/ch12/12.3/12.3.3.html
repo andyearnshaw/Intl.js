@@ -1,10 +1,9 @@
-//<html><body><script src="../../../../../Intl.complete.js"></script><script>
+//<html><body>results: <span id="results">not yet run</span><script src="../../../../../Intl.complete.js"></script><script>
 var __globalObject = Function("return this;")();
 function fnGlobalObject() {
     return __globalObject;
 }
-if (typeof IntlPolyfill == "undefined" && __dirname)
-    IntlPolyfill  = require("../../../../../Intl.complete.js");
+function runTheTest() {
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the license found in the LICENSE file.
 
@@ -1225,4 +1224,14 @@ mustNotHaveProperty(actual, "timeZoneName");
 mustNotHaveProperty(actual, "hour12");
 
 
+}
+var passed = false;
+try {
+    runTheTest();
+    passed = true;
+} finally {
+    if (typeof document !== "undefined") {
+        document.getElementById("results").innerHTML = (passed ? "passed" : "FAILED");
+    }
+}
 //</script></body></html>
