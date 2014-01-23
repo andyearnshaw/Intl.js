@@ -1,9 +1,10 @@
 language: node_js
 node_js:
-- '0.10'
-- '0.11'
+  - '0.10'
+  - '0.11'
+
 addons:
   sauce_connect:
-    username: drewfish
+    username: andyearnshaw
     access_key:
-      secure: H9MEEwJTOz0sUZploAzpYR0G69gOi5uhdQyotzceVWVXN3zqnLfTNodLShTuuao888fp2RQJu1W1CLsvonYVynQfFt9zi4c9lalxhPAhsQ1KnO8ynItmjmLJVMWNfowWbz+3m0HT2H3S1beOKCaWBZtlXb5gyAoAwLwYw1nzOgE=
+      secure: 'OslPEaqVgNH+9YWwtEIJE4/Ot+RmSonIYMxvxMjnaaLAkoYX34nJzaB8vPFP1txDwkDHpOy+MiQ8hKYhyilw5Ydr11O2IEuhVjcJThKSoN3yMTe6FHpXQKO9uC1loaRwJs2uV0go+P4ooywZ8Y72/RtKXk0OOhn5Lg5ekb3wMRg='
