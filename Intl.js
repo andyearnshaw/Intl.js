@@ -38,7 +38,7 @@ var
     defineProperty = Object.defineProperty || function (obj, name, desc) {
         if (desc.get && obj.__defineGetter__)
             obj.__defineGetter__(name, desc.get);
-        else if (desc.value)
+        else if (hop.call(desc, 'value'))
             obj[name] = desc.value;
     },
 
