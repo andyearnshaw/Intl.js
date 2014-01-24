@@ -1528,7 +1528,7 @@ function FormatNumber (numberFormat, x) {
                 sgSize = data.patterns.secondaryGroupSize || pgSize;
 
             // Group only if necessary
-            if (igr > pgSize) {
+            if (igr.length > pgSize) {
                 var
                     groups = new List(),
 
