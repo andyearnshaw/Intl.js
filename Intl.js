@@ -36,9 +36,9 @@ var
 
     // Naive defineProperty for compatibility
     defineProperty = Object.defineProperty || function (obj, name, desc) {
-        if (desc.get && obj.__defineGetter__)
-            obj.__defineGetter__(name, desc.get);
-        else if (hop.call(desc, 'value'))
+         if (desc.get && obj.__defineGetter__)
+             obj.__defineGetter__(name, desc.get);
+         else if (hop.call(desc, 'value'))
             obj[name] = desc.value;
     },
 
@@ -84,9 +84,18 @@ var
         var fn = this,
             args = arrSlice.call(arguments, 1);
 
-        return function () {
-            return fn.apply(thisObj, arrConcat.call(args, arrSlice.call(arguments)));
-        };
+        // All our (presently) bound functions have either 1 or 0 arguments. By returning
+        // different function signatures, we can pass some tests in ES3 environments
+        if (fn.length === 1) {
+            return function (a) {
+                return fn.apply(thisObj, arrConcat.call(args, arrSlice.call(arguments)));
+            };
+        }
+        else {
+            return function () {
+                return fn.apply(thisObj, arrConcat.call(args, arrSlice.call(arguments)));
+            };
+        }
     },
 
     // Default locale is the first-added locale data for us
