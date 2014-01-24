@@ -28,6 +28,9 @@
 var
     Intl = {},
 
+    // Need a workaround for getters in ES3
+    es3  = !Object.defineProperty && Object.prototype.__defineGetter__,
+
     // We use this a lot (and need it for proto-less objects)
     hop = Object.prototype.hasOwnProperty,
 
@@ -35,8 +38,8 @@ var
     defineProperty = Object.defineProperty || function (obj, name, desc) {
         if (desc.get && obj.__defineGetter__)
             obj.__defineGetter__(name, desc.get);
-        else if (desc.value || desc.get)
-            obj[name] = desc.value || desc.get;
+        else if (desc.value)
+            obj[name] = desc.value;
     },
 
     // Array.prototype.indexOf, as good as we need it to be
@@ -1332,6 +1335,10 @@ function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
     //     true.
     internal['[[initializedNumberFormat]]'] = true;
 
+    // In ES3, we need to pre-bind the format() function
+    if (es3)
+        numberFormat.format = GetFormatNumber.call(numberFormat);
+
     // Restore the RegExp properties
     regexpState.exp.test(regexpState.input);
 
@@ -1374,7 +1381,10 @@ function CurrencyDigits(currency) {
  */
 /* 11.3.2 */defineProperty(Intl.NumberFormat.prototype, 'format', {
     configurable: true,
-    get: function () {
+    get: GetFormatNumber
+});
+
+function GetFormatNumber() {
         var internal = this != null && typeof this === 'object' && getInternalProperties(this);
 
         // Satisfy test 11.3_b
@@ -1415,7 +1425,6 @@ function CurrencyDigits(currency) {
         // NumberFormat object.
         return internal['[[boundFormat]]'];
     }
-});
 
 /**
  * When the FormatNumber abstract operation is called with arguments numberFormat
@@ -2081,6 +2090,10 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
     //     true.
     internal['[[initializedDateTimeFormat]]'] = true;
 
+    // In ES3, we need to pre-bind the format() function
+    if (es3)
+        dateTimeFormat.format = GetFormatDateTime.call(dateTimeFormat);
+
     // Restore the RegExp properties
     regexpState.exp.test(regexpState.input);
 
@@ -2329,49 +2342,51 @@ function BestFitFormatMatcher (options, formats) {
  */
 /* 12.3.2 */defineProperty(Intl.DateTimeFormat.prototype, 'format', {
     configurable: true,
-    get: function () {
-        var internal = this != null && typeof this === 'object' && getInternalProperties(this);
-
-        // Satisfy test 12.3_b
-        if (!internal || !internal['[[initializedDateTimeFormat]]'])
-            throw new TypeError('`this` value for format() is not an initialized Intl.DateTimeFormat object.');
-
-        // The value of the [[Get]] attribute is a function that takes the following
-        // steps:
-
-        // 1. If the [[boundFormat]] internal property of this DateTimeFormat object
-        //    is undefined, then:
-        if (internal['[[boundFormat]]'] === undefined) {
-            var
-            // a. Let F be a Function object, with internal properties set as
-            //    specified for built-in functions in ES5, 15, or successor, and the
-            //    length property set to 0, that takes the argument date and
-            //    performs the following steps:
-                F = function () {
-                    //   i. If date is not provided or is undefined, then let x be the
-                    //      result as if by the expression Date.now() where Date.now is
-                    //      the standard built-in function defined in ES5, 15.9.4.4.
-                    //  ii. Else let x be ToNumber(date).
-                    // iii. Return the result of calling the FormatDateTime abstract
-                    //      operation (defined below) with arguments this and x.
-                    var x = Number(arguments.length === 0 ? Date.now() : arguments[0]);
-                    return FormatDateTime(this, x);
-                },
-            // b. Let bind be the standard built-in function object defined in ES5,
-            //    15.3.4.5.
-            // c. Let bf be the result of calling the [[Call]] internal method of
-            //    bind with F as the this value and an argument list containing
-            //    the single item this.
-                bf = fnBind.call(F, this);
-            // d. Set the [[boundFormat]] internal property of this NumberFormat
-            //    object to bf.
-            internal['[[boundFormat]]'] = bf;
-        }
-        // Return the value of the [[boundFormat]] internal property of this
-        // NumberFormat object.
-        return internal['[[boundFormat]]'];
-    }
+    get: GetFormatDateTime
 });
+
+function GetFormatDateTime() {
+    var internal = this != null && typeof this === 'object' && getInternalProperties(this);
+
+    // Satisfy test 12.3_b
+    if (!internal || !internal['[[initializedDateTimeFormat]]'])
+        throw new TypeError('`this` value for format() is not an initialized Intl.DateTimeFormat object.');
+
+    // The value of the [[Get]] attribute is a function that takes the following
+    // steps:
+
+    // 1. If the [[boundFormat]] internal property of this DateTimeFormat object
+    //    is undefined, then:
+    if (internal['[[boundFormat]]'] === undefined) {
+        var
+        // a. Let F be a Function object, with internal properties set as
+        //    specified for built-in functions in ES5, 15, or successor, and the
+        //    length property set to 0, that takes the argument date and
+        //    performs the following steps:
+            F = function () {
+                //   i. If date is not provided or is undefined, then let x be the
+                //      result as if by the expression Date.now() where Date.now is
+                //      the standard built-in function defined in ES5, 15.9.4.4.
+                //  ii. Else let x be ToNumber(date).
+                // iii. Return the result of calling the FormatDateTime abstract
+                //      operation (defined below) with arguments this and x.
+                var x = Number(arguments.length === 0 ? Date.now() : arguments[0]);
+                return FormatDateTime(this, x);
+            },
+        // b. Let bind be the standard built-in function object defined in ES5,
+        //    15.3.4.5.
+        // c. Let bf be the result of calling the [[Call]] internal method of
+        //    bind with F as the this value and an argument list containing
+        //    the single item this.
+            bf = fnBind.call(F, this);
+        // d. Set the [[boundFormat]] internal property of this NumberFormat
+        //    object to bf.
+        internal['[[boundFormat]]'] = bf;
+    }
+    // Return the value of the [[boundFormat]] internal property of this
+    // NumberFormat object.
+    return internal['[[boundFormat]]'];
+}
 
 /**
  * When the FormatDateTime abstract operation is called with arguments dateTimeFormat
