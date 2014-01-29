@@ -1,4 +1,4 @@
-//<html><body>results: <span id="results">not yet run</span><script src="../../../../../Intl.complete.js"></script><script>
+//<html><body><button onclick="runner()">Run</button> results: <span id="results">not yet run</span><script src="../../../../../Intl.complete.js"></script><script>
 var __globalObject = Function("return this;")();
 function fnGlobalObject() {
     return __globalObject;
@@ -146,13 +146,15 @@ testBuiltInObject(IntlPolyfill.DateTimeFormat.prototype, false, false, ["constru
 
 
 }
-var passed = false;
-try {
+function runner() {
+    var passed = false;
+    if (typeof document !== "undefined") {
+        setTimeout(function () {
+            document.getElementById("results").innerHTML = (passed ? "passed" : "FAILED");
+        });
+    }
     runTheTest();
     passed = true;
-} finally {
-    if (typeof document !== "undefined") {
-        document.getElementById("results").innerHTML = (passed ? "passed" : "FAILED");
-    }
+    return passed;
 }
 //</script></body></html>

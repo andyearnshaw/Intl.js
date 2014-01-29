@@ -20,10 +20,10 @@ function runTest(testPath) {
 
     try {
         LIBS.vm.runInContext(content, context, testPath);
+        return LIBS.vm.runInContext('runner()', context);
     } catch (err) {
         return err;
     }
-    return;
 }
 
 
@@ -61,7 +61,8 @@ function main() {
             err;
         name = LIBS.path.basename(testPath, LIBS.path.extname(testPath));
         err = runTest(testPath);
-        if (err) {
+
+        if (err !== true) {
             console.log(name, '-- FAILED', err.message);
             failCount++;
         } else {

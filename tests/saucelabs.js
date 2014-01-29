@@ -317,14 +317,14 @@ function runTestsInBrowser(state, browserConfig, done) {
                     cookedErr = cookedErr || out || 'FAILED no results';
                     console.log('--ERROR--', err);
                 }
-                if (out === 'passed') {
+                if (out) {
                     state.results.passCount++;
                     console.log('--PASSED--', test, browserString);
                 } else {
                     failures++;
                     state.results.failCount++;
                     if (!state.results.failures[test]) {
-                        state.results.failures[test] = {}
+                        state.results.failures[test] = {};
                     }
                     state.results.failures[test][browserString] = cookedErr;
                     console.log('--FAILED--', test, browserString, cookedErr);
@@ -336,15 +336,11 @@ function runTestsInBrowser(state, browserConfig, done) {
                     taskDone();
                 }
             }
+
             browser.get(url, function() {
-                browser.elementById('results', function(err, el) {
-                    if (err) {
-                        saveResult(null, err);
-                        return;
-                    }
-                    el.text(function(err, out) {
-                        saveResult(out, err);
-                    });
+                /*jshint evil:true*/
+                browser.eval('runner()', function (err, out) {
+                    saveResult(err ? null : out, err);
                 });
             });
         });

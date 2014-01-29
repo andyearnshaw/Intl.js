@@ -11,7 +11,7 @@ var LIBS = {
     INTL_LIB    = LIBS.fs.readFileSync(LIB_PATH).toString(),
 
     WRAPPER_START = [
-        '//<html><body>results: <span id="results">not yet run</span><script src="../../../../../Intl.complete.js"></script><script>',
+        '//<html><body><button onclick="runner()">Run</button> results: <span id="results">not yet run</span><script src="../../../../../Intl.complete.js"></script><script>',
 
         // stuff defined in harness/*.js yet not pulled in via $INCLUDE()
         'var __globalObject = Function("return this;")();',
@@ -25,16 +25,18 @@ var LIBS = {
     WRAPPER_END = [
         '}',
 
-        // Selenium webdriver doesn't have an API to report whether the test
-        // threw an exception, so we need to capture that.
-        'var passed = false;',
-        'try {',
+        // In the browser, a button will run the following function,
+        // and we can also call it with the webdriver's execute() function
+        'function runner() {',
+        '    var passed = false;',
+        '    if (typeof document !== "undefined") {',
+        '        setTimeout(function () {',
+        '            document.getElementById("results").innerHTML = (passed ? "passed" : "FAILED");',
+        '        });',
+        '    }',
         '    runTheTest();',
         '    passed = true;',
-        '} finally {',
-        '    if (typeof document !== "undefined") {',
-        '        document.getElementById("results").innerHTML = (passed ? "passed" : "FAILED");',
-        '    }',
+        '    return passed;',
         '}',
         '//</script></body></html>'
     ].join('\n');
