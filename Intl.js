@@ -28,17 +28,22 @@
 var
     Intl = {},
 
+    realDefineProp = (function () {
+        try { return !!Object.defineProperty({}, 'a', {}); }
+        catch (e) { return false; }
+    })(),
+
     // Need a workaround for getters in ES3
-    es3  = !Object.defineProperty && Object.prototype.__defineGetter__,
+    es3  = !realDefineProp && !Object.prototype.__defineGetter__,
 
     // We use this a lot (and need it for proto-less objects)
     hop = Object.prototype.hasOwnProperty,
 
     // Naive defineProperty for compatibility
-    defineProperty = Object.defineProperty || function (obj, name, desc) {
-         if (desc.get && obj.__defineGetter__)
-             obj.__defineGetter__(name, desc.get);
-         else if (hop.call(desc, 'value'))
+    defineProperty = realDefineProp ? Object.defineProperty : function (obj, name, desc) {
+        if (desc.get && obj.__defineGetter__)
+            obj.__defineGetter__(name, desc.get);
+        else if (hop.call(desc, 'value'))
             obj[name] = desc.value;
     },
 
