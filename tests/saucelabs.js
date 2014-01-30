@@ -227,6 +227,7 @@ function gitDetailsFromFilesystem(state, done) {
     config = LIBS.fs.readFileSync(LIBS.path.resolve(gitDir, 'config')).toString();
     config.split('\n[').forEach(function(conf) {
         var matches = conf.match(/^remote "([^"]+)"\](.|\n)*url\s*=\s*\S+github\.com[:\/]([^\/]*)\/(.+)\.git/m);
+        console.log(matches);
         if (matches && (matches[1] === state.git.remote)) {
             state.git.user = matches[3];
             state.git.repo = matches[4];
@@ -305,7 +306,7 @@ function runTestsInBrowser(state, browserConfig, done) {
     state.tests.forEach(function(test) {
         tasks.push(function(taskDone) {
             var url = state.git.rawURL + test;
-            console.log('--TESTING--', test, browserString);
+            console.log('--TESTING--', test, typeof browserString);
 
             function saveResult(out, err) {
                 var cookedErr = err;
@@ -339,7 +340,40 @@ function runTestsInBrowser(state, browserConfig, done) {
 
             browser.get(url, function() {
                 /*jshint evil:true*/
-                browser.eval('runner()', function (err, out) {
+                var code = 'runner()';
+
+                // Safari chokes on tests that taint Array/Object prototypes
+                if (browserConfig.browserName === 'safari') {
+                    code =  function () {
+                                var err, rtn,
+                                    backup = {},
+                                    fns    = ['indexOf', 'join', 'push', 'slice', 'sort'];
+
+                                fns.forEach(function (fn) {
+                                    backup[fn] = Array.prototype[fn];
+                                });
+
+                                try { rtn = runner(); }
+                                catch (e) { err = e; }
+
+                                delete Array.prototype[0];
+                                delete Object.prototype[0];
+                                delete Object.prototype[1];
+
+                                fns.forEach(function (fn) {
+                                    Array.prototype[fn] = backup[fn];
+                                });
+
+                                if (err)
+                                    throw err;
+
+                                return rtn;
+                            }.toString();
+
+                    code = '(' + code + ')()';
+                }
+
+                browser.eval(code, function (err, out) {
                     saveResult(err ? null : out, err);
                 });
             });
