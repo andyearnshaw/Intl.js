@@ -58,6 +58,8 @@ var
             if (t[i] === search)
                 return i;
         }
+
+        return -1;
     },
 
     // Create an object with the specified prototype (2nd arg required for Record)
