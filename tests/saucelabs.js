@@ -401,7 +401,7 @@ function runTestsInBrowser(state, browserConfig, done) {
 
                 browser.eval(code, function (err, out) {
                     // IE has to return errors to get the message
-                    if (out.message)
+                    if (out && out.message)
                         err = out;
 
                     saveResult(err ? null : out, err);
