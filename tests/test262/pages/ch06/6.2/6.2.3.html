@@ -4,6 +4,50 @@ function fnGlobalObject() {
     return __globalObject;
 }
 function runTheTest() {
+try { Object.defineProperty({}, "a", {}) } catch (e) { Object.defineProperty = function (obj, name, desc) {
+             if (desc.hasOwnProperty('value'))
+                obj[name] = desc.value;
+        } }
+Object.create = Object.create || function () { return {}; };
+Object.getOwnPropertyNames = Object.getOwnPropertyNames || function (obj) {
+            var ret = [];
+
+            for (var k in obj) {
+                if (obj.hasOwnProperty(k))
+                    ret.push(k);
+            }
+
+            return ret;
+        };
+Array.prototype.indexOf = Array.prototype.indexOf || function (search) {
+            var t = this;
+            if (!t.length)
+                return -1;
+
+            for (var i = arguments[1] || 0, max = t.length; i < max; i++) {
+                if (t[i] === search)
+                    return i;
+            }
+        };
+Array.prototype.forEach = Array.prototype.forEach || function (fn) {
+            for (var i=0; i < this.length; i++)
+                fn.call(arguments[1], this[i], i, this);
+        };
+JSON = typeof JSON != undefined ? JSON : {};
+JSON.stringify = JSON.stringify || function (obj) {
+            var props = [];
+
+            for (var k in obj) {
+                if (obj.hasOwnProperty(k))
+                    props.push(k + ': ' + obj[k]);
+            }
+
+            return '{ ' + props.join(',') + ' }';
+        };
+Array.prototype.every = Array.prototype.every || function (fn) {
+            for (var i=0; i < this.length; i++)
+                fn.call(arguments[1], this[i], i, this);
+        };
 // Copyright 2011-2012 Norbert Lindenberg. All rights reserved.
 // Copyright 2012  Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.

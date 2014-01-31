@@ -4,6 +4,31 @@ function fnGlobalObject() {
     return __globalObject;
 }
 function runTheTest() {
+Object.getOwnPropertyNames = Object.getOwnPropertyNames || function (obj) {
+            var ret = [];
+
+            for (var k in obj) {
+                if (obj.hasOwnProperty(k))
+                    ret.push(k);
+            }
+
+            return ret;
+        };
+Array.prototype.forEach = Array.prototype.forEach || function (fn) {
+            for (var i=0; i < this.length; i++)
+                fn.call(arguments[1], this[i], i, this);
+        };
+JSON = typeof JSON != undefined ? JSON : {};
+JSON.stringify = JSON.stringify || function (obj) {
+            var props = [];
+
+            for (var k in obj) {
+                if (obj.hasOwnProperty(k))
+                    props.push(k + ': ' + obj[k]);
+            }
+
+            return '{ ' + props.join(',') + ' }';
+        };
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 

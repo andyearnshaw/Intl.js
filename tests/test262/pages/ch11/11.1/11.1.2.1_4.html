@@ -4,6 +4,10 @@ function fnGlobalObject() {
     return __globalObject;
 }
 function runTheTest() {
+Array.prototype.forEach = Array.prototype.forEach || function (fn) {
+            for (var i=0; i < this.length; i++)
+                fn.call(arguments[1], this[i], i, this);
+        };
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 

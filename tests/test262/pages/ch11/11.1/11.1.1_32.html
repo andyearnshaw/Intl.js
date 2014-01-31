@@ -4,6 +4,10 @@ function fnGlobalObject() {
     return __globalObject;
 }
 function runTheTest() {
+try { Object.defineProperty({}, "a", {}) } catch (e) { Object.defineProperty = function (obj, name, desc) {
+             if (desc.hasOwnProperty('value'))
+                obj[name] = desc.value;
+        } }
 // Copyright 2013 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 

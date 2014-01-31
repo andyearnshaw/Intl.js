@@ -4,6 +4,16 @@ function fnGlobalObject() {
     return __globalObject;
 }
 function runTheTest() {
+Array.prototype.indexOf = Array.prototype.indexOf || function (search) {
+            var t = this;
+            if (!t.length)
+                return -1;
+
+            for (var i = arguments[1] || 0, max = t.length; i < max; i++) {
+                if (t[i] === search)
+                    return i;
+            }
+        };
 // Copyright 2012 Google Inc.  All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 

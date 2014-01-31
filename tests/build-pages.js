@@ -37,7 +37,68 @@ var LIBS = {
         '    return passed;',
         '}',
         '//</script></body></html>'
-    ].join('\n');
+    ].join('\n'),
+
+    // Shims for IE 8
+    shims = {
+        'Object.defineProperty': function (obj, name, desc) {
+             if (desc.hasOwnProperty('value'))
+                obj[name] = desc.value;
+        },
+
+        'Object.create': function () { return {}; },
+        'Object.getPrototypeOf': function (obj) { return obj.constructor.prototype; },
+        'Object.isExtensible' : function () { return true; },
+        'Object.getOwnPropertyNames': function (obj) {
+            var ret = [];
+
+            for (var k in obj) {
+                if (obj.hasOwnProperty(k))
+                    ret.push(k);
+            }
+
+            return ret;
+        },
+
+        'Array.prototype.indexOf': function (search) {
+            var t = this;
+            if (!t.length)
+                return -1;
+
+            for (var i = arguments[1] || 0, max = t.length; i < max; i++) {
+                if (t[i] === search)
+                    return i;
+            }
+        },
+
+        'Array.prototype.forEach': function (fn) {
+            for (var i=0; i < this.length; i++)
+                fn.call(arguments[1], this[i], i, this);
+        },
+
+        'Array.prototype.map': function (fn) {
+            var ret = [];
+            for (var i=0; i < this.length; i++)
+                ret[i] = fn.call(arguments[1], this[i], i, this);
+
+            return ret;
+        },
+
+        //- IE 8 is forced into quirks mode, so no JSON
+        'JSON': '{}',
+        'JSON.stringify': function (obj) {
+            var props = [];
+
+            for (var k in obj) {
+                if (obj.hasOwnProperty(k))
+                    props.push(k + ': ' + obj[k]);
+            }
+
+            return '{ ' + props.join(',') + ' }';
+        }
+    };
+
+shims['Array.prototype.every'] = shims['Array.prototype.forEach'];
 
 function mkdirp(dir) {
     var parts = dir.split(LIBS.path.sep),
@@ -59,6 +120,22 @@ function processTest(content) {
     });
 
     content = content.replace(/\$ERROR\(/g, 'throw new Error(');
+
+    // Look for functions that might require shims in ES3 browsers
+    var shimCode = [];
+    for (var k in shims) {
+        if (content.search(new RegExp('\\b' + k.split('.').pop() + '\\b')) > -1) {
+            if (k === 'Object.defineProperty') {
+                shimCode.push('try { Object.defineProperty({}, "a", {}) } catch (e) { Object.defineProperty = ' + shims[k] +' }');
+            }
+            else if (k.indexOf('.') > -1)
+                shimCode.push(k + ' = ' + k + ' || ' + shims[k] + ';');
+            else
+                shimCode.push(k + ' = typeof ' + k + ' != undefined ? ' + k + ' : ' + shims[k] + ';');
+        }
+    }
+
+    content = shimCode.join('\n') + '\n' + content;
 
     // Make sure to use our version (not one the browser might have).
     content = content.replace(/\bIntl\b/g, 'IntlPolyfill');
@@ -103,7 +180,9 @@ function listTests() {
         todo = [ '.' ],
         doing,
         path;
+
     while (todo.length) {
+        /*jshint loopfunc:true*/
         doing = todo.shift();
         path = LIBS.path.resolve(SRC_DIR, doing);
         stat = LIBS.fs.statSync(path);

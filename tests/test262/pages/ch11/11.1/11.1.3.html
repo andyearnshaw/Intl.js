@@ -4,6 +4,8 @@ function fnGlobalObject() {
     return __globalObject;
 }
 function runTheTest() {
+Object.getPrototypeOf = Object.getPrototypeOf || function (obj) { return obj.constructor.prototype; };
+Object.isExtensible = Object.isExtensible || function () { return true; };
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
