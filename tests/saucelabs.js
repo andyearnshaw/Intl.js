@@ -49,6 +49,11 @@ var LIBS = {
             platform: "Windows 8"
         },
         {
+            browserName: "internet explorer",
+            version: "8",
+            platform: "Windows 7"
+        },
+        {
             browserName: "safari",
             version: "7",
             platform: "OS X 10.9"
