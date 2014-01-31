@@ -85,7 +85,7 @@ var LIBS = {
         },
 
         //- IE 8 is forced into quirks mode, so no JSON
-        'JSON': '{}',
+        '__globalObject.JSON': '{}',
         'JSON.stringify': function (obj) {
             var props = [];
 
@@ -128,10 +128,8 @@ function processTest(content) {
             if (k === 'Object.defineProperty') {
                 shimCode.push('try { Object.defineProperty({}, "a", {}) } catch (e) { Object.defineProperty = ' + shims[k] +' }');
             }
-            else if (k.indexOf('.') > -1)
-                shimCode.push(k + ' = ' + k + ' || ' + shims[k] + ';');
             else
-                shimCode.push(k + ' = typeof ' + k + ' != undefined ? ' + k + ' : ' + shims[k] + ';');
+                shimCode.push(k + ' = ' + k + ' || ' + shims[k] + ';');
         }
     }
 

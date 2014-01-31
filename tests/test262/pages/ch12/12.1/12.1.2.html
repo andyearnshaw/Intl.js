@@ -40,7 +40,7 @@ Array.prototype.map = Array.prototype.map || function (fn) {
 
             return ret;
         };
-JSON = typeof JSON != undefined ? JSON : {};
+__globalObject.JSON = __globalObject.JSON || {};
 JSON.stringify = JSON.stringify || function (obj) {
             var props = [];
 
