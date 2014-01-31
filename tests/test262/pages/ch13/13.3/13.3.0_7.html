@@ -666,7 +666,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
             } else if (i !== 0 && subtag.length === 2) {
                 subtag = subtag.toUpperCase();
             } else if (subtag.length === 4) {
-                subtag = subtag[0].toUpperCase() + subtag.substring(1).toLowerCase();
+                subtag = subtag.charAt(0).toUpperCase() + subtag.substring(1).toLowerCase();
             }
             if (__subtagMappings.hasOwnProperty(subtag)) {
                 subtag = __subtagMappings[subtag];
@@ -1240,7 +1240,7 @@ var functions = {
     toLocaleTimeString: [Date.prototype.toLocaleTimeString,
         {hour: "numeric", minute: "numeric", second: "numeric"}]
 };
-var dates = [new Date(), new Date(0), new Date(Date.parse("1989-11-09T17:57:00Z"))];
+var dates = [new Date(), new Date(0), new Date(Date.parse("1989-11-09T17:57:00Z") || Date.parse("1989/11/09 17:57:00 UTC"))];
 var locales = [undefined, ["de"], ["th-u-ca-gregory-nu-thai"], ["en"], ["ja-u-ca-japanese"], ["ar-u-ca-islamicc-nu-arab"]];
 var options = [
     undefined,

@@ -667,7 +667,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
             } else if (i !== 0 && subtag.length === 2) {
                 subtag = subtag.toUpperCase();
             } else if (subtag.length === 4) {
-                subtag = subtag[0].toUpperCase() + subtag.substring(1).toLowerCase();
+                subtag = subtag.charAt(0).toUpperCase() + subtag.substring(1).toLowerCase();
             }
             if (__subtagMappings.hasOwnProperty(subtag)) {
                 subtag = __subtagMappings[subtag];
@@ -1235,7 +1235,7 @@ function testArraysAreSame(expected, actual) {
 
 // get a date-time format and have it format an array of dates for comparison with the subclass
 var locales = ["tlh", "id", "en"];
-var a = [new Date(0), Date.now(), new Date(Date.parse("1989-11-09T17:57:00Z"))];
+var a = [new Date(0), Date.now(), new Date(Date.parse("1989-11-09T17:57:00Z") || Date.parse("1989/11/09 17:57:00 UTC"))];
 var referenceDateTimeFormat = new IntlPolyfill.DateTimeFormat(locales);
 var referenceFormatted = a.map(referenceDateTimeFormat.format);
 

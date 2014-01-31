@@ -659,7 +659,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
             } else if (i !== 0 && subtag.length === 2) {
                 subtag = subtag.toUpperCase();
             } else if (subtag.length === 4) {
-                subtag = subtag[0].toUpperCase() + subtag.substring(1).toLowerCase();
+                subtag = subtag.charAt(0).toUpperCase() + subtag.substring(1).toLowerCase();
             }
             if (__subtagMappings.hasOwnProperty(subtag)) {
                 subtag = __subtagMappings[subtag];
@@ -1226,7 +1226,7 @@ function testArraysAreSame(expected, actual) {
 
 
 var locales = [[], ["zh-Hans-CN"], ["hi-IN"], ["en-US"], ["id-ID"]];
-var dates = [new Date(), new Date(0), new Date(Date.parse("1989-11-09T17:57:00Z"))];
+var dates = [new Date(), new Date(0), new Date(Date.parse("1989-11-09T17:57:00Z") || Date.parse("1989/11/09 17:57:00 UTC"))];
 
 function testWithDateTimeFormat(options, expected) {
     locales.forEach(function (locales) {

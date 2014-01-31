@@ -121,6 +121,10 @@ function processTest(content) {
 
     content = content.replace(/\$ERROR\(/g, 'throw new Error(');
 
+    // Replace some stuff that won't work in ES3 browsers
+    content = content.replace(/subtag\[0\]/g, 'subtag.charAt(0)');
+    content = content.replace(/Date\.parse\("1989-11-09T17:57:00Z"\)/g, '$& || Date.parse("1989/11/09 17:57:00 UTC")');
+
     // Look for functions that might require shims in ES3 browsers
     var shimCode = [];
     for (var k in shims) {

@@ -666,7 +666,7 @@ function isCanonicalizedStructurallyValidLanguageTag(locale) {
             } else if (i !== 0 && subtag.length === 2) {
                 subtag = subtag.toUpperCase();
             } else if (subtag.length === 4) {
-                subtag = subtag[0].toUpperCase() + subtag.substring(1).toLowerCase();
+                subtag = subtag.charAt(0).toUpperCase() + subtag.substring(1).toLowerCase();
             }
             if (__subtagMappings.hasOwnProperty(subtag)) {
                 subtag = __subtagMappings[subtag];
