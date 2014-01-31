@@ -1,5 +1,3 @@
-
-
 var LIBS = {
         async:  require('async'),
         child:  require('child_process'),
@@ -58,6 +56,14 @@ var LIBS = {
             version: "7",
             platform: "OS X 10.9"
         },
+    ],
+
+    // A list of tests that ES3 environments can't pass, either because they
+    // use getters or they test for behaviour achievable only in ES5 environments
+    es3blacklist = [
+        '9.2.8_4.html',
+        '11.1.1_32.html', '11.2.1.html', '11.3.3.html', '11.3_b.html',
+        '12.2.1.html', '12.3.3.html', '12.3_b.html'
     ];
 
 
@@ -67,7 +73,9 @@ function listTests() {
         doing,
         path,
         stat;
+
     while (todo.length) {
+        /*jshint loopfunc:true*/
         doing = todo.shift();
         path = LIBS.path.resolve(TEST_DIR, doing);
         stat = LIBS.fs.statSync(path);
@@ -197,9 +205,11 @@ function gitDetailsFromFilesystem(state, done) {
         config;
 
     function readRef(ref) {
+        /*jshint boss:true*/
         var path = LIBS.path.resolve(gitDir, ref),
             contents = LIBS.fs.readFileSync(path).toString(),
             matches;
+
         while (matches = contents.match(/ref: (\S+)/)) {
             path = LIBS.path.resolve(gitDir, matches[1]);
             contents = LIBS.fs.readFileSync(path).toString();
@@ -232,7 +242,6 @@ function gitDetailsFromFilesystem(state, done) {
     config = LIBS.fs.readFileSync(LIBS.path.resolve(gitDir, 'config')).toString();
     config.split('\n[').forEach(function(conf) {
         var matches = conf.match(/^remote "([^"]+)"\](.|\n)*url\s*=\s*\S+github\.com[:\/]([^\/]*)\/(.+)\.git/m);
-        console.log(matches);
         if (matches && (matches[1] === state.git.remote)) {
             state.git.user = matches[3];
             state.git.repo = matches[4];
@@ -310,10 +319,18 @@ function runTestsInBrowser(state, browserConfig, done) {
     // for each page, get and test page
     state.tests.forEach(function(test) {
         tasks.push(function(taskDone) {
-            var url = state.git.rawURL + test;
-            console.log('--TESTING--', test, typeof browserString);
+            var url = state.git.rawURL + test,
+                ie8 = browserConfig.browserName === 'internet explorer' && browserConfig.version === '8';
 
-            function saveResult(out, err) {
+            //- Skip impassable tests in IE 8
+            if (ie8 && (test.slice(-9) === '_L15.html' || es3blacklist.indexOf(test.split('/').pop()) > -1)) {
+                console.log('--SKIPPED--', test, browserString, 'Not passable from ES3 environments');
+                return taskDone();
+            }
+
+            console.log('--TESTING--', test, browserString);
+
+            function saveResult(out, err, skipped) {
                 var cookedErr = err;
                 if (err) {
                     if (cookedErr.cause)   { cookedErr = cookedErr.cause; }
@@ -347,8 +364,12 @@ function runTestsInBrowser(state, browserConfig, done) {
                 /*jshint evil:true*/
                 var code = 'runner()';
 
+                // IE 8 needs to wrap with try/catch to return useful error messages
+                if (ie8)
+                    code = '(function () { try { return runner() } catch (e) { return e } })()';
+
                 // Safari chokes on tests that taint Array/Object prototypes
-                if (browserConfig.browserName === 'safari') {
+                else if (browserConfig.browserName === 'safari') {
                     code =  function () {
                                 var err, rtn,
                                     backup = {},
@@ -379,6 +400,10 @@ function runTestsInBrowser(state, browserConfig, done) {
                 }
 
                 browser.eval(code, function (err, out) {
+                    // IE has to return errors to get the message
+                    if (out.message)
+                        err = out;
+
                     saveResult(err ? null : out, err);
                 });
             });
@@ -423,7 +448,7 @@ function runTests(state, done) {
         else {
             done();
         }
-    }
+    };
     q.push(BROWSERS);
 }
 
