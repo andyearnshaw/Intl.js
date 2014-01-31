@@ -1,5 +1,3 @@
-
-
 var LIBS = {
         fs:     require('fs'),
         path:   require('path')
@@ -11,7 +9,7 @@ var LIBS = {
     INTL_LIB    = LIBS.fs.readFileSync(LIB_PATH).toString(),
 
     WRAPPER_START = [
-        '//<html><body><button onclick="runner()">Run</button> results: <span id="results">not yet run</span><script src="../../../../../Intl.complete.js"></script><script>',
+        '//<html><body><meta charset=utf-8><button onclick="runner()">Run</button> results: <span id="results">not yet run</span><script src="../../../../../Intl.complete.js"></script><script>',
 
         // stuff defined in harness/*.js yet not pulled in via $INCLUDE()
         'var __globalObject = Function("return this;")();',
