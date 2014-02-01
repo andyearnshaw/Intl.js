@@ -69,6 +69,8 @@ var LIBS = {
                 if (t[i] === search)
                     return i;
             }
+
+            return -1;
         },
 
         'Array.prototype.forEach': function (fn) {
