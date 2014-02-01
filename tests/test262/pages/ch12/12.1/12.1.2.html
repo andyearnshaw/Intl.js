@@ -42,6 +42,7 @@ Array.prototype.map = Array.prototype.map || function (fn) {
 
             return ret;
         };
+Date.now = Date.now || function () { return +new Date(); };
 __globalObject.JSON = __globalObject.JSON || {};
 JSON.stringify = JSON.stringify || function (obj) {
             var props = [];

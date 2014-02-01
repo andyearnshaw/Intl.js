@@ -86,6 +86,8 @@ var LIBS = {
             return ret;
         },
 
+        'Date.now': function () { return +new Date(); },
+
         //- IE 8 is forced into quirks mode, so no JSON
         '__globalObject.JSON': '{}',
         'JSON.stringify': function (obj) {
