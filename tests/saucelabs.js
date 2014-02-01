@@ -59,11 +59,11 @@ var LIBS = {
     ],
 
     // A list of tests that ES3 environments can't pass, either because they
-    // use getters or they test for behaviour achievable only in ES5 environments
+    // use accessors or they test for behaviour achievable only in ES5 environments
     es3blacklist = [
         '9.2.8_4.html',
         '11.1.1_32.html', '11.2.1.html', '11.3.3.html', '11.3_b.html',
-        '12.2.1.html', '12.3.3.html', '12.3_b.html'
+        '12.2.1.html', '12.3.3.html', '12.3_b.html', '12.3.2_TLT_2.html'
     ];
 
 
