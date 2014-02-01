@@ -9,7 +9,7 @@ var LIBS = {
     INTL_LIB    = LIBS.fs.readFileSync(LIB_PATH).toString(),
 
     WRAPPER_START = [
-        '//<html><body><meta charset=utf-8><button onclick="runner()">Run</button> results: <span id="results">not yet run</span><script src="../../../../../Intl.complete.js"></script><script>',
+        '//<html><head><meta http-equiv="X-UA-Compatible" content="IE=EDGE"><meta charset=utf-8></head><body><button onclick="runner()">Run</button> results: <span id="results">not yet run</span><script src="../../../../../Intl.complete.js"></script><script>',
 
         // stuff defined in harness/*.js yet not pulled in via $INCLUDE()
         'var __globalObject = Function("return this;")();',
@@ -121,8 +121,7 @@ function processTest(content) {
 
     content = content.replace(/\$ERROR\(/g, 'throw new Error(');
 
-    // Replace some stuff that won't work in ES3 browsers
-    content = content.replace(/subtag\[0\]/g, 'subtag.charAt(0)');
+    // The test suite tries to parse an ISO 8601 date, which fails in <=IE8
     content = content.replace(/Date\.parse\("1989-11-09T17:57:00Z"\)/g, '$& || Date.parse("1989/11/09 17:57:00 UTC")');
 
     // Look for functions that might require shims in ES3 browsers
