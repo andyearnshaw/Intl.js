@@ -8,7 +8,11 @@ try { Object.defineProperty({}, "a", {}) } catch (e) { Object.defineProperty = f
              if (desc.hasOwnProperty('value'))
                 obj[name] = desc.value;
         } }
-Object.create = Object.create || function () { return {}; };
+Object.create = Object.create || function (o) {
+            function F() {}
+            F.prototype = o;
+            return new F();
+        };
 Object.isExtensible = Object.isExtensible || function () { return true; };
 Object.getOwnPropertyNames = Object.getOwnPropertyNames || function (obj) {
             var ret = [];

@@ -46,7 +46,11 @@ var LIBS = {
                 obj[name] = desc.value;
         },
 
-        'Object.create': function () { return {}; },
+        'Object.create': function (o) {
+            function F() {}
+            F.prototype = o;
+            return new F();
+        },
         'Object.getPrototypeOf': function (obj) { return obj.constructor.prototype; },
         'Object.isExtensible' : function () { return true; },
         'Object.getOwnPropertyNames': function (obj) {
