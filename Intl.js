@@ -1607,22 +1607,24 @@ function FormatNumber (numberFormat, x) {
 
         // b. If the value of the [[currencyDisplay]] internal property of
         //    numberFormat is "code", then let cd be currency.
-        if (internal['[[currencyDisplay]]'] === 'code')
-            cd = currency;
-
         // c. Else if the value of the [[currencyDisplay]] internal property of
         //    numberFormat is "symbol", then let cd be an ILD string representing
         //    currency in short form. If the implementation does not have such a
         //    representation of currency, then use currency itself.
-        else if (internal['[[currencyDisplay]]'] === 'symbol')
-            cd = cData || currency;
-
         // d. Else if the value of the [[currencyDisplay]] internal property of
         //    numberFormat is "name", then let cd be an ILD string representing
         //    currency in long form. If the implementation does not have such a
         //    representation of currency, then use currency itself.
-        else if (internal['[[currencyDisplay]]'] === 'name')
-            cd = cData ? cData['displayName-count-one'] : currency;
+        switch (internal['[[currencyDisplay]]']) {
+            case 'symbol':
+                cd = cData || currency;
+                break;
+
+            default:
+            case 'code':
+            case 'name':
+                cd = currency;
+        }
 
         // e. Replace the substring "{currency}" within result with cd.
         result = result.replace('{currency}', cd);
