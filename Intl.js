@@ -1659,27 +1659,15 @@ function ToRawPrecision (x, minPrecision, maxPrecision) {
         //    exact mathematical value of n × 10ᵉ⁻ᵖ⁺¹ – x is as close to zero as
         //    possible. If there are two such sets of e and n, pick the e and n for
         //    which n × 10ᵉ⁻ᵖ⁺¹ is larger.
+        var
+            e = Math.floor(Math.log(Math.abs(x)) / Math.LN10),
 
-        var idx,
+            // Easier to get to m from here
+            f = Math.round(Math.exp((Math.abs(e - p + 1)) * Math.LN10)),
 
-            isInt = x % 1,
-
-            // Fix floating point precision issues in Chrome and Firefox
-            pre = isInt ? Math.pow(10, maxPrecision) : 1,
-
-            // toPrecision already does most of this for us
-            m = Number.prototype.toPrecision.call(x*pre, maxPrecision),
-
-            // Get the exponential value
-            e = (idx = m.indexOf('e')) > -1 ? Number(m.slice(idx + 1))
-                    : ((idx = m.indexOf('.')) > -1 ? idx - 1 : m.length - 1);
-
-        // Multiplying by 10^maxPrecision means we need to take that away from e
-        if (isInt)
-            e -= maxPrecision;
-
-        // Get the numbers without the decimal point
-        m = m.slice(0, m.indexOf('e') > -1 ? idx : m.length).replace('.', '');
+        // b. Let m be the String consisting of the digits of the decimal
+        //    representation of n (in order, with no leading zeroes)
+            m = String(Math.round(e - p + 1 < 0 ? x * f : x / f));
     }
 
     // 4. If e ≥ p, then
