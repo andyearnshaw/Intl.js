@@ -132,6 +132,10 @@ function processTest(content) {
     // The test suite tries to parse an ISO 8601 date, which fails in <=IE8
     content = content.replace(/Date\.parse\("1989-11-09T17:57:00Z"\)/g, '$& || Date.parse("1989/11/09 17:57:00 UTC")');
 
+    // Another IE 8 issue: [undefined].hasOwnProperty(0) is false, so we need
+    // to work around this in at least one test
+    content = content.replace(/^(\s*)(var.*)\[value\](.*)$/m, '$1var arr = [];\n$1arr[0] = value;\n$1$2arr$3');
+
     // Look for functions that might require shims in ES3 browsers
     var shimCode = [];
     for (var k in shims) {

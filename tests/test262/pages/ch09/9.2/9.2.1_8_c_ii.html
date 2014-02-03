@@ -1237,7 +1237,9 @@ testWithIntlConstructors(function (Constructor) {
     notStringOrObject.forEach(function (value) {
         var error;
         try {
-            var supported = Constructor.supportedLocalesOf([value]);
+            var arr = [];
+            arr[0] = value;
+            var supported = Constructor.supportedLocalesOf(arr);
         } catch (e) {
             error = e;
         }
