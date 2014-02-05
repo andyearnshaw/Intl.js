@@ -1,3 +1,5 @@
+# Intl.js [![Build Status][]](https://travis-ci.org/andyearnshaw/Intl.js)
+
 In December 2012, ECMA International published the first edition of Standard ECMA-402,
 better known as the _ECMAScript Internationalization API_. This specification provides
 the framework to bring long overdue localisation methods to ECMAScript implementations.
@@ -10,7 +12,10 @@ current Firefox nightly builds.
 described by the specification, so that developers can take advantage of the native API
 in environments that support it, or `Intl.js` for legacy or unsupporting environments.
 
-## <a id=start></a>Getting started
+[Build Status]: https://travis-ci.org/andyearnshaw/Intl.js.png?branch=master
+
+
+## Getting started
 For Node.js applications, you can install Intl.js using NPM:
 
     npm install intl
@@ -29,12 +34,8 @@ var nf = new (Intl || IntlPolyfill).NumberFormat(undefined, {style:'currency', c
 document.getElementById('price').textContent = nf.format(100);
 ```
 
-## <a id=status></a>Status
-The latest test, run on January 10 2013, scored 111 out of 111<sup>\*</sup> in Node.js.
 
-Aside from 1 issue with floating point precision in Firefox/SpiderMonkey, `NumberFormat`
-seems to be rather complete.
-
+## Status
 Current progress is as follows:
 
 ### Implemented
@@ -66,12 +67,13 @@ Current progress is as follows:
 A few of the implemented functions may currently be non-conforming and/or incomplete.  
 Most of those functions have comments marked as 'TODO' in the source code.
 
-<sup>\*</sup> The test suite is run with Intl.Collator tests removed, and the Collator
-constructor removed from most other tests in the suite.  Also some parts of tests that
-cannot be passed by a JavaScript implementation have been disabled, as well as a small 
-part of the same tests that fail due to [this bug in v8][].
+The test suite is run with Intl.Collator tests removed, and the Collator
+constructor removed from most other tests in the suite.  Also some parts of
+tests that cannot be passed by a JavaScript implementation have been disabled,
+as well as a small part of the same tests that fail due to [this bug in v8][].
 
  [this bug in v8]: https://code.google.com/p/v8/issues/detail?id=2694
+
 
 ## What about Intl.Collator?
 
@@ -86,11 +88,16 @@ are several reasons, including:
    Server-side JavaScript environments will (hopefully) soon support Intl.Collator,
    and we can't really expect client environments to download this data.
 
+
 ## Compatibility
 Intl.js is designed to be compatible with ECMAScript 3.1 environments in order to
 follow the specification as closely as possible. However, some consideration is given
 to legacy (ES3) environments, and the goal of this project is to at least provide a
 working, albeit non-compliant implementation where ES5 methods are unavailable.
+
+A subset of the tests in the test suite are run in IE 8.  Tests that are not passable
+are skipped, but these tests are mostly about ensuring built-in function behaviour.
+
 
 ## Locale Data
 `Intl.js` uses the Unicode CLDR locale data, as recommended by the specification.
