@@ -2569,20 +2569,21 @@ function ToLocalTime(date, calendar, timeZone) {
     //    for local time zone adjustment and daylight saving time adjustment imposed by
     //    ES5, 15.9.1.7 and 15.9.1.8.
     // ###TODO###
-    var d = new Date(date);
+    var d = new Date(date),
+        m = 'get' + (timeZone || '');
 
     // 2. Return a Record with fields [[weekday]], [[era]], [[year]], [[month]], [[day]],
     //    [[hour]], [[minute]], [[second]], and [[inDST]], each with the corresponding
     //    calculated value.
     return new Record({
-        '[[weekday]]': d.getUTCDay(),
-        '[[era]]'    : +(d.getUTCFullYear() >= 0),
-        '[[year]]'   : d.getUTCFullYear(),
-        '[[month]]'  : d.getUTCMonth(),
-        '[[day]]'    : d.getUTCDate(),
-        '[[hour]]'   : d.getUTCHours(),
-        '[[minute]]' : d.getUTCMinutes(),
-        '[[second]]' : d.getUTCSeconds(),
+        '[[weekday]]': d[m + 'Day'](),
+        '[[era]]'    : +(d[m + 'FullYear']() >= 0),
+        '[[year]]'   : d[m + 'FullYear'](),
+        '[[month]]'  : d[m + 'Month'](),
+        '[[day]]'    : d[m + 'Date'](),
+        '[[hour]]'   : d[m + 'Hours'](),
+        '[[minute]]' : d[m + 'Minutes'](),
+        '[[second]]' : d[m + 'Seconds'](),
         '[[inDST]]'  : false // ###TODO###
     });
 }
