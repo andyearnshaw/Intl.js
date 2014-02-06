@@ -39,6 +39,9 @@ var
     // We use this a lot (and need it for proto-less objects)
     hop = Object.prototype.hasOwnProperty,
 
+    // Does the browser already support Intl .toLocaleString() functions?
+    tls = (1.23).toLocaleString(undefined, {style:'currency', currency: 'ZZZ'}).indexOf('ZZZ') > -1,
+
     // Naive defineProperty for compatibility
     defineProperty = realDefineProp ? Object.defineProperty : function (obj, name, desc) {
         if ('get' in desc && obj.__defineGetter__)
@@ -2624,155 +2627,157 @@ function ToLocalTime(date, calendar, timeZone) {
 // Sect 13 Locale Sensitive Functions of the ECMAScript Language Specification
 // ===========================================================================
 
-/**
- * When the toLocaleString method is called with optional arguments locales and options,
- * the following steps are taken:
- */
-/* 13.2.1 */defineProperty(Number.prototype, 'toLocaleString', {
-    writable: true,
-    configurable: true,
-    value: function () {
-        // Satisfy test 13.2.1_1
-        if (Object.prototype.toString.call(this) !== '[object Number]')
-            throw new TypeError('`this` value must be a number for Number.prototype.toLocaleString()');
+if (tls) {
+    /**
+     * When the toLocaleString method is called with optional arguments locales and options,
+     * the following steps are taken:
+     */
+    /* 13.2.1 */defineProperty(Number.prototype, 'toLocaleString', {
+        writable: true,
+        configurable: true,
+        value: function () {
+            // Satisfy test 13.2.1_1
+            if (Object.prototype.toString.call(this) !== '[object Number]')
+                throw new TypeError('`this` value must be a number for Number.prototype.toLocaleString()');
 
-        // 1. Let x be this Number value (as defined in ES5, 15.7.4).
-        // 2. If locales is not provided, then let locales be undefined.
-        // 3. If options is not provided, then let options be undefined.
-        // 4. Let numberFormat be the result of creating a new object as if by the
-        //    expression new Intl.NumberFormat(locales, options) where
-        //    Intl.NumberFormat is the standard built-in constructor defined in 11.1.3.
-        // 5. Return the result of calling the FormatNumber abstract operation
-        //    (defined in 11.3.2) with arguments numberFormat and x.
-        return FormatNumber(new NumberFormatConstructor(arguments[0], arguments[1]), this);
-    }
-});
+            // 1. Let x be this Number value (as defined in ES5, 15.7.4).
+            // 2. If locales is not provided, then let locales be undefined.
+            // 3. If options is not provided, then let options be undefined.
+            // 4. Let numberFormat be the result of creating a new object as if by the
+            //    expression new Intl.NumberFormat(locales, options) where
+            //    Intl.NumberFormat is the standard built-in constructor defined in 11.1.3.
+            // 5. Return the result of calling the FormatNumber abstract operation
+            //    (defined in 11.3.2) with arguments numberFormat and x.
+            return FormatNumber(new NumberFormatConstructor(arguments[0], arguments[1]), this);
+        }
+    });
 
-/**
- * When the toLocaleString method is called with optional arguments locales and options,
- * the following steps are taken:
- */
-/* 13.3.1 */defineProperty(Date.prototype, 'toLocaleString', {
-    writable: true,
-    configurable: true,
-    value: function () {
-        // Satisfy test 13.3.0_1
-        if (Object.prototype.toString.call(this) !== '[object Date]')
-            throw new TypeError('`this` value must be a Date instance for Date.prototype.toLocaleString()');
+    /**
+     * When the toLocaleString method is called with optional arguments locales and options,
+     * the following steps are taken:
+     */
+    /* 13.3.1 */defineProperty(Date.prototype, 'toLocaleString', {
+        writable: true,
+        configurable: true,
+        value: function () {
+            // Satisfy test 13.3.0_1
+            if (Object.prototype.toString.call(this) !== '[object Date]')
+                throw new TypeError('`this` value must be a Date instance for Date.prototype.toLocaleString()');
 
-        var
-        // 1. Let x be this time value (as defined in ES5, 15.9.5).
-            x = +this;
+            var
+            // 1. Let x be this time value (as defined in ES5, 15.9.5).
+                x = +this;
 
-        // 2. If x is NaN, then return "Invalid Date".
-        if (isNaN(x))
-            return 'Invalid Date';
+            // 2. If x is NaN, then return "Invalid Date".
+            if (isNaN(x))
+                return 'Invalid Date';
 
-        var
-        // 3. If locales is not provided, then let locales be undefined.
-            locales = arguments[0],
+            var
+            // 3. If locales is not provided, then let locales be undefined.
+                locales = arguments[0],
 
-        // 4. If options is not provided, then let options be undefined.
-            options = arguments[1],
+            // 4. If options is not provided, then let options be undefined.
+                options = arguments[1],
 
-        // 5. Let options be the result of calling the ToDateTimeOptions abstract
-        //    operation (defined in 12.1.1) with arguments options, "any", and "all".
-            options = ToDateTimeOptions(options, 'any', 'all'),
+            // 5. Let options be the result of calling the ToDateTimeOptions abstract
+            //    operation (defined in 12.1.1) with arguments options, "any", and "all".
+                options = ToDateTimeOptions(options, 'any', 'all'),
 
-        // 6. Let dateTimeFormat be the result of creating a new object as if by the
-        //    expression new Intl.DateTimeFormat(locales, options) where
-        //    Intl.DateTimeFormat is the standard built-in constructor defined in 12.1.3.
-            dateTimeFormat = new DateTimeFormatConstructor(locales, options);
+            // 6. Let dateTimeFormat be the result of creating a new object as if by the
+            //    expression new Intl.DateTimeFormat(locales, options) where
+            //    Intl.DateTimeFormat is the standard built-in constructor defined in 12.1.3.
+                dateTimeFormat = new DateTimeFormatConstructor(locales, options);
 
-        // 7. Return the result of calling the FormatDateTime abstract operation (defined
-        //    in 12.3.2) with arguments dateTimeFormat and x.
-        return FormatDateTime(dateTimeFormat, x);
-    }
-});
+            // 7. Return the result of calling the FormatDateTime abstract operation (defined
+            //    in 12.3.2) with arguments dateTimeFormat and x.
+            return FormatDateTime(dateTimeFormat, x);
+        }
+    });
 
-/**
- * When the toLocaleDateString method is called with optional arguments locales and
- * options, the following steps are taken:
- */
-/* 13.3.2 */defineProperty(Date.prototype, 'toLocaleDateString', {
-    writable: true,
-    configurable: true,
-    value: function () {
-        // Satisfy test 13.3.0_1
-        if (Object.prototype.toString.call(this) !== '[object Date]')
-            throw new TypeError('`this` value must be a Date instance for Date.prototype.toLocaleDateString()');
+    /**
+     * When the toLocaleDateString method is called with optional arguments locales and
+     * options, the following steps are taken:
+     */
+    /* 13.3.2 */defineProperty(Date.prototype, 'toLocaleDateString', {
+        writable: true,
+        configurable: true,
+        value: function () {
+            // Satisfy test 13.3.0_1
+            if (Object.prototype.toString.call(this) !== '[object Date]')
+                throw new TypeError('`this` value must be a Date instance for Date.prototype.toLocaleDateString()');
 
-        var
-        // 1. Let x be this time value (as defined in ES5, 15.9.5).
-            x = +this;
+            var
+            // 1. Let x be this time value (as defined in ES5, 15.9.5).
+                x = +this;
 
-        // 2. If x is NaN, then return "Invalid Date".
-        if (isNaN(x))
-            return 'Invalid Date';
+            // 2. If x is NaN, then return "Invalid Date".
+            if (isNaN(x))
+                return 'Invalid Date';
 
-        var
-        // 3. If locales is not provided, then let locales be undefined.
-            locales = arguments[0],
+            var
+            // 3. If locales is not provided, then let locales be undefined.
+                locales = arguments[0],
 
-        // 4. If options is not provided, then let options be undefined.
-            options = arguments[1],
+            // 4. If options is not provided, then let options be undefined.
+                options = arguments[1],
 
-        // 5. Let options be the result of calling the ToDateTimeOptions abstract
-        //    operation (defined in 12.1.1) with arguments options, "date", and "date".
-            options = ToDateTimeOptions(options, 'date', 'date'),
+            // 5. Let options be the result of calling the ToDateTimeOptions abstract
+            //    operation (defined in 12.1.1) with arguments options, "date", and "date".
+                options = ToDateTimeOptions(options, 'date', 'date'),
 
-        // 6. Let dateTimeFormat be the result of creating a new object as if by the
-        //    expression new Intl.DateTimeFormat(locales, options) where
-        //    Intl.DateTimeFormat is the standard built-in constructor defined in 12.1.3.
-            dateTimeFormat = new DateTimeFormatConstructor(locales, options);
+            // 6. Let dateTimeFormat be the result of creating a new object as if by the
+            //    expression new Intl.DateTimeFormat(locales, options) where
+            //    Intl.DateTimeFormat is the standard built-in constructor defined in 12.1.3.
+                dateTimeFormat = new DateTimeFormatConstructor(locales, options);
 
-        // 7. Return the result of calling the FormatDateTime abstract operation (defined
-        //    in 12.3.2) with arguments dateTimeFormat and x.
-        return FormatDateTime(dateTimeFormat, x);
-    }
-});
+            // 7. Return the result of calling the FormatDateTime abstract operation (defined
+            //    in 12.3.2) with arguments dateTimeFormat and x.
+            return FormatDateTime(dateTimeFormat, x);
+        }
+    });
 
-/**
- * When the toLocaleTimeString method is called with optional arguments locales and
- * options, the following steps are taken:
- */
-/* 13.3.3 */defineProperty(Date.prototype, 'toLocaleTimeString', {
-    writable: true,
-    configurable: true,
-    value: function () {
-        // Satisfy test 13.3.0_1
-        if (Object.prototype.toString.call(this) !== '[object Date]')
-            throw new TypeError('`this` value must be a Date instance for Date.prototype.toLocaleTimeString()');
+    /**
+     * When the toLocaleTimeString method is called with optional arguments locales and
+     * options, the following steps are taken:
+     */
+    /* 13.3.3 */defineProperty(Date.prototype, 'toLocaleTimeString', {
+        writable: true,
+        configurable: true,
+        value: function () {
+            // Satisfy test 13.3.0_1
+            if (Object.prototype.toString.call(this) !== '[object Date]')
+                throw new TypeError('`this` value must be a Date instance for Date.prototype.toLocaleTimeString()');
 
-        var
-        // 1. Let x be this time value (as defined in ES5, 15.9.5).
-            x = +this;
+            var
+            // 1. Let x be this time value (as defined in ES5, 15.9.5).
+                x = +this;
 
-        // 2. If x is NaN, then return "Invalid Date".
-        if (isNaN(x))
-            return 'Invalid Date';
+            // 2. If x is NaN, then return "Invalid Date".
+            if (isNaN(x))
+                return 'Invalid Date';
 
-        var
-        // 3. If locales is not provided, then let locales be undefined.
-            locales = arguments[0],
+            var
+            // 3. If locales is not provided, then let locales be undefined.
+                locales = arguments[0],
 
-        // 4. If options is not provided, then let options be undefined.
-            options = arguments[1],
+            // 4. If options is not provided, then let options be undefined.
+                options = arguments[1],
 
-        // 5. Let options be the result of calling the ToDateTimeOptions abstract
-        //    operation (defined in 12.1.1) with arguments options, "time", and "time".
-            options = ToDateTimeOptions(options, 'time', 'time'),
+            // 5. Let options be the result of calling the ToDateTimeOptions abstract
+            //    operation (defined in 12.1.1) with arguments options, "time", and "time".
+                options = ToDateTimeOptions(options, 'time', 'time'),
 
-        // 6. Let dateTimeFormat be the result of creating a new object as if by the
-        //    expression new Intl.DateTimeFormat(locales, options) where
-        //    Intl.DateTimeFormat is the standard built-in constructor defined in 12.1.3.
-            dateTimeFormat = new DateTimeFormatConstructor(locales, options);
+            // 6. Let dateTimeFormat be the result of creating a new object as if by the
+            //    expression new Intl.DateTimeFormat(locales, options) where
+            //    Intl.DateTimeFormat is the standard built-in constructor defined in 12.1.3.
+                dateTimeFormat = new DateTimeFormatConstructor(locales, options);
 
-        // 7. Return the result of calling the FormatDateTime abstract operation (defined
-        //    in 12.3.2) with arguments dateTimeFormat and x.
-        return FormatDateTime(dateTimeFormat, x);
-    }
-});
+            // 7. Return the result of calling the FormatDateTime abstract operation (defined
+            //    in 12.3.2) with arguments dateTimeFormat and x.
+            return FormatDateTime(dateTimeFormat, x);
+        }
+    });
+}
 
 /**
  * Can't really ship a single script with data for hundreds of locales, so we provide
