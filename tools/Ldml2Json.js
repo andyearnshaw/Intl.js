@@ -129,6 +129,10 @@ function cldrToIntl() {
     locales.forEach(function (dir) {
         var json, obj;
 
+        // Ignore en-US-POSIX
+        if (dir === 'en-US-POSIX')
+            return;
+
         // The Ldml2JsonConverter tool creats directories even for locales that have
         // no data that we require
         try {
