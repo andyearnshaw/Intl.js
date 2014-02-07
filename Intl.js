@@ -20,9 +20,10 @@
     if (typeof exports === 'object') {
         module.exports = IntlPolyfill;
     }
-    if (global) {
-        global.IntlPolyfill = IntlPolyfill;
+    if (!global.Intl) {
+        global.Intl = IntlPolyfill;
     }
+    global.IntlPolyfill = IntlPolyfill;
 })(typeof global !== 'undefined' ? global : this, function() {
 "use strict";
 var
