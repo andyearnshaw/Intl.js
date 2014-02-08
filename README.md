@@ -26,14 +26,31 @@ Intl.js is also available as a [Bower](http://bower.io) component for the front-
 
 For other setups, just clone the repo for the pre-built scripts and locale datafiles.
 
-In browser environments, the library will be defined as `IntlPolyfill` and not
-`Intl`.  An example of usage _might_ look like this:
+In browser environments, the library will try to patch the browser by defining
+the global `Intl` is not defined.  An example of usage _might_ look like this:
 
 ```javascript
-var nf = new (Intl || IntlPolyfill).NumberFormat(undefined, {style:'currency', currency:'GBP'});
+var nf = new Intl.NumberFormat(undefined, {style:'currency', currency:'GBP'});
 document.getElementById('price').textContent = nf.format(100);
 ```
 
+Ideally, you will avoid loading this library if the browser supports the
+built-in `Intl`. An example of conditional usage using [yepnopejs][] library
+_might_ look like this:
+
+```javascript
+yepnope({
+  test : window.Intl,
+  nope : ['path/to/intl.js'],
+  complete: function () {
+    var nf = new Intl.NumberFormat(undefined, {style:'currency', currency:'GBP'});
+    document.getElementById('price').textContent = nf.format(100);
+  }
+});
+
+```
+
+[yepnopejs]: http://yepnopejs.com/
 
 ## Status
 Current progress is as follows:
