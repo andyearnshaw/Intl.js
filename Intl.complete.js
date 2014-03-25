@@ -2628,7 +2628,7 @@ function ToLocalTime(date, calendar, timeZone) {
 // Sect 13 Locale Sensitive Functions of the ECMAScript Language Specification
 // ===========================================================================
 
-if (tls) {
+if (!tls) {
     /**
      * When the toLocaleString method is called with optional arguments locales and options,
      * the following steps are taken:
