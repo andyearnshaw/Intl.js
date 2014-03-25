@@ -40,8 +40,10 @@ var
     // We use this a lot (and need it for proto-less objects)
     hop = Object.prototype.hasOwnProperty,
 
-    // Does the browser already support Intl .toLocaleString() functions?
-    tls = (1.23).toLocaleString(undefined, {style:'currency', currency: 'ZZZ'}).indexOf('ZZZ') > -1,
+    // Determine whether we need to override ECMA-262 locale sensitive functions
+    overrideTLS = (function () {
+        try { (0).toLocaleString(null); return true; } catch (e) { return false; }
+    })(),
 
     // Naive defineProperty for compatibility
     defineProperty = realDefineProp ? Object.defineProperty : function (obj, name, desc) {
@@ -2628,7 +2630,7 @@ function ToLocalTime(date, calendar, timeZone) {
 // Sect 13 Locale Sensitive Functions of the ECMAScript Language Specification
 // ===========================================================================
 
-if (tls) {
+if (overrideTLS) {
     /**
      * When the toLocaleString method is called with optional arguments locales and options,
      * the following steps are taken:
