@@ -13,17 +13,21 @@
 
 (function (global, factory) {
     var IntlPolyfill = factory();
+
     // register in -all- the module systems (at once)
-    if (typeof define === 'function' && define.amd) {
+    if (typeof define === 'function' && define.amd)
         define(IntlPolyfill);
-    }
-    if (typeof exports === 'object') {
+
+    if (typeof exports === 'object')
         module.exports = IntlPolyfill;
-    }
+
     if (!global.Intl) {
         global.Intl = IntlPolyfill;
+        IntlPolyfill.__applyLocaleSensitivePrototypes();
     }
+
     global.IntlPolyfill = IntlPolyfill;
+
 })(typeof global !== 'undefined' ? global : this, function() {
 "use strict";
 var
@@ -39,11 +43,6 @@ var
 
     // We use this a lot (and need it for proto-less objects)
     hop = Object.prototype.hasOwnProperty,
-
-    // Determine whether we need to override ECMA-262 locale sensitive functions
-    overrideTLS = (function () {
-        try { (0).toLocaleString(null); return true; } catch (e) { return false; }
-    })(),
 
     // Naive defineProperty for compatibility
     defineProperty = realDefineProp ? Object.defineProperty : function (obj, name, desc) {
@@ -2769,16 +2768,18 @@ var ls = Intl.__localeSensitiveProtos = {
     return FormatDateTime(dateTimeFormat, x);
 };
 
-// Where native locale-sensitive functions do not follow ECMA-402 section 13,
-// Intl.js will override them automatically
-if (overrideTLS) {
-    defineProperty(Number.prototype, 'toLocaleString', { writable: true, configurable: true, value: ls.Number.toLocaleString });
+defineProperty(Intl, '__applyLocaleSensitivePrototypes', {
+    writable: true,
+    configurable: true,
+    value: function () {
+        defineProperty(Number.prototype, 'toLocaleString', { writable: true, configurable: true, value: ls.Number.toLocaleString });
 
-    for (var k in ls.Date) {
-        if (hop.call(ls.Date, k))
-            defineProperty(Date.prototype, k, { writable: true, configurable: true, value: ls.Date[k] });
+        for (var k in ls.Date) {
+            if (hop.call(ls.Date, k))
+                defineProperty(Date.prototype, k, { writable: true, configurable: true, value: ls.Date[k] });
+        }
     }
-}
+});
 
 /**
  * Can't really ship a single script with data for hundreds of locales, so we provide
