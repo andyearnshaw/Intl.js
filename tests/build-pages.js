@@ -17,6 +17,9 @@ var LIBS = {
         '    return __globalObject;',
         '}',
 
+        // Make sure polyfilled ECMA-262 functions are in place for the tests
+        'IntlPolyfill.__applyLocaleSensitivePrototypes();',
+
         'function runTheTest() {'
     ].join('\n'),
 

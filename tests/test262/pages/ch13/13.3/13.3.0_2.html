@@ -3,6 +3,7 @@ var __globalObject = Function("return this;")();
 function fnGlobalObject() {
     return __globalObject;
 }
+IntlPolyfill.__applyLocaleSensitivePrototypes();
 function runTheTest() {
 Object.getOwnPropertyNames = Object.getOwnPropertyNames || function (obj) {
             var ret = [];
