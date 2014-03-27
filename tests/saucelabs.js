@@ -38,7 +38,7 @@ var LIBS = {
         },
         {
             browserName: "chrome",
-            version: "31",
+            version: "32",
             platform: "OS X 10.9"
         },
         {
