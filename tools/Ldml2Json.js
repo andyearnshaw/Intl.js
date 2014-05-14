@@ -25,7 +25,7 @@ var
     jsonpExp = /"(?!default)([\w$][\w\d$]+)":/g,
 
     // Path to CLDR root
-    cldr = process.argv[2];
+    cldr = process.argv[2],
 
     // Paths to required classes in the CLDR /tools/java folder
     jPath = cldr + '/tools/java/',
@@ -108,7 +108,8 @@ if (cldr) {
         }
         else
             console.log('\n');
-            cldrToIntl();
+
+        cldrToIntl();
     });
 }
 else {
