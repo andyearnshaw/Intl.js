@@ -1667,7 +1667,7 @@ function ToRawPrecision (x, minPrecision, maxPrecision) {
         //    possible. If there are two such sets of e and n, pick the e and n for
         //    which n × 10ᵉ⁻ᵖ⁺¹ is larger.
         var
-            e = Math.floor(Math.log(Math.abs(x)) / Math.LN10),
+            e = log10Floor(Math.abs(x)),
 
             // Easier to get to m from here
             f = Math.round(Math.exp((Math.abs(e - p + 1)) * Math.LN10)),
@@ -2840,6 +2840,20 @@ function addLocaleData (data, tag) {
 
 // Helper functions
 // ================
+
+/**
+ * A function to deal with the inaccuracy of calculating log10 in pre-ES6
+ * JavaScript environments. Math.log(num) / Math.LN10 was responsible for
+ * causing issue #62.
+ */
+function log10Floor (n) {
+    // ES6 provides the more accurate Math.log10
+    if (typeof Math.log10 === 'function')
+        return Math.floor(Math.log10(n));
+
+    var x = Math.round(Math.log(n) * Math.LOG10E);
+    return x - (Number('1e' + x) > n);
+}
 
 /**
  * A merge of the Intl.{Constructor}.supportedLocalesOf functions
