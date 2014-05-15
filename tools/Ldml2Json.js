@@ -379,7 +379,10 @@ function processObj(data) {
             avail = defCa.dateTimeFormats.availableFormats,
             order = defCa.dateTimeFormats.medium,
             verify = function (frmt) {
-                return (!frmt[0] || avail[frmt[0]]) && (!frmt[1] || avail[frmt[1]]);
+                // Unicode LDML spec allows us to expand some pattern components to suit
+                var dFrmt = frmt[1] && frmt[1].replace(/M{4,5}/, 'MMM').replace(/E{4,6}/, 'E');
+
+                return (!frmt[0] || avail[frmt[0]]) && (!dFrmt || avail[dFrmt]);
             };
 
         // Make sure every local supports these minimum required formats
@@ -388,10 +391,28 @@ function processObj(data) {
 
         // Map the formats into a pattern for createDateTimeFormats
         ret.date.formats = formats.map(function (frmt) {
+            var M, E, dFrmt;
+
+            // Expand component lengths if necessary, as allowed in the LDML spec
+            if (frmt[1]) {
+                // Get the lengths of 'M' and 'E' substrings in the date pattern
+                // as arrays that can be joined to create a new substring
+                M = new Array((frmt[1].match(/M/g)||[]).length + 1);
+                E = new Array((frmt[1].match(/E/g)||[]).length + 1);
+
+                dFrmt = avail[frmt[1].replace(/M{4,5}/, 'MMM').replace(/E{4,6}/, 'E')];
+
+                if (M.length > 2)
+                    dFrmt = dFrmt.replace(/(M|L)+/, M.join('$1'));
+
+                if (E.length > 2)
+                    dFrmt = dFrmt.replace(/([Eec])+/, E.join('$1'));
+            }
+
             return createDateTimeFormat(
                 order
-                    .replace('{0}', frmt[0] ? avail[frmt[0]] : '')
-                    .replace('{1}', frmt[1] ? avail[frmt[1]] : '')
+                    .replace('{0}', avail[frmt[0]] || '')
+                    .replace('{1}', dFrmt || '')
                     .replace(/^[^a-z0-9]+|[^a-z0-9]+$/gi, '')
             );
         });
