@@ -353,21 +353,21 @@ function processObj(data) {
          */
         var formats = [
                 // 'weekday', 'year', 'month', 'day', 'hour', 'minute', 'second'
-                [ 'hms', 'yMMMEd' ],
+                [ 'hms', 'yMMMMEEEEd' ],
 
                 // 'weekday', 'year', 'month', 'day'
-                [ '', 'yMMMEd' ],
+                [ '', 'yMMMMEEEEd' ],
 
                 // 'year', 'month', 'day'
-                [ '', 'yMMMd'],
-                [ '', 'yMd' ],
+                [ '', 'yMMMMd'],
+                [ '', 'yMd'],
 
                 // 'year', 'month'
                 [ '', 'yM' ],
-                [ '', 'yMMM' ],
+                [ '', 'yMMMM' ],
 
                 // 'month', 'day'
-                [ '', 'MMMd' ],
+                [ '', 'MMMMd' ],
                 [ '', 'Md' ],
 
                 // 'hour', 'minute', 'second'
