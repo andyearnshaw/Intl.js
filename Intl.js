@@ -2204,7 +2204,18 @@ function ToDateTimeOptions (options, required, defaults) {
  * formats, the following steps are taken:
  */
 function BasicFormatMatcher (options, formats) {
+    return calculateScore(options, formats);
+}
+
+/**
+ * Calculates score for BestFitFormatMatcher and BasicFormatMatcher.
+ * Abstracted from BasicFormatMatcher section.
+ */
+function calculateScore (options, formats, bestFit) {
     var
+    // Additional penalty type when bestFit === true
+       diffDataTypePenalty = 8,
+
     // 1. Let removalPenalty be 120.
         removalPenalty = 120,
 
@@ -2256,7 +2267,7 @@ function BasicFormatMatcher (options, formats) {
             // ii. Let formatPropDesc be the result of calling the [[GetOwnProperty]] internal method of format
             //     with argument property.
             // iii. If formatPropDesc is not undefined, then
-                // 1. Let formatProp be the result of calling the [[Get]] internal method of format with argument property.
+            //     1. Let formatProp be the result of calling the [[Get]] internal method of format with argument property.
                 formatProp = hop.call(format, property) ? format[property] : undefined;
 
             // iv. If optionsProp is undefined and formatProp is not undefined, then decrease score by
@@ -2284,6 +2295,13 @@ function BasicFormatMatcher (options, formats) {
 
                 // 4. Let delta be max(min(formatPropIndex - optionsPropIndex, 2), -2).
                     delta = Math.max(Math.min(formatPropIndex - optionsPropIndex, 2), -2);
+
+                // When the bestFit argument is true, subtract additional penalty where data types are not the same
+                if (bestFit && (
+                    ((optionsProp === 'numeric' || optionsProp === '2-digit') && (formatProp !== 'numeric' && formatProp !== '2-digit'))
+                 || ((optionsProp !== 'numeric' && optionsProp !== '2-digit') && (formatProp === '2-digit' || formatProp === 'numeric'))
+                ))
+                    score -= diffDataTypePenalty;
 
                 // 5. If delta = 2, decrease score by longMorePenalty.
                 if (delta === 2)
@@ -2325,10 +2343,28 @@ function BasicFormatMatcher (options, formats) {
  * and formats, it performs implementation dependent steps, which should return a set of
  * component representations that a typical user of the selected locale would perceive as
  * at least as good as the one returned by BasicFormatMatcher.
+ *
+ * This polyfill defines the algorithm to be the same as BasicFormatMatcher,
+ * with the addition of bonus points awarded where the requested format is of
+ * the same data type as the potentially matching format.
+ *
+ * For example,
+ *
+ *     { month: 'numeric', day: 'numeric' }
+ *
+ * should match
+ *
+ *     { month: '2-digit', day: '2-digit' }
+ *
+ * rather than
+ *
+ *     { month: 'short', day: 'numeric' }
+ *
+ * This makes sense because a user requesting a formatted date with numeric parts would
+ * not expect to see the returned format containing narrow, short or long part names
  */
 function BestFitFormatMatcher (options, formats) {
-    // This is good enough for now
-    return BasicFormatMatcher(options, formats);
+    return calculateScore(options, formats, true);
 }
 
 /* 12.2.3 */internals.DateTimeFormat = {
