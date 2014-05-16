@@ -185,7 +185,7 @@ function processObj(data) {
         // Get own property values, useful for converting object map to array when we
         // don't care about the keys.  Relies on predictable property ordering in V8.
         gopv = function (o) {
-            return o ? Object.getOwnPropertyNames(o).map(function (e) { return o[e]; }).sort() : undefined;
+            return o ? Object.getOwnPropertyNames(o).map(function (e) { return o[e]; }) : undefined;
         },
 
         // Copy numbering systems
@@ -294,7 +294,7 @@ function processObj(data) {
         ret.number.patterns.secondaryGroupSize = groups[1].length;
 
     // Copy the currency symbols
-   gopn(data.numbers.currencies).forEach(function (k) {
+    gopn(data.numbers.currencies).forEach(function (k) {
         if (k !== data.numbers.currencies[k].symbol)
             ret.number.currencies[k] = data.numbers.currencies[k].symbol;
     });
