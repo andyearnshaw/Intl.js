@@ -22,7 +22,7 @@
         "formats": [
             {
                 "year": "numeric",
-                "month": "long",
+                "month": "numeric",
                 "day": "numeric",
                 "weekday": "long",
                 "hour": "numeric",
@@ -33,14 +33,14 @@
             },
             {
                 "year": "numeric",
-                "month": "long",
+                "month": "numeric",
                 "day": "numeric",
                 "weekday": "long",
                 "pattern": "{year}年{month}月{day}日({weekday}"
             },
             {
                 "year": "numeric",
-                "month": "long",
+                "month": "numeric",
                 "day": "numeric",
                 "pattern": "{year}年{month}月{day}"
             },
@@ -61,7 +61,7 @@
                 "pattern": "{year}年{month}"
             },
             {
-                "month": "long",
+                "month": "narrow",
                 "day": "numeric",
                 "pattern": "{month}月{day}"
             },
