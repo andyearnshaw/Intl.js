@@ -36,7 +36,7 @@
                 "month": "numeric",
                 "day": "numeric",
                 "weekday": "long",
-                "pattern": "{year}年{month}月{day}日({weekday}"
+                "pattern": "{year}年{month}月{day}日({weekday})"
             },
             {
                 "year": "numeric",
