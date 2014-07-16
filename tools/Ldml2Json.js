@@ -413,7 +413,7 @@ function processObj(data) {
                 order
                     .replace('{0}', avail[frmt[0]] || '')
                     .replace('{1}', dFrmt || '')
-                    .replace(/^[^a-z0-9]+|[^a-z0-9]+$/gi, '')
+                    .replace(/^[,\s]+|[,\s]+$/gi, '')
             );
         });
     });
