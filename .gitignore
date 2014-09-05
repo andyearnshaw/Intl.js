@@ -12,3 +12,7 @@ cldr/
 
 # NPM packages installed locally
 node_modules
+
+lib/
+node_modules/
+tmp/
