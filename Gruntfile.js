@@ -26,7 +26,7 @@ module.exports = function (grunt) {
         },
 
         jshint: {
-            all: ['index.js', 'src/*.js', '!src/en.js']
+            all: ['index.js', 'src/*.js']
         },
 
         bundle_jsnext: {
