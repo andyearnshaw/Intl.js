@@ -21,8 +21,6 @@
     "wd": "^0.3.6"
   },
   "scripts": {
-    "build": "grunt cldr",
-    "lint": "grunt jshint",
     "pretest": "grunt jshint",
     "test": "cd tests && node noderunner.js && node saucelabs.js"
   },
