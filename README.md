@@ -64,7 +64,7 @@ Current progress is as follows:
    - Properties of the `Intl.NumberFormat` Constructor ([11.2](http://www.ecma-international.org/ecma-402/1.0/#sec-11.2))
    - Properties of the `Intl.NumberFormat` Prototype Object ([11.3](http://www.ecma-international.org/ecma-402/1.0/#sec-11.3))
    - Properties of Intl.NumberFormat Instances([11.4](http://www.ecma-international.org/ecma-402/1.0/#sec-11.4))
- - __`Intl.DateTimeFormat`__ 
+ - __`Intl.DateTimeFormat`__
    - The `Intl.DateTimeFormat` constructor ([12.1](http://www.ecma-international.org/ecma-402/1.0/#sec-12.1))
    - Properties of the `Intl.DateTimeFormat` Constructor ([12.2](http://www.ecma-international.org/ecma-402/1.0/#sec-12.2))
    - Properties of the `Intl.DateTimeFormat` Prototype Object ([12.3](http://www.ecma-international.org/ecma-402/1.0/#sec-12.3))
@@ -100,7 +100,7 @@ are several reasons, including:
  - The CLDR convertor does not automatically convert collation data to JSON
  - The Unicode Collation Algorithm is more complicated that originally anticipated,
    and would increase the code size of Intl.js too much.
- - The Default Unicode Collation Element Table is huge, even after compression, and 
+ - The Default Unicode Collation Element Table is huge, even after compression, and
    converting to a native JavaScript object would probably make it slightly larger.
    Server-side JavaScript environments will (hopefully) soon support Intl.Collator,
    and we can't really expect client environments to download this data.
@@ -124,8 +124,8 @@ in the [tools](https://github.com/andyearnshaw/Intl.js/tree/master/tools) folder
 
 The main `Intl.js` file contains no locale data itself.  In browser environments, the
 data should be provided, parsed into a JavaScript object, using the
-`Intl.__addLocaleData()` method.  In Node.js, or when using `Intl.complete.js`, the data
-is pre-compiled into the end of the file and does not need to be provided.
+`Intl.__addLocaleData()` method.  In Node.js, or when using `require('intl')`, the data
+is automatically added to the runtime and does not need to be provided.
 
 Contents of the `locale-data` directory are a modified form of the Unicode CLDR
 data found at http://www.unicode.org/cldr/data/.  See the `LICENSE.txt` file
