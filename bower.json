@@ -1,8 +1,8 @@
 {
 	"name": "intl",
-    "version": "0.1.4",
+    "version": "1.0.0-rc-1",
     "description": "polyfill the ECMA-402 Intl API (except collation)",
-	"main": ["Intl.js", "Intl.min.js"],
+	"main": ["dist/Intl.js"],
     "keywords": [
         "intl",
         "i18n",
@@ -11,10 +11,8 @@
         "polyfill"
     ],
 	"ignore": [
-		"/cldr",
-		"*.pyc",
-		"*.log",
-		".d8_history",
+		"/src",
+		"/task"
 		"/tools",
 		"/tests"
 	]
