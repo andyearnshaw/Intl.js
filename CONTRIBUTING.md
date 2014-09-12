@@ -12,14 +12,28 @@ To run the unit tests:
 
     npm test
 
-To build files:
+To build files in `dist/` and `lib/`:
 
-    npm run build
+    grunt
+
+To build files in `locale-data/` based on CLDR:
+
+    grunt cldr
+
+
+Source Code
+-----------
+
+All the source code is in `src/` folder, written as ES6 modules, and transpiled
+using `es6-module-transpiler` into the `lib/` and `dist/` folders.
+
+The `dist/` is in git because of bower, make sure you commit those files as well.
 
 Release checklist
 -----------------
 
-* build all files using `npm run build`
+* build all files using `grunt`
+* run all tests using `npm test`
 * verify that [README.md] is updated
 * bump the version in [package.json]
 * commit to master

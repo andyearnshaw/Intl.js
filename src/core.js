@@ -8,30 +8,16 @@
  *
  * CLDR format locale data should be provided using IntlPolyfill.__addLocaleData().
  */
-/*jshint proto:true, eqnull:true, boss:true, laxbreak:true, newcap:false, shadow:true, funcscope:true */
-/*globals global, define, exports, module, window*/
+/*jshint esnext: true, proto:true, eqnull:true, boss:true, laxbreak:true, newcap:false, shadow:true, funcscope:true */
 
-(function (global, factory) {
-    var IntlPolyfill = factory();
+import {
+    expBCP47Syntax,
+    expExtSequences,
+    expVariantDupes,
+    expSingletonDupes
+} from './exp';
 
-    // register in -all- the module systems (at once)
-    if (typeof define === 'function' && define.amd)
-        define(IntlPolyfill);
-
-    if (typeof exports === 'object')
-        module.exports = IntlPolyfill;
-
-    if (!global.Intl) {
-        global.Intl = IntlPolyfill;
-        IntlPolyfill.__applyLocaleSensitivePrototypes();
-    }
-
-    global.IntlPolyfill = IntlPolyfill;
-
-})(typeof global !== 'undefined' ? global : this, function() {
-"use strict";
-var
-    Intl = {},
+var Intl = {},
 
     realDefineProp = (function () {
         try { return !!Object.defineProperty({}, 'a', {}); }
@@ -133,11 +119,6 @@ var
     expCurrencyCode = /^[A-Z]{3}$/,
     expUnicodeExSeq = /-u(?:-[0-9a-z]{2,8})+/gi, // See `extension` below
 
-    expBCP47Syntax,
-    expExtSequences,
-    expVariantDupes,
-    expSingletonDupes,
-
     // IANA Subtag Registry redundant tag and subtag maps
     redundantTags = {
         tags: {
@@ -228,110 +209,6 @@ var
         XPF: 0, GNF: 0, ISK: 0, IQD: 3, JPY: 0, JOD: 3, KRW: 0, KWD: 3, LYD: 3,
         OMR: 3, PYG: 0, RWF: 0, TND: 3, UGX: 0, UYI: 0, VUV: 0, VND: 0
     };
-
-/**
- * Defines regular expressions for various operations related to the BCP 47 syntax,
- * as defined at http://tools.ietf.org/html/bcp47#section-2.1
- */
-(function () {
-    var
-        // extlang       = 3ALPHA              ; selected ISO 639 codes
-        //                 *2("-" 3ALPHA)      ; permanently reserved
-        extlang = '[a-z]{3}(?:-[a-z]{3}){0,2}',
-
-        // language      = 2*3ALPHA            ; shortest ISO 639 code
-        //                 ["-" extlang]       ; sometimes followed by
-        //                                     ; extended language subtags
-        //               / 4ALPHA              ; or reserved for future use
-        //               / 5*8ALPHA            ; or registered language subtag
-        language = '(?:[a-z]{2,3}(?:-' + extlang + ')?|[a-z]{4}|[a-z]{5,8})',
-
-        // script        = 4ALPHA              ; ISO 15924 code
-        script = '[a-z]{4}',
-
-        // region        = 2ALPHA              ; ISO 3166-1 code
-        //               / 3DIGIT              ; UN M.49 code
-        region = '(?:[a-z]{2}|\\d{3})',
-
-        // variant       = 5*8alphanum         ; registered variants
-        //               / (DIGIT 3alphanum)
-        variant = '(?:[a-z0-9]{5,8}|\\d[a-z0-9]{3})',
-
-        //                                     ; Single alphanumerics
-        //                                     ; "x" reserved for private use
-        // singleton     = DIGIT               ; 0 - 9
-        //               / %x41-57             ; A - W
-        //               / %x59-5A             ; Y - Z
-        //               / %x61-77             ; a - w
-        //               / %x79-7A             ; y - z
-        singleton = '[0-9a-wy-z]',
-
-        // extension     = singleton 1*("-" (2*8alphanum))
-        extension = singleton + '(?:-[a-z0-9]{2,8})+',
-
-        // privateuse    = "x" 1*("-" (1*8alphanum))
-        privateuse = 'x(?:-[a-z0-9]{1,8})+',
-
-        // irregular     = "en-GB-oed"         ; irregular tags do not match
-        //               / "i-ami"             ; the 'langtag' production and
-        //               / "i-bnn"             ; would not otherwise be
-        //               / "i-default"         ; considered 'well-formed'
-        //               / "i-enochian"        ; These tags are all valid,
-        //               / "i-hak"             ; but most are deprecated
-        //               / "i-klingon"         ; in favor of more modern
-        //               / "i-lux"             ; subtags or subtag
-        //               / "i-mingo"           ; combination
-        //               / "i-navajo"
-        //               / "i-pwn"
-        //               / "i-tao"
-        //               / "i-tay"
-        //               / "i-tsu"
-        //               / "sgn-BE-FR"
-        //               / "sgn-BE-NL"
-        //               / "sgn-CH-DE"
-        irregular = '(?:en-GB-oed'
-                  + '|i-(?:ami|bnn|default|enochian|hak|klingon|lux|mingo|navajo|pwn|tao|tay|tsu)'
-                  + '|sgn-(?:BE-FR|BE-NL|CH-DE))',
-
-        // regular       = "art-lojban"        ; these tags match the 'langtag'
-        //               / "cel-gaulish"       ; production, but their subtags
-        //               / "no-bok"            ; are not extended language
-        //               / "no-nyn"            ; or variant subtags: their meaning
-        //               / "zh-guoyu"          ; is defined by their registration
-        //               / "zh-hakka"          ; and all of these are deprecated
-        //               / "zh-min"            ; in favor of a more modern
-        //               / "zh-min-nan"        ; subtag or sequence of subtags
-        //               / "zh-xiang"
-        regular = '(?:art-lojban|cel-gaulish|no-bok|no-nyn'
-                + '|zh-(?:guoyu|hakka|min|min-nan|xiang))',
-
-        // grandfathered = irregular           ; non-redundant tags registered
-        //               / regular             ; during the RFC 3066 era
-        grandfathered = '(?:' + irregular + '|' + regular + ')',
-
-        // langtag       = language
-        //                 ["-" script]
-        //                 ["-" region]
-        //                 *("-" variant)
-        //                 *("-" extension)
-        //                 ["-" privateuse]
-        langtag = language + '(?:-' + script + ')?(?:-' + region + ')?(?:-'
-                + variant + ')*(?:-' + extension + ')*(?:-' + privateuse + ')?';
-
-    // Language-Tag  = langtag             ; normal language tags
-    //               / privateuse          ; private use tag
-    //               / grandfathered       ; grandfathered tags
-    expBCP47Syntax = RegExp('^(?:'+langtag+'|'+privateuse+'|'+grandfathered+')$', 'i');
-
-    // Match duplicate variants in a language tag
-    expVariantDupes = RegExp('^(?!x).*?-('+variant+')-(?:\\w{4,8}-(?!x-))*\\1\\b', 'i');
-
-    // Match duplicate singletons in a language tag (except in private use)
-    expSingletonDupes = RegExp('^(?!x).*?-('+singleton+')-(?:\\w+-(?!x-))*\\1\\b', 'i');
-
-    // Match all extension sequences
-    expExtSequences = RegExp('-'+extension, 'ig');
-})();
 
 // Sect 6.2 Language Tags
 // ======================
@@ -3065,5 +2942,4 @@ function getInternalProperties (obj) {
         return objCreate(null);
 }
 
-return Intl;
-});
+export default Intl;

@@ -5,7 +5,7 @@ var LIBS = {
         path:   require('path'),
         vm:     require('vm')
     },
-    LIB_PATH = __dirname + '/../Intl.complete.js',
+    LIB_PATH = __dirname + '/../dist/Intl.complete.js',
     INTL_LIB = LIBS.fs.readFileSync(LIB_PATH).toString(),
     TEST_DIR = __dirname + '/test262/pages';
 
@@ -74,6 +74,3 @@ function main() {
     process.exit(failCount ? 1 : 0);
 }
 main();
-
-
-
