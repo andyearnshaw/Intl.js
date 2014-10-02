@@ -108,18 +108,18 @@
                         "12"
                     ],
                     "short": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "Mês 1",
+                        "Mês 2",
+                        "Mês 3",
+                        "Mês 4",
+                        "Mês 5",
+                        "Mês 6",
+                        "Mês 7",
+                        "Mês 8",
+                        "Mês 9",
+                        "Mês 10",
+                        "Mês 11",
+                        "Mês 12"
                     ],
                     "long": [
                         "Mês 1",
@@ -355,11 +355,15 @@
                 "eras": {
                     "short": [
                         "a.C.",
-                        "d.C."
+                        "d.C.",
+                        "EC",
+                        "AEC"
                     ],
                     "long": [
                         "Antes de Cristo",
-                        "Ano do Senhor"
+                        "Ano do Senhor",
+                        "Era Comum",
+                        "Antes da Era Comum"
                     ]
                 },
                 "dayPeriods": {
@@ -1069,6 +1073,7 @@
             "BRL": "R$",
             "CAD": "CA$",
             "CNY": "CN¥",
+            "CVE": "​",
             "EUR": "€",
             "GBP": "£",
             "HKD": "HK$",
@@ -1078,7 +1083,7 @@
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
-            "PTE": "Esc.",
+            "PTE": "​PTE",
             "THB": "฿",
             "TWD": "NT$",
             "USD": "US$",

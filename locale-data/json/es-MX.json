@@ -24,7 +24,7 @@
                 "day": "numeric",
                 "month": "long",
                 "year": "numeric",
-                "hour": "2-digit",
+                "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
                 "pattern": "{weekday}, {day} de {month} de {year} {hour}:{minute}:{second}",
@@ -70,14 +70,14 @@
                 "pattern": "{day}/{month}"
             },
             {
-                "hour": "2-digit",
+                "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
                 "pattern": "{hour}:{minute}:{second}",
                 "pattern12": "{hour}:{minute}:{second} {ampm}"
             },
             {
-                "hour": "2-digit",
+                "hour": "numeric",
                 "minute": "2-digit",
                 "pattern": "{hour}:{minute}",
                 "pattern12": "{hour}:{minute} {ampm}"
@@ -195,30 +195,30 @@
                     "narrow": [
                         "E",
                         "F",
-                        "Ma",
+                        "M",
                         "A",
-                        "My",
-                        "Jn",
-                        "Jl",
-                        "Ag",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
                         "S",
                         "O",
                         "N",
                         "D"
                     ],
                     "short": [
-                        "ene.",
-                        "febr.",
-                        "mzo.",
-                        "abr.",
-                        "my.",
-                        "jun.",
-                        "jul.",
-                        "ag.",
-                        "set.",
-                        "oct.",
-                        "nov.",
-                        "dic."
+                        "ene",
+                        "feb",
+                        "mar",
+                        "abr",
+                        "may",
+                        "jun",
+                        "jul",
+                        "ago",
+                        "sep",
+                        "oct",
+                        "nov",
+                        "dic"
                     ],
                     "long": [
                         "enero",
@@ -237,21 +237,21 @@
                 },
                 "days": {
                     "narrow": [
-                        "do.",
-                        "lu.",
-                        "ma.",
-                        "mi.",
-                        "ju.",
-                        "vi.",
-                        "sá."
+                        "do",
+                        "lu",
+                        "ma",
+                        "mi",
+                        "ju",
+                        "vi",
+                        "sá"
                     ],
                     "short": [
-                        "dom.",
-                        "lun.",
-                        "mar.",
-                        "miér.",
-                        "jue.",
-                        "vier.",
+                        "dom",
+                        "lun",
+                        "mar",
+                        "mié",
+                        "jue",
+                        "vie",
                         "sáb"
                     ],
                     "long": [
@@ -268,12 +268,14 @@
                     "short": [
                         "a.C.",
                         "d.C.",
-                        "a. e. c.",
-                        "e. c."
+                        "e. c.",
+                        "a. e. c."
                     ],
                     "long": [
                         "antes de Cristo",
-                        "anno Dómini"
+                        "Anno Domini",
+                        "e. c.",
+                        "a. e. c."
                     ]
                 },
                 "dayPeriods": {
@@ -889,8 +891,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency}{number}",
-                "negativePattern": "-{currency}{number}"
+                "positivePattern": "{number} {currency}",
+                "negativePattern": "-{number} {currency}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -899,23 +901,28 @@
         },
         "symbols": {
             "latn": {
-                "decimal": ".",
-                "group": ",",
+                "decimal": ",",
+                "group": ".",
                 "nan": "NaN",
                 "percent": "%",
                 "infinity": "∞"
             }
         },
         "currencies": {
+            "AFN": "Af",
             "ANG": "Naf",
             "AOA": "Kz",
-            "ARS": "AR$",
+            "ARS": "$a",
             "AUD": "AU$",
             "AWG": "Afl.",
+            "CAD": "CA$",
             "CNY": "CN¥",
             "ESP": "₧",
+            "EUR": "€",
             "MXN": "$",
-            "ZMW": "ZMK"
+            "THB": "฿",
+            "USD": "$",
+            "VND": "₫"
         }
     }
 }

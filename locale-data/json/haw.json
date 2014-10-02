@@ -46,12 +46,12 @@
             {
                 "day": "numeric",
                 "month": "numeric",
-                "year": "2-digit",
+                "year": "numeric",
                 "pattern": "{day}/{month}/{year}"
             },
             {
                 "month": "numeric",
-                "year": "2-digit",
+                "year": "numeric",
                 "pattern": "{month}/{year}"
             },
             {
@@ -891,7 +891,6 @@
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
-            "THB": "฿",
             "TWD": "NT$",
             "USD": "$",
             "VND": "₫",

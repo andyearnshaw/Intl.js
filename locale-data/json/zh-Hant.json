@@ -28,21 +28,21 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{year}年{month}月{day}日{weekday} {hour}:{minute}:{second}",
-                "pattern12": "{year}年{month}月{day}日{weekday} {ampm}{hour}:{minute}:{second}"
+                "pattern": "{year}年{month}月{day}日 {weekday} {hour}:{minute}:{second}",
+                "pattern12": "{year}年{month}月{day}日 {weekday} {ampm}{hour}:{minute}:{second}"
             },
             {
                 "year": "numeric",
                 "month": "long",
                 "day": "numeric",
                 "weekday": "long",
-                "pattern": "{year}年{month}月{day}日{weekday}"
+                "pattern": "{year}年{month}月{day}日 {weekday}"
             },
             {
                 "year": "numeric",
                 "month": "long",
                 "day": "numeric",
-                "pattern": "{year}年{month}月{day}"
+                "pattern": "{year}年{month}月{day}日"
             },
             {
                 "year": "numeric",
@@ -58,12 +58,12 @@
             {
                 "year": "numeric",
                 "month": "long",
-                "pattern": "{year}年{month}"
+                "pattern": "{year}年{month}月"
             },
             {
                 "month": "long",
                 "day": "numeric",
-                "pattern": "{month}月{day}"
+                "pattern": "{month}月{day}日"
             },
             {
                 "month": "numeric",
@@ -105,8 +105,8 @@
                         "八",
                         "九",
                         "十",
-                        "十一",
-                        "十二"
+                        "冬",
+                        "臘"
                     ],
                     "short": [
                         "正月",
@@ -119,8 +119,8 @@
                         "八月",
                         "九月",
                         "十月",
-                        "十一月",
-                        "十二月"
+                        "冬月",
+                        "臘月"
                     ],
                     "long": [
                         "正月",
@@ -133,8 +133,8 @@
                         "八月",
                         "九月",
                         "十月",
-                        "十一月",
-                        "十二月"
+                        "冬月",
+                        "臘月"
                     ]
                 }
             },
@@ -403,20 +403,20 @@
                     "narrow": [
                         "西元前",
                         "西元",
-                        "公元前",
-                        "公元"
+                        "公元",
+                        "公元前"
                     ],
                     "short": [
                         "西元前",
                         "西元",
-                        "公元前",
-                        "公元"
+                        "公元",
+                        "公元前"
                     ],
                     "long": [
                         "西元前",
                         "西元",
-                        "公元前",
-                        "公元"
+                        "公元",
+                        "公元前"
                     ]
                 },
                 "dayPeriods": {
@@ -426,6 +426,22 @@
             },
             "hebrew": {
                 "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "7"
+                    ],
                     "short": [
                         "提斯利月",
                         "瑪西班月",
@@ -1094,7 +1110,10 @@
                 },
                 "eras": {
                     "short": [
-                        "伊朗曆"
+                        "波斯曆"
+                    ],
+                    "long": [
+                        "波斯曆"
                     ]
                 }
             },

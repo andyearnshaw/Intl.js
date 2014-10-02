@@ -35,29 +35,29 @@
                 "day": "numeric",
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{weekday}, {day}. {month} {year}"
+                "pattern": "{weekday}, {day}. {month} {year}."
             },
             {
                 "day": "numeric",
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{day}. {month} {year}"
+                "pattern": "{day}. {month} {year}."
             },
             {
                 "day": "numeric",
                 "month": "numeric",
                 "year": "numeric",
-                "pattern": "{day}.{month}.{year}"
+                "pattern": "{day}.{month}.{year}."
             },
             {
                 "month": "numeric",
                 "year": "numeric",
-                "pattern": "{month}.{year}"
+                "pattern": "{month}.{year}."
             },
             {
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{month} {year}"
+                "pattern": "{month} {year}."
             },
             {
                 "day": "numeric",
@@ -226,8 +226,8 @@
                         "март",
                         "април",
                         "мај",
-                        "јун",
-                        "јул",
+                        "juni",
+                        "juli",
                         "август",
                         "септембар",
                         "октобар",
@@ -246,19 +246,19 @@
                         "суб"
                     ],
                     "short": [
+                        "sri",
                         "нед",
                         "пон",
                         "уто",
-                        "сре",
                         "чет",
                         "пет",
                         "суб"
                     ],
                     "long": [
+                        "srijeda",
                         "недеља",
                         "понедељак",
                         "уторак",
-                        "среда",
                         "четвртак",
                         "петак",
                         "субота"
@@ -275,12 +275,14 @@
                     ],
                     "long": [
                         "Пре нове ере",
-                        "Нове ере"
+                        "Нове ере",
+                        "н. е.",
+                        "п. н. е."
                     ]
                 },
                 "dayPeriods": {
                     "am": "пре подне",
-                    "pm": "поподне"
+                    "pm": "по подне"
                 }
             },
             "hebrew": {
@@ -909,28 +911,21 @@
             }
         },
         "currencies": {
-            "AUD": "A$",
             "BAM": "КМ",
+            "BGN": "[BGN]",
             "BRL": "R$",
+            "BYR": "[BYR]",
             "CAD": "CA$",
             "CNY": "CN¥",
-            "CZK": "Кч",
             "EUR": "€",
             "GBP": "£",
             "HKD": "HK$",
             "ILS": "₪",
             "INR": "₹",
             "JPY": "¥",
-            "KRW": "₩",
             "MXN": "MX$",
-            "NZD": "NZ$",
-            "PLN": "зл",
-            "RSD": "дин.",
-            "THB": "฿",
-            "TRY": "Тл",
             "TWD": "NT$",
             "USD": "US$",
-            "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",
             "XOF": "CFA",

@@ -192,6 +192,20 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
+                    ],
                     "short": [
                         "Jan",
                         "Feb",
@@ -232,13 +246,13 @@
                         "Jumamosi"
                     ],
                     "short": [
-                        "J2",
-                        "J3",
-                        "J4",
-                        "J5",
-                        "Alh",
-                        "Ij",
-                        "J1"
+                        "Jumapili",
+                        "Jumatatu",
+                        "Jumanne",
+                        "Jumatano",
+                        "Alhamisi",
+                        "Ijumaa",
+                        "Jumamosi"
                     ],
                     "long": [
                         "Jumapili",
@@ -252,12 +266,16 @@
                 },
                 "eras": {
                     "short": [
-                        "KK",
-                        "BK"
+                        "BC",
+                        "AD",
+                        "CE",
+                        "BCE"
                     ],
                     "long": [
                         "Kabla ya Kristo",
-                        "Baada ya Kristo"
+                        "Baada ya Kristo",
+                        "CE",
+                        "BCE"
                     ]
                 },
                 "dayPeriods": {

@@ -27,21 +27,21 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {day} {month} {year}, {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {day} {month} {year}, {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day} {month} {year} г., {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day} {month} {year} г., {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "long",
                 "day": "numeric",
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{weekday}, {day} {month} {year}"
+                "pattern": "{weekday}, {day} {month} {year} г."
             },
             {
                 "day": "numeric",
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{day} {month} {year}"
+                "pattern": "{day} {month} {year} г."
             },
             {
                 "day": "2-digit",
@@ -359,12 +359,11 @@
                     ],
                     "short": [
                         "до н. э.",
-                        "н. э.",
-                        "н.э."
+                        "н. э."
                     ],
                     "long": [
-                        "до н.э.",
-                        "н.э."
+                        "до н. э.",
+                        "н. э."
                     ]
                 },
                 "dayPeriods": {

@@ -20,28 +20,28 @@
         "hour12": false,
         "formats": [
             {
-                "year": "numeric",
-                "month": "long",
-                "day": "numeric",
                 "weekday": "long",
+                "day": "numeric",
+                "month": "long",
+                "year": "numeric",
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{year} {month} {day}, {weekday} {hour}:{minute}:{second}",
-                "pattern12": "{year} {month} {day}, {weekday} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday} la {day}-an de {month} {year} {hour}:{minute}:{second}",
+                "pattern12": "{weekday} la {day}-an de {month} {year} {hour}:{minute}:{second} {ampm}"
             },
             {
-                "year": "numeric",
-                "month": "long",
-                "day": "numeric",
                 "weekday": "long",
-                "pattern": "{year} {month} {day}, {weekday}"
+                "day": "numeric",
+                "month": "long",
+                "year": "numeric",
+                "pattern": "{weekday} la {day}-an de {month} {year}"
             },
             {
-                "year": "numeric",
-                "month": "long",
                 "day": "numeric",
-                "pattern": "{year} {month} {day}"
+                "month": "long",
+                "year": "numeric",
+                "pattern": "{day} {month} {year}"
             },
             {
                 "year": "numeric",
@@ -55,14 +55,14 @@
                 "pattern": "{year}-{month}"
             },
             {
-                "year": "numeric",
                 "month": "long",
-                "pattern": "{year} {month}"
+                "year": "numeric",
+                "pattern": "{month} {year}"
             },
             {
-                "month": "long",
                 "day": "numeric",
-                "pattern": "{month} {day}"
+                "month": "long",
+                "pattern": "{day} {month}"
             },
             {
                 "month": "2-digit",
@@ -242,9 +242,23 @@
                     ]
                 },
                 "eras": {
+                    "narrow": [
+                        "aK",
+                        "pK",
+                        "KE",
+                        "aKE"
+                    ],
                     "short": [
                         "aK",
-                        "pK"
+                        "pK",
+                        "K.E.",
+                        "a.K.E."
+                    ],
+                    "long": [
+                        "aK",
+                        "pK",
+                        "Komuna Erao",
+                        "antaŭ Komuna Erao"
                     ]
                 },
                 "dayPeriods": {
@@ -878,7 +892,7 @@
             }
         },
         "currencies": {
-            "AUD": "A$",
+            "AUD": "AU$",
             "BRL": "R$",
             "CAD": "CA$",
             "CNY": "CN¥",
@@ -892,6 +906,7 @@
             "MXN": "MX$",
             "NZD": "NZ$",
             "THB": "฿",
+            "TRY": "₺",
             "TWD": "NT$",
             "USD": "US$",
             "VND": "₫",

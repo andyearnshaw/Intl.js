@@ -218,7 +218,7 @@
                         "Mweri wo tisa",
                         "Mweri wo kumi",
                         "Mweri wo kumi na moja",
-                        "Mweri wo kumi na yel'li"
+                        "Mweri wo kumi na yel’li"
                     ]
                 },
                 "days": {
@@ -253,7 +253,7 @@
                 },
                 "dayPeriods": {
                     "am": "wichishu",
-                    "pm": "mchochil'l"
+                    "pm": "mchochil’l"
                 }
             },
             "hebrew": {
@@ -896,7 +896,6 @@
             "MXN": "MX$",
             "MZN": "MTn",
             "NZD": "NZ$",
-            "THB": "฿",
             "TWD": "NT$",
             "USD": "US$",
             "VND": "₫",

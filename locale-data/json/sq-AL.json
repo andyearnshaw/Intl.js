@@ -27,8 +27,8 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {day} {month} {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {day} {month} {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day} {month} {year}, {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day} {month} {year}, {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "long",
@@ -44,15 +44,15 @@
                 "pattern": "{day} {month} {year}"
             },
             {
-                "day": "2-digit",
-                "month": "2-digit",
+                "day": "numeric",
+                "month": "numeric",
                 "year": "numeric",
-                "pattern": "{day}/{month}/{year}"
+                "pattern": "{day}.{month}.{year}"
             },
             {
                 "month": "numeric",
                 "year": "numeric",
-                "pattern": "{month}/{year}"
+                "pattern": "{month}.{year}"
             },
             {
                 "month": "long",
@@ -67,7 +67,7 @@
             {
                 "day": "numeric",
                 "month": "numeric",
-                "pattern": "{day}/{month}"
+                "pattern": "{day}.{month}"
             },
             {
                 "hour": "numeric",
@@ -268,20 +268,20 @@
                     "narrow": [
                         "p.e.r.",
                         "e.r.",
-                        "p.e.s.",
-                        "e.s."
+                        "e.s.",
+                        "p.e.s."
                     ],
                     "short": [
                         "p.e.r.",
                         "e.r.",
-                        "p.e.s",
-                        "e.s."
+                        "e.s.",
+                        "p.e.s"
                     ],
                     "long": [
                         "para erës së re",
                         "erës së re",
-                        "para erës sonë",
-                        "erës sonë"
+                        "erës sonë",
+                        "para erës sonë"
                     ]
                 },
                 "dayPeriods": {

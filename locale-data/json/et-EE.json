@@ -268,16 +268,20 @@
                     "narrow": [
                         "e.m.a.",
                         "m.a.j.",
-                        "ema",
-                        "maj"
+                        "maj",
+                        "ema"
                     ],
                     "short": [
                         "e.m.a.",
-                        "m.a.j."
+                        "m.a.j.",
+                        "MA",
+                        "EMA"
                     ],
                     "long": [
                         "enne meie aega",
-                        "meie aja järgi"
+                        "meie aja järgi",
+                        "meie ajaarvamise järgi",
+                        "enne meie ajaarvamist"
                     ]
                 },
                 "dayPeriods": {

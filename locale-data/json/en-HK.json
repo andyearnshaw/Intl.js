@@ -21,27 +21,27 @@
         "formats": [
             {
                 "weekday": "long",
-                "day": "numeric",
                 "month": "long",
+                "day": "numeric",
                 "year": "numeric",
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {day} {month}, {year}, {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {day} {month}, {year}, {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {month} {day}, {year}, {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {month} {day}, {year}, {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "long",
-                "day": "numeric",
                 "month": "long",
+                "day": "numeric",
                 "year": "numeric",
-                "pattern": "{weekday}, {day} {month}, {year}"
+                "pattern": "{weekday}, {month} {day}, {year}"
             },
             {
-                "day": "numeric",
                 "month": "long",
+                "day": "numeric",
                 "year": "numeric",
-                "pattern": "{day} {month}, {year}"
+                "pattern": "{month} {day}, {year}"
             },
             {
                 "day": "numeric",
@@ -65,9 +65,9 @@
                 "pattern": "{month} {day}"
             },
             {
-                "month": "numeric",
                 "day": "numeric",
-                "pattern": "{month}/{day}"
+                "month": "numeric",
+                "pattern": "{day}/{month}"
             },
             {
                 "hour": "numeric",
@@ -272,14 +272,14 @@
                     "short": [
                         "BC",
                         "AD",
-                        "BCE",
-                        "CE"
+                        "CE",
+                        "BCE"
                     ],
                     "long": [
                         "Before Christ",
                         "Anno Domini",
-                        "Before Common Era",
-                        "Common Era"
+                        "Common Era",
+                        "Before Common Era"
                     ]
                 },
                 "dayPeriods": {
@@ -919,16 +919,15 @@
             "CNY": "CN¥",
             "EUR": "€",
             "GBP": "£",
-            "HKD": "$",
+            "HKD": "HK$",
             "ILS": "₪",
             "INR": "₹",
             "JPY": "¥",
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
-            "THB": "฿",
             "TWD": "NT$",
-            "USD": "US$",
+            "USD": "$",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",

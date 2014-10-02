@@ -41,18 +41,18 @@
                 "year": "numeric",
                 "month": "long",
                 "day": "numeric",
-                "pattern": "{year}. {month} {day}"
+                "pattern": "{year}. {month} {day}."
             },
             {
                 "year": "numeric",
                 "month": "2-digit",
                 "day": "2-digit",
-                "pattern": "{year}. {month}. {day}"
+                "pattern": "{year}. {month}. {day}."
             },
             {
                 "year": "numeric",
                 "month": "numeric",
-                "pattern": "{year}. {month}"
+                "pattern": "{year}. {month}."
             },
             {
                 "year": "numeric",
@@ -62,12 +62,12 @@
             {
                 "month": "long",
                 "day": "numeric",
-                "pattern": "{month} {day}"
+                "pattern": "{month} {day}."
             },
             {
                 "month": "numeric",
                 "day": "numeric",
-                "pattern": "{month}. {day}"
+                "pattern": "{month}. {day}."
             },
             {
                 "hour": "numeric",
@@ -359,13 +359,13 @@
                     ],
                     "short": [
                         "i. e.",
-                        "i. sz.",
-                        "Kr. e.",
-                        "Kr. u."
+                        "i. sz."
                     ],
                     "long": [
                         "időszámításunk előtt",
-                        "időszámításunk szerint"
+                        "időszámításunk szerint",
+                        "i. sz.",
+                        "i. e."
                     ]
                 },
                 "dayPeriods": {
@@ -1071,9 +1071,7 @@
             }
         },
         "currencies": {
-            "HUF": "Ft",
             "JPY": "¥",
-            "USD": "$",
             "XAF": "FCFA",
             "XOF": "CFA",
             "XPF": "CFPF"

@@ -27,8 +27,8 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {month} {day}, {year}, {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {month} {day}, {year}, {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {month} {day}, {year} {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {month} {day}, {year} {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "long",
@@ -94,32 +94,32 @@
             "chinese": {
                 "months": {
                     "short": [
-                        "Mo1",
-                        "Mo2",
-                        "Mo3",
-                        "Mo4",
-                        "Mo5",
-                        "Mo6",
-                        "Mo7",
-                        "Mo8",
-                        "Mo9",
-                        "Mo10",
-                        "Mo11",
-                        "Mo12"
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
                     ],
                     "long": [
-                        "Month1",
-                        "Month2",
-                        "Month3",
-                        "Month4",
-                        "Month5",
-                        "Month6",
-                        "Month7",
-                        "Month8",
-                        "Month9",
-                        "Month10",
-                        "Month11",
-                        "Month12"
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12"
                     ]
                 }
             },
@@ -272,14 +272,14 @@
                     "short": [
                         "BC",
                         "AD",
-                        "BCE",
-                        "CE"
+                        "CE",
+                        "BCE"
                     ],
                     "long": [
                         "Before Christ",
                         "Anno Domini",
-                        "Before Common Era",
-                        "Common Era"
+                        "Common Era",
+                        "Before Common Era"
                     ]
                 },
                 "dayPeriods": {
@@ -913,7 +913,7 @@
             }
         },
         "currencies": {
-            "AUD": "$",
+            "AUD": "A$",
             "BRL": "R$",
             "CAD": "CA$",
             "CNY": "CN¥",
@@ -926,9 +926,8 @@
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
-            "THB": "฿",
             "TWD": "NT$",
-            "USD": "US$",
+            "USD": "$",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",

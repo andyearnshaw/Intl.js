@@ -26,12 +26,12 @@
                 "day": "numeric",
                 "month": "numeric",
                 "year": "numeric",
-                "pattern": "{day}.{month}.{year}"
+                "pattern": "{day}.{month}.{year}."
             },
             {
                 "month": "2-digit",
                 "year": "numeric",
-                "pattern": "{month}.{year}"
+                "pattern": "{month}.{year}."
             },
             null,
             {
@@ -42,7 +42,7 @@
             {
                 "day": "2-digit",
                 "month": "2-digit",
-                "pattern": "{day}.{month}"
+                "pattern": "{day}.{month}."
             },
             {
                 "hour": "numeric",
@@ -243,8 +243,8 @@
                     "narrow": [
                         "p.m.ē.",
                         "m.ē.",
-                        "pmē",
-                        "mē"
+                        "mē",
+                        "pmē"
                     ],
                     "short": [
                         "p.m.ē.",
@@ -869,7 +869,7 @@
             },
             "currency": {
                 "positivePattern": "{currency}{number}",
-                "negativePattern": "({currency}{number})"
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",

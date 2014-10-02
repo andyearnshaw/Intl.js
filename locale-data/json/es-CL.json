@@ -268,12 +268,14 @@
                     "short": [
                         "a. C.",
                         "d. C.",
-                        "a. e. c.",
-                        "e. c."
+                        "e. c.",
+                        "a. e. c."
                     ],
                     "long": [
                         "antes de Cristo",
-                        "anno Dómini"
+                        "anno Dómini",
+                        "e. c.",
+                        "a. e. c."
                     ]
                 },
                 "dayPeriods": {
@@ -893,8 +895,8 @@
                 "negativePattern": "{currency}-{number}"
             },
             "percent": {
-                "positivePattern": "{number}%",
-                "negativePattern": "-{number}%"
+                "positivePattern": "{number} %",
+                "negativePattern": "-{number} %"
             }
         },
         "symbols": {
@@ -907,16 +909,14 @@
             }
         },
         "currencies": {
-            "ARS": "AR$",
-            "AUD": "AU$",
             "CAD": "CA$",
             "CLP": "$",
             "ESP": "₧",
             "EUR": "€",
-            "MXN": "MX$",
+            "THB": "฿",
             "USD": "US$",
-            "XAF": "FCFA",
-            "XCD": "EC$"
+            "VND": "₫",
+            "XPF": "CFPF"
         }
     }
 }

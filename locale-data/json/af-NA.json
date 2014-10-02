@@ -44,15 +44,15 @@
                 "pattern": "{day} {month} {year}"
             },
             {
-                "month": "numeric",
-                "day": "numeric",
                 "year": "numeric",
-                "pattern": "{month}/{day}/{year}"
+                "month": "2-digit",
+                "day": "2-digit",
+                "pattern": "{year}-{month}-{day}"
             },
             {
-                "month": "numeric",
+                "month": "2-digit",
                 "year": "numeric",
-                "pattern": "{month}/{year}"
+                "pattern": "{month}-{year}"
             },
             {
                 "month": "long",
@@ -60,14 +60,14 @@
                 "pattern": "{month} {year}"
             },
             {
-                "month": "long",
                 "day": "numeric",
-                "pattern": "{month} {day}"
+                "month": "long",
+                "pattern": "{day} {month}"
             },
             {
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{month}/{day}"
+                "day": "2-digit",
+                "month": "2-digit",
+                "pattern": "{day}-{month}"
             },
             {
                 "hour": "numeric",
@@ -207,9 +207,9 @@
                         "D"
                     ],
                     "short": [
-                        "Jan",
-                        "Feb",
-                        "Mar",
+                        "Jan.",
+                        "Feb.",
+                        "Mrt.",
                         "Apr",
                         "Mei",
                         "Jun",
@@ -268,18 +268,20 @@
                     "narrow": [
                         "v.C.",
                         "n.C.",
-                        "vgj",
-                        "vg"
+                        "vg",
+                        "vgj"
                     ],
                     "short": [
                         "v.C.",
                         "n.C.",
-                        "v.g.j.",
-                        "g.j."
+                        "g.j.",
+                        "v.g.j."
                     ],
                     "long": [
                         "voor Christus",
-                        "na Christus"
+                        "na Christus",
+                        "g.j.",
+                        "v.g.j."
                     ]
                 },
                 "dayPeriods": {
@@ -924,7 +926,6 @@
             "INR": "₹",
             "JPY": "JP¥",
             "KRW": "₩",
-            "MXN": "MX$",
             "NAD": "$",
             "NZD": "NZ$",
             "THB": "฿",

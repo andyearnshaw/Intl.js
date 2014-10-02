@@ -267,7 +267,13 @@
                 "eras": {
                     "short": [
                         "ईसा पूर्व",
-                        "सन्"
+                        "सन्",
+                        "सिइ",
+                        "इशा पूर्व"
+                    ],
+                    "long": [
+                        "सिइ",
+                        "इशा पूर्व"
                     ]
                 },
                 "dayPeriods": {
@@ -883,8 +889,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency}{number}",
-                "negativePattern": "-{currency}{number}"
+                "positivePattern": "{currency} {number}",
+                "negativePattern": "-{currency} {number}"
             },
             "percent": {
                 "positivePattern": "{number}%",

@@ -401,17 +401,21 @@
                 "eras": {
                     "narrow": [
                         "av. J.-C.",
-                        "ap. J.-C."
+                        "ap. J.-C.",
+                        "EC",
+                        "AEC"
                     ],
                     "short": [
                         "av. J.-C.",
                         "ap. J.-C.",
-                        "AEC",
-                        "EC"
+                        "EC",
+                        "AEC"
                     ],
                     "long": [
                         "avant Jésus-Christ",
-                        "après Jésus-Christ"
+                        "après Jésus-Christ",
+                        "EC",
+                        "AEC"
                     ]
                 },
                 "dayPeriods": {
@@ -1132,27 +1136,24 @@
             "BZD": "$BZ",
             "CAD": "$CA",
             "CLP": "$CL",
-            "CNY": "¥CN",
             "COP": "$CO",
-            "CVE": "$CV",
             "CYP": "£CY",
-            "EGP": "£EG",
             "EUR": "€",
             "FJD": "$FJ",
             "FKP": "£FK",
             "FRF": "F",
             "GBP": "£GB",
             "GIP": "£GI",
-            "HKD": "$HK",
             "IEP": "£IE",
             "ILP": "£IL",
             "ILS": "₪",
             "INR": "₹",
             "ITL": "₤IT",
-            "JPY": "¥JP",
             "KRW": "₩",
             "LBP": "£LB",
-            "LRD": "$LR",
+            "LSL": "lLS",
+            "MAF": "fMA",
+            "MGF": "Fmg",
             "MTP": "£MT",
             "MXN": "$MX",
             "NAD": "$NA",
@@ -1160,20 +1161,16 @@
             "RHD": "$RH",
             "RWF": "RF",
             "SBD": "$SB",
-            "SDG": "£SD",
             "SGD": "$SG",
-            "SHP": "£SH",
             "SRD": "$SR",
-            "SSP": "£SS",
             "THB": "฿",
             "TTD": "$TT",
-            "TWD": "$TW",
             "USD": "$US",
             "UYU": "$UY",
             "VND": "₫",
             "WST": "WS$",
             "XAF": "FCFA",
-            "XCD": "EC$",
+            "XDR": "DTS",
             "XOF": "CFA",
             "XPF": "FCFP"
         }

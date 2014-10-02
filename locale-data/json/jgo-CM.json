@@ -257,12 +257,12 @@
                 },
                 "eras": {
                     "short": [
-                        "tsɛttsɛt mɛŋgu’ mi ɛ́ lɛɛnɛ Kɛlísɛtɔ gɔ ńɔ́",
-                        "tsɛttsɛt mɛŋgu’ mi ɛ́ fúnɛ Kɛlísɛtɔ tɔ́ mɔ́"
+                        "tsɛttsɛt mɛŋguꞌ mi ɛ́ lɛɛnɛ Kɛlísɛtɔ gɔ ńɔ́",
+                        "tsɛttsɛt mɛŋguꞌ mi ɛ́ fúnɛ Kɛlísɛtɔ tɔ́ mɔ́"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "mba’mba’",
+                    "am": "mbaꞌmbaꞌ",
                     "pm": "ŋka mbɔ́t nji"
                 }
             },
@@ -905,7 +905,6 @@
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
-            "THB": "฿",
             "TWD": "NT$",
             "USD": "US$",
             "VND": "₫",

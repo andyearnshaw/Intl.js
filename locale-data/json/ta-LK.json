@@ -27,8 +27,8 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {day} {month}, {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {day} {month}, {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day} {month}, {year},  {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day} {month}, {year}, {ampm} {hour}:{minute}:{second}"
             },
             {
                 "weekday": "long",
@@ -74,13 +74,13 @@
                 "minute": "2-digit",
                 "second": "2-digit",
                 "pattern": "{hour}:{minute}:{second}",
-                "pattern12": "{hour}:{minute}:{second} {ampm}"
+                "pattern12": "{ampm} {hour}:{minute}:{second}"
             },
             {
                 "hour": "numeric",
                 "minute": "2-digit",
                 "pattern": "{hour}:{minute}",
-                "pattern12": "{hour}:{minute} {ampm}"
+                "pattern12": "{ampm} {hour}:{minute}"
             }
         ],
         "calendars": {
@@ -295,11 +295,15 @@
                 "eras": {
                     "short": [
                         "கி.மு.",
-                        "கி.பி."
+                        "கி.பி.",
+                        "பொ.ச",
+                        "பொ.ச.மு"
                     ],
                     "long": [
                         "கிறிஸ்துவுக்கு முன்",
-                        "அனோ டோமினி"
+                        "அனோ டோமினி",
+                        "பொ.ச",
+                        "பொ.ச.மு"
                     ]
                 },
                 "dayPeriods": {
@@ -943,7 +947,7 @@
             "HKD": "HK$",
             "ILS": "₪",
             "INR": "₹",
-            "JPY": "JP¥",
+            "JPY": "¥",
             "KRW": "₩",
             "LKR": "Rs.",
             "MXN": "MX$",

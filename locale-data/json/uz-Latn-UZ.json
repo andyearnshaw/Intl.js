@@ -229,8 +229,8 @@
                         "Iyun",
                         "Iyul",
                         "Avgust",
-                        "Sentyabr",
-                        "Oktyabr",
+                        "Sentabr",
+                        "Oktabr",
                         "Noyabr",
                         "Dekabr"
                     ]
@@ -267,12 +267,18 @@
                 "eras": {
                     "short": [
                         "M.A.",
-                        "E"
+                        "E",
+                        "CE",
+                        "Eramizdan avvalgi"
+                    ],
+                    "long": [
+                        "M.A.",
+                        "Eramizdan avvalgi"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "TO",
+                    "pm": "TK"
                 }
             },
             "hebrew": {

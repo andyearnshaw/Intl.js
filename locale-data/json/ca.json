@@ -27,8 +27,8 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {day} {month}, {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {day} {month}, {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day} {month}, {year} , {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day} {month}, {year} , {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "long",
@@ -57,7 +57,7 @@
             {
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{month} {year}"
+                "pattern": "{month} de {year}"
             },
             {
                 "day": "numeric",
@@ -236,7 +236,7 @@
                     ],
                     "short": [
                         "gen.",
-                        "feb.",
+                        "febr.",
                         "març",
                         "abr.",
                         "maig",
@@ -295,19 +295,21 @@
                 "eras": {
                     "narrow": [
                         "aC",
-                        "dC"
+                        "dC",
+                        "de la n.e.",
+                        "a. de la n. e."
                     ],
                     "short": [
                         "aC",
                         "dC",
-                        "a. de la n. e.",
-                        "de la n.e."
+                        "EC",
+                        "AEC"
                     ],
                     "long": [
                         "abans de Crist",
                         "després de Crist",
-                        "a. de la n. e.",
-                        "de la n. e."
+                        "Era Comuna",
+                        "abans de l’Era Comuna"
                     ]
                 },
                 "dayPeriods": {
@@ -942,7 +944,6 @@
         },
         "currencies": {
             "AUD": "AU$",
-            "CAD": "CA$",
             "CNY": "¥",
             "ESP": "₧",
             "EUR": "€",
@@ -955,7 +956,6 @@
             "NZD": "NZ$",
             "THB": "฿",
             "TWD": "NT$",
-            "USD": "$",
             "VND": "₫",
             "XAF": "FCFA",
             "XPF": "CFPF"

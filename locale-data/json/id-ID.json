@@ -6,6 +6,7 @@
             "buddhist",
             "chinese",
             "coptic",
+            "dangi",
             "ethioaa",
             "ethiopic",
             "generic",
@@ -192,6 +193,7 @@
                     ]
                 }
             },
+            "dangi": {},
             "ethiopic": {
                 "months": {
                     "narrow": [
@@ -360,12 +362,14 @@
                     "short": [
                         "SM",
                         "M",
-                        "SEU",
-                        "EU"
+                        "EU",
+                        "SEU"
                     ],
                     "long": [
-                        "SM",
-                        "M"
+                        "Sebelum Masehi",
+                        "M",
+                        "Era Umum",
+                        "Sebelum Era Umum"
                     ]
                 },
                 "dayPeriods": {
@@ -375,6 +379,22 @@
             },
             "hebrew": {
                 "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "7"
+                    ],
                     "short": [
                         "Tishri",
                         "Heshvan",
@@ -503,7 +523,7 @@
                         "Jumada I",
                         "Jumada II",
                         "Rajab",
-                        "Sya'ban",
+                        "Sya’ban",
                         "Ramadhan",
                         "Syawal",
                         "Dhuʻl-Qiʻdah",
@@ -1102,6 +1122,7 @@
             "THB": "฿",
             "TWD": "NT$",
             "USD": "US$",
+            "UYU": "$U",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",

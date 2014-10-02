@@ -67,7 +67,7 @@
             {
                 "day": "numeric",
                 "month": "numeric",
-                "pattern": "{day}.{month}"
+                "pattern": "{day}.{month}."
             },
             {
                 "hour": "numeric",
@@ -268,20 +268,20 @@
                     "narrow": [
                         "f.k.",
                         "e.k.",
-                        "flt",
-                        "lt"
+                        "lt",
+                        "flt"
                     ],
                     "short": [
                         "f.Kr.",
                         "e.Kr.",
-                        "f.l.t.",
-                        "l.t."
+                        "l.t.",
+                        "f.l.t."
                     ],
                     "long": [
                         "fyrir Krist",
                         "eftir Krist",
-                        "fyrir látlaus tímatal",
-                        "látlaus tímatal"
+                        "kristið tímatal",
+                        "fyrir kristið tímatal"
                     ]
                 },
                 "dayPeriods": {
@@ -915,21 +915,10 @@
             }
         },
         "currencies": {
-            "AUD": "A$",
-            "BRL": "R$",
             "CNY": "CN¥",
-            "EUR": "€",
-            "GBP": "£",
             "HKD": "HK$",
             "ILS": "₪",
-            "INR": "₹",
-            "ISK": "kr",
             "JPY": "JP¥",
-            "KRW": "₩",
-            "NZD": "NZ$",
-            "THB": "฿",
-            "TWD": "NT$",
-            "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",
             "XOF": "CFA",

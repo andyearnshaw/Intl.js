@@ -295,32 +295,32 @@
                         "D"
                     ],
                     "short": [
-                        "Jan",
-                        "Fev",
-                        "Mar",
-                        "Abr",
-                        "Mai",
-                        "Jun",
-                        "Jul",
-                        "Ago",
-                        "Set",
-                        "Out",
-                        "Nov",
-                        "Dez"
+                        "jan",
+                        "fev",
+                        "mar",
+                        "abr",
+                        "mai",
+                        "jun",
+                        "jul",
+                        "ago",
+                        "set",
+                        "out",
+                        "nov",
+                        "dez"
                     ],
                     "long": [
-                        "Janeiro",
-                        "Fevereiro",
-                        "Março",
-                        "Abril",
-                        "Maio",
-                        "Junho",
-                        "Julho",
-                        "Agosto",
-                        "Setembro",
-                        "Outubro",
-                        "Novembro",
-                        "Dezembro"
+                        "janeiro",
+                        "fevereiro",
+                        "março",
+                        "abril",
+                        "maio",
+                        "junho",
+                        "julho",
+                        "agosto",
+                        "setembro",
+                        "outubro",
+                        "novembro",
+                        "dezembro"
                     ]
                 },
                 "days": {
@@ -356,12 +356,14 @@
                     "short": [
                         "a.C.",
                         "d.C.",
-                        "a.E.C.",
-                        "E.C."
+                        "E.C.",
+                        "a.E.C."
                     ],
                     "long": [
-                        "Antes de Cristo",
-                        "Ano do Senhor"
+                        "antes de Cristo",
+                        "depois de Cristo",
+                        "Era Comum",
+                        "antes da Era Comum"
                     ]
                 },
                 "dayPeriods": {
@@ -1080,7 +1082,7 @@
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
-            "PTE": "Esc.",
+            "PTE": "​",
             "THB": "฿",
             "TWD": "NT$",
             "USD": "US$",

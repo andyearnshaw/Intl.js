@@ -355,11 +355,15 @@
                 "eras": {
                     "short": [
                         "p.n.e.",
-                        "n.e."
+                        "n.e.",
+                        "CE",
+                        "BCE"
                     ],
                     "long": [
                         "p.n.e.",
-                        "n.e."
+                        "n.e.",
+                        "CE",
+                        "BCE"
                     ]
                 },
                 "dayPeriods": {

@@ -41,7 +41,7 @@
                 "day": "numeric",
                 "month": "long",
                 "year": "numeric",
-                "pattern": "lyɛ̌ʼ {day} na' {month}, {year}"
+                "pattern": "lyɛ̌ʼ {day} na {month}, {year}"
             },
             {
                 "day": "numeric",
@@ -904,7 +904,6 @@
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
-            "THB": "฿",
             "TWD": "NT$",
             "USD": "US$",
             "VND": "₫",

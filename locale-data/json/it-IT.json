@@ -24,11 +24,11 @@
                 "day": "numeric",
                 "month": "long",
                 "year": "numeric",
-                "hour": "2-digit",
+                "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday} {day} {month} {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday} {day} {month} {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday} {day} {month} {year}, {hour}:{minute}:{second}",
+                "pattern12": "{weekday} {day} {month} {year}, {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "long",
@@ -70,14 +70,14 @@
                 "pattern": "{day}/{month}"
             },
             {
-                "hour": "2-digit",
+                "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
                 "pattern": "{hour}:{minute}:{second}",
                 "pattern12": "{hour}:{minute}:{second} {ampm}"
             },
             {
-                "hour": "2-digit",
+                "hour": "numeric",
                 "minute": "2-digit",
                 "pattern": "{hour}:{minute}",
                 "pattern12": "{hour}:{minute} {ampm}"
@@ -268,20 +268,20 @@
                     "narrow": [
                         "aC",
                         "dC",
-                        "BCE",
-                        "CE"
+                        "CE",
+                        "BCE"
                     ],
                     "short": [
                         "aC",
                         "dC",
-                        "BCE",
-                        "CE"
+                        "CE",
+                        "BCE"
                     ],
                     "long": [
                         "a.C.",
                         "d.C.",
-                        "BCE",
-                        "CE"
+                        "CE",
+                        "BCE"
                     ]
                 },
                 "dayPeriods": {
@@ -916,20 +916,14 @@
         },
         "currencies": {
             "AUD": "A$",
-            "BRL": "R$",
             "CAD": "CA$",
             "CNY": "CN¥",
             "EUR": "€",
             "GBP": "£",
-            "HKD": "HK$",
             "ILS": "₪",
             "INR": "₹",
-            "JPY": "JP¥",
-            "KRW": "₩",
-            "MXN": "MX$",
             "NZD": "NZ$",
             "THB": "฿",
-            "TWD": "NT$",
             "USD": "US$",
             "VND": "₫",
             "XAF": "FCFA",

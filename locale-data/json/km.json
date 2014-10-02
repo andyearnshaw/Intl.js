@@ -27,8 +27,8 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday} {day} {month} {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday} {day} {month} {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday} {day} {month} {year}, {hour}:{minute}:{second}",
+                "pattern12": "{weekday} {day} {month} {year}, {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "long",
@@ -267,8 +267,7 @@
                 "eras": {
                     "short": [
                         "មុន គ.ស.",
-                        "គ.ស.",
-                        "ក្រោយ គ.ស."
+                        "គ.ស."
                     ],
                     "long": [
                         "មុន​គ្រិស្តសករាជ",
@@ -922,7 +921,7 @@
             "NZD": "NZ$",
             "THB": "฿",
             "TWD": "NT$",
-            "USD": "US$",
+            "USD": "$",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",

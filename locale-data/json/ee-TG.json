@@ -50,8 +50,9 @@
                 "pattern": "{month} {year}"
             },
             {
-                "pattern": "MMMM d 'li",
-                "pattern12": "MMMM d 'li{ampm}"
+                "month": "long",
+                "day": "numeric",
+                "pattern": "{month} {day} lia"
             },
             {
                 "month": "numeric",

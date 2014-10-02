@@ -65,9 +65,9 @@
                 "pattern": "{month} {day}"
             },
             {
-                "day": "numeric",
-                "month": "numeric",
-                "pattern": "{day}/{month}"
+                "month": "2-digit",
+                "day": "2-digit",
+                "pattern": "{month}-{day}"
             },
             {
                 "hour": "numeric",
@@ -192,6 +192,20 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "ജ",
+                        "ഫ",
+                        "മാ",
+                        "ഏ",
+                        "മെ",
+                        "ജൂ",
+                        "ജൂ",
+                        "ഓ",
+                        "സ",
+                        "ഒ",
+                        "ന",
+                        "ഡി"
+                    ],
                     "short": [
                         "ജനു",
                         "ഫെബ്രു",
@@ -252,14 +266,16 @@
                 },
                 "eras": {
                     "short": [
-                        "ക്രി.മൂ",
+                        "ക്രി.മു.",
                         "എഡി",
-                        "ബിസിഇ",
-                        "സിഇ"
+                        "സിഇ",
+                        "ബിസിഇ"
                     ],
                     "long": [
-                        "ക്രിസ്തുവിനു് മുമ്പ്‌",
-                        "ക്രിസ്തുവിന് പിൻപ്"
+                        "ക്രിസ്‌തുവിന് മുമ്പ്",
+                        "ആന്നോ ഡൊമിനി",
+                        "സി.ഇ.",
+                        "ബി.സി.ഇ."
                     ]
                 },
                 "dayPeriods": {
@@ -875,14 +891,13 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{number}{currency}",
-                "negativePattern": "-{number}{currency}"
+                "positivePattern": "{currency}{number}",
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
                 "negativePattern": "-{number}%"
-            },
-            "secondaryGroupSize": 2
+            }
         },
         "symbols": {
             "latn": {
@@ -910,7 +925,7 @@
             "HKD": "HK$",
             "ILS": "₪",
             "INR": "₹",
-            "JPY": "JP¥",
+            "JPY": "¥",
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",

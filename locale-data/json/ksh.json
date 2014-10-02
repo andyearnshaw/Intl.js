@@ -254,20 +254,20 @@
                     "narrow": [
                         "vC",
                         "nC",
-                        "vdZ",
-                        "dZ"
+                        "dZ",
+                        "vdZ"
                     ],
                     "short": [
                         "v. Chr.",
                         "n. Chr.",
-                        "v. d. Z.",
-                        "d. Z."
+                        "d. Z.",
+                        "v. d. Z."
                     ],
                     "long": [
                         "vür Chrestus",
                         "noh Chrestus",
-                        "vür der gewöhnlichen Zeitrechnung",
-                        "der gewöhnlichen Zeitrechnung"
+                        "der gewöhnlichen Zeitrechnung",
+                        "vür der gewöhnlichen Zeitrechnung"
                     ]
                 },
                 "dayPeriods": {
@@ -914,7 +914,6 @@
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
-            "THB": "฿",
             "TWD": "NT$",
             "USD": "US$",
             "VND": "₫",

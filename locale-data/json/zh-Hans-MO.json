@@ -41,28 +41,28 @@
                 "year": "numeric",
                 "month": "long",
                 "day": "numeric",
-                "pattern": "{year}年{month}月{day}"
+                "pattern": "{year}年{month}月{day}日"
             },
             {
                 "year": "numeric",
                 "month": "numeric",
                 "day": "numeric",
-                "pattern": "{year}年{month}月{day}"
+                "pattern": "{year}年{month}月{day}日"
             },
             {
                 "year": "numeric",
                 "month": "numeric",
-                "pattern": "{year}年{month}"
+                "pattern": "{year}年{month}月"
             },
             {
                 "year": "numeric",
                 "month": "long",
-                "pattern": "{year}年{month}"
+                "pattern": "{year}年{month}月"
             },
             {
                 "month": "long",
                 "day": "numeric",
-                "pattern": "{month}月{day}"
+                "pattern": "{month}月{day}日"
             },
             {
                 "month": "numeric",
@@ -104,8 +104,8 @@
                         "八",
                         "九",
                         "十",
-                        "十一",
-                        "十二"
+                        "冬",
+                        "腊"
                     ],
                     "short": [
                         "正月",
@@ -118,8 +118,8 @@
                         "八月",
                         "九月",
                         "十月",
-                        "十一月",
-                        "十二月"
+                        "冬月",
+                        "腊月"
                     ],
                     "long": [
                         "正月",
@@ -132,8 +132,8 @@
                         "八月",
                         "九月",
                         "十月",
-                        "十一月",
-                        "十二月"
+                        "冬月",
+                        "腊月"
                     ]
                 }
             },
@@ -1090,6 +1090,7 @@
             "EUR": "€",
             "GBP": "£",
             "HKD": "HK$",
+            "ILR": "ILS",
             "ILS": "₪",
             "INR": "₹",
             "JPY": "JP¥",

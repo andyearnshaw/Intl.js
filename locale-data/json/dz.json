@@ -27,15 +27,15 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, ལོ{year} ཟླ་{month} ཚེ་{day} {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, ལོ{year} ཟླ་{month} ཚེ་{day} {hour}:{minute}:{second} {ampm}"
+                "pattern": "གཟའ་{weekday}, ལོ{year} ཟླ་{month} ཚེ་{day} {hour}:{minute}:{second}",
+                "pattern12": "གཟའ་{weekday}, ལོ{year} ཟླ་{month} ཚེ་{day} {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "long",
                 "year": "numeric",
                 "month": "long",
                 "day": "numeric",
-                "pattern": "{weekday}, ལོ{year} ཟླ་{month} ཚེ་{day}"
+                "pattern": "གཟའ་{weekday}, ལོ{year} ཟླ་{month} ཚེ་{day}"
             },
             {
                 "year": "numeric",
@@ -62,7 +62,7 @@
             {
                 "month": "long",
                 "day": "numeric",
-                "pattern": "{month} ཚེ་{day}"
+                "pattern": "སྤྱི་{month} ཚེ་{day}"
             },
             {
                 "month": "numeric",

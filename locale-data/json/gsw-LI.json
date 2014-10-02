@@ -67,7 +67,7 @@
             {
                 "day": "numeric",
                 "month": "numeric",
-                "pattern": "{day}.{month}"
+                "pattern": "{day}.{month}."
             },
             {
                 "hour": "numeric",
@@ -245,20 +245,20 @@
                     "narrow": [
                         "v. Chr.",
                         "n. Chr.",
-                        "vdZ",
-                        "dZ"
+                        "dZ",
+                        "vdZ"
                     ],
                     "short": [
                         "v. Chr.",
                         "n. Chr.",
-                        "v. d. Z.",
-                        "d. Z."
+                        "d. Z.",
+                        "v. d. Z."
                     ],
                     "long": [
                         "v. Chr.",
                         "n. Chr.",
-                        "vor der gewöhnlichen Zeitrechnung",
-                        "der gewöhnlichen Zeitrechnung"
+                        "der gewöhnlichen Zeitrechnung",
+                        "vor der gewöhnlichen Zeitrechnung"
                     ]
                 },
                 "dayPeriods": {
@@ -906,7 +906,6 @@
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
-            "THB": "฿",
             "TWD": "NT$",
             "USD": "$",
             "VND": "₫",

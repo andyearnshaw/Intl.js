@@ -242,7 +242,7 @@
                         "Ç.A.",
                         "Ç.",
                         "C.A.",
-                        "C",
+                        "C.",
                         "Ş."
                     ],
                     "short": [
@@ -251,7 +251,7 @@
                         "Ç.A.",
                         "Ç.",
                         "C.A.",
-                        "C",
+                        "C.",
                         "Ş."
                     ],
                     "long": [
@@ -267,11 +267,15 @@
                 "eras": {
                     "short": [
                         "e.ə.",
-                        "b.e."
+                        "b.e.",
+                        "ü.e.",
+                        "ü.e.ö."
                     ],
                     "long": [
                         "eramızdan əvvəl",
-                        "bizim eramızın"
+                        "bizim eramızın",
+                        "ümumi eranın",
+                        "ümumi eradan öncə"
                     ]
                 },
                 "dayPeriods": {

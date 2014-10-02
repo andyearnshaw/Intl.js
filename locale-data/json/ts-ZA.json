@@ -204,7 +204,7 @@
                         "Ndz",
                         "Nhl",
                         "Huk",
-                        "N'w"
+                        "N’w"
                     ],
                     "long": [
                         "Sunguti",
@@ -218,7 +218,7 @@
                         "Ndzhati",
                         "Nhlangula",
                         "Hukuri",
-                        "N'wendzamhala"
+                        "N’wendzamhala"
                     ]
                 },
                 "days": {
@@ -891,7 +891,6 @@
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
-            "THB": "฿",
             "TWD": "NT$",
             "USD": "US$",
             "VND": "₫",

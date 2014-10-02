@@ -208,10 +208,10 @@
                     ],
                     "long": [
                         "Mulgul",
-                        "Ng'atyato",
+                        "Ng’atyato",
                         "Kiptamo",
                         "Iwat kut",
-                        "Ng'eiyet",
+                        "Ng’eiyet",
                         "Waki",
                         "Roptui",
                         "Kipkogaga",
@@ -234,9 +234,9 @@
                     "long": [
                         "Betutab tisap",
                         "Betut netai",
-                        "Betutab aeng'",
+                        "Betutab aeng’",
                         "Betutab somok",
-                        "Betutab ang'wan",
+                        "Betutab ang’wan",
                         "Betutab mut",
                         "Betutab lo"
                     ]
@@ -896,7 +896,6 @@
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
-            "THB": "฿",
             "TWD": "NT$",
             "USD": "US$",
             "VND": "₫",

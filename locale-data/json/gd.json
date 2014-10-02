@@ -20,39 +20,39 @@
         "hour12": false,
         "formats": [
             {
-                "year": "numeric",
-                "month": "long",
-                "day": "numeric",
                 "weekday": "long",
+                "day": "numeric",
+                "month": "long",
+                "year": "numeric",
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{year} {month} {day}, {weekday} {hour}:{minute}:{second}",
-                "pattern12": "{year} {month} {day}, {weekday} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day} {month} {year} {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day} {month} {year} {hour}:{minute}:{second} {ampm}"
             },
             {
-                "year": "numeric",
-                "month": "long",
-                "day": "numeric",
                 "weekday": "long",
-                "pattern": "{year} {month} {day}, {weekday}"
-            },
-            {
-                "year": "numeric",
-                "month": "long",
                 "day": "numeric",
-                "pattern": "{year} {month} {day}"
+                "month": "long",
+                "year": "numeric",
+                "pattern": "{weekday}, {day} {month} {year}"
             },
             {
+                "day": "numeric",
+                "month": "long",
                 "year": "numeric",
-                "month": "2-digit",
-                "day": "2-digit",
-                "pattern": "{year}-{month}-{day}"
+                "pattern": "{day} {month} {year}"
             },
             {
+                "month": "numeric",
+                "day": "numeric",
                 "year": "numeric",
-                "month": "2-digit",
-                "pattern": "{year}-{month}"
+                "pattern": "{month}/{day}/{year}"
+            },
+            {
+                "month": "numeric",
+                "year": "numeric",
+                "pattern": "{month}/{year}"
             },
             {
                 "month": "long",
@@ -60,9 +60,9 @@
                 "pattern": "{month} {year}"
             },
             {
-                "month": "long",
                 "day": "numeric",
-                "pattern": "{month} {day}"
+                "month": "long",
+                "pattern": "{day} {month}"
             },
             {
                 "day": "numeric",
@@ -80,7 +80,7 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "pattern": "{hour}:{minute}",
-                "pattern12": "{hour}:{minute} {ampm}"
+                "pattern12": "{hour}:{minute}{ampm}"
             }
         ],
         "calendars": {
@@ -192,6 +192,20 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "F",
+                        "G",
+                        "M",
+                        "G",
+                        "C",
+                        "Ò",
+                        "I",
+                        "L",
+                        "S",
+                        "D",
+                        "S",
+                        "D"
+                    ],
                     "short": [
                         "Faoi",
                         "Gearr",
@@ -207,21 +221,30 @@
                         "Dùbh"
                     ],
                     "long": [
-                        "Am Faoilleach",
-                        "An Gearran",
-                        "Am Màrt",
-                        "An Giblean",
-                        "An Cèitean",
-                        "An t-Ògmhios",
-                        "An t-Iuchar",
-                        "An Lùnastal",
-                        "An t-Sultain",
-                        "An Dàmhair",
-                        "An t-Samhain",
-                        "An Dùbhlachd"
+                        "dhen Fhaoilleach",
+                        "dhen Ghearran",
+                        "dhen Mhàrt",
+                        "dhen Ghiblean",
+                        "dhen Chèitean",
+                        "dhen Ògmhios",
+                        "dhen Iuchar",
+                        "dhen Lùnastal",
+                        "dhen t-Sultain",
+                        "dhen Dàmhair",
+                        "dhen t-Samhain",
+                        "dhen Dùbhlachd"
                     ]
                 },
                 "days": {
+                    "narrow": [
+                        "Dò",
+                        "Lu",
+                        "Mà",
+                        "Ci",
+                        "Da",
+                        "hA",
+                        "Sa"
+                    ],
                     "short": [
                         "DiD",
                         "DiL",
@@ -236,19 +259,27 @@
                         "DiLuain",
                         "DiMàirt",
                         "DiCiadain",
-                        "Diardaoin",
+                        "DiarDaoin",
                         "DihAoine",
                         "DiSathairne"
                     ]
                 },
                 "eras": {
+                    "narrow": [
+                        "R",
+                        "A"
+                    ],
                     "short": [
                         "RC",
-                        "AD"
+                        "AD",
+                        "LC",
+                        "RLC"
                     ],
                     "long": [
-                        "Ro Chrìost",
-                        "Anno Domini"
+                        "Ro Chrìosta",
+                        "An dèidh Chrìosta",
+                        "LC",
+                        "RLC"
                     ]
                 },
                 "dayPeriods": {

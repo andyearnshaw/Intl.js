@@ -27,42 +27,42 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {day} {month} {year} г., {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {day} {month} {year} г., {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day}.{month}.{year} г., {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day}.{month}.{year} г., {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "long",
                 "day": "numeric",
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{weekday}, {day} {month} {year}"
+                "pattern": "{weekday}, {day}.{month}.{year} г."
             },
             {
                 "day": "numeric",
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{day} {month} {year}"
+                "pattern": "{day}.{month}.{year} г."
             },
             {
                 "day": "numeric",
                 "month": "2-digit",
                 "year": "numeric",
-                "pattern": "{day}.{month}.{year}"
+                "pattern": "{day}.{month}.{year} г."
             },
             {
                 "month": "numeric",
                 "year": "numeric",
-                "pattern": "{month}.{year}"
+                "pattern": "{month}.{year} г."
             },
             {
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{month} {year}"
+                "pattern": "{month}.{year} г."
             },
             {
                 "day": "numeric",
                 "month": "long",
-                "pattern": "{day} {month}"
+                "pattern": "{day}.{month}"
             },
             {
                 "day": "numeric",
@@ -271,12 +271,14 @@
                     "short": [
                         "пр.Хр.",
                         "сл.Хр.",
-                        "пр.н.е.",
-                        "от н.е."
+                        "сл.н.е.",
+                        "пр.н.е."
                     ],
                     "long": [
-                        "пр.Хр.",
-                        "сл.Хр."
+                        "преди Христа",
+                        "след Христа",
+                        "след новата ера",
+                        "преди новата ера"
                     ]
                 },
                 "dayPeriods": {

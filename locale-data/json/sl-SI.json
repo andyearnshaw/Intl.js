@@ -27,8 +27,8 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {day}. {month} {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {day}. {month} {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day}. {month} {year} {hour}.{minute}.{second}",
+                "pattern12": "{weekday}, {day}. {month} {year} {hour}.{minute}.{second} {ampm}"
             },
             {
                 "weekday": "long",
@@ -67,20 +67,20 @@
             {
                 "day": "numeric",
                 "month": "numeric",
-                "pattern": "{day}. {month}"
+                "pattern": "{day}. {month}."
             },
             {
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{hour}:{minute}:{second}",
-                "pattern12": "{hour}:{minute}:{second} {ampm}"
+                "pattern": "{hour}.{minute}.{second}",
+                "pattern12": "{hour}.{minute}.{second} {ampm}"
             },
             {
                 "hour": "numeric",
                 "minute": "2-digit",
-                "pattern": "{hour}:{minute}",
-                "pattern12": "{hour}:{minute} {ampm}"
+                "pattern": "{hour}.{minute}",
+                "pattern12": "{hour}.{minute} {ampm}"
             }
         ],
         "calendars": {
@@ -272,7 +272,8 @@
                     ],
                     "long": [
                         "pred našim štetjem",
-                        "naše štetje"
+                        "naše štetje",
+                        "po n. št."
                     ]
                 },
                 "dayPeriods": {
@@ -888,8 +889,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency}{number}",
-                "negativePattern": "({currency}{number})"
+                "positivePattern": "{number} {currency}",
+                "negativePattern": "-{number} {currency}"
             },
             "percent": {
                 "positivePattern": "{number}%",

@@ -252,7 +252,7 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "kang'ama",
+                    "am": "kang’ama",
                     "pm": "kingoto"
                 }
             },
@@ -895,7 +895,6 @@
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
-            "THB": "฿",
             "TWD": "NT$",
             "TZS": "TSh",
             "USD": "US$",
