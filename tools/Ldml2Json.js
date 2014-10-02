@@ -29,7 +29,7 @@ var
 
     // Paths to required classes in the CLDR /tools/java folder
     jPath = cldr + '/tools/java/',
-    clsPaths = ['libs/icu4j.jar', 'libs/utilities.jar', 'libs/xercesImpl.jar', 'classes/'],
+    clsPaths = ['libs/guava-16.0.1.jar', 'libs/icu4j.jar', 'libs/utilities.jar', 'libs/xercesImpl.jar', 'classes/'],
 
     // Ldml2JsonConverter class
     cls = 'org.unicode.cldr.json.Ldml2JsonConverter',
