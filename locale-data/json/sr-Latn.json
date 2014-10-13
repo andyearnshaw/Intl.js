@@ -35,29 +35,29 @@
                 "day": "numeric",
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{weekday}, {day}. {month} {year}"
+                "pattern": "{weekday}, {day}. {month} {year}."
             },
             {
                 "day": "numeric",
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{day}. {month} {year}"
+                "pattern": "{day}. {month} {year}."
             },
             {
                 "day": "numeric",
                 "month": "numeric",
                 "year": "numeric",
-                "pattern": "{day}.{month}.{year}"
+                "pattern": "{day}.{month}.{year}."
             },
             {
                 "month": "numeric",
                 "year": "numeric",
-                "pattern": "{month}.{year}"
+                "pattern": "{month}.{year}."
             },
             {
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{month} {year}"
+                "pattern": "{month} {year}."
             },
             {
                 "day": "numeric",
@@ -275,12 +275,14 @@
                     ],
                     "long": [
                         "Pre nove ere",
-                        "Nove ere"
+                        "Nove ere",
+                        "n. e.",
+                        "p. n. e."
                     ]
                 },
                 "dayPeriods": {
                     "am": "pre podne",
-                    "pm": "popodne"
+                    "pm": "po podne"
                 }
             },
             "hebrew": {
@@ -909,28 +911,21 @@
             }
         },
         "currencies": {
-            "AUD": "A$",
             "BAM": "KM",
+            "BGN": "[BGN]",
             "BRL": "R$",
+            "BYR": "[BYR]",
             "CAD": "CA$",
             "CNY": "CN¥",
-            "CZK": "Kč",
             "EUR": "€",
             "GBP": "£",
             "HKD": "HK$",
             "ILS": "₪",
             "INR": "₹",
             "JPY": "¥",
-            "KRW": "₩",
             "MXN": "MX$",
-            "NZD": "NZ$",
-            "PLN": "zl",
-            "RSD": "din.",
-            "THB": "฿",
-            "TRY": "Tl",
             "TWD": "NT$",
             "USD": "US$",
-            "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",
             "XOF": "CFA",

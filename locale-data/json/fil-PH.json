@@ -268,8 +268,14 @@
                     "short": [
                         "BC",
                         "AD",
-                        "BCE",
-                        "CE"
+                        "CE",
+                        "BCE"
+                    ],
+                    "long": [
+                        "BC",
+                        "AD",
+                        "CE",
+                        "BCE"
                     ]
                 },
                 "dayPeriods": {

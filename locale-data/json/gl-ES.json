@@ -267,13 +267,13 @@
                 "eras": {
                     "short": [
                         "a.C.",
-                        "d.C.",
-                        "BCE",
-                        "CE"
+                        "d.C."
                     ],
                     "long": [
                         "antes de Cristo",
-                        "despois de Cristo"
+                        "despois de Cristo",
+                        "d.C.",
+                        "a.C."
                     ]
                 },
                 "dayPeriods": {
@@ -907,8 +907,8 @@
             }
         },
         "currencies": {
-            "AUD": "A$",
-            "BRL": "R$",
+            "AUD": "$A",
+            "BRL": "$R",
             "CAD": "$CA",
             "CNY": "CN¥",
             "ESP": "₧",
@@ -922,7 +922,7 @@
             "MXN": "$MX",
             "NZD": "NZ$",
             "THB": "฿",
-            "TWD": "NT$",
+            "TWD": "$NT",
             "USD": "$",
             "VND": "₫",
             "XAF": "FCFA",

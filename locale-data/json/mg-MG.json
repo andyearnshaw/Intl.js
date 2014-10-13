@@ -247,8 +247,8 @@
                         "AD"
                     ],
                     "long": [
-                        "Alohan'i JK",
-                        "Aorian'i JK"
+                        "Alohan’i JK",
+                        "Aorian’i JK"
                     ]
                 },
                 "dayPeriods": {
@@ -896,7 +896,6 @@
             "MGA": "Ar",
             "MXN": "MX$",
             "NZD": "NZ$",
-            "THB": "฿",
             "TWD": "NT$",
             "USD": "US$",
             "VND": "₫",

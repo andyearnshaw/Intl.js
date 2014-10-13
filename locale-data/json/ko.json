@@ -36,24 +36,24 @@
                 "month": "long",
                 "day": "numeric",
                 "weekday": "long",
-                "pattern": "{year}년 {month} {day}일 ({weekday}"
+                "pattern": "{year}년 {month} {day}일 ({weekday})"
             },
             {
                 "year": "numeric",
                 "month": "long",
                 "day": "numeric",
-                "pattern": "{year}년 {month} {day}"
+                "pattern": "{year}년 {month} {day}일"
             },
             {
                 "year": "numeric",
                 "month": "numeric",
                 "day": "numeric",
-                "pattern": "{year}. {month}. {day}"
+                "pattern": "{year}. {month}. {day}."
             },
             {
                 "year": "numeric",
                 "month": "numeric",
-                "pattern": "{year}. {month}"
+                "pattern": "{year}. {month}."
             },
             {
                 "year": "numeric",
@@ -63,12 +63,12 @@
             {
                 "month": "long",
                 "day": "numeric",
-                "pattern": "{month} {day}"
+                "pattern": "{month} {day}일"
             },
             {
                 "month": "numeric",
                 "day": "numeric",
-                "pattern": "{month}. {day}"
+                "pattern": "{month}. {day}."
             },
             {
                 "hour": "numeric",
@@ -94,19 +94,33 @@
             },
             "chinese": {
                 "months": {
+                    "short": [
+                        "1월",
+                        "2월",
+                        "3월",
+                        "4월",
+                        "5월",
+                        "6월",
+                        "7월",
+                        "8월",
+                        "9월",
+                        "10월",
+                        "11월",
+                        "12월"
+                    ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "1월",
+                        "2월",
+                        "3월",
+                        "4월",
+                        "5월",
+                        "6월",
+                        "7월",
+                        "8월",
+                        "9월",
+                        "10월",
+                        "11월",
+                        "12월"
                     ]
                 }
             },
@@ -344,11 +358,13 @@
                 "eras": {
                     "short": [
                         "기원전",
-                        "서기"
+                        "서기",
+                        "CE",
+                        "BCE"
                     ],
                     "long": [
-                        "서력기원전",
-                        "서력기원"
+                        "기원전",
+                        "서기"
                     ]
                 },
                 "dayPeriods": {
@@ -981,7 +997,7 @@
             },
             "currency": {
                 "positivePattern": "{currency}{number}",
-                "negativePattern": "({currency}{number})"
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",

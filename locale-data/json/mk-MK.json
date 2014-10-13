@@ -35,13 +35,13 @@
                 "day": "numeric",
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{weekday}, {day} {month} {year}"
+                "pattern": "{weekday}, {day} {month} {year} г."
             },
             {
                 "day": "numeric",
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{day} {month} {year}"
+                "pattern": "{day} {month} {year} г."
             },
             {
                 "day": "numeric",
@@ -57,7 +57,7 @@
             {
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{month} {year}"
+                "pattern": "{month} {year} г."
             },
             {
                 "day": "numeric",
@@ -239,11 +239,11 @@
                     "narrow": [
                         "нед.",
                         "пон.",
-                        "3",
+                        "вт.",
                         "сре.",
                         "чет.",
                         "пет.",
-                        "7"
+                        "саб."
                     ],
                     "short": [
                         "нед.",
@@ -265,9 +265,18 @@
                     ]
                 },
                 "eras": {
+                    "narrow": [
+                        "пр. н.е.",
+                        "н.е."
+                    ],
                     "short": [
                         "пр.н.е.",
-                        "н.е."
+                        "н.е.",
+                        "пр. н.е."
+                    ],
+                    "long": [
+                        "пред нашата ера",
+                        "од нашата ера"
                     ]
                 },
                 "dayPeriods": {

@@ -268,20 +268,20 @@
                     "narrow": [
                         "fKr",
                         "eKr",
-                        "flt",
-                        "lt"
+                        "lt",
+                        "flt"
                     ],
                     "short": [
                         "f.Kr.",
                         "e.Kr.",
-                        "f.l.t.",
-                        "l.t."
+                        "l.t.",
+                        "f.l.t."
                     ],
                     "long": [
                         "fyrir Krist",
                         "eftir Krist",
-                        "fyrir látlaus tímatal",
-                        "látlaus tímatal"
+                        "látlaus tímatal",
+                        "fyrir látlaus tímatal"
                     ]
                 },
                 "dayPeriods": {
@@ -929,7 +929,6 @@
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
-            "THB": "฿",
             "TWD": "NT$",
             "USD": "US$",
             "VND": "₫",

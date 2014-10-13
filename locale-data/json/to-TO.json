@@ -239,7 +239,7 @@
                     "narrow": [
                         "Sāp",
                         "Mōn",
-                        "Tus",
+                        "Tūs",
                         "Pul",
                         "Tuʻa",
                         "Fal",
@@ -268,18 +268,20 @@
                     "narrow": [
                         "KāMā",
                         "TāSā",
-                        "KM",
-                        "TS"
+                        "TS",
+                        "KM"
                     ],
                     "short": [
                         "KM",
-                        "TS"
+                        "TS",
+                        "CE",
+                        "BCE"
                     ],
                     "long": [
                         "ki muʻa",
                         "taʻu ʻo Sīsū",
-                        "KM",
-                        "TS"
+                        "TS",
+                        "KM"
                     ]
                 },
                 "dayPeriods": {
@@ -913,7 +915,7 @@
             }
         },
         "currencies": {
-            "AUD": "A$",
+            "AUD": "AUD$",
             "BRL": "R$",
             "CAD": "CA$",
             "CNY": "CN¥",
@@ -925,8 +927,7 @@
             "JPY": "JP¥",
             "KRW": "₩",
             "MXN": "MX$",
-            "NZD": "NZ$",
-            "THB": "฿",
+            "NZD": "NZD$",
             "TOP": "T$",
             "TWD": "NT$",
             "USD": "US$",

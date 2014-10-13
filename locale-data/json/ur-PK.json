@@ -268,12 +268,12 @@
                     "short": [
                         "ق م",
                         "عیسوی سن",
-                        "BCE",
                         "CE"
                     ],
                     "long": [
                         "قبل مسیح",
-                        "عیسوی سن"
+                        "عیسوی سن",
+                        "CE"
                     ]
                 },
                 "dayPeriods": {
@@ -890,13 +890,14 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency}{number}‎",
-                "negativePattern": "-{currency}{number}‎"
+                "positivePattern": "{currency} {number}",
+                "negativePattern": "-{currency} {number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
                 "negativePattern": "-{number}%"
-            }
+            },
+            "secondaryGroupSize": 2
         },
         "symbols": {
             "arabext": {

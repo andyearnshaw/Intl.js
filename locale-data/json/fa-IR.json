@@ -35,52 +35,52 @@
                 "day": "numeric",
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{weekday} {day} {month} {year}"
+                "pattern": "{weekday} {day} {month} {year}،‏"
             },
             {
                 "day": "numeric",
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{day} {month} {year}"
+                "pattern": "{day} {month} {year}،‏"
             },
             {
                 "year": "numeric",
                 "month": "numeric",
                 "day": "numeric",
-                "pattern": "{year}/{month}/{day}"
+                "pattern": "{year}/{month}/{day}،‏"
             },
             {
                 "year": "numeric",
                 "month": "numeric",
-                "pattern": "{year}/{month}"
+                "pattern": "{year}/{month}،‏"
             },
             {
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{month} {year}"
+                "pattern": "{month} {year}،‏"
             },
             {
                 "day": "numeric",
                 "month": "long",
-                "pattern": "{day} {month}"
+                "pattern": "{day} {month}،‏"
             },
             {
                 "month": "numeric",
                 "day": "numeric",
-                "pattern": "{month}/{day}"
+                "pattern": "{month}/{day}،‏"
             },
             {
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{hour}:{minute}:{second}",
-                "pattern12": "{hour}:{minute}:{second} {ampm}"
+                "pattern": "،‏ {hour}:{minute}:{second}",
+                "pattern12": "،‏ {hour}:{minute}:{second} {ampm}"
             },
             {
                 "hour": "numeric",
                 "minute": "2-digit",
-                "pattern": "{hour}:{minute}",
-                "pattern12": "{hour}:{minute} {ampm}"
+                "pattern": "،‏ {hour}:{minute}",
+                "pattern12": "،‏ {hour}:{minute} {ampm}"
             }
         ],
         "calendars": {
@@ -267,15 +267,21 @@
                 "eras": {
                     "narrow": [
                         "ق",
-                        "م"
+                        "م",
+                        "عصر حاضر",
+                        "قبل از عصر حاضر"
                     ],
                     "short": [
                         "ق.م.",
-                        "م."
+                        "م.",
+                        "عصر حاضر",
+                        "قبل از عصر حاضر"
                     ],
                     "long": [
                         "قبل از میلاد",
-                        "میلادی"
+                        "میلادی",
+                        "عصر حاضر",
+                        "قبل از عصر حاضر"
                     ]
                 },
                 "dayPeriods": {

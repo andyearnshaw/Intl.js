@@ -192,6 +192,20 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "Ġ",
+                        "L",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
+                    ],
                     "short": [
                         "Jan",
                         "Fra",
@@ -245,8 +259,8 @@
                     "short": [
                         "QK",
                         "WK",
-                        "QEK",
-                        "EK"
+                        "EK",
+                        "QEK"
                     ],
                     "long": [
                         "Qabel Kristu",
@@ -254,8 +268,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "QN",
-                    "pm": "WN"
+                    "am": "AM",
+                    "pm": "PM"
                 }
             },
             "hebrew": {
@@ -897,7 +911,6 @@
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
-            "THB": "฿",
             "TWD": "NT$",
             "USD": "US$",
             "VND": "₫",

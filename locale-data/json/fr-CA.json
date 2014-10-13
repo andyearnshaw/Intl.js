@@ -401,17 +401,21 @@
                 "eras": {
                     "narrow": [
                         "av. J.-C.",
-                        "ap. J.-C."
+                        "ap. J.-C.",
+                        "EC",
+                        "AEC"
                     ],
                     "short": [
                         "av. J.-C.",
                         "ap. J.-C.",
-                        "AEC",
-                        "EC"
+                        "EC",
+                        "AEC"
                     ],
                     "long": [
                         "avant Jésus-Christ",
-                        "après Jésus-Christ"
+                        "après Jésus-Christ",
+                        "ère commune",
+                        "avant l’ère commune"
                     ]
                 },
                 "dayPeriods": {
@@ -1122,58 +1126,29 @@
             }
         },
         "currencies": {
-            "ARS": "$AR",
-            "AUD": "$AU",
+            "AUD": "$ AU",
             "BEF": "FB",
-            "BMD": "$BM",
-            "BND": "$BN",
             "BRL": "R$",
-            "BSD": "$BS",
-            "BZD": "$BZ",
             "CAD": "$",
-            "CLP": "$CL",
             "CNY": "CN¥",
-            "COP": "$CO",
-            "CVE": "$CV",
             "CYP": "£CY",
-            "EGP": "£EG",
             "EUR": "€",
-            "FJD": "$FJ",
-            "FKP": "£FK",
             "FRF": "F",
-            "GBP": "£GB",
-            "GIP": "£GI",
-            "HKD": "$HK",
+            "GBP": "£",
+            "HKD": "$ HK",
             "IEP": "£IE",
             "ILP": "£IL",
-            "ILS": "₪",
-            "INR": "₹",
             "ITL": "₤IT",
-            "JPY": "¥JP",
-            "KRW": "₩",
-            "LBP": "£LB",
-            "LRD": "$LR",
+            "JPY": "¥",
+            "LSL": "lLS",
+            "MAF": "fMA",
+            "MGF": "Fmg",
             "MTP": "£MT",
-            "MXN": "$MX",
-            "NAD": "$NA",
-            "NZD": "$NZ",
+            "NZD": "$ NZ",
             "RHD": "$RH",
-            "SBD": "$SB",
-            "SDG": "£SD",
-            "SGD": "$SG",
-            "SHP": "£SH",
-            "SRD": "$SR",
-            "SSP": "£SS",
-            "THB": "฿",
-            "TTD": "$TT",
-            "TWD": "$TW",
-            "USD": "$US",
-            "UYU": "$UY",
-            "VND": "₫",
-            "XAF": "FCFA",
-            "XCD": "EC$",
-            "XOF": "CFA",
-            "XPF": "FCFP"
+            "SGD": "$ SG",
+            "USD": "$ US",
+            "XDR": "DTS"
         }
     }
 }

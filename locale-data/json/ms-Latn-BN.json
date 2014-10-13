@@ -296,6 +296,10 @@
                     "short": [
                         "S.M.",
                         "TM"
+                    ],
+                    "long": [
+                        "S.M.",
+                        "TM"
                     ]
                 },
                 "dayPeriods": {
@@ -932,7 +936,6 @@
             "AUD": "A$",
             "BND": "$",
             "BRL": "R$",
-            "CAD": "CA$",
             "CNY": "CN¥",
             "EUR": "€",
             "GBP": "£",
@@ -941,12 +944,10 @@
             "INR": "₹",
             "JPY": "JP¥",
             "KRW": "₩",
-            "MXN": "MX$",
             "MYR": "RM",
             "NZD": "NZ$",
             "THB": "฿",
             "TWD": "NT$",
-            "USD": "US$",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",

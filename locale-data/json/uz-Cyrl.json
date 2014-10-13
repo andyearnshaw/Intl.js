@@ -267,7 +267,13 @@
                 "eras": {
                     "short": [
                         "М.А.",
-                        "Э"
+                        "Э",
+                        "CE",
+                        "Eramizdan avvalgi"
+                    ],
+                    "long": [
+                        "M.A.",
+                        "Eramizdan avvalgi"
                     ]
                 },
                 "dayPeriods": {

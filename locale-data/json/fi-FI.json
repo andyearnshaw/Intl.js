@@ -67,7 +67,7 @@
             {
                 "day": "numeric",
                 "month": "numeric",
-                "pattern": "{day}.{month}"
+                "pattern": "{day}.{month}."
             },
             {
                 "hour": "numeric",
@@ -268,20 +268,20 @@
                     "narrow": [
                         "eK",
                         "jK",
-                        "eaa",
-                        "jaa"
+                        "jaa",
+                        "eaa"
                     ],
                     "short": [
                         "eKr.",
                         "jKr.",
-                        "eaa.",
-                        "jaa."
+                        "jaa.",
+                        "eaa."
                     ],
                     "long": [
                         "ennen Kristuksen syntymää",
                         "jälkeen Kristuksen syntymän",
-                        "ennen ajanlaskun alkua",
-                        "jälkeen ajanlaskun alun"
+                        "jälkeen ajanlaskun alun",
+                        "ennen ajanlaskun alkua"
                     ]
                 },
                 "dayPeriods": {
@@ -916,6 +916,7 @@
         },
         "currencies": {
             "EUR": "€",
+            "FIM": "mk",
             "GBP": "£",
             "JPY": "¥",
             "USD": "$",

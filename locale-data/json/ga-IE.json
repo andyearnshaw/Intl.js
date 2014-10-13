@@ -192,6 +192,20 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "E",
+                        "F",
+                        "M",
+                        "A",
+                        "B",
+                        "M",
+                        "I",
+                        "L",
+                        "M",
+                        "D",
+                        "S",
+                        "N"
+                    ],
                     "short": [
                         "Ean",
                         "Feabh",
@@ -222,6 +236,15 @@
                     ]
                 },
                 "days": {
+                    "narrow": [
+                        "Do",
+                        "Lu",
+                        "Má",
+                        "Cé",
+                        "Dé",
+                        "Ao",
+                        "Sa"
+                    ],
                     "short": [
                         "Domh",
                         "Luan",
@@ -242,13 +265,23 @@
                     ]
                 },
                 "eras": {
+                    "narrow": [
+                        "RC",
+                        "AD",
+                        "CR",
+                        "RCR"
+                    ],
                     "short": [
                         "RC",
-                        "AD"
+                        "AD",
+                        "CR",
+                        "RCR"
                     ],
                     "long": [
                         "Roimh Chríost",
-                        "Anno Domini"
+                        "Anno Domini",
+                        "Comh-Ré",
+                        "Roimh Chomh-Ré"
                     ]
                 },
                 "dayPeriods": {
@@ -882,7 +915,6 @@
             }
         },
         "currencies": {
-            "ANG": "AÍ f.",
             "AUD": "A$",
             "BRL": "R$",
             "CAD": "CA$",
@@ -892,13 +924,13 @@
             "HKD": "HK$",
             "ILS": "₪",
             "INR": "₹",
-            "JPY": "JP¥",
+            "JPY": "¥",
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
             "THB": "฿",
             "TWD": "NT$",
-            "USD": "US$",
+            "USD": "$",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",

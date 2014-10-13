@@ -237,13 +237,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Isonto",
-                        "Umsombuluko",
-                        "Ulwesibili",
-                        "Ulwesithathu",
-                        "Ulwesine",
-                        "Ulwesihlanu",
-                        "Umgqibelo"
+                        "Son",
+                        "Mso",
+                        "Bil",
+                        "Tha",
+                        "Sin",
+                        "Hla",
+                        "Mgq"
                     ],
                     "short": [
                         "Son",
@@ -268,8 +268,14 @@
                     "short": [
                         "BC",
                         "AD",
-                        "BCE",
-                        "CE"
+                        "CE",
+                        "BCE"
+                    ],
+                    "long": [
+                        "BC",
+                        "AD",
+                        "CE",
+                        "BCE"
                     ]
                 },
                 "dayPeriods": {

@@ -35,29 +35,29 @@
                 "day": "2-digit",
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{weekday}, {day}. {month} {year}"
+                "pattern": "{weekday}, {day}. {month} {year}."
             },
             {
                 "day": "2-digit",
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{day}. {month} {year}"
+                "pattern": "{day}. {month} {year}."
             },
             {
                 "day": "2-digit",
                 "month": "2-digit",
                 "year": "numeric",
-                "pattern": "{day}.{month}.{year}"
+                "pattern": "{day}.{month}.{year}."
             },
             {
                 "month": "2-digit",
                 "year": "numeric",
-                "pattern": "{month}.{year}"
+                "pattern": "{month}.{year}."
             },
             {
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{month} {year}"
+                "pattern": "{month} {year}."
             },
             {
                 "day": "2-digit",
@@ -67,7 +67,7 @@
             {
                 "day": "2-digit",
                 "month": "2-digit",
-                "pattern": "{day}.{month}"
+                "pattern": "{day}.{month}."
             },
             {
                 "hour": "2-digit",
@@ -192,6 +192,20 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "j",
+                        "f",
+                        "m",
+                        "a",
+                        "m",
+                        "j",
+                        "j",
+                        "a",
+                        "s",
+                        "o",
+                        "n",
+                        "d"
+                    ],
                     "short": [
                         "јан",
                         "феб",
@@ -222,6 +236,15 @@
                     ]
                 },
                 "days": {
+                    "narrow": [
+                        "ned",
+                        "pon",
+                        "uto",
+                        "sri",
+                        "čet",
+                        "pet",
+                        "sub"
+                    ],
                     "short": [
                         "нед",
                         "пон",
@@ -248,11 +271,15 @@
                     ],
                     "short": [
                         "п. н. е.",
-                        "н. е."
+                        "н. е.",
+                        "n.e.",
+                        "pr. n. e."
                     ],
                     "long": [
                         "Пре нове ере",
-                        "Нове ере"
+                        "Нове ере",
+                        "n.e.",
+                        "pr. n. e."
                     ]
                 },
                 "dayPeriods": {
@@ -886,32 +913,21 @@
             }
         },
         "currencies": {
-            "AUD": "A$",
             "BAM": "КМ",
-            "BRL": "R$",
-            "CAD": "CA$",
-            "CNY": "CN¥",
             "CZK": "Кч",
             "EUR": "€",
-            "GBP": "£",
-            "HKD": "HK$",
-            "ILS": "₪",
+            "HRK": "kn",
             "INR": "₹",
             "JPY": "¥",
             "KRW": "₩",
-            "MXN": "MX$",
-            "NZD": "NZ$",
             "PLN": "зл",
             "RSD": "дин.",
             "THB": "฿",
             "TRY": "Тл",
             "TWD": "NT$",
-            "USD": "US$",
             "VND": "₫",
             "XAF": "FCFA",
-            "XCD": "EC$",
-            "XOF": "CFA",
-            "XPF": "CFPF"
+            "XOF": "CFA"
         }
     }
 }

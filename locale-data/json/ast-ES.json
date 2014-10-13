@@ -224,15 +224,15 @@
                         "de xineru",
                         "de febreru",
                         "de marzu",
-                        "d'abril",
+                        "d’abril",
                         "de mayu",
                         "de xunu",
                         "de xunetu",
-                        "d'agostu",
+                        "d’agostu",
                         "de setiembre",
-                        "d'ochobre",
+                        "d’ochobre",
                         "de payares",
-                        "d'avientu"
+                        "d’avientu"
                     ]
                 },
                 "days": {
@@ -265,9 +265,23 @@
                     ]
                 },
                 "eras": {
+                    "narrow": [
+                        "a.C.",
+                        "d.C.",
+                        "ddC",
+                        "edC"
+                    ],
                     "short": [
                         "a.C.",
-                        "d.C."
+                        "d.C.",
+                        "ddC",
+                        "edC"
+                    ],
+                    "long": [
+                        "a.C.",
+                        "d.C.",
+                        "ddC",
+                        "edC"
                     ]
                 },
                 "dayPeriods": {

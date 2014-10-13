@@ -20,54 +20,54 @@
         "hour12": false,
         "formats": [
             {
-                "year": "numeric",
-                "month": "long",
-                "day": "numeric",
                 "weekday": "long",
+                "day": "numeric",
+                "month": "long",
+                "year": "numeric",
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{year} {month} {day}, {weekday} {hour}:{minute}:{second}",
-                "pattern12": "{year} {month} {day}, {weekday} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday} {day} {month} {year} {hour}:{minute}:{second}",
+                "pattern12": "{weekday} {day} {month} {year} {hour}:{minute}:{second} {ampm}"
             },
             {
-                "year": "numeric",
-                "month": "long",
-                "day": "numeric",
                 "weekday": "long",
-                "pattern": "{year} {month} {day}, {weekday}"
-            },
-            {
-                "year": "numeric",
-                "month": "long",
                 "day": "numeric",
-                "pattern": "{year} {month} {day}"
-            },
-            {
-                "year": "numeric",
-                "month": "2-digit",
-                "day": "2-digit",
-                "pattern": "{year}-{month}-{day}"
-            },
-            {
-                "year": "numeric",
-                "month": "2-digit",
-                "pattern": "{year}-{month}"
-            },
-            {
-                "year": "numeric",
                 "month": "long",
-                "pattern": "{year} {month}"
+                "year": "numeric",
+                "pattern": "{weekday} {day} {month} {year}"
             },
             {
-                "month": "long",
                 "day": "numeric",
-                "pattern": "{month} {day}"
+                "month": "long",
+                "year": "numeric",
+                "pattern": "{day} {month} {year}"
+            },
+            {
+                "day": "2-digit",
+                "month": "2-digit",
+                "year": "numeric",
+                "pattern": "{day}/{month}/{year}"
             },
             {
                 "month": "2-digit",
+                "year": "numeric",
+                "pattern": "{month}/{year}"
+            },
+            {
+                "month": "long",
+                "year": "numeric",
+                "pattern": "{month} {year}"
+            },
+            {
+                "day": "numeric",
+                "month": "long",
+                "pattern": "{day} {month}"
+            },
+            {
                 "day": "2-digit",
-                "pattern": "{month}-{day}"
+                "month": "2-digit",
+                "pattern": "{day}/{month}"
             },
             {
                 "hour": "numeric",
@@ -192,6 +192,20 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "01",
+                        "02",
+                        "03",
+                        "04",
+                        "05",
+                        "06",
+                        "07",
+                        "08",
+                        "09",
+                        "10",
+                        "11",
+                        "12"
+                    ],
                     "short": [
                         "Gen",
                         "Cʼhwe",
@@ -223,13 +237,13 @@
                 },
                 "days": {
                     "short": [
-                        "sul",
-                        "lun",
-                        "meu.",
-                        "mer.",
-                        "yaou",
-                        "gwe.",
-                        "sad."
+                        "Sul",
+                        "Lun",
+                        "Meu.",
+                        "Mer.",
+                        "Yaou",
+                        "Gwe.",
+                        "Sad."
                     ],
                     "long": [
                         "Sul",
@@ -248,8 +262,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "A.M.",
+                    "pm": "G.M."
                 }
             },
             "hebrew": {
@@ -860,12 +874,12 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{number} {currency}",
+                "negativePattern": "-{number} {currency}"
             },
             "percent": {
-                "positivePattern": "{number}%",
-                "negativePattern": "-{number}%"
+                "positivePattern": "{number} %",
+                "negativePattern": "-{number} %"
             }
         },
         "symbols": {
@@ -878,22 +892,21 @@
             }
         },
         "currencies": {
-            "AUD": "A$",
+            "AUD": "$A",
             "BRL": "R$",
-            "CAD": "CA$",
+            "CAD": "$CA",
             "CNY": "CN¥",
             "EUR": "€",
-            "GBP": "£",
-            "HKD": "HK$",
+            "GBP": "£ RU",
+            "HKD": "$ HK",
             "ILS": "₪",
             "INR": "₹",
             "JPY": "JP¥",
             "KRW": "₩",
             "MXN": "MX$",
-            "NZD": "NZ$",
-            "THB": "฿",
+            "NZD": "$ ZN",
             "TWD": "NT$",
-            "USD": "US$",
+            "USD": "$ SU",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",

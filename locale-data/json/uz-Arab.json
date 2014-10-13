@@ -267,12 +267,18 @@
                 "eras": {
                     "short": [
                         "ق.م.",
-                        "م."
+                        "م.",
+                        "CE",
+                        "Eramizdan avvalgi"
+                    ],
+                    "long": [
+                        "M.A.",
+                        "Eramizdan avvalgi"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "TO",
+                    "pm": "TK"
                 }
             },
             "hebrew": {

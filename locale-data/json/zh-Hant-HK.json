@@ -27,21 +27,21 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{year} 年 {month} 月 {day} 日 ({weekday}){hour}:{minute}:{second}",
-                "pattern12": "{year} 年 {month} 月 {day} 日 ({weekday}){ampm}{hour}:{minute}:{second}"
+                "pattern": "{year}年{month}月{day}日{weekday} {hour}:{minute}:{second}",
+                "pattern12": "{year}年{month}月{day}日{weekday} {ampm}{hour}:{minute}:{second}"
             },
             {
                 "year": "numeric",
                 "month": "long",
                 "day": "numeric",
                 "weekday": "long",
-                "pattern": "{year} 年 {month} 月 {day} 日 ({weekday}"
+                "pattern": "{year}年{month}月{day}日{weekday}"
             },
             {
                 "year": "numeric",
                 "month": "long",
                 "day": "numeric",
-                "pattern": "{year} 年 {month} 月 {day}"
+                "pattern": "{year}年{month}月{day}日"
             },
             {
                 "day": "numeric",
@@ -57,12 +57,12 @@
             {
                 "year": "numeric",
                 "month": "long",
-                "pattern": "{year} 年 {month}"
+                "pattern": "{year}年{month}月"
             },
             {
                 "month": "long",
                 "day": "numeric",
-                "pattern": "{month}月{day}"
+                "pattern": "{month}月{day}日"
             },
             {
                 "day": "numeric",
@@ -94,7 +94,7 @@
             "chinese": {
                 "months": {
                     "narrow": [
-                        "一",
+                        "正",
                         "二",
                         "三",
                         "四",
@@ -108,7 +108,7 @@
                         "十二"
                     ],
                     "short": [
-                        "一月",
+                        "正月",
                         "二月",
                         "三月",
                         "四月",
@@ -122,7 +122,7 @@
                         "十二月"
                     ],
                     "long": [
-                        "一月",
+                        "正月",
                         "二月",
                         "三月",
                         "四月",
@@ -358,8 +358,10 @@
                         "公元"
                     ],
                     "short": [
-                        "公元前",
-                        "公元"
+                        "BC",
+                        "AD",
+                        "CE",
+                        "BCE"
                     ],
                     "long": [
                         "公元前",
@@ -1065,8 +1067,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency}{number}",
-                "negativePattern": "-{currency}{number}"
+                "positivePattern": "{currency} {number}",
+                "negativePattern": "-{currency} {number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -1089,11 +1091,12 @@
             "CNY": "￥",
             "EUR": "€",
             "GBP": "£",
-            "HKD": "$",
+            "HKD": "HK$",
+            "ILR": "ILS",
             "ILS": "₪",
             "INR": "₹",
             "JPY": "JP¥",
-            "KRW": "￦",
+            "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
             "THB": "฿",

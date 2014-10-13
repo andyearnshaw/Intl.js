@@ -36,13 +36,13 @@
                 "month": "long",
                 "day": "numeric",
                 "weekday": "long",
-                "pattern": "{year}年{month}月{day}日({weekday}"
+                "pattern": "{year}年{month}月{day}日({weekday})"
             },
             {
                 "year": "numeric",
                 "month": "long",
                 "day": "numeric",
-                "pattern": "{year}年{month}月{day}"
+                "pattern": "{year}年{month}月{day}日"
             },
             {
                 "year": "numeric",
@@ -58,12 +58,12 @@
             {
                 "year": "numeric",
                 "month": "long",
-                "pattern": "{year}年{month}"
+                "pattern": "{year}年{month}月"
             },
             {
                 "month": "long",
                 "day": "numeric",
-                "pattern": "{month}月{day}"
+                "pattern": "{month}月{day}日"
             },
             {
                 "month": "numeric",
@@ -406,17 +406,19 @@
                     "narrow": [
                         "BC",
                         "AD",
-                        "BCE",
-                        "CE"
+                        "CE",
+                        "BCE"
                     ],
                     "short": [
                         "紀元前",
                         "西暦",
+                        "西暦紀元",
                         "西暦紀元前"
                     ],
                     "long": [
                         "紀元前",
                         "西暦",
+                        "西暦紀元",
                         "西暦紀元前"
                     ]
                 },

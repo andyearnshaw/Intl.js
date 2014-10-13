@@ -108,19 +108,33 @@
                         "11",
                         "12"
                     ],
+                    "short": [
+                        "mnd 1",
+                        "mnd 2",
+                        "mnd 3",
+                        "mnd 4",
+                        "mnd 5",
+                        "mnd 6",
+                        "mnd 7",
+                        "mnd 8",
+                        "mnd 9",
+                        "mnd 10",
+                        "mnd 11",
+                        "mnd 12"
+                    ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "maand 1",
+                        "maand 2",
+                        "maand 3",
+                        "maand 4",
+                        "maand 5",
+                        "maand 6",
+                        "maand 7",
+                        "maand 8",
+                        "maand 9",
+                        "maand 10",
+                        "maand 11",
+                        "maand 12"
                     ]
                 }
             },
@@ -151,7 +165,7 @@
                         "Baramhat",
                         "Baramundah",
                         "Bashans",
-                        "Ba'unah",
+                        "Ba’unah",
                         "Abib",
                         "Misra",
                         "Nasi"
@@ -166,7 +180,7 @@
                         "Baramhat",
                         "Baramundah",
                         "Bashans",
-                        "Ba'unah",
+                        "Ba’unah",
                         "Abib",
                         "Misra",
                         "Nasi"
@@ -194,6 +208,34 @@
                         "10",
                         "11",
                         "12"
+                    ],
+                    "short": [
+                        "mnd 1",
+                        "mnd 2",
+                        "mnd 3",
+                        "mnd 4",
+                        "mnd 5",
+                        "mnd 6",
+                        "mnd 7",
+                        "mnd 8",
+                        "mnd 9",
+                        "mnd 10",
+                        "mnd 11",
+                        "mnd 12"
+                    ],
+                    "long": [
+                        "maand 1",
+                        "maand 2",
+                        "maand 3",
+                        "maand 4",
+                        "maand 5",
+                        "maand 6",
+                        "maand 7",
+                        "maand 8",
+                        "maand 9",
+                        "maand 10",
+                        "maand 11",
+                        "maand 12"
                     ]
                 }
             },
@@ -219,7 +261,7 @@
                         "Teqemt",
                         "Hedar",
                         "Tahsas",
-                        "T'er",
+                        "T’er",
                         "Yäkatit",
                         "Mägabit",
                         "Miyazya",
@@ -234,7 +276,7 @@
                         "Teqemt",
                         "Hedar",
                         "Tahsas",
-                        "T'er",
+                        "T’er",
                         "Yäkatit",
                         "Mägabit",
                         "Miyazya",
@@ -361,29 +403,45 @@
                     "narrow": [
                         "v.C.",
                         "n.C.",
-                        "vgj",
-                        "gj"
+                        "gj",
+                        "vgj"
                     ],
                     "short": [
                         "v.Chr.",
                         "n.Chr.",
-                        "v.g.j.",
-                        "g.j."
+                        "g.j.",
+                        "v.g.j."
                     ],
                     "long": [
-                        "Voor Christus",
+                        "voor Christus",
                         "na Christus",
-                        "vóór gewone jaartelling",
-                        "gewone jaartelling"
+                        "gewone jaartelling",
+                        "vóór gewone jaartelling"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "a.m.",
+                    "pm": "p.m."
                 }
             },
             "hebrew": {
                 "months": {
+                    "narrow": [
+                        "1",
+                        "2",
+                        "3",
+                        "4",
+                        "5",
+                        "6",
+                        "7",
+                        "8",
+                        "9",
+                        "10",
+                        "11",
+                        "12",
+                        "13",
+                        "7"
+                    ],
                     "short": [
                         "Tisjrie",
                         "Chesjwan",

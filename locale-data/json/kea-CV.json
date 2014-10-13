@@ -27,15 +27,15 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {day} di {month} di {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {day} di {month} di {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day} {month} {year} {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day} {month} {year} {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "long",
                 "day": "numeric",
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{weekday}, {day} di {month} di {year}"
+                "pattern": "{weekday}, {day} {month} {year}"
             },
             {
                 "day": "numeric",
@@ -208,7 +208,7 @@
                     ],
                     "short": [
                         "Jan",
-                        "Fev",
+                        "Feb",
                         "Mar",
                         "Abr",
                         "Mai",
@@ -222,7 +222,7 @@
                     ],
                     "long": [
                         "Janeru",
-                        "Fevereru",
+                        "Febreru",
                         "Marsu",
                         "Abril",
                         "Maiu",
@@ -267,11 +267,15 @@
                 "eras": {
                     "short": [
                         "AK",
-                        "DK"
+                        "DK",
+                        "EK",
+                        "AEK"
                     ],
                     "long": [
                         "Antis di Kristu",
-                        "Dispos di Kristu"
+                        "Dispos di Kristu",
+                        "Era Kumun",
+                        "Antis di Era Kumun"
                     ]
                 },
                 "dayPeriods": {
@@ -887,8 +891,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{number}{currency}",
-                "negativePattern": "-{number}{currency}"
+                "positivePattern": "{number} {currency}",
+                "negativePattern": "-{number} {currency}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -898,7 +902,7 @@
         "symbols": {
             "latn": {
                 "decimal": ",",
-                "group": ".",
+                "group": " ",
                 "nan": "NaN",
                 "percent": "%",
                 "infinity": "∞"
@@ -909,6 +913,7 @@
             "BRL": "R$",
             "CAD": "CA$",
             "CNY": "CN¥",
+            "CVE": "​",
             "EUR": "€",
             "GBP": "£",
             "HKD": "HK$",

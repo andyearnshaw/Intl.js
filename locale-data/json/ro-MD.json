@@ -299,12 +299,14 @@
                     "short": [
                         "î.Hr.",
                         "d.Hr.",
-                        "î.e.n",
-                        "e.n."
+                        "e.n.",
+                        "î.e.n"
                     ],
                     "long": [
                         "înainte de Hristos",
-                        "după Hristos"
+                        "după Hristos",
+                        "era noastră",
+                        "înaintea erei noastre"
                     ]
                 },
                 "dayPeriods": {
@@ -954,7 +956,6 @@
             }
         },
         "currencies": {
-            "EUR": "€",
             "MDL": "L",
             "XAF": "FCFA",
             "XOF": "CFA",

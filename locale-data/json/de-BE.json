@@ -27,8 +27,8 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {day}. {month} {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {day}. {month} {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day}. {month} {year}, {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day}. {month} {year}, {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "long",
@@ -67,7 +67,7 @@
             {
                 "day": "numeric",
                 "month": "numeric",
-                "pattern": "{day}.{month}"
+                "pattern": "{day}.{month}."
             },
             {
                 "hour": "numeric",
@@ -268,20 +268,20 @@
                     "narrow": [
                         "v. Chr.",
                         "n. Chr.",
-                        "vdZ",
-                        "dZ"
+                        "u. Z.",
+                        "v. u. Z."
                     ],
                     "short": [
                         "v. Chr.",
                         "n. Chr.",
-                        "v. u. Z.",
-                        "u. Z."
+                        "u. Z.",
+                        "v. u. Z."
                     ],
                     "long": [
                         "v. Chr.",
                         "n. Chr.",
-                        "vor der gewöhnlichen Zeitrechnung",
-                        "der gewöhnlichen Zeitrechnung"
+                        "unserer Zeitrechnung",
+                        "vor unserer Zeitrechnung"
                     ]
                 },
                 "dayPeriods": {
@@ -917,9 +917,12 @@
         "currencies": {
             "ATS": "öS",
             "AUD": "AU$",
+            "BGM": "BGK",
+            "BGO": "BGJ",
             "BRL": "R$",
             "CAD": "CA$",
             "CNY": "CN¥",
+            "DEM": "DM",
             "EUR": "€",
             "GBP": "£",
             "HKD": "HK$",

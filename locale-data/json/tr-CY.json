@@ -268,12 +268,14 @@
                     "short": [
                         "MÖ",
                         "MS",
-                        "İÖ",
-                        "İS"
+                        "İS",
+                        "İÖ"
                     ],
                     "long": [
                         "Milattan Önce",
-                        "Milattan Sonra"
+                        "Milattan Sonra",
+                        "İsa’dan Sonra",
+                        "İsa’dan Önce"
                     ]
                 },
                 "dayPeriods": {

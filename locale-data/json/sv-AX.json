@@ -239,18 +239,18 @@
                         "D"
                     ],
                     "short": [
-                        "jan",
-                        "feb",
-                        "mar",
-                        "apr",
+                        "jan.",
+                        "feb.",
+                        "mars",
+                        "apr.",
                         "maj",
-                        "jun",
-                        "jul",
-                        "aug",
-                        "sep",
-                        "okt",
-                        "nov",
-                        "dec"
+                        "juni",
+                        "juli",
+                        "aug.",
+                        "sep.",
+                        "okt.",
+                        "nov.",
+                        "dec."
                     ],
                     "long": [
                         "januari",
@@ -300,20 +300,20 @@
                     "narrow": [
                         "f.Kr.",
                         "e.Kr.",
-                        "fvt",
-                        "vt"
+                        "vt",
+                        "fvt"
                     ],
                     "short": [
                         "f.Kr.",
                         "e.Kr.",
-                        "f.v.t.",
-                        "v.t."
+                        "v.t.",
+                        "f.v.t."
                     ],
                     "long": [
                         "före Kristus",
                         "efter Kristus",
-                        "före västerländsk tideräkning",
-                        "västerländsk tideräkning"
+                        "västerländsk tideräkning",
+                        "före västerländsk tideräkning"
                     ]
                 },
                 "dayPeriods": {
@@ -336,7 +336,8 @@
                         "siván",
                         "tammúz",
                         "ab",
-                        "elúl"
+                        "elúl",
+                        "adár II"
                     ],
                     "long": [
                         "tishrí",
@@ -993,39 +994,24 @@
             }
         },
         "currencies": {
-            "AUD": "AU$",
             "BBD": "Bds$",
-            "BDT": "Tk",
             "BMD": "BM$",
-            "BND": "BN$",
             "BRL": "BR$",
             "BSD": "BS$",
             "BZD": "BZ$",
             "CAD": "CAN$",
-            "CNY": "CN¥",
             "DKK": "Dkr",
             "DOP": "RD$",
+            "EEK": "Ekr",
             "EGP": "EG£",
             "EUR": "€",
-            "GBP": "GB£",
-            "GYD": "GY$",
-            "HKD": "HK$",
             "ILS": "₪",
-            "INR": "₹",
             "ISK": "Ikr",
             "JMD": "JM$",
-            "JPY": "JP¥",
-            "KRW": "₩",
-            "LVL": "Ls",
             "MXN": "MX$",
-            "NOK": "NKr",
-            "NZD": "NZ$",
+            "NOK": "Nkr",
             "SEK": "kr",
-            "SYP": "SY£",
-            "THB": "TH฿",
-            "TWD": "TW$",
             "USD": "US$",
-            "VND": "VN₫",
             "XAF": "FCFA",
             "XCD": "EC$",
             "XOF": "CFA",

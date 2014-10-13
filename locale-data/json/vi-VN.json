@@ -60,7 +60,7 @@
                 "pattern": "{month} {year}"
             },
             {
-                "day": "2-digit",
+                "day": "numeric",
                 "month": "long",
                 "pattern": "{day} {month}"
             },

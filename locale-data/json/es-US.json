@@ -17,37 +17,37 @@
             "roc"
         ],
         "hourNo0": true,
-        "hour12": true,
+        "hour12": false,
         "formats": [
             {
                 "weekday": "long",
-                "month": "long",
                 "day": "numeric",
+                "month": "long",
                 "year": "numeric",
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {month} {day}, {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {month} {day}, {year} {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day} de {month} de {year} {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day} de {month} de {year} {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "long",
-                "month": "long",
                 "day": "numeric",
+                "month": "long",
                 "year": "numeric",
-                "pattern": "{weekday}, {month} {day}, {year}"
+                "pattern": "{weekday}, {day} de {month} de {year}"
             },
             {
-                "month": "long",
                 "day": "numeric",
+                "month": "long",
                 "year": "numeric",
-                "pattern": "{month} {day}, {year}"
+                "pattern": "{day} de {month} de {year}"
             },
             {
+                "day": "numeric",
                 "month": "numeric",
-                "day": "numeric",
                 "year": "numeric",
-                "pattern": "{month}/{day}/{year}"
+                "pattern": "{day}/{month}/{year}"
             },
             {
                 "month": "numeric",
@@ -60,14 +60,14 @@
                 "pattern": "{month} de {year}"
             },
             {
-                "month": "long",
                 "day": "numeric",
-                "pattern": "{month} {day}"
+                "month": "long",
+                "pattern": "{day} de {month}"
             },
             {
-                "month": "numeric",
                 "day": "numeric",
-                "pattern": "{month}/{day}"
+                "month": "numeric",
+                "pattern": "{day}/{month}"
             },
             {
                 "hour": "numeric",
@@ -268,12 +268,14 @@
                     "short": [
                         "a. C.",
                         "d. C.",
-                        "a. e. c.",
-                        "e. c."
+                        "e. c.",
+                        "a. e. c."
                     ],
                     "long": [
                         "antes de Cristo",
-                        "anno Dómini"
+                        "anno Dómini",
+                        "e. c.",
+                        "a. e. c."
                     ]
                 },
                 "dayPeriods": {
@@ -893,8 +895,8 @@
                 "negativePattern": "-{number} {currency}"
             },
             "percent": {
-                "positivePattern": "{number}%",
-                "negativePattern": "-{number}%"
+                "positivePattern": "{number} %",
+                "negativePattern": "-{number} %"
             }
         },
         "symbols": {
@@ -907,16 +909,14 @@
             }
         },
         "currencies": {
-            "ARS": "AR$",
-            "AUD": "AU$",
             "CAD": "CA$",
             "ESP": "₧",
             "EUR": "€",
             "JPY": "¥",
-            "MXN": "MX$",
+            "THB": "฿",
             "USD": "$",
-            "XAF": "FCFA",
-            "XCD": "EC$"
+            "VND": "₫",
+            "XPF": "CFPF"
         }
     }
 }

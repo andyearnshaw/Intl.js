@@ -35,29 +35,29 @@
                 "day": "2-digit",
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{weekday}, {day}. {month} {year}"
+                "pattern": "{weekday}, {day}. {month} {year}."
             },
             {
                 "day": "2-digit",
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{day}. {month} {year}"
+                "pattern": "{day}. {month} {year}."
             },
             {
                 "day": "2-digit",
                 "month": "2-digit",
                 "year": "numeric",
-                "pattern": "{day}.{month}.{year}"
+                "pattern": "{day}.{month}.{year}."
             },
             {
                 "month": "2-digit",
                 "year": "numeric",
-                "pattern": "{month}.{year}"
+                "pattern": "{month}.{year}."
             },
             {
                 "month": "long",
                 "year": "numeric",
-                "pattern": "{month} {year}"
+                "pattern": "{month} {year}."
             },
             {
                 "day": "2-digit",
@@ -67,7 +67,7 @@
             {
                 "day": "2-digit",
                 "month": "2-digit",
-                "pattern": "{day}.{month}"
+                "pattern": "{day}.{month}."
             },
             {
                 "hour": "2-digit",
@@ -192,6 +192,20 @@
             },
             "gregory": {
                 "months": {
+                    "narrow": [
+                        "j",
+                        "f",
+                        "m",
+                        "a",
+                        "m",
+                        "j",
+                        "j",
+                        "a",
+                        "s",
+                        "o",
+                        "n",
+                        "d"
+                    ],
                     "short": [
                         "jan",
                         "feb",
@@ -200,7 +214,7 @@
                         "maj",
                         "jun",
                         "jul",
-                        "avg",
+                        "aug",
                         "sep",
                         "okt",
                         "nov",
@@ -214,7 +228,7 @@
                         "maj",
                         "juni",
                         "juli",
-                        "avgust",
+                        "august",
                         "septembar",
                         "oktobar",
                         "novembar",
@@ -222,6 +236,15 @@
                     ]
                 },
                 "days": {
+                    "narrow": [
+                        "ned",
+                        "pon",
+                        "uto",
+                        "sri",
+                        "čet",
+                        "pet",
+                        "sub"
+                    ],
                     "short": [
                         "ned",
                         "pon",
@@ -242,17 +265,25 @@
                     ]
                 },
                 "eras": {
+                    "narrow": [
+                        "pr.n.e.",
+                        "AD"
+                    ],
                     "short": [
                         "p. n. e.",
-                        "n. e"
+                        "n. e.",
+                        "n.e.",
+                        "pr. n. e."
                     ],
                     "long": [
-                        "Pre nove ere",
-                        "Nove ere"
+                        "Prije nove ere",
+                        "Nove ere",
+                        "n.e.",
+                        "pr. n. e."
                     ]
                 },
                 "dayPeriods": {
-                    "am": "pre podne",
+                    "am": "prije podne",
                     "pm": "popodne"
                 }
             },
@@ -847,7 +878,7 @@
             "roc": {
                 "eras": {
                     "short": [
-                        "Before R.O.C.",
+                        "prije R.O.C.",
                         "R.O.C."
                     ]
                 }
@@ -864,8 +895,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{number} {currency}",
+                "negativePattern": "-{number} {currency}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -882,31 +913,18 @@
             }
         },
         "currencies": {
-            "AUD": "A$",
             "BAM": "KM",
-            "BRL": "R$",
-            "CAD": "CA$",
-            "CNY": "CN¥",
-            "CZK": "Kč",
             "EUR": "€",
-            "GBP": "£",
-            "HKD": "HK$",
-            "ILS": "₪",
+            "HRK": "kn",
             "INR": "₹",
-            "JPY": "JP¥",
+            "JPY": "¥",
             "KRW": "₩",
-            "MXN": "MX$",
-            "NZD": "NZ$",
-            "PLN": "zl",
             "RSD": "din.",
             "THB": "฿",
             "TWD": "NT$",
-            "USD": "US$",
             "VND": "₫",
             "XAF": "FCFA",
-            "XCD": "EC$",
-            "XOF": "CFA",
-            "XPF": "CFPF"
+            "XOF": "CFA"
         }
     }
 }

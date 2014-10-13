@@ -27,8 +27,8 @@
                 "hour": "numeric",
                 "minute": "2-digit",
                 "second": "2-digit",
-                "pattern": "{weekday}, {day} {month} {year} - {hour}:{minute}:{second}",
-                "pattern12": "{weekday}, {day} {month} {year} - {hour}:{minute}:{second} {ampm}"
+                "pattern": "{weekday}, {day} {month} {year}, {hour}:{minute}:{second}",
+                "pattern12": "{weekday}, {day} {month} {year}, {hour}:{minute}:{second} {ampm}"
             },
             {
                 "weekday": "long",
@@ -268,8 +268,14 @@
                     "short": [
                         "π.Χ.",
                         "μ.Χ.",
-                        "π.Κ.Χ.",
-                        "ΚΧ"
+                        "ΚΧ",
+                        "π.Κ.Χ."
+                    ],
+                    "long": [
+                        "προ Χριστού",
+                        "μετά Χριστόν",
+                        "Κοινή Χρονολογία",
+                        "πριν από την Κοινή Χρονολογία"
                     ]
                 },
                 "dayPeriods": {
@@ -298,7 +304,10 @@
                 },
                 "eras": {
                     "short": [
-                        "π.μ."
+                        "AM"
+                    ],
+                    "long": [
+                        "AM"
                     ]
                 }
             },
