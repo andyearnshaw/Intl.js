@@ -2941,7 +2941,7 @@
      */
     function $$core$$createRegExpRestore () {
         var esc = /[.?*+^$[\]\\(){}|-]/g,
-            lm  = RegExp.lastMatch,
+            lm  = RegExp.lastMatch || '',
             ml  = RegExp.multiline ? 'm' : '',
             ret = { input: RegExp.input },
             reg = new $$core$$List(),
