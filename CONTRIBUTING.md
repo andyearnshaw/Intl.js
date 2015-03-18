@@ -16,7 +16,17 @@ To build files in `dist/` and `lib/`:
 
     grunt
 
-To build files in `locale-data/` based on CLDR:
+
+Updating CLDR Data
+------------------
+
+_Note: this step is completely optional._
+
+Copy fresh CLDR data in `data/`:
+
+    grunt update-cldr-data
+
+To build files in `locale-data/` based on CLDR `data/`:
 
     grunt cldr
 

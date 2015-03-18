@@ -5,12 +5,39 @@ module.exports = function (grunt) {
 
         clean: {
             dist: 'dist/',
+            data: 'data/',
             lib : 'lib/',
             tmp : 'tmp/'
         },
 
+        curl: {
+            cldr: {
+                src : 'http://www.unicode.org/Public/cldr/26/json-full.zip',
+                dest: 'tmp/cldr.zip',
+            },
+        },
+
+        unzip: {
+            cldr: {
+                src : 'tmp/cldr.zip',
+                dest: 'tmp/cldr/',
+            },
+        },
+
         copy: {
-            tmp: {
+            cldr: {
+                expand: true,
+                cwd   : 'tmp/cldr/',
+                dest  : 'data/',
+                src   : [
+                    '*-license.*',
+                    'supplemental/parentLocales.json',
+                    'main/*/ca-*.json',
+                    'main/*/currencies.json',
+                    'main/*/numbers.json',
+                ]
+            },
+            src: {
                 expand : true,
                 flatten: true,
                 src    : ['tmp/src/*.js'],
@@ -49,7 +76,8 @@ module.exports = function (grunt) {
                     'dist/Intl.min.js': ['dist/Intl.js']
                 }
             }
-        }
+        },
+
     });
 
     grunt.loadTasks('./tasks');
@@ -59,12 +87,22 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-bundle-jsnext-lib');
+    grunt.loadNpmTasks('grunt-extract-cldr-data');
+    grunt.loadNpmTasks('grunt-curl');
+    grunt.loadNpmTasks('grunt-zip');
 
     grunt.registerTask('build', [
-        'bundle_jsnext', 'uglify', 'cjs_jsnext', 'copy', 'concat'
+        'bundle_jsnext', 'uglify', 'cjs_jsnext', 'copy:src', 'concat'
     ]);
 
-    grunt.registerTask('cldr', ['compile-data']);
+    grunt.registerTask('cldr', ['extract-cldr-data', 'compile-data']);
 
     grunt.registerTask('default', ['jshint', 'clean', 'build']);
+
+    grunt.registerTask('update-cldr-data', [
+        'clean',
+        'curl',
+        'unzip',
+        'copy:cldr',
+    ]);
 };

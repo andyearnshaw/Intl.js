@@ -18,7 +18,6 @@ module.exports = function(grunt) {
             objCount = 0,
 
             fileData = '',
-            defaultData,
             fs       = require('fs'),
             locales  = fs.readdirSync('locale-data/json/');
 
@@ -27,9 +26,6 @@ module.exports = function(grunt) {
         locales.forEach(function (file) {
             var c = fs.readFileSync('locale-data/json/' + file),
                 k = file.slice(0, file.indexOf('.'));
-            if (k === 'en') {
-                defaultData = c;
-            }
             locData[k] = JSON.parse(c, reviver);
         });
         function reviver (k, v) {
@@ -99,10 +95,6 @@ module.exports = function(grunt) {
 
         // writting the complete optimized bundle
         grunt.file.write('locale-data/complete.js', fileData);
-
-        // writting the english ES6 format
-        // TODO: decide if we want default data or not
-        // grunt.file.write('src/en.js', 'export default ' + defaultData);
 
         grunt.log.writeln('Total number of reused strings is ' + prims.length + ' (reduced from ' + valCount + ')');
         grunt.log.writeln('Total number of reused objects is ' + Object.keys(objStrs).length + ' (reduced from ' + objCount + ')');

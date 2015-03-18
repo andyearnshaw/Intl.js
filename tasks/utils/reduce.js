@@ -1,44 +1,4 @@
-/*jshint laxbreak:true, shadow:true, boss:true, eqnull:true */
-/**
- * Converts Unicode CLDR data to JSON format for use with Intl.js
- * Copyright 2013 Andy Earnshaw, MIT License
- *
- * Usage:
- *
- *      node Ldml2Json.js
- *      node Ldml2Json.js [PATH]
- *
- * When PATH is specified, it should point to a location containing the
- * extracted core.zip and tools.zip files from the Unicode CLDR
- */
-
 var
-    child,
-    spawn = require('child_process').spawn,
-    fs    = require('fs'),
-
-    // The 'callback' function for the JSONP files
-    jsonpFn = 'IntlPolyfill.__addLocaleData',
-
-    // Regex for converting locale JSON to object grammar, obviously simple and
-    // incomplete but should be good enough for the CLDR JSON
-    jsonpExp = /"(?!default)([\w$][\w\d$]+)":/g,
-
-    // Path to CLDR root
-    cldr = process.argv[2],
-
-    // Paths to required classes in the CLDR /tools/java folder
-    jPath = cldr + '/tools/java/',
-    clsPaths = ['libs/guava-16.0.1.jar', 'libs/icu4j.jar', 'libs/utilities.jar', 'libs/xercesImpl.jar', 'classes/'],
-
-    // Ldml2JsonConverter class
-    cls = 'org.unicode.cldr.json.Ldml2JsonConverter',
-
-    // Ldml2JsonConverter config file (passed with arg -k)
-    cfg = 'tools/Ldml2JsonConverter.config',
-
-    out = 'cldr/',
-
     // Match these datetime components in a CLDR pattern, except those in single quotes
     expDTComponents = /(?:[Eec]{1,6}|G{1,5}|(?:[yYu]+|U{1,5})|[ML]{1,5}|d{1,2}|a|[hkHK]{1,2}|m{1,2}|s{1,2}|z{1,4})(?=([^']*'[^']*')*[^']*$)/g,
 
@@ -52,130 +12,10 @@ var
         era:     [ 'short', 'short', 'short', 'long', 'narrow' ]
     };
 
-function cleanUp () {
-    // Need to reshow the blinking cursor
-    process.stdout.write('\n\x1b[?12l\x1b[?25h\r' + Array(15).join(' '));
-}
-
-process.on('exit', cleanUp);
-process.on('SIGINT', cleanUp);
-process.chdir(__dirname + '/../');
-console.log('');
-
-if (cldr) {
-    if (!fs.existsSync(cldr) || !fs.existsSync(jPath)) {
-        process.stderr.write('Error: unable to find CLDR core and tools data at '+ cldr);
-        process.exit(1);
-    }
-
-    // Initial output should hide cursor in Linux terminals
-    process.stdout.write('\x1b[?25l\rRunning Ldml2Json conversion...\n\n');
-
-    // Usage: Ldml2JsonConverter [OPTIONS] [FILES]
-    // This program converts CLDR data to the JSON format.
-    // Please refer to the following options.
-    //         example: org.unicode.cldr.json.Ldml2JsonConverter -c xxx -d yyy
-    // Here are the options:
-    // -h (help)       no-arg  Provide the list of possible options
-    // -c (commondir)  .*      Common directory for CLDR files, defaults to CldrUtility.COMMON_DIRECTORY
-    // -d (destdir)    .*      Destination directory for output files, defaults to CldrUtility.GEN_DIRECTORY
-    // -m (match)      .*      Regular expression to define only specific locales or files to be generated
-    // -t (type)       (main|supplemental)     Type of CLDR data being generated, main or supplemental.
-    // -r (resolved)   (true|false)    Whether the output JSON for the main directory should be based on resolved or unresolved data
-    // -s (draftstatus)        (approved|contributed|provisional|unconfirmed)  The minimum draft status of the output data
-    // -l (coverage)   (minimal|basic|moderate|modern|comprehensive|optional)  The maximum coverage level of the output data
-    // -n (fullnumbers)        (true|false)    Whether the output JSON should output data for all numbering systems, even those not used in the locale
-    // -o (other)      (true|false)    Whether to write out the 'other' section, which contains any unmatched paths
-    // -k (konfig)     .*      LDML to JSON configuration file
-    child = spawn('java', [ '-DCLDR_DIR='+cldr, '-cp', jPath + clsPaths.join(':'+jPath), cls, '-d', out, '-k', cfg/*, '-men.*'*/ ]);
-
-    child.stdout.on('data', function (data) {
-        if (data.toString().indexOf('Processing') >= 0)
-            process.stdout.write('\r\x1b[K\r\t' + String(data).split('\n')[0]);
-    });
-
-    var ldml2jsonErr = '';
-
-    child.stderr.on('data', function (data) {
-        ldml2jsonErr += String(data);
-    });
-
-    child.on('exit', function (err) {
-        if (err !== 0) {
-            process.stderr.write(ldml2jsonErr);
-            process.stderr.write('\nLdml2JsonConverter exited with error code ' +err);
-            process.exit(1);
-        }
-        else
-            console.log('\n');
-
-        cldrToIntl();
-    });
-}
-else {
-    cldrToIntl();
-}
-
-function cldrToIntl() {
-    console.log('Processing JSON data...\n');
-    var
-        locales = fs.readdirSync(out),
-
-                // root data is the parent for all locales
-                root = JSON.parse(fs.readFileSync(out + 'root/data.json')).main.root,
-
-                // ...and base language is the root for regional locales
-                base;
-
-    locales.forEach(function (dir) {
-        var json, obj;
-
-        // Ignore en-US-POSIX
-        if (dir === 'en-US-POSIX')
-            return;
-
-        // The Ldml2JsonConverter tool creats directories even for locales that have
-        // no data that we require
-        try {
-            json = fs.readFileSync(out + dir + '/data.json');
-            obj  = JSON.parse(json).main[dir];
-        }
-        catch (e) {
-            return;
-        }
-
-        // Need to copy in some language data that may not be present in territory data
-        if (base && (obj.identity.territory || obj.identity.script) && obj.identity.language === base.identity.language)
-            copyLocaleData(obj, base);
-
-        else if (!obj.identity.territory && !obj.identity.script && !obj.identity.variant)
-            base = obj;
-
-        // Copy data from the root locale
-        copyLocaleData(obj, root);
-
-        // Process our object into a format that can easily be parsed by Intl.js
-        obj = processObj(obj);
-
-        process.stdout.write('\r\x1b[K\r\tWriting locale-data/json/'+ dir +'.json');
-        fs.writeFileSync('locale-data/json/'+ dir +'.json', JSON.stringify(obj, null, 4));
-
-        var jsonp = jsonpFn
-            + '('
-            +     JSON.stringify(obj).replace(jsonpExp, '$1:')
-            + ')';
-
-        process.stdout.write('\r\x1b[K\r\tWriting locale-data/jsonp/'+ dir +'.js');
-        fs.writeFileSync('locale-data/jsonp/'+ dir +'.js', jsonp);
-    });
-
-    console.log('\n\nDone');
-}
-
 /**
  * Processes an object from CLDR format to an easier-to-parse format
  */
-function processObj(data) {
+module.exports = function processObj(locale, data) {
     var
         // Sort property name arrays to keep order and minimalise unnecessary file diffs
         gopn = function (a) { return Object.getOwnPropertyNames(a).sort(); },
@@ -204,30 +44,27 @@ function processObj(data) {
               },
 
         // Default calendar is always gregorian, apparently
-        defCa = data.dates.calendars.gregorian,
+        defCa = data.calendars.gregorian,
 
         // Any of the time format strings can give us some additional information
         defaultTimeFormat = defCa.timeFormats[gopn(defCa.timeFormats)[0]],
         ampmTimeFormat    = defCa.dateTimeFormats.availableFormats.hms,
 
-        id = data.identity,
-
         // Result object to be returned
         ret = {
             // Identifying language tag for this data
-            locale: id.language
-                        + (id.script    ? '-' + id.script    : '')
-                        + (id.territory ? '-' + id.territory : '')
-                        + (id.variant   ? '-' + id.variant   : ''),
+            locale: locale,
 
             date: {
                 // Get supported calendars (as extension keys)
-                ca: gopn(data.dates.calendars)
+                ca: gopn(data.calendars)
                         .map(function (cal) { return caMap[cal] || cal; })
 
                         // Move 'gregory' (the default) to the front, the rest is alphabetical
                         .sort(function (a, b) {
                             return -(a === 'gregory') + (b === 'gregory') || a.localeCompare(b);
+                        }).filter(function (cal) {
+                            return (cal.indexOf('-') < 0);
                         }),
 
                 // Boolean value indicating whether hours from 1 to 12 (true) or from 0 to
@@ -271,13 +108,13 @@ function processObj(data) {
     });
 
     // Create number patterns from CLDR patterns
-    if (ptn = data.numbers['decimalFormats-numberSystem-' + defaultNu] || data.numbers['decimalFormats-numberSystem-latn'])
+    if ((ptn = data.numbers['decimalFormats-numberSystem-' + defaultNu] || data.numbers['decimalFormats-numberSystem-latn']))
         ret.number.patterns.decimal = createNumberFormats(ptn.standard);
 
-    if (ptn = data.numbers['currencyFormats-numberSystem-' + defaultNu] || data.numbers['currencyFormats-numberSystem-latn'])
+    if ((ptn = data.numbers['currencyFormats-numberSystem-' + defaultNu] || data.numbers['currencyFormats-numberSystem-latn']))
         ret.number.patterns.currency = createNumberFormats(ptn.standard);
 
-    if (ptn = data.numbers['percentFormats-numberSystem-' + defaultNu] || data.numbers['percentFormats-numberSystem-latn'])
+    if ((ptn = data.numbers['percentFormats-numberSystem-' + defaultNu] || data.numbers['percentFormats-numberSystem-latn']))
         ret.number.patterns.percent = createNumberFormats(ptn.standard);
 
     // Check the grouping sizes for locales that group irregularly
@@ -301,33 +138,37 @@ function processObj(data) {
 
 
     // Copy the formatting information
-    gopn(data.dates.calendars).forEach(function (cal) {
-        var frmt,
-            ca = caMap[cal] || cal,
-            obj = ret.date.calendars[ca] = {};
+    gopn(data.calendars).forEach(function (cal) {
+        var frmt;
+        var ca = caMap[cal] || cal;
+        if (ret.date.ca.indexOf(ca) < 0) {
+            // ignoring unknown calendars
+            return;
+        }
+        var obj = ret.date.calendars[ca] = {};
 
-        if ((frmt = data.dates.calendars[cal].months) && (frmt = frmt.format)) {
+        if ((frmt = data.calendars[cal].months) && (frmt = frmt.format)) {
             obj.months = {
                 narrow: gopv(frmt.narrow),
                 short:  gopv(frmt.abbreviated),
                 long:   gopv(frmt.wide)
             };
         }
-        if ((frmt = data.dates.calendars[cal].days) && (frmt = frmt.format)) {
+        if ((frmt = data.calendars[cal].days) && (frmt = frmt.format)) {
             obj.days = {
                 narrow: gopv(frmt.short),
                 short:  gopv(frmt.abbreviated),
                 long:   gopv(frmt.wide)
             };
         }
-        if (frmt = data.dates.calendars[cal].eras) {
+        if ((frmt = data.calendars[cal].eras)) {
             obj.eras = {
                 narrow: gopv(frmt.eraNarrow),
                 short:  gopv(frmt.eraAbbr),
                 long:   gopv(frmt.eraNames)
             };
         }
-        if ((frmt = data.dates.calendars[cal].dayPeriods) && (frmt = frmt.format)) {
+        if ((frmt = data.calendars[cal].dayPeriods) && (frmt = frmt.format)) {
             obj.dayPeriods = {
                 am: (frmt.wide || frmt.abbreviated).am,
                 pm: (frmt.wide || frmt.abbreviated).pm
@@ -354,20 +195,25 @@ function processObj(data) {
         var formats = [
                 // 'weekday', 'year', 'month', 'day', 'hour', 'minute', 'second'
                 [ 'hms', 'yMMMMEEEEd' ],
+                [ 'hms', 'yMMMEEEEd' ],
 
                 // 'weekday', 'year', 'month', 'day'
                 [ '', 'yMMMMEEEEd' ],
+                [ '', 'yMMMEEEEd' ],
 
                 // 'year', 'month', 'day'
                 [ '', 'yMMMMd'],
                 [ '', 'yMd'],
+                [ '', 'yMMMd'],
 
                 // 'year', 'month'
                 [ '', 'yM' ],
                 [ '', 'yMMMM' ],
+                [ '', 'yMMM' ],
 
                 // 'month', 'day'
                 [ '', 'MMMMd' ],
+                [ '', 'MMMd' ],
                 [ '', 'Md' ],
 
                 // 'hour', 'minute', 'second'
@@ -381,7 +227,6 @@ function processObj(data) {
             verify = function (frmt) {
                 // Unicode LDML spec allows us to expand some pattern components to suit
                 var dFrmt = frmt[1] && frmt[1].replace(/M{4,5}/, 'MMM').replace(/E{4,6}/, 'E');
-
                 return (!frmt[0] || avail[frmt[0]]) && (!dFrmt || avail[dFrmt]);
             };
 
@@ -419,7 +264,7 @@ function processObj(data) {
     });
 
     return ret;
-}
+};
 
 /**
  * Copies missing locale data from object `from` to object `to`
