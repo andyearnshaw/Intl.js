@@ -16,3 +16,5 @@ node_modules
 lib/
 tmp/
 data/
+tests/test262/harness/
+tests/test262/test/
