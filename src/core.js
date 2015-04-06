@@ -17,6 +17,10 @@ import {
     expSingletonDupes
 } from './exp';
 
+import {
+    createDateTimeFormats
+} from "./cldr";
+
 var Intl = {},
 
     realDefineProp = (function () {
@@ -1886,11 +1890,17 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
 
         // 24. Let formats be the result of calling the [[Get]] internal method of
         //     dataLocaleData with argument "formats".
-        formats = dataLocaleData.formats,
+        //     Note: we process the CLDR formats into the spec'd structure
+        formats = ToDateTimeFormats(dataLocaleData.formats),
+
         // 25. Let matcher be the result of calling the GetOption abstract operation with
         //     arguments options, "formatMatcher", "string", a List containing the two String
         //     values "basic" and "best fit", and "best fit".
         matcher = GetOption(options, 'formatMatcher', 'string', new List('basic', 'best fit'), 'best fit');
+
+    // Optimization: caching the processed formats as a one time operation by
+    // replacing the initial structure from localeData
+    dataLocaleData.formats = formats;
 
     // 26. If matcher is "basic", then
     if (matcher === 'basic')
@@ -2005,6 +2015,17 @@ var dateTimeComponents = {
           second: [ "2-digit", "numeric" ],
     timeZoneName: [ "short", "long" ]
 };
+
+/**
+ * When the ToDateTimeOptions abstract operation is called with arguments options,
+ * required, and defaults, the following steps are taken:
+ */
+function ToDateTimeFormats(formats) {
+    if (Object.prototype.toString.call(formats) === '[object Array]') {
+        return formats;
+    }
+    return createDateTimeFormats(formats);
+}
 
 /**
  * When the ToDateTimeOptions abstract operation is called with arguments options,

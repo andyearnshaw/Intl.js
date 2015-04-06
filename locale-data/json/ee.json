@@ -20,74 +20,47 @@
         ],
         "hourNo0": true,
         "hour12": true,
-        "formats": [
-            null,
-            null,
-            {
-                "weekday": "long",
-                "month": "long",
-                "day": "numeric",
-                "year": "numeric",
-                "pattern": "{weekday}, {month} {day}, {year}"
-            },
-            {
-                "weekday": "long",
-                "month": "short",
-                "day": "numeric",
-                "year": "numeric",
-                "pattern": "{weekday}, {month} {day}, {year}"
-            },
-            {
-                "month": "long",
-                "day": "numeric",
-                "year": "numeric",
-                "pattern": "{month} {day} lia, {year}"
-            },
-            {
-                "month": "numeric",
-                "day": "numeric",
-                "year": "numeric",
-                "pattern": "{month}/{day}/{year}"
-            },
-            {
-                "month": "short",
-                "day": "numeric",
-                "year": "numeric",
-                "pattern": "{month} {day} lia, {year}"
-            },
-            {
-                "month": "numeric",
-                "year": "numeric",
-                "pattern": "{month}/{year}"
-            },
-            {
-                "month": "long",
-                "year": "numeric",
-                "pattern": "{month} {year}"
-            },
-            {
-                "month": "short",
-                "year": "numeric",
-                "pattern": "{month} {year}"
-            },
-            {
-                "month": "long",
-                "day": "numeric",
-                "pattern": "{month} {day} lia"
-            },
-            {
-                "month": "short",
-                "day": "numeric",
-                "pattern": "{month} {day} lia"
-            },
-            {
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{month}/{day}"
-            },
-            null,
-            null
-        ],
+        "formats": {
+            "medium": "{0} {1}",
+            "availableFormats": {
+                "E": "ccc",
+                "EHm": "E HH:mm",
+                "EHms": "E HH:mm:ss",
+                "Ed": "E d",
+                "Ehm": "E a 'ga' h:mm",
+                "Ehms": "E a 'ga' h:mm:ss",
+                "Gy": "y G",
+                "GyMMM": "MMM y G",
+                "GyMMMEd": "E, MMM d 'lia' y G",
+                "GyMMMd": "MMM d 'lia', y G",
+                "H": "HH",
+                "Hm": "HH:mm",
+                "Hms": "HH:mm:ss",
+                "M": "L",
+                "MEd": "E, M/d",
+                "MMM": "LLL",
+                "MMMEd": "E, MMM d 'lia'",
+                "MMMMEd": "E, MMMM d 'lia'",
+                "MMMMd": "MMMM d 'lia'",
+                "MMMd": "MMM d 'lia'",
+                "Md": "M/d",
+                "d": "d",
+                "h": "a 'ga' h",
+                "hm": "a 'ga' h:mm",
+                "hms": "a 'ga' h:mm:ss",
+                "ms": "'aɖabaƒoƒo' mm:ss",
+                "y": "y",
+                "yM": "M/y",
+                "yMEd": "E, M/d/y",
+                "yMMM": "MMM y",
+                "yMMMEd": "E, MMM d, y",
+                "yMMMM": "MMMM y",
+                "yMMMd": "MMM d 'lia', y",
+                "yMd": "M/d/y",
+                "yQQQ": "QQQ y",
+                "yQQQQ": "QQQQ y"
+            }
+        },
         "calendars": {
             "buddhist": {
                 "months": {

@@ -175,92 +175,10 @@ module.exports = function processObj(locale, data) {
             };
         }
 
-        /**
-         * The specification requires we support at least the following subsets of
-         * date/time components:
-         *
-         *   - 'weekday', 'year', 'month', 'day', 'hour', 'minute', 'second'
-         *   - 'weekday', 'year', 'month', 'day'
-         *   - 'year', 'month', 'day'
-         *   - 'year', 'month'
-         *   - 'month', 'day'
-         *   - 'hour', 'minute', 'second'
-         *   - 'hour', 'minute'
-         *
-         * We need to cherry pick at least these subsets from the CLDR data and convert
-         * them into the pattern objects used in the ECMA-402 API.
-         *
-         * The array below could be easily extended to include more formats
-         */
-        var formats = [
-                // 'weekday', 'year', 'month', 'day', 'hour', 'minute', 'second'
-                [ 'hms', 'yMMMMEEEEd' ],
-                [ 'hms', 'yMMMEEEEd' ],
-
-                // 'weekday', 'year', 'month', 'day'
-                [ '', 'yMMMMEEEEd' ],
-                [ '', 'yMMMEEEEd' ],
-
-                // 'year', 'month', 'day'
-                [ '', 'yMMMMd'],
-                [ '', 'yMd'],
-                [ '', 'yMMMd'],
-
-                // 'year', 'month'
-                [ '', 'yM' ],
-                [ '', 'yMMMM' ],
-                [ '', 'yMMM' ],
-
-                // 'month', 'day'
-                [ '', 'MMMMd' ],
-                [ '', 'MMMd' ],
-                [ '', 'Md' ],
-
-                // 'hour', 'minute', 'second'
-                [ 'hms', '' ],
-
-                // 'hour', 'minute'
-                [ 'hm', '' ]
-            ],
-            avail = defCa.dateTimeFormats.availableFormats,
-            order = defCa.dateTimeFormats.medium,
-            verify = function (frmt) {
-                // Unicode LDML spec allows us to expand some pattern components to suit
-                var dFrmt = frmt[1] && frmt[1].replace(/M{4,5}/, 'MMM').replace(/E{4,6}/, 'E');
-                return (!frmt[0] || avail[frmt[0]]) && (!dFrmt || avail[dFrmt]);
-            };
-
-        // Make sure every local supports these minimum required formats
-        if (!formats.every(verify))
-            throw new Error(ret.locale + " doesn't support all date/time component subsets");
-
-        // Map the formats into a pattern for createDateTimeFormats
-        ret.date.formats = formats.map(function (frmt) {
-            var M, E, dFrmt;
-
-            // Expand component lengths if necessary, as allowed in the LDML spec
-            if (frmt[1]) {
-                // Get the lengths of 'M' and 'E' substrings in the date pattern
-                // as arrays that can be joined to create a new substring
-                M = new Array((frmt[1].match(/M/g)||[]).length + 1);
-                E = new Array((frmt[1].match(/E/g)||[]).length + 1);
-
-                dFrmt = avail[frmt[1].replace(/M{4,5}/, 'MMM').replace(/E{4,6}/, 'E')];
-
-                if (M.length > 2)
-                    dFrmt = dFrmt.replace(/(M|L)+/, M.join('$1'));
-
-                if (E.length > 2)
-                    dFrmt = dFrmt.replace(/([Eec])+/, E.join('$1'));
-            }
-
-            return createDateTimeFormat(
-                order
-                    .replace('{0}', avail[frmt[0]] || '')
-                    .replace('{1}', dFrmt || '')
-                    .replace(/^[,\s]+|[,\s]+$/gi, '')
-            );
-        });
+        ret.date.formats = {
+            medium: defCa.dateTimeFormats.medium,
+            availableFormats: defCa.dateTimeFormats.availableFormats
+        };
     });
 
     return ret;

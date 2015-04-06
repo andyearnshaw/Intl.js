@@ -20,105 +20,53 @@
         ],
         "hourNo0": true,
         "hour12": true,
-        "formats": [
-            {
-                "year": "numeric",
-                "month": "long",
-                "day": "numeric",
-                "weekday": "long",
-                "hour": "numeric",
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": "{year}년 {month} {day}일 ({weekday})  {hour}:{minute}:{second}",
-                "pattern12": "{year}년 {month} {day}일 ({weekday}) {ampm} {hour}:{minute}:{second}"
-            },
-            {
-                "year": "numeric",
-                "month": "short",
-                "day": "numeric",
-                "weekday": "long",
-                "hour": "numeric",
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": "{year}년 {month} {day}일 ({weekday})  {hour}:{minute}:{second}",
-                "pattern12": "{year}년 {month} {day}일 ({weekday}) {ampm} {hour}:{minute}:{second}"
-            },
-            {
-                "year": "numeric",
-                "month": "long",
-                "day": "numeric",
-                "weekday": "long",
-                "pattern": "{year}년 {month} {day}일 ({weekday})"
-            },
-            {
-                "year": "numeric",
-                "month": "short",
-                "day": "numeric",
-                "weekday": "long",
-                "pattern": "{year}년 {month} {day}일 ({weekday})"
-            },
-            {
-                "year": "numeric",
-                "month": "long",
-                "day": "numeric",
-                "pattern": "{year}년 {month} {day}일"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{year}. {month}. {day}."
-            },
-            {
-                "year": "numeric",
-                "month": "short",
-                "day": "numeric",
-                "pattern": "{year}년 {month} {day}일"
-            },
-            {
-                "year": "numeric",
-                "month": "numeric",
-                "pattern": "{year}. {month}."
-            },
-            {
-                "year": "numeric",
-                "month": "long",
-                "pattern": "{year}년 {month}"
-            },
-            {
-                "year": "numeric",
-                "month": "short",
-                "pattern": "{year}년 {month}"
-            },
-            {
-                "month": "long",
-                "day": "numeric",
-                "pattern": "{month} {day}일"
-            },
-            {
-                "month": "short",
-                "day": "numeric",
-                "pattern": "{month} {day}일"
-            },
-            {
-                "month": "numeric",
-                "day": "numeric",
-                "pattern": "{month}. {day}."
-            },
-            {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": "{hour}:{minute}:{second}",
-                "pattern12": "{ampm} {hour}:{minute}:{second}"
-            },
-            {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "pattern": "{hour}:{minute}",
-                "pattern12": "{ampm} {hour}:{minute}"
+        "formats": {
+            "medium": "{1} {0}",
+            "availableFormats": {
+                "E": "ccc",
+                "EEEEd": "d일 EEEE",
+                "EHm": "(E) HH:mm",
+                "EHms": "(E) HH:mm:ss",
+                "Ed": "d일 (E)",
+                "Ehm": "(E) a h:mm",
+                "Ehms": "(E) a h:mm:ss",
+                "Gy": "G y년",
+                "GyMMM": "G y년 MMM",
+                "GyMMMEEEEd": "G y년 MMM d일 EEEE",
+                "GyMMMEd": "G y년 MMM d일 (E)",
+                "GyMMMd": "G y년 MMM d일",
+                "H": "H시",
+                "HHmmss": "HH:mm:ss",
+                "Hm": "HH:mm",
+                "Hms": "H시 m분 s초",
+                "M": "M월",
+                "MEEEEd": "M. d. EEEE",
+                "MEd": "M. d. (E)",
+                "MMM": "LLL",
+                "MMMEEEEd": "MMM d일 EEEE",
+                "MMMEd": "MMM d일 (E)",
+                "MMMd": "MMM d일",
+                "Md": "M. d.",
+                "d": "d일",
+                "h": "a h시",
+                "hm": "a h:mm",
+                "hms": "a h:mm:ss",
+                "mmss": "mm:ss",
+                "ms": "mm:ss",
+                "y": "y년",
+                "yM": "y. M.",
+                "yMEEEEd": "y. M. d. EEEE",
+                "yMEd": "y. M. d. (E)",
+                "yMM": "y. M.",
+                "yMMM": "y년 MMM",
+                "yMMMEEEEd": "y년 MMM d일 EEEE",
+                "yMMMEd": "y년 MMM d일 (E)",
+                "yMMMd": "y년 MMM d일",
+                "yMd": "y. M. d.",
+                "yQQQ": "y년 QQQ",
+                "yQQQQ": "y년 QQQQ"
             }
-        ],
+        },
         "calendars": {
             "buddhist": {
                 "months": {

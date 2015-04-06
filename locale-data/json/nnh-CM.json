@@ -20,105 +20,44 @@
         ],
         "hourNo0": true,
         "hour12": false,
-        "formats": [
-            {
-                "weekday": "long",
-                "day": "numeric",
-                "month": "long",
-                "year": "numeric",
-                "hour": "numeric",
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": "{weekday} , lyɛ̌ʼ {day} na {month}, {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday} , lyɛ̌ʼ {day} na {month}, {year} {hour}:{minute}:{second} {ampm}"
-            },
-            {
-                "weekday": "long",
-                "day": "numeric",
-                "month": "short",
-                "year": "numeric",
-                "hour": "numeric",
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": "{weekday} , lyɛ̌ʼ {day} na {month}, {year} {hour}:{minute}:{second}",
-                "pattern12": "{weekday} , lyɛ̌ʼ {day} na {month}, {year} {hour}:{minute}:{second} {ampm}"
-            },
-            {
-                "weekday": "long",
-                "day": "numeric",
-                "month": "long",
-                "year": "numeric",
-                "pattern": "{weekday} , lyɛ̌ʼ {day} na {month}, {year}"
-            },
-            {
-                "weekday": "long",
-                "day": "numeric",
-                "month": "short",
-                "year": "numeric",
-                "pattern": "{weekday} , lyɛ̌ʼ {day} na {month}, {year}"
-            },
-            {
-                "day": "numeric",
-                "month": "long",
-                "year": "numeric",
-                "pattern": "lyɛ̌ʼ {day} na {month}, {year}"
-            },
-            {
-                "day": "numeric",
-                "month": "numeric",
-                "year": "numeric",
-                "pattern": "{day}/{month}/{year}"
-            },
-            {
-                "day": "numeric",
-                "month": "short",
-                "year": "numeric",
-                "pattern": "lyɛ̌ʼ {day} na {month}, {year}"
-            },
-            {
-                "year": "numeric",
-                "month": "2-digit",
-                "pattern": "{year}-{month}"
-            },
-            {
-                "month": "long",
-                "year": "numeric",
-                "pattern": "{month} {year}"
-            },
-            {
-                "month": "short",
-                "year": "numeric",
-                "pattern": "{month} {year}"
-            },
-            {
-                "month": "long",
-                "day": "numeric",
-                "pattern": "{month} {day}"
-            },
-            {
-                "month": "short",
-                "day": "numeric",
-                "pattern": "{month} {day}"
-            },
-            {
-                "month": "2-digit",
-                "day": "2-digit",
-                "pattern": "{month}-{day}"
-            },
-            {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "second": "2-digit",
-                "pattern": "{hour}:{minute}:{second}",
-                "pattern12": "{hour}:{minute}:{second} {ampm}"
-            },
-            {
-                "hour": "numeric",
-                "minute": "2-digit",
-                "pattern": "{hour}:{minute}",
-                "pattern12": "{hour}:{minute} {ampm}"
+        "formats": {
+            "medium": "{1} {0}",
+            "availableFormats": {
+                "E": "ccc",
+                "EHm": "E HH:mm",
+                "EHms": "E HH:mm:ss",
+                "Ed": "d, E",
+                "Ehm": "E h:mm a",
+                "Ehms": "E h:mm:ss a",
+                "Gy": "G y",
+                "GyMMM": "G y MMM",
+                "GyMMMEd": "G y MMM d, E",
+                "GyMMMd": "G y MMM d",
+                "H": "HH",
+                "Hm": "HH:mm",
+                "Hms": "HH:mm:ss",
+                "M": "L",
+                "MEd": "MM-dd, E",
+                "MMM": "LLL",
+                "MMMEd": "MMM d, E",
+                "MMMd": "MMM d",
+                "Md": "MM-dd",
+                "d": "d",
+                "h": "h a",
+                "hm": "h:mm a",
+                "hms": "h:mm:ss a",
+                "ms": "mm:ss",
+                "y": "y",
+                "yM": "y-MM",
+                "yMEd": "E , 'lyɛ'̌ʼ d 'na' M, y",
+                "yMMM": "MMM y",
+                "yMMMEd": "E , 'lyɛ'̌ʼ d 'na' MMM, y",
+                "yMMMd": "'lyɛ'̌ʼ d 'na' MMMM, y",
+                "yMd": "d/M/y",
+                "yQQQ": "y QQQ",
+                "yQQQQ": "y QQQQ"
             }
-        ],
+        },
         "calendars": {
             "buddhist": {
                 "months": {
