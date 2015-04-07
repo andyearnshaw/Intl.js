@@ -10,7 +10,7 @@ var DEST_DIR    = SRC_262 + '/pages';
 var INCLUDE_DIR = SRC_262 + '/harness';
 
 var WRAPPER_START = [
-        '//<html><head><meta http-equiv="X-UA-Compatible" content="IE=EDGE"><meta charset=utf-8></head><body><button onclick="runner()">Run</button> results: <span id="results">not yet run</span><script src="../../../../dist/Intl.complete.js"></script><script>',
+        '//<html><head><meta http-equiv="X-UA-Compatible" content="IE=EDGE"><meta charset=utf-8></head><body><button onclick="runner()">Run</button> results: <span id="results">not yet run</span><script src="../../../dist/Intl.complete.js"></script><script>',
         // stuff defined in harness/*.js yet not pulled in via $INCLUDE()
         'var __globalObject = Function("return this;")();',
         'function fnGlobalObject() {',
