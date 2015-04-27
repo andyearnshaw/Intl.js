@@ -1,0 +1,45 @@
+//<html><head><meta http-equiv="X-UA-Compatible" content="IE=EDGE"><meta charset=utf-8></head><body><button onclick="runner()">Run</button> results: <span id="results">not yet run</span><script src="../../../dist/Intl.complete.js"></script><script>
+var __globalObject = Function("return this;")();
+function fnGlobalObject() {
+    return __globalObject;
+}
+IntlPolyfill.__applyLocaleSensitivePrototypes();
+function runTheTest() {
+Object.getPrototypeOf = Object.getPrototypeOf || function (obj) { return obj.constructor.prototype; };
+Object.isExtensible = Object.isExtensible || function () { return true; };
+
+// Copyright 2012 Mozilla Corporation. All rights reserved.
+// This code is governed by the BSD license found in the LICENSE file.
+
+/*---
+es5id: 11.1.3
+description: >
+    Tests that objects constructed by IntlPolyfill.NumberFormat have the
+    specified internal properties.
+author: Norbert Lindenberg
+---*/
+
+var obj = new IntlPolyfill.NumberFormat();
+
+var actualPrototype = Object.getPrototypeOf(obj);
+if (actualPrototype !== IntlPolyfill.NumberFormat.prototype) {
+    throw new Error("Prototype of object constructed by IntlPolyfill.NumberFormat isn't IntlPolyfill.NumberFormat.prototype; got " + actualPrototype);
+}
+
+if (!Object.isExtensible(obj)) {
+    throw new Error("Object constructed by IntlPolyfill.NumberFormat must be extensible.");
+}
+
+}
+function runner() {
+    var passed = false;
+    if (typeof document !== "undefined") {
+        setTimeout(function () {
+            document.getElementById("results").innerHTML = (passed ? "passed" : "FAILED");
+        });
+    }
+    runTheTest();
+    passed = true;
+    return passed;
+}
+//</script></body></html>

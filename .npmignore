@@ -1,5 +1,6 @@
 # Pre-processed locale data output from Ldml2JsonConverter
 cldr/
+data/
 
 # test262 compiled python files
 *.pyc
