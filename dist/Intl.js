@@ -266,8 +266,13 @@
     var $$core$$Intl = {},
 
         $$core$$realDefineProp = (function () {
-            try { return !!Object.defineProperty({}, 'a', {}); }
-            catch (e) { return false; }
+            var sentinel = {};
+            try {
+                Object.defineProperty(sentinel, 'a', {});
+                return 'a' in sentinel;
+            } catch (e) {
+                return false;
+            }
         })(),
 
         // Need a workaround for getters in ES3
