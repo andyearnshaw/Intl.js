@@ -109,6 +109,7 @@ export function createDateTimeFormat(format) {
     });
 
     if (formatObj.pattern.indexOf('{ampm}') > -1) {
+        formatObj.hour12 = true;
         formatObj.pattern12 = formatObj.pattern;
         formatObj.pattern = formatObj.pattern.replace('{ampm}', '').trim();
     }
