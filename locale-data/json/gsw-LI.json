@@ -66,6 +66,18 @@
                 "yMd": "y-MM-dd",
                 "yQQQ": "QQQ y",
                 "yQQQQ": "QQQQ y"
+            },
+            "dateFormats": {
+                "full": "EEEE, d. MMMM y",
+                "long": "d. MMMM y",
+                "medium": "dd.MM.y",
+                "short": "dd.MM.yy"
+            },
+            "timeFormats": {
+                "full": "HH:mm:ss zzzz",
+                "long": "HH:mm:ss z",
+                "medium": "HH:mm:ss",
+                "short": "HH:mm"
             }
         },
         "calendars": {
@@ -116,13 +128,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su.",
-                        "Mä.",
-                        "Zi.",
-                        "Mi.",
-                        "Du.",
-                        "Fr.",
-                        "Sa."
+                        "S",
+                        "M",
+                        "D",
+                        "M",
+                        "D",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Su.",
@@ -206,13 +218,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su.",
-                        "Mä.",
-                        "Zi.",
-                        "Mi.",
-                        "Du.",
-                        "Fr.",
-                        "Sa."
+                        "S",
+                        "M",
+                        "D",
+                        "M",
+                        "D",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Su.",
@@ -288,13 +300,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su.",
-                        "Mä.",
-                        "Zi.",
-                        "Mi.",
-                        "Du.",
-                        "Fr.",
-                        "Sa."
+                        "S",
+                        "M",
+                        "D",
+                        "M",
+                        "D",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Su.",
@@ -381,13 +393,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su.",
-                        "Mä.",
-                        "Zi.",
-                        "Mi.",
-                        "Du.",
-                        "Fr.",
-                        "Sa."
+                        "S",
+                        "M",
+                        "D",
+                        "M",
+                        "D",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Su.",
@@ -463,13 +475,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su.",
-                        "Mä.",
-                        "Zi.",
-                        "Mi.",
-                        "Du.",
-                        "Fr.",
-                        "Sa."
+                        "S",
+                        "M",
+                        "D",
+                        "M",
+                        "D",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Su.",
@@ -559,13 +571,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su.",
-                        "Mä.",
-                        "Zi.",
-                        "Mi.",
-                        "Du.",
-                        "Fr.",
-                        "Sa."
+                        "S",
+                        "M",
+                        "D",
+                        "M",
+                        "D",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Su.",
@@ -649,13 +661,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su.",
-                        "Mä.",
-                        "Zi.",
-                        "Mi.",
-                        "Du.",
-                        "Fr.",
-                        "Sa."
+                        "S",
+                        "M",
+                        "D",
+                        "M",
+                        "D",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Su.",
@@ -742,13 +754,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su.",
-                        "Mä.",
-                        "Zi.",
-                        "Mi.",
-                        "Du.",
-                        "Fr.",
-                        "Sa."
+                        "S",
+                        "M",
+                        "D",
+                        "M",
+                        "D",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Su.",
@@ -847,13 +859,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su.",
-                        "Mä.",
-                        "Zi.",
-                        "Mi.",
-                        "Du.",
-                        "Fr.",
-                        "Sa."
+                        "S",
+                        "M",
+                        "D",
+                        "M",
+                        "D",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Su.",
@@ -937,13 +949,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su.",
-                        "Mä.",
-                        "Zi.",
-                        "Mi.",
-                        "Du.",
-                        "Fr.",
-                        "Sa."
+                        "S",
+                        "M",
+                        "D",
+                        "M",
+                        "D",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Su.",
@@ -1027,13 +1039,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su.",
-                        "Mä.",
-                        "Zi.",
-                        "Mi.",
-                        "Du.",
-                        "Fr.",
-                        "Sa."
+                        "S",
+                        "M",
+                        "D",
+                        "M",
+                        "D",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Su.",
@@ -1117,13 +1129,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su.",
-                        "Mä.",
-                        "Zi.",
-                        "Mi.",
-                        "Du.",
-                        "Fr.",
-                        "Sa."
+                        "S",
+                        "M",
+                        "D",
+                        "M",
+                        "D",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Su.",
@@ -1207,13 +1219,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su.",
-                        "Mä.",
-                        "Zi.",
-                        "Mi.",
-                        "Du.",
-                        "Fr.",
-                        "Sa."
+                        "S",
+                        "M",
+                        "D",
+                        "M",
+                        "D",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Su.",
@@ -2002,13 +2014,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su.",
-                        "Mä.",
-                        "Zi.",
-                        "Mi.",
-                        "Du.",
-                        "Fr.",
-                        "Sa."
+                        "S",
+                        "M",
+                        "D",
+                        "M",
+                        "D",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Su.",
@@ -2092,13 +2104,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su.",
-                        "Mä.",
-                        "Zi.",
-                        "Mi.",
-                        "Du.",
-                        "Fr.",
-                        "Sa."
+                        "S",
+                        "M",
+                        "D",
+                        "M",
+                        "D",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Su.",

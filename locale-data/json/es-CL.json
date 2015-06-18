@@ -62,6 +62,18 @@
                 "yMd": "dd-MM-y",
                 "yQQQ": "QQQ 'de' y",
                 "yQQQQ": "QQQQ 'de' y"
+            },
+            "dateFormats": {
+                "full": "EEEE, d 'de' MMMM 'de' y",
+                "long": "d 'de' MMMM 'de' y",
+                "medium": "dd-MM-y",
+                "short": "dd-MM-yy"
+            },
+            "timeFormats": {
+                "full": "h:mm:ss a zzzz",
+                "long": "h:mm:ss a z",
+                "medium": "h:mm:ss a",
+                "short": "h:mm a"
             }
         },
         "calendars": {
@@ -112,13 +124,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dom.",
-                        "lun.",
-                        "mar.",
-                        "mié.",
-                        "jue.",
-                        "vie.",
-                        "sáb."
+                        "d",
+                        "l",
+                        "m",
+                        "m",
+                        "j",
+                        "v",
+                        "s"
                     ],
                     "short": [
                         "dom.",
@@ -202,13 +214,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dom.",
-                        "lun.",
-                        "mar.",
-                        "mié.",
-                        "jue.",
-                        "vie.",
-                        "sáb."
+                        "d",
+                        "l",
+                        "m",
+                        "m",
+                        "j",
+                        "v",
+                        "s"
                     ],
                     "short": [
                         "dom.",
@@ -284,13 +296,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dom.",
-                        "lun.",
-                        "mar.",
-                        "mié.",
-                        "jue.",
-                        "vie.",
-                        "sáb."
+                        "d",
+                        "l",
+                        "m",
+                        "m",
+                        "j",
+                        "v",
+                        "s"
                     ],
                     "short": [
                         "dom.",
@@ -377,13 +389,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dom.",
-                        "lun.",
-                        "mar.",
-                        "mié.",
-                        "jue.",
-                        "vie.",
-                        "sáb."
+                        "d",
+                        "l",
+                        "m",
+                        "m",
+                        "j",
+                        "v",
+                        "s"
                     ],
                     "short": [
                         "dom.",
@@ -459,13 +471,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dom.",
-                        "lun.",
-                        "mar.",
-                        "mié.",
-                        "jue.",
-                        "vie.",
-                        "sáb."
+                        "d",
+                        "l",
+                        "m",
+                        "m",
+                        "j",
+                        "v",
+                        "s"
                     ],
                     "short": [
                         "dom.",
@@ -555,13 +567,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dom.",
-                        "lun.",
-                        "mar.",
-                        "mié.",
-                        "jue.",
-                        "vie.",
-                        "sáb."
+                        "d",
+                        "l",
+                        "m",
+                        "m",
+                        "j",
+                        "v",
+                        "s"
                     ],
                     "short": [
                         "dom.",
@@ -645,13 +657,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dom.",
-                        "lun.",
-                        "mar.",
-                        "mié.",
-                        "jue.",
-                        "vie.",
-                        "sáb."
+                        "d",
+                        "l",
+                        "m",
+                        "m",
+                        "j",
+                        "v",
+                        "s"
                     ],
                     "short": [
                         "dom.",
@@ -738,13 +750,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dom.",
-                        "lun.",
-                        "mar.",
-                        "mié.",
-                        "jue.",
-                        "vie.",
-                        "sáb."
+                        "d",
+                        "l",
+                        "m",
+                        "m",
+                        "j",
+                        "v",
+                        "s"
                     ],
                     "short": [
                         "dom.",
@@ -843,13 +855,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dom.",
-                        "lun.",
-                        "mar.",
-                        "mié.",
-                        "jue.",
-                        "vie.",
-                        "sáb."
+                        "d",
+                        "l",
+                        "m",
+                        "m",
+                        "j",
+                        "v",
+                        "s"
                     ],
                     "short": [
                         "dom.",
@@ -933,13 +945,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dom.",
-                        "lun.",
-                        "mar.",
-                        "mié.",
-                        "jue.",
-                        "vie.",
-                        "sáb."
+                        "d",
+                        "l",
+                        "m",
+                        "m",
+                        "j",
+                        "v",
+                        "s"
                     ],
                     "short": [
                         "dom.",
@@ -1023,13 +1035,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dom.",
-                        "lun.",
-                        "mar.",
-                        "mié.",
-                        "jue.",
-                        "vie.",
-                        "sáb."
+                        "d",
+                        "l",
+                        "m",
+                        "m",
+                        "j",
+                        "v",
+                        "s"
                     ],
                     "short": [
                         "dom.",
@@ -1113,13 +1125,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dom.",
-                        "lun.",
-                        "mar.",
-                        "mié.",
-                        "jue.",
-                        "vie.",
-                        "sáb."
+                        "d",
+                        "l",
+                        "m",
+                        "m",
+                        "j",
+                        "v",
+                        "s"
                     ],
                     "short": [
                         "dom.",
@@ -1203,13 +1215,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dom.",
-                        "lun.",
-                        "mar.",
-                        "mié.",
-                        "jue.",
-                        "vie.",
-                        "sáb."
+                        "d",
+                        "l",
+                        "m",
+                        "m",
+                        "j",
+                        "v",
+                        "s"
                     ],
                     "short": [
                         "dom.",
@@ -1998,13 +2010,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dom.",
-                        "lun.",
-                        "mar.",
-                        "mié.",
-                        "jue.",
-                        "vie.",
-                        "sáb."
+                        "d",
+                        "l",
+                        "m",
+                        "m",
+                        "j",
+                        "v",
+                        "s"
                     ],
                     "short": [
                         "dom.",
@@ -2088,13 +2100,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dom.",
-                        "lun.",
-                        "mar.",
-                        "mié.",
-                        "jue.",
-                        "vie.",
-                        "sáb."
+                        "d",
+                        "l",
+                        "m",
+                        "m",
+                        "j",
+                        "v",
+                        "s"
                     ],
                     "short": [
                         "dom.",

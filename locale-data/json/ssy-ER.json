@@ -56,6 +56,18 @@
                 "yMd": "y-MM-dd",
                 "yQQQ": "y QQQ",
                 "yQQQQ": "y QQQQ"
+            },
+            "dateFormats": {
+                "full": "EEEE, MMMM dd, y",
+                "long": "dd MMMM y",
+                "medium": "dd-MMM-y",
+                "short": "dd/MM/yy"
+            },
+            "timeFormats": {
+                "full": "h:mm:ss a zzzz",
+                "long": "h:mm:ss a z",
+                "medium": "h:mm:ss a",
+                "short": "h:mm a"
             }
         },
         "calendars": {
@@ -106,13 +118,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Nab",
-                        "San",
-                        "Sal",
-                        "Rab",
-                        "Cam",
-                        "Jum",
-                        "Qun"
+                        "N",
+                        "S",
+                        "S",
+                        "R",
+                        "C",
+                        "J",
+                        "Q"
                     ],
                     "short": [
                         "Nab",
@@ -196,13 +208,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Nab",
-                        "San",
-                        "Sal",
-                        "Rab",
-                        "Cam",
-                        "Jum",
-                        "Qun"
+                        "N",
+                        "S",
+                        "S",
+                        "R",
+                        "C",
+                        "J",
+                        "Q"
                     ],
                     "short": [
                         "Nab",
@@ -278,13 +290,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Nab",
-                        "San",
-                        "Sal",
-                        "Rab",
-                        "Cam",
-                        "Jum",
-                        "Qun"
+                        "N",
+                        "S",
+                        "S",
+                        "R",
+                        "C",
+                        "J",
+                        "Q"
                     ],
                     "short": [
                         "Nab",
@@ -371,13 +383,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Nab",
-                        "San",
-                        "Sal",
-                        "Rab",
-                        "Cam",
-                        "Jum",
-                        "Qun"
+                        "N",
+                        "S",
+                        "S",
+                        "R",
+                        "C",
+                        "J",
+                        "Q"
                     ],
                     "short": [
                         "Nab",
@@ -453,13 +465,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Nab",
-                        "San",
-                        "Sal",
-                        "Rab",
-                        "Cam",
-                        "Jum",
-                        "Qun"
+                        "N",
+                        "S",
+                        "S",
+                        "R",
+                        "C",
+                        "J",
+                        "Q"
                     ],
                     "short": [
                         "Nab",
@@ -549,13 +561,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Nab",
-                        "San",
-                        "Sal",
-                        "Rab",
-                        "Cam",
-                        "Jum",
-                        "Qun"
+                        "N",
+                        "S",
+                        "S",
+                        "R",
+                        "C",
+                        "J",
+                        "Q"
                     ],
                     "short": [
                         "Nab",
@@ -639,13 +651,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Nab",
-                        "San",
-                        "Sal",
-                        "Rab",
-                        "Cam",
-                        "Jum",
-                        "Qun"
+                        "N",
+                        "S",
+                        "S",
+                        "R",
+                        "C",
+                        "J",
+                        "Q"
                     ],
                     "short": [
                         "Nab",
@@ -732,13 +744,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Nab",
-                        "San",
-                        "Sal",
-                        "Rab",
-                        "Cam",
-                        "Jum",
-                        "Qun"
+                        "N",
+                        "S",
+                        "S",
+                        "R",
+                        "C",
+                        "J",
+                        "Q"
                     ],
                     "short": [
                         "Nab",
@@ -837,13 +849,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Nab",
-                        "San",
-                        "Sal",
-                        "Rab",
-                        "Cam",
-                        "Jum",
-                        "Qun"
+                        "N",
+                        "S",
+                        "S",
+                        "R",
+                        "C",
+                        "J",
+                        "Q"
                     ],
                     "short": [
                         "Nab",
@@ -927,13 +939,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Nab",
-                        "San",
-                        "Sal",
-                        "Rab",
-                        "Cam",
-                        "Jum",
-                        "Qun"
+                        "N",
+                        "S",
+                        "S",
+                        "R",
+                        "C",
+                        "J",
+                        "Q"
                     ],
                     "short": [
                         "Nab",
@@ -1017,13 +1029,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Nab",
-                        "San",
-                        "Sal",
-                        "Rab",
-                        "Cam",
-                        "Jum",
-                        "Qun"
+                        "N",
+                        "S",
+                        "S",
+                        "R",
+                        "C",
+                        "J",
+                        "Q"
                     ],
                     "short": [
                         "Nab",
@@ -1107,13 +1119,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Nab",
-                        "San",
-                        "Sal",
-                        "Rab",
-                        "Cam",
-                        "Jum",
-                        "Qun"
+                        "N",
+                        "S",
+                        "S",
+                        "R",
+                        "C",
+                        "J",
+                        "Q"
                     ],
                     "short": [
                         "Nab",
@@ -1197,13 +1209,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Nab",
-                        "San",
-                        "Sal",
-                        "Rab",
-                        "Cam",
-                        "Jum",
-                        "Qun"
+                        "N",
+                        "S",
+                        "S",
+                        "R",
+                        "C",
+                        "J",
+                        "Q"
                     ],
                     "short": [
                         "Nab",
@@ -1992,13 +2004,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Nab",
-                        "San",
-                        "Sal",
-                        "Rab",
-                        "Cam",
-                        "Jum",
-                        "Qun"
+                        "N",
+                        "S",
+                        "S",
+                        "R",
+                        "C",
+                        "J",
+                        "Q"
                     ],
                     "short": [
                         "Nab",
@@ -2082,13 +2094,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Nab",
-                        "San",
-                        "Sal",
-                        "Rab",
-                        "Cam",
-                        "Jum",
-                        "Qun"
+                        "N",
+                        "S",
+                        "S",
+                        "R",
+                        "C",
+                        "J",
+                        "Q"
                     ],
                     "short": [
                         "Nab",

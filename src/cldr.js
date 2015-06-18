@@ -137,61 +137,90 @@ export function createDateTimeFormat(format) {
  * them into the pattern objects used in the ECMA-402 API.
  */
 export function createDateTimeFormats(formats) {
-
-    var avail = formats.availableFormats;
+    var availableFormats = formats.availableFormats;
+    var timeFormats = formats.timeFormats;
+    var dateFormats = formats.dateFormats;
     var order = formats.medium;
     var result = [];
-    var M, E, frmt, dFrmt, computed, i, j;
-    var timeFrmts = [];
-    var dateFrmts = [];
+    var key, format, computed, i, j;
+    var timeRelatedFormats = [];
+    var dateRelatedFormats = [];
 
-    // Map the formats into a pattern for createDateTimeFormats
-    for (frmt in avail) {
-        if (avail.hasOwnProperty(frmt)) {
-            dFrmt = avail[frmt];
+    function expandFormat(key, pattern) {
+        // Expand component lengths if necessary, as allowed in the LDML spec
+        // Get the lengths of 'M' and 'E' substrings in the date pattern
+        // as arrays that can be joined to create a new substring
+        var M = new Array((key.match(/M/g)||[]).length + 1);
+        var E = new Array((key.match(/E/g)||[]).length + 1);
 
-            // Expand component lengths if necessary, as allowed in the LDML spec
-            // Get the lengths of 'M' and 'E' substrings in the date pattern
-            // as arrays that can be joined to create a new substring
-            M = new Array((frmt.match(/M/g)||[]).length + 1);
-            E = new Array((frmt.match(/E/g)||[]).length + 1);
+        // note from caridy: I'm not sure we really need this, seems to be
+        //                   useless since it relies on the keys from CLDR
+        //                   instead of the actual format pattern, but I'm not sure.
+        if (M.length > 2)
+            pattern = pattern.replace(/(M|L)+/, M.join('$1'));
 
-            if (M.length > 2)
-                dFrmt = dFrmt.replace(/(M|L)+/, M.join('$1'));
+        if (E.length > 2)
+            pattern = pattern.replace(/([Eec])+/, E.join('$1'));
 
-            if (E.length > 2)
-                dFrmt = dFrmt.replace(/([Eec])+/, E.join('$1'));
+        return pattern;
+    }
 
-            computed = createDateTimeFormat(dFrmt);
-
+    // Map available (custom) formats into a pattern for createDateTimeFormats
+    for (key in availableFormats) {
+        if (availableFormats.hasOwnProperty(key)) {
+            format = expandFormat(key, availableFormats[key]);
+            computed = createDateTimeFormat(format);
             if (computed) {
                 result.push(computed);
                 // in some cases, the format is only displaying date specific props
                 // or time specific props, in which case we need to also produce the
                 // combined formats.
                 if (isDateFormatOnly(computed)) {
-                    dateFrmts.push(dFrmt);
+                    dateRelatedFormats.push(format);
                 } else if (isTimeFormatOnly(computed)) {
-                    timeFrmts.push(dFrmt);
+                    timeRelatedFormats.push(format);
                 }
             }
         }
     }
 
-    // combine time and date formats when they are orthogonals to complete the
-    // formats supported by browsers by relying on the value of "formats.medium"
-    for (i = 0; i < timeFrmts.length; i += 1) {
-        for (j = 0; j < dateFrmts.length; j += 1) {
-            computed = createDateTimeFormat(
-                order
-                    .replace('{0}', timeFrmts[i])
-                    .replace('{1}', dateFrmts[j])
-                    .replace(/^[,\s]+|[,\s]+$/gi, '')
-            );
+    // combine custom time and custom date formats when they are orthogonals to complete the
+    // formats supported by browsers by relying on the value of "formats.medium" which defines
+    // how to join custom formats into a single pattern.
+    for (i = 0; i < timeRelatedFormats.length; i += 1) {
+        for (j = 0; j < dateRelatedFormats.length; j += 1) {
+            format = order
+                .replace('{0}', timeRelatedFormats[i])
+                .replace('{1}', dateRelatedFormats[j])
+                .replace(/^[,\s]+|[,\s]+$/gi, '');
+            computed = createDateTimeFormat(format);
             if (computed) {
                 result.push(computed);
             }
         }
     }
+
+    // Map time formats into a pattern for createDateTimeFormats
+    for (key in timeFormats) {
+        if (timeFormats.hasOwnProperty(key)) {
+            format = expandFormat(key, timeFormats[key]);
+            computed = createDateTimeFormat(format);
+            if (computed) {
+                result.push(computed);
+            }
+        }
+    }
+
+    // Map date formats into a pattern for createDateTimeFormats
+    for (key in dateFormats) {
+        if (dateFormats.hasOwnProperty(key)) {
+            format = expandFormat(key, dateFormats[key]);
+            computed = createDateTimeFormat(format);
+            if (computed) {
+                result.push(computed);
+            }
+        }
+    }
+
     return result;
 }

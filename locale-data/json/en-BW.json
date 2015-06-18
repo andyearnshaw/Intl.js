@@ -58,6 +58,18 @@
                 "yMd": "dd/MM/y",
                 "yQQQ": "QQQ y",
                 "yQQQQ": "QQQQ y"
+            },
+            "dateFormats": {
+                "full": "EEEE dd MMMM y",
+                "long": "dd MMMM y",
+                "medium": "dd MMM y",
+                "short": "dd/MM/yy"
+            },
+            "timeFormats": {
+                "full": "h:mm:ss a zzzz",
+                "long": "h:mm:ss a z",
+                "medium": "h:mm:ss a",
+                "short": "h:mm a"
             }
         },
         "calendars": {
@@ -108,13 +120,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
-                        "Mo",
-                        "Tu",
-                        "We",
-                        "Th",
-                        "Fr",
-                        "Sa"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Sun",
@@ -198,13 +210,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
-                        "Mo",
-                        "Tu",
-                        "We",
-                        "Th",
-                        "Fr",
-                        "Sa"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Sun",
@@ -280,13 +292,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
-                        "Mo",
-                        "Tu",
-                        "We",
-                        "Th",
-                        "Fr",
-                        "Sa"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Sun",
@@ -373,13 +385,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
-                        "Mo",
-                        "Tu",
-                        "We",
-                        "Th",
-                        "Fr",
-                        "Sa"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Sun",
@@ -455,13 +467,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
-                        "Mo",
-                        "Tu",
-                        "We",
-                        "Th",
-                        "Fr",
-                        "Sa"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Sun",
@@ -551,13 +563,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
-                        "Mo",
-                        "Tu",
-                        "We",
-                        "Th",
-                        "Fr",
-                        "Sa"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Sun",
@@ -641,13 +653,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
-                        "Mo",
-                        "Tu",
-                        "We",
-                        "Th",
-                        "Fr",
-                        "Sa"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Sun",
@@ -734,13 +746,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
-                        "Mo",
-                        "Tu",
-                        "We",
-                        "Th",
-                        "Fr",
-                        "Sa"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Sun",
@@ -839,13 +851,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
-                        "Mo",
-                        "Tu",
-                        "We",
-                        "Th",
-                        "Fr",
-                        "Sa"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Sun",
@@ -929,13 +941,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
-                        "Mo",
-                        "Tu",
-                        "We",
-                        "Th",
-                        "Fr",
-                        "Sa"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Sun",
@@ -1019,13 +1031,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
-                        "Mo",
-                        "Tu",
-                        "We",
-                        "Th",
-                        "Fr",
-                        "Sa"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Sun",
@@ -1109,13 +1121,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
-                        "Mo",
-                        "Tu",
-                        "We",
-                        "Th",
-                        "Fr",
-                        "Sa"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Sun",
@@ -1199,13 +1211,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
-                        "Mo",
-                        "Tu",
-                        "We",
-                        "Th",
-                        "Fr",
-                        "Sa"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Sun",
@@ -1994,13 +2006,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
-                        "Mo",
-                        "Tu",
-                        "We",
-                        "Th",
-                        "Fr",
-                        "Sa"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Sun",
@@ -2084,13 +2096,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
-                        "Mo",
-                        "Tu",
-                        "We",
-                        "Th",
-                        "Fr",
-                        "Sa"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "Sun",

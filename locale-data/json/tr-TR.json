@@ -61,6 +61,18 @@
                 "yMd": "dd.MM.y",
                 "yQQQ": "y/QQQ",
                 "yQQQQ": "y/QQQQ"
+            },
+            "dateFormats": {
+                "full": "d MMMM y EEEE",
+                "long": "d MMMM y",
+                "medium": "d MMM y",
+                "short": "d.MM.y"
+            },
+            "timeFormats": {
+                "full": "HH:mm:ss zzzz",
+                "long": "HH:mm:ss z",
+                "medium": "HH:mm:ss",
+                "short": "HH:mm"
             }
         },
         "calendars": {
@@ -111,13 +123,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Pa",
-                        "Pt",
-                        "Sa",
-                        "Ça",
-                        "Pe",
-                        "Cu",
-                        "Ct"
+                        "P",
+                        "P",
+                        "S",
+                        "Ç",
+                        "P",
+                        "C",
+                        "C"
                     ],
                     "short": [
                         "Paz",
@@ -201,13 +213,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Pa",
-                        "Pt",
-                        "Sa",
-                        "Ça",
-                        "Pe",
-                        "Cu",
-                        "Ct"
+                        "P",
+                        "P",
+                        "S",
+                        "Ç",
+                        "P",
+                        "C",
+                        "C"
                     ],
                     "short": [
                         "Paz",
@@ -283,13 +295,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Pa",
-                        "Pt",
-                        "Sa",
-                        "Ça",
-                        "Pe",
-                        "Cu",
-                        "Ct"
+                        "P",
+                        "P",
+                        "S",
+                        "Ç",
+                        "P",
+                        "C",
+                        "C"
                     ],
                     "short": [
                         "Paz",
@@ -376,13 +388,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Pa",
-                        "Pt",
-                        "Sa",
-                        "Ça",
-                        "Pe",
-                        "Cu",
-                        "Ct"
+                        "P",
+                        "P",
+                        "S",
+                        "Ç",
+                        "P",
+                        "C",
+                        "C"
                     ],
                     "short": [
                         "Paz",
@@ -458,13 +470,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Pa",
-                        "Pt",
-                        "Sa",
-                        "Ça",
-                        "Pe",
-                        "Cu",
-                        "Ct"
+                        "P",
+                        "P",
+                        "S",
+                        "Ç",
+                        "P",
+                        "C",
+                        "C"
                     ],
                     "short": [
                         "Paz",
@@ -554,13 +566,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Pa",
-                        "Pt",
-                        "Sa",
-                        "Ça",
-                        "Pe",
-                        "Cu",
-                        "Ct"
+                        "P",
+                        "P",
+                        "S",
+                        "Ç",
+                        "P",
+                        "C",
+                        "C"
                     ],
                     "short": [
                         "Paz",
@@ -644,13 +656,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Pa",
-                        "Pt",
-                        "Sa",
-                        "Ça",
-                        "Pe",
-                        "Cu",
-                        "Ct"
+                        "P",
+                        "P",
+                        "S",
+                        "Ç",
+                        "P",
+                        "C",
+                        "C"
                     ],
                     "short": [
                         "Paz",
@@ -737,13 +749,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Pa",
-                        "Pt",
-                        "Sa",
-                        "Ça",
-                        "Pe",
-                        "Cu",
-                        "Ct"
+                        "P",
+                        "P",
+                        "S",
+                        "Ç",
+                        "P",
+                        "C",
+                        "C"
                     ],
                     "short": [
                         "Paz",
@@ -842,13 +854,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Pa",
-                        "Pt",
-                        "Sa",
-                        "Ça",
-                        "Pe",
-                        "Cu",
-                        "Ct"
+                        "P",
+                        "P",
+                        "S",
+                        "Ç",
+                        "P",
+                        "C",
+                        "C"
                     ],
                     "short": [
                         "Paz",
@@ -932,13 +944,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Pa",
-                        "Pt",
-                        "Sa",
-                        "Ça",
-                        "Pe",
-                        "Cu",
-                        "Ct"
+                        "P",
+                        "P",
+                        "S",
+                        "Ç",
+                        "P",
+                        "C",
+                        "C"
                     ],
                     "short": [
                         "Paz",
@@ -1022,13 +1034,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Pa",
-                        "Pt",
-                        "Sa",
-                        "Ça",
-                        "Pe",
-                        "Cu",
-                        "Ct"
+                        "P",
+                        "P",
+                        "S",
+                        "Ç",
+                        "P",
+                        "C",
+                        "C"
                     ],
                     "short": [
                         "Paz",
@@ -1112,13 +1124,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Pa",
-                        "Pt",
-                        "Sa",
-                        "Ça",
-                        "Pe",
-                        "Cu",
-                        "Ct"
+                        "P",
+                        "P",
+                        "S",
+                        "Ç",
+                        "P",
+                        "C",
+                        "C"
                     ],
                     "short": [
                         "Paz",
@@ -1202,13 +1214,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Pa",
-                        "Pt",
-                        "Sa",
-                        "Ça",
-                        "Pe",
-                        "Cu",
-                        "Ct"
+                        "P",
+                        "P",
+                        "S",
+                        "Ç",
+                        "P",
+                        "C",
+                        "C"
                     ],
                     "short": [
                         "Paz",
@@ -1997,13 +2009,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Pa",
-                        "Pt",
-                        "Sa",
-                        "Ça",
-                        "Pe",
-                        "Cu",
-                        "Ct"
+                        "P",
+                        "P",
+                        "S",
+                        "Ç",
+                        "P",
+                        "C",
+                        "C"
                     ],
                     "short": [
                         "Paz",
@@ -2087,13 +2099,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Pa",
-                        "Pt",
-                        "Sa",
-                        "Ça",
-                        "Pe",
-                        "Cu",
-                        "Ct"
+                        "P",
+                        "P",
+                        "S",
+                        "Ç",
+                        "P",
+                        "C",
+                        "C"
                     ],
                     "short": [
                         "Paz",

@@ -56,6 +56,18 @@
                 "yMd": "y-MM-dd",
                 "yQQQ": "y QQQ",
                 "yQQQQ": "y QQQQ"
+            },
+            "dateFormats": {
+                "full": "y MMMM d, EEEE",
+                "long": "y MMMM d",
+                "medium": "y MMM d",
+                "short": "y-MM-dd"
+            },
+            "timeFormats": {
+                "full": "HH:mm:ss zzzz",
+                "long": "HH:mm:ss z",
+                "medium": "HH:mm:ss",
+                "short": "HH:mm"
             }
         },
         "calendars": {
@@ -106,13 +118,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sotn",
-                        "vuos",
-                        "maŋ",
-                        "gask",
-                        "duor",
-                        "bear",
-                        "láv"
+                        "S",
+                        "M",
+                        "D",
+                        "G",
+                        "D",
+                        "B",
+                        "L"
                     ],
                     "short": [
                         "sotn",
@@ -196,13 +208,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sotn",
-                        "vuos",
-                        "maŋ",
-                        "gask",
-                        "duor",
-                        "bear",
-                        "láv"
+                        "S",
+                        "M",
+                        "D",
+                        "G",
+                        "D",
+                        "B",
+                        "L"
                     ],
                     "short": [
                         "sotn",
@@ -278,13 +290,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sotn",
-                        "vuos",
-                        "maŋ",
-                        "gask",
-                        "duor",
-                        "bear",
-                        "láv"
+                        "S",
+                        "M",
+                        "D",
+                        "G",
+                        "D",
+                        "B",
+                        "L"
                     ],
                     "short": [
                         "sotn",
@@ -371,13 +383,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sotn",
-                        "vuos",
-                        "maŋ",
-                        "gask",
-                        "duor",
-                        "bear",
-                        "láv"
+                        "S",
+                        "M",
+                        "D",
+                        "G",
+                        "D",
+                        "B",
+                        "L"
                     ],
                     "short": [
                         "sotn",
@@ -453,13 +465,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sotn",
-                        "vuos",
-                        "maŋ",
-                        "gask",
-                        "duor",
-                        "bear",
-                        "láv"
+                        "S",
+                        "M",
+                        "D",
+                        "G",
+                        "D",
+                        "B",
+                        "L"
                     ],
                     "short": [
                         "sotn",
@@ -549,13 +561,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sotn",
-                        "vuos",
-                        "maŋ",
-                        "gask",
-                        "duor",
-                        "bear",
-                        "láv"
+                        "S",
+                        "M",
+                        "D",
+                        "G",
+                        "D",
+                        "B",
+                        "L"
                     ],
                     "short": [
                         "sotn",
@@ -639,13 +651,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sotn",
-                        "vuos",
-                        "maŋ",
-                        "gask",
-                        "duor",
-                        "bear",
-                        "láv"
+                        "S",
+                        "M",
+                        "D",
+                        "G",
+                        "D",
+                        "B",
+                        "L"
                     ],
                     "short": [
                         "sotn",
@@ -732,13 +744,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sotn",
-                        "vuos",
-                        "maŋ",
-                        "gask",
-                        "duor",
-                        "bear",
-                        "láv"
+                        "S",
+                        "M",
+                        "D",
+                        "G",
+                        "D",
+                        "B",
+                        "L"
                     ],
                     "short": [
                         "sotn",
@@ -837,13 +849,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sotn",
-                        "vuos",
-                        "maŋ",
-                        "gask",
-                        "duor",
-                        "bear",
-                        "láv"
+                        "S",
+                        "M",
+                        "D",
+                        "G",
+                        "D",
+                        "B",
+                        "L"
                     ],
                     "short": [
                         "sotn",
@@ -927,13 +939,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sotn",
-                        "vuos",
-                        "maŋ",
-                        "gask",
-                        "duor",
-                        "bear",
-                        "láv"
+                        "S",
+                        "M",
+                        "D",
+                        "G",
+                        "D",
+                        "B",
+                        "L"
                     ],
                     "short": [
                         "sotn",
@@ -1017,13 +1029,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sotn",
-                        "vuos",
-                        "maŋ",
-                        "gask",
-                        "duor",
-                        "bear",
-                        "láv"
+                        "S",
+                        "M",
+                        "D",
+                        "G",
+                        "D",
+                        "B",
+                        "L"
                     ],
                     "short": [
                         "sotn",
@@ -1107,13 +1119,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sotn",
-                        "vuos",
-                        "maŋ",
-                        "gask",
-                        "duor",
-                        "bear",
-                        "láv"
+                        "S",
+                        "M",
+                        "D",
+                        "G",
+                        "D",
+                        "B",
+                        "L"
                     ],
                     "short": [
                         "sotn",
@@ -1197,13 +1209,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sotn",
-                        "vuos",
-                        "maŋ",
-                        "gask",
-                        "duor",
-                        "bear",
-                        "láv"
+                        "S",
+                        "M",
+                        "D",
+                        "G",
+                        "D",
+                        "B",
+                        "L"
                     ],
                     "short": [
                         "sotn",
@@ -1992,13 +2004,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sotn",
-                        "vuos",
-                        "maŋ",
-                        "gask",
-                        "duor",
-                        "bear",
-                        "láv"
+                        "S",
+                        "M",
+                        "D",
+                        "G",
+                        "D",
+                        "B",
+                        "L"
                     ],
                     "short": [
                         "sotn",
@@ -2082,13 +2094,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sotn",
-                        "vuos",
-                        "maŋ",
-                        "gask",
-                        "duor",
-                        "bear",
-                        "láv"
+                        "S",
+                        "M",
+                        "D",
+                        "G",
+                        "D",
+                        "B",
+                        "L"
                     ],
                     "short": [
                         "sotn",

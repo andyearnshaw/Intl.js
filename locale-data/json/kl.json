@@ -56,6 +56,18 @@
                 "yMd": "y-MM-dd",
                 "yQQQ": "y QQQQ",
                 "yQQQQ": "y QQQQ"
+            },
+            "dateFormats": {
+                "full": "EEEE dd MMMM y",
+                "long": "dd MMMM y",
+                "medium": "MMM dd, y",
+                "short": "y-MM-dd"
+            },
+            "timeFormats": {
+                "full": "h:mm:ss a zzzz",
+                "long": "h:mm:ss a z",
+                "medium": "h:mm:ss a",
+                "short": "h:mm a"
             }
         },
         "calendars": {
@@ -106,13 +118,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sab",
-                        "ata",
-                        "mar",
-                        "pin",
-                        "sis",
-                        "tal",
-                        "arf"
+                        "S",
+                        "A",
+                        "M",
+                        "P",
+                        "S",
+                        "T",
+                        "A"
                     ],
                     "short": [
                         "sab",
@@ -196,13 +208,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sab",
-                        "ata",
-                        "mar",
-                        "pin",
-                        "sis",
-                        "tal",
-                        "arf"
+                        "S",
+                        "A",
+                        "M",
+                        "P",
+                        "S",
+                        "T",
+                        "A"
                     ],
                     "short": [
                         "sab",
@@ -278,13 +290,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sab",
-                        "ata",
-                        "mar",
-                        "pin",
-                        "sis",
-                        "tal",
-                        "arf"
+                        "S",
+                        "A",
+                        "M",
+                        "P",
+                        "S",
+                        "T",
+                        "A"
                     ],
                     "short": [
                         "sab",
@@ -371,13 +383,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sab",
-                        "ata",
-                        "mar",
-                        "pin",
-                        "sis",
-                        "tal",
-                        "arf"
+                        "S",
+                        "A",
+                        "M",
+                        "P",
+                        "S",
+                        "T",
+                        "A"
                     ],
                     "short": [
                         "sab",
@@ -453,13 +465,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sab",
-                        "ata",
-                        "mar",
-                        "pin",
-                        "sis",
-                        "tal",
-                        "arf"
+                        "S",
+                        "A",
+                        "M",
+                        "P",
+                        "S",
+                        "T",
+                        "A"
                     ],
                     "short": [
                         "sab",
@@ -549,13 +561,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sab",
-                        "ata",
-                        "mar",
-                        "pin",
-                        "sis",
-                        "tal",
-                        "arf"
+                        "S",
+                        "A",
+                        "M",
+                        "P",
+                        "S",
+                        "T",
+                        "A"
                     ],
                     "short": [
                         "sab",
@@ -639,13 +651,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sab",
-                        "ata",
-                        "mar",
-                        "pin",
-                        "sis",
-                        "tal",
-                        "arf"
+                        "S",
+                        "A",
+                        "M",
+                        "P",
+                        "S",
+                        "T",
+                        "A"
                     ],
                     "short": [
                         "sab",
@@ -732,13 +744,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sab",
-                        "ata",
-                        "mar",
-                        "pin",
-                        "sis",
-                        "tal",
-                        "arf"
+                        "S",
+                        "A",
+                        "M",
+                        "P",
+                        "S",
+                        "T",
+                        "A"
                     ],
                     "short": [
                         "sab",
@@ -837,13 +849,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sab",
-                        "ata",
-                        "mar",
-                        "pin",
-                        "sis",
-                        "tal",
-                        "arf"
+                        "S",
+                        "A",
+                        "M",
+                        "P",
+                        "S",
+                        "T",
+                        "A"
                     ],
                     "short": [
                         "sab",
@@ -927,13 +939,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sab",
-                        "ata",
-                        "mar",
-                        "pin",
-                        "sis",
-                        "tal",
-                        "arf"
+                        "S",
+                        "A",
+                        "M",
+                        "P",
+                        "S",
+                        "T",
+                        "A"
                     ],
                     "short": [
                         "sab",
@@ -1017,13 +1029,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sab",
-                        "ata",
-                        "mar",
-                        "pin",
-                        "sis",
-                        "tal",
-                        "arf"
+                        "S",
+                        "A",
+                        "M",
+                        "P",
+                        "S",
+                        "T",
+                        "A"
                     ],
                     "short": [
                         "sab",
@@ -1107,13 +1119,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sab",
-                        "ata",
-                        "mar",
-                        "pin",
-                        "sis",
-                        "tal",
-                        "arf"
+                        "S",
+                        "A",
+                        "M",
+                        "P",
+                        "S",
+                        "T",
+                        "A"
                     ],
                     "short": [
                         "sab",
@@ -1197,13 +1209,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sab",
-                        "ata",
-                        "mar",
-                        "pin",
-                        "sis",
-                        "tal",
-                        "arf"
+                        "S",
+                        "A",
+                        "M",
+                        "P",
+                        "S",
+                        "T",
+                        "A"
                     ],
                     "short": [
                         "sab",
@@ -1992,13 +2004,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sab",
-                        "ata",
-                        "mar",
-                        "pin",
-                        "sis",
-                        "tal",
-                        "arf"
+                        "S",
+                        "A",
+                        "M",
+                        "P",
+                        "S",
+                        "T",
+                        "A"
                     ],
                     "short": [
                         "sab",
@@ -2082,13 +2094,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sab",
-                        "ata",
-                        "mar",
-                        "pin",
-                        "sis",
-                        "tal",
-                        "arf"
+                        "S",
+                        "A",
+                        "M",
+                        "P",
+                        "S",
+                        "T",
+                        "A"
                     ],
                     "short": [
                         "sab",

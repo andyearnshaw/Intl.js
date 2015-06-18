@@ -60,6 +60,18 @@
                 "yMd": "d.MM.y",
                 "yQQQ": "QQQ y",
                 "yQQQQ": "QQQQ y"
+            },
+            "dateFormats": {
+                "full": "EEEE, d MMMM y",
+                "long": "d MMMM y",
+                "medium": "d MMM y",
+                "short": "dd.MM.y"
+            },
+            "timeFormats": {
+                "full": "HH:mm:ss zzzz",
+                "long": "HH:mm:ss z",
+                "medium": "HH:mm:ss",
+                "short": "HH:mm"
             }
         },
         "calendars": {
@@ -110,13 +122,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "niedz.",
-                        "pon.",
-                        "wt.",
-                        "śr.",
-                        "czw.",
-                        "pt.",
-                        "sob."
+                        "N",
+                        "P",
+                        "W",
+                        "Ś",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "niedz.",
@@ -200,13 +212,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "niedz.",
-                        "pon.",
-                        "wt.",
-                        "śr.",
-                        "czw.",
-                        "pt.",
-                        "sob."
+                        "N",
+                        "P",
+                        "W",
+                        "Ś",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "niedz.",
@@ -282,13 +294,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "niedz.",
-                        "pon.",
-                        "wt.",
-                        "śr.",
-                        "czw.",
-                        "pt.",
-                        "sob."
+                        "N",
+                        "P",
+                        "W",
+                        "Ś",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "niedz.",
@@ -375,13 +387,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "niedz.",
-                        "pon.",
-                        "wt.",
-                        "śr.",
-                        "czw.",
-                        "pt.",
-                        "sob."
+                        "N",
+                        "P",
+                        "W",
+                        "Ś",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "niedz.",
@@ -457,13 +469,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "niedz.",
-                        "pon.",
-                        "wt.",
-                        "śr.",
-                        "czw.",
-                        "pt.",
-                        "sob."
+                        "N",
+                        "P",
+                        "W",
+                        "Ś",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "niedz.",
@@ -553,13 +565,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "niedz.",
-                        "pon.",
-                        "wt.",
-                        "śr.",
-                        "czw.",
-                        "pt.",
-                        "sob."
+                        "N",
+                        "P",
+                        "W",
+                        "Ś",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "niedz.",
@@ -643,13 +655,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "niedz.",
-                        "pon.",
-                        "wt.",
-                        "śr.",
-                        "czw.",
-                        "pt.",
-                        "sob."
+                        "N",
+                        "P",
+                        "W",
+                        "Ś",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "niedz.",
@@ -736,13 +748,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "niedz.",
-                        "pon.",
-                        "wt.",
-                        "śr.",
-                        "czw.",
-                        "pt.",
-                        "sob."
+                        "N",
+                        "P",
+                        "W",
+                        "Ś",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "niedz.",
@@ -841,13 +853,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "niedz.",
-                        "pon.",
-                        "wt.",
-                        "śr.",
-                        "czw.",
-                        "pt.",
-                        "sob."
+                        "N",
+                        "P",
+                        "W",
+                        "Ś",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "niedz.",
@@ -931,13 +943,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "niedz.",
-                        "pon.",
-                        "wt.",
-                        "śr.",
-                        "czw.",
-                        "pt.",
-                        "sob."
+                        "N",
+                        "P",
+                        "W",
+                        "Ś",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "niedz.",
@@ -1021,13 +1033,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "niedz.",
-                        "pon.",
-                        "wt.",
-                        "śr.",
-                        "czw.",
-                        "pt.",
-                        "sob."
+                        "N",
+                        "P",
+                        "W",
+                        "Ś",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "niedz.",
@@ -1111,13 +1123,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "niedz.",
-                        "pon.",
-                        "wt.",
-                        "śr.",
-                        "czw.",
-                        "pt.",
-                        "sob."
+                        "N",
+                        "P",
+                        "W",
+                        "Ś",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "niedz.",
@@ -1201,13 +1213,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "niedz.",
-                        "pon.",
-                        "wt.",
-                        "śr.",
-                        "czw.",
-                        "pt.",
-                        "sob."
+                        "N",
+                        "P",
+                        "W",
+                        "Ś",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "niedz.",
@@ -1996,13 +2008,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "niedz.",
-                        "pon.",
-                        "wt.",
-                        "śr.",
-                        "czw.",
-                        "pt.",
-                        "sob."
+                        "N",
+                        "P",
+                        "W",
+                        "Ś",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "niedz.",
@@ -2086,13 +2098,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "niedz.",
-                        "pon.",
-                        "wt.",
-                        "śr.",
-                        "czw.",
-                        "pt.",
-                        "sob."
+                        "N",
+                        "P",
+                        "W",
+                        "Ś",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "niedz.",

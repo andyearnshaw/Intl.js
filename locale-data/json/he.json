@@ -58,6 +58,18 @@
                 "yMd": "d.M.y",
                 "yQQQ": "QQQ y",
                 "yQQQQ": "QQQQ y"
+            },
+            "dateFormats": {
+                "full": "EEEE, d בMMMM y",
+                "long": "d בMMMM y",
+                "medium": "d בMMM y",
+                "short": "d.M.y"
+            },
+            "timeFormats": {
+                "full": "HH:mm:ss zzzz",
+                "long": "HH:mm:ss z",
+                "medium": "HH:mm:ss",
+                "short": "HH:mm"
             }
         },
         "calendars": {

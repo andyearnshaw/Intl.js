@@ -56,6 +56,18 @@
                 "yMd": "d/M/y",
                 "yQQQ": "y QQQ",
                 "yQQQQ": "y QQQQ"
+            },
+            "dateFormats": {
+                "full": "EEEE , 'lyɛ'̌ʼ d 'na' MMMM, y",
+                "long": "'lyɛ'̌ʼ d 'na' MMMM, y",
+                "medium": "d MMM, y",
+                "short": "dd/MM/yy"
+            },
+            "timeFormats": {
+                "full": "HH:mm:ss zzzz",
+                "long": "HH:mm:ss z",
+                "medium": "HH:mm:ss",
+                "short": "HH:mm"
             }
         },
         "calendars": {
@@ -106,13 +118,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "lyɛʼɛ́ sẅíŋtè",
-                        "mvfò lyɛ̌ʼ",
-                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
-                        "tsètsɛ̀ɛ lyɛ̌ʼ",
-                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
-                        "mvfò màga lyɛ̌ʼ",
-                        "màga lyɛ̌ʼ"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "lyɛʼɛ́ sẅíŋtè",
@@ -196,13 +208,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "lyɛʼɛ́ sẅíŋtè",
-                        "mvfò lyɛ̌ʼ",
-                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
-                        "tsètsɛ̀ɛ lyɛ̌ʼ",
-                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
-                        "mvfò màga lyɛ̌ʼ",
-                        "màga lyɛ̌ʼ"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "lyɛʼɛ́ sẅíŋtè",
@@ -278,13 +290,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "lyɛʼɛ́ sẅíŋtè",
-                        "mvfò lyɛ̌ʼ",
-                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
-                        "tsètsɛ̀ɛ lyɛ̌ʼ",
-                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
-                        "mvfò màga lyɛ̌ʼ",
-                        "màga lyɛ̌ʼ"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "lyɛʼɛ́ sẅíŋtè",
@@ -371,13 +383,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "lyɛʼɛ́ sẅíŋtè",
-                        "mvfò lyɛ̌ʼ",
-                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
-                        "tsètsɛ̀ɛ lyɛ̌ʼ",
-                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
-                        "mvfò màga lyɛ̌ʼ",
-                        "màga lyɛ̌ʼ"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "lyɛʼɛ́ sẅíŋtè",
@@ -453,13 +465,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "lyɛʼɛ́ sẅíŋtè",
-                        "mvfò lyɛ̌ʼ",
-                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
-                        "tsètsɛ̀ɛ lyɛ̌ʼ",
-                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
-                        "mvfò màga lyɛ̌ʼ",
-                        "màga lyɛ̌ʼ"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "lyɛʼɛ́ sẅíŋtè",
@@ -549,13 +561,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "lyɛʼɛ́ sẅíŋtè",
-                        "mvfò lyɛ̌ʼ",
-                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
-                        "tsètsɛ̀ɛ lyɛ̌ʼ",
-                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
-                        "mvfò màga lyɛ̌ʼ",
-                        "màga lyɛ̌ʼ"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "lyɛʼɛ́ sẅíŋtè",
@@ -639,13 +651,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "lyɛʼɛ́ sẅíŋtè",
-                        "mvfò lyɛ̌ʼ",
-                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
-                        "tsètsɛ̀ɛ lyɛ̌ʼ",
-                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
-                        "mvfò màga lyɛ̌ʼ",
-                        "màga lyɛ̌ʼ"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "lyɛʼɛ́ sẅíŋtè",
@@ -732,13 +744,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "lyɛʼɛ́ sẅíŋtè",
-                        "mvfò lyɛ̌ʼ",
-                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
-                        "tsètsɛ̀ɛ lyɛ̌ʼ",
-                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
-                        "mvfò màga lyɛ̌ʼ",
-                        "màga lyɛ̌ʼ"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "lyɛʼɛ́ sẅíŋtè",
@@ -837,13 +849,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "lyɛʼɛ́ sẅíŋtè",
-                        "mvfò lyɛ̌ʼ",
-                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
-                        "tsètsɛ̀ɛ lyɛ̌ʼ",
-                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
-                        "mvfò màga lyɛ̌ʼ",
-                        "màga lyɛ̌ʼ"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "lyɛʼɛ́ sẅíŋtè",
@@ -927,13 +939,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "lyɛʼɛ́ sẅíŋtè",
-                        "mvfò lyɛ̌ʼ",
-                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
-                        "tsètsɛ̀ɛ lyɛ̌ʼ",
-                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
-                        "mvfò màga lyɛ̌ʼ",
-                        "màga lyɛ̌ʼ"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "lyɛʼɛ́ sẅíŋtè",
@@ -1017,13 +1029,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "lyɛʼɛ́ sẅíŋtè",
-                        "mvfò lyɛ̌ʼ",
-                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
-                        "tsètsɛ̀ɛ lyɛ̌ʼ",
-                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
-                        "mvfò màga lyɛ̌ʼ",
-                        "màga lyɛ̌ʼ"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "lyɛʼɛ́ sẅíŋtè",
@@ -1107,13 +1119,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "lyɛʼɛ́ sẅíŋtè",
-                        "mvfò lyɛ̌ʼ",
-                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
-                        "tsètsɛ̀ɛ lyɛ̌ʼ",
-                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
-                        "mvfò màga lyɛ̌ʼ",
-                        "màga lyɛ̌ʼ"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "lyɛʼɛ́ sẅíŋtè",
@@ -1197,13 +1209,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "lyɛʼɛ́ sẅíŋtè",
-                        "mvfò lyɛ̌ʼ",
-                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
-                        "tsètsɛ̀ɛ lyɛ̌ʼ",
-                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
-                        "mvfò màga lyɛ̌ʼ",
-                        "màga lyɛ̌ʼ"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "lyɛʼɛ́ sẅíŋtè",
@@ -1992,13 +2004,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "lyɛʼɛ́ sẅíŋtè",
-                        "mvfò lyɛ̌ʼ",
-                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
-                        "tsètsɛ̀ɛ lyɛ̌ʼ",
-                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
-                        "mvfò màga lyɛ̌ʼ",
-                        "màga lyɛ̌ʼ"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "lyɛʼɛ́ sẅíŋtè",
@@ -2082,13 +2094,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "lyɛʼɛ́ sẅíŋtè",
-                        "mvfò lyɛ̌ʼ",
-                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
-                        "tsètsɛ̀ɛ lyɛ̌ʼ",
-                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
-                        "mvfò màga lyɛ̌ʼ",
-                        "màga lyɛ̌ʼ"
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "lyɛʼɛ́ sẅíŋtè",

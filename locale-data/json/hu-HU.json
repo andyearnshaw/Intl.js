@@ -59,6 +59,18 @@
                 "yMd": "y. MM. dd.",
                 "yQQQ": "y. QQQ",
                 "yQQQQ": "y. QQQQ"
+            },
+            "dateFormats": {
+                "full": "y. MMMM d., EEEE",
+                "long": "y. MMMM d.",
+                "medium": "y. MMM d.",
+                "short": "y. MM. dd."
+            },
+            "timeFormats": {
+                "full": "H:mm:ss zzzz",
+                "long": "H:mm:ss z",
+                "medium": "H:mm:ss",
+                "short": "H:mm"
             }
         },
         "calendars": {
@@ -112,10 +124,10 @@
                         "V",
                         "H",
                         "K",
-                        "Sze",
+                        "Sz",
                         "Cs",
                         "P",
-                        "Szo"
+                        "Sz"
                     ],
                     "short": [
                         "V",
@@ -202,10 +214,10 @@
                         "V",
                         "H",
                         "K",
-                        "Sze",
+                        "Sz",
                         "Cs",
                         "P",
-                        "Szo"
+                        "Sz"
                     ],
                     "short": [
                         "V",
@@ -284,10 +296,10 @@
                         "V",
                         "H",
                         "K",
-                        "Sze",
+                        "Sz",
                         "Cs",
                         "P",
-                        "Szo"
+                        "Sz"
                     ],
                     "short": [
                         "V",
@@ -377,10 +389,10 @@
                         "V",
                         "H",
                         "K",
-                        "Sze",
+                        "Sz",
                         "Cs",
                         "P",
-                        "Szo"
+                        "Sz"
                     ],
                     "short": [
                         "V",
@@ -459,10 +471,10 @@
                         "V",
                         "H",
                         "K",
-                        "Sze",
+                        "Sz",
                         "Cs",
                         "P",
-                        "Szo"
+                        "Sz"
                     ],
                     "short": [
                         "V",
@@ -555,10 +567,10 @@
                         "V",
                         "H",
                         "K",
-                        "Sze",
+                        "Sz",
                         "Cs",
                         "P",
-                        "Szo"
+                        "Sz"
                     ],
                     "short": [
                         "V",
@@ -645,10 +657,10 @@
                         "V",
                         "H",
                         "K",
-                        "Sze",
+                        "Sz",
                         "Cs",
                         "P",
-                        "Szo"
+                        "Sz"
                     ],
                     "short": [
                         "V",
@@ -738,10 +750,10 @@
                         "V",
                         "H",
                         "K",
-                        "Sze",
+                        "Sz",
                         "Cs",
                         "P",
-                        "Szo"
+                        "Sz"
                     ],
                     "short": [
                         "V",
@@ -843,10 +855,10 @@
                         "V",
                         "H",
                         "K",
-                        "Sze",
+                        "Sz",
                         "Cs",
                         "P",
-                        "Szo"
+                        "Sz"
                     ],
                     "short": [
                         "V",
@@ -933,10 +945,10 @@
                         "V",
                         "H",
                         "K",
-                        "Sze",
+                        "Sz",
                         "Cs",
                         "P",
-                        "Szo"
+                        "Sz"
                     ],
                     "short": [
                         "V",
@@ -1023,10 +1035,10 @@
                         "V",
                         "H",
                         "K",
-                        "Sze",
+                        "Sz",
                         "Cs",
                         "P",
-                        "Szo"
+                        "Sz"
                     ],
                     "short": [
                         "V",
@@ -1113,10 +1125,10 @@
                         "V",
                         "H",
                         "K",
-                        "Sze",
+                        "Sz",
                         "Cs",
                         "P",
-                        "Szo"
+                        "Sz"
                     ],
                     "short": [
                         "V",
@@ -1203,10 +1215,10 @@
                         "V",
                         "H",
                         "K",
-                        "Sze",
+                        "Sz",
                         "Cs",
                         "P",
-                        "Szo"
+                        "Sz"
                     ],
                     "short": [
                         "V",
@@ -1998,10 +2010,10 @@
                         "V",
                         "H",
                         "K",
-                        "Sze",
+                        "Sz",
                         "Cs",
                         "P",
-                        "Szo"
+                        "Sz"
                     ],
                     "short": [
                         "V",
@@ -2088,10 +2100,10 @@
                         "V",
                         "H",
                         "K",
-                        "Sze",
+                        "Sz",
                         "Cs",
                         "P",
-                        "Szo"
+                        "Sz"
                     ],
                     "short": [
                         "V",

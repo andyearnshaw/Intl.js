@@ -56,6 +56,18 @@
                 "yMd": "d.M.y",
                 "yQQQ": "QQQ y",
                 "yQQQQ": "QQQQ y"
+            },
+            "dateFormats": {
+                "full": "EEEE, d. MMMM y",
+                "long": "d. MMMM y",
+                "medium": "d.M.y",
+                "short": "d.M.yy"
+            },
+            "timeFormats": {
+                "full": "H:mm:ss zzzz",
+                "long": "H:mm:ss z",
+                "medium": "H:mm:ss",
+                "short": "H:mm"
             }
         },
         "calendars": {
@@ -106,13 +118,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "nj",
-                        "pó",
-                        "wa",
-                        "sr",
-                        "st",
-                        "pě",
-                        "so"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "nje",
@@ -196,13 +208,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "nj",
-                        "pó",
-                        "wa",
-                        "sr",
-                        "st",
-                        "pě",
-                        "so"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "nje",
@@ -278,13 +290,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "nj",
-                        "pó",
-                        "wa",
-                        "sr",
-                        "st",
-                        "pě",
-                        "so"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "nje",
@@ -371,13 +383,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "nj",
-                        "pó",
-                        "wa",
-                        "sr",
-                        "st",
-                        "pě",
-                        "so"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "nje",
@@ -453,13 +465,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "nj",
-                        "pó",
-                        "wa",
-                        "sr",
-                        "st",
-                        "pě",
-                        "so"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "nje",
@@ -549,13 +561,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "nj",
-                        "pó",
-                        "wa",
-                        "sr",
-                        "st",
-                        "pě",
-                        "so"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "nje",
@@ -639,13 +651,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "nj",
-                        "pó",
-                        "wa",
-                        "sr",
-                        "st",
-                        "pě",
-                        "so"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "nje",
@@ -732,13 +744,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "nj",
-                        "pó",
-                        "wa",
-                        "sr",
-                        "st",
-                        "pě",
-                        "so"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "nje",
@@ -837,13 +849,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "nj",
-                        "pó",
-                        "wa",
-                        "sr",
-                        "st",
-                        "pě",
-                        "so"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "nje",
@@ -927,13 +939,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "nj",
-                        "pó",
-                        "wa",
-                        "sr",
-                        "st",
-                        "pě",
-                        "so"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "nje",
@@ -1017,13 +1029,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "nj",
-                        "pó",
-                        "wa",
-                        "sr",
-                        "st",
-                        "pě",
-                        "so"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "nje",
@@ -1107,13 +1119,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "nj",
-                        "pó",
-                        "wa",
-                        "sr",
-                        "st",
-                        "pě",
-                        "so"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "nje",
@@ -1197,13 +1209,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "nj",
-                        "pó",
-                        "wa",
-                        "sr",
-                        "st",
-                        "pě",
-                        "so"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "nje",
@@ -1992,13 +2004,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "nj",
-                        "pó",
-                        "wa",
-                        "sr",
-                        "st",
-                        "pě",
-                        "so"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "nje",
@@ -2082,13 +2094,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "nj",
-                        "pó",
-                        "wa",
-                        "sr",
-                        "st",
-                        "pě",
-                        "so"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "nje",

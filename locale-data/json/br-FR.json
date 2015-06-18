@@ -56,6 +56,18 @@
                 "yMd": "dd/MM/y",
                 "yQQQ": "QQQ y",
                 "yQQQQ": "QQQQ y"
+            },
+            "dateFormats": {
+                "full": "y MMMM d, EEEE",
+                "long": "y MMMM d",
+                "medium": "y MMM d",
+                "short": "y-MM-dd"
+            },
+            "timeFormats": {
+                "full": "HH:mm:ss zzzz",
+                "long": "HH:mm:ss z",
+                "medium": "HH:mm:ss",
+                "short": "HH:mm"
             }
         },
         "calendars": {
@@ -106,13 +118,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sul",
-                        "Lun",
-                        "Meu.",
-                        "Mer.",
-                        "Yaou",
-                        "Gwe.",
-                        "Sad."
+                        "Su",
+                        "L",
+                        "Mz",
+                        "Mc",
+                        "Y",
+                        "G",
+                        "Sa"
                     ],
                     "short": [
                         "Sul",
@@ -196,13 +208,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sul",
-                        "Lun",
-                        "Meu.",
-                        "Mer.",
-                        "Yaou",
-                        "Gwe.",
-                        "Sad."
+                        "Su",
+                        "L",
+                        "Mz",
+                        "Mc",
+                        "Y",
+                        "G",
+                        "Sa"
                     ],
                     "short": [
                         "Sul",
@@ -278,13 +290,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sul",
-                        "Lun",
-                        "Meu.",
-                        "Mer.",
-                        "Yaou",
-                        "Gwe.",
-                        "Sad."
+                        "Su",
+                        "L",
+                        "Mz",
+                        "Mc",
+                        "Y",
+                        "G",
+                        "Sa"
                     ],
                     "short": [
                         "Sul",
@@ -371,13 +383,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sul",
-                        "Lun",
-                        "Meu.",
-                        "Mer.",
-                        "Yaou",
-                        "Gwe.",
-                        "Sad."
+                        "Su",
+                        "L",
+                        "Mz",
+                        "Mc",
+                        "Y",
+                        "G",
+                        "Sa"
                     ],
                     "short": [
                         "Sul",
@@ -453,13 +465,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sul",
-                        "Lun",
-                        "Meu.",
-                        "Mer.",
-                        "Yaou",
-                        "Gwe.",
-                        "Sad."
+                        "Su",
+                        "L",
+                        "Mz",
+                        "Mc",
+                        "Y",
+                        "G",
+                        "Sa"
                     ],
                     "short": [
                         "Sul",
@@ -549,13 +561,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sul",
-                        "Lun",
-                        "Meu.",
-                        "Mer.",
-                        "Yaou",
-                        "Gwe.",
-                        "Sad."
+                        "Su",
+                        "L",
+                        "Mz",
+                        "Mc",
+                        "Y",
+                        "G",
+                        "Sa"
                     ],
                     "short": [
                         "Sul",
@@ -639,13 +651,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sul",
-                        "Lun",
-                        "Meu.",
-                        "Mer.",
-                        "Yaou",
-                        "Gwe.",
-                        "Sad."
+                        "Su",
+                        "L",
+                        "Mz",
+                        "Mc",
+                        "Y",
+                        "G",
+                        "Sa"
                     ],
                     "short": [
                         "Sul",
@@ -732,13 +744,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sul",
-                        "Lun",
-                        "Meu.",
-                        "Mer.",
-                        "Yaou",
-                        "Gwe.",
-                        "Sad."
+                        "Su",
+                        "L",
+                        "Mz",
+                        "Mc",
+                        "Y",
+                        "G",
+                        "Sa"
                     ],
                     "short": [
                         "Sul",
@@ -837,13 +849,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sul",
-                        "Lun",
-                        "Meu.",
-                        "Mer.",
-                        "Yaou",
-                        "Gwe.",
-                        "Sad."
+                        "Su",
+                        "L",
+                        "Mz",
+                        "Mc",
+                        "Y",
+                        "G",
+                        "Sa"
                     ],
                     "short": [
                         "Sul",
@@ -927,13 +939,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sul",
-                        "Lun",
-                        "Meu.",
-                        "Mer.",
-                        "Yaou",
-                        "Gwe.",
-                        "Sad."
+                        "Su",
+                        "L",
+                        "Mz",
+                        "Mc",
+                        "Y",
+                        "G",
+                        "Sa"
                     ],
                     "short": [
                         "Sul",
@@ -1017,13 +1029,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sul",
-                        "Lun",
-                        "Meu.",
-                        "Mer.",
-                        "Yaou",
-                        "Gwe.",
-                        "Sad."
+                        "Su",
+                        "L",
+                        "Mz",
+                        "Mc",
+                        "Y",
+                        "G",
+                        "Sa"
                     ],
                     "short": [
                         "Sul",
@@ -1107,13 +1119,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sul",
-                        "Lun",
-                        "Meu.",
-                        "Mer.",
-                        "Yaou",
-                        "Gwe.",
-                        "Sad."
+                        "Su",
+                        "L",
+                        "Mz",
+                        "Mc",
+                        "Y",
+                        "G",
+                        "Sa"
                     ],
                     "short": [
                         "Sul",
@@ -1197,13 +1209,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sul",
-                        "Lun",
-                        "Meu.",
-                        "Mer.",
-                        "Yaou",
-                        "Gwe.",
-                        "Sad."
+                        "Su",
+                        "L",
+                        "Mz",
+                        "Mc",
+                        "Y",
+                        "G",
+                        "Sa"
                     ],
                     "short": [
                         "Sul",
@@ -1992,13 +2004,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sul",
-                        "Lun",
-                        "Meu.",
-                        "Mer.",
-                        "Yaou",
-                        "Gwe.",
-                        "Sad."
+                        "Su",
+                        "L",
+                        "Mz",
+                        "Mc",
+                        "Y",
+                        "G",
+                        "Sa"
                     ],
                     "short": [
                         "Sul",
@@ -2082,13 +2094,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sul",
-                        "Lun",
-                        "Meu.",
-                        "Mer.",
-                        "Yaou",
-                        "Gwe.",
-                        "Sad."
+                        "Su",
+                        "L",
+                        "Mz",
+                        "Mc",
+                        "Y",
+                        "G",
+                        "Sa"
                     ],
                     "short": [
                         "Sul",

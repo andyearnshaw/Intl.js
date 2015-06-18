@@ -56,6 +56,18 @@
                 "yMd": "y-MM-dd",
                 "yQQQ": "y QQQ",
                 "yQQQQ": "y QQQQ"
+            },
+            "dateFormats": {
+                "full": "EEEE, y MMMM dd",
+                "long": "y MMMM d",
+                "medium": "y MMM d",
+                "short": "yy/MM/dd"
+            },
+            "timeFormats": {
+                "full": "HH:mm:ss zzzz",
+                "long": "HH:mm:ss z",
+                "medium": "HH:mm:ss",
+                "short": "HH:mm"
             }
         },
         "calendars": {
@@ -106,13 +118,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "cyu.",
-                        "mbe.",
-                        "kab.",
-                        "gtu.",
-                        "kan.",
-                        "gnu.",
-                        "gnd."
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "cyu.",
@@ -196,13 +208,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "cyu.",
-                        "mbe.",
-                        "kab.",
-                        "gtu.",
-                        "kan.",
-                        "gnu.",
-                        "gnd."
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "cyu.",
@@ -278,13 +290,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "cyu.",
-                        "mbe.",
-                        "kab.",
-                        "gtu.",
-                        "kan.",
-                        "gnu.",
-                        "gnd."
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "cyu.",
@@ -371,13 +383,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "cyu.",
-                        "mbe.",
-                        "kab.",
-                        "gtu.",
-                        "kan.",
-                        "gnu.",
-                        "gnd."
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "cyu.",
@@ -453,13 +465,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "cyu.",
-                        "mbe.",
-                        "kab.",
-                        "gtu.",
-                        "kan.",
-                        "gnu.",
-                        "gnd."
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "cyu.",
@@ -549,13 +561,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "cyu.",
-                        "mbe.",
-                        "kab.",
-                        "gtu.",
-                        "kan.",
-                        "gnu.",
-                        "gnd."
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "cyu.",
@@ -639,13 +651,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "cyu.",
-                        "mbe.",
-                        "kab.",
-                        "gtu.",
-                        "kan.",
-                        "gnu.",
-                        "gnd."
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "cyu.",
@@ -732,13 +744,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "cyu.",
-                        "mbe.",
-                        "kab.",
-                        "gtu.",
-                        "kan.",
-                        "gnu.",
-                        "gnd."
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "cyu.",
@@ -837,13 +849,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "cyu.",
-                        "mbe.",
-                        "kab.",
-                        "gtu.",
-                        "kan.",
-                        "gnu.",
-                        "gnd."
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "cyu.",
@@ -927,13 +939,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "cyu.",
-                        "mbe.",
-                        "kab.",
-                        "gtu.",
-                        "kan.",
-                        "gnu.",
-                        "gnd."
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "cyu.",
@@ -1017,13 +1029,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "cyu.",
-                        "mbe.",
-                        "kab.",
-                        "gtu.",
-                        "kan.",
-                        "gnu.",
-                        "gnd."
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "cyu.",
@@ -1107,13 +1119,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "cyu.",
-                        "mbe.",
-                        "kab.",
-                        "gtu.",
-                        "kan.",
-                        "gnu.",
-                        "gnd."
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "cyu.",
@@ -1197,13 +1209,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "cyu.",
-                        "mbe.",
-                        "kab.",
-                        "gtu.",
-                        "kan.",
-                        "gnu.",
-                        "gnd."
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "cyu.",
@@ -1992,13 +2004,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "cyu.",
-                        "mbe.",
-                        "kab.",
-                        "gtu.",
-                        "kan.",
-                        "gnu.",
-                        "gnd."
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "cyu.",
@@ -2082,13 +2094,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "cyu.",
-                        "mbe.",
-                        "kab.",
-                        "gtu.",
-                        "kan.",
-                        "gnu.",
-                        "gnd."
+                        "S",
+                        "M",
+                        "T",
+                        "W",
+                        "T",
+                        "F",
+                        "S"
                     ],
                     "short": [
                         "cyu.",

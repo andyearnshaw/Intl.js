@@ -62,6 +62,18 @@
                 "yMd": "d. M. y",
                 "yQQQ": "QQQ y",
                 "yQQQQ": "QQQQ y"
+            },
+            "dateFormats": {
+                "full": "EEEE, d. MMMM y",
+                "long": "d. MMMM y",
+                "medium": "d. M. y",
+                "short": "dd.MM.yy"
+            },
+            "timeFormats": {
+                "full": "H:mm:ss zzzz",
+                "long": "H:mm:ss z",
+                "medium": "H:mm:ss",
+                "short": "H:mm"
             }
         },
         "calendars": {
@@ -112,13 +124,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Ne",
-                        "Po",
-                        "Ut",
-                        "St",
-                        "Št",
-                        "Pi",
-                        "So"
+                        "N",
+                        "P",
+                        "U",
+                        "S",
+                        "Š",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "ne",
@@ -202,13 +214,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Ne",
-                        "Po",
-                        "Ut",
-                        "St",
-                        "Št",
-                        "Pi",
-                        "So"
+                        "N",
+                        "P",
+                        "U",
+                        "S",
+                        "Š",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "ne",
@@ -284,13 +296,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Ne",
-                        "Po",
-                        "Ut",
-                        "St",
-                        "Št",
-                        "Pi",
-                        "So"
+                        "N",
+                        "P",
+                        "U",
+                        "S",
+                        "Š",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "ne",
@@ -377,13 +389,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Ne",
-                        "Po",
-                        "Ut",
-                        "St",
-                        "Št",
-                        "Pi",
-                        "So"
+                        "N",
+                        "P",
+                        "U",
+                        "S",
+                        "Š",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "ne",
@@ -459,13 +471,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Ne",
-                        "Po",
-                        "Ut",
-                        "St",
-                        "Št",
-                        "Pi",
-                        "So"
+                        "N",
+                        "P",
+                        "U",
+                        "S",
+                        "Š",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "ne",
@@ -555,13 +567,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Ne",
-                        "Po",
-                        "Ut",
-                        "St",
-                        "Št",
-                        "Pi",
-                        "So"
+                        "N",
+                        "P",
+                        "U",
+                        "S",
+                        "Š",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "ne",
@@ -645,13 +657,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Ne",
-                        "Po",
-                        "Ut",
-                        "St",
-                        "Št",
-                        "Pi",
-                        "So"
+                        "N",
+                        "P",
+                        "U",
+                        "S",
+                        "Š",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "ne",
@@ -738,13 +750,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Ne",
-                        "Po",
-                        "Ut",
-                        "St",
-                        "Št",
-                        "Pi",
-                        "So"
+                        "N",
+                        "P",
+                        "U",
+                        "S",
+                        "Š",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "ne",
@@ -843,13 +855,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Ne",
-                        "Po",
-                        "Ut",
-                        "St",
-                        "Št",
-                        "Pi",
-                        "So"
+                        "N",
+                        "P",
+                        "U",
+                        "S",
+                        "Š",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "ne",
@@ -933,13 +945,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Ne",
-                        "Po",
-                        "Ut",
-                        "St",
-                        "Št",
-                        "Pi",
-                        "So"
+                        "N",
+                        "P",
+                        "U",
+                        "S",
+                        "Š",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "ne",
@@ -1023,13 +1035,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Ne",
-                        "Po",
-                        "Ut",
-                        "St",
-                        "Št",
-                        "Pi",
-                        "So"
+                        "N",
+                        "P",
+                        "U",
+                        "S",
+                        "Š",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "ne",
@@ -1113,13 +1125,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Ne",
-                        "Po",
-                        "Ut",
-                        "St",
-                        "Št",
-                        "Pi",
-                        "So"
+                        "N",
+                        "P",
+                        "U",
+                        "S",
+                        "Š",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "ne",
@@ -1203,13 +1215,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Ne",
-                        "Po",
-                        "Ut",
-                        "St",
-                        "Št",
-                        "Pi",
-                        "So"
+                        "N",
+                        "P",
+                        "U",
+                        "S",
+                        "Š",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "ne",
@@ -1998,13 +2010,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Ne",
-                        "Po",
-                        "Ut",
-                        "St",
-                        "Št",
-                        "Pi",
-                        "So"
+                        "N",
+                        "P",
+                        "U",
+                        "S",
+                        "Š",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "ne",
@@ -2088,13 +2100,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Ne",
-                        "Po",
-                        "Ut",
-                        "St",
-                        "Št",
-                        "Pi",
-                        "So"
+                        "N",
+                        "P",
+                        "U",
+                        "S",
+                        "Š",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "ne",
