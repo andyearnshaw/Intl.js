@@ -4,7 +4,6 @@ function fnGlobalObject() {
     return __globalObject;
 }
 IntlPolyfill.__applyLocaleSensitivePrototypes();
-function runTheTest() {
 try { Object.defineProperty({}, "a", {}) } catch (e) { Object.defineProperty = function (obj, name, desc) {
              if (desc.hasOwnProperty('value'))
                 obj[name] = desc.value;
@@ -1223,7 +1222,7 @@ function testArraysAreSame(expected, actual) {
 }
 
 
-// Copyright 2012 Mozilla Corporation. All rights reserved.
+function runTheTest () {// Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -1232,7 +1231,7 @@ description: >
     Tests that the behavior of a Record is not affected by
     adversarial  changes to Object.prototype.
 author: Norbert Lindenberg
-/Users/caridy/repo/IntlPolyfill.js/tests/test262/harness/testIntl.js
+/Volumes/HOME/Users/andyearnshaw/Development/IntlPolyfill.js/tests/test262/harness/testIntl.js
 ---*/
 
 taintProperties(["weekday", "era", "year", "month", "day", "hour", "minute", "second", "timeZone"]);
@@ -1241,8 +1240,7 @@ var locale = new IntlPolyfill.DateTimeFormat(undefined, {localeMatcher: "lookup"
 if (!isCanonicalizedStructurallyValidLanguageTag(locale)) {
     throw new Error("DateTimeFormat returns invalid locale " + locale + ".");
 }
-
-}
+ }
 function runner() {
     var passed = false;
     if (typeof document !== "undefined") {

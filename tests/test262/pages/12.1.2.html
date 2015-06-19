@@ -4,7 +4,6 @@ function fnGlobalObject() {
     return __globalObject;
 }
 IntlPolyfill.__applyLocaleSensitivePrototypes();
-function runTheTest() {
 try { Object.defineProperty({}, "a", {}) } catch (e) { Object.defineProperty = function (obj, name, desc) {
              if (desc.hasOwnProperty('value'))
                 obj[name] = desc.value;
@@ -1231,7 +1230,7 @@ function testArraysAreSame(expected, actual) {
 }
 
 
-// Copyright 2011-2012 Norbert Lindenberg. All rights reserved.
+function runTheTest () {// Copyright 2011-2012 Norbert Lindenberg. All rights reserved.
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
@@ -1239,7 +1238,7 @@ function testArraysAreSame(expected, actual) {
 es5id: 12.1.2
 description: Tests that IntlPolyfill.DateTimeFormat can be subclassed.
 author: Norbert Lindenberg
-/Users/caridy/repo/IntlPolyfill.js/tests/test262/harness/testIntl.js
+/Volumes/HOME/Users/andyearnshaw/Development/IntlPolyfill.js/tests/test262/harness/testIntl.js
 ---*/
 
 // get a date-time format and have it format an array of dates for comparison with the subclass
@@ -1260,8 +1259,7 @@ MyDateTimeFormat.prototype.constructor = MyDateTimeFormat;
 var format = new MyDateTimeFormat(locales);
 var actual = a.map(format.format);
 testArraysAreSame(referenceFormatted, actual);
-
-}
+ }
 function runner() {
     var passed = false;
     if (typeof document !== "undefined") {

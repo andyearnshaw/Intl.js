@@ -4,7 +4,6 @@ function fnGlobalObject() {
     return __globalObject;
 }
 IntlPolyfill.__applyLocaleSensitivePrototypes();
-function runTheTest() {
 Object.getOwnPropertyNames = Object.getOwnPropertyNames || function (obj) {
             var ret = [];
 
@@ -20,7 +19,7 @@ Array.prototype.forEach = Array.prototype.forEach || function (fn) {
                 fn.call(arguments[1], this[i], i, this);
         };
 
-// Copyright 2011-2012 Norbert Lindenberg. All rights reserved.
+function runTheTest () {// Copyright 2011-2012 Norbert Lindenberg. All rights reserved.
 // Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
@@ -32,7 +31,7 @@ description: >
 author: Norbert Lindenberg
 ---*/
 
-// data from http://www.currency-iso.org/dl_iso_table_a1.xml, 2013-02-25
+// data from http://www.currency-iso.org/dam/downloads/table_a1.xml, 2015-03-23
 var currencyDigits = {
     AED: 2,
     AFN: 2,
@@ -65,7 +64,7 @@ var currencyDigits = {
     CHE: 2,
     CHF: 2,
     CHW: 2,
-    CLF: 0,
+    CLF: 4,
     CLP: 0,
     CNY: 2,
     COP: 2,
@@ -121,8 +120,6 @@ var currencyDigits = {
     LKR: 2,
     LRD: 2,
     LSL: 2,
-    LTL: 2,
-    LVL: 2,
     LYD: 3,
     MAD: 2,
     MDL: 2,
@@ -186,7 +183,6 @@ var currencyDigits = {
     UGX: 0,
     USD: 2,
     USN: 2,
-    USS: 2,
     UYI: 0,
     UYU: 2,
     UZS: 2,
@@ -218,8 +214,7 @@ Object.getOwnPropertyNames(currencyDigits).forEach(function (currency) {
             currency + "; expected " + digits + ", got " + max + ".");
     }
 });
-
-}
+ }
 function runner() {
     var passed = false;
     if (typeof document !== "undefined") {

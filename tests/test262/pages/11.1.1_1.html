@@ -4,7 +4,6 @@ function fnGlobalObject() {
     return __globalObject;
 }
 IntlPolyfill.__applyLocaleSensitivePrototypes();
-function runTheTest() {
 try { Object.defineProperty({}, "a", {}) } catch (e) { Object.defineProperty = function (obj, name, desc) {
              if (desc.hasOwnProperty('value'))
                 obj[name] = desc.value;
@@ -1223,14 +1222,14 @@ function testArraysAreSame(expected, actual) {
 }
 
 
-// Copyright 2012 Mozilla Corporation. All rights reserved.
+function runTheTest () {// Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 es5id: 11.1.1_1
 description: Tests that an object can't be re-initialized as a NumberFormat.
 author: Norbert Lindenberg
-/Users/caridy/repo/IntlPolyfill.js/tests/test262/harness/testIntl.js
+/Volumes/HOME/Users/andyearnshaw/Development/IntlPolyfill.js/tests/test262/harness/testIntl.js
 ---*/
 
 testWithIntlConstructors(function (Constructor) {
@@ -1265,8 +1264,7 @@ testWithIntlConstructors(function (Constructor) {
     
     return true;
 });
-
-}
+ }
 function runner() {
     var passed = false;
     if (typeof document !== "undefined") {

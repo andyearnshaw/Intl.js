@@ -4,10 +4,9 @@ function fnGlobalObject() {
     return __globalObject;
 }
 IntlPolyfill.__applyLocaleSensitivePrototypes();
-function runTheTest() {
 Object.getPrototypeOf = Object.getPrototypeOf || function (obj) { return obj.constructor.prototype; };
 
-// Copyright 2013 Mozilla Corporation. All rights reserved.
+function runTheTest () {// Copyright 2013 Mozilla Corporation. All rights reserved.
 // This code is governed by the license found in the LICENSE file.
 
 /*---
@@ -19,8 +18,7 @@ author: Norbert Lindenberg
 if (Object.getPrototypeOf(IntlPolyfill) !== Object.prototype) {
     throw new Error("IntlPolyfill doesn't have Object.prototype as its prototype.");
 }
-
-}
+ }
 function runner() {
     var passed = false;
     if (typeof document !== "undefined") {

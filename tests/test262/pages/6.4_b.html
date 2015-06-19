@@ -4,13 +4,12 @@ function fnGlobalObject() {
     return __globalObject;
 }
 IntlPolyfill.__applyLocaleSensitivePrototypes();
-function runTheTest() {
 Array.prototype.forEach = Array.prototype.forEach || function (fn) {
             for (var i=0; i < this.length; i++)
                 fn.call(arguments[1], this[i], i, this);
         };
 
-// Copyright 2012 Mozilla Corporation. All rights reserved.
+function runTheTest () {// Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -44,8 +43,7 @@ invalidTimeZoneNames.forEach(function (name) {
         throw new Error("Invalid time zone name " + name + " was rejected with wrong error " + error.name + ".");
     }
 });
-
-}
+ }
 function runner() {
     var passed = false;
     if (typeof document !== "undefined") {

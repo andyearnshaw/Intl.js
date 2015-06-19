@@ -4,10 +4,9 @@ function fnGlobalObject() {
     return __globalObject;
 }
 IntlPolyfill.__applyLocaleSensitivePrototypes();
-function runTheTest() {
 
 
-// Copyright 2012 Mozilla Corporation. All rights reserved.
+function runTheTest () {// Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the license found in the LICENSE file.
 
 /*---
@@ -29,8 +28,7 @@ if (desc.enumerable) {
 if (desc.configurable) {
     throw new Error("IntlPolyfill.NumberFormat.prototype must not be configurable.");
 }
-
-}
+ }
 function runner() {
     var passed = false;
     if (typeof document !== "undefined") {

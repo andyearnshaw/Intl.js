@@ -4,10 +4,9 @@ function fnGlobalObject() {
     return __globalObject;
 }
 IntlPolyfill.__applyLocaleSensitivePrototypes();
-function runTheTest() {
 
 
-// Copyright 2012 Mozilla Corporation. All rights reserved.
+function runTheTest () {// Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -40,8 +39,7 @@ expectError(function () {
 expectError(function () {
         return new IntlPolyfill.NumberFormat([defaultLocale + "-u-cu-krw"], {style: "currency"});
 });
-
-}
+ }
 function runner() {
     var passed = false;
     if (typeof document !== "undefined") {

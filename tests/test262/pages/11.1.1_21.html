@@ -4,7 +4,6 @@ function fnGlobalObject() {
     return __globalObject;
 }
 IntlPolyfill.__applyLocaleSensitivePrototypes();
-function runTheTest() {
 try { Object.defineProperty({}, "a", {}) } catch (e) { Object.defineProperty = function (obj, name, desc) {
              if (desc.hasOwnProperty('value'))
                 obj[name] = desc.value;
@@ -1223,22 +1222,21 @@ function testArraysAreSame(expected, actual) {
 }
 
 
-// Copyright 2012 Mozilla Corporation. All rights reserved.
+function runTheTest () {// Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
 es5id: 11.1.1_21
 description: Tests that the option currencyDisplay is processed correctly.
 author: Norbert Lindenberg
-/Users/caridy/repo/IntlPolyfill.js/tests/test262/harness/testIntl.js
+/Volumes/HOME/Users/andyearnshaw/Development/IntlPolyfill.js/tests/test262/harness/testIntl.js
 ---*/
 
 testOption(IntlPolyfill.NumberFormat, "currencyDisplay", "string", ["code", "symbol", "name"],
     "symbol", {extra: {any: {style: "currency", currency: "XDR"}}});
 testOption(IntlPolyfill.NumberFormat, "currencyDisplay", "string", ["code", "symbol", "name"],
     undefined, {noReturn: true});
-
-}
+ }
 function runner() {
     var passed = false;
     if (typeof document !== "undefined") {

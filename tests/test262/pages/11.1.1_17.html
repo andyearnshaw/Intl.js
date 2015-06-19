@@ -4,13 +4,12 @@ function fnGlobalObject() {
     return __globalObject;
 }
 IntlPolyfill.__applyLocaleSensitivePrototypes();
-function runTheTest() {
 Array.prototype.forEach = Array.prototype.forEach || function (fn) {
             for (var i=0; i < this.length; i++)
                 fn.call(arguments[1], this[i], i, this);
         };
 
-// Copyright 2012 Mozilla Corporation. All rights reserved.
+function runTheTest () {// Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -91,8 +90,7 @@ invalidValues.forEach(function (value) {
             return new IntlPolyfill.NumberFormat([defaultLocale + "-u-cu-krw"], {currency: value});
     });
 });
-
-}
+ }
 function runner() {
     var passed = false;
     if (typeof document !== "undefined") {

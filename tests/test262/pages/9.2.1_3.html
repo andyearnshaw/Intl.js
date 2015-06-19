@@ -4,7 +4,6 @@ function fnGlobalObject() {
     return __globalObject;
 }
 IntlPolyfill.__applyLocaleSensitivePrototypes();
-function runTheTest() {
 try { Object.defineProperty({}, "a", {}) } catch (e) { Object.defineProperty = function (obj, name, desc) {
              if (desc.hasOwnProperty('value'))
                 obj[name] = desc.value;
@@ -1223,7 +1222,7 @@ function testArraysAreSame(expected, actual) {
 }
 
 
-// Copyright 2012 Mozilla Corporation. All rights reserved.
+function runTheTest () {// Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -1232,7 +1231,7 @@ description: >
     Tests that a single string instead of a locale list is treated  as
     the locale list containing that string.
 author: Norbert Lindenberg
-/Users/caridy/repo/IntlPolyfill.js/tests/test262/harness/testIntl.js
+/Volumes/HOME/Users/andyearnshaw/Development/IntlPolyfill.js/tests/test262/harness/testIntl.js
 ---*/
 
 var validAndInvalidLanguageTags = [
@@ -1247,7 +1246,6 @@ var validAndInvalidLanguageTags = [
     "es-419-u-nu-latn-cu-bob", // + Unicode locale extension sequence
     "i-klingon", // grandfathered tag
     "cmn-hans-cn-t-ca-u-ca-x-t-u", // singleton subtags can also be used as private use subtags
-    "enochian-enochian", // language and variant subtags may be the same
     "de-gregory-u-ca-gregory", // variant and extension subtags may be the same
     "de_DE",
     "DE_de",
@@ -1310,8 +1308,7 @@ testWithIntlConstructors(function (Constructor) {
     
     return true;
 });
-
-}
+ }
 function runner() {
     var passed = false;
     if (typeof document !== "undefined") {

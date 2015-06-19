@@ -4,7 +4,6 @@ function fnGlobalObject() {
     return __globalObject;
 }
 IntlPolyfill.__applyLocaleSensitivePrototypes();
-function runTheTest() {
 try { Object.defineProperty({}, "a", {}) } catch (e) { Object.defineProperty = function (obj, name, desc) {
              if (desc.hasOwnProperty('value'))
                 obj[name] = desc.value;
@@ -1224,7 +1223,7 @@ function testArraysAreSame(expected, actual) {
 }
 
 
-// Copyright 2011-2012 Norbert Lindenberg. All rights reserved.
+function runTheTest () {// Copyright 2011-2012 Norbert Lindenberg. All rights reserved.
 // Copyright 2012  Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
@@ -1232,7 +1231,7 @@ function testArraysAreSame(expected, actual) {
 es5id: 6.2.3
 description: Tests that language tags are canonicalized in return values.
 author: Norbert Lindenberg
-/Users/caridy/repo/IntlPolyfill.js/tests/test262/harness/testIntl.js
+/Volumes/HOME/Users/andyearnshaw/Development/IntlPolyfill.js/tests/test262/harness/testIntl.js
 ---*/
 
 var canonicalizedTags = {
@@ -1246,7 +1245,6 @@ var canonicalizedTags = {
     "es-419-u-nu-latn": ["es-419-u-nu-latn", "es-419", "es", "es-u-nu-latn"],
     // -u-ca is incomplete, so it will not show up in resolvedOptions().locale
     "cmn-hans-cn-u-ca-t-ca-x-t-u": ["cmn-Hans-CN-t-ca-u-ca-x-t-u", "cmn-Hans-CN-t-ca-x-t-u", "cmn-Hans-CN-t-ca-x-t", "cmn-Hans-CN-t-ca", "cmn-Hans-CN", "cmn-Hans", "cmn"],
-    "enochian-enochian": ["enochian-enochian", "enochian"],
     "de-gregory-u-ca-gregory": ["de-gregory-u-ca-gregory", "de-gregory", "de-u-ca-gregory", "de"],
     "no-nyn": ["nn"],
     "i-klingon": ["tlh"],
@@ -1292,8 +1290,7 @@ testWithIntlConstructors(function (Constructor) {
     });
     return true;
 });
-
-}
+ }
 function runner() {
     var passed = false;
     if (typeof document !== "undefined") {

@@ -4,7 +4,6 @@ function fnGlobalObject() {
     return __globalObject;
 }
 IntlPolyfill.__applyLocaleSensitivePrototypes();
-function runTheTest() {
 Object.getOwnPropertyNames = Object.getOwnPropertyNames || function (obj) {
             var ret = [];
 
@@ -31,7 +30,7 @@ JSON.stringify = JSON.stringify || function (obj) {
             return '{ ' + props.join(',') + ' }';
         };
 
-// Copyright 2012 Mozilla Corporation. All rights reserved.
+function runTheTest () {// Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -107,8 +106,7 @@ Object.getOwnPropertyNames(functions).forEach(function (p) {
         }
     });
 });
-
-}
+ }
 function runner() {
     var passed = false;
     if (typeof document !== "undefined") {

@@ -4,7 +4,6 @@ function fnGlobalObject() {
     return __globalObject;
 }
 IntlPolyfill.__applyLocaleSensitivePrototypes();
-function runTheTest() {
 Object.getPrototypeOf = Object.getPrototypeOf || function (obj) { return obj.constructor.prototype; };
 Object.isExtensible = Object.isExtensible || function () { return true; };
 Array.prototype.forEach = Array.prototype.forEach || function (fn) {
@@ -83,8 +82,8 @@ function testBuiltInObject(obj, isFunction, isConstructor, properties, length) {
         if (desc.enumerable) {
             throw new Error("The length property of a built-in function must not be enumerable.");
         }
-        if (desc.configurable) {
-            throw new Error("The length property of a built-in function must not be configurable.");
+        if (!desc.configurable) {
+            throw new Error("The length property of a built-in function must be configurable.");
         }
     }
 
@@ -95,13 +94,13 @@ function testBuiltInObject(obj, isFunction, isConstructor, properties, length) {
         }
         // accessor properties don't have writable attribute
         if (desc.hasOwnProperty("writable") && !desc.writable) {
-            throw new Error("The " + prop + " property of this built-in function must be writable.");
+            throw new Error("The " + prop + " property of this built-in object must be writable.");
         }
         if (desc.enumerable) {
-            throw new Error("The " + prop + " property of this built-in function must not be enumerable.");
+            throw new Error("The " + prop + " property of this built-in object must not be enumerable.");
         }
         if (!desc.configurable) {
-            throw new Error("The " + prop + " property of this built-in function must be configurable.");
+            throw new Error("The " + prop + " property of this built-in object must be configurable.");
         }
     });
 
@@ -138,7 +137,7 @@ function testBuiltInObject(obj, isFunction, isConstructor, properties, length) {
 }
 
 
-// Copyright 2012 Mozilla Corporation. All rights reserved.
+function runTheTest () {// Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the license found in the LICENSE file.
 
 /*---
@@ -149,12 +148,11 @@ description: >
     built-in objects defined by the introduction of  chapter 15 of the
     ECMAScript Language Specification.
 author: Norbert Lindenberg
-/Users/caridy/repo/IntlPolyfill.js/tests/test262/harness/testBuiltInObject.js
+/Volumes/HOME/Users/andyearnshaw/Development/IntlPolyfill.js/tests/test262/harness/testBuiltInObject.js
 ---*/
 
 testBuiltInObject(new IntlPolyfill.NumberFormat().format, true, false, [], 1);
-
-}
+ }
 function runner() {
     var passed = false;
     if (typeof document !== "undefined") {

@@ -4,7 +4,6 @@ function fnGlobalObject() {
     return __globalObject;
 }
 IntlPolyfill.__applyLocaleSensitivePrototypes();
-function runTheTest() {
 Array.prototype.indexOf = Array.prototype.indexOf || function (search) {
             var t = this;
             if (!t.length)
@@ -22,7 +21,7 @@ Array.prototype.forEach = Array.prototype.forEach || function (fn) {
                 fn.call(arguments[1], this[i], i, this);
         };
 
-// Copyright 2012 Mozilla Corporation. All rights reserved.
+function runTheTest () {// Copyright 2012 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -56,8 +55,7 @@ dates.forEach(function (date) {
             expectedYearString + ", got " + dateString + ".");
     }
 });
-
-}
+ }
 function runner() {
     var passed = false;
     if (typeof document !== "undefined") {

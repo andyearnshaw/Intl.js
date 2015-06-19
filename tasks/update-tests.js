@@ -18,14 +18,10 @@ var WRAPPER_START = [
         '}',
 
         // Make sure polyfilled ECMA-262 functions are in place for the tests
-        'IntlPolyfill.__applyLocaleSensitivePrototypes();',
-
-        'function runTheTest() {'
+        'IntlPolyfill.__applyLocaleSensitivePrototypes();'
     ].join('\n');
 
 var WRAPPER_END = [
-        '}',
-
         // In the browser, a button will run the following function,
         // and we can also call it with the webdriver's execute() function
         'function runner() {',
@@ -251,7 +247,7 @@ module.exports = function(grunt) {
             var srcPath  = LIBS.path.resolve(SRC_DIR, testPath),
                 destPath = LIBS.path.resolve(DEST_DIR, testPath),
                 content;
-            content = grunt.file.read(srcPath);
+            content = 'function runTheTest () {'+ grunt.file.read(srcPath) +' }';
             content = processTest(content);
             content = wrapTest(content);
             destPath = destPath.replace(/\.js$/, '.html');

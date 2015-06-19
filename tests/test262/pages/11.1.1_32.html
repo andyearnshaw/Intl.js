@@ -4,13 +4,12 @@ function fnGlobalObject() {
     return __globalObject;
 }
 IntlPolyfill.__applyLocaleSensitivePrototypes();
-function runTheTest() {
 try { Object.defineProperty({}, "a", {}) } catch (e) { Object.defineProperty = function (obj, name, desc) {
              if (desc.hasOwnProperty('value'))
                 obj[name] = desc.value;
         } }
 
-// Copyright 2013 Mozilla Corporation. All rights reserved.
+function runTheTest () {// Copyright 2013 Mozilla Corporation. All rights reserved.
 // This code is governed by the BSD license found in the LICENSE file.
 
 /*---
@@ -56,8 +55,7 @@ new IntlPolyfill.NumberFormat("de", options);
 if (read !== 4) {
     throw new Error("insuffient number of property reads: " + read + ".");
 }
-
-}
+ }
 function runner() {
     var passed = false;
     if (typeof document !== "undefined") {
