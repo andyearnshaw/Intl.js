@@ -14,7 +14,7 @@ var dtcLengthMap = {
     };
 
 var dtKeys = ["weekday", "era", "year", "month", "day"];
-var tmKeys = ["hour", "minite", "second", "timeZoneName"];
+var tmKeys = ["hour", "minute", "second", "timeZoneName"];
 
 function isDateFormatOnly(obj) {
     for (var i = 0; i < tmKeys.length; i += 1) {
