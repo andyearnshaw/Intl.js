@@ -83,7 +83,8 @@ function testBuiltInObject(obj, isFunction, isConstructor, properties, length) {
             throw new Error("The length property of a built-in function must not be enumerable.");
         }
         if (!desc.configurable) {
-            throw new Error("The length property of a built-in function must be configurable.");
+            // This test is disabled because it relies on ES 2015 behaviour, which is not implemented in environments that need this polyfill
+            //throw new Error("The length property of a built-in function must be configurable.");
         }
     }
 
