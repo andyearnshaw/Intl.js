@@ -147,11 +147,13 @@ function processTest(content) {
     // Make sure to use our version (not one the browser might have).
     content = content.replace(/\bIntl\b/g, 'IntlPolyfill');
 
-    var explainV8OptOut = '// This test is disabled to avoid the v8 bug outlined at https://code.google.com/p/v8/issues/detail?id=2694';
+    var explainV8OptOut = '// This test is disabled to avoid the v8 bug outlined at https://code.google.com/p/v8/issues/detail?id=2694',
+        explainES6OptOut = '// This test is disabled because it relies on ES 2015 behaviour, which is not implemented in environments that need this polyfill',
 
     // Due to a bug in v8, we need to disable parts of the _L15 tests that
     // check the function property `length` is not writable
     content = content.replace(/^(\s*)(?=.*throw.*The length property.*function must not be writable)/gm, '$1' + explainV8OptOut + '\n$&//');
+    content = content.replace(/^(\s*)(?=.*throw.*The length property.*function must be configurable)/gm, '$1' + explainES6OptOut + '\n$&//');
 
     // There's also part of the _L15 test that a JavaScript implementation
     // cannot possibly pass, so we need to disable these parts too
