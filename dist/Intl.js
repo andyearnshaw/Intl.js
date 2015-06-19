@@ -198,7 +198,7 @@
         if (formatObj.pattern.indexOf('{ampm}') > -1) {
             formatObj.hour12 = true;
             formatObj.pattern12 = formatObj.pattern;
-            formatObj.pattern = formatObj.pattern.replace('{ampm}', '').trim();
+            formatObj.pattern = formatObj.pattern.replace('{ampm}', '').replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
         }
 
         return formatObj;
