@@ -105,7 +105,7 @@
         };
 
     var $$cldr$$dtKeys = ["weekday", "era", "year", "month", "day"];
-    var $$cldr$$tmKeys = ["hour", "minite", "second", "timeZoneName"];
+    var $$cldr$$tmKeys = ["hour", "minute", "second", "timeZoneName"];
 
     function $$cldr$$isDateFormatOnly(obj) {
         for (var i = 0; i < $$cldr$$tmKeys.length; i += 1) {
