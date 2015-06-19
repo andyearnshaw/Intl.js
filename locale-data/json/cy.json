@@ -57,6 +57,18 @@
                 "yQ": "Q y",
                 "yQQQ": "QQQ y",
                 "yQQQQ": "QQQQ y"
+            },
+            "dateFormats": {
+                "full": "EEEE, d MMMM y",
+                "long": "d MMMM y",
+                "medium": "d MMM y",
+                "short": "dd/MM/yy"
+            },
+            "timeFormats": {
+                "full": "HH:mm:ss zzzz",
+                "long": "HH:mm:ss z",
+                "medium": "HH:mm:ss",
+                "short": "HH:mm"
             }
         },
         "calendars": {
@@ -107,13 +119,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
+                        "S",
                         "Ll",
-                        "Ma",
-                        "Me",
-                        "Ia",
-                        "Gw",
-                        "Sa"
+                        "M",
+                        "M",
+                        "I",
+                        "G",
+                        "S"
                     ],
                     "short": [
                         "Sul",
@@ -197,13 +209,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
+                        "S",
                         "Ll",
-                        "Ma",
-                        "Me",
-                        "Ia",
-                        "Gw",
-                        "Sa"
+                        "M",
+                        "M",
+                        "I",
+                        "G",
+                        "S"
                     ],
                     "short": [
                         "Sul",
@@ -279,13 +291,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
+                        "S",
                         "Ll",
-                        "Ma",
-                        "Me",
-                        "Ia",
-                        "Gw",
-                        "Sa"
+                        "M",
+                        "M",
+                        "I",
+                        "G",
+                        "S"
                     ],
                     "short": [
                         "Sul",
@@ -372,13 +384,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
+                        "S",
                         "Ll",
-                        "Ma",
-                        "Me",
-                        "Ia",
-                        "Gw",
-                        "Sa"
+                        "M",
+                        "M",
+                        "I",
+                        "G",
+                        "S"
                     ],
                     "short": [
                         "Sul",
@@ -454,13 +466,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
+                        "S",
                         "Ll",
-                        "Ma",
-                        "Me",
-                        "Ia",
-                        "Gw",
-                        "Sa"
+                        "M",
+                        "M",
+                        "I",
+                        "G",
+                        "S"
                     ],
                     "short": [
                         "Sul",
@@ -550,13 +562,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
+                        "S",
                         "Ll",
-                        "Ma",
-                        "Me",
-                        "Ia",
-                        "Gw",
-                        "Sa"
+                        "M",
+                        "M",
+                        "I",
+                        "G",
+                        "S"
                     ],
                     "short": [
                         "Sul",
@@ -640,13 +652,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
+                        "S",
                         "Ll",
-                        "Ma",
-                        "Me",
-                        "Ia",
-                        "Gw",
-                        "Sa"
+                        "M",
+                        "M",
+                        "I",
+                        "G",
+                        "S"
                     ],
                     "short": [
                         "Sul",
@@ -733,13 +745,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
+                        "S",
                         "Ll",
-                        "Ma",
-                        "Me",
-                        "Ia",
-                        "Gw",
-                        "Sa"
+                        "M",
+                        "M",
+                        "I",
+                        "G",
+                        "S"
                     ],
                     "short": [
                         "Sul",
@@ -838,13 +850,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
+                        "S",
                         "Ll",
-                        "Ma",
-                        "Me",
-                        "Ia",
-                        "Gw",
-                        "Sa"
+                        "M",
+                        "M",
+                        "I",
+                        "G",
+                        "S"
                     ],
                     "short": [
                         "Sul",
@@ -928,13 +940,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
+                        "S",
                         "Ll",
-                        "Ma",
-                        "Me",
-                        "Ia",
-                        "Gw",
-                        "Sa"
+                        "M",
+                        "M",
+                        "I",
+                        "G",
+                        "S"
                     ],
                     "short": [
                         "Sul",
@@ -1018,13 +1030,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
+                        "S",
                         "Ll",
-                        "Ma",
-                        "Me",
-                        "Ia",
-                        "Gw",
-                        "Sa"
+                        "M",
+                        "M",
+                        "I",
+                        "G",
+                        "S"
                     ],
                     "short": [
                         "Sul",
@@ -1108,13 +1120,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
+                        "S",
                         "Ll",
-                        "Ma",
-                        "Me",
-                        "Ia",
-                        "Gw",
-                        "Sa"
+                        "M",
+                        "M",
+                        "I",
+                        "G",
+                        "S"
                     ],
                     "short": [
                         "Sul",
@@ -1198,13 +1210,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
+                        "S",
                         "Ll",
-                        "Ma",
-                        "Me",
-                        "Ia",
-                        "Gw",
-                        "Sa"
+                        "M",
+                        "M",
+                        "I",
+                        "G",
+                        "S"
                     ],
                     "short": [
                         "Sul",
@@ -1993,13 +2005,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
+                        "S",
                         "Ll",
-                        "Ma",
-                        "Me",
-                        "Ia",
-                        "Gw",
-                        "Sa"
+                        "M",
+                        "M",
+                        "I",
+                        "G",
+                        "S"
                     ],
                     "short": [
                         "Sul",
@@ -2083,13 +2095,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Su",
+                        "S",
                         "Ll",
-                        "Ma",
-                        "Me",
-                        "Ia",
-                        "Gw",
-                        "Sa"
+                        "M",
+                        "M",
+                        "I",
+                        "G",
+                        "S"
                     ],
                     "short": [
                         "Sul",

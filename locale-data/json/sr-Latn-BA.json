@@ -63,6 +63,18 @@
                 "yMd": "d.M.y.",
                 "yQQQ": "QQQ. y",
                 "yQQQQ": "QQQQ. y"
+            },
+            "dateFormats": {
+                "full": "EEEE, dd. MMMM y.",
+                "long": "dd. MMMM y.",
+                "medium": "y-MM-dd",
+                "short": "yy-MM-dd"
+            },
+            "timeFormats": {
+                "full": "HH 'časova', mm 'minuta', ss 'sekundi' zzzz",
+                "long": "HH.mm.ss z",
+                "medium": "HH:mm:ss",
+                "short": "HH:mm"
             }
         },
         "calendars": {
@@ -113,13 +125,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "ned",
-                        "pon",
-                        "uto",
-                        "sre",
-                        "čet",
-                        "pet",
-                        "sub"
+                        "n",
+                        "p",
+                        "u",
+                        "s",
+                        "č",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "ned",
@@ -203,13 +215,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "ned",
-                        "pon",
-                        "uto",
-                        "sre",
-                        "čet",
-                        "pet",
-                        "sub"
+                        "n",
+                        "p",
+                        "u",
+                        "s",
+                        "č",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "ned",
@@ -285,13 +297,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "ned",
-                        "pon",
-                        "uto",
-                        "sre",
-                        "čet",
-                        "pet",
-                        "sub"
+                        "n",
+                        "p",
+                        "u",
+                        "s",
+                        "č",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "ned",
@@ -378,13 +390,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "ned",
-                        "pon",
-                        "uto",
-                        "sre",
-                        "čet",
-                        "pet",
-                        "sub"
+                        "n",
+                        "p",
+                        "u",
+                        "s",
+                        "č",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "ned",
@@ -460,13 +472,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "ned",
-                        "pon",
-                        "uto",
-                        "sre",
-                        "čet",
-                        "pet",
-                        "sub"
+                        "n",
+                        "p",
+                        "u",
+                        "s",
+                        "č",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "ned",
@@ -556,13 +568,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "ned",
-                        "pon",
-                        "uto",
-                        "sre",
-                        "čet",
-                        "pet",
-                        "sub"
+                        "n",
+                        "p",
+                        "u",
+                        "s",
+                        "č",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "ned",
@@ -646,13 +658,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "ned",
-                        "pon",
-                        "uto",
-                        "sre",
-                        "čet",
-                        "pet",
-                        "sub"
+                        "n",
+                        "p",
+                        "u",
+                        "s",
+                        "č",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "ned",
@@ -739,13 +751,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "ned",
-                        "pon",
-                        "uto",
-                        "sre",
-                        "čet",
-                        "pet",
-                        "sub"
+                        "n",
+                        "p",
+                        "u",
+                        "s",
+                        "č",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "ned",
@@ -844,13 +856,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "ned",
-                        "pon",
-                        "uto",
-                        "sre",
-                        "čet",
-                        "pet",
-                        "sub"
+                        "n",
+                        "p",
+                        "u",
+                        "s",
+                        "č",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "ned",
@@ -934,13 +946,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "ned",
-                        "pon",
-                        "uto",
-                        "sre",
-                        "čet",
-                        "pet",
-                        "sub"
+                        "n",
+                        "p",
+                        "u",
+                        "s",
+                        "č",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "ned",
@@ -1024,13 +1036,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "ned",
-                        "pon",
-                        "uto",
-                        "sre",
-                        "čet",
-                        "pet",
-                        "sub"
+                        "n",
+                        "p",
+                        "u",
+                        "s",
+                        "č",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "ned",
@@ -1114,13 +1126,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "ned",
-                        "pon",
-                        "uto",
-                        "sre",
-                        "čet",
-                        "pet",
-                        "sub"
+                        "n",
+                        "p",
+                        "u",
+                        "s",
+                        "č",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "ned",
@@ -1204,13 +1216,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "ned",
-                        "pon",
-                        "uto",
-                        "sre",
-                        "čet",
-                        "pet",
-                        "sub"
+                        "n",
+                        "p",
+                        "u",
+                        "s",
+                        "č",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "ned",
@@ -1999,13 +2011,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "ned",
-                        "pon",
-                        "uto",
-                        "sre",
-                        "čet",
-                        "pet",
-                        "sub"
+                        "n",
+                        "p",
+                        "u",
+                        "s",
+                        "č",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "ned",
@@ -2089,13 +2101,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "ned",
-                        "pon",
-                        "uto",
-                        "sre",
-                        "čet",
-                        "pet",
-                        "sub"
+                        "n",
+                        "p",
+                        "u",
+                        "s",
+                        "č",
+                        "p",
+                        "s"
                     ],
                     "short": [
                         "ned",

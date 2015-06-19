@@ -56,6 +56,18 @@
                 "yMd": "dd/MM y",
                 "yQQQ": "y QQQ",
                 "yQQQQ": "y QQQQ"
+            },
+            "dateFormats": {
+                "full": "EEEE dd MMMM y",
+                "long": "d MMMM y",
+                "medium": "d MMM y",
+                "short": "dd/MM y"
+            },
+            "timeFormats": {
+                "full": "HH:mm:ss zzzz",
+                "long": "HH:mm:ss z",
+                "medium": "HH:mm:ss",
+                "short": "HH:mm"
             }
         },
         "calendars": {
@@ -106,13 +118,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sɔndi",
-                        "lundi",
-                        "mardi",
-                        "mɛrkɛrɛdi",
-                        "yedi",
-                        "vaŋdɛrɛdi",
-                        "mɔnɔ sɔndi"
+                        "so",
+                        "lu",
+                        "ma",
+                        "mɛ",
+                        "ye",
+                        "va",
+                        "ms"
                     ],
                     "short": [
                         "sɔndi",
@@ -196,13 +208,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sɔndi",
-                        "lundi",
-                        "mardi",
-                        "mɛrkɛrɛdi",
-                        "yedi",
-                        "vaŋdɛrɛdi",
-                        "mɔnɔ sɔndi"
+                        "so",
+                        "lu",
+                        "ma",
+                        "mɛ",
+                        "ye",
+                        "va",
+                        "ms"
                     ],
                     "short": [
                         "sɔndi",
@@ -278,13 +290,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sɔndi",
-                        "lundi",
-                        "mardi",
-                        "mɛrkɛrɛdi",
-                        "yedi",
-                        "vaŋdɛrɛdi",
-                        "mɔnɔ sɔndi"
+                        "so",
+                        "lu",
+                        "ma",
+                        "mɛ",
+                        "ye",
+                        "va",
+                        "ms"
                     ],
                     "short": [
                         "sɔndi",
@@ -371,13 +383,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sɔndi",
-                        "lundi",
-                        "mardi",
-                        "mɛrkɛrɛdi",
-                        "yedi",
-                        "vaŋdɛrɛdi",
-                        "mɔnɔ sɔndi"
+                        "so",
+                        "lu",
+                        "ma",
+                        "mɛ",
+                        "ye",
+                        "va",
+                        "ms"
                     ],
                     "short": [
                         "sɔndi",
@@ -453,13 +465,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sɔndi",
-                        "lundi",
-                        "mardi",
-                        "mɛrkɛrɛdi",
-                        "yedi",
-                        "vaŋdɛrɛdi",
-                        "mɔnɔ sɔndi"
+                        "so",
+                        "lu",
+                        "ma",
+                        "mɛ",
+                        "ye",
+                        "va",
+                        "ms"
                     ],
                     "short": [
                         "sɔndi",
@@ -549,13 +561,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sɔndi",
-                        "lundi",
-                        "mardi",
-                        "mɛrkɛrɛdi",
-                        "yedi",
-                        "vaŋdɛrɛdi",
-                        "mɔnɔ sɔndi"
+                        "so",
+                        "lu",
+                        "ma",
+                        "mɛ",
+                        "ye",
+                        "va",
+                        "ms"
                     ],
                     "short": [
                         "sɔndi",
@@ -639,13 +651,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sɔndi",
-                        "lundi",
-                        "mardi",
-                        "mɛrkɛrɛdi",
-                        "yedi",
-                        "vaŋdɛrɛdi",
-                        "mɔnɔ sɔndi"
+                        "so",
+                        "lu",
+                        "ma",
+                        "mɛ",
+                        "ye",
+                        "va",
+                        "ms"
                     ],
                     "short": [
                         "sɔndi",
@@ -732,13 +744,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sɔndi",
-                        "lundi",
-                        "mardi",
-                        "mɛrkɛrɛdi",
-                        "yedi",
-                        "vaŋdɛrɛdi",
-                        "mɔnɔ sɔndi"
+                        "so",
+                        "lu",
+                        "ma",
+                        "mɛ",
+                        "ye",
+                        "va",
+                        "ms"
                     ],
                     "short": [
                         "sɔndi",
@@ -837,13 +849,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sɔndi",
-                        "lundi",
-                        "mardi",
-                        "mɛrkɛrɛdi",
-                        "yedi",
-                        "vaŋdɛrɛdi",
-                        "mɔnɔ sɔndi"
+                        "so",
+                        "lu",
+                        "ma",
+                        "mɛ",
+                        "ye",
+                        "va",
+                        "ms"
                     ],
                     "short": [
                         "sɔndi",
@@ -927,13 +939,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sɔndi",
-                        "lundi",
-                        "mardi",
-                        "mɛrkɛrɛdi",
-                        "yedi",
-                        "vaŋdɛrɛdi",
-                        "mɔnɔ sɔndi"
+                        "so",
+                        "lu",
+                        "ma",
+                        "mɛ",
+                        "ye",
+                        "va",
+                        "ms"
                     ],
                     "short": [
                         "sɔndi",
@@ -1017,13 +1029,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sɔndi",
-                        "lundi",
-                        "mardi",
-                        "mɛrkɛrɛdi",
-                        "yedi",
-                        "vaŋdɛrɛdi",
-                        "mɔnɔ sɔndi"
+                        "so",
+                        "lu",
+                        "ma",
+                        "mɛ",
+                        "ye",
+                        "va",
+                        "ms"
                     ],
                     "short": [
                         "sɔndi",
@@ -1107,13 +1119,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sɔndi",
-                        "lundi",
-                        "mardi",
-                        "mɛrkɛrɛdi",
-                        "yedi",
-                        "vaŋdɛrɛdi",
-                        "mɔnɔ sɔndi"
+                        "so",
+                        "lu",
+                        "ma",
+                        "mɛ",
+                        "ye",
+                        "va",
+                        "ms"
                     ],
                     "short": [
                         "sɔndi",
@@ -1197,13 +1209,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sɔndi",
-                        "lundi",
-                        "mardi",
-                        "mɛrkɛrɛdi",
-                        "yedi",
-                        "vaŋdɛrɛdi",
-                        "mɔnɔ sɔndi"
+                        "so",
+                        "lu",
+                        "ma",
+                        "mɛ",
+                        "ye",
+                        "va",
+                        "ms"
                     ],
                     "short": [
                         "sɔndi",
@@ -1992,13 +2004,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sɔndi",
-                        "lundi",
-                        "mardi",
-                        "mɛrkɛrɛdi",
-                        "yedi",
-                        "vaŋdɛrɛdi",
-                        "mɔnɔ sɔndi"
+                        "so",
+                        "lu",
+                        "ma",
+                        "mɛ",
+                        "ye",
+                        "va",
+                        "ms"
                     ],
                     "short": [
                         "sɔndi",
@@ -2082,13 +2094,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sɔndi",
-                        "lundi",
-                        "mardi",
-                        "mɛrkɛrɛdi",
-                        "yedi",
-                        "vaŋdɛrɛdi",
-                        "mɔnɔ sɔndi"
+                        "so",
+                        "lu",
+                        "ma",
+                        "mɛ",
+                        "ye",
+                        "va",
+                        "ms"
                     ],
                     "short": [
                         "sɔndi",

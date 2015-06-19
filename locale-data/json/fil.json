@@ -60,6 +60,18 @@
                 "yMd": "M/d/y",
                 "yQQQ": "QQQ y",
                 "yQQQQ": "QQQQ y"
+            },
+            "dateFormats": {
+                "full": "EEEE, MMMM d, y",
+                "long": "MMMM d, y",
+                "medium": "MMM d, y",
+                "short": "M/d/yy"
+            },
+            "timeFormats": {
+                "full": "h:mm:ss a zzzz",
+                "long": "h:mm:ss a z",
+                "medium": "h:mm:ss a",
+                "short": "h:mm a"
             }
         },
         "calendars": {
@@ -110,13 +122,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Li",
-                        "Lu",
-                        "Ma",
-                        "Mi",
-                        "Hu",
-                        "Bi",
-                        "Sa"
+                        "L",
+                        "L",
+                        "M",
+                        "M",
+                        "H",
+                        "B",
+                        "S"
                     ],
                     "short": [
                         "Lin",
@@ -200,13 +212,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Li",
-                        "Lu",
-                        "Ma",
-                        "Mi",
-                        "Hu",
-                        "Bi",
-                        "Sa"
+                        "L",
+                        "L",
+                        "M",
+                        "M",
+                        "H",
+                        "B",
+                        "S"
                     ],
                     "short": [
                         "Lin",
@@ -282,13 +294,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Li",
-                        "Lu",
-                        "Ma",
-                        "Mi",
-                        "Hu",
-                        "Bi",
-                        "Sa"
+                        "L",
+                        "L",
+                        "M",
+                        "M",
+                        "H",
+                        "B",
+                        "S"
                     ],
                     "short": [
                         "Lin",
@@ -375,13 +387,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Li",
-                        "Lu",
-                        "Ma",
-                        "Mi",
-                        "Hu",
-                        "Bi",
-                        "Sa"
+                        "L",
+                        "L",
+                        "M",
+                        "M",
+                        "H",
+                        "B",
+                        "S"
                     ],
                     "short": [
                         "Lin",
@@ -457,13 +469,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Li",
-                        "Lu",
-                        "Ma",
-                        "Mi",
-                        "Hu",
-                        "Bi",
-                        "Sa"
+                        "L",
+                        "L",
+                        "M",
+                        "M",
+                        "H",
+                        "B",
+                        "S"
                     ],
                     "short": [
                         "Lin",
@@ -553,13 +565,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Li",
-                        "Lu",
-                        "Ma",
-                        "Mi",
-                        "Hu",
-                        "Bi",
-                        "Sa"
+                        "L",
+                        "L",
+                        "M",
+                        "M",
+                        "H",
+                        "B",
+                        "S"
                     ],
                     "short": [
                         "Lin",
@@ -643,13 +655,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Li",
-                        "Lu",
-                        "Ma",
-                        "Mi",
-                        "Hu",
-                        "Bi",
-                        "Sa"
+                        "L",
+                        "L",
+                        "M",
+                        "M",
+                        "H",
+                        "B",
+                        "S"
                     ],
                     "short": [
                         "Lin",
@@ -736,13 +748,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Li",
-                        "Lu",
-                        "Ma",
-                        "Mi",
-                        "Hu",
-                        "Bi",
-                        "Sa"
+                        "L",
+                        "L",
+                        "M",
+                        "M",
+                        "H",
+                        "B",
+                        "S"
                     ],
                     "short": [
                         "Lin",
@@ -841,13 +853,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Li",
-                        "Lu",
-                        "Ma",
-                        "Mi",
-                        "Hu",
-                        "Bi",
-                        "Sa"
+                        "L",
+                        "L",
+                        "M",
+                        "M",
+                        "H",
+                        "B",
+                        "S"
                     ],
                     "short": [
                         "Lin",
@@ -931,13 +943,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Li",
-                        "Lu",
-                        "Ma",
-                        "Mi",
-                        "Hu",
-                        "Bi",
-                        "Sa"
+                        "L",
+                        "L",
+                        "M",
+                        "M",
+                        "H",
+                        "B",
+                        "S"
                     ],
                     "short": [
                         "Lin",
@@ -1021,13 +1033,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Li",
-                        "Lu",
-                        "Ma",
-                        "Mi",
-                        "Hu",
-                        "Bi",
-                        "Sa"
+                        "L",
+                        "L",
+                        "M",
+                        "M",
+                        "H",
+                        "B",
+                        "S"
                     ],
                     "short": [
                         "Lin",
@@ -1111,13 +1123,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Li",
-                        "Lu",
-                        "Ma",
-                        "Mi",
-                        "Hu",
-                        "Bi",
-                        "Sa"
+                        "L",
+                        "L",
+                        "M",
+                        "M",
+                        "H",
+                        "B",
+                        "S"
                     ],
                     "short": [
                         "Lin",
@@ -1201,13 +1213,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Li",
-                        "Lu",
-                        "Ma",
-                        "Mi",
-                        "Hu",
-                        "Bi",
-                        "Sa"
+                        "L",
+                        "L",
+                        "M",
+                        "M",
+                        "H",
+                        "B",
+                        "S"
                     ],
                     "short": [
                         "Lin",
@@ -1996,13 +2008,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Li",
-                        "Lu",
-                        "Ma",
-                        "Mi",
-                        "Hu",
-                        "Bi",
-                        "Sa"
+                        "L",
+                        "L",
+                        "M",
+                        "M",
+                        "H",
+                        "B",
+                        "S"
                     ],
                     "short": [
                         "Lin",
@@ -2086,13 +2098,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Li",
-                        "Lu",
-                        "Ma",
-                        "Mi",
-                        "Hu",
-                        "Bi",
-                        "Sa"
+                        "L",
+                        "L",
+                        "M",
+                        "M",
+                        "H",
+                        "B",
+                        "S"
                     ],
                     "short": [
                         "Lin",

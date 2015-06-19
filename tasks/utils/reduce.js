@@ -178,7 +178,9 @@ module.exports = function processObj(locale, data) {
 
         ret.date.formats = {
             medium: defCa.dateTimeFormats.medium,
-            availableFormats: defCa.dateTimeFormats.availableFormats
+            availableFormats: defCa.dateTimeFormats.availableFormats,
+            dateFormats: defCa.dateFormats,
+            timeFormats: defCa.timeFormats
         };
     });
 

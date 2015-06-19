@@ -62,6 +62,18 @@
                 "yMd": "y-MM-dd",
                 "yQQQ": "QQQ y",
                 "yQQQQ": "QQQQ y"
+            },
+            "dateFormats": {
+                "full": "EEEE d MMMM y",
+                "long": "d MMMM y",
+                "medium": "d MMM, y",
+                "short": "d/M/y"
+            },
+            "timeFormats": {
+                "full": "HH:mm:ss zzzz",
+                "long": "HH:mm:ss z",
+                "medium": "HH:mm:ss",
+                "short": "HH:mm"
             }
         },
         "calendars": {
@@ -112,13 +124,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Alh",
-                        "Ati",
-                        "Ata",
-                        "Ala",
-                        "Alm",
-                        "Alz",
-                        "Asi"
+                        "H",
+                        "T",
+                        "T",
+                        "L",
+                        "L",
+                        "L",
+                        "S"
                     ],
                     "short": [
                         "Alh",
@@ -202,13 +214,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Alh",
-                        "Ati",
-                        "Ata",
-                        "Ala",
-                        "Alm",
-                        "Alz",
-                        "Asi"
+                        "H",
+                        "T",
+                        "T",
+                        "L",
+                        "L",
+                        "L",
+                        "S"
                     ],
                     "short": [
                         "Alh",
@@ -284,13 +296,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Alh",
-                        "Ati",
-                        "Ata",
-                        "Ala",
-                        "Alm",
-                        "Alz",
-                        "Asi"
+                        "H",
+                        "T",
+                        "T",
+                        "L",
+                        "L",
+                        "L",
+                        "S"
                     ],
                     "short": [
                         "Alh",
@@ -377,13 +389,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Alh",
-                        "Ati",
-                        "Ata",
-                        "Ala",
-                        "Alm",
-                        "Alz",
-                        "Asi"
+                        "H",
+                        "T",
+                        "T",
+                        "L",
+                        "L",
+                        "L",
+                        "S"
                     ],
                     "short": [
                         "Alh",
@@ -459,13 +471,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Alh",
-                        "Ati",
-                        "Ata",
-                        "Ala",
-                        "Alm",
-                        "Alz",
-                        "Asi"
+                        "H",
+                        "T",
+                        "T",
+                        "L",
+                        "L",
+                        "L",
+                        "S"
                     ],
                     "short": [
                         "Alh",
@@ -555,13 +567,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Alh",
-                        "Ati",
-                        "Ata",
-                        "Ala",
-                        "Alm",
-                        "Alz",
-                        "Asi"
+                        "H",
+                        "T",
+                        "T",
+                        "L",
+                        "L",
+                        "L",
+                        "S"
                     ],
                     "short": [
                         "Alh",
@@ -645,13 +657,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Alh",
-                        "Ati",
-                        "Ata",
-                        "Ala",
-                        "Alm",
-                        "Alz",
-                        "Asi"
+                        "H",
+                        "T",
+                        "T",
+                        "L",
+                        "L",
+                        "L",
+                        "S"
                     ],
                     "short": [
                         "Alh",
@@ -738,13 +750,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Alh",
-                        "Ati",
-                        "Ata",
-                        "Ala",
-                        "Alm",
-                        "Alz",
-                        "Asi"
+                        "H",
+                        "T",
+                        "T",
+                        "L",
+                        "L",
+                        "L",
+                        "S"
                     ],
                     "short": [
                         "Alh",
@@ -843,13 +855,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Alh",
-                        "Ati",
-                        "Ata",
-                        "Ala",
-                        "Alm",
-                        "Alz",
-                        "Asi"
+                        "H",
+                        "T",
+                        "T",
+                        "L",
+                        "L",
+                        "L",
+                        "S"
                     ],
                     "short": [
                         "Alh",
@@ -933,13 +945,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Alh",
-                        "Ati",
-                        "Ata",
-                        "Ala",
-                        "Alm",
-                        "Alz",
-                        "Asi"
+                        "H",
+                        "T",
+                        "T",
+                        "L",
+                        "L",
+                        "L",
+                        "S"
                     ],
                     "short": [
                         "Alh",
@@ -1023,13 +1035,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Alh",
-                        "Ati",
-                        "Ata",
-                        "Ala",
-                        "Alm",
-                        "Alz",
-                        "Asi"
+                        "H",
+                        "T",
+                        "T",
+                        "L",
+                        "L",
+                        "L",
+                        "S"
                     ],
                     "short": [
                         "Alh",
@@ -1113,13 +1125,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Alh",
-                        "Ati",
-                        "Ata",
-                        "Ala",
-                        "Alm",
-                        "Alz",
-                        "Asi"
+                        "H",
+                        "T",
+                        "T",
+                        "L",
+                        "L",
+                        "L",
+                        "S"
                     ],
                     "short": [
                         "Alh",
@@ -1203,13 +1215,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Alh",
-                        "Ati",
-                        "Ata",
-                        "Ala",
-                        "Alm",
-                        "Alz",
-                        "Asi"
+                        "H",
+                        "T",
+                        "T",
+                        "L",
+                        "L",
+                        "L",
+                        "S"
                     ],
                     "short": [
                         "Alh",
@@ -1998,13 +2010,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Alh",
-                        "Ati",
-                        "Ata",
-                        "Ala",
-                        "Alm",
-                        "Alz",
-                        "Asi"
+                        "H",
+                        "T",
+                        "T",
+                        "L",
+                        "L",
+                        "L",
+                        "S"
                     ],
                     "short": [
                         "Alh",
@@ -2088,13 +2100,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Alh",
-                        "Ati",
-                        "Ata",
-                        "Ala",
-                        "Alm",
-                        "Alz",
-                        "Asi"
+                        "H",
+                        "T",
+                        "T",
+                        "L",
+                        "L",
+                        "L",
+                        "S"
                     ],
                     "short": [
                         "Alh",

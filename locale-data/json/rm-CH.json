@@ -66,6 +66,18 @@
                 "yMd": "y-MM-dd",
                 "yQQQ": "QQQ y",
                 "yQQQQ": "QQQQ y"
+            },
+            "dateFormats": {
+                "full": "EEEE, 'ils' d 'da' MMMM y",
+                "long": "d 'da' MMMM y",
+                "medium": "dd-MM-y",
+                "short": "dd-MM-yy"
+            },
+            "timeFormats": {
+                "full": "HH:mm:ss zzzz",
+                "long": "HH:mm:ss z",
+                "medium": "HH:mm:ss",
+                "short": "HH:mm"
             }
         },
         "calendars": {
@@ -116,13 +128,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "gli",
-                        "ma",
-                        "me",
-                        "gie",
-                        "ve",
-                        "so"
+                        "D",
+                        "G",
+                        "M",
+                        "M",
+                        "G",
+                        "V",
+                        "S"
                     ],
                     "short": [
                         "du",
@@ -206,13 +218,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "gli",
-                        "ma",
-                        "me",
-                        "gie",
-                        "ve",
-                        "so"
+                        "D",
+                        "G",
+                        "M",
+                        "M",
+                        "G",
+                        "V",
+                        "S"
                     ],
                     "short": [
                         "du",
@@ -288,13 +300,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "gli",
-                        "ma",
-                        "me",
-                        "gie",
-                        "ve",
-                        "so"
+                        "D",
+                        "G",
+                        "M",
+                        "M",
+                        "G",
+                        "V",
+                        "S"
                     ],
                     "short": [
                         "du",
@@ -381,13 +393,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "gli",
-                        "ma",
-                        "me",
-                        "gie",
-                        "ve",
-                        "so"
+                        "D",
+                        "G",
+                        "M",
+                        "M",
+                        "G",
+                        "V",
+                        "S"
                     ],
                     "short": [
                         "du",
@@ -463,13 +475,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "gli",
-                        "ma",
-                        "me",
-                        "gie",
-                        "ve",
-                        "so"
+                        "D",
+                        "G",
+                        "M",
+                        "M",
+                        "G",
+                        "V",
+                        "S"
                     ],
                     "short": [
                         "du",
@@ -559,13 +571,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "gli",
-                        "ma",
-                        "me",
-                        "gie",
-                        "ve",
-                        "so"
+                        "D",
+                        "G",
+                        "M",
+                        "M",
+                        "G",
+                        "V",
+                        "S"
                     ],
                     "short": [
                         "du",
@@ -649,13 +661,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "gli",
-                        "ma",
-                        "me",
-                        "gie",
-                        "ve",
-                        "so"
+                        "D",
+                        "G",
+                        "M",
+                        "M",
+                        "G",
+                        "V",
+                        "S"
                     ],
                     "short": [
                         "du",
@@ -742,13 +754,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "gli",
-                        "ma",
-                        "me",
-                        "gie",
-                        "ve",
-                        "so"
+                        "D",
+                        "G",
+                        "M",
+                        "M",
+                        "G",
+                        "V",
+                        "S"
                     ],
                     "short": [
                         "du",
@@ -847,13 +859,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "gli",
-                        "ma",
-                        "me",
-                        "gie",
-                        "ve",
-                        "so"
+                        "D",
+                        "G",
+                        "M",
+                        "M",
+                        "G",
+                        "V",
+                        "S"
                     ],
                     "short": [
                         "du",
@@ -937,13 +949,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "gli",
-                        "ma",
-                        "me",
-                        "gie",
-                        "ve",
-                        "so"
+                        "D",
+                        "G",
+                        "M",
+                        "M",
+                        "G",
+                        "V",
+                        "S"
                     ],
                     "short": [
                         "du",
@@ -1027,13 +1039,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "gli",
-                        "ma",
-                        "me",
-                        "gie",
-                        "ve",
-                        "so"
+                        "D",
+                        "G",
+                        "M",
+                        "M",
+                        "G",
+                        "V",
+                        "S"
                     ],
                     "short": [
                         "du",
@@ -1117,13 +1129,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "gli",
-                        "ma",
-                        "me",
-                        "gie",
-                        "ve",
-                        "so"
+                        "D",
+                        "G",
+                        "M",
+                        "M",
+                        "G",
+                        "V",
+                        "S"
                     ],
                     "short": [
                         "du",
@@ -1207,13 +1219,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "gli",
-                        "ma",
-                        "me",
-                        "gie",
-                        "ve",
-                        "so"
+                        "D",
+                        "G",
+                        "M",
+                        "M",
+                        "G",
+                        "V",
+                        "S"
                     ],
                     "short": [
                         "du",
@@ -2002,13 +2014,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "gli",
-                        "ma",
-                        "me",
-                        "gie",
-                        "ve",
-                        "so"
+                        "D",
+                        "G",
+                        "M",
+                        "M",
+                        "G",
+                        "V",
+                        "S"
                     ],
                     "short": [
                         "du",
@@ -2092,13 +2104,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "gli",
-                        "ma",
-                        "me",
-                        "gie",
-                        "ve",
-                        "so"
+                        "D",
+                        "G",
+                        "M",
+                        "M",
+                        "G",
+                        "V",
+                        "S"
                     ],
                     "short": [
                         "du",

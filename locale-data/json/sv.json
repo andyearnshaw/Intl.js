@@ -61,6 +61,18 @@
                 "yMd": "y-MM-dd",
                 "yQQQ": "y QQQ",
                 "yQQQQ": "y QQQQ"
+            },
+            "dateFormats": {
+                "full": "EEEE d MMMM y",
+                "long": "d MMMM y",
+                "medium": "d MMM y",
+                "short": "y-MM-dd"
+            },
+            "timeFormats": {
+                "full": "'kl'. HH:mm:ss zzzz",
+                "long": "HH:mm:ss z",
+                "medium": "HH:mm:ss",
+                "short": "HH:mm"
             }
         },
         "calendars": {
@@ -111,13 +123,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sö",
-                        "må",
-                        "ti",
-                        "on",
-                        "to",
-                        "fr",
-                        "lö"
+                        "S",
+                        "M",
+                        "T",
+                        "O",
+                        "T",
+                        "F",
+                        "L"
                     ],
                     "short": [
                         "sön",
@@ -201,13 +213,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sö",
-                        "må",
-                        "ti",
-                        "on",
-                        "to",
-                        "fr",
-                        "lö"
+                        "S",
+                        "M",
+                        "T",
+                        "O",
+                        "T",
+                        "F",
+                        "L"
                     ],
                     "short": [
                         "sön",
@@ -283,13 +295,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sö",
-                        "må",
-                        "ti",
-                        "on",
-                        "to",
-                        "fr",
-                        "lö"
+                        "S",
+                        "M",
+                        "T",
+                        "O",
+                        "T",
+                        "F",
+                        "L"
                     ],
                     "short": [
                         "sön",
@@ -376,13 +388,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sö",
-                        "må",
-                        "ti",
-                        "on",
-                        "to",
-                        "fr",
-                        "lö"
+                        "S",
+                        "M",
+                        "T",
+                        "O",
+                        "T",
+                        "F",
+                        "L"
                     ],
                     "short": [
                         "sön",
@@ -458,13 +470,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sö",
-                        "må",
-                        "ti",
-                        "on",
-                        "to",
-                        "fr",
-                        "lö"
+                        "S",
+                        "M",
+                        "T",
+                        "O",
+                        "T",
+                        "F",
+                        "L"
                     ],
                     "short": [
                         "sön",
@@ -554,13 +566,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sö",
-                        "må",
-                        "ti",
-                        "on",
-                        "to",
-                        "fr",
-                        "lö"
+                        "S",
+                        "M",
+                        "T",
+                        "O",
+                        "T",
+                        "F",
+                        "L"
                     ],
                     "short": [
                         "sön",
@@ -644,13 +656,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sö",
-                        "må",
-                        "ti",
-                        "on",
-                        "to",
-                        "fr",
-                        "lö"
+                        "S",
+                        "M",
+                        "T",
+                        "O",
+                        "T",
+                        "F",
+                        "L"
                     ],
                     "short": [
                         "sön",
@@ -737,13 +749,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sö",
-                        "må",
-                        "ti",
-                        "on",
-                        "to",
-                        "fr",
-                        "lö"
+                        "S",
+                        "M",
+                        "T",
+                        "O",
+                        "T",
+                        "F",
+                        "L"
                     ],
                     "short": [
                         "sön",
@@ -842,13 +854,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sö",
-                        "må",
-                        "ti",
-                        "on",
-                        "to",
-                        "fr",
-                        "lö"
+                        "S",
+                        "M",
+                        "T",
+                        "O",
+                        "T",
+                        "F",
+                        "L"
                     ],
                     "short": [
                         "sön",
@@ -932,13 +944,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sö",
-                        "må",
-                        "ti",
-                        "on",
-                        "to",
-                        "fr",
-                        "lö"
+                        "S",
+                        "M",
+                        "T",
+                        "O",
+                        "T",
+                        "F",
+                        "L"
                     ],
                     "short": [
                         "sön",
@@ -1022,13 +1034,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sö",
-                        "må",
-                        "ti",
-                        "on",
-                        "to",
-                        "fr",
-                        "lö"
+                        "S",
+                        "M",
+                        "T",
+                        "O",
+                        "T",
+                        "F",
+                        "L"
                     ],
                     "short": [
                         "sön",
@@ -1112,13 +1124,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sö",
-                        "må",
-                        "ti",
-                        "on",
-                        "to",
-                        "fr",
-                        "lö"
+                        "S",
+                        "M",
+                        "T",
+                        "O",
+                        "T",
+                        "F",
+                        "L"
                     ],
                     "short": [
                         "sön",
@@ -1202,13 +1214,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sö",
-                        "må",
-                        "ti",
-                        "on",
-                        "to",
-                        "fr",
-                        "lö"
+                        "S",
+                        "M",
+                        "T",
+                        "O",
+                        "T",
+                        "F",
+                        "L"
                     ],
                     "short": [
                         "sön",
@@ -1997,13 +2009,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sö",
-                        "må",
-                        "ti",
-                        "on",
-                        "to",
-                        "fr",
-                        "lö"
+                        "S",
+                        "M",
+                        "T",
+                        "O",
+                        "T",
+                        "F",
+                        "L"
                     ],
                     "short": [
                         "sön",
@@ -2087,13 +2099,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "sö",
-                        "må",
-                        "ti",
-                        "on",
-                        "to",
-                        "fr",
-                        "lö"
+                        "S",
+                        "M",
+                        "T",
+                        "O",
+                        "T",
+                        "F",
+                        "L"
                     ],
                     "short": [
                         "sön",

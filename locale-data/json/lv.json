@@ -60,6 +60,18 @@
                 "yMd": "d.M.y.",
                 "yQQQ": "y. 'g'. QQQ",
                 "yQQQQ": "y. 'g'. QQQQ"
+            },
+            "dateFormats": {
+                "full": "EEEE, y. 'gada' d. MMMM",
+                "long": "y. 'gada' d. MMMM",
+                "medium": "y. 'gada' d. MMM",
+                "short": "dd.MM.yy"
+            },
+            "timeFormats": {
+                "full": "HH:mm:ss zzzz",
+                "long": "HH:mm:ss z",
+                "medium": "HH:mm:ss",
+                "short": "HH:mm"
             }
         },
         "calendars": {
@@ -110,13 +122,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sv",
-                        "Pr",
-                        "Ot",
-                        "Tr",
-                        "Ce",
-                        "Pk",
-                        "Se"
+                        "S",
+                        "P",
+                        "O",
+                        "T",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "Sv",
@@ -200,13 +212,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sv",
-                        "Pr",
-                        "Ot",
-                        "Tr",
-                        "Ce",
-                        "Pk",
-                        "Se"
+                        "S",
+                        "P",
+                        "O",
+                        "T",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "Sv",
@@ -282,13 +294,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sv",
-                        "Pr",
-                        "Ot",
-                        "Tr",
-                        "Ce",
-                        "Pk",
-                        "Se"
+                        "S",
+                        "P",
+                        "O",
+                        "T",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "Sv",
@@ -375,13 +387,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sv",
-                        "Pr",
-                        "Ot",
-                        "Tr",
-                        "Ce",
-                        "Pk",
-                        "Se"
+                        "S",
+                        "P",
+                        "O",
+                        "T",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "Sv",
@@ -457,13 +469,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sv",
-                        "Pr",
-                        "Ot",
-                        "Tr",
-                        "Ce",
-                        "Pk",
-                        "Se"
+                        "S",
+                        "P",
+                        "O",
+                        "T",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "Sv",
@@ -553,13 +565,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sv",
-                        "Pr",
-                        "Ot",
-                        "Tr",
-                        "Ce",
-                        "Pk",
-                        "Se"
+                        "S",
+                        "P",
+                        "O",
+                        "T",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "Sv",
@@ -643,13 +655,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sv",
-                        "Pr",
-                        "Ot",
-                        "Tr",
-                        "Ce",
-                        "Pk",
-                        "Se"
+                        "S",
+                        "P",
+                        "O",
+                        "T",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "Sv",
@@ -736,13 +748,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sv",
-                        "Pr",
-                        "Ot",
-                        "Tr",
-                        "Ce",
-                        "Pk",
-                        "Se"
+                        "S",
+                        "P",
+                        "O",
+                        "T",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "Sv",
@@ -841,13 +853,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sv",
-                        "Pr",
-                        "Ot",
-                        "Tr",
-                        "Ce",
-                        "Pk",
-                        "Se"
+                        "S",
+                        "P",
+                        "O",
+                        "T",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "Sv",
@@ -931,13 +943,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sv",
-                        "Pr",
-                        "Ot",
-                        "Tr",
-                        "Ce",
-                        "Pk",
-                        "Se"
+                        "S",
+                        "P",
+                        "O",
+                        "T",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "Sv",
@@ -1021,13 +1033,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sv",
-                        "Pr",
-                        "Ot",
-                        "Tr",
-                        "Ce",
-                        "Pk",
-                        "Se"
+                        "S",
+                        "P",
+                        "O",
+                        "T",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "Sv",
@@ -1111,13 +1123,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sv",
-                        "Pr",
-                        "Ot",
-                        "Tr",
-                        "Ce",
-                        "Pk",
-                        "Se"
+                        "S",
+                        "P",
+                        "O",
+                        "T",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "Sv",
@@ -1201,13 +1213,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sv",
-                        "Pr",
-                        "Ot",
-                        "Tr",
-                        "Ce",
-                        "Pk",
-                        "Se"
+                        "S",
+                        "P",
+                        "O",
+                        "T",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "Sv",
@@ -1996,13 +2008,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sv",
-                        "Pr",
-                        "Ot",
-                        "Tr",
-                        "Ce",
-                        "Pk",
-                        "Se"
+                        "S",
+                        "P",
+                        "O",
+                        "T",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "Sv",
@@ -2086,13 +2098,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "Sv",
-                        "Pr",
-                        "Ot",
-                        "Tr",
-                        "Ce",
-                        "Pk",
-                        "Se"
+                        "S",
+                        "P",
+                        "O",
+                        "T",
+                        "C",
+                        "P",
+                        "S"
                     ],
                     "short": [
                         "Sv",

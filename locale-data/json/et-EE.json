@@ -60,6 +60,18 @@
                 "yMd": "d.M.y",
                 "yQQQ": "QQQ y",
                 "yQQQQ": "QQQQ y"
+            },
+            "dateFormats": {
+                "full": "EEEE, d. MMMM y",
+                "long": "d. MMMM y",
+                "medium": "d. MMM y",
+                "short": "dd.MM.yy"
+            },
+            "timeFormats": {
+                "full": "H:mm.ss zzzz",
+                "long": "H:mm.ss z",
+                "medium": "H:mm.ss",
+                "short": "H:mm"
             }
         },
         "calendars": {

@@ -64,6 +64,18 @@
                 "yMd": "dd/MM/y",
                 "yQQQ": "QQQ y",
                 "yQQQQ": "QQQQ 'di' y"
+            },
+            "dateFormats": {
+                "full": "EEEE, d 'di' MMMM 'di' y",
+                "long": "d 'di' MMMM 'di' y",
+                "medium": "d MMM y",
+                "short": "d/M/y"
+            },
+            "timeFormats": {
+                "full": "HH:mm:ss zzzz",
+                "long": "HH:mm:ss z",
+                "medium": "HH:mm:ss",
+                "short": "HH:mm"
             }
         },
         "calendars": {
@@ -114,13 +126,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "si",
-                        "te",
-                        "ku",
-                        "ki",
-                        "se",
-                        "sa"
+                        "D",
+                        "S",
+                        "T",
+                        "K",
+                        "K",
+                        "S",
+                        "S"
                     ],
                     "short": [
                         "dum",
@@ -204,13 +216,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "si",
-                        "te",
-                        "ku",
-                        "ki",
-                        "se",
-                        "sa"
+                        "D",
+                        "S",
+                        "T",
+                        "K",
+                        "K",
+                        "S",
+                        "S"
                     ],
                     "short": [
                         "dum",
@@ -286,13 +298,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "si",
-                        "te",
-                        "ku",
-                        "ki",
-                        "se",
-                        "sa"
+                        "D",
+                        "S",
+                        "T",
+                        "K",
+                        "K",
+                        "S",
+                        "S"
                     ],
                     "short": [
                         "dum",
@@ -379,13 +391,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "si",
-                        "te",
-                        "ku",
-                        "ki",
-                        "se",
-                        "sa"
+                        "D",
+                        "S",
+                        "T",
+                        "K",
+                        "K",
+                        "S",
+                        "S"
                     ],
                     "short": [
                         "dum",
@@ -461,13 +473,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "si",
-                        "te",
-                        "ku",
-                        "ki",
-                        "se",
-                        "sa"
+                        "D",
+                        "S",
+                        "T",
+                        "K",
+                        "K",
+                        "S",
+                        "S"
                     ],
                     "short": [
                         "dum",
@@ -557,13 +569,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "si",
-                        "te",
-                        "ku",
-                        "ki",
-                        "se",
-                        "sa"
+                        "D",
+                        "S",
+                        "T",
+                        "K",
+                        "K",
+                        "S",
+                        "S"
                     ],
                     "short": [
                         "dum",
@@ -647,13 +659,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "si",
-                        "te",
-                        "ku",
-                        "ki",
-                        "se",
-                        "sa"
+                        "D",
+                        "S",
+                        "T",
+                        "K",
+                        "K",
+                        "S",
+                        "S"
                     ],
                     "short": [
                         "dum",
@@ -740,13 +752,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "si",
-                        "te",
-                        "ku",
-                        "ki",
-                        "se",
-                        "sa"
+                        "D",
+                        "S",
+                        "T",
+                        "K",
+                        "K",
+                        "S",
+                        "S"
                     ],
                     "short": [
                         "dum",
@@ -845,13 +857,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "si",
-                        "te",
-                        "ku",
-                        "ki",
-                        "se",
-                        "sa"
+                        "D",
+                        "S",
+                        "T",
+                        "K",
+                        "K",
+                        "S",
+                        "S"
                     ],
                     "short": [
                         "dum",
@@ -935,13 +947,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "si",
-                        "te",
-                        "ku",
-                        "ki",
-                        "se",
-                        "sa"
+                        "D",
+                        "S",
+                        "T",
+                        "K",
+                        "K",
+                        "S",
+                        "S"
                     ],
                     "short": [
                         "dum",
@@ -1025,13 +1037,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "si",
-                        "te",
-                        "ku",
-                        "ki",
-                        "se",
-                        "sa"
+                        "D",
+                        "S",
+                        "T",
+                        "K",
+                        "K",
+                        "S",
+                        "S"
                     ],
                     "short": [
                         "dum",
@@ -1115,13 +1127,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "si",
-                        "te",
-                        "ku",
-                        "ki",
-                        "se",
-                        "sa"
+                        "D",
+                        "S",
+                        "T",
+                        "K",
+                        "K",
+                        "S",
+                        "S"
                     ],
                     "short": [
                         "dum",
@@ -1205,13 +1217,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "si",
-                        "te",
-                        "ku",
-                        "ki",
-                        "se",
-                        "sa"
+                        "D",
+                        "S",
+                        "T",
+                        "K",
+                        "K",
+                        "S",
+                        "S"
                     ],
                     "short": [
                         "dum",
@@ -2000,13 +2012,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "si",
-                        "te",
-                        "ku",
-                        "ki",
-                        "se",
-                        "sa"
+                        "D",
+                        "S",
+                        "T",
+                        "K",
+                        "K",
+                        "S",
+                        "S"
                     ],
                     "short": [
                         "dum",
@@ -2090,13 +2102,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "du",
-                        "si",
-                        "te",
-                        "ku",
-                        "ki",
-                        "se",
-                        "sa"
+                        "D",
+                        "S",
+                        "T",
+                        "K",
+                        "K",
+                        "S",
+                        "S"
                     ],
                     "short": [
                         "dum",

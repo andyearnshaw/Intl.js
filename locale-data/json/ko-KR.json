@@ -65,6 +65,18 @@
                 "yMd": "y. M. d.",
                 "yQQQ": "y년 QQQ",
                 "yQQQQ": "y년 QQQQ"
+            },
+            "dateFormats": {
+                "full": "y년 M월 d일 EEEE",
+                "long": "y년 M월 d일",
+                "medium": "y. M. d.",
+                "short": "yy. M. d."
+            },
+            "timeFormats": {
+                "full": "a h시 m분 s초 zzzz",
+                "long": "a h시 m분 s초 z",
+                "medium": "a h:mm:ss",
+                "short": "a h:mm"
             }
         },
         "calendars": {

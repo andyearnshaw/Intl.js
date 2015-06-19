@@ -60,6 +60,18 @@
                 "yMd": "d/M/y",
                 "yQQQ": "QQQ y",
                 "yQQQQ": "QQQQ y"
+            },
+            "dateFormats": {
+                "full": "EEEE, d MMMM 'de' y",
+                "long": "d MMMM 'de' y",
+                "medium": "d MMM y",
+                "short": "d/M/yy"
+            },
+            "timeFormats": {
+                "full": "H:mm:ss zzzz",
+                "long": "H:mm:ss z",
+                "medium": "H:mm:ss",
+                "short": "H:mm"
             }
         },
         "calendars": {
@@ -110,13 +122,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dg.",
-                        "dl.",
-                        "dt.",
-                        "dc.",
-                        "dj.",
-                        "dv.",
-                        "ds."
+                        "dg",
+                        "dl",
+                        "dt",
+                        "dc",
+                        "dj",
+                        "dv",
+                        "ds"
                     ],
                     "short": [
                         "dg.",
@@ -200,13 +212,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dg.",
-                        "dl.",
-                        "dt.",
-                        "dc.",
-                        "dj.",
-                        "dv.",
-                        "ds."
+                        "dg",
+                        "dl",
+                        "dt",
+                        "dc",
+                        "dj",
+                        "dv",
+                        "ds"
                     ],
                     "short": [
                         "dg.",
@@ -282,13 +294,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dg.",
-                        "dl.",
-                        "dt.",
-                        "dc.",
-                        "dj.",
-                        "dv.",
-                        "ds."
+                        "dg",
+                        "dl",
+                        "dt",
+                        "dc",
+                        "dj",
+                        "dv",
+                        "ds"
                     ],
                     "short": [
                         "dg.",
@@ -375,13 +387,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dg.",
-                        "dl.",
-                        "dt.",
-                        "dc.",
-                        "dj.",
-                        "dv.",
-                        "ds."
+                        "dg",
+                        "dl",
+                        "dt",
+                        "dc",
+                        "dj",
+                        "dv",
+                        "ds"
                     ],
                     "short": [
                         "dg.",
@@ -457,13 +469,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dg.",
-                        "dl.",
-                        "dt.",
-                        "dc.",
-                        "dj.",
-                        "dv.",
-                        "ds."
+                        "dg",
+                        "dl",
+                        "dt",
+                        "dc",
+                        "dj",
+                        "dv",
+                        "ds"
                     ],
                     "short": [
                         "dg.",
@@ -553,13 +565,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dg.",
-                        "dl.",
-                        "dt.",
-                        "dc.",
-                        "dj.",
-                        "dv.",
-                        "ds."
+                        "dg",
+                        "dl",
+                        "dt",
+                        "dc",
+                        "dj",
+                        "dv",
+                        "ds"
                     ],
                     "short": [
                         "dg.",
@@ -643,13 +655,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dg.",
-                        "dl.",
-                        "dt.",
-                        "dc.",
-                        "dj.",
-                        "dv.",
-                        "ds."
+                        "dg",
+                        "dl",
+                        "dt",
+                        "dc",
+                        "dj",
+                        "dv",
+                        "ds"
                     ],
                     "short": [
                         "dg.",
@@ -736,13 +748,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dg.",
-                        "dl.",
-                        "dt.",
-                        "dc.",
-                        "dj.",
-                        "dv.",
-                        "ds."
+                        "dg",
+                        "dl",
+                        "dt",
+                        "dc",
+                        "dj",
+                        "dv",
+                        "ds"
                     ],
                     "short": [
                         "dg.",
@@ -841,13 +853,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dg.",
-                        "dl.",
-                        "dt.",
-                        "dc.",
-                        "dj.",
-                        "dv.",
-                        "ds."
+                        "dg",
+                        "dl",
+                        "dt",
+                        "dc",
+                        "dj",
+                        "dv",
+                        "ds"
                     ],
                     "short": [
                         "dg.",
@@ -931,13 +943,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dg.",
-                        "dl.",
-                        "dt.",
-                        "dc.",
-                        "dj.",
-                        "dv.",
-                        "ds."
+                        "dg",
+                        "dl",
+                        "dt",
+                        "dc",
+                        "dj",
+                        "dv",
+                        "ds"
                     ],
                     "short": [
                         "dg.",
@@ -1021,13 +1033,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dg.",
-                        "dl.",
-                        "dt.",
-                        "dc.",
-                        "dj.",
-                        "dv.",
-                        "ds."
+                        "dg",
+                        "dl",
+                        "dt",
+                        "dc",
+                        "dj",
+                        "dv",
+                        "ds"
                     ],
                     "short": [
                         "dg.",
@@ -1111,13 +1123,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dg.",
-                        "dl.",
-                        "dt.",
-                        "dc.",
-                        "dj.",
-                        "dv.",
-                        "ds."
+                        "dg",
+                        "dl",
+                        "dt",
+                        "dc",
+                        "dj",
+                        "dv",
+                        "ds"
                     ],
                     "short": [
                         "dg.",
@@ -1201,13 +1213,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dg.",
-                        "dl.",
-                        "dt.",
-                        "dc.",
-                        "dj.",
-                        "dv.",
-                        "ds."
+                        "dg",
+                        "dl",
+                        "dt",
+                        "dc",
+                        "dj",
+                        "dv",
+                        "ds"
                     ],
                     "short": [
                         "dg.",
@@ -1996,13 +2008,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dg.",
-                        "dl.",
-                        "dt.",
-                        "dc.",
-                        "dj.",
-                        "dv.",
-                        "ds."
+                        "dg",
+                        "dl",
+                        "dt",
+                        "dc",
+                        "dj",
+                        "dv",
+                        "ds"
                     ],
                     "short": [
                         "dg.",
@@ -2086,13 +2098,13 @@
                 },
                 "days": {
                     "narrow": [
-                        "dg.",
-                        "dl.",
-                        "dt.",
-                        "dc.",
-                        "dj.",
-                        "dv.",
-                        "ds."
+                        "dg",
+                        "dl",
+                        "dt",
+                        "dc",
+                        "dj",
+                        "dv",
+                        "ds"
                     ],
                     "short": [
                         "dg.",
