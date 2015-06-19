@@ -2712,6 +2712,8 @@ defineProperty(Intl, '__applyLocaleSensitivePrototypes', {
     configurable: true,
     value: function () {
         defineProperty(Number.prototype, 'toLocaleString', { writable: true, configurable: true, value: ls.Number.toLocaleString });
+        // Need this here for IE 8, to avoid the _DontEnum_ bug
+        defineProperty(Date.prototype, 'toLocaleString', { writable: true, configurable: true, value: ls.Date.toLocaleString });
 
         for (var k in ls.Date) {
             if (hop.call(ls.Date, k))
