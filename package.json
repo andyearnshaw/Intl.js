@@ -9,6 +9,8 @@
   },
   "devDependencies": {
     "async": "^0.9.0",
+    "cli-color": "^1.0.0",
+    "clui": "^0.3.1",
     "finalhandler": "^0.4.0",
     "glob": "^5.0.3",
     "grunt": "^0.4.5",

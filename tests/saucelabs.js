@@ -1,6 +1,8 @@
 /*eslint-env node*/
 'use strict';
 var LIBS = {
+        clc:    require('cli-color'),
+        CLI:    require('clui'),
         Sauce:  require('sauce-tunnel'),
         http:   require('http'),
         serve:  require('serve-static'),
@@ -71,9 +73,20 @@ var LIBS = {
         }
     ],
 
+    // Fancy CLI output
+    Line = LIBS.CLI.Line,
+    oldConsoleLog = console.log,
+    consoleLogAllowed = false,
+
+    lastTunnelMessage,
+    lastErrorMessages = [],
+    lastOutputLines = 0,
     tunnel = process.env.TRAVIS_BUILD_NUMBER ? null : new LIBS.Sauce(process.env.SAUCE_USERNAME, process.env.SAUCE_ACCESS_KEY),
     serveStatic = LIBS.serve(LIBS.path.resolve(__dirname, '../')),
     testBaseURL = 'http://localhost:8000/tests/test262/pages/',
+
+    // Get the tests together
+    tests = listTests(),
 
     // A list of tests that ES3 environments can't pass, either because they
     // use accessors or they test for behaviour achievable only in ES5 environments
@@ -87,6 +100,69 @@ LIBS.http.createServer(function(req, res) {
     var done = LIBS.final(req, res);
     serveStatic(req, res, done);
 }).listen(8000);
+
+function drawStatus () {
+    // Don't draw fancy updates in Travis' log
+    if (process.env.TRAVIS_JOB_NUMBER) {
+        return;
+    }
+
+    var clc = LIBS.clc,
+        maxWidth = LIBS.clc.windowSize.width,
+        blankLine = new Line().fill();
+
+    if (lastOutputLines) {
+        process.stdout.write('\x1b[' + lastOutputLines + 'A');
+        lastOutputLines = 0;
+    }
+
+    // Draw header
+    blankLine.output();
+    new Line()
+        .padding(2)
+        .column('Browser', 22, [ clc.cyan ])
+        .column('Passed (Failed)', tests.length + 2, [ clc.cyan ])
+        .fill()
+        .output();
+
+    // Draw status
+    blankLine.output();
+    lastOutputLines += 3;
+    for (var k in BROWSERS) {
+        var results = BROWSERS[k].results || { failCount: 0, passCount: 0 };
+        new Line()
+            .padding(2)
+            .column(BROWSERS[k].browserName + ' ' + BROWSERS[k].version, 22, [ clc.blue ])
+            .column(results.passCount + ' (' + results.failCount + ') ', undefined, [ results.failCount ? clc.red : clc.green ])
+            .column(results.currentTest || 'Waiting...', 100, [ clc.blackBright ])
+            .fill()
+            .output();
+
+        lastOutputLines++;
+    }
+
+    blankLine.output();
+    lastOutputLines++;
+
+    if (lastTunnelMessage) {
+        new Line().column('Sauce Connect status:', maxWidth, [ clc.cyan ]).fill().output();
+        new Line().padding(2).column(lastTunnelMessage).fill().output();
+        lastOutputLines += 2;
+    }
+
+    if (lastErrorMessages.length) {
+        blankLine.output();
+        new Line().column('Recent failures:', maxWidth, [ clc.cyan ]).fill().output();
+        lastOutputLines += 2;
+
+        lastErrorMessages.forEach(function (m) {
+            new Line().column('  ' + m.split('\n').shift(), maxWidth, [ clc.red ]).fill().output();
+            lastOutputLines++;
+        });
+    }
+    blankLine.output();
+    lastOutputLines++;
+}
 
 function listTests() {
     var tests = [],
@@ -119,7 +195,8 @@ function runTestsInBrowser(state, browserConfig, done) {
         browserString = LIBS.util.inspect(browserConfig, {depth: null}).replace(/\n\s*/g, ' '),
         browser,
         failures = 0;
-    console.log('================================================ START', browserString);
+
+    console.log(LIBS.clc.cyan('================================================ START'), browserString);
 
     Object.keys(state.capabilities).forEach(function(key) {
         caps[key] = state.capabilities[key];
@@ -149,11 +226,20 @@ function runTestsInBrowser(state, browserConfig, done) {
         browser.init(caps, taskDone);
     });
 
+    // Setup progress and results
+    browserConfig.results = {
+        failCount: 0,
+        passCount: 0,
+        errors: []
+    };
+
     // for each page, get and test page
     state.tests.forEach(function(test) {
         tasks.push(function(taskDone) {
             var url = testBaseURL + test,
                 ie8 = browserConfig.browserName === 'internet explorer' && browserConfig.version === '8';
+
+            browserConfig.results.currentTest = test;
 
             //- Skip impassable tests in IE 8
             if (ie8 && (test.slice(-9) === '_L15.html' || es3blacklist.indexOf(test.split('/').pop()) > -1)) {
@@ -171,20 +257,30 @@ function runTestsInBrowser(state, browserConfig, done) {
                     if (cookedErr.message) { cookedErr = cookedErr.message; }
                     cookedErr = cookedErr.toString().split('\n')[0];
                     cookedErr = cookedErr || out || 'FAILED no results';
-                    console.log('--ERROR--', err);
+                    console.log(LIBS.clc.red('--ERROR--'), LIBS.clc.red(err));
                 }
                 if (out) {
                     state.results.passCount++;
+                    browserConfig.results.passCount++;
                     console.log('--PASSED--', test, browserString);
                 } else {
                     failures++;
+                    browserConfig.results.failCount++;
                     state.results.failCount++;
                     if (!state.results.failures[test]) {
                         state.results.failures[test] = {};
                     }
                     state.results.failures[test][browserString] = cookedErr;
-                    console.log('--FAILED--', test, browserString, cookedErr);
+                    if (lastErrorMessages.length > 4) {
+                        lastErrorMessages.length = 4;
+                    }
+                    lastErrorMessages.push(browserConfig.browserName + ' ' + browserConfig.version + ' – ' + cookedErr);
+                    console.log(LIBS.clc.red('--FAILED--'), LIBS.clc.red(test), LIBS.clc.red(browserString), LIBS.clc.red(cookedErr));
                 }
+
+                // Update display
+                drawStatus();
+
                 // This sometimes signifies a suacelabs browser that has gone awawy.
                 if ('ERROR Internal Server Error' === cookedErr) {
                     taskDone(err);
@@ -251,10 +347,10 @@ function runTestsInBrowser(state, browserConfig, done) {
     });
 
     LIBS.async.series(tasks, function(err) {
-        console.log('================================================ DONE', browserString);
+        console.log(LIBS.clc.cyan('================================================ DONE'), browserString);
         if (err) {
-            console.log('--BROWSER FAILED--');
-            console.log(err);
+            console.log(LIBS.clc.red('--BROWSER FAILED--'));
+            console.log(LIBS.clc.red(err));
         }
         done(err);
     });
@@ -268,7 +364,7 @@ function runTests(state, done) {
     q = LIBS.async.queue(function(browser, browserDone) {
         runTestsInBrowser(state, browser, function(err) {
             if (err) {
-                console.log(err.message);
+                console.log(LIBS.clc.red(err.message));
                 browserFailures++;
             }
             browserDone();
@@ -306,6 +402,12 @@ function main(tunnelReady) {
         tags: []
     };
     state.capabilities['tunnel-identifier'] = process.env.TRAVIS_JOB_NUMBER || tunnel.identifier;
+
+    // Override console log for local
+    if (!process.env.TRAVIS_JOB_NUMBER) {
+        console.log = function () {};
+    }
+
     if (process.env.TRAVIS_JOB_NUMBER) {
         // we only need one of these to run on travis
         if ('.1' !== process.env.TRAVIS_JOB_NUMBER.substr(-2)) {
@@ -319,12 +421,15 @@ function main(tunnelReady) {
     state.capabilities.build = process.env.TRAVIS_BUILD_NUMBER || process.pid;
     console.log(JSON.stringify(state.capabilities, null, 4));
 
-    console.log('================================================ START');
+    console.log(LIBS.clc.cyan('================================================ START'));
     runTests(state, function(err) {
         if (tunnel) {
             tunnel.stop(function () {});
         }
-        console.log('================================================ DONE');
+        console.log(LIBS.clc.cyan('================================================ DONE'));
+
+        console.log = oldConsoleLog;
+
         if (err) {
             console.error(err);
             process.exit(2);
@@ -338,10 +443,15 @@ function main(tunnelReady) {
     });
 }
 
+// Save the current cursor position for redraws
+drawStatus();
+
 if (tunnel) {
-    console.log('Starting SauceTunnel...');
     tunnel.start(main);
-    tunnel.proc.stdout.pipe(process.stdout);
+    tunnel.proc.stdout.on('data', function (msg) {
+        lastTunnelMessage = String(msg).split('\n').shift();
+        drawStatus();
+    });
 }
 else {
     main(true);
