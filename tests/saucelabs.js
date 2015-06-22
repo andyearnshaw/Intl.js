@@ -446,7 +446,12 @@ function main(tunnelReady) {
 // Save the current cursor position for redraws
 drawStatus();
 
-if (tunnel) {
+// Avoid "The Travis CI build failed" message on PRs
+if (process.env.TRAVIS_PULL_REQUEST) {
+    console.warn('Unable to run Sauce Labs tests for pull requests.');
+    process.exit(0);
+}
+else if (tunnel) {
     tunnel.start(main);
     tunnel.proc.stdout.on('data', function (msg) {
         lastTunnelMessage = String(msg).split('\n').shift();
