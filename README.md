@@ -12,7 +12,7 @@ current Firefox nightly builds.
 described by the specification, so that developers can take advantage of the native API
 in environments that support it, or `Intl.js` for legacy or unsupporting environments.
 
-[Build Status]: https://travis-ci.org/andyearnshaw/Intl.js.png?branch=master
+[Build Status]: https://travis-ci.org/andyearnshaw/Intl.js.svg?branch=master
 
 
 ## Getting started
