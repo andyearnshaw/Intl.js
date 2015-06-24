@@ -75,6 +75,8 @@ var LIBS = {
 
     // Fancy CLI output
     Line = LIBS.CLI.Line,
+    oldConsoleLog = console.log,
+    consoleLogAllowed = false,
 
     lastTunnelMessage,
     lastErrorMessages = [],
@@ -100,7 +102,13 @@ LIBS.http.createServer(function(req, res) {
 }).listen(8000);
 
 function drawStatus () {
+    // Don't draw fancy updates in Travis' log
+    if (process.env.TRAVIS_JOB_NUMBER) {
+        return;
+    }
+
     var clc = LIBS.clc,
+        maxWidth = LIBS.clc.windowSize.width,
         blankLine = new Line().fill();
 
     if (lastOutputLines) {
@@ -137,18 +145,18 @@ function drawStatus () {
     lastOutputLines++;
 
     if (lastTunnelMessage) {
-        new Line().column('Sauce Connect status:', undefined, [ clc.cyan ]).fill().output();
+        new Line().column('Sauce Connect status:', maxWidth, [ clc.cyan ]).fill().output();
         new Line().padding(2).column(lastTunnelMessage).fill().output();
         lastOutputLines += 2;
     }
 
     if (lastErrorMessages.length) {
         blankLine.output();
-        new Line().column('Recent failures:', undefined, [ clc.cyan ]).fill().output();
+        new Line().column('Recent failures:', maxWidth, [ clc.cyan ]).fill().output();
         lastOutputLines += 2;
 
         lastErrorMessages.forEach(function (m) {
-            new Line().column(m.split('\n').shift(), undefined, [ clc.red ]).fill().output();
+            new Line().column('  ' + m.split('\n').shift(), maxWidth, [ clc.red ]).fill().output();
             lastOutputLines++;
         });
     }
@@ -187,6 +195,8 @@ function runTestsInBrowser(state, browserConfig, done) {
         browserString = LIBS.util.inspect(browserConfig, {depth: null}).replace(/\n\s*/g, ' '),
         browser,
         failures = 0;
+
+    console.log(LIBS.clc.cyan('================================================ START'), browserString);
 
     Object.keys(state.capabilities).forEach(function(key) {
         caps[key] = state.capabilities[key];
@@ -233,8 +243,11 @@ function runTestsInBrowser(state, browserConfig, done) {
 
             //- Skip impassable tests in IE 8
             if (ie8 && (test.slice(-9) === '_L15.html' || es3blacklist.indexOf(test.split('/').pop()) > -1)) {
+                console.log('--SKIPPED--', test, browserString, 'Not passable from ES3 environments');
                 return taskDone();
             }
+
+            console.log('--TESTING--', test, browserString);
 
             function saveResult(out, err, skipped) {
                 var cookedErr = err;
@@ -244,10 +257,12 @@ function runTestsInBrowser(state, browserConfig, done) {
                     if (cookedErr.message) { cookedErr = cookedErr.message; }
                     cookedErr = cookedErr.toString().split('\n')[0];
                     cookedErr = cookedErr || out || 'FAILED no results';
+                    console.log(LIBS.clc.red('--ERROR--'), LIBS.clc.red(err));
                 }
                 if (out) {
                     state.results.passCount++;
                     browserConfig.results.passCount++;
+                    console.log('--PASSED--', test, browserString);
                 } else {
                     failures++;
                     browserConfig.results.failCount++;
@@ -260,6 +275,7 @@ function runTestsInBrowser(state, browserConfig, done) {
                         lastErrorMessages.length = 4;
                     }
                     lastErrorMessages.push(browserConfig.browserName + ' ' + browserConfig.version + ' – ' + cookedErr);
+                    console.log(LIBS.clc.red('--FAILED--'), LIBS.clc.red(test), LIBS.clc.red(browserString), LIBS.clc.red(cookedErr));
                 }
 
                 // Update display
@@ -331,6 +347,11 @@ function runTestsInBrowser(state, browserConfig, done) {
     });
 
     LIBS.async.series(tasks, function(err) {
+        console.log(LIBS.clc.cyan('================================================ DONE'), browserString);
+        if (err) {
+            console.log(LIBS.clc.red('--BROWSER FAILED--'));
+            console.log(LIBS.clc.red(err));
+        }
         done(err);
     });
 }
@@ -343,6 +364,7 @@ function runTests(state, done) {
     q = LIBS.async.queue(function(browser, browserDone) {
         runTestsInBrowser(state, browser, function(err) {
             if (err) {
+                console.log(LIBS.clc.red(err.message));
                 browserFailures++;
             }
             browserDone();
@@ -381,6 +403,11 @@ function main(tunnelReady) {
     };
     state.capabilities['tunnel-identifier'] = process.env.TRAVIS_JOB_NUMBER || tunnel.identifier;
 
+    // Override console log for local
+    if (!process.env.TRAVIS_JOB_NUMBER) {
+        console.log = function () {};
+    }
+
     if (process.env.TRAVIS_JOB_NUMBER) {
         // we only need one of these to run on travis
         if ('.1' !== process.env.TRAVIS_JOB_NUMBER.substr(-2)) {
@@ -392,10 +419,17 @@ function main(tunnelReady) {
         state.capabilities.tags.push('CI');
     }
     state.capabilities.build = process.env.TRAVIS_BUILD_NUMBER || process.pid;
+    console.log(JSON.stringify(state.capabilities, null, 4));
+
+    console.log(LIBS.clc.cyan('================================================ START'));
     runTests(state, function(err) {
         if (tunnel) {
             tunnel.stop(function () {});
         }
+        console.log(LIBS.clc.cyan('================================================ DONE'));
+
+        console.log = oldConsoleLog;
+
         if (err) {
             console.error(err);
             process.exit(2);
