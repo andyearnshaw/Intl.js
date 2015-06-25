@@ -4,16 +4,12 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         clean: {
-            cldr   : ['tmp/cldr**', 'data/cldr**', 'locale-data/'],
+            cldr   : ['locale-data/'],
             test262: ['tmp/test262**', 'data/test262**', 'tests/test262/'],
             lib    : ['lib/', 'dist/'],
         },
 
         curl: {
-            cldr: {
-                src : 'http://www.unicode.org/Public/cldr/26/json-full.zip',
-                dest: 'tmp/cldr.zip',
-            },
             test262: {
                 src : 'https://github.com/tc39/test262/archive/master.zip',
                 dest: 'tmp/test262.zip',
@@ -32,18 +28,6 @@ module.exports = function (grunt) {
         },
 
         copy: {
-            cldr: {
-                expand: true,
-                cwd   : 'tmp/cldr/',
-                dest  : 'data/',
-                src   : [
-                    '*-license.*',
-                    'supplemental/parentLocales.json',
-                    'main/*/ca-*.json',
-                    'main/*/currencies.json',
-                    'main/*/numbers.json',
-                ]
-            },
             test262: {
                 expand: true,
                 cwd   : 'tmp/test262-master/',
@@ -114,14 +98,6 @@ module.exports = function (grunt) {
     grunt.registerTask('cldr', ['extract-cldr-data', 'compile-data']);
 
     grunt.registerTask('default', ['jshint', 'clean:lib', 'build']);
-
-    grunt.registerTask('update-cldr-data', [
-        'clean:cldr',
-        'curl:cldr',
-        'unzip:cldr',
-        'copy:cldr',
-        'cldr',
-    ]);
 
     grunt.registerTask('update-test262', [
         'clean:test262',

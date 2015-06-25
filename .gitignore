@@ -1,6 +1,3 @@
-# Pre-processed locale data output from Ldml2JsonConverter
-cldr/
-
 # test262 compiled python files
 *.pyc
 
@@ -15,6 +12,5 @@ node_modules
 
 lib/
 tmp/
-data/
 tests/test262/harness/
 tests/test262/test/

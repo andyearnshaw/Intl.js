@@ -80,9 +80,8 @@ module.exports = function extractNumbersFields(locales) {
 };
 
 function loadNumbers(locale) {
-    var dir = path.resolve(__dirname, '../../data/main', locale);
     return assign(
-        require(path.join(dir, 'numbers.json')).main[locale].numbers,
-        require(path.join(dir, 'currencies.json')).main[locale].numbers
+        require('cldr-numbers-full/main/' + locale + '/numbers.json').main[locale].numbers,
+        require('cldr-numbers-full/main/' + locale + '/currencies.json').main[locale].numbers
     );
 }

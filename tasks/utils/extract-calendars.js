@@ -86,7 +86,7 @@ module.exports = function extractCalendars(locales) {
 };
 
 function loadCalendars(locale) {
-    var dir = path.resolve(__dirname, '../../data/main', locale);
+    var dir = path.resolve(path.dirname(require.resolve('cldr-dates-full/package.json')), 'main', locale);
     var filenames = glob.sync("ca-*.json", {
             cwd: dir
         });
