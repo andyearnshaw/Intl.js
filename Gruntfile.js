@@ -95,7 +95,7 @@ module.exports = function (grunt) {
         'bundle_jsnext', 'uglify', 'cjs_jsnext', 'copy:src', 'concat:complete'
     ]);
 
-    grunt.registerTask('cldr', ['extract-cldr-data', 'compile-data']);
+    grunt.registerTask('cldr', ['clean:cldr', 'extract-cldr-data', 'compile-data']);
 
     grunt.registerTask('default', ['jshint', 'clean:lib', 'build']);
 
