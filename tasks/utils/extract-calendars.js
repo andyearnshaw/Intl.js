@@ -86,12 +86,30 @@ module.exports = function extractCalendars(locales) {
 };
 
 function loadCalendars(locale) {
-    var dir = path.resolve(path.dirname(require.resolve('cldr-dates-full/package.json')), 'main', locale);
-    var filenames = glob.sync("ca-*.json", {
-            cwd: dir
-        });
-
-    return filenames.reduce(function (calendars, filename) {
-        return assign(calendars, require(path.join(dir, filename)).main[locale].dates.calendars);
+    // all NPM packages providing calendars specific data
+    var pkgs = [
+        "cldr-dates-full",
+        "cldr-cal-buddhist-full",
+        "cldr-cal-chinese-full",
+        "cldr-cal-coptic-full",
+        "cldr-cal-dangi-full",
+        "cldr-cal-ethiopic-full",
+        "cldr-cal-hebrew-full",
+        "cldr-cal-indian-full",
+        "cldr-cal-islamic-full",
+        "cldr-cal-japanese-full",
+        "cldr-cal-persian-full",
+        "cldr-cal-roc-full"
+    ];
+    // walking all packages, selecting calendar files, then
+    // reading the content of each calendar, and concatenating the set
+    return pkgs.reduce(function (calendars, pkgName) {
+        var dir = path.resolve(path.dirname(require.resolve(pkgName + '/package.json')), 'main', locale);
+        var filenames = glob.sync("ca-*.json", {
+                cwd: dir
+            });
+        return filenames.reduce(function (calendars, filename) {
+            return assign(calendars, require(path.join(dir, filename)).main[locale].dates.calendars);
+        }, calendars);
     }, {});
 }
