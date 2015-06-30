@@ -9,31 +9,39 @@ exports.hasCalendars       = hasCalendars;
 exports.hasNumbersFields   = hasNumbersFields;
 exports.normalizeLocale    = normalizeLocale;
 
+var CLDR_DATES_DIR = path.dirname(require.resolve('cldr-dates-full/package.json'));
+var CLDR_NUMBERS_DIR = path.dirname(require.resolve('cldr-numbers-full/package.json'));
+
 // These are the exceptions to the default algorithm for determining a locale's
 // parent locale.
-var PARENT_LOCALES_HASH = require('../../data/supplemental/parentLocales.json')
+var PARENT_LOCALES_HASH = require('cldr-core/supplemental/parentLocales.json')
     .supplemental.parentLocales.parentLocale;
 
 var CALENDARS_LOCALES_HASH = glob.sync('*/ca-*.json', {
-    cwd: path.resolve(__dirname, '../../data/main'),
+    cwd: path.resolve(CLDR_DATES_DIR, 'main'),
 }).reduce(function (hash, filename) {
     hash[path.dirname(filename)] = true;
     return hash;
 }, {});
 
 var NUMBERS_LOCALES_HASH = glob.sync('*/numbers.json', {
-    cwd: path.resolve(__dirname, '../../data/main'),
+    cwd: path.resolve(CLDR_NUMBERS_DIR, 'main'),
 }).reduce(function (hash, filename) {
     hash[path.dirname(filename)] = true;
     return hash;
 }, {});
 
 var CURRENCIES_LOCALES_HASH = glob.sync('*/currencies.json', {
-    cwd: path.resolve(__dirname, '../../data/main'),
+    cwd: path.resolve(CLDR_NUMBERS_DIR, 'main'),
 }).reduce(function (hash, filename) {
     hash[path.dirname(filename)] = true;
     return hash;
 }, {});
+
+var DEFAULT_CONTENT_ARRAY = require('cldr-core/defaultContent.json')
+    .defaultContent.map(function (value) {
+        return value.replace(/_/g, '-');
+    });
 
 // Some locales that have a `pluralRuleFunction` don't have a `dateFields.json`
 // file, and visa versa, so this creates a unique collection of all locales in
@@ -43,6 +51,7 @@ var ALL_LOCALES_HASH =
     .concat(Object.keys(CALENDARS_LOCALES_HASH))
     .concat(Object.keys(NUMBERS_LOCALES_HASH))
     .concat(Object.keys(CURRENCIES_LOCALES_HASH))
+    .concat(DEFAULT_CONTENT_ARRAY)
     .sort()
     .reduce(function (hash, locale) {
         hash[locale.toLowerCase()] = locale;

@@ -27,7 +27,7 @@ module.exports = function(grunt) {
     grunt.registerTask('extract-cldr-data', 'Extract Numbers and Calendars Data from CLDR', function() {
 
         try {
-            require('../data/supplemental/parentLocales.json');
+            require('cldr-core/supplemental/parentLocales.json');
         } catch (e) {
             throw new Error('Error locating cldr data, make sure you execute `grunt update-cldr-data` before.');
         }
