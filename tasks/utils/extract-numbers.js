@@ -1,3 +1,5 @@
+/* jshint node:true */
+
 'use strict';
 
 var path   = require('path');
@@ -24,49 +26,30 @@ module.exports = function extractNumbersFields(locales) {
         }
     }
 
-    // Hashes and caches the `numbers` for a given `locale` to avoid hashing more
-    // than once since it could be expensive.
-    function hashNumbers(locale, numbers) {
-        var hash = hashes[locale];
-        if (hash) {
-            return hash;
+    // This will traverse the hierarchy for the
+    // given `locale` until it finds an ancestor with numbers fields.
+    function findLocaleWithNumbersFields(locale) {
+        // The "root" locale is the top level ancestor.
+        if (locale === 'root') {
+            return 'root';
         }
 
-        hash = hashes[locale] = JSON.stringify(numbers);
-        return hash;
-    }
-
-    // We want to de-dup data that can be referenced from upstream in the
-    // `locale`'s hierarchy when that locale's numbers fields are the _exact_
-    // same as one of its ancestors. This will traverse the hierarchy for the
-    // given `locale` until it finds an ancestor with same same numbers fields.
-    // When an ancestor can't be found, a data entry must be created for the
-    // `locale` since its numbers fields are unique.
-    function findGreatestAncestor(locale) {
-        // The "root" locale is not a suitable ancestor, because there won't be
-        // an entry for "root" in the final data object.
-        var parentLocale = getParentLocale(locale);
-
-        if (!parentLocale || parentLocale === 'root') {
-            return 'root';
+        if (hasNumbersFields(locale)) {
+            return locale;
         }
 
         // When the `locale` doesn't have numbers fields, we need to traverse up
         // its hierarchy to find suitable numbers fields data.
-        if (!hasNumbersFields(locale)) {
-            return findGreatestAncestor(parentLocale);
-        }
-
-        return locale;
+        return findLocaleWithNumbersFields(getParentLocale(locale));
     }
 
     return locales.reduce(function (numbers, locale) {
         locale = normalizeLocale(locale);
 
         // Walk the `locale`'s hierarchy to look for suitable ancestor with the
-        // _exact_ same numbers fields. If no ancestor is found, the given
+        // date calendars. If no ancestor is found, the given
         // `locale` will be returned.
-        var resolvedLocale = hasNumbersFields(locale) ? locale : findGreatestAncestor(locale);
+        var resolvedLocale = findLocaleWithNumbersFields(locale);
 
         // Add an entry for the `locale`, which might be an ancestor. If the
         // locale doesn't have relative fields, then we fallback to the "root"

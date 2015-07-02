@@ -1,3 +1,5 @@
+/* jshint node:true */
+
 /* updating tests from tests/test262 */
 
 var LIBS = {
@@ -147,8 +149,8 @@ function processTest(content) {
     // Make sure to use our version (not one the browser might have).
     content = content.replace(/\bIntl\b/g, 'IntlPolyfill');
 
-    var explainV8OptOut = '// This test is disabled to avoid the v8 bug outlined at https://code.google.com/p/v8/issues/detail?id=2694',
-        explainES6OptOut = '// This test is disabled because it relies on ES 2015 behaviour, which is not implemented in environments that need this polyfill',
+    var explainV8OptOut = '// This test is disabled to avoid the v8 bug outlined at https://code.google.com/p/v8/issues/detail?id=2694';
+    var explainES6OptOut = '// This test is disabled because it relies on ES 2015 behaviour, which is not implemented in environments that need this polyfill';
 
     // Due to a bug in v8, we need to disable parts of the _L15 tests that
     // check the function property `length` is not writable

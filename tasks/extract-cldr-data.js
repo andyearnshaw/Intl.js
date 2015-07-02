@@ -1,3 +1,5 @@
+/* jshint node:true */
+
 /**
  * Compiles all JSON data into the polyfill and saves it as Intl.complete.js
  */

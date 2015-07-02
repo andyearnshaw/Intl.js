@@ -1,21 +1,29 @@
-var
-    // Match these datetime components in a CLDR pattern, except those in single quotes
-    expDTComponents = /(?:[Eec]{1,6}|G{1,5}|(?:[yYu]+|U{1,5})|[ML]{1,5}|d{1,2}|a|[hkHK]{1,2}|m{1,2}|s{1,2}|z{1,4})(?=([^']*'[^']*')*[^']*$)/g,
+/* jshint node:true */
 
-    // Skip over patterns with these datetime components
-    unwantedDTCs = /[QxXVOvZASjgFDwWIQqH]/,
+/**
+ * Parses a CLDR number formatting string into the object specified in ECMA-402
+ * Returns an object with positivePattern and negativePattern properties
+ */
+function createNumberFormats (ptn) {
+    var patterns = ptn.split(';'),
 
-    // Maps the number of characters in a CLDR pattern to the specification
-    dtcLengthMap = {
-        month:   [ 'numeric', '2-digit', 'short', 'long', 'narrow' ],
-        weekday: [ 'short', 'short', 'short', 'long', 'narrow' ],
-        era:     [ 'short', 'short', 'short', 'long', 'narrow' ]
-    };
+        // Matches CLDR number patterns, e.g. #,##0.00, #,##,##0.00, #,##0.##, etc.
+        numPtn = /#(?:[\.,]#+)*0(?:[,\.][0#]+)*/,
+        ret = {
+            positivePattern: patterns[0].replace(numPtn, '{number}').replace('¤', '{currency}')
+        };
+
+    // Negative patterns aren't always specified, in those cases use '-' + positivePattern
+    ret.negativePattern = patterns[1] ? patterns[1].replace(numPtn, '{number}').replace('¤', '{currency}')
+                            : '-' + ret.positivePattern;
+
+    return ret;
+}
 
 /**
  * Processes an object from CLDR format to an easier-to-parse format
  */
-module.exports = function processObj(locale, data) {
+module.exports = function (locale, data) {
     var
         // Sort property name arrays to keep order and minimalise unnecessary file diffs
         gopn = function (a) { return Object.getOwnPropertyNames(a).sort(); },
@@ -186,121 +194,3 @@ module.exports = function processObj(locale, data) {
 
     return ret;
 };
-
-/**
- * Copies missing locale data from object `from` to object `to`
- */
-function copyLocaleData(to, from) {
-    for (var k in from) {
-        if (!to.hasOwnProperty(k))
-            to[k] = from[k];
-
-        else if (typeof from[k] === 'object')
-            copyLocaleData(to[k], from[k]);
-    }
-}
-
-/**
- * Converts the CLDR availableFormats into the objects and patterns required by
- * the ECMAScript Internationalization API specification.
- */
-function createDateTimeFormat(format) {
-    if (unwantedDTCs.test(format))
-        return undefined;
-
-    var formatObj = {};
-
-    // Replace the pattern string with the one required by the specification, whilst
-    // at the same time evaluating it for the subsets and formats
-    formatObj.pattern = format.replace(expDTComponents, function ($0) {
-        var subsetProp;
-
-        // See which symbol we're dealing with
-        switch ($0.charAt(0)) {
-            case 'E':
-            case 'e':
-            case 'c':
-                formatObj.weekday = dtcLengthMap.weekday[$0.length-1];
-                return '{weekday}';
-
-            // Not supported yet
-            case 'G':
-                formatObj.era = dtcLengthMap.era[$0.length-1];
-                return '{era}';
-
-            case 'y':
-            case 'Y':
-            case 'u':
-            case 'U':
-                formatObj.year = $0.length === 2 ? '2-digit' : 'numeric';
-                return '{year}';
-
-            case 'M':
-            case 'L':
-                formatObj.month = dtcLengthMap.month[$0.length-1];
-                return '{month}';
-
-            case 'd':
-                formatObj.day = $0.length === 2 ? '2-digit' : 'numeric';
-                return '{day}';
-
-            case 'a':
-                return '{ampm}';
-
-            case 'h':
-            case 'H':
-            case 'k':
-            case 'K':
-                formatObj.hour = $0.length === 2 ? '2-digit' : 'numeric';
-                return '{hour}';
-
-            case 'm':
-                formatObj.minute = $0.length === 2 ? '2-digit' : 'numeric';
-                return '{minute}';
-
-            case 's':
-                formatObj.second = $0.length === 2 ? '2-digit' : 'numeric';
-                return '{second}';
-
-            case 'z':
-                formatObj.timeZoneName = $0.length < 4 ? 'short' : 'long';
-                return '{timeZoneName}';
-        }
-    });
-
-    // From http://www.unicode.org/reports/tr35/tr35-dates.html#Date_Format_Patterns:
-    //  'In patterns, two single quotes represents a literal single quote, either
-    //   inside or outside single quotes. Text within single quotes is not
-    //   interpreted in any way (except for two adjacent single quotes).'
-    formatObj.pattern = formatObj.pattern.replace(/'([^']*)'/g, function ($0, literal) {
-        return literal ? literal : "'";
-    });
-
-    if (formatObj.pattern.indexOf('{ampm}') > -1) {
-        formatObj.pattern12 = formatObj.pattern;
-        formatObj.pattern = formatObj.pattern.replace('{ampm}', '').trim();
-    }
-
-    return formatObj;
-}
-
-/**
- * Parses a CLDR number formatting string into the object specified in ECMA-402
- * Returns an object with positivePattern and negativePattern properties
- */
-function createNumberFormats (ptn) {
-    var patterns = ptn.split(';'),
-
-        // Matches CLDR number patterns, e.g. #,##0.00, #,##,##0.00, #,##0.##, etc.
-        numPtn = /#(?:[\.,]#+)*0(?:[,\.][0#]+)*/,
-        ret = {
-            positivePattern: patterns[0].replace(numPtn, '{number}').replace('¤', '{currency}')
-        };
-
-    // Negative patterns aren't always specified, in those cases use '-' + positivePattern
-    ret.negativePattern = patterns[1]
-                            ? patterns[1].replace(numPtn, '{number}').replace('¤', '{currency}')
-                            : '-' + ret.positivePattern;
-
-    return ret;
-}
