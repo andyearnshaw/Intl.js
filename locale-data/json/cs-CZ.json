@@ -24,27 +24,31 @@
             "medium": "{1} {0}",
             "availableFormats": {
                 "E": "ccc",
-                "EHm": "E HH:mm",
-                "EHms": "E HH:mm:ss",
-                "Ed": "d, E",
+                "EHm": "E H:mm",
+                "EHms": "E H:mm:ss",
+                "Ed": "E d.",
                 "Ehm": "E h:mm a",
                 "Ehms": "E h:mm:ss a",
-                "Gy": "G y",
-                "GyMMM": "G y MMM",
-                "GyMMMEd": "G y MMM d, E",
-                "GyMMMd": "G y MMM d",
-                "H": "HH",
-                "Hm": "HH:mm",
-                "Hms": "HH:mm:ss",
+                "Gy": "y G",
+                "GyMMM": "LLLL y G",
+                "GyMMMEd": "E d. M. y G",
+                "GyMMMMEd": "E d. MMMM y G",
+                "GyMMMMd": "d. MMMM y G",
+                "GyMMMd": "d. M. y G",
+                "H": "H",
+                "Hm": "H:mm",
+                "Hms": "H:mm:ss",
                 "Hmsv": "HH:mm:ss v",
                 "Hmv": "HH:mm v",
                 "M": "L",
-                "MEd": "MM-dd, E",
+                "MEd": "E d. M.",
                 "MMM": "LLL",
-                "MMMEd": "MMM d, E",
-                "MMMd": "MMM d",
-                "Md": "MM-dd",
-                "d": "d",
+                "MMMEd": "E d. M.",
+                "MMMMEd": "E d. MMMM",
+                "MMMMd": "d. MMMM",
+                "MMMd": "d. M.",
+                "Md": "d. M.",
+                "d": "d.",
                 "h": "h a",
                 "hm": "h:mm a",
                 "hms": "h:mm:ss a",
@@ -52,26 +56,29 @@
                 "hmv": "h:mm a v",
                 "ms": "mm:ss",
                 "y": "y",
-                "yM": "y-MM",
-                "yMEd": "y-MM-dd, E",
-                "yMMM": "y MMM",
-                "yMMMEd": "y MMM d, E",
-                "yMMMd": "y MMM d",
-                "yMd": "y-MM-dd",
-                "yQQQ": "y QQQ",
-                "yQQQQ": "y QQQQ"
+                "yM": "M/y",
+                "yMEd": "E d. M. y",
+                "yMMM": "LLLL y",
+                "yMMMEd": "E d. M. y",
+                "yMMMM": "LLLL y",
+                "yMMMMEd": "E d. MMMM y",
+                "yMMMMd": "d. MMMM y",
+                "yMMMd": "d. M. y",
+                "yMd": "d. M. y",
+                "yQQQ": "QQQ y",
+                "yQQQQ": "QQQQ y"
             },
             "dateFormats": {
-                "full": "y MMMM d, EEEE",
-                "long": "y MMMM d",
-                "medium": "y MMM d",
-                "short": "y-MM-dd"
+                "full": "EEEE d. MMMM y",
+                "long": "d. MMMM y",
+                "medium": "d. M. y",
+                "short": "dd.MM.yy"
             },
             "timeFormats": {
-                "full": "HH:mm:ss zzzz",
-                "long": "HH:mm:ss z",
-                "medium": "HH:mm:ss",
-                "short": "HH:mm"
+                "full": "H:mm:ss zzzz",
+                "long": "H:mm:ss z",
+                "medium": "H:mm:ss",
+                "short": "H:mm"
             }
         },
         "calendars": {
@@ -92,61 +99,61 @@
                         "12"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "led",
+                        "úno",
+                        "bře",
+                        "dub",
+                        "kvě",
+                        "čvn",
+                        "čvc",
+                        "srp",
+                        "zář",
+                        "říj",
+                        "lis",
+                        "pro"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "ledna",
+                        "února",
+                        "března",
+                        "dubna",
+                        "května",
+                        "června",
+                        "července",
+                        "srpna",
+                        "září",
+                        "října",
+                        "listopadu",
+                        "prosince"
                     ]
                 },
                 "days": {
                     "narrow": [
+                        "N",
+                        "P",
+                        "Ú",
                         "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "Č",
+                        "P",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "ne",
+                        "po",
+                        "út",
+                        "st",
+                        "čt",
+                        "pá",
+                        "so"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "neděle",
+                        "pondělí",
+                        "úterý",
+                        "středa",
+                        "čtvrtek",
+                        "pátek",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -161,8 +168,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopoledne",
+                    "pm": "odpoledne"
                 }
             },
             "chinese": {
@@ -212,36 +219,36 @@
                 },
                 "days": {
                     "narrow": [
+                        "N",
+                        "P",
+                        "Ú",
                         "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "Č",
+                        "P",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "ne",
+                        "po",
+                        "út",
+                        "st",
+                        "čt",
+                        "pá",
+                        "so"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "neděle",
+                        "pondělí",
+                        "úterý",
+                        "středa",
+                        "čtvrtek",
+                        "pátek",
+                        "sobota"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopoledne",
+                    "pm": "odpoledne"
                 }
             },
             "coptic": {
@@ -294,31 +301,31 @@
                 },
                 "days": {
                     "narrow": [
+                        "N",
+                        "P",
+                        "Ú",
                         "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "Č",
+                        "P",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "ne",
+                        "po",
+                        "út",
+                        "st",
+                        "čt",
+                        "pá",
+                        "so"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "neděle",
+                        "pondělí",
+                        "úterý",
+                        "středa",
+                        "čtvrtek",
+                        "pátek",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -336,8 +343,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopoledne",
+                    "pm": "odpoledne"
                 }
             },
             "dangi": {
@@ -387,36 +394,36 @@
                 },
                 "days": {
                     "narrow": [
+                        "N",
+                        "P",
+                        "Ú",
                         "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "Č",
+                        "P",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "ne",
+                        "po",
+                        "út",
+                        "st",
+                        "čt",
+                        "pá",
+                        "so"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "neděle",
+                        "pondělí",
+                        "úterý",
+                        "středa",
+                        "čtvrtek",
+                        "pátek",
+                        "sobota"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopoledne",
+                    "pm": "odpoledne"
                 }
             },
             "ethiopic": {
@@ -469,31 +476,31 @@
                 },
                 "days": {
                     "narrow": [
+                        "N",
+                        "P",
+                        "Ú",
                         "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "Č",
+                        "P",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "ne",
+                        "po",
+                        "út",
+                        "st",
+                        "čt",
+                        "pá",
+                        "so"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "neděle",
+                        "pondělí",
+                        "úterý",
+                        "středa",
+                        "čtvrtek",
+                        "pátek",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -511,8 +518,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopoledne",
+                    "pm": "odpoledne"
                 }
             },
             "ethioaa": {
@@ -565,31 +572,31 @@
                 },
                 "days": {
                     "narrow": [
+                        "N",
+                        "P",
+                        "Ú",
                         "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "Č",
+                        "P",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "ne",
+                        "po",
+                        "út",
+                        "st",
+                        "čt",
+                        "pá",
+                        "so"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "neděle",
+                        "pondělí",
+                        "úterý",
+                        "středa",
+                        "čtvrtek",
+                        "pátek",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -604,8 +611,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopoledne",
+                    "pm": "odpoledne"
                 }
             },
             "generic": {
@@ -655,31 +662,31 @@
                 },
                 "days": {
                     "narrow": [
+                        "N",
+                        "P",
+                        "Ú",
                         "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "Č",
+                        "P",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "ne",
+                        "po",
+                        "út",
+                        "st",
+                        "čt",
+                        "pá",
+                        "so"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "neděle",
+                        "pondělí",
+                        "úterý",
+                        "středa",
+                        "čtvrtek",
+                        "pátek",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -697,8 +704,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopoledne",
+                    "pm": "odpoledne"
                 }
             },
             "gregory": {
@@ -718,86 +725,86 @@
                         "12"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "led",
+                        "úno",
+                        "bře",
+                        "dub",
+                        "kvě",
+                        "čvn",
+                        "čvc",
+                        "srp",
+                        "zář",
+                        "říj",
+                        "lis",
+                        "pro"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "ledna",
+                        "února",
+                        "března",
+                        "dubna",
+                        "května",
+                        "června",
+                        "července",
+                        "srpna",
+                        "září",
+                        "října",
+                        "listopadu",
+                        "prosince"
                     ]
                 },
                 "days": {
                     "narrow": [
+                        "N",
+                        "P",
+                        "Ú",
                         "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "Č",
+                        "P",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "ne",
+                        "po",
+                        "út",
+                        "st",
+                        "čt",
+                        "pá",
+                        "so"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "neděle",
+                        "pondělí",
+                        "úterý",
+                        "středa",
+                        "čtvrtek",
+                        "pátek",
+                        "sobota"
                     ]
                 },
                 "eras": {
                     "narrow": [
+                        "př.n.l.",
+                        "n.l.",
                         "BCE",
-                        "CE",
-                        "BCE",
-                        "CE"
+                        "n. l."
                     ],
                     "short": [
-                        "BCE",
-                        "CE",
+                        "př. n. l.",
+                        "n. l.",
                         "BCE",
                         "CE"
                     ],
                     "long": [
-                        "BCE",
-                        "CE",
+                        "př. n. l.",
+                        "n. l.",
                         "BCE",
                         "CE"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopoledne",
+                    "pm": "odpoledne"
                 }
             },
             "hebrew": {
@@ -853,31 +860,31 @@
                 },
                 "days": {
                     "narrow": [
+                        "N",
+                        "P",
+                        "Ú",
                         "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "Č",
+                        "P",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "ne",
+                        "po",
+                        "út",
+                        "st",
+                        "čt",
+                        "pá",
+                        "so"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "neděle",
+                        "pondělí",
+                        "úterý",
+                        "středa",
+                        "čtvrtek",
+                        "pátek",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -892,8 +899,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopoledne",
+                    "pm": "odpoledne"
                 }
             },
             "indian": {
@@ -943,31 +950,31 @@
                 },
                 "days": {
                     "narrow": [
+                        "N",
+                        "P",
+                        "Ú",
                         "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "Č",
+                        "P",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "ne",
+                        "po",
+                        "út",
+                        "st",
+                        "čt",
+                        "pá",
+                        "so"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "neděle",
+                        "pondělí",
+                        "úterý",
+                        "středa",
+                        "čtvrtek",
+                        "pátek",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -982,8 +989,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopoledne",
+                    "pm": "odpoledne"
                 }
             },
             "islamic": {
@@ -1033,31 +1040,31 @@
                 },
                 "days": {
                     "narrow": [
+                        "N",
+                        "P",
+                        "Ú",
                         "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "Č",
+                        "P",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "ne",
+                        "po",
+                        "út",
+                        "st",
+                        "čt",
+                        "pá",
+                        "so"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "neděle",
+                        "pondělí",
+                        "úterý",
+                        "středa",
+                        "čtvrtek",
+                        "pátek",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -1072,8 +1079,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopoledne",
+                    "pm": "odpoledne"
                 }
             },
             "islamicc": {
@@ -1123,31 +1130,31 @@
                 },
                 "days": {
                     "narrow": [
+                        "N",
+                        "P",
+                        "Ú",
                         "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "Č",
+                        "P",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "ne",
+                        "po",
+                        "út",
+                        "st",
+                        "čt",
+                        "pá",
+                        "so"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "neděle",
+                        "pondělí",
+                        "úterý",
+                        "středa",
+                        "čtvrtek",
+                        "pátek",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -1162,8 +1169,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopoledne",
+                    "pm": "odpoledne"
                 }
             },
             "japanese": {
@@ -1183,61 +1190,61 @@
                         "12"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "led",
+                        "úno",
+                        "bře",
+                        "dub",
+                        "kvě",
+                        "čvn",
+                        "čvc",
+                        "srp",
+                        "zář",
+                        "říj",
+                        "lis",
+                        "pro"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "ledna",
+                        "února",
+                        "března",
+                        "dubna",
+                        "května",
+                        "června",
+                        "července",
+                        "srpna",
+                        "září",
+                        "října",
+                        "listopadu",
+                        "prosince"
                     ]
                 },
                 "days": {
                     "narrow": [
+                        "N",
+                        "P",
+                        "Ú",
                         "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "Č",
+                        "P",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "ne",
+                        "po",
+                        "út",
+                        "st",
+                        "čt",
+                        "pá",
+                        "so"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "neděle",
+                        "pondělí",
+                        "úterý",
+                        "středa",
+                        "čtvrtek",
+                        "pátek",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -1957,8 +1964,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopoledne",
+                    "pm": "odpoledne"
                 }
             },
             "persian": {
@@ -2008,31 +2015,31 @@
                 },
                 "days": {
                     "narrow": [
+                        "N",
+                        "P",
+                        "Ú",
                         "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "Č",
+                        "P",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "ne",
+                        "po",
+                        "út",
+                        "st",
+                        "čt",
+                        "pá",
+                        "so"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "neděle",
+                        "pondělí",
+                        "úterý",
+                        "středa",
+                        "čtvrtek",
+                        "pátek",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -2047,8 +2054,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopoledne",
+                    "pm": "odpoledne"
                 }
             },
             "roc": {
@@ -2068,80 +2075,80 @@
                         "12"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "led",
+                        "úno",
+                        "bře",
+                        "dub",
+                        "kvě",
+                        "čvn",
+                        "čvc",
+                        "srp",
+                        "zář",
+                        "říj",
+                        "lis",
+                        "pro"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "ledna",
+                        "února",
+                        "března",
+                        "dubna",
+                        "května",
+                        "června",
+                        "července",
+                        "srpna",
+                        "září",
+                        "října",
+                        "listopadu",
+                        "prosince"
                     ]
                 },
                 "days": {
                     "narrow": [
+                        "N",
+                        "P",
+                        "Ú",
                         "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "Č",
+                        "P",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "ne",
+                        "po",
+                        "út",
+                        "st",
+                        "čt",
+                        "pá",
+                        "so"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "neděle",
+                        "pondělí",
+                        "úterý",
+                        "středa",
+                        "čtvrtek",
+                        "pátek",
+                        "sobota"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "Before R.O.C.",
+                        "Před R. O. C.",
                         "R.O.C."
                     ],
                     "short": [
-                        "Before R.O.C.",
+                        "Před R. O. C.",
                         "R.O.C."
                     ],
                     "long": [
-                        "Before R.O.C.",
+                        "Před R. O. C.",
                         "R.O.C."
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopoledne",
+                    "pm": "odpoledne"
                 }
             }
         }
@@ -2156,42 +2163,43 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{number} {currency}",
+                "negativePattern": "-{number} {currency}"
             },
             "percent": {
-                "positivePattern": "{number}%",
-                "negativePattern": "-{number}%"
+                "positivePattern": "{number} %",
+                "negativePattern": "-{number} %"
             }
         },
         "symbols": {
             "latn": {
-                "decimal": ".",
-                "group": ",",
+                "decimal": ",",
+                "group": " ",
                 "nan": "NaN",
                 "percent": "%",
                 "infinity": "∞"
             }
         },
         "currencies": {
-            "AUD": "A$",
+            "AUD": "AU$",
             "BRL": "R$",
             "CAD": "CA$",
             "CNY": "CN¥",
+            "CSK": "Kčs",
+            "CZK": "Kč",
             "EUR": "€",
             "GBP": "£",
             "HKD": "HK$",
-            "ILS": "₪",
-            "INR": "₹",
             "JPY": "JP¥",
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
             "TWD": "NT$",
             "USD": "US$",
-            "VND": "₫",
             "XAF": "FCFA",
+            "XBB": "EMU",
             "XCD": "EC$",
+            "XEU": "ECU",
             "XOF": "CFA",
             "XPF": "CFPF"
         }

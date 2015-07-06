@@ -19,134 +19,137 @@
             "roc"
         ],
         "hourNo0": true,
-        "hour12": false,
+        "hour12": true,
         "formats": {
-            "medium": "{1} {0}",
+            "medium": "{0} {1}",
             "availableFormats": {
                 "E": "ccc",
                 "EHm": "E HH:mm",
                 "EHms": "E HH:mm:ss",
-                "Ed": "d, E",
+                "Ed": "E d",
                 "Ehm": "E h:mm a",
                 "Ehms": "E h:mm:ss a",
-                "Gy": "G y",
-                "GyMMM": "G y MMM",
-                "GyMMMEd": "G y MMM d, E",
-                "GyMMMd": "G y MMM d",
+                "Gy": "y G",
+                "GyMMM": "MMM y G",
+                "GyMMMEd": "E, MMM d 'lia' y G",
+                "GyMMMd": "MMM d 'lia', y G",
                 "H": "HH",
                 "Hm": "HH:mm",
                 "Hms": "HH:mm:ss",
                 "Hmsv": "HH:mm:ss v",
                 "Hmv": "HH:mm v",
                 "M": "L",
-                "MEd": "MM-dd, E",
+                "MEd": "E, M/d",
                 "MMM": "LLL",
-                "MMMEd": "MMM d, E",
-                "MMMd": "MMM d",
-                "Md": "MM-dd",
+                "MMMEd": "E, MMM d 'lia'",
+                "MMMMEd": "E, MMMM d 'lia'",
+                "MMMMd": "MMMM d 'lia'",
+                "MMMd": "MMM d 'lia'",
+                "Md": "M/d",
                 "d": "d",
-                "h": "h a",
-                "hm": "h:mm a",
-                "hms": "h:mm:ss a",
+                "h": "a 'ga' h",
+                "hm": "a 'ga' h:mm",
+                "hms": "a 'ga' h:mm:ss",
                 "hmsv": "h:mm:ss a v",
                 "hmv": "h:mm a v",
-                "ms": "mm:ss",
+                "ms": "'aɖabaƒoƒo' mm:ss",
                 "y": "y",
-                "yM": "y-MM",
-                "yMEd": "y-MM-dd, E",
-                "yMMM": "y MMM",
-                "yMMMEd": "y MMM d, E",
-                "yMMMd": "y MMM d",
-                "yMd": "y-MM-dd",
-                "yQQQ": "y QQQ",
-                "yQQQQ": "y QQQQ"
+                "yM": "M/y",
+                "yMEd": "E, M/d/y",
+                "yMMM": "MMM y",
+                "yMMMEd": "E, MMM d, y",
+                "yMMMM": "MMMM y",
+                "yMMMd": "MMM d 'lia', y",
+                "yMd": "M/d/y",
+                "yQQQ": "QQQ y",
+                "yQQQQ": "QQQQ y"
             },
             "dateFormats": {
-                "full": "y MMMM d, EEEE",
-                "long": "y MMMM d",
-                "medium": "y MMM d",
-                "short": "y-MM-dd"
+                "full": "EEEE, MMMM d 'lia' y",
+                "long": "MMMM d 'lia' y",
+                "medium": "MMM d 'lia', y",
+                "short": "M/d/yy"
             },
             "timeFormats": {
-                "full": "HH:mm:ss zzzz",
-                "long": "HH:mm:ss z",
-                "medium": "HH:mm:ss",
-                "short": "HH:mm"
+                "full": "a h:mm:ss zzzz",
+                "long": "a 'ga' h:mm:ss z",
+                "medium": "a 'ga' h:mm:ss",
+                "short": "a 'ga' h:mm"
             }
         },
         "calendars": {
             "buddhist": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "d",
+                        "d",
+                        "t",
+                        "a",
+                        "d",
+                        "m",
+                        "s",
+                        "d",
+                        "a",
+                        "k",
+                        "a",
+                        "d"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "dzv",
+                        "dzd",
+                        "ted",
+                        "afɔ",
+                        "dam",
+                        "mas",
+                        "sia",
+                        "dea",
+                        "any",
+                        "kel",
+                        "ade",
+                        "dzm"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "dzove",
+                        "dzodze",
+                        "tedoxe",
+                        "afɔfĩe",
+                        "dama",
+                        "masa",
+                        "siamlɔm",
+                        "deasiamime",
+                        "anyɔnyɔ",
+                        "kele",
+                        "adeɛmekpɔxe",
+                        "dzome"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "k",
+                        "d",
+                        "b",
+                        "k",
+                        "y",
+                        "f",
+                        "m"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔs",
+                        "dzo",
+                        "bla",
+                        "kuɖ",
+                        "yaw",
+                        "fiɖ",
+                        "mem"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔsiɖa",
+                        "dzoɖa",
+                        "blaɖa",
+                        "kuɖa",
+                        "yawoɖa",
+                        "fiɖa",
+                        "memleɖa"
                     ]
                 },
                 "eras": {
@@ -161,8 +164,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ŋdi",
+                    "pm": "ɣetrɔ"
                 }
             },
             "chinese": {
@@ -212,36 +215,36 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "k",
+                        "d",
+                        "b",
+                        "k",
+                        "y",
+                        "f",
+                        "m"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔs",
+                        "dzo",
+                        "bla",
+                        "kuɖ",
+                        "yaw",
+                        "fiɖ",
+                        "mem"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔsiɖa",
+                        "dzoɖa",
+                        "blaɖa",
+                        "kuɖa",
+                        "yawoɖa",
+                        "fiɖa",
+                        "memleɖa"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ŋdi",
+                    "pm": "ɣetrɔ"
                 }
             },
             "coptic": {
@@ -294,31 +297,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "k",
+                        "d",
+                        "b",
+                        "k",
+                        "y",
+                        "f",
+                        "m"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔs",
+                        "dzo",
+                        "bla",
+                        "kuɖ",
+                        "yaw",
+                        "fiɖ",
+                        "mem"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔsiɖa",
+                        "dzoɖa",
+                        "blaɖa",
+                        "kuɖa",
+                        "yawoɖa",
+                        "fiɖa",
+                        "memleɖa"
                     ]
                 },
                 "eras": {
@@ -336,8 +339,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ŋdi",
+                    "pm": "ɣetrɔ"
                 }
             },
             "dangi": {
@@ -387,36 +390,36 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "k",
+                        "d",
+                        "b",
+                        "k",
+                        "y",
+                        "f",
+                        "m"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔs",
+                        "dzo",
+                        "bla",
+                        "kuɖ",
+                        "yaw",
+                        "fiɖ",
+                        "mem"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔsiɖa",
+                        "dzoɖa",
+                        "blaɖa",
+                        "kuɖa",
+                        "yawoɖa",
+                        "fiɖa",
+                        "memleɖa"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ŋdi",
+                    "pm": "ɣetrɔ"
                 }
             },
             "ethiopic": {
@@ -469,31 +472,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "k",
+                        "d",
+                        "b",
+                        "k",
+                        "y",
+                        "f",
+                        "m"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔs",
+                        "dzo",
+                        "bla",
+                        "kuɖ",
+                        "yaw",
+                        "fiɖ",
+                        "mem"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔsiɖa",
+                        "dzoɖa",
+                        "blaɖa",
+                        "kuɖa",
+                        "yawoɖa",
+                        "fiɖa",
+                        "memleɖa"
                     ]
                 },
                 "eras": {
@@ -511,8 +514,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ŋdi",
+                    "pm": "ɣetrɔ"
                 }
             },
             "ethioaa": {
@@ -565,31 +568,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "k",
+                        "d",
+                        "b",
+                        "k",
+                        "y",
+                        "f",
+                        "m"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔs",
+                        "dzo",
+                        "bla",
+                        "kuɖ",
+                        "yaw",
+                        "fiɖ",
+                        "mem"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔsiɖa",
+                        "dzoɖa",
+                        "blaɖa",
+                        "kuɖa",
+                        "yawoɖa",
+                        "fiɖa",
+                        "memleɖa"
                     ]
                 },
                 "eras": {
@@ -604,8 +607,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ŋdi",
+                    "pm": "ɣetrɔ"
                 }
             },
             "generic": {
@@ -655,31 +658,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "k",
+                        "d",
+                        "b",
+                        "k",
+                        "y",
+                        "f",
+                        "m"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔs",
+                        "dzo",
+                        "bla",
+                        "kuɖ",
+                        "yaw",
+                        "fiɖ",
+                        "mem"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔsiɖa",
+                        "dzoɖa",
+                        "blaɖa",
+                        "kuɖa",
+                        "yawoɖa",
+                        "fiɖa",
+                        "memleɖa"
                     ]
                 },
                 "eras": {
@@ -697,107 +700,107 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ŋdi",
+                    "pm": "ɣetrɔ"
                 }
             },
             "gregory": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "d",
+                        "d",
+                        "t",
+                        "a",
+                        "d",
+                        "m",
+                        "s",
+                        "d",
+                        "a",
+                        "k",
+                        "a",
+                        "d"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "dzv",
+                        "dzd",
+                        "ted",
+                        "afɔ",
+                        "dam",
+                        "mas",
+                        "sia",
+                        "dea",
+                        "any",
+                        "kel",
+                        "ade",
+                        "dzm"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "dzove",
+                        "dzodze",
+                        "tedoxe",
+                        "afɔfĩe",
+                        "dama",
+                        "masa",
+                        "siamlɔm",
+                        "deasiamime",
+                        "anyɔnyɔ",
+                        "kele",
+                        "adeɛmekpɔxe",
+                        "dzome"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "k",
+                        "d",
+                        "b",
+                        "k",
+                        "y",
+                        "f",
+                        "m"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔs",
+                        "dzo",
+                        "bla",
+                        "kuɖ",
+                        "yaw",
+                        "fiɖ",
+                        "mem"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔsiɖa",
+                        "dzoɖa",
+                        "blaɖa",
+                        "kuɖa",
+                        "yawoɖa",
+                        "fiɖa",
+                        "memleɖa"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "BCE",
-                        "CE",
+                        "hY",
+                        "Yŋ",
                         "BCE",
                         "CE"
                     ],
                     "short": [
-                        "BCE",
-                        "CE",
+                        "hY",
+                        "Yŋ",
                         "BCE",
                         "CE"
                     ],
                     "long": [
-                        "BCE",
-                        "CE",
+                        "Hafi Yesu Va Do ŋgɔ",
+                        "Yesu Ŋɔli",
                         "BCE",
                         "CE"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ŋdi",
+                    "pm": "ɣetrɔ"
                 }
             },
             "hebrew": {
@@ -853,31 +856,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "k",
+                        "d",
+                        "b",
+                        "k",
+                        "y",
+                        "f",
+                        "m"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔs",
+                        "dzo",
+                        "bla",
+                        "kuɖ",
+                        "yaw",
+                        "fiɖ",
+                        "mem"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔsiɖa",
+                        "dzoɖa",
+                        "blaɖa",
+                        "kuɖa",
+                        "yawoɖa",
+                        "fiɖa",
+                        "memleɖa"
                     ]
                 },
                 "eras": {
@@ -892,8 +895,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ŋdi",
+                    "pm": "ɣetrɔ"
                 }
             },
             "indian": {
@@ -943,31 +946,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "k",
+                        "d",
+                        "b",
+                        "k",
+                        "y",
+                        "f",
+                        "m"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔs",
+                        "dzo",
+                        "bla",
+                        "kuɖ",
+                        "yaw",
+                        "fiɖ",
+                        "mem"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔsiɖa",
+                        "dzoɖa",
+                        "blaɖa",
+                        "kuɖa",
+                        "yawoɖa",
+                        "fiɖa",
+                        "memleɖa"
                     ]
                 },
                 "eras": {
@@ -982,8 +985,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ŋdi",
+                    "pm": "ɣetrɔ"
                 }
             },
             "islamic": {
@@ -1033,31 +1036,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "k",
+                        "d",
+                        "b",
+                        "k",
+                        "y",
+                        "f",
+                        "m"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔs",
+                        "dzo",
+                        "bla",
+                        "kuɖ",
+                        "yaw",
+                        "fiɖ",
+                        "mem"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔsiɖa",
+                        "dzoɖa",
+                        "blaɖa",
+                        "kuɖa",
+                        "yawoɖa",
+                        "fiɖa",
+                        "memleɖa"
                     ]
                 },
                 "eras": {
@@ -1072,8 +1075,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ŋdi",
+                    "pm": "ɣetrɔ"
                 }
             },
             "islamicc": {
@@ -1123,31 +1126,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "k",
+                        "d",
+                        "b",
+                        "k",
+                        "y",
+                        "f",
+                        "m"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔs",
+                        "dzo",
+                        "bla",
+                        "kuɖ",
+                        "yaw",
+                        "fiɖ",
+                        "mem"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔsiɖa",
+                        "dzoɖa",
+                        "blaɖa",
+                        "kuɖa",
+                        "yawoɖa",
+                        "fiɖa",
+                        "memleɖa"
                     ]
                 },
                 "eras": {
@@ -1162,82 +1165,82 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ŋdi",
+                    "pm": "ɣetrɔ"
                 }
             },
             "japanese": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "d",
+                        "d",
+                        "t",
+                        "a",
+                        "d",
+                        "m",
+                        "s",
+                        "d",
+                        "a",
+                        "k",
+                        "a",
+                        "d"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "dzv",
+                        "dzd",
+                        "ted",
+                        "afɔ",
+                        "dam",
+                        "mas",
+                        "sia",
+                        "dea",
+                        "any",
+                        "kel",
+                        "ade",
+                        "dzm"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "dzove",
+                        "dzodze",
+                        "tedoxe",
+                        "afɔfĩe",
+                        "dama",
+                        "masa",
+                        "siamlɔm",
+                        "deasiamime",
+                        "anyɔnyɔ",
+                        "kele",
+                        "adeɛmekpɔxe",
+                        "dzome"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "k",
+                        "d",
+                        "b",
+                        "k",
+                        "y",
+                        "f",
+                        "m"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔs",
+                        "dzo",
+                        "bla",
+                        "kuɖ",
+                        "yaw",
+                        "fiɖ",
+                        "mem"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔsiɖa",
+                        "dzoɖa",
+                        "blaɖa",
+                        "kuɖa",
+                        "yawoɖa",
+                        "fiɖa",
+                        "memleɖa"
                     ]
                 },
                 "eras": {
@@ -1957,8 +1960,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ŋdi",
+                    "pm": "ɣetrɔ"
                 }
             },
             "persian": {
@@ -2008,31 +2011,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "k",
+                        "d",
+                        "b",
+                        "k",
+                        "y",
+                        "f",
+                        "m"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔs",
+                        "dzo",
+                        "bla",
+                        "kuɖ",
+                        "yaw",
+                        "fiɖ",
+                        "mem"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔsiɖa",
+                        "dzoɖa",
+                        "blaɖa",
+                        "kuɖa",
+                        "yawoɖa",
+                        "fiɖa",
+                        "memleɖa"
                     ]
                 },
                 "eras": {
@@ -2047,82 +2050,82 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ŋdi",
+                    "pm": "ɣetrɔ"
                 }
             },
             "roc": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "d",
+                        "d",
+                        "t",
+                        "a",
+                        "d",
+                        "m",
+                        "s",
+                        "d",
+                        "a",
+                        "k",
+                        "a",
+                        "d"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "dzv",
+                        "dzd",
+                        "ted",
+                        "afɔ",
+                        "dam",
+                        "mas",
+                        "sia",
+                        "dea",
+                        "any",
+                        "kel",
+                        "ade",
+                        "dzm"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "dzove",
+                        "dzodze",
+                        "tedoxe",
+                        "afɔfĩe",
+                        "dama",
+                        "masa",
+                        "siamlɔm",
+                        "deasiamime",
+                        "anyɔnyɔ",
+                        "kele",
+                        "adeɛmekpɔxe",
+                        "dzome"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "k",
+                        "d",
+                        "b",
+                        "k",
+                        "y",
+                        "f",
+                        "m"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔs",
+                        "dzo",
+                        "bla",
+                        "kuɖ",
+                        "yaw",
+                        "fiɖ",
+                        "mem"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "kɔsiɖa",
+                        "dzoɖa",
+                        "blaɖa",
+                        "kuɖa",
+                        "yawoɖa",
+                        "fiɖa",
+                        "memleɖa"
                     ]
                 },
                 "eras": {
@@ -2140,8 +2143,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ŋdi",
+                    "pm": "ɣetrɔ"
                 }
             }
         }
@@ -2156,8 +2159,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{currency}{number}",
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -2168,7 +2171,7 @@
             "latn": {
                 "decimal": ".",
                 "group": ",",
-                "nan": "NaN",
+                "nan": "mnn",
                 "percent": "%",
                 "infinity": "∞"
             }
@@ -2180,6 +2183,7 @@
             "CNY": "CN¥",
             "EUR": "€",
             "GBP": "£",
+            "GHS": "GH₵",
             "HKD": "HK$",
             "ILS": "₪",
             "INR": "₹",

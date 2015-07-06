@@ -19,14 +19,14 @@
             "roc"
         ],
         "hourNo0": true,
-        "hour12": false,
+        "hour12": true,
         "formats": {
             "medium": "{1} {0}",
             "availableFormats": {
                 "E": "ccc",
                 "EHm": "E HH:mm",
                 "EHms": "E HH:mm:ss",
-                "Ed": "d, E",
+                "Ed": "E d",
                 "Ehm": "E h:mm a",
                 "Ehms": "E h:mm:ss a",
                 "Gy": "G y",
@@ -39,39 +39,39 @@
                 "Hmsv": "HH:mm:ss v",
                 "Hmv": "HH:mm v",
                 "M": "L",
-                "MEd": "MM-dd, E",
+                "MEd": "E, M/d",
                 "MMM": "LLL",
-                "MMMEd": "MMM d, E",
+                "MMMEd": "E, MMM d",
                 "MMMd": "MMM d",
-                "Md": "MM-dd",
+                "Md": "M/d",
                 "d": "d",
                 "h": "h a",
                 "hm": "h:mm a",
                 "hms": "h:mm:ss a",
                 "hmsv": "h:mm:ss a v",
                 "hmv": "h:mm a v",
-                "ms": "mm:ss",
+                "ms": "m:ss",
                 "y": "y",
-                "yM": "y-MM",
-                "yMEd": "y-MM-dd, E",
-                "yMMM": "y MMM",
-                "yMMMEd": "y MMM d, E",
-                "yMMMd": "y MMM d",
-                "yMd": "y-MM-dd",
-                "yQQQ": "y QQQ",
-                "yQQQQ": "y QQQQ"
+                "yM": "M/y",
+                "yMEd": "E, M/d/y",
+                "yMMM": "MMM y",
+                "yMMMEd": "E, MMM d, y",
+                "yMMMd": "MMM d y",
+                "yMd": "M/d/y",
+                "yQQQ": "QQQ y",
+                "yQQQQ": "QQQQ y"
             },
             "dateFormats": {
-                "full": "y MMMM d, EEEE",
-                "long": "y MMMM d",
-                "medium": "y MMM d",
-                "short": "y-MM-dd"
+                "full": "EEEE, d MMMM y",
+                "long": "d MMMM y",
+                "medium": "d MMM y",
+                "short": "dd/MM/y"
             },
             "timeFormats": {
-                "full": "HH:mm:ss zzzz",
-                "long": "HH:mm:ss z",
-                "medium": "HH:mm:ss",
-                "short": "HH:mm"
+                "full": "h:mm:ss a zzzz",
+                "long": "h:mm:ss a z",
+                "medium": "h:mm:ss a",
+                "short": "h:mm a"
             }
         },
         "calendars": {
@@ -92,32 +92,32 @@
                         "12"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "luukao kemã",
+                        "ɓandaɓu",
+                        "vɔɔ",
+                        "fulu",
+                        "goo",
+                        "6",
+                        "7",
+                        "kɔnde",
+                        "saah",
+                        "galo",
+                        "kenpkato ɓololɔ",
+                        "luukao lɔma"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "luukao kemã",
+                        "ɓandaɓu",
+                        "vɔɔ",
+                        "fulu",
+                        "goo",
+                        "6",
+                        "7",
+                        "kɔnde",
+                        "saah",
+                        "galo",
+                        "kenpkato ɓololɔ",
+                        "luukao lɔma"
                     ]
                 },
                 "days": {
@@ -131,22 +131,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ]
                 },
                 "eras": {
@@ -221,22 +221,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ]
                 },
                 "dayPeriods": {
@@ -303,22 +303,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ]
                 },
                 "eras": {
@@ -396,22 +396,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ]
                 },
                 "dayPeriods": {
@@ -478,22 +478,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ]
                 },
                 "eras": {
@@ -574,22 +574,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ]
                 },
                 "eras": {
@@ -664,22 +664,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ]
                 },
                 "eras": {
@@ -718,32 +718,32 @@
                         "12"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "luukao kemã",
+                        "ɓandaɓu",
+                        "vɔɔ",
+                        "fulu",
+                        "goo",
+                        "6",
+                        "7",
+                        "kɔnde",
+                        "saah",
+                        "galo",
+                        "kenpkato ɓololɔ",
+                        "luukao lɔma"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "luukao kemã",
+                        "ɓandaɓu",
+                        "vɔɔ",
+                        "fulu",
+                        "goo",
+                        "6",
+                        "7",
+                        "kɔnde",
+                        "saah",
+                        "galo",
+                        "kenpkato ɓololɔ",
+                        "luukao lɔma"
                     ]
                 },
                 "days": {
@@ -757,22 +757,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ]
                 },
                 "eras": {
@@ -862,22 +862,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ]
                 },
                 "eras": {
@@ -952,22 +952,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ]
                 },
                 "eras": {
@@ -1042,22 +1042,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ]
                 },
                 "eras": {
@@ -1132,22 +1132,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ]
                 },
                 "eras": {
@@ -1183,32 +1183,32 @@
                         "12"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "luukao kemã",
+                        "ɓandaɓu",
+                        "vɔɔ",
+                        "fulu",
+                        "goo",
+                        "6",
+                        "7",
+                        "kɔnde",
+                        "saah",
+                        "galo",
+                        "kenpkato ɓololɔ",
+                        "luukao lɔma"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "luukao kemã",
+                        "ɓandaɓu",
+                        "vɔɔ",
+                        "fulu",
+                        "goo",
+                        "6",
+                        "7",
+                        "kɔnde",
+                        "saah",
+                        "galo",
+                        "kenpkato ɓololɔ",
+                        "luukao lɔma"
                     ]
                 },
                 "days": {
@@ -1222,22 +1222,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ]
                 },
                 "eras": {
@@ -2017,22 +2017,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ]
                 },
                 "eras": {
@@ -2068,32 +2068,32 @@
                         "12"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "luukao kemã",
+                        "ɓandaɓu",
+                        "vɔɔ",
+                        "fulu",
+                        "goo",
+                        "6",
+                        "7",
+                        "kɔnde",
+                        "saah",
+                        "galo",
+                        "kenpkato ɓololɔ",
+                        "luukao lɔma"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "luukao kemã",
+                        "ɓandaɓu",
+                        "vɔɔ",
+                        "fulu",
+                        "goo",
+                        "6",
+                        "7",
+                        "kɔnde",
+                        "saah",
+                        "galo",
+                        "kenpkato ɓololɔ",
+                        "luukao lɔma"
                     ]
                 },
                 "days": {
@@ -2107,22 +2107,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lahadi",
+                        "tɛɛnɛɛ",
+                        "talata",
+                        "alaba",
+                        "aimisa",
+                        "aijima",
+                        "siɓiti"
                     ]
                 },
                 "eras": {
@@ -2156,8 +2156,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{currency}{number}",
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -2166,6 +2166,13 @@
         },
         "symbols": {
             "latn": {
+                "decimal": ".",
+                "group": ",",
+                "nan": "NaN",
+                "percent": "%",
+                "infinity": "∞"
+            },
+            "vaii": {
                 "decimal": ".",
                 "group": ",",
                 "nan": "NaN",
@@ -2185,6 +2192,7 @@
             "INR": "₹",
             "JPY": "JP¥",
             "KRW": "₩",
+            "LRD": "$",
             "MXN": "MX$",
             "NZD": "NZ$",
             "TWD": "NT$",

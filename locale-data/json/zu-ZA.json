@@ -19,31 +19,31 @@
             "roc"
         ],
         "hourNo0": true,
-        "hour12": false,
+        "hour12": true,
         "formats": {
             "medium": "{1} {0}",
             "availableFormats": {
                 "E": "ccc",
                 "EHm": "E HH:mm",
                 "EHms": "E HH:mm:ss",
-                "Ed": "d, E",
+                "Ed": "d E",
                 "Ehm": "E h:mm a",
                 "Ehms": "E h:mm:ss a",
-                "Gy": "G y",
-                "GyMMM": "G y MMM",
-                "GyMMMEd": "G y MMM d, E",
-                "GyMMMd": "G y MMM d",
+                "Gy": "y G",
+                "GyMMM": "MMM y G",
+                "GyMMMEd": "E, MMM d, y G",
+                "GyMMMd": "MMM d, y G",
                 "H": "HH",
                 "Hm": "HH:mm",
                 "Hms": "HH:mm:ss",
                 "Hmsv": "HH:mm:ss v",
                 "Hmv": "HH:mm v",
                 "M": "L",
-                "MEd": "MM-dd, E",
+                "MEd": "E, M/d",
                 "MMM": "LLL",
-                "MMMEd": "MMM d, E",
+                "MMMEd": "E, MMM d",
                 "MMMd": "MMM d",
-                "Md": "MM-dd",
+                "Md": "M/d",
                 "d": "d",
                 "h": "h a",
                 "hm": "h:mm a",
@@ -52,72 +52,72 @@
                 "hmv": "h:mm a v",
                 "ms": "mm:ss",
                 "y": "y",
-                "yM": "y-MM",
-                "yMEd": "y-MM-dd, E",
-                "yMMM": "y MMM",
-                "yMMMEd": "y MMM d, E",
-                "yMMMd": "y MMM d",
-                "yMd": "y-MM-dd",
-                "yQQQ": "y QQQ",
-                "yQQQQ": "y QQQQ"
+                "yM": "M/y",
+                "yMEd": "E, M/d/y",
+                "yMMM": "MMM y",
+                "yMMMEd": "E, MMM d, y",
+                "yMMMd": "MMM d, y",
+                "yMd": "M/d/y",
+                "yQQQ": "QQQ y",
+                "yQQQQ": "QQQQ y"
             },
             "dateFormats": {
-                "full": "y MMMM d, EEEE",
-                "long": "y MMMM d",
-                "medium": "y MMM d",
-                "short": "y-MM-dd"
+                "full": "EEEE, MMMM d, y",
+                "long": "MMMM d, y",
+                "medium": "MMM d, y",
+                "short": "M/d/yy"
             },
             "timeFormats": {
-                "full": "HH:mm:ss zzzz",
-                "long": "HH:mm:ss z",
-                "medium": "HH:mm:ss",
-                "short": "HH:mm"
+                "full": "h:mm:ss a zzzz",
+                "long": "h:mm:ss a z",
+                "medium": "h:mm:ss a",
+                "short": "h:mm a"
             }
         },
         "calendars": {
             "buddhist": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jan",
+                        "Feb",
+                        "Mas",
+                        "Apr",
+                        "Mey",
+                        "Jun",
+                        "Jul",
+                        "Aga",
+                        "Sep",
+                        "Okt",
+                        "Nov",
+                        "Dis"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Januwari",
+                        "Februwari",
+                        "Mashi",
+                        "Apreli",
+                        "Meyi",
+                        "Juni",
+                        "Julayi",
+                        "Agasti",
+                        "Septhemba",
+                        "Okthoba",
+                        "Novemba",
+                        "Disemba"
                     ]
                 },
                 "days": {
@@ -125,28 +125,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
                         "T",
-                        "F",
-                        "S"
+                        "S",
+                        "H",
+                        "M"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Son",
+                        "Mso",
+                        "Bil",
+                        "Tha",
+                        "Sin",
+                        "Hla",
+                        "Mgq"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sonto",
+                        "Msombuluko",
+                        "Lwesibili",
+                        "Lwesithathu",
+                        "Lwesine",
+                        "Lwesihlanu",
+                        "Mgqibelo"
                     ]
                 },
                 "eras": {
@@ -161,8 +161,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Ekuseni",
+                    "pm": "Ntambama"
                 }
             },
             "chinese": {
@@ -215,33 +215,33 @@
                         "S",
                         "M",
                         "T",
-                        "W",
                         "T",
-                        "F",
-                        "S"
+                        "S",
+                        "H",
+                        "M"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Son",
+                        "Mso",
+                        "Bil",
+                        "Tha",
+                        "Sin",
+                        "Hla",
+                        "Mgq"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sonto",
+                        "Msombuluko",
+                        "Lwesibili",
+                        "Lwesithathu",
+                        "Lwesine",
+                        "Lwesihlanu",
+                        "Mgqibelo"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Ekuseni",
+                    "pm": "Ntambama"
                 }
             },
             "coptic": {
@@ -297,28 +297,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
                         "T",
-                        "F",
-                        "S"
+                        "S",
+                        "H",
+                        "M"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Son",
+                        "Mso",
+                        "Bil",
+                        "Tha",
+                        "Sin",
+                        "Hla",
+                        "Mgq"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sonto",
+                        "Msombuluko",
+                        "Lwesibili",
+                        "Lwesithathu",
+                        "Lwesine",
+                        "Lwesihlanu",
+                        "Mgqibelo"
                     ]
                 },
                 "eras": {
@@ -336,8 +336,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Ekuseni",
+                    "pm": "Ntambama"
                 }
             },
             "dangi": {
@@ -390,33 +390,33 @@
                         "S",
                         "M",
                         "T",
-                        "W",
                         "T",
-                        "F",
-                        "S"
+                        "S",
+                        "H",
+                        "M"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Son",
+                        "Mso",
+                        "Bil",
+                        "Tha",
+                        "Sin",
+                        "Hla",
+                        "Mgq"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sonto",
+                        "Msombuluko",
+                        "Lwesibili",
+                        "Lwesithathu",
+                        "Lwesine",
+                        "Lwesihlanu",
+                        "Mgqibelo"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Ekuseni",
+                    "pm": "Ntambama"
                 }
             },
             "ethiopic": {
@@ -472,28 +472,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
                         "T",
-                        "F",
-                        "S"
+                        "S",
+                        "H",
+                        "M"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Son",
+                        "Mso",
+                        "Bil",
+                        "Tha",
+                        "Sin",
+                        "Hla",
+                        "Mgq"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sonto",
+                        "Msombuluko",
+                        "Lwesibili",
+                        "Lwesithathu",
+                        "Lwesine",
+                        "Lwesihlanu",
+                        "Mgqibelo"
                     ]
                 },
                 "eras": {
@@ -511,8 +511,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Ekuseni",
+                    "pm": "Ntambama"
                 }
             },
             "ethioaa": {
@@ -568,28 +568,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
                         "T",
-                        "F",
-                        "S"
+                        "S",
+                        "H",
+                        "M"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Son",
+                        "Mso",
+                        "Bil",
+                        "Tha",
+                        "Sin",
+                        "Hla",
+                        "Mgq"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sonto",
+                        "Msombuluko",
+                        "Lwesibili",
+                        "Lwesithathu",
+                        "Lwesine",
+                        "Lwesihlanu",
+                        "Mgqibelo"
                     ]
                 },
                 "eras": {
@@ -604,8 +604,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Ekuseni",
+                    "pm": "Ntambama"
                 }
             },
             "generic": {
@@ -658,28 +658,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
                         "T",
-                        "F",
-                        "S"
+                        "S",
+                        "H",
+                        "M"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Son",
+                        "Mso",
+                        "Bil",
+                        "Tha",
+                        "Sin",
+                        "Hla",
+                        "Mgq"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sonto",
+                        "Msombuluko",
+                        "Lwesibili",
+                        "Lwesithathu",
+                        "Lwesine",
+                        "Lwesihlanu",
+                        "Mgqibelo"
                     ]
                 },
                 "eras": {
@@ -697,53 +697,53 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Ekuseni",
+                    "pm": "Ntambama"
                 }
             },
             "gregory": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jan",
+                        "Feb",
+                        "Mas",
+                        "Apr",
+                        "Mey",
+                        "Jun",
+                        "Jul",
+                        "Aga",
+                        "Sep",
+                        "Okt",
+                        "Nov",
+                        "Dis"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Januwari",
+                        "Februwari",
+                        "Mashi",
+                        "Apreli",
+                        "Meyi",
+                        "Juni",
+                        "Julayi",
+                        "Agasti",
+                        "Septhemba",
+                        "Okthoba",
+                        "Novemba",
+                        "Disemba"
                     ]
                 },
                 "days": {
@@ -751,53 +751,53 @@
                         "S",
                         "M",
                         "T",
-                        "W",
                         "T",
-                        "F",
-                        "S"
+                        "S",
+                        "H",
+                        "M"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Son",
+                        "Mso",
+                        "Bil",
+                        "Tha",
+                        "Sin",
+                        "Hla",
+                        "Mgq"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sonto",
+                        "Msombuluko",
+                        "Lwesibili",
+                        "Lwesithathu",
+                        "Lwesine",
+                        "Lwesihlanu",
+                        "Mgqibelo"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "BCE",
-                        "CE",
+                        "BC",
+                        "AD",
                         "BCE",
                         "CE"
                     ],
                     "short": [
-                        "BCE",
-                        "CE",
+                        "BC",
+                        "AD",
                         "BCE",
                         "CE"
                     ],
                     "long": [
-                        "BCE",
-                        "CE",
+                        "BC",
+                        "AD",
                         "BCE",
                         "CE"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Ekuseni",
+                    "pm": "Ntambama"
                 }
             },
             "hebrew": {
@@ -856,28 +856,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
                         "T",
-                        "F",
-                        "S"
+                        "S",
+                        "H",
+                        "M"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Son",
+                        "Mso",
+                        "Bil",
+                        "Tha",
+                        "Sin",
+                        "Hla",
+                        "Mgq"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sonto",
+                        "Msombuluko",
+                        "Lwesibili",
+                        "Lwesithathu",
+                        "Lwesine",
+                        "Lwesihlanu",
+                        "Mgqibelo"
                     ]
                 },
                 "eras": {
@@ -892,8 +892,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Ekuseni",
+                    "pm": "Ntambama"
                 }
             },
             "indian": {
@@ -946,28 +946,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
                         "T",
-                        "F",
-                        "S"
+                        "S",
+                        "H",
+                        "M"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Son",
+                        "Mso",
+                        "Bil",
+                        "Tha",
+                        "Sin",
+                        "Hla",
+                        "Mgq"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sonto",
+                        "Msombuluko",
+                        "Lwesibili",
+                        "Lwesithathu",
+                        "Lwesine",
+                        "Lwesihlanu",
+                        "Mgqibelo"
                     ]
                 },
                 "eras": {
@@ -982,8 +982,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Ekuseni",
+                    "pm": "Ntambama"
                 }
             },
             "islamic": {
@@ -1036,28 +1036,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
                         "T",
-                        "F",
-                        "S"
+                        "S",
+                        "H",
+                        "M"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Son",
+                        "Mso",
+                        "Bil",
+                        "Tha",
+                        "Sin",
+                        "Hla",
+                        "Mgq"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sonto",
+                        "Msombuluko",
+                        "Lwesibili",
+                        "Lwesithathu",
+                        "Lwesine",
+                        "Lwesihlanu",
+                        "Mgqibelo"
                     ]
                 },
                 "eras": {
@@ -1072,8 +1072,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Ekuseni",
+                    "pm": "Ntambama"
                 }
             },
             "islamicc": {
@@ -1126,28 +1126,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
                         "T",
-                        "F",
-                        "S"
+                        "S",
+                        "H",
+                        "M"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Son",
+                        "Mso",
+                        "Bil",
+                        "Tha",
+                        "Sin",
+                        "Hla",
+                        "Mgq"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sonto",
+                        "Msombuluko",
+                        "Lwesibili",
+                        "Lwesithathu",
+                        "Lwesine",
+                        "Lwesihlanu",
+                        "Mgqibelo"
                     ]
                 },
                 "eras": {
@@ -1162,53 +1162,53 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Ekuseni",
+                    "pm": "Ntambama"
                 }
             },
             "japanese": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jan",
+                        "Feb",
+                        "Mas",
+                        "Apr",
+                        "Mey",
+                        "Jun",
+                        "Jul",
+                        "Aga",
+                        "Sep",
+                        "Okt",
+                        "Nov",
+                        "Dis"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Januwari",
+                        "Februwari",
+                        "Mashi",
+                        "Apreli",
+                        "Meyi",
+                        "Juni",
+                        "Julayi",
+                        "Agasti",
+                        "Septhemba",
+                        "Okthoba",
+                        "Novemba",
+                        "Disemba"
                     ]
                 },
                 "days": {
@@ -1216,28 +1216,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
                         "T",
-                        "F",
-                        "S"
+                        "S",
+                        "H",
+                        "M"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Son",
+                        "Mso",
+                        "Bil",
+                        "Tha",
+                        "Sin",
+                        "Hla",
+                        "Mgq"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sonto",
+                        "Msombuluko",
+                        "Lwesibili",
+                        "Lwesithathu",
+                        "Lwesine",
+                        "Lwesihlanu",
+                        "Mgqibelo"
                     ]
                 },
                 "eras": {
@@ -1957,8 +1957,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Ekuseni",
+                    "pm": "Ntambama"
                 }
             },
             "persian": {
@@ -2011,28 +2011,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
                         "T",
-                        "F",
-                        "S"
+                        "S",
+                        "H",
+                        "M"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Son",
+                        "Mso",
+                        "Bil",
+                        "Tha",
+                        "Sin",
+                        "Hla",
+                        "Mgq"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sonto",
+                        "Msombuluko",
+                        "Lwesibili",
+                        "Lwesithathu",
+                        "Lwesine",
+                        "Lwesihlanu",
+                        "Mgqibelo"
                     ]
                 },
                 "eras": {
@@ -2047,53 +2047,53 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Ekuseni",
+                    "pm": "Ntambama"
                 }
             },
             "roc": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jan",
+                        "Feb",
+                        "Mas",
+                        "Apr",
+                        "Mey",
+                        "Jun",
+                        "Jul",
+                        "Aga",
+                        "Sep",
+                        "Okt",
+                        "Nov",
+                        "Dis"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Januwari",
+                        "Februwari",
+                        "Mashi",
+                        "Apreli",
+                        "Meyi",
+                        "Juni",
+                        "Julayi",
+                        "Agasti",
+                        "Septhemba",
+                        "Okthoba",
+                        "Novemba",
+                        "Disemba"
                     ]
                 },
                 "days": {
@@ -2101,28 +2101,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
                         "T",
-                        "F",
-                        "S"
+                        "S",
+                        "H",
+                        "M"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Son",
+                        "Mso",
+                        "Bil",
+                        "Tha",
+                        "Sin",
+                        "Hla",
+                        "Mgq"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sonto",
+                        "Msombuluko",
+                        "Lwesibili",
+                        "Lwesithathu",
+                        "Lwesine",
+                        "Lwesihlanu",
+                        "Mgqibelo"
                     ]
                 },
                 "eras": {
@@ -2140,8 +2140,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Ekuseni",
+                    "pm": "Ntambama"
                 }
             }
         }
@@ -2156,8 +2156,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{currency}{number}",
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -2168,7 +2168,7 @@
             "latn": {
                 "decimal": ".",
                 "group": ",",
-                "nan": "NaN",
+                "nan": "I-NaN",
                 "percent": "%",
                 "infinity": "∞"
             }
@@ -2187,13 +2187,15 @@
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
+            "THB": "฿",
             "TWD": "NT$",
             "USD": "US$",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",
             "XOF": "CFA",
-            "XPF": "CFPF"
+            "XPF": "CFPF",
+            "ZAR": "R"
         }
     }
 }

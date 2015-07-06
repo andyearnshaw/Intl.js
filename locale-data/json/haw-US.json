@@ -19,31 +19,31 @@
             "roc"
         ],
         "hourNo0": true,
-        "hour12": false,
+        "hour12": true,
         "formats": {
             "medium": "{1} {0}",
             "availableFormats": {
                 "E": "ccc",
                 "EHm": "E HH:mm",
                 "EHms": "E HH:mm:ss",
-                "Ed": "d, E",
+                "Ed": "E d",
                 "Ehm": "E h:mm a",
                 "Ehms": "E h:mm:ss a",
-                "Gy": "G y",
-                "GyMMM": "G y MMM",
-                "GyMMMEd": "G y MMM d, E",
-                "GyMMMd": "G y MMM d",
+                "Gy": "y G",
+                "GyMMM": "MMM y G",
+                "GyMMMEd": "E, d MMM y G",
+                "GyMMMd": "d MMM y G",
                 "H": "HH",
                 "Hm": "HH:mm",
                 "Hms": "HH:mm:ss",
                 "Hmsv": "HH:mm:ss v",
                 "Hmv": "HH:mm v",
                 "M": "L",
-                "MEd": "MM-dd, E",
+                "MEd": "E, d/M",
                 "MMM": "LLL",
-                "MMMEd": "MMM d, E",
-                "MMMd": "MMM d",
-                "Md": "MM-dd",
+                "MMMEd": "E, d MMM",
+                "MMMd": "d MMM",
+                "Md": "d/M",
                 "d": "d",
                 "h": "h a",
                 "hm": "h:mm a",
@@ -52,26 +52,29 @@
                 "hmv": "h:mm a v",
                 "ms": "mm:ss",
                 "y": "y",
-                "yM": "y-MM",
-                "yMEd": "y-MM-dd, E",
-                "yMMM": "y MMM",
-                "yMMMEd": "y MMM d, E",
-                "yMMMd": "y MMM d",
-                "yMd": "y-MM-dd",
+                "yM": "M/y",
+                "yMEd": "E, d/M/y",
+                "yMMM": "MMM y",
+                "yMMMEd": "E, d MMM y",
+                "yMMMd": "d MMM y",
+                "yMd": "d/M/y",
                 "yQQQ": "y QQQ",
                 "yQQQQ": "y QQQQ"
             },
             "dateFormats": {
-                "full": "y MMMM d, EEEE",
-                "long": "y MMMM d",
-                "medium": "y MMM d",
-                "short": "y-MM-dd"
+                "full": "EEEE, d MMMM y",
+                "long": "d MMMM y",
+                "medium": "d MMM y",
+                "short": {
+                    "_value": "d/M/yy",
+                    "_numbers": "M=romanlow"
+                }
             },
             "timeFormats": {
-                "full": "HH:mm:ss zzzz",
-                "long": "HH:mm:ss z",
-                "medium": "HH:mm:ss",
-                "short": "HH:mm"
+                "full": "h:mm:ss a zzzz",
+                "long": "h:mm:ss a z",
+                "medium": "h:mm:ss a",
+                "short": "h:mm a"
             }
         },
         "calendars": {
@@ -92,32 +95,32 @@
                         "12"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Ian.",
+                        "Pep.",
+                        "Mal.",
+                        "ʻAp.",
+                        "Mei",
+                        "Iun.",
+                        "Iul.",
+                        "ʻAu.",
+                        "Kep.",
+                        "ʻOk.",
+                        "Now.",
+                        "Kek."
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Ianuali",
+                        "Pepeluali",
+                        "Malaki",
+                        "ʻApelila",
+                        "Mei",
+                        "Iune",
+                        "Iulai",
+                        "ʻAukake",
+                        "Kepakemapa",
+                        "ʻOkakopa",
+                        "Nowemapa",
+                        "Kekemapa"
                     ]
                 },
                 "days": {
@@ -131,22 +134,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "LP",
+                        "P1",
+                        "P2",
+                        "P3",
+                        "P4",
+                        "P5",
+                        "P6"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Lāpule",
+                        "Poʻakahi",
+                        "Poʻalua",
+                        "Poʻakolu",
+                        "Poʻahā",
+                        "Poʻalima",
+                        "Poʻaono"
                     ]
                 },
                 "eras": {
@@ -221,22 +224,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "LP",
+                        "P1",
+                        "P2",
+                        "P3",
+                        "P4",
+                        "P5",
+                        "P6"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Lāpule",
+                        "Poʻakahi",
+                        "Poʻalua",
+                        "Poʻakolu",
+                        "Poʻahā",
+                        "Poʻalima",
+                        "Poʻaono"
                     ]
                 },
                 "dayPeriods": {
@@ -303,22 +306,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "LP",
+                        "P1",
+                        "P2",
+                        "P3",
+                        "P4",
+                        "P5",
+                        "P6"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Lāpule",
+                        "Poʻakahi",
+                        "Poʻalua",
+                        "Poʻakolu",
+                        "Poʻahā",
+                        "Poʻalima",
+                        "Poʻaono"
                     ]
                 },
                 "eras": {
@@ -396,22 +399,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "LP",
+                        "P1",
+                        "P2",
+                        "P3",
+                        "P4",
+                        "P5",
+                        "P6"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Lāpule",
+                        "Poʻakahi",
+                        "Poʻalua",
+                        "Poʻakolu",
+                        "Poʻahā",
+                        "Poʻalima",
+                        "Poʻaono"
                     ]
                 },
                 "dayPeriods": {
@@ -478,22 +481,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "LP",
+                        "P1",
+                        "P2",
+                        "P3",
+                        "P4",
+                        "P5",
+                        "P6"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Lāpule",
+                        "Poʻakahi",
+                        "Poʻalua",
+                        "Poʻakolu",
+                        "Poʻahā",
+                        "Poʻalima",
+                        "Poʻaono"
                     ]
                 },
                 "eras": {
@@ -574,22 +577,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "LP",
+                        "P1",
+                        "P2",
+                        "P3",
+                        "P4",
+                        "P5",
+                        "P6"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Lāpule",
+                        "Poʻakahi",
+                        "Poʻalua",
+                        "Poʻakolu",
+                        "Poʻahā",
+                        "Poʻalima",
+                        "Poʻaono"
                     ]
                 },
                 "eras": {
@@ -664,22 +667,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "LP",
+                        "P1",
+                        "P2",
+                        "P3",
+                        "P4",
+                        "P5",
+                        "P6"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Lāpule",
+                        "Poʻakahi",
+                        "Poʻalua",
+                        "Poʻakolu",
+                        "Poʻahā",
+                        "Poʻalima",
+                        "Poʻaono"
                     ]
                 },
                 "eras": {
@@ -718,32 +721,32 @@
                         "12"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Ian.",
+                        "Pep.",
+                        "Mal.",
+                        "ʻAp.",
+                        "Mei",
+                        "Iun.",
+                        "Iul.",
+                        "ʻAu.",
+                        "Kep.",
+                        "ʻOk.",
+                        "Now.",
+                        "Kek."
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Ianuali",
+                        "Pepeluali",
+                        "Malaki",
+                        "ʻApelila",
+                        "Mei",
+                        "Iune",
+                        "Iulai",
+                        "ʻAukake",
+                        "Kepakemapa",
+                        "ʻOkakopa",
+                        "Nowemapa",
+                        "Kekemapa"
                     ]
                 },
                 "days": {
@@ -757,22 +760,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "LP",
+                        "P1",
+                        "P2",
+                        "P3",
+                        "P4",
+                        "P5",
+                        "P6"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Lāpule",
+                        "Poʻakahi",
+                        "Poʻalua",
+                        "Poʻakolu",
+                        "Poʻahā",
+                        "Poʻalima",
+                        "Poʻaono"
                     ]
                 },
                 "eras": {
@@ -862,22 +865,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "LP",
+                        "P1",
+                        "P2",
+                        "P3",
+                        "P4",
+                        "P5",
+                        "P6"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Lāpule",
+                        "Poʻakahi",
+                        "Poʻalua",
+                        "Poʻakolu",
+                        "Poʻahā",
+                        "Poʻalima",
+                        "Poʻaono"
                     ]
                 },
                 "eras": {
@@ -952,22 +955,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "LP",
+                        "P1",
+                        "P2",
+                        "P3",
+                        "P4",
+                        "P5",
+                        "P6"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Lāpule",
+                        "Poʻakahi",
+                        "Poʻalua",
+                        "Poʻakolu",
+                        "Poʻahā",
+                        "Poʻalima",
+                        "Poʻaono"
                     ]
                 },
                 "eras": {
@@ -1042,22 +1045,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "LP",
+                        "P1",
+                        "P2",
+                        "P3",
+                        "P4",
+                        "P5",
+                        "P6"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Lāpule",
+                        "Poʻakahi",
+                        "Poʻalua",
+                        "Poʻakolu",
+                        "Poʻahā",
+                        "Poʻalima",
+                        "Poʻaono"
                     ]
                 },
                 "eras": {
@@ -1132,22 +1135,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "LP",
+                        "P1",
+                        "P2",
+                        "P3",
+                        "P4",
+                        "P5",
+                        "P6"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Lāpule",
+                        "Poʻakahi",
+                        "Poʻalua",
+                        "Poʻakolu",
+                        "Poʻahā",
+                        "Poʻalima",
+                        "Poʻaono"
                     ]
                 },
                 "eras": {
@@ -1183,32 +1186,32 @@
                         "12"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Ian.",
+                        "Pep.",
+                        "Mal.",
+                        "ʻAp.",
+                        "Mei",
+                        "Iun.",
+                        "Iul.",
+                        "ʻAu.",
+                        "Kep.",
+                        "ʻOk.",
+                        "Now.",
+                        "Kek."
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Ianuali",
+                        "Pepeluali",
+                        "Malaki",
+                        "ʻApelila",
+                        "Mei",
+                        "Iune",
+                        "Iulai",
+                        "ʻAukake",
+                        "Kepakemapa",
+                        "ʻOkakopa",
+                        "Nowemapa",
+                        "Kekemapa"
                     ]
                 },
                 "days": {
@@ -1222,22 +1225,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "LP",
+                        "P1",
+                        "P2",
+                        "P3",
+                        "P4",
+                        "P5",
+                        "P6"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Lāpule",
+                        "Poʻakahi",
+                        "Poʻalua",
+                        "Poʻakolu",
+                        "Poʻahā",
+                        "Poʻalima",
+                        "Poʻaono"
                     ]
                 },
                 "eras": {
@@ -2017,22 +2020,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "LP",
+                        "P1",
+                        "P2",
+                        "P3",
+                        "P4",
+                        "P5",
+                        "P6"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Lāpule",
+                        "Poʻakahi",
+                        "Poʻalua",
+                        "Poʻakolu",
+                        "Poʻahā",
+                        "Poʻalima",
+                        "Poʻaono"
                     ]
                 },
                 "eras": {
@@ -2068,32 +2071,32 @@
                         "12"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Ian.",
+                        "Pep.",
+                        "Mal.",
+                        "ʻAp.",
+                        "Mei",
+                        "Iun.",
+                        "Iul.",
+                        "ʻAu.",
+                        "Kep.",
+                        "ʻOk.",
+                        "Now.",
+                        "Kek."
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Ianuali",
+                        "Pepeluali",
+                        "Malaki",
+                        "ʻApelila",
+                        "Mei",
+                        "Iune",
+                        "Iulai",
+                        "ʻAukake",
+                        "Kepakemapa",
+                        "ʻOkakopa",
+                        "Nowemapa",
+                        "Kekemapa"
                     ]
                 },
                 "days": {
@@ -2107,22 +2110,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "LP",
+                        "P1",
+                        "P2",
+                        "P3",
+                        "P4",
+                        "P5",
+                        "P6"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Lāpule",
+                        "Poʻakahi",
+                        "Poʻalua",
+                        "Poʻakolu",
+                        "Poʻahā",
+                        "Poʻalima",
+                        "Poʻaono"
                     ]
                 },
                 "eras": {
@@ -2156,8 +2159,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{currency}{number}",
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -2188,7 +2191,7 @@
             "MXN": "MX$",
             "NZD": "NZ$",
             "TWD": "NT$",
-            "USD": "US$",
+            "USD": "$",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",

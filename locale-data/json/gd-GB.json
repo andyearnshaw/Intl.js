@@ -26,46 +26,50 @@
                 "E": "ccc",
                 "EHm": "E HH:mm",
                 "EHms": "E HH:mm:ss",
-                "Ed": "d, E",
-                "Ehm": "E h:mm a",
+                "Ed": "E, d",
+                "Ehm": "E h:mma",
                 "Ehms": "E h:mm:ss a",
-                "Gy": "G y",
-                "GyMMM": "G y MMM",
-                "GyMMMEd": "G y MMM d, E",
-                "GyMMMd": "G y MMM d",
+                "Gy": "y G",
+                "GyMMM": "MMM y G",
+                "GyMMMEd": "E, d MMM y G",
+                "GyMMMd": "d MMM y G",
                 "H": "HH",
                 "Hm": "HH:mm",
                 "Hms": "HH:mm:ss",
                 "Hmsv": "HH:mm:ss v",
                 "Hmv": "HH:mm v",
                 "M": "L",
-                "MEd": "MM-dd, E",
+                "MEd": "E, d/M",
                 "MMM": "LLL",
-                "MMMEd": "MMM d, E",
-                "MMMd": "MMM d",
-                "Md": "MM-dd",
+                "MMMEd": "E, d MMM",
+                "MMMMd": "d'mh' MMMM",
+                "MMMd": "d MMM",
+                "MMdd": "dd/MM",
+                "Md": "d/M",
                 "d": "d",
-                "h": "h a",
-                "hm": "h:mm a",
+                "h": "ha",
+                "hm": "h:mma",
                 "hms": "h:mm:ss a",
                 "hmsv": "h:mm:ss a v",
                 "hmv": "h:mm a v",
                 "ms": "mm:ss",
                 "y": "y",
-                "yM": "y-MM",
-                "yMEd": "y-MM-dd, E",
-                "yMMM": "y MMM",
-                "yMMMEd": "y MMM d, E",
-                "yMMMd": "y MMM d",
-                "yMd": "y-MM-dd",
-                "yQQQ": "y QQQ",
-                "yQQQQ": "y QQQQ"
+                "yM": "M/y",
+                "yMEd": "E, d/M/y",
+                "yMM": "MM/y",
+                "yMMM": "MMM y",
+                "yMMMEd": "E, d MMM y",
+                "yMMMM": "LLLL y",
+                "yMMMd": "d MMM y",
+                "yMd": "M/d/y",
+                "yQQQ": "QQQ y",
+                "yQQQQ": "QQQQ y"
             },
             "dateFormats": {
-                "full": "y MMMM d, EEEE",
-                "long": "y MMMM d",
-                "medium": "y MMM d",
-                "short": "y-MM-dd"
+                "full": "EEEE, d'mh' MMMM y",
+                "long": "d'mh' MMMM y",
+                "medium": "d MMM y",
+                "short": "dd/MM/y"
             },
             "timeFormats": {
                 "full": "HH:mm:ss zzzz",
@@ -78,75 +82,75 @@
             "buddhist": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "F",
+                        "G",
+                        "M",
+                        "G",
+                        "C",
+                        "Ò",
+                        "I",
+                        "L",
+                        "S",
+                        "D",
+                        "S",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Faoi",
+                        "Gearr",
+                        "Màrt",
+                        "Gibl",
+                        "Cèit",
+                        "Ògmh",
+                        "Iuch",
+                        "Lùna",
+                        "Sult",
+                        "Dàmh",
+                        "Samh",
+                        "Dùbh"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "dhen Fhaoilleach",
+                        "dhen Ghearran",
+                        "dhen Mhàrt",
+                        "dhen Ghiblean",
+                        "dhen Chèitean",
+                        "dhen Ògmhios",
+                        "dhen Iuchar",
+                        "dhen Lùnastal",
+                        "dhen t-Sultain",
+                        "dhen Dàmhair",
+                        "dhen t-Samhain",
+                        "dhen Dùbhlachd"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "C",
+                        "A",
+                        "H",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiD",
+                        "DiL",
+                        "DiM",
+                        "DiC",
+                        "Dia",
+                        "Dih",
+                        "DiS"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiDòmhnaich",
+                        "DiLuain",
+                        "DiMàirt",
+                        "DiCiadain",
+                        "DiarDaoin",
+                        "DihAoine",
+                        "DiSathairne"
                     ]
                 },
                 "eras": {
@@ -161,8 +165,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "m",
+                    "pm": "f"
                 }
             },
             "chinese": {
@@ -212,36 +216,36 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "C",
+                        "A",
+                        "H",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiD",
+                        "DiL",
+                        "DiM",
+                        "DiC",
+                        "Dia",
+                        "Dih",
+                        "DiS"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiDòmhnaich",
+                        "DiLuain",
+                        "DiMàirt",
+                        "DiCiadain",
+                        "DiarDaoin",
+                        "DihAoine",
+                        "DiSathairne"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "m",
+                    "pm": "f"
                 }
             },
             "coptic": {
@@ -294,31 +298,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "C",
+                        "A",
+                        "H",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiD",
+                        "DiL",
+                        "DiM",
+                        "DiC",
+                        "Dia",
+                        "Dih",
+                        "DiS"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiDòmhnaich",
+                        "DiLuain",
+                        "DiMàirt",
+                        "DiCiadain",
+                        "DiarDaoin",
+                        "DihAoine",
+                        "DiSathairne"
                     ]
                 },
                 "eras": {
@@ -336,8 +340,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "m",
+                    "pm": "f"
                 }
             },
             "dangi": {
@@ -387,36 +391,36 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "C",
+                        "A",
+                        "H",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiD",
+                        "DiL",
+                        "DiM",
+                        "DiC",
+                        "Dia",
+                        "Dih",
+                        "DiS"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiDòmhnaich",
+                        "DiLuain",
+                        "DiMàirt",
+                        "DiCiadain",
+                        "DiarDaoin",
+                        "DihAoine",
+                        "DiSathairne"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "m",
+                    "pm": "f"
                 }
             },
             "ethiopic": {
@@ -469,31 +473,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "C",
+                        "A",
+                        "H",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiD",
+                        "DiL",
+                        "DiM",
+                        "DiC",
+                        "Dia",
+                        "Dih",
+                        "DiS"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiDòmhnaich",
+                        "DiLuain",
+                        "DiMàirt",
+                        "DiCiadain",
+                        "DiarDaoin",
+                        "DihAoine",
+                        "DiSathairne"
                     ]
                 },
                 "eras": {
@@ -511,8 +515,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "m",
+                    "pm": "f"
                 }
             },
             "ethioaa": {
@@ -565,31 +569,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "C",
+                        "A",
+                        "H",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiD",
+                        "DiL",
+                        "DiM",
+                        "DiC",
+                        "Dia",
+                        "Dih",
+                        "DiS"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiDòmhnaich",
+                        "DiLuain",
+                        "DiMàirt",
+                        "DiCiadain",
+                        "DiarDaoin",
+                        "DihAoine",
+                        "DiSathairne"
                     ]
                 },
                 "eras": {
@@ -604,8 +608,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "m",
+                    "pm": "f"
                 }
             },
             "generic": {
@@ -655,31 +659,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "C",
+                        "A",
+                        "H",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiD",
+                        "DiL",
+                        "DiM",
+                        "DiC",
+                        "Dia",
+                        "Dih",
+                        "DiS"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiDòmhnaich",
+                        "DiLuain",
+                        "DiMàirt",
+                        "DiCiadain",
+                        "DiarDaoin",
+                        "DihAoine",
+                        "DiSathairne"
                     ]
                 },
                 "eras": {
@@ -697,107 +701,107 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "m",
+                    "pm": "f"
                 }
             },
             "gregory": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "F",
+                        "G",
+                        "M",
+                        "G",
+                        "C",
+                        "Ò",
+                        "I",
+                        "L",
+                        "S",
+                        "D",
+                        "S",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Faoi",
+                        "Gearr",
+                        "Màrt",
+                        "Gibl",
+                        "Cèit",
+                        "Ògmh",
+                        "Iuch",
+                        "Lùna",
+                        "Sult",
+                        "Dàmh",
+                        "Samh",
+                        "Dùbh"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "dhen Fhaoilleach",
+                        "dhen Ghearran",
+                        "dhen Mhàrt",
+                        "dhen Ghiblean",
+                        "dhen Chèitean",
+                        "dhen Ògmhios",
+                        "dhen Iuchar",
+                        "dhen Lùnastal",
+                        "dhen t-Sultain",
+                        "dhen Dàmhair",
+                        "dhen t-Samhain",
+                        "dhen Dùbhlachd"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "C",
+                        "A",
+                        "H",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiD",
+                        "DiL",
+                        "DiM",
+                        "DiC",
+                        "Dia",
+                        "Dih",
+                        "DiS"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiDòmhnaich",
+                        "DiLuain",
+                        "DiMàirt",
+                        "DiCiadain",
+                        "DiarDaoin",
+                        "DihAoine",
+                        "DiSathairne"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "BCE",
-                        "CE",
-                        "BCE",
-                        "CE"
+                        "R",
+                        "A",
+                        "RLC",
+                        "LC"
                     ],
                     "short": [
                         "BCE",
                         "CE",
-                        "BCE",
-                        "CE"
+                        "RLC",
+                        "LC"
                     ],
                     "long": [
-                        "BCE",
-                        "CE",
-                        "BCE",
-                        "CE"
+                        "Ro Chrìosta",
+                        "An dèidh Chrìosta",
+                        "RLC",
+                        "LC"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "m",
+                    "pm": "f"
                 }
             },
             "hebrew": {
@@ -853,31 +857,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "C",
+                        "A",
+                        "H",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiD",
+                        "DiL",
+                        "DiM",
+                        "DiC",
+                        "Dia",
+                        "Dih",
+                        "DiS"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiDòmhnaich",
+                        "DiLuain",
+                        "DiMàirt",
+                        "DiCiadain",
+                        "DiarDaoin",
+                        "DihAoine",
+                        "DiSathairne"
                     ]
                 },
                 "eras": {
@@ -892,8 +896,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "m",
+                    "pm": "f"
                 }
             },
             "indian": {
@@ -943,31 +947,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "C",
+                        "A",
+                        "H",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiD",
+                        "DiL",
+                        "DiM",
+                        "DiC",
+                        "Dia",
+                        "Dih",
+                        "DiS"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiDòmhnaich",
+                        "DiLuain",
+                        "DiMàirt",
+                        "DiCiadain",
+                        "DiarDaoin",
+                        "DihAoine",
+                        "DiSathairne"
                     ]
                 },
                 "eras": {
@@ -982,8 +986,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "m",
+                    "pm": "f"
                 }
             },
             "islamic": {
@@ -1033,31 +1037,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "C",
+                        "A",
+                        "H",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiD",
+                        "DiL",
+                        "DiM",
+                        "DiC",
+                        "Dia",
+                        "Dih",
+                        "DiS"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiDòmhnaich",
+                        "DiLuain",
+                        "DiMàirt",
+                        "DiCiadain",
+                        "DiarDaoin",
+                        "DihAoine",
+                        "DiSathairne"
                     ]
                 },
                 "eras": {
@@ -1072,8 +1076,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "m",
+                    "pm": "f"
                 }
             },
             "islamicc": {
@@ -1123,31 +1127,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "C",
+                        "A",
+                        "H",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiD",
+                        "DiL",
+                        "DiM",
+                        "DiC",
+                        "Dia",
+                        "Dih",
+                        "DiS"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiDòmhnaich",
+                        "DiLuain",
+                        "DiMàirt",
+                        "DiCiadain",
+                        "DiarDaoin",
+                        "DihAoine",
+                        "DiSathairne"
                     ]
                 },
                 "eras": {
@@ -1162,82 +1166,82 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "m",
+                    "pm": "f"
                 }
             },
             "japanese": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "F",
+                        "G",
+                        "M",
+                        "G",
+                        "C",
+                        "Ò",
+                        "I",
+                        "L",
+                        "S",
+                        "D",
+                        "S",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Faoi",
+                        "Gearr",
+                        "Màrt",
+                        "Gibl",
+                        "Cèit",
+                        "Ògmh",
+                        "Iuch",
+                        "Lùna",
+                        "Sult",
+                        "Dàmh",
+                        "Samh",
+                        "Dùbh"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "dhen Fhaoilleach",
+                        "dhen Ghearran",
+                        "dhen Mhàrt",
+                        "dhen Ghiblean",
+                        "dhen Chèitean",
+                        "dhen Ògmhios",
+                        "dhen Iuchar",
+                        "dhen Lùnastal",
+                        "dhen t-Sultain",
+                        "dhen Dàmhair",
+                        "dhen t-Samhain",
+                        "dhen Dùbhlachd"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "C",
+                        "A",
+                        "H",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiD",
+                        "DiL",
+                        "DiM",
+                        "DiC",
+                        "Dia",
+                        "Dih",
+                        "DiS"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiDòmhnaich",
+                        "DiLuain",
+                        "DiMàirt",
+                        "DiCiadain",
+                        "DiarDaoin",
+                        "DihAoine",
+                        "DiSathairne"
                     ]
                 },
                 "eras": {
@@ -1957,8 +1961,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "m",
+                    "pm": "f"
                 }
             },
             "persian": {
@@ -2008,31 +2012,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "C",
+                        "A",
+                        "H",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiD",
+                        "DiL",
+                        "DiM",
+                        "DiC",
+                        "Dia",
+                        "Dih",
+                        "DiS"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiDòmhnaich",
+                        "DiLuain",
+                        "DiMàirt",
+                        "DiCiadain",
+                        "DiarDaoin",
+                        "DihAoine",
+                        "DiSathairne"
                     ]
                 },
                 "eras": {
@@ -2047,82 +2051,82 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "m",
+                    "pm": "f"
                 }
             },
             "roc": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "F",
+                        "G",
+                        "M",
+                        "G",
+                        "C",
+                        "Ò",
+                        "I",
+                        "L",
+                        "S",
+                        "D",
+                        "S",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Faoi",
+                        "Gearr",
+                        "Màrt",
+                        "Gibl",
+                        "Cèit",
+                        "Ògmh",
+                        "Iuch",
+                        "Lùna",
+                        "Sult",
+                        "Dàmh",
+                        "Samh",
+                        "Dùbh"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "dhen Fhaoilleach",
+                        "dhen Ghearran",
+                        "dhen Mhàrt",
+                        "dhen Ghiblean",
+                        "dhen Chèitean",
+                        "dhen Ògmhios",
+                        "dhen Iuchar",
+                        "dhen Lùnastal",
+                        "dhen t-Sultain",
+                        "dhen Dàmhair",
+                        "dhen t-Samhain",
+                        "dhen Dùbhlachd"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "C",
+                        "A",
+                        "H",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiD",
+                        "DiL",
+                        "DiM",
+                        "DiC",
+                        "Dia",
+                        "Dih",
+                        "DiS"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "DiDòmhnaich",
+                        "DiLuain",
+                        "DiMàirt",
+                        "DiCiadain",
+                        "DiarDaoin",
+                        "DihAoine",
+                        "DiSathairne"
                     ]
                 },
                 "eras": {
@@ -2140,8 +2144,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "m",
+                    "pm": "f"
                 }
             }
         }
@@ -2156,8 +2160,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{currency}{number}",
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -2187,8 +2191,9 @@
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
+            "THB": "฿",
             "TWD": "NT$",
-            "USD": "US$",
+            "USD": "$",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",

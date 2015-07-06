@@ -23,27 +23,27 @@
         "formats": {
             "medium": "{1} {0}",
             "availableFormats": {
-                "E": "ccc",
+                "E": "E",
                 "EHm": "E HH:mm",
                 "EHms": "E HH:mm:ss",
-                "Ed": "d, E",
+                "Ed": "E d",
                 "Ehm": "E h:mm a",
                 "Ehms": "E h:mm:ss a",
-                "Gy": "G y",
-                "GyMMM": "G y MMM",
-                "GyMMMEd": "G y MMM d, E",
-                "GyMMMd": "G y MMM d",
-                "H": "HH",
+                "Gy": "y G",
+                "GyMMM": "MMM y G",
+                "GyMMMEd": "E d MMM y G",
+                "GyMMMd": "d MMM y G",
+                "H": "HH 'h'",
                 "Hm": "HH:mm",
                 "Hms": "HH:mm:ss",
                 "Hmsv": "HH:mm:ss v",
                 "Hmv": "HH:mm v",
                 "M": "L",
-                "MEd": "MM-dd, E",
+                "MEd": "E d/M",
                 "MMM": "LLL",
-                "MMMEd": "MMM d, E",
-                "MMMd": "MMM d",
-                "Md": "MM-dd",
+                "MMMEd": "E d MMM",
+                "MMMd": "d MMM",
+                "Md": "d/M",
                 "d": "d",
                 "h": "h a",
                 "hm": "h:mm a",
@@ -52,20 +52,21 @@
                 "hmv": "h:mm a v",
                 "ms": "mm:ss",
                 "y": "y",
-                "yM": "y-MM",
-                "yMEd": "y-MM-dd, E",
-                "yMMM": "y MMM",
-                "yMMMEd": "y MMM d, E",
-                "yMMMd": "y MMM d",
-                "yMd": "y-MM-dd",
-                "yQQQ": "y QQQ",
-                "yQQQQ": "y QQQQ"
+                "yM": "M/y",
+                "yMEd": "E d/M/y",
+                "yMMM": "MMM y",
+                "yMMMEd": "E d MMM y",
+                "yMMMM": "MMMM y",
+                "yMMMd": "d MMM y",
+                "yMd": "d/M/y",
+                "yQQQ": "QQQ y",
+                "yQQQQ": "QQQQ y"
             },
             "dateFormats": {
-                "full": "y MMMM d, EEEE",
-                "long": "y MMMM d",
-                "medium": "y MMM d",
-                "short": "y-MM-dd"
+                "full": "EEEE d MMMM y",
+                "long": "d MMMM y",
+                "medium": "d MMM y",
+                "short": "dd/MM/y"
             },
             "timeFormats": {
                 "full": "HH:mm:ss zzzz",
@@ -78,86 +79,86 @@
             "buddhist": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "janv.",
+                        "févr.",
+                        "mars",
+                        "avr.",
+                        "mai",
+                        "juin",
+                        "juil.",
+                        "août",
+                        "sept.",
+                        "oct.",
+                        "nov.",
+                        "déc."
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "janvier",
+                        "février",
+                        "mars",
+                        "avril",
+                        "mai",
+                        "juin",
+                        "juillet",
+                        "août",
+                        "septembre",
+                        "octobre",
+                        "novembre",
+                        "décembre"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "J",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dim.",
+                        "lun.",
+                        "mar.",
+                        "mer.",
+                        "jeu.",
+                        "ven.",
+                        "sam."
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dimanche",
+                        "lundi",
+                        "mardi",
+                        "mercredi",
+                        "jeudi",
+                        "vendredi",
+                        "samedi"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "BE"
+                        "E.B."
                     ],
                     "short": [
-                        "BE"
+                        "ère b."
                     ],
                     "long": [
-                        "BE"
+                        "ère bouddhiste"
                     ]
                 },
                 "dayPeriods": {
@@ -182,61 +183,61 @@
                         "12"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "1yuè",
+                        "2yuè",
+                        "3yuè",
+                        "4yuè",
+                        "5yuè",
+                        "6yuè",
+                        "7yuè",
+                        "8yuè",
+                        "9yuè",
+                        "10yuè",
+                        "11yuè",
+                        "12yuè"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "zhēngyuè",
+                        "èryuè",
+                        "sānyuè",
+                        "sìyuè",
+                        "wǔyuè",
+                        "liùyuè",
+                        "qīyuè",
+                        "bāyuè",
+                        "jiǔyuè",
+                        "shíyuè",
+                        "shíyīyuè",
+                        "shí’èryuè"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "J",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dim.",
+                        "lun.",
+                        "mar.",
+                        "mer.",
+                        "jeu.",
+                        "ven.",
+                        "sam."
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dimanche",
+                        "lundi",
+                        "mardi",
+                        "mercredi",
+                        "jeudi",
+                        "vendredi",
+                        "samedi"
                     ]
                 },
                 "dayPeriods": {
@@ -294,31 +295,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "J",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dim.",
+                        "lun.",
+                        "mar.",
+                        "mer.",
+                        "jeu.",
+                        "ven.",
+                        "sam."
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dimanche",
+                        "lundi",
+                        "mardi",
+                        "mercredi",
+                        "jeudi",
+                        "vendredi",
+                        "samedi"
                     ]
                 },
                 "eras": {
@@ -357,61 +358,61 @@
                         "12"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "1yuè",
+                        "2yuè",
+                        "3yuè",
+                        "4yuè",
+                        "5yuè",
+                        "6yuè",
+                        "7yuè",
+                        "8yuè",
+                        "9yuè",
+                        "10yuè",
+                        "11yuè",
+                        "12yuè"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "zhēngyuè",
+                        "èryuè",
+                        "sānyuè",
+                        "sìyuè",
+                        "wǔyuè",
+                        "liùyuè",
+                        "qīyuè",
+                        "bāyuè",
+                        "jiǔyuè",
+                        "shíyuè",
+                        "shíyīyuè",
+                        "shí’èryuè"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "J",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dim.",
+                        "lun.",
+                        "mar.",
+                        "mer.",
+                        "jeu.",
+                        "ven.",
+                        "sam."
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dimanche",
+                        "lundi",
+                        "mardi",
+                        "mercredi",
+                        "jeudi",
+                        "vendredi",
+                        "samedi"
                     ]
                 },
                 "dayPeriods": {
@@ -469,31 +470,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "J",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dim.",
+                        "lun.",
+                        "mar.",
+                        "mer.",
+                        "jeu.",
+                        "ven.",
+                        "sam."
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dimanche",
+                        "lundi",
+                        "mardi",
+                        "mercredi",
+                        "jeudi",
+                        "vendredi",
+                        "samedi"
                     ]
                 },
                 "eras": {
@@ -565,31 +566,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "J",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dim.",
+                        "lun.",
+                        "mar.",
+                        "mer.",
+                        "jeu.",
+                        "ven.",
+                        "sam."
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dimanche",
+                        "lundi",
+                        "mardi",
+                        "mercredi",
+                        "jeudi",
+                        "vendredi",
+                        "samedi"
                     ]
                 },
                 "eras": {
@@ -655,31 +656,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "J",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dim.",
+                        "lun.",
+                        "mar.",
+                        "mer.",
+                        "jeu.",
+                        "ven.",
+                        "sam."
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dimanche",
+                        "lundi",
+                        "mardi",
+                        "mercredi",
+                        "jeudi",
+                        "vendredi",
+                        "samedi"
                     ]
                 },
                 "eras": {
@@ -704,95 +705,95 @@
             "gregory": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "janv.",
+                        "févr.",
+                        "mars",
+                        "avr.",
+                        "mai",
+                        "juin",
+                        "juil.",
+                        "août",
+                        "sept.",
+                        "oct.",
+                        "nov.",
+                        "déc."
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "janvier",
+                        "février",
+                        "mars",
+                        "avril",
+                        "mai",
+                        "juin",
+                        "juillet",
+                        "août",
+                        "septembre",
+                        "octobre",
+                        "novembre",
+                        "décembre"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "J",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dim.",
+                        "lun.",
+                        "mar.",
+                        "mer.",
+                        "jeu.",
+                        "ven.",
+                        "sam."
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dimanche",
+                        "lundi",
+                        "mardi",
+                        "mercredi",
+                        "jeudi",
+                        "vendredi",
+                        "samedi"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "BCE",
-                        "CE",
-                        "BCE",
-                        "CE"
+                        "av. J.-C.",
+                        "ap. J.-C.",
+                        "AEC",
+                        "EC"
                     ],
                     "short": [
-                        "BCE",
-                        "CE",
-                        "BCE",
-                        "CE"
+                        "av. J.-C.",
+                        "ap. J.-C.",
+                        "AEC",
+                        "EC"
                     ],
                     "long": [
-                        "BCE",
-                        "CE",
-                        "BCE",
-                        "CE"
+                        "avant Jésus-Christ",
+                        "après Jésus-Christ",
+                        "AEC",
+                        "EC"
                     ]
                 },
                 "dayPeriods": {
@@ -819,65 +820,65 @@
                         "7"
                     ],
                     "short": [
-                        "Tishri",
-                        "Heshvan",
+                        "Tisseri",
+                        "Hesvan",
                         "Kislev",
-                        "Tevet",
-                        "Shevat",
+                        "Tébeth",
+                        "Schébat",
                         "Adar I",
                         "Adar",
-                        "Nisan",
+                        "Nissan",
                         "Iyar",
                         "Sivan",
-                        "Tamuz",
-                        "Av",
-                        "Elul",
+                        "Tamouz",
+                        "Ab",
+                        "Elloul",
                         "Adar II"
                     ],
                     "long": [
-                        "Tishri",
-                        "Heshvan",
+                        "Tisseri",
+                        "Hesvan",
                         "Kislev",
-                        "Tevet",
-                        "Shevat",
+                        "Tébeth",
+                        "Schébat",
                         "Adar I",
                         "Adar",
-                        "Nisan",
+                        "Nissan",
                         "Iyar",
                         "Sivan",
-                        "Tamuz",
-                        "Av",
-                        "Elul",
+                        "Tamouz",
+                        "Ab",
+                        "Elloul",
                         "Adar II"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "J",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dim.",
+                        "lun.",
+                        "mar.",
+                        "mer.",
+                        "jeu.",
+                        "ven.",
+                        "sam."
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dimanche",
+                        "lundi",
+                        "mardi",
+                        "mercredi",
+                        "jeudi",
+                        "vendredi",
+                        "samedi"
                     ]
                 },
                 "eras": {
@@ -943,31 +944,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "J",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dim.",
+                        "lun.",
+                        "mar.",
+                        "mer.",
+                        "jeu.",
+                        "ven.",
+                        "sam."
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dimanche",
+                        "lundi",
+                        "mardi",
+                        "mercredi",
+                        "jeudi",
+                        "vendredi",
+                        "samedi"
                     ]
                 },
                 "eras": {
@@ -1003,61 +1004,61 @@
                         "12"
                     ],
                     "short": [
-                        "Muh.",
-                        "Saf.",
-                        "Rab. I",
-                        "Rab. II",
-                        "Jum. I",
-                        "Jum. II",
-                        "Raj.",
-                        "Sha.",
-                        "Ram.",
-                        "Shaw.",
-                        "Dhuʻl-Q.",
-                        "Dhuʻl-H."
+                        "mouh.",
+                        "saf.",
+                        "rab. aw.",
+                        "rab. th.",
+                        "joum. oul.",
+                        "joum. tha.",
+                        "raj.",
+                        "chaa.",
+                        "ram.",
+                        "chaw.",
+                        "dhou. q.",
+                        "dhou. h."
                     ],
                     "long": [
-                        "Muharram",
-                        "Safar",
-                        "Rabiʻ I",
-                        "Rabiʻ II",
-                        "Jumada I",
-                        "Jumada II",
-                        "Rajab",
-                        "Shaʻban",
-                        "Ramadan",
-                        "Shawwal",
-                        "Dhuʻl-Qiʻdah",
-                        "Dhuʻl-Hijjah"
+                        "mouharram",
+                        "safar",
+                        "rabia al awal",
+                        "rabia ath-thani",
+                        "joumada al oula",
+                        "joumada ath-thania",
+                        "rajab",
+                        "chaabane",
+                        "ramadan",
+                        "chawwal",
+                        "dhou al qi`da",
+                        "dhou al-hijja"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "J",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dim.",
+                        "lun.",
+                        "mar.",
+                        "mer.",
+                        "jeu.",
+                        "ven.",
+                        "sam."
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dimanche",
+                        "lundi",
+                        "mardi",
+                        "mercredi",
+                        "jeudi",
+                        "vendredi",
+                        "samedi"
                     ]
                 },
                 "eras": {
@@ -1093,61 +1094,61 @@
                         "12"
                     ],
                     "short": [
-                        "Muh.",
-                        "Saf.",
-                        "Rab. I",
-                        "Rab. II",
-                        "Jum. I",
-                        "Jum. II",
-                        "Raj.",
-                        "Sha.",
-                        "Ram.",
-                        "Shaw.",
-                        "Dhuʻl-Q.",
-                        "Dhuʻl-H."
+                        "mouh.",
+                        "saf.",
+                        "rab. aw.",
+                        "rab. th.",
+                        "joum. oul.",
+                        "joum. tha.",
+                        "raj.",
+                        "chaa.",
+                        "ram.",
+                        "chaw.",
+                        "dhou. q.",
+                        "dhou. h."
                     ],
                     "long": [
-                        "Muharram",
-                        "Safar",
-                        "Rabiʻ I",
-                        "Rabiʻ II",
-                        "Jumada I",
-                        "Jumada II",
-                        "Rajab",
-                        "Shaʻban",
-                        "Ramadan",
-                        "Shawwal",
-                        "Dhuʻl-Qiʻdah",
-                        "Dhuʻl-Hijjah"
+                        "mouharram",
+                        "safar",
+                        "rabia al awal",
+                        "rabia ath-thani",
+                        "joumada al oula",
+                        "joumada ath-thania",
+                        "rajab",
+                        "chaabane",
+                        "ramadan",
+                        "chawwal",
+                        "dhou al qi`da",
+                        "dhou al-hijja"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "J",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dim.",
+                        "lun.",
+                        "mar.",
+                        "mer.",
+                        "jeu.",
+                        "ven.",
+                        "sam."
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dimanche",
+                        "lundi",
+                        "mardi",
+                        "mercredi",
+                        "jeudi",
+                        "vendredi",
+                        "samedi"
                     ]
                 },
                 "eras": {
@@ -1169,75 +1170,75 @@
             "japanese": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "janv.",
+                        "févr.",
+                        "mars",
+                        "avr.",
+                        "mai",
+                        "juin",
+                        "juil.",
+                        "août",
+                        "sept.",
+                        "oct.",
+                        "nov.",
+                        "déc."
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "janvier",
+                        "février",
+                        "mars",
+                        "avril",
+                        "mai",
+                        "juin",
+                        "juillet",
+                        "août",
+                        "septembre",
+                        "octobre",
+                        "novembre",
+                        "décembre"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "J",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dim.",
+                        "lun.",
+                        "mar.",
+                        "mer.",
+                        "jeu.",
+                        "ven.",
+                        "sam."
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dimanche",
+                        "lundi",
+                        "mardi",
+                        "mercredi",
+                        "jeudi",
+                        "vendredi",
+                        "samedi"
                     ]
                 },
                 "eras": {
@@ -2008,31 +2009,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "J",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dim.",
+                        "lun.",
+                        "mar.",
+                        "mer.",
+                        "jeu.",
+                        "ven.",
+                        "sam."
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dimanche",
+                        "lundi",
+                        "mardi",
+                        "mercredi",
+                        "jeudi",
+                        "vendredi",
+                        "samedi"
                     ]
                 },
                 "eras": {
@@ -2054,89 +2055,89 @@
             "roc": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "janv.",
+                        "févr.",
+                        "mars",
+                        "avr.",
+                        "mai",
+                        "juin",
+                        "juil.",
+                        "août",
+                        "sept.",
+                        "oct.",
+                        "nov.",
+                        "déc."
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "janvier",
+                        "février",
+                        "mars",
+                        "avril",
+                        "mai",
+                        "juin",
+                        "juillet",
+                        "août",
+                        "septembre",
+                        "octobre",
+                        "novembre",
+                        "décembre"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "J",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dim.",
+                        "lun.",
+                        "mar.",
+                        "mer.",
+                        "jeu.",
+                        "ven.",
+                        "sam."
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dimanche",
+                        "lundi",
+                        "mardi",
+                        "mercredi",
+                        "jeudi",
+                        "vendredi",
+                        "samedi"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "Before R.O.C.",
-                        "R.O.C."
+                        "avant RdC",
+                        "RdC"
                     ],
                     "short": [
-                        "Before R.O.C.",
-                        "R.O.C."
+                        "avant RdC",
+                        "RdC"
                     ],
                     "long": [
-                        "Before R.O.C.",
-                        "R.O.C."
+                        "avant RdC",
+                        "RdC"
                     ]
                 },
                 "dayPeriods": {
@@ -2156,44 +2157,66 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{number} {currency}",
+                "negativePattern": "-{number} {currency}"
             },
             "percent": {
-                "positivePattern": "{number}%",
-                "negativePattern": "-{number}%"
+                "positivePattern": "{number} %",
+                "negativePattern": "-{number} %"
             }
         },
         "symbols": {
             "latn": {
-                "decimal": ".",
-                "group": ",",
+                "decimal": ",",
+                "group": " ",
                 "nan": "NaN",
                 "percent": "%",
                 "infinity": "∞"
             }
         },
         "currencies": {
-            "AUD": "A$",
+            "ARS": "$AR",
+            "AUD": "$AU",
+            "BEF": "FB",
+            "BMD": "$BM",
+            "BND": "$BN",
             "BRL": "R$",
-            "CAD": "CA$",
-            "CNY": "CN¥",
+            "BSD": "$BS",
+            "BZD": "$BZ",
+            "CAD": "$CA",
+            "CLP": "$CL",
+            "COP": "$CO",
+            "CYP": "£CY",
             "EUR": "€",
-            "GBP": "£",
-            "HKD": "HK$",
+            "FJD": "$FJ",
+            "FKP": "£FK",
+            "FRF": "F",
+            "GBP": "£GB",
+            "GIP": "£GI",
+            "IEP": "£IE",
+            "ILP": "£IL",
             "ILS": "₪",
             "INR": "₹",
-            "JPY": "JP¥",
+            "ITL": "₤IT",
             "KRW": "₩",
-            "MXN": "MX$",
-            "NZD": "NZ$",
-            "TWD": "NT$",
-            "USD": "US$",
+            "LBP": "£LB",
+            "MTP": "£MT",
+            "MXN": "$MX",
+            "NAD": "$NA",
+            "NZD": "$NZ",
+            "RHD": "$RH",
+            "SBD": "$SB",
+            "SGD": "$SG",
+            "SRD": "$SR",
+            "THB": "฿",
+            "TTD": "$TT",
+            "USD": "$US",
+            "UYU": "$UY",
             "VND": "₫",
+            "WST": "WS$",
             "XAF": "FCFA",
-            "XCD": "EC$",
             "XOF": "CFA",
-            "XPF": "CFPF"
+            "XPF": "FCFP"
         }
     }
 }

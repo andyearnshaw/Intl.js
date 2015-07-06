@@ -19,7 +19,7 @@
             "roc"
         ],
         "hourNo0": true,
-        "hour12": false,
+        "hour12": true,
         "formats": {
             "medium": "{1} {0}",
             "availableFormats": {
@@ -39,11 +39,13 @@
                 "Hmsv": "HH:mm:ss v",
                 "Hmv": "HH:mm v",
                 "M": "L",
-                "MEd": "MM-dd, E",
+                "MEd": "E, M/d",
                 "MMM": "LLL",
-                "MMMEd": "MMM d, E",
+                "MMMEd": "E, MMM d",
+                "MMMMEd": "E, MMMM d",
+                "MMMMd": "MMMM d",
                 "MMMd": "MMM d",
-                "Md": "MM-dd",
+                "Md": "M/d",
                 "d": "d",
                 "h": "h a",
                 "hm": "h:mm a",
@@ -52,101 +54,102 @@
                 "hmv": "h:mm a v",
                 "ms": "mm:ss",
                 "y": "y",
-                "yM": "y-MM",
-                "yMEd": "y-MM-dd, E",
-                "yMMM": "y MMM",
-                "yMMMEd": "y MMM d, E",
-                "yMMMd": "y MMM d",
-                "yMd": "y-MM-dd",
-                "yQQQ": "y QQQ",
-                "yQQQQ": "y QQQQ"
+                "yM": "M/y",
+                "yMEd": "E, M/d/y",
+                "yMMM": "MMM y",
+                "yMMMEd": "E, MMM d, y",
+                "yMMMM": "MMMM y",
+                "yMMMd": "d MMM y",
+                "yMd": "d/M/y",
+                "yQQQ": "QQQ y",
+                "yQQQQ": "QQQQ y"
             },
             "dateFormats": {
-                "full": "y MMMM d, EEEE",
-                "long": "y MMMM d",
-                "medium": "y MMM d",
-                "short": "y-MM-dd"
+                "full": "EEEE, d MMMM y",
+                "long": "d MMMM y",
+                "medium": "d MMM y",
+                "short": "dd/MM/y"
             },
             "timeFormats": {
-                "full": "HH:mm:ss zzzz",
-                "long": "HH:mm:ss z",
-                "medium": "HH:mm:ss",
-                "short": "HH:mm"
+                "full": "h:mm:ss a zzzz",
+                "long": "h:mm:ss a z",
+                "medium": "h:mm:ss a",
+                "short": "h:mm a"
             }
         },
         "calendars": {
             "buddhist": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "M",
+                        "K",
+                        "K",
+                        "K",
+                        "G",
+                        "G",
+                        "M",
+                        "K",
+                        "K",
+                        "I",
+                        "I",
+                        "I"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Mbe",
+                        "Kai",
+                        "Kat",
+                        "Kan",
+                        "Gat",
+                        "Gan",
+                        "Mug",
+                        "Knn",
+                        "Ken",
+                        "Iku",
+                        "Imw",
+                        "Igi"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Mweri wa mbere",
+                        "Mweri wa kaĩri",
+                        "Mweri wa kathatũ",
+                        "Mweri wa kana",
+                        "Mweri wa gatano",
+                        "Mweri wa gatantatũ",
+                        "Mweri wa mũgwanja",
+                        "Mweri wa kanana",
+                        "Mweri wa kenda",
+                        "Mweri wa ikũmi",
+                        "Mweri wa ikũmi na ũmwe",
+                        "Mweri wa ikũmi na Kaĩrĩ"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "K",
+                        "N",
+                        "N",
+                        "N",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "N"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kma",
+                        "Tat",
+                        "Ine",
+                        "Tan",
+                        "Arm",
+                        "Maa",
+                        "NMM"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kiumia",
+                        "Njumatatu",
+                        "Njumaine",
+                        "Njumatano",
+                        "Aramithi",
+                        "Njumaa",
+                        "NJumamothii"
                     ]
                 },
                 "eras": {
@@ -161,8 +164,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "KI",
+                    "pm": "UT"
                 }
             },
             "chinese": {
@@ -212,36 +215,36 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "K",
+                        "N",
+                        "N",
+                        "N",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "N"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kma",
+                        "Tat",
+                        "Ine",
+                        "Tan",
+                        "Arm",
+                        "Maa",
+                        "NMM"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kiumia",
+                        "Njumatatu",
+                        "Njumaine",
+                        "Njumatano",
+                        "Aramithi",
+                        "Njumaa",
+                        "NJumamothii"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "KI",
+                    "pm": "UT"
                 }
             },
             "coptic": {
@@ -294,31 +297,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "K",
+                        "N",
+                        "N",
+                        "N",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "N"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kma",
+                        "Tat",
+                        "Ine",
+                        "Tan",
+                        "Arm",
+                        "Maa",
+                        "NMM"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kiumia",
+                        "Njumatatu",
+                        "Njumaine",
+                        "Njumatano",
+                        "Aramithi",
+                        "Njumaa",
+                        "NJumamothii"
                     ]
                 },
                 "eras": {
@@ -336,8 +339,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "KI",
+                    "pm": "UT"
                 }
             },
             "dangi": {
@@ -387,36 +390,36 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "K",
+                        "N",
+                        "N",
+                        "N",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "N"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kma",
+                        "Tat",
+                        "Ine",
+                        "Tan",
+                        "Arm",
+                        "Maa",
+                        "NMM"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kiumia",
+                        "Njumatatu",
+                        "Njumaine",
+                        "Njumatano",
+                        "Aramithi",
+                        "Njumaa",
+                        "NJumamothii"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "KI",
+                    "pm": "UT"
                 }
             },
             "ethiopic": {
@@ -469,31 +472,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "K",
+                        "N",
+                        "N",
+                        "N",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "N"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kma",
+                        "Tat",
+                        "Ine",
+                        "Tan",
+                        "Arm",
+                        "Maa",
+                        "NMM"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kiumia",
+                        "Njumatatu",
+                        "Njumaine",
+                        "Njumatano",
+                        "Aramithi",
+                        "Njumaa",
+                        "NJumamothii"
                     ]
                 },
                 "eras": {
@@ -511,8 +514,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "KI",
+                    "pm": "UT"
                 }
             },
             "ethioaa": {
@@ -565,31 +568,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "K",
+                        "N",
+                        "N",
+                        "N",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "N"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kma",
+                        "Tat",
+                        "Ine",
+                        "Tan",
+                        "Arm",
+                        "Maa",
+                        "NMM"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kiumia",
+                        "Njumatatu",
+                        "Njumaine",
+                        "Njumatano",
+                        "Aramithi",
+                        "Njumaa",
+                        "NJumamothii"
                     ]
                 },
                 "eras": {
@@ -604,8 +607,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "KI",
+                    "pm": "UT"
                 }
             },
             "generic": {
@@ -655,31 +658,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "K",
+                        "N",
+                        "N",
+                        "N",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "N"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kma",
+                        "Tat",
+                        "Ine",
+                        "Tan",
+                        "Arm",
+                        "Maa",
+                        "NMM"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kiumia",
+                        "Njumatatu",
+                        "Njumaine",
+                        "Njumatano",
+                        "Aramithi",
+                        "Njumaa",
+                        "NJumamothii"
                     ]
                 },
                 "eras": {
@@ -697,107 +700,107 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "KI",
+                    "pm": "UT"
                 }
             },
             "gregory": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "M",
+                        "K",
+                        "K",
+                        "K",
+                        "G",
+                        "G",
+                        "M",
+                        "K",
+                        "K",
+                        "I",
+                        "I",
+                        "I"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Mbe",
+                        "Kai",
+                        "Kat",
+                        "Kan",
+                        "Gat",
+                        "Gan",
+                        "Mug",
+                        "Knn",
+                        "Ken",
+                        "Iku",
+                        "Imw",
+                        "Igi"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Mweri wa mbere",
+                        "Mweri wa kaĩri",
+                        "Mweri wa kathatũ",
+                        "Mweri wa kana",
+                        "Mweri wa gatano",
+                        "Mweri wa gatantatũ",
+                        "Mweri wa mũgwanja",
+                        "Mweri wa kanana",
+                        "Mweri wa kenda",
+                        "Mweri wa ikũmi",
+                        "Mweri wa ikũmi na ũmwe",
+                        "Mweri wa ikũmi na Kaĩrĩ"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "K",
+                        "N",
+                        "N",
+                        "N",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "N"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kma",
+                        "Tat",
+                        "Ine",
+                        "Tan",
+                        "Arm",
+                        "Maa",
+                        "NMM"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kiumia",
+                        "Njumatatu",
+                        "Njumaine",
+                        "Njumatano",
+                        "Aramithi",
+                        "Njumaa",
+                        "NJumamothii"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "BCE",
-                        "CE",
+                        "MK",
+                        "TK",
                         "BCE",
                         "CE"
                     ],
                     "short": [
-                        "BCE",
-                        "CE",
+                        "MK",
+                        "TK",
                         "BCE",
                         "CE"
                     ],
                     "long": [
-                        "BCE",
-                        "CE",
+                        "Mbere ya Kristo",
+                        "Thutha wa Kristo",
                         "BCE",
                         "CE"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "KI",
+                    "pm": "UT"
                 }
             },
             "hebrew": {
@@ -853,31 +856,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "K",
+                        "N",
+                        "N",
+                        "N",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "N"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kma",
+                        "Tat",
+                        "Ine",
+                        "Tan",
+                        "Arm",
+                        "Maa",
+                        "NMM"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kiumia",
+                        "Njumatatu",
+                        "Njumaine",
+                        "Njumatano",
+                        "Aramithi",
+                        "Njumaa",
+                        "NJumamothii"
                     ]
                 },
                 "eras": {
@@ -892,8 +895,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "KI",
+                    "pm": "UT"
                 }
             },
             "indian": {
@@ -943,31 +946,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "K",
+                        "N",
+                        "N",
+                        "N",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "N"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kma",
+                        "Tat",
+                        "Ine",
+                        "Tan",
+                        "Arm",
+                        "Maa",
+                        "NMM"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kiumia",
+                        "Njumatatu",
+                        "Njumaine",
+                        "Njumatano",
+                        "Aramithi",
+                        "Njumaa",
+                        "NJumamothii"
                     ]
                 },
                 "eras": {
@@ -982,8 +985,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "KI",
+                    "pm": "UT"
                 }
             },
             "islamic": {
@@ -1033,31 +1036,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "K",
+                        "N",
+                        "N",
+                        "N",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "N"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kma",
+                        "Tat",
+                        "Ine",
+                        "Tan",
+                        "Arm",
+                        "Maa",
+                        "NMM"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kiumia",
+                        "Njumatatu",
+                        "Njumaine",
+                        "Njumatano",
+                        "Aramithi",
+                        "Njumaa",
+                        "NJumamothii"
                     ]
                 },
                 "eras": {
@@ -1072,8 +1075,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "KI",
+                    "pm": "UT"
                 }
             },
             "islamicc": {
@@ -1123,31 +1126,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "K",
+                        "N",
+                        "N",
+                        "N",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "N"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kma",
+                        "Tat",
+                        "Ine",
+                        "Tan",
+                        "Arm",
+                        "Maa",
+                        "NMM"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kiumia",
+                        "Njumatatu",
+                        "Njumaine",
+                        "Njumatano",
+                        "Aramithi",
+                        "Njumaa",
+                        "NJumamothii"
                     ]
                 },
                 "eras": {
@@ -1162,82 +1165,82 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "KI",
+                    "pm": "UT"
                 }
             },
             "japanese": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "M",
+                        "K",
+                        "K",
+                        "K",
+                        "G",
+                        "G",
+                        "M",
+                        "K",
+                        "K",
+                        "I",
+                        "I",
+                        "I"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Mbe",
+                        "Kai",
+                        "Kat",
+                        "Kan",
+                        "Gat",
+                        "Gan",
+                        "Mug",
+                        "Knn",
+                        "Ken",
+                        "Iku",
+                        "Imw",
+                        "Igi"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Mweri wa mbere",
+                        "Mweri wa kaĩri",
+                        "Mweri wa kathatũ",
+                        "Mweri wa kana",
+                        "Mweri wa gatano",
+                        "Mweri wa gatantatũ",
+                        "Mweri wa mũgwanja",
+                        "Mweri wa kanana",
+                        "Mweri wa kenda",
+                        "Mweri wa ikũmi",
+                        "Mweri wa ikũmi na ũmwe",
+                        "Mweri wa ikũmi na Kaĩrĩ"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "K",
+                        "N",
+                        "N",
+                        "N",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "N"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kma",
+                        "Tat",
+                        "Ine",
+                        "Tan",
+                        "Arm",
+                        "Maa",
+                        "NMM"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kiumia",
+                        "Njumatatu",
+                        "Njumaine",
+                        "Njumatano",
+                        "Aramithi",
+                        "Njumaa",
+                        "NJumamothii"
                     ]
                 },
                 "eras": {
@@ -1957,8 +1960,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "KI",
+                    "pm": "UT"
                 }
             },
             "persian": {
@@ -2008,31 +2011,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "K",
+                        "N",
+                        "N",
+                        "N",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "N"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kma",
+                        "Tat",
+                        "Ine",
+                        "Tan",
+                        "Arm",
+                        "Maa",
+                        "NMM"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kiumia",
+                        "Njumatatu",
+                        "Njumaine",
+                        "Njumatano",
+                        "Aramithi",
+                        "Njumaa",
+                        "NJumamothii"
                     ]
                 },
                 "eras": {
@@ -2047,82 +2050,82 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "KI",
+                    "pm": "UT"
                 }
             },
             "roc": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "M",
+                        "K",
+                        "K",
+                        "K",
+                        "G",
+                        "G",
+                        "M",
+                        "K",
+                        "K",
+                        "I",
+                        "I",
+                        "I"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Mbe",
+                        "Kai",
+                        "Kat",
+                        "Kan",
+                        "Gat",
+                        "Gan",
+                        "Mug",
+                        "Knn",
+                        "Ken",
+                        "Iku",
+                        "Imw",
+                        "Igi"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Mweri wa mbere",
+                        "Mweri wa kaĩri",
+                        "Mweri wa kathatũ",
+                        "Mweri wa kana",
+                        "Mweri wa gatano",
+                        "Mweri wa gatantatũ",
+                        "Mweri wa mũgwanja",
+                        "Mweri wa kanana",
+                        "Mweri wa kenda",
+                        "Mweri wa ikũmi",
+                        "Mweri wa ikũmi na ũmwe",
+                        "Mweri wa ikũmi na Kaĩrĩ"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "K",
+                        "N",
+                        "N",
+                        "N",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "N"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kma",
+                        "Tat",
+                        "Ine",
+                        "Tan",
+                        "Arm",
+                        "Maa",
+                        "NMM"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kiumia",
+                        "Njumatatu",
+                        "Njumaine",
+                        "Njumatano",
+                        "Aramithi",
+                        "Njumaa",
+                        "NJumamothii"
                     ]
                 },
                 "eras": {
@@ -2140,8 +2143,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "KI",
+                    "pm": "UT"
                 }
             }
         }
@@ -2156,8 +2159,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{currency}{number}",
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -2184,6 +2187,7 @@
             "ILS": "₪",
             "INR": "₹",
             "JPY": "JP¥",
+            "KES": "Ksh",
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",

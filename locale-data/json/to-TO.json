@@ -19,31 +19,33 @@
             "roc"
         ],
         "hourNo0": true,
-        "hour12": false,
+        "hour12": true,
         "formats": {
-            "medium": "{1} {0}",
+            "medium": "{1}, {0}",
             "availableFormats": {
                 "E": "ccc",
                 "EHm": "E HH:mm",
                 "EHms": "E HH:mm:ss",
-                "Ed": "d, E",
+                "Ed": "d E",
                 "Ehm": "E h:mm a",
                 "Ehms": "E h:mm:ss a",
-                "Gy": "G y",
-                "GyMMM": "G y MMM",
-                "GyMMMEd": "G y MMM d, E",
-                "GyMMMd": "G y MMM d",
+                "Gy": "y G",
+                "GyMMM": "MMM y G",
+                "GyMMMEd": "E d MMM y G",
+                "GyMMMd": "d MMM y G",
                 "H": "HH",
                 "Hm": "HH:mm",
                 "Hms": "HH:mm:ss",
                 "Hmsv": "HH:mm:ss v",
                 "Hmv": "HH:mm v",
                 "M": "L",
-                "MEd": "MM-dd, E",
+                "MEd": "E d/M",
                 "MMM": "LLL",
-                "MMMEd": "MMM d, E",
-                "MMMd": "MMM d",
-                "Md": "MM-dd",
+                "MMMEd": "E d MMM",
+                "MMMMEd": "E d MMMM",
+                "MMMMd": "d MMMM",
+                "MMMd": "d MMM",
+                "Md": "d/M",
                 "d": "d",
                 "h": "h a",
                 "hm": "h:mm a",
@@ -52,72 +54,74 @@
                 "hmv": "h:mm a v",
                 "ms": "mm:ss",
                 "y": "y",
-                "yM": "y-MM",
-                "yMEd": "y-MM-dd, E",
-                "yMMM": "y MMM",
-                "yMMMEd": "y MMM d, E",
-                "yMMMd": "y MMM d",
-                "yMd": "y-MM-dd",
+                "yM": "M/y",
+                "yMEd": "E d/M/y",
+                "yMM": "MM-y",
+                "yMMM": "MMM y",
+                "yMMMEd": "E d MMM y",
+                "yMMMM": "MMMM y",
+                "yMMMd": "d MMM y",
+                "yMd": "d/M/y",
                 "yQQQ": "y QQQ",
                 "yQQQQ": "y QQQQ"
             },
             "dateFormats": {
-                "full": "y MMMM d, EEEE",
-                "long": "y MMMM d",
-                "medium": "y MMM d",
-                "short": "y-MM-dd"
+                "full": "EEEE d MMMM y",
+                "long": "d MMMM y",
+                "medium": "d MMM y",
+                "short": "d/M/yy"
             },
             "timeFormats": {
-                "full": "HH:mm:ss zzzz",
-                "long": "HH:mm:ss z",
-                "medium": "HH:mm:ss",
-                "short": "HH:mm"
+                "full": "h:mm:ss a zzzz",
+                "long": "h:mm:ss a z",
+                "medium": "h:mm:ss a",
+                "short": "h:mm a"
             }
         },
         "calendars": {
             "buddhist": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "S",
+                        "F",
+                        "M",
+                        "E",
+                        "M",
+                        "S",
+                        "S",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "T"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Sān",
+                        "Fēp",
+                        "Maʻa",
+                        "ʻEpe",
+                        "Mē",
+                        "Sun",
+                        "Siu",
+                        "ʻAok",
+                        "Sep",
+                        "ʻOka",
+                        "Nōv",
+                        "Tīs"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Sānuali",
+                        "Fēpueli",
+                        "Maʻasi",
+                        "ʻEpeleli",
+                        "Mē",
+                        "Sune",
+                        "Siulai",
+                        "ʻAokosi",
+                        "Sepitema",
+                        "ʻOkatopa",
+                        "Nōvema",
+                        "Tīsema"
                     ]
                 },
                 "days": {
@@ -125,28 +129,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
+                        "P",
                         "T",
                         "F",
-                        "S"
+                        "T"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāp",
+                        "Mōn",
+                        "Tūs",
+                        "Pul",
+                        "Tuʻa",
+                        "Fal",
+                        "Tok"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāpate",
+                        "Mōnite",
+                        "Tūsite",
+                        "Pulelulu",
+                        "Tuʻapulelulu",
+                        "Falaite",
+                        "Tokonaki"
                     ]
                 },
                 "eras": {
@@ -215,28 +219,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
+                        "P",
                         "T",
                         "F",
-                        "S"
+                        "T"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāp",
+                        "Mōn",
+                        "Tūs",
+                        "Pul",
+                        "Tuʻa",
+                        "Fal",
+                        "Tok"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāpate",
+                        "Mōnite",
+                        "Tūsite",
+                        "Pulelulu",
+                        "Tuʻapulelulu",
+                        "Falaite",
+                        "Tokonaki"
                     ]
                 },
                 "dayPeriods": {
@@ -297,28 +301,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
+                        "P",
                         "T",
                         "F",
-                        "S"
+                        "T"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāp",
+                        "Mōn",
+                        "Tūs",
+                        "Pul",
+                        "Tuʻa",
+                        "Fal",
+                        "Tok"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāpate",
+                        "Mōnite",
+                        "Tūsite",
+                        "Pulelulu",
+                        "Tuʻapulelulu",
+                        "Falaite",
+                        "Tokonaki"
                     ]
                 },
                 "eras": {
@@ -390,28 +394,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
+                        "P",
                         "T",
                         "F",
-                        "S"
+                        "T"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāp",
+                        "Mōn",
+                        "Tūs",
+                        "Pul",
+                        "Tuʻa",
+                        "Fal",
+                        "Tok"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāpate",
+                        "Mōnite",
+                        "Tūsite",
+                        "Pulelulu",
+                        "Tuʻapulelulu",
+                        "Falaite",
+                        "Tokonaki"
                     ]
                 },
                 "dayPeriods": {
@@ -472,28 +476,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
+                        "P",
                         "T",
                         "F",
-                        "S"
+                        "T"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāp",
+                        "Mōn",
+                        "Tūs",
+                        "Pul",
+                        "Tuʻa",
+                        "Fal",
+                        "Tok"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāpate",
+                        "Mōnite",
+                        "Tūsite",
+                        "Pulelulu",
+                        "Tuʻapulelulu",
+                        "Falaite",
+                        "Tokonaki"
                     ]
                 },
                 "eras": {
@@ -568,28 +572,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
+                        "P",
                         "T",
                         "F",
-                        "S"
+                        "T"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāp",
+                        "Mōn",
+                        "Tūs",
+                        "Pul",
+                        "Tuʻa",
+                        "Fal",
+                        "Tok"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāpate",
+                        "Mōnite",
+                        "Tūsite",
+                        "Pulelulu",
+                        "Tuʻapulelulu",
+                        "Falaite",
+                        "Tokonaki"
                     ]
                 },
                 "eras": {
@@ -658,28 +662,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
+                        "P",
                         "T",
                         "F",
-                        "S"
+                        "T"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāp",
+                        "Mōn",
+                        "Tūs",
+                        "Pul",
+                        "Tuʻa",
+                        "Fal",
+                        "Tok"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāpate",
+                        "Mōnite",
+                        "Tūsite",
+                        "Pulelulu",
+                        "Tuʻapulelulu",
+                        "Falaite",
+                        "Tokonaki"
                     ]
                 },
                 "eras": {
@@ -704,46 +708,46 @@
             "gregory": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "S",
+                        "F",
+                        "M",
+                        "E",
+                        "M",
+                        "S",
+                        "S",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "T"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Sān",
+                        "Fēp",
+                        "Maʻa",
+                        "ʻEpe",
+                        "Mē",
+                        "Sun",
+                        "Siu",
+                        "ʻAok",
+                        "Sep",
+                        "ʻOka",
+                        "Nōv",
+                        "Tīs"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Sānuali",
+                        "Fēpueli",
+                        "Maʻasi",
+                        "ʻEpeleli",
+                        "Mē",
+                        "Sune",
+                        "Siulai",
+                        "ʻAokosi",
+                        "Sepitema",
+                        "ʻOkatopa",
+                        "Nōvema",
+                        "Tīsema"
                     ]
                 },
                 "days": {
@@ -751,48 +755,48 @@
                         "S",
                         "M",
                         "T",
-                        "W",
+                        "P",
                         "T",
                         "F",
-                        "S"
+                        "T"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāp",
+                        "Mōn",
+                        "Tūs",
+                        "Pul",
+                        "Tuʻa",
+                        "Fal",
+                        "Tok"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāpate",
+                        "Mōnite",
+                        "Tūsite",
+                        "Pulelulu",
+                        "Tuʻapulelulu",
+                        "Falaite",
+                        "Tokonaki"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "BCE",
-                        "CE",
+                        "KāMā",
+                        "TāSā",
                         "BCE",
                         "CE"
                     ],
                     "short": [
-                        "BCE",
-                        "CE",
+                        "KM",
+                        "TS",
                         "BCE",
                         "CE"
                     ],
                     "long": [
-                        "BCE",
-                        "CE",
-                        "BCE",
-                        "CE"
+                        "ki muʻa",
+                        "taʻu ʻo Sīsū",
+                        "KM",
+                        "TS"
                     ]
                 },
                 "dayPeriods": {
@@ -856,28 +860,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
+                        "P",
                         "T",
                         "F",
-                        "S"
+                        "T"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāp",
+                        "Mōn",
+                        "Tūs",
+                        "Pul",
+                        "Tuʻa",
+                        "Fal",
+                        "Tok"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāpate",
+                        "Mōnite",
+                        "Tūsite",
+                        "Pulelulu",
+                        "Tuʻapulelulu",
+                        "Falaite",
+                        "Tokonaki"
                     ]
                 },
                 "eras": {
@@ -946,28 +950,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
+                        "P",
                         "T",
                         "F",
-                        "S"
+                        "T"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāp",
+                        "Mōn",
+                        "Tūs",
+                        "Pul",
+                        "Tuʻa",
+                        "Fal",
+                        "Tok"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāpate",
+                        "Mōnite",
+                        "Tūsite",
+                        "Pulelulu",
+                        "Tuʻapulelulu",
+                        "Falaite",
+                        "Tokonaki"
                     ]
                 },
                 "eras": {
@@ -1036,28 +1040,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
+                        "P",
                         "T",
                         "F",
-                        "S"
+                        "T"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāp",
+                        "Mōn",
+                        "Tūs",
+                        "Pul",
+                        "Tuʻa",
+                        "Fal",
+                        "Tok"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāpate",
+                        "Mōnite",
+                        "Tūsite",
+                        "Pulelulu",
+                        "Tuʻapulelulu",
+                        "Falaite",
+                        "Tokonaki"
                     ]
                 },
                 "eras": {
@@ -1126,28 +1130,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
+                        "P",
                         "T",
                         "F",
-                        "S"
+                        "T"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāp",
+                        "Mōn",
+                        "Tūs",
+                        "Pul",
+                        "Tuʻa",
+                        "Fal",
+                        "Tok"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāpate",
+                        "Mōnite",
+                        "Tūsite",
+                        "Pulelulu",
+                        "Tuʻapulelulu",
+                        "Falaite",
+                        "Tokonaki"
                     ]
                 },
                 "eras": {
@@ -1169,46 +1173,46 @@
             "japanese": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "S",
+                        "F",
+                        "M",
+                        "E",
+                        "M",
+                        "S",
+                        "S",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "T"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Sān",
+                        "Fēp",
+                        "Maʻa",
+                        "ʻEpe",
+                        "Mē",
+                        "Sun",
+                        "Siu",
+                        "ʻAok",
+                        "Sep",
+                        "ʻOka",
+                        "Nōv",
+                        "Tīs"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Sānuali",
+                        "Fēpueli",
+                        "Maʻasi",
+                        "ʻEpeleli",
+                        "Mē",
+                        "Sune",
+                        "Siulai",
+                        "ʻAokosi",
+                        "Sepitema",
+                        "ʻOkatopa",
+                        "Nōvema",
+                        "Tīsema"
                     ]
                 },
                 "days": {
@@ -1216,28 +1220,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
+                        "P",
                         "T",
                         "F",
-                        "S"
+                        "T"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāp",
+                        "Mōn",
+                        "Tūs",
+                        "Pul",
+                        "Tuʻa",
+                        "Fal",
+                        "Tok"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāpate",
+                        "Mōnite",
+                        "Tūsite",
+                        "Pulelulu",
+                        "Tuʻapulelulu",
+                        "Falaite",
+                        "Tokonaki"
                     ]
                 },
                 "eras": {
@@ -2011,28 +2015,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
+                        "P",
                         "T",
                         "F",
-                        "S"
+                        "T"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāp",
+                        "Mōn",
+                        "Tūs",
+                        "Pul",
+                        "Tuʻa",
+                        "Fal",
+                        "Tok"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāpate",
+                        "Mōnite",
+                        "Tūsite",
+                        "Pulelulu",
+                        "Tuʻapulelulu",
+                        "Falaite",
+                        "Tokonaki"
                     ]
                 },
                 "eras": {
@@ -2054,46 +2058,46 @@
             "roc": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "S",
+                        "F",
+                        "M",
+                        "E",
+                        "M",
+                        "S",
+                        "S",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "T"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Sān",
+                        "Fēp",
+                        "Maʻa",
+                        "ʻEpe",
+                        "Mē",
+                        "Sun",
+                        "Siu",
+                        "ʻAok",
+                        "Sep",
+                        "ʻOka",
+                        "Nōv",
+                        "Tīs"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Sānuali",
+                        "Fēpueli",
+                        "Maʻasi",
+                        "ʻEpeleli",
+                        "Mē",
+                        "Sune",
+                        "Siulai",
+                        "ʻAokosi",
+                        "Sepitema",
+                        "ʻOkatopa",
+                        "Nōvema",
+                        "Tīsema"
                     ]
                 },
                 "days": {
@@ -2101,28 +2105,28 @@
                         "S",
                         "M",
                         "T",
-                        "W",
+                        "P",
                         "T",
                         "F",
-                        "S"
+                        "T"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāp",
+                        "Mōn",
+                        "Tūs",
+                        "Pul",
+                        "Tuʻa",
+                        "Fal",
+                        "Tok"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sāpate",
+                        "Mōnite",
+                        "Tūsite",
+                        "Pulelulu",
+                        "Tuʻapulelulu",
+                        "Falaite",
+                        "Tokonaki"
                     ]
                 },
                 "eras": {
@@ -2168,13 +2172,13 @@
             "latn": {
                 "decimal": ".",
                 "group": ",",
-                "nan": "NaN",
+                "nan": "TF",
                 "percent": "%",
                 "infinity": "∞"
             }
         },
         "currencies": {
-            "AUD": "A$",
+            "AUD": "AUD$",
             "BRL": "R$",
             "CAD": "CA$",
             "CNY": "CN¥",
@@ -2186,7 +2190,8 @@
             "JPY": "JP¥",
             "KRW": "₩",
             "MXN": "MX$",
-            "NZD": "NZ$",
+            "NZD": "NZD$",
+            "TOP": "T$",
             "TWD": "NT$",
             "USD": "US$",
             "VND": "₫",

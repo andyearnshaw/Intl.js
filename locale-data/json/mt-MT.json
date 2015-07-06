@@ -62,10 +62,10 @@
                 "yQQQQ": "y QQQQ"
             },
             "dateFormats": {
-                "full": "y MMMM d, EEEE",
-                "long": "y MMMM d",
-                "medium": "y MMM d",
-                "short": "y-MM-dd"
+                "full": "EEEE, d 'ta'’ MMMM y",
+                "long": "d 'ta'’ MMMM y",
+                "medium": "dd MMM y",
+                "short": "dd/MM/y"
             },
             "timeFormats": {
                 "full": "HH:mm:ss zzzz",
@@ -78,75 +78,75 @@
             "buddhist": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "Ġ",
+                        "L",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jan",
+                        "Fra",
+                        "Mar",
+                        "Apr",
+                        "Mej",
+                        "Ġun",
+                        "Lul",
+                        "Aww",
+                        "Set",
+                        "Ott",
+                        "Nov",
+                        "Diċ"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jannar",
+                        "Frar",
+                        "Marzu",
+                        "April",
+                        "Mejju",
+                        "Ġunju",
+                        "Lulju",
+                        "Awwissu",
+                        "Settembru",
+                        "Ottubru",
+                        "Novembru",
+                        "Diċembru"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "Ħ",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "E",
+                        "Ħ",
+                        "Ġ",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Ħad",
+                        "Tne",
+                        "Tli",
+                        "Erb",
+                        "Ħam",
+                        "Ġim",
+                        "Sib"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Il-Ħadd",
+                        "It-Tnejn",
+                        "It-Tlieta",
+                        "L-Erbgħa",
+                        "Il-Ħamis",
+                        "Il-Ġimgħa",
+                        "Is-Sibt"
                     ]
                 },
                 "eras": {
@@ -212,31 +212,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "Ħ",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "E",
+                        "Ħ",
+                        "Ġ",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Ħad",
+                        "Tne",
+                        "Tli",
+                        "Erb",
+                        "Ħam",
+                        "Ġim",
+                        "Sib"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Il-Ħadd",
+                        "It-Tnejn",
+                        "It-Tlieta",
+                        "L-Erbgħa",
+                        "Il-Ħamis",
+                        "Il-Ġimgħa",
+                        "Is-Sibt"
                     ]
                 },
                 "dayPeriods": {
@@ -294,31 +294,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "Ħ",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "E",
+                        "Ħ",
+                        "Ġ",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Ħad",
+                        "Tne",
+                        "Tli",
+                        "Erb",
+                        "Ħam",
+                        "Ġim",
+                        "Sib"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Il-Ħadd",
+                        "It-Tnejn",
+                        "It-Tlieta",
+                        "L-Erbgħa",
+                        "Il-Ħamis",
+                        "Il-Ġimgħa",
+                        "Is-Sibt"
                     ]
                 },
                 "eras": {
@@ -387,31 +387,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "Ħ",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "E",
+                        "Ħ",
+                        "Ġ",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Ħad",
+                        "Tne",
+                        "Tli",
+                        "Erb",
+                        "Ħam",
+                        "Ġim",
+                        "Sib"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Il-Ħadd",
+                        "It-Tnejn",
+                        "It-Tlieta",
+                        "L-Erbgħa",
+                        "Il-Ħamis",
+                        "Il-Ġimgħa",
+                        "Is-Sibt"
                     ]
                 },
                 "dayPeriods": {
@@ -469,31 +469,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "Ħ",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "E",
+                        "Ħ",
+                        "Ġ",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Ħad",
+                        "Tne",
+                        "Tli",
+                        "Erb",
+                        "Ħam",
+                        "Ġim",
+                        "Sib"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Il-Ħadd",
+                        "It-Tnejn",
+                        "It-Tlieta",
+                        "L-Erbgħa",
+                        "Il-Ħamis",
+                        "Il-Ġimgħa",
+                        "Is-Sibt"
                     ]
                 },
                 "eras": {
@@ -565,31 +565,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "Ħ",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "E",
+                        "Ħ",
+                        "Ġ",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Ħad",
+                        "Tne",
+                        "Tli",
+                        "Erb",
+                        "Ħam",
+                        "Ġim",
+                        "Sib"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Il-Ħadd",
+                        "It-Tnejn",
+                        "It-Tlieta",
+                        "L-Erbgħa",
+                        "Il-Ħamis",
+                        "Il-Ġimgħa",
+                        "Is-Sibt"
                     ]
                 },
                 "eras": {
@@ -655,31 +655,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "Ħ",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "E",
+                        "Ħ",
+                        "Ġ",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Ħad",
+                        "Tne",
+                        "Tli",
+                        "Erb",
+                        "Ħam",
+                        "Ġim",
+                        "Sib"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Il-Ħadd",
+                        "It-Tnejn",
+                        "It-Tlieta",
+                        "L-Erbgħa",
+                        "Il-Ħamis",
+                        "Il-Ġimgħa",
+                        "Is-Sibt"
                     ]
                 },
                 "eras": {
@@ -704,95 +704,95 @@
             "gregory": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "Ġ",
+                        "L",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jan",
+                        "Fra",
+                        "Mar",
+                        "Apr",
+                        "Mej",
+                        "Ġun",
+                        "Lul",
+                        "Aww",
+                        "Set",
+                        "Ott",
+                        "Nov",
+                        "Diċ"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jannar",
+                        "Frar",
+                        "Marzu",
+                        "April",
+                        "Mejju",
+                        "Ġunju",
+                        "Lulju",
+                        "Awwissu",
+                        "Settembru",
+                        "Ottubru",
+                        "Novembru",
+                        "Diċembru"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "Ħ",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "E",
+                        "Ħ",
+                        "Ġ",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Ħad",
+                        "Tne",
+                        "Tli",
+                        "Erb",
+                        "Ħam",
+                        "Ġim",
+                        "Sib"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Il-Ħadd",
+                        "It-Tnejn",
+                        "It-Tlieta",
+                        "L-Erbgħa",
+                        "Il-Ħamis",
+                        "Il-Ġimgħa",
+                        "Is-Sibt"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "BCE",
-                        "CE",
-                        "BCE",
-                        "CE"
+                        "QK",
+                        "WK",
+                        "QEK",
+                        "EK"
                     ],
                     "short": [
-                        "BCE",
-                        "CE",
-                        "BCE",
-                        "CE"
+                        "QK",
+                        "WK",
+                        "QEK",
+                        "EK"
                     ],
                     "long": [
-                        "BCE",
-                        "CE",
-                        "BCE",
-                        "CE"
+                        "Qabel Kristu",
+                        "Wara Kristu",
+                        "QEK",
+                        "EK"
                     ]
                 },
                 "dayPeriods": {
@@ -853,31 +853,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "Ħ",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "E",
+                        "Ħ",
+                        "Ġ",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Ħad",
+                        "Tne",
+                        "Tli",
+                        "Erb",
+                        "Ħam",
+                        "Ġim",
+                        "Sib"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Il-Ħadd",
+                        "It-Tnejn",
+                        "It-Tlieta",
+                        "L-Erbgħa",
+                        "Il-Ħamis",
+                        "Il-Ġimgħa",
+                        "Is-Sibt"
                     ]
                 },
                 "eras": {
@@ -943,31 +943,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "Ħ",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "E",
+                        "Ħ",
+                        "Ġ",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Ħad",
+                        "Tne",
+                        "Tli",
+                        "Erb",
+                        "Ħam",
+                        "Ġim",
+                        "Sib"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Il-Ħadd",
+                        "It-Tnejn",
+                        "It-Tlieta",
+                        "L-Erbgħa",
+                        "Il-Ħamis",
+                        "Il-Ġimgħa",
+                        "Is-Sibt"
                     ]
                 },
                 "eras": {
@@ -1033,31 +1033,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "Ħ",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "E",
+                        "Ħ",
+                        "Ġ",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Ħad",
+                        "Tne",
+                        "Tli",
+                        "Erb",
+                        "Ħam",
+                        "Ġim",
+                        "Sib"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Il-Ħadd",
+                        "It-Tnejn",
+                        "It-Tlieta",
+                        "L-Erbgħa",
+                        "Il-Ħamis",
+                        "Il-Ġimgħa",
+                        "Is-Sibt"
                     ]
                 },
                 "eras": {
@@ -1123,31 +1123,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "Ħ",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "E",
+                        "Ħ",
+                        "Ġ",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Ħad",
+                        "Tne",
+                        "Tli",
+                        "Erb",
+                        "Ħam",
+                        "Ġim",
+                        "Sib"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Il-Ħadd",
+                        "It-Tnejn",
+                        "It-Tlieta",
+                        "L-Erbgħa",
+                        "Il-Ħamis",
+                        "Il-Ġimgħa",
+                        "Is-Sibt"
                     ]
                 },
                 "eras": {
@@ -1169,75 +1169,75 @@
             "japanese": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "Ġ",
+                        "L",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jan",
+                        "Fra",
+                        "Mar",
+                        "Apr",
+                        "Mej",
+                        "Ġun",
+                        "Lul",
+                        "Aww",
+                        "Set",
+                        "Ott",
+                        "Nov",
+                        "Diċ"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jannar",
+                        "Frar",
+                        "Marzu",
+                        "April",
+                        "Mejju",
+                        "Ġunju",
+                        "Lulju",
+                        "Awwissu",
+                        "Settembru",
+                        "Ottubru",
+                        "Novembru",
+                        "Diċembru"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "Ħ",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "E",
+                        "Ħ",
+                        "Ġ",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Ħad",
+                        "Tne",
+                        "Tli",
+                        "Erb",
+                        "Ħam",
+                        "Ġim",
+                        "Sib"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Il-Ħadd",
+                        "It-Tnejn",
+                        "It-Tlieta",
+                        "L-Erbgħa",
+                        "Il-Ħamis",
+                        "Il-Ġimgħa",
+                        "Is-Sibt"
                     ]
                 },
                 "eras": {
@@ -2008,31 +2008,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "Ħ",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "E",
+                        "Ħ",
+                        "Ġ",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Ħad",
+                        "Tne",
+                        "Tli",
+                        "Erb",
+                        "Ħam",
+                        "Ġim",
+                        "Sib"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Il-Ħadd",
+                        "It-Tnejn",
+                        "It-Tlieta",
+                        "L-Erbgħa",
+                        "Il-Ħamis",
+                        "Il-Ġimgħa",
+                        "Is-Sibt"
                     ]
                 },
                 "eras": {
@@ -2054,75 +2054,75 @@
             "roc": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "Ġ",
+                        "L",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jan",
+                        "Fra",
+                        "Mar",
+                        "Apr",
+                        "Mej",
+                        "Ġun",
+                        "Lul",
+                        "Aww",
+                        "Set",
+                        "Ott",
+                        "Nov",
+                        "Diċ"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jannar",
+                        "Frar",
+                        "Marzu",
+                        "April",
+                        "Mejju",
+                        "Ġunju",
+                        "Lulju",
+                        "Awwissu",
+                        "Settembru",
+                        "Ottubru",
+                        "Novembru",
+                        "Diċembru"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "Ħ",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "E",
+                        "Ħ",
+                        "Ġ",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Ħad",
+                        "Tne",
+                        "Tli",
+                        "Erb",
+                        "Ħam",
+                        "Ġim",
+                        "Sib"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Il-Ħadd",
+                        "It-Tnejn",
+                        "It-Tlieta",
+                        "L-Erbgħa",
+                        "Il-Ħamis",
+                        "Il-Ġimgħa",
+                        "Is-Sibt"
                     ]
                 },
                 "eras": {
@@ -2156,8 +2156,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{currency}{number}",
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",

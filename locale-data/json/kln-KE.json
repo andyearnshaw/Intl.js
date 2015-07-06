@@ -19,7 +19,7 @@
             "roc"
         ],
         "hourNo0": true,
-        "hour12": false,
+        "hour12": true,
         "formats": {
             "medium": "{1} {0}",
             "availableFormats": {
@@ -39,11 +39,13 @@
                 "Hmsv": "HH:mm:ss v",
                 "Hmv": "HH:mm v",
                 "M": "L",
-                "MEd": "MM-dd, E",
+                "MEd": "E, M/d",
                 "MMM": "LLL",
-                "MMMEd": "MMM d, E",
+                "MMMEd": "E, MMM d",
+                "MMMMEd": "E, MMMM d",
+                "MMMMd": "MMMM d",
                 "MMMd": "MMM d",
-                "Md": "MM-dd",
+                "Md": "M/d",
                 "d": "d",
                 "h": "h a",
                 "hm": "h:mm a",
@@ -52,101 +54,102 @@
                 "hmv": "h:mm a v",
                 "ms": "mm:ss",
                 "y": "y",
-                "yM": "y-MM",
-                "yMEd": "y-MM-dd, E",
-                "yMMM": "y MMM",
-                "yMMMEd": "y MMM d, E",
+                "yM": "M/y",
+                "yMEd": "E, M/d/y",
+                "yMMM": "MMM y",
+                "yMMMEd": "E, MMM d, y",
+                "yMMMM": "MMMM y",
                 "yMMMd": "y MMM d",
                 "yMd": "y-MM-dd",
-                "yQQQ": "y QQQ",
-                "yQQQQ": "y QQQQ"
+                "yQQQ": "QQQ y",
+                "yQQQQ": "QQQQ y"
             },
             "dateFormats": {
-                "full": "y MMMM d, EEEE",
-                "long": "y MMMM d",
-                "medium": "y MMM d",
-                "short": "y-MM-dd"
+                "full": "EEEE, d MMMM y",
+                "long": "d MMMM y",
+                "medium": "d MMM y",
+                "short": "dd/MM/y"
             },
             "timeFormats": {
-                "full": "HH:mm:ss zzzz",
-                "long": "HH:mm:ss z",
-                "medium": "HH:mm:ss",
-                "short": "HH:mm"
+                "full": "h:mm:ss a zzzz",
+                "long": "h:mm:ss a z",
+                "medium": "h:mm:ss a",
+                "short": "h:mm a"
             }
         },
         "calendars": {
             "buddhist": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "M",
+                        "N",
+                        "T",
+                        "I",
+                        "M",
+                        "P",
+                        "N",
+                        "R",
+                        "B",
+                        "E",
+                        "K",
+                        "K"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Mul",
+                        "Ngat",
+                        "Taa",
+                        "Iwo",
+                        "Mam",
+                        "Paa",
+                        "Nge",
+                        "Roo",
+                        "Bur",
+                        "Epe",
+                        "Kpt",
+                        "Kpa"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Mulgul",
+                        "Ng’atyaato",
+                        "Kiptaamo",
+                        "Iwootkuut",
+                        "Mamuut",
+                        "Paagi",
+                        "Ng’eiyeet",
+                        "Rooptui",
+                        "Bureet",
+                        "Epeeso",
+                        "Kipsuunde ne taai",
+                        "Kipsuunde nebo aeng’"
                     ]
                 },
                 "days": {
                     "narrow": [
+                        "T",
+                        "T",
+                        "O",
                         "S",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "L"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kts",
+                        "Kot",
+                        "Koo",
+                        "Kos",
+                        "Koa",
+                        "Kom",
+                        "Kol"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kotisap",
+                        "Kotaai",
+                        "Koaeng’",
+                        "Kosomok",
+                        "Koang’wan",
+                        "Komuut",
+                        "Kolo"
                     ]
                 },
                 "eras": {
@@ -161,8 +164,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "karoon",
+                    "pm": "kooskoliny"
                 }
             },
             "chinese": {
@@ -212,36 +215,36 @@
                 },
                 "days": {
                     "narrow": [
+                        "T",
+                        "T",
+                        "O",
                         "S",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "L"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kts",
+                        "Kot",
+                        "Koo",
+                        "Kos",
+                        "Koa",
+                        "Kom",
+                        "Kol"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kotisap",
+                        "Kotaai",
+                        "Koaeng’",
+                        "Kosomok",
+                        "Koang’wan",
+                        "Komuut",
+                        "Kolo"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "karoon",
+                    "pm": "kooskoliny"
                 }
             },
             "coptic": {
@@ -294,31 +297,31 @@
                 },
                 "days": {
                     "narrow": [
+                        "T",
+                        "T",
+                        "O",
                         "S",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "L"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kts",
+                        "Kot",
+                        "Koo",
+                        "Kos",
+                        "Koa",
+                        "Kom",
+                        "Kol"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kotisap",
+                        "Kotaai",
+                        "Koaeng’",
+                        "Kosomok",
+                        "Koang’wan",
+                        "Komuut",
+                        "Kolo"
                     ]
                 },
                 "eras": {
@@ -336,8 +339,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "karoon",
+                    "pm": "kooskoliny"
                 }
             },
             "dangi": {
@@ -387,36 +390,36 @@
                 },
                 "days": {
                     "narrow": [
+                        "T",
+                        "T",
+                        "O",
                         "S",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "L"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kts",
+                        "Kot",
+                        "Koo",
+                        "Kos",
+                        "Koa",
+                        "Kom",
+                        "Kol"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kotisap",
+                        "Kotaai",
+                        "Koaeng’",
+                        "Kosomok",
+                        "Koang’wan",
+                        "Komuut",
+                        "Kolo"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "karoon",
+                    "pm": "kooskoliny"
                 }
             },
             "ethiopic": {
@@ -469,31 +472,31 @@
                 },
                 "days": {
                     "narrow": [
+                        "T",
+                        "T",
+                        "O",
                         "S",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "L"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kts",
+                        "Kot",
+                        "Koo",
+                        "Kos",
+                        "Koa",
+                        "Kom",
+                        "Kol"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kotisap",
+                        "Kotaai",
+                        "Koaeng’",
+                        "Kosomok",
+                        "Koang’wan",
+                        "Komuut",
+                        "Kolo"
                     ]
                 },
                 "eras": {
@@ -511,8 +514,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "karoon",
+                    "pm": "kooskoliny"
                 }
             },
             "ethioaa": {
@@ -565,31 +568,31 @@
                 },
                 "days": {
                     "narrow": [
+                        "T",
+                        "T",
+                        "O",
                         "S",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "L"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kts",
+                        "Kot",
+                        "Koo",
+                        "Kos",
+                        "Koa",
+                        "Kom",
+                        "Kol"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kotisap",
+                        "Kotaai",
+                        "Koaeng’",
+                        "Kosomok",
+                        "Koang’wan",
+                        "Komuut",
+                        "Kolo"
                     ]
                 },
                 "eras": {
@@ -604,8 +607,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "karoon",
+                    "pm": "kooskoliny"
                 }
             },
             "generic": {
@@ -655,31 +658,31 @@
                 },
                 "days": {
                     "narrow": [
+                        "T",
+                        "T",
+                        "O",
                         "S",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "L"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kts",
+                        "Kot",
+                        "Koo",
+                        "Kos",
+                        "Koa",
+                        "Kom",
+                        "Kol"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kotisap",
+                        "Kotaai",
+                        "Koaeng’",
+                        "Kosomok",
+                        "Koang’wan",
+                        "Komuut",
+                        "Kolo"
                     ]
                 },
                 "eras": {
@@ -697,107 +700,107 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "karoon",
+                    "pm": "kooskoliny"
                 }
             },
             "gregory": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "M",
+                        "N",
+                        "T",
+                        "I",
+                        "M",
+                        "P",
+                        "N",
+                        "R",
+                        "B",
+                        "E",
+                        "K",
+                        "K"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Mul",
+                        "Ngat",
+                        "Taa",
+                        "Iwo",
+                        "Mam",
+                        "Paa",
+                        "Nge",
+                        "Roo",
+                        "Bur",
+                        "Epe",
+                        "Kpt",
+                        "Kpa"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Mulgul",
+                        "Ng’atyaato",
+                        "Kiptaamo",
+                        "Iwootkuut",
+                        "Mamuut",
+                        "Paagi",
+                        "Ng’eiyeet",
+                        "Rooptui",
+                        "Bureet",
+                        "Epeeso",
+                        "Kipsuunde ne taai",
+                        "Kipsuunde nebo aeng’"
                     ]
                 },
                 "days": {
                     "narrow": [
+                        "T",
+                        "T",
+                        "O",
                         "S",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "L"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kts",
+                        "Kot",
+                        "Koo",
+                        "Kos",
+                        "Koa",
+                        "Kom",
+                        "Kol"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kotisap",
+                        "Kotaai",
+                        "Koaeng’",
+                        "Kosomok",
+                        "Koang’wan",
+                        "Komuut",
+                        "Kolo"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "BCE",
-                        "CE",
+                        "AM",
+                        "KO",
                         "BCE",
                         "CE"
                     ],
                     "short": [
-                        "BCE",
-                        "CE",
+                        "AM",
+                        "KO",
                         "BCE",
                         "CE"
                     ],
                     "long": [
-                        "BCE",
-                        "CE",
+                        "Amait kesich Jesu",
+                        "Kokakesich Jesu",
                         "BCE",
                         "CE"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "karoon",
+                    "pm": "kooskoliny"
                 }
             },
             "hebrew": {
@@ -853,31 +856,31 @@
                 },
                 "days": {
                     "narrow": [
+                        "T",
+                        "T",
+                        "O",
                         "S",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "L"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kts",
+                        "Kot",
+                        "Koo",
+                        "Kos",
+                        "Koa",
+                        "Kom",
+                        "Kol"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kotisap",
+                        "Kotaai",
+                        "Koaeng’",
+                        "Kosomok",
+                        "Koang’wan",
+                        "Komuut",
+                        "Kolo"
                     ]
                 },
                 "eras": {
@@ -892,8 +895,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "karoon",
+                    "pm": "kooskoliny"
                 }
             },
             "indian": {
@@ -943,31 +946,31 @@
                 },
                 "days": {
                     "narrow": [
+                        "T",
+                        "T",
+                        "O",
                         "S",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "L"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kts",
+                        "Kot",
+                        "Koo",
+                        "Kos",
+                        "Koa",
+                        "Kom",
+                        "Kol"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kotisap",
+                        "Kotaai",
+                        "Koaeng’",
+                        "Kosomok",
+                        "Koang’wan",
+                        "Komuut",
+                        "Kolo"
                     ]
                 },
                 "eras": {
@@ -982,8 +985,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "karoon",
+                    "pm": "kooskoliny"
                 }
             },
             "islamic": {
@@ -1033,31 +1036,31 @@
                 },
                 "days": {
                     "narrow": [
+                        "T",
+                        "T",
+                        "O",
                         "S",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "L"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kts",
+                        "Kot",
+                        "Koo",
+                        "Kos",
+                        "Koa",
+                        "Kom",
+                        "Kol"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kotisap",
+                        "Kotaai",
+                        "Koaeng’",
+                        "Kosomok",
+                        "Koang’wan",
+                        "Komuut",
+                        "Kolo"
                     ]
                 },
                 "eras": {
@@ -1072,8 +1075,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "karoon",
+                    "pm": "kooskoliny"
                 }
             },
             "islamicc": {
@@ -1123,31 +1126,31 @@
                 },
                 "days": {
                     "narrow": [
+                        "T",
+                        "T",
+                        "O",
                         "S",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "L"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kts",
+                        "Kot",
+                        "Koo",
+                        "Kos",
+                        "Koa",
+                        "Kom",
+                        "Kol"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kotisap",
+                        "Kotaai",
+                        "Koaeng’",
+                        "Kosomok",
+                        "Koang’wan",
+                        "Komuut",
+                        "Kolo"
                     ]
                 },
                 "eras": {
@@ -1162,82 +1165,82 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "karoon",
+                    "pm": "kooskoliny"
                 }
             },
             "japanese": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "M",
+                        "N",
+                        "T",
+                        "I",
+                        "M",
+                        "P",
+                        "N",
+                        "R",
+                        "B",
+                        "E",
+                        "K",
+                        "K"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Mul",
+                        "Ngat",
+                        "Taa",
+                        "Iwo",
+                        "Mam",
+                        "Paa",
+                        "Nge",
+                        "Roo",
+                        "Bur",
+                        "Epe",
+                        "Kpt",
+                        "Kpa"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Mulgul",
+                        "Ng’atyaato",
+                        "Kiptaamo",
+                        "Iwootkuut",
+                        "Mamuut",
+                        "Paagi",
+                        "Ng’eiyeet",
+                        "Rooptui",
+                        "Bureet",
+                        "Epeeso",
+                        "Kipsuunde ne taai",
+                        "Kipsuunde nebo aeng’"
                     ]
                 },
                 "days": {
                     "narrow": [
+                        "T",
+                        "T",
+                        "O",
                         "S",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "L"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kts",
+                        "Kot",
+                        "Koo",
+                        "Kos",
+                        "Koa",
+                        "Kom",
+                        "Kol"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kotisap",
+                        "Kotaai",
+                        "Koaeng’",
+                        "Kosomok",
+                        "Koang’wan",
+                        "Komuut",
+                        "Kolo"
                     ]
                 },
                 "eras": {
@@ -1957,8 +1960,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "karoon",
+                    "pm": "kooskoliny"
                 }
             },
             "persian": {
@@ -2008,31 +2011,31 @@
                 },
                 "days": {
                     "narrow": [
+                        "T",
+                        "T",
+                        "O",
                         "S",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "L"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kts",
+                        "Kot",
+                        "Koo",
+                        "Kos",
+                        "Koa",
+                        "Kom",
+                        "Kol"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kotisap",
+                        "Kotaai",
+                        "Koaeng’",
+                        "Kosomok",
+                        "Koang’wan",
+                        "Komuut",
+                        "Kolo"
                     ]
                 },
                 "eras": {
@@ -2047,82 +2050,82 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "karoon",
+                    "pm": "kooskoliny"
                 }
             },
             "roc": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "M",
+                        "N",
+                        "T",
+                        "I",
+                        "M",
+                        "P",
+                        "N",
+                        "R",
+                        "B",
+                        "E",
+                        "K",
+                        "K"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Mul",
+                        "Ngat",
+                        "Taa",
+                        "Iwo",
+                        "Mam",
+                        "Paa",
+                        "Nge",
+                        "Roo",
+                        "Bur",
+                        "Epe",
+                        "Kpt",
+                        "Kpa"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Mulgul",
+                        "Ng’atyaato",
+                        "Kiptaamo",
+                        "Iwootkuut",
+                        "Mamuut",
+                        "Paagi",
+                        "Ng’eiyeet",
+                        "Rooptui",
+                        "Bureet",
+                        "Epeeso",
+                        "Kipsuunde ne taai",
+                        "Kipsuunde nebo aeng’"
                     ]
                 },
                 "days": {
                     "narrow": [
+                        "T",
+                        "T",
+                        "O",
                         "S",
+                        "A",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "L"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kts",
+                        "Kot",
+                        "Koo",
+                        "Kos",
+                        "Koa",
+                        "Kom",
+                        "Kol"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Kotisap",
+                        "Kotaai",
+                        "Koaeng’",
+                        "Kosomok",
+                        "Koang’wan",
+                        "Komuut",
+                        "Kolo"
                     ]
                 },
                 "eras": {
@@ -2140,8 +2143,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "karoon",
+                    "pm": "kooskoliny"
                 }
             }
         }
@@ -2156,8 +2159,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{currency}{number}",
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -2184,6 +2187,7 @@
             "ILS": "₪",
             "INR": "₹",
             "JPY": "JP¥",
+            "KES": "Ksh",
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",

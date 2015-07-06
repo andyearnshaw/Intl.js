@@ -26,7 +26,7 @@
                 "E": "ccc",
                 "EHm": "E HH:mm",
                 "EHms": "E HH:mm:ss",
-                "Ed": "d, E",
+                "Ed": "E d",
                 "Ehm": "E h:mm a",
                 "Ehms": "E h:mm:ss a",
                 "Gy": "G y",
@@ -39,11 +39,11 @@
                 "Hmsv": "HH:mm:ss v",
                 "Hmv": "HH:mm v",
                 "M": "L",
-                "MEd": "MM-dd, E",
+                "MEd": "E, d/M",
                 "MMM": "LLL",
-                "MMMEd": "MMM d, E",
-                "MMMd": "MMM d",
-                "Md": "MM-dd",
+                "MMMEd": "E, d MMM",
+                "MMMd": "d MMM",
+                "Md": "d/M",
                 "d": "d",
                 "h": "h a",
                 "hm": "h:mm a",
@@ -52,20 +52,20 @@
                 "hmv": "h:mm a v",
                 "ms": "mm:ss",
                 "y": "y",
-                "yM": "y-MM",
-                "yMEd": "y-MM-dd, E",
-                "yMMM": "y MMM",
-                "yMMMEd": "y MMM d, E",
-                "yMMMd": "y MMM d",
-                "yMd": "y-MM-dd",
-                "yQQQ": "y QQQ",
-                "yQQQQ": "y QQQQ"
+                "yM": "M/y",
+                "yMEd": "E, d/M/y",
+                "yMMM": "MMM y",
+                "yMMMEd": "E, d MMM y",
+                "yMMMd": "d MMM y",
+                "yMd": "d/M/y",
+                "yQQQ": "QQQ y",
+                "yQQQQ": "QQQQ y"
             },
             "dateFormats": {
-                "full": "y MMMM d, EEEE",
-                "long": "y MMMM d",
-                "medium": "y MMM d",
-                "short": "y-MM-dd"
+                "full": "EEEE, d MMMM 'de' y",
+                "long": "d MMMM 'de' y",
+                "medium": "d MMM y",
+                "short": "d/M/yy"
             },
             "timeFormats": {
                 "full": "HH:mm:ss zzzz",
@@ -78,75 +78,75 @@
             "buddhist": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "X",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "X",
+                        "X",
+                        "A",
+                        "S",
+                        "O",
+                        "P",
+                        "A"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "xin",
+                        "feb",
+                        "mar",
+                        "abr",
+                        "may",
+                        "xun",
+                        "xnt",
+                        "ago",
+                        "set",
+                        "och",
+                        "pay",
+                        "avi"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "de xineru",
+                        "de febreru",
+                        "de marzu",
+                        "d’abril",
+                        "de mayu",
+                        "de xunu",
+                        "de xunetu",
+                        "d’agostu",
+                        "de setiembre",
+                        "d’ochobre",
+                        "de payares",
+                        "d’avientu"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "X",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dom",
+                        "llu",
+                        "mar",
+                        "mie",
+                        "xue",
+                        "vie",
+                        "sab"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "domingu",
+                        "llunes",
+                        "martes",
+                        "miércoles",
+                        "xueves",
+                        "vienres",
+                        "sábadu"
                     ]
                 },
                 "eras": {
@@ -212,31 +212,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "X",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dom",
+                        "llu",
+                        "mar",
+                        "mie",
+                        "xue",
+                        "vie",
+                        "sab"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "domingu",
+                        "llunes",
+                        "martes",
+                        "miércoles",
+                        "xueves",
+                        "vienres",
+                        "sábadu"
                     ]
                 },
                 "dayPeriods": {
@@ -294,31 +294,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "X",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dom",
+                        "llu",
+                        "mar",
+                        "mie",
+                        "xue",
+                        "vie",
+                        "sab"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "domingu",
+                        "llunes",
+                        "martes",
+                        "miércoles",
+                        "xueves",
+                        "vienres",
+                        "sábadu"
                     ]
                 },
                 "eras": {
@@ -387,31 +387,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "X",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dom",
+                        "llu",
+                        "mar",
+                        "mie",
+                        "xue",
+                        "vie",
+                        "sab"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "domingu",
+                        "llunes",
+                        "martes",
+                        "miércoles",
+                        "xueves",
+                        "vienres",
+                        "sábadu"
                     ]
                 },
                 "dayPeriods": {
@@ -469,31 +469,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "X",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dom",
+                        "llu",
+                        "mar",
+                        "mie",
+                        "xue",
+                        "vie",
+                        "sab"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "domingu",
+                        "llunes",
+                        "martes",
+                        "miércoles",
+                        "xueves",
+                        "vienres",
+                        "sábadu"
                     ]
                 },
                 "eras": {
@@ -565,31 +565,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "X",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dom",
+                        "llu",
+                        "mar",
+                        "mie",
+                        "xue",
+                        "vie",
+                        "sab"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "domingu",
+                        "llunes",
+                        "martes",
+                        "miércoles",
+                        "xueves",
+                        "vienres",
+                        "sábadu"
                     ]
                 },
                 "eras": {
@@ -655,31 +655,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "X",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dom",
+                        "llu",
+                        "mar",
+                        "mie",
+                        "xue",
+                        "vie",
+                        "sab"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "domingu",
+                        "llunes",
+                        "martes",
+                        "miércoles",
+                        "xueves",
+                        "vienres",
+                        "sábadu"
                     ]
                 },
                 "eras": {
@@ -704,95 +704,95 @@
             "gregory": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "X",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "X",
+                        "X",
+                        "A",
+                        "S",
+                        "O",
+                        "P",
+                        "A"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "xin",
+                        "feb",
+                        "mar",
+                        "abr",
+                        "may",
+                        "xun",
+                        "xnt",
+                        "ago",
+                        "set",
+                        "och",
+                        "pay",
+                        "avi"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "de xineru",
+                        "de febreru",
+                        "de marzu",
+                        "d’abril",
+                        "de mayu",
+                        "de xunu",
+                        "de xunetu",
+                        "d’agostu",
+                        "de setiembre",
+                        "d’ochobre",
+                        "de payares",
+                        "d’avientu"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "X",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dom",
+                        "llu",
+                        "mar",
+                        "mie",
+                        "xue",
+                        "vie",
+                        "sab"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "domingu",
+                        "llunes",
+                        "martes",
+                        "miércoles",
+                        "xueves",
+                        "vienres",
+                        "sábadu"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "BCE",
-                        "CE",
-                        "BCE",
-                        "CE"
+                        "a.C.",
+                        "d.C.",
+                        "edC",
+                        "ddC"
                     ],
                     "short": [
-                        "BCE",
-                        "CE",
-                        "BCE",
-                        "CE"
+                        "a.C.",
+                        "d.C.",
+                        "edC",
+                        "ddC"
                     ],
                     "long": [
-                        "BCE",
-                        "CE",
-                        "BCE",
-                        "CE"
+                        "a.C.",
+                        "d.C.",
+                        "edC",
+                        "ddC"
                     ]
                 },
                 "dayPeriods": {
@@ -853,31 +853,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "X",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dom",
+                        "llu",
+                        "mar",
+                        "mie",
+                        "xue",
+                        "vie",
+                        "sab"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "domingu",
+                        "llunes",
+                        "martes",
+                        "miércoles",
+                        "xueves",
+                        "vienres",
+                        "sábadu"
                     ]
                 },
                 "eras": {
@@ -943,31 +943,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "X",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dom",
+                        "llu",
+                        "mar",
+                        "mie",
+                        "xue",
+                        "vie",
+                        "sab"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "domingu",
+                        "llunes",
+                        "martes",
+                        "miércoles",
+                        "xueves",
+                        "vienres",
+                        "sábadu"
                     ]
                 },
                 "eras": {
@@ -1033,31 +1033,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "X",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dom",
+                        "llu",
+                        "mar",
+                        "mie",
+                        "xue",
+                        "vie",
+                        "sab"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "domingu",
+                        "llunes",
+                        "martes",
+                        "miércoles",
+                        "xueves",
+                        "vienres",
+                        "sábadu"
                     ]
                 },
                 "eras": {
@@ -1123,31 +1123,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "X",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dom",
+                        "llu",
+                        "mar",
+                        "mie",
+                        "xue",
+                        "vie",
+                        "sab"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "domingu",
+                        "llunes",
+                        "martes",
+                        "miércoles",
+                        "xueves",
+                        "vienres",
+                        "sábadu"
                     ]
                 },
                 "eras": {
@@ -1169,75 +1169,75 @@
             "japanese": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "X",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "X",
+                        "X",
+                        "A",
+                        "S",
+                        "O",
+                        "P",
+                        "A"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "xin",
+                        "feb",
+                        "mar",
+                        "abr",
+                        "may",
+                        "xun",
+                        "xnt",
+                        "ago",
+                        "set",
+                        "och",
+                        "pay",
+                        "avi"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "de xineru",
+                        "de febreru",
+                        "de marzu",
+                        "d’abril",
+                        "de mayu",
+                        "de xunu",
+                        "de xunetu",
+                        "d’agostu",
+                        "de setiembre",
+                        "d’ochobre",
+                        "de payares",
+                        "d’avientu"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "X",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dom",
+                        "llu",
+                        "mar",
+                        "mie",
+                        "xue",
+                        "vie",
+                        "sab"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "domingu",
+                        "llunes",
+                        "martes",
+                        "miércoles",
+                        "xueves",
+                        "vienres",
+                        "sábadu"
                     ]
                 },
                 "eras": {
@@ -2008,31 +2008,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "X",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dom",
+                        "llu",
+                        "mar",
+                        "mie",
+                        "xue",
+                        "vie",
+                        "sab"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "domingu",
+                        "llunes",
+                        "martes",
+                        "miércoles",
+                        "xueves",
+                        "vienres",
+                        "sábadu"
                     ]
                 },
                 "eras": {
@@ -2054,75 +2054,75 @@
             "roc": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "X",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "X",
+                        "X",
+                        "A",
+                        "S",
+                        "O",
+                        "P",
+                        "A"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "xin",
+                        "feb",
+                        "mar",
+                        "abr",
+                        "may",
+                        "xun",
+                        "xnt",
+                        "ago",
+                        "set",
+                        "och",
+                        "pay",
+                        "avi"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "de xineru",
+                        "de febreru",
+                        "de marzu",
+                        "d’abril",
+                        "de mayu",
+                        "de xunu",
+                        "de xunetu",
+                        "d’agostu",
+                        "de setiembre",
+                        "d’ochobre",
+                        "de payares",
+                        "d’avientu"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
+                        "D",
+                        "L",
                         "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
+                        "M",
+                        "X",
+                        "V",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "dom",
+                        "llu",
+                        "mar",
+                        "mie",
+                        "xue",
+                        "vie",
+                        "sab"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "domingu",
+                        "llunes",
+                        "martes",
+                        "miércoles",
+                        "xueves",
+                        "vienres",
+                        "sábadu"
                     ]
                 },
                 "eras": {
@@ -2156,8 +2156,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{number} {currency}",
+                "negativePattern": "-{number} {currency}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -2166,8 +2166,8 @@
         },
         "symbols": {
             "latn": {
-                "decimal": ".",
-                "group": ",",
+                "decimal": ",",
+                "group": ".",
                 "nan": "NaN",
                 "percent": "%",
                 "infinity": "∞"
@@ -2183,12 +2183,13 @@
             "HKD": "HK$",
             "ILS": "₪",
             "INR": "₹",
-            "JPY": "JP¥",
+            "JPY": "¥",
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
+            "THB": "฿",
             "TWD": "NT$",
-            "USD": "US$",
+            "USD": "$",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",

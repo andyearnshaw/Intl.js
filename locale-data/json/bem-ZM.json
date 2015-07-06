@@ -19,7 +19,7 @@
             "roc"
         ],
         "hourNo0": true,
-        "hour12": false,
+        "hour12": true,
         "formats": {
             "medium": "{1} {0}",
             "availableFormats": {
@@ -39,11 +39,13 @@
                 "Hmsv": "HH:mm:ss v",
                 "Hmv": "HH:mm v",
                 "M": "L",
-                "MEd": "MM-dd, E",
+                "MEd": "E, M/d",
                 "MMM": "LLL",
-                "MMMEd": "MMM d, E",
+                "MMMEd": "E, MMM d",
+                "MMMMEd": "E, MMMM d",
+                "MMMMd": "MMMM d",
                 "MMMd": "MMM d",
-                "Md": "MM-dd",
+                "Md": "M/d",
                 "d": "d",
                 "h": "h a",
                 "hm": "h:mm a",
@@ -52,72 +54,73 @@
                 "hmv": "h:mm a v",
                 "ms": "mm:ss",
                 "y": "y",
-                "yM": "y-MM",
-                "yMEd": "y-MM-dd, E",
-                "yMMM": "y MMM",
-                "yMMMEd": "y MMM d, E",
-                "yMMMd": "y MMM d",
-                "yMd": "y-MM-dd",
-                "yQQQ": "y QQQ",
-                "yQQQQ": "y QQQQ"
+                "yM": "M/y",
+                "yMEd": "E, M/d/y",
+                "yMMM": "MMM y",
+                "yMMMEd": "E, MMM d, y",
+                "yMMMM": "MMMM y",
+                "yMMMd": "d MMM y",
+                "yMd": "d/M/y",
+                "yQQQ": "QQQ y",
+                "yQQQQ": "QQQQ y"
             },
             "dateFormats": {
-                "full": "y MMMM d, EEEE",
-                "long": "y MMMM d",
-                "medium": "y MMM d",
-                "short": "y-MM-dd"
+                "full": "EEEE, d MMMM y",
+                "long": "d MMMM y",
+                "medium": "d MMM y",
+                "short": "dd/MM/y"
             },
             "timeFormats": {
-                "full": "HH:mm:ss zzzz",
-                "long": "HH:mm:ss z",
-                "medium": "HH:mm:ss",
-                "short": "HH:mm"
+                "full": "h:mm:ss a zzzz",
+                "long": "h:mm:ss a z",
+                "medium": "h:mm:ss a",
+                "short": "h:mm a"
             }
         },
         "calendars": {
             "buddhist": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "E",
+                        "M",
+                        "J",
+                        "J",
+                        "O",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jan",
+                        "Feb",
+                        "Mac",
+                        "Epr",
+                        "Mei",
+                        "Jun",
+                        "Jul",
+                        "Oga",
+                        "Sep",
+                        "Okt",
+                        "Nov",
+                        "Dis"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Januari",
+                        "Februari",
+                        "Machi",
+                        "Epreo",
+                        "Mei",
+                        "Juni",
+                        "Julai",
+                        "Ogasti",
+                        "Septemba",
+                        "Oktoba",
+                        "Novemba",
+                        "Disemba"
                     ]
                 },
                 "days": {
@@ -131,22 +134,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ]
                 },
                 "eras": {
@@ -161,8 +164,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "uluchelo",
+                    "pm": "akasuba"
                 }
             },
             "chinese": {
@@ -221,27 +224,27 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "uluchelo",
+                    "pm": "akasuba"
                 }
             },
             "coptic": {
@@ -303,22 +306,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ]
                 },
                 "eras": {
@@ -336,8 +339,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "uluchelo",
+                    "pm": "akasuba"
                 }
             },
             "dangi": {
@@ -396,27 +399,27 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "uluchelo",
+                    "pm": "akasuba"
                 }
             },
             "ethiopic": {
@@ -478,22 +481,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ]
                 },
                 "eras": {
@@ -511,8 +514,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "uluchelo",
+                    "pm": "akasuba"
                 }
             },
             "ethioaa": {
@@ -574,22 +577,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ]
                 },
                 "eras": {
@@ -604,8 +607,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "uluchelo",
+                    "pm": "akasuba"
                 }
             },
             "generic": {
@@ -664,22 +667,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ]
                 },
                 "eras": {
@@ -697,53 +700,53 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "uluchelo",
+                    "pm": "akasuba"
                 }
             },
             "gregory": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "E",
+                        "M",
+                        "J",
+                        "J",
+                        "O",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jan",
+                        "Feb",
+                        "Mac",
+                        "Epr",
+                        "Mei",
+                        "Jun",
+                        "Jul",
+                        "Oga",
+                        "Sep",
+                        "Okt",
+                        "Nov",
+                        "Dis"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Januari",
+                        "Februari",
+                        "Machi",
+                        "Epreo",
+                        "Mei",
+                        "Juni",
+                        "Julai",
+                        "Ogasti",
+                        "Septemba",
+                        "Oktoba",
+                        "Novemba",
+                        "Disemba"
                     ]
                 },
                 "days": {
@@ -757,47 +760,47 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "BCE",
-                        "CE",
+                        "BC",
+                        "AD",
                         "BCE",
                         "CE"
                     ],
                     "short": [
-                        "BCE",
-                        "CE",
+                        "BC",
+                        "AD",
                         "BCE",
                         "CE"
                     ],
                     "long": [
-                        "BCE",
-                        "CE",
+                        "Before Yesu",
+                        "After Yesu",
                         "BCE",
                         "CE"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "uluchelo",
+                    "pm": "akasuba"
                 }
             },
             "hebrew": {
@@ -862,22 +865,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ]
                 },
                 "eras": {
@@ -892,8 +895,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "uluchelo",
+                    "pm": "akasuba"
                 }
             },
             "indian": {
@@ -952,22 +955,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ]
                 },
                 "eras": {
@@ -982,8 +985,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "uluchelo",
+                    "pm": "akasuba"
                 }
             },
             "islamic": {
@@ -1042,22 +1045,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ]
                 },
                 "eras": {
@@ -1072,8 +1075,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "uluchelo",
+                    "pm": "akasuba"
                 }
             },
             "islamicc": {
@@ -1132,22 +1135,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ]
                 },
                 "eras": {
@@ -1162,53 +1165,53 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "uluchelo",
+                    "pm": "akasuba"
                 }
             },
             "japanese": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "E",
+                        "M",
+                        "J",
+                        "J",
+                        "O",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jan",
+                        "Feb",
+                        "Mac",
+                        "Epr",
+                        "Mei",
+                        "Jun",
+                        "Jul",
+                        "Oga",
+                        "Sep",
+                        "Okt",
+                        "Nov",
+                        "Dis"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Januari",
+                        "Februari",
+                        "Machi",
+                        "Epreo",
+                        "Mei",
+                        "Juni",
+                        "Julai",
+                        "Ogasti",
+                        "Septemba",
+                        "Oktoba",
+                        "Novemba",
+                        "Disemba"
                     ]
                 },
                 "days": {
@@ -1222,22 +1225,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ]
                 },
                 "eras": {
@@ -1957,8 +1960,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "uluchelo",
+                    "pm": "akasuba"
                 }
             },
             "persian": {
@@ -2017,22 +2020,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ]
                 },
                 "eras": {
@@ -2047,53 +2050,53 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "uluchelo",
+                    "pm": "akasuba"
                 }
             },
             "roc": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "E",
+                        "M",
+                        "J",
+                        "J",
+                        "O",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jan",
+                        "Feb",
+                        "Mac",
+                        "Epr",
+                        "Mei",
+                        "Jun",
+                        "Jul",
+                        "Oga",
+                        "Sep",
+                        "Okt",
+                        "Nov",
+                        "Dis"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Januari",
+                        "Februari",
+                        "Machi",
+                        "Epreo",
+                        "Mei",
+                        "Juni",
+                        "Julai",
+                        "Ogasti",
+                        "Septemba",
+                        "Oktoba",
+                        "Novemba",
+                        "Disemba"
                     ]
                 },
                 "days": {
@@ -2107,22 +2110,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Pa Mulungu",
+                        "Palichimo",
+                        "Palichibuli",
+                        "Palichitatu",
+                        "Palichine",
+                        "Palichisano",
+                        "Pachibelushi"
                     ]
                 },
                 "eras": {
@@ -2140,8 +2143,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "uluchelo",
+                    "pm": "akasuba"
                 }
             }
         }
@@ -2156,8 +2159,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{currency}{number}",
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -2193,7 +2196,8 @@
             "XAF": "FCFA",
             "XCD": "EC$",
             "XOF": "CFA",
-            "XPF": "CFPF"
+            "XPF": "CFPF",
+            "ZMW": "K"
         }
     }
 }

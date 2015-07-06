@@ -53,19 +53,19 @@
                 "ms": "mm:ss",
                 "y": "y",
                 "yM": "y-MM",
-                "yMEd": "y-MM-dd, E",
-                "yMMM": "y MMM",
-                "yMMMEd": "y MMM d, E",
-                "yMMMd": "y MMM d",
-                "yMd": "y-MM-dd",
+                "yMEd": "E , 'lyɛ'̌ʼ d 'na' M, y",
+                "yMMM": "MMM y",
+                "yMMMEd": "E , 'lyɛ'̌ʼ d 'na' MMM, y",
+                "yMMMd": "'lyɛ'̌ʼ d 'na' MMMM, y",
+                "yMd": "d/M/y",
                 "yQQQ": "y QQQ",
                 "yQQQQ": "y QQQQ"
             },
             "dateFormats": {
-                "full": "y MMMM d, EEEE",
-                "long": "y MMMM d",
-                "medium": "y MMM d",
-                "short": "y-MM-dd"
+                "full": "EEEE , 'lyɛ'̌ʼ d 'na' MMMM, y",
+                "long": "'lyɛ'̌ʼ d 'na' MMMM, y",
+                "medium": "d MMM, y",
+                "short": "dd/MM/yy"
             },
             "timeFormats": {
                 "full": "HH:mm:ss zzzz",
@@ -92,32 +92,32 @@
                         "12"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "saŋ tsetsɛ̀ɛ lùm",
+                        "saŋ kàg ngwóŋ",
+                        "saŋ lepyè shúm",
+                        "saŋ cÿó",
+                        "saŋ tsɛ̀ɛ cÿó",
+                        "saŋ njÿoláʼ",
+                        "saŋ tyɛ̀b tyɛ̀b mbʉ̀",
+                        "saŋ mbʉ̀ŋ",
+                        "saŋ ngwɔ̀ʼ mbÿɛ",
+                        "saŋ tàŋa tsetsáʼ",
+                        "saŋ mejwoŋó",
+                        "saŋ lùm"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "saŋ tsetsɛ̀ɛ lùm",
+                        "saŋ kàg ngwóŋ",
+                        "saŋ lepyè shúm",
+                        "saŋ cÿó",
+                        "saŋ tsɛ̀ɛ cÿó",
+                        "saŋ njÿoláʼ",
+                        "saŋ tyɛ̀b tyɛ̀b mbʉ̀",
+                        "saŋ mbʉ̀ŋ",
+                        "saŋ ngwɔ̀ʼ mbÿɛ",
+                        "saŋ tàŋa tsetsáʼ",
+                        "saŋ mejwoŋó",
+                        "saŋ lùm"
                     ]
                 },
                 "days": {
@@ -131,22 +131,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ]
                 },
                 "eras": {
@@ -161,8 +161,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "mbaʼámbaʼ",
+                    "pm": "ncwònzém"
                 }
             },
             "chinese": {
@@ -221,27 +221,27 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "mbaʼámbaʼ",
+                    "pm": "ncwònzém"
                 }
             },
             "coptic": {
@@ -303,22 +303,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ]
                 },
                 "eras": {
@@ -336,8 +336,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "mbaʼámbaʼ",
+                    "pm": "ncwònzém"
                 }
             },
             "dangi": {
@@ -396,27 +396,27 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "mbaʼámbaʼ",
+                    "pm": "ncwònzém"
                 }
             },
             "ethiopic": {
@@ -478,22 +478,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ]
                 },
                 "eras": {
@@ -511,8 +511,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "mbaʼámbaʼ",
+                    "pm": "ncwònzém"
                 }
             },
             "ethioaa": {
@@ -574,22 +574,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ]
                 },
                 "eras": {
@@ -604,8 +604,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "mbaʼámbaʼ",
+                    "pm": "ncwònzém"
                 }
             },
             "generic": {
@@ -664,22 +664,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ]
                 },
                 "eras": {
@@ -697,8 +697,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "mbaʼámbaʼ",
+                    "pm": "ncwònzém"
                 }
             },
             "gregory": {
@@ -718,32 +718,32 @@
                         "12"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "saŋ tsetsɛ̀ɛ lùm",
+                        "saŋ kàg ngwóŋ",
+                        "saŋ lepyè shúm",
+                        "saŋ cÿó",
+                        "saŋ tsɛ̀ɛ cÿó",
+                        "saŋ njÿoláʼ",
+                        "saŋ tyɛ̀b tyɛ̀b mbʉ̀",
+                        "saŋ mbʉ̀ŋ",
+                        "saŋ ngwɔ̀ʼ mbÿɛ",
+                        "saŋ tàŋa tsetsáʼ",
+                        "saŋ mejwoŋó",
+                        "saŋ lùm"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "saŋ tsetsɛ̀ɛ lùm",
+                        "saŋ kàg ngwóŋ",
+                        "saŋ lepyè shúm",
+                        "saŋ cÿó",
+                        "saŋ tsɛ̀ɛ cÿó",
+                        "saŋ njÿoláʼ",
+                        "saŋ tyɛ̀b tyɛ̀b mbʉ̀",
+                        "saŋ mbʉ̀ŋ",
+                        "saŋ ngwɔ̀ʼ mbÿɛ",
+                        "saŋ tàŋa tsetsáʼ",
+                        "saŋ mejwoŋó",
+                        "saŋ lùm"
                     ]
                 },
                 "days": {
@@ -757,47 +757,47 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "BCE",
-                        "CE",
+                        "m.z.Y.",
+                        "m.g.n.Y.",
                         "BCE",
                         "CE"
                     ],
                     "short": [
-                        "BCE",
-                        "CE",
+                        "m.z.Y.",
+                        "m.g.n.Y.",
                         "BCE",
                         "CE"
                     ],
                     "long": [
-                        "BCE",
-                        "CE",
+                        "mé zyé Yěsô",
+                        "mé gÿo ńzyé Yěsô",
                         "BCE",
                         "CE"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "mbaʼámbaʼ",
+                    "pm": "ncwònzém"
                 }
             },
             "hebrew": {
@@ -862,22 +862,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ]
                 },
                 "eras": {
@@ -892,8 +892,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "mbaʼámbaʼ",
+                    "pm": "ncwònzém"
                 }
             },
             "indian": {
@@ -952,22 +952,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ]
                 },
                 "eras": {
@@ -982,8 +982,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "mbaʼámbaʼ",
+                    "pm": "ncwònzém"
                 }
             },
             "islamic": {
@@ -1042,22 +1042,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ]
                 },
                 "eras": {
@@ -1072,8 +1072,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "mbaʼámbaʼ",
+                    "pm": "ncwònzém"
                 }
             },
             "islamicc": {
@@ -1132,22 +1132,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ]
                 },
                 "eras": {
@@ -1162,8 +1162,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "mbaʼámbaʼ",
+                    "pm": "ncwònzém"
                 }
             },
             "japanese": {
@@ -1183,32 +1183,32 @@
                         "12"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "saŋ tsetsɛ̀ɛ lùm",
+                        "saŋ kàg ngwóŋ",
+                        "saŋ lepyè shúm",
+                        "saŋ cÿó",
+                        "saŋ tsɛ̀ɛ cÿó",
+                        "saŋ njÿoláʼ",
+                        "saŋ tyɛ̀b tyɛ̀b mbʉ̀",
+                        "saŋ mbʉ̀ŋ",
+                        "saŋ ngwɔ̀ʼ mbÿɛ",
+                        "saŋ tàŋa tsetsáʼ",
+                        "saŋ mejwoŋó",
+                        "saŋ lùm"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "saŋ tsetsɛ̀ɛ lùm",
+                        "saŋ kàg ngwóŋ",
+                        "saŋ lepyè shúm",
+                        "saŋ cÿó",
+                        "saŋ tsɛ̀ɛ cÿó",
+                        "saŋ njÿoláʼ",
+                        "saŋ tyɛ̀b tyɛ̀b mbʉ̀",
+                        "saŋ mbʉ̀ŋ",
+                        "saŋ ngwɔ̀ʼ mbÿɛ",
+                        "saŋ tàŋa tsetsáʼ",
+                        "saŋ mejwoŋó",
+                        "saŋ lùm"
                     ]
                 },
                 "days": {
@@ -1222,22 +1222,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ]
                 },
                 "eras": {
@@ -1957,8 +1957,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "mbaʼámbaʼ",
+                    "pm": "ncwònzém"
                 }
             },
             "persian": {
@@ -2017,22 +2017,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ]
                 },
                 "eras": {
@@ -2047,8 +2047,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "mbaʼámbaʼ",
+                    "pm": "ncwònzém"
                 }
             },
             "roc": {
@@ -2068,32 +2068,32 @@
                         "12"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "saŋ tsetsɛ̀ɛ lùm",
+                        "saŋ kàg ngwóŋ",
+                        "saŋ lepyè shúm",
+                        "saŋ cÿó",
+                        "saŋ tsɛ̀ɛ cÿó",
+                        "saŋ njÿoláʼ",
+                        "saŋ tyɛ̀b tyɛ̀b mbʉ̀",
+                        "saŋ mbʉ̀ŋ",
+                        "saŋ ngwɔ̀ʼ mbÿɛ",
+                        "saŋ tàŋa tsetsáʼ",
+                        "saŋ mejwoŋó",
+                        "saŋ lùm"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "saŋ tsetsɛ̀ɛ lùm",
+                        "saŋ kàg ngwóŋ",
+                        "saŋ lepyè shúm",
+                        "saŋ cÿó",
+                        "saŋ tsɛ̀ɛ cÿó",
+                        "saŋ njÿoláʼ",
+                        "saŋ tyɛ̀b tyɛ̀b mbʉ̀",
+                        "saŋ mbʉ̀ŋ",
+                        "saŋ ngwɔ̀ʼ mbÿɛ",
+                        "saŋ tàŋa tsetsáʼ",
+                        "saŋ mejwoŋó",
+                        "saŋ lùm"
                     ]
                 },
                 "days": {
@@ -2107,22 +2107,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "lyɛʼɛ́ sẅíŋtè",
+                        "mvfò lyɛ̌ʼ",
+                        "mbɔ́ɔntè mvfò lyɛ̌ʼ",
+                        "tsètsɛ̀ɛ lyɛ̌ʼ",
+                        "mbɔ́ɔntè tsetsɛ̀ɛ lyɛ̌ʼ",
+                        "mvfò màga lyɛ̌ʼ",
+                        "màga lyɛ̌ʼ"
                     ]
                 },
                 "eras": {
@@ -2140,8 +2140,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "mbaʼámbaʼ",
+                    "pm": "ncwònzém"
                 }
             }
         }
@@ -2166,8 +2166,8 @@
         },
         "symbols": {
             "latn": {
-                "decimal": ".",
-                "group": ",",
+                "decimal": ",",
+                "group": ".",
                 "nan": "NaN",
                 "percent": "%",
                 "infinity": "∞"

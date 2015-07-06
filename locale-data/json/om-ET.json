@@ -19,7 +19,7 @@
             "roc"
         ],
         "hourNo0": true,
-        "hour12": false,
+        "hour12": true,
         "formats": {
             "medium": "{1} {0}",
             "availableFormats": {
@@ -42,7 +42,9 @@
                 "MEd": "MM-dd, E",
                 "MMM": "LLL",
                 "MMMEd": "MMM d, E",
+                "MMMMdd": "dd MMMM",
                 "MMMd": "MMM d",
+                "MMdd": "dd/MM",
                 "Md": "MM-dd",
                 "d": "d",
                 "h": "h a",
@@ -54,70 +56,72 @@
                 "y": "y",
                 "yM": "y-MM",
                 "yMEd": "y-MM-dd, E",
+                "yMM": "MM/y",
                 "yMMM": "y MMM",
                 "yMMMEd": "y MMM d, E",
+                "yMMMM": "MMMM y",
                 "yMMMd": "y MMM d",
                 "yMd": "y-MM-dd",
-                "yQQQ": "y QQQ",
+                "yQQQ": "QQQ y",
                 "yQQQQ": "y QQQQ"
             },
             "dateFormats": {
-                "full": "y MMMM d, EEEE",
-                "long": "y MMMM d",
-                "medium": "y MMM d",
-                "short": "y-MM-dd"
+                "full": "EEEE, MMMM d, y",
+                "long": "dd MMMM y",
+                "medium": "dd-MMM-y",
+                "short": "dd/MM/yy"
             },
             "timeFormats": {
-                "full": "HH:mm:ss zzzz",
-                "long": "HH:mm:ss z",
-                "medium": "HH:mm:ss",
-                "short": "HH:mm"
+                "full": "h:mm:ss a zzzz",
+                "long": "h:mm:ss a z",
+                "medium": "h:mm:ss a",
+                "short": "h:mm a"
             }
         },
         "calendars": {
             "buddhist": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Ama",
+                        "Gur",
+                        "Bit",
+                        "Elb",
+                        "Cam",
+                        "Wax",
+                        "Ado",
+                        "Hag",
+                        "Ful",
+                        "Onk",
+                        "Sad",
+                        "Mud"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Amajjii",
+                        "Guraandhala",
+                        "Bitooteessa",
+                        "Elba",
+                        "Caamsa",
+                        "Waxabajjii",
+                        "Adooleessa",
+                        "Hagayya",
+                        "Fuulbana",
+                        "Onkololeessa",
+                        "Sadaasa",
+                        "Muddee"
                     ]
                 },
                 "days": {
@@ -131,22 +135,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dil",
+                        "Wix",
+                        "Qib",
+                        "Rob",
+                        "Kam",
+                        "Jim",
+                        "San"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dilbata",
+                        "Wiixata",
+                        "Qibxata",
+                        "Roobii",
+                        "Kamiisa",
+                        "Jimaata",
+                        "Sanbata"
                     ]
                 },
                 "eras": {
@@ -161,8 +165,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "WD",
+                    "pm": "WB"
                 }
             },
             "chinese": {
@@ -221,27 +225,27 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dil",
+                        "Wix",
+                        "Qib",
+                        "Rob",
+                        "Kam",
+                        "Jim",
+                        "San"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dilbata",
+                        "Wiixata",
+                        "Qibxata",
+                        "Roobii",
+                        "Kamiisa",
+                        "Jimaata",
+                        "Sanbata"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "WD",
+                    "pm": "WB"
                 }
             },
             "coptic": {
@@ -303,22 +307,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dil",
+                        "Wix",
+                        "Qib",
+                        "Rob",
+                        "Kam",
+                        "Jim",
+                        "San"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dilbata",
+                        "Wiixata",
+                        "Qibxata",
+                        "Roobii",
+                        "Kamiisa",
+                        "Jimaata",
+                        "Sanbata"
                     ]
                 },
                 "eras": {
@@ -336,8 +340,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "WD",
+                    "pm": "WB"
                 }
             },
             "dangi": {
@@ -396,27 +400,27 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dil",
+                        "Wix",
+                        "Qib",
+                        "Rob",
+                        "Kam",
+                        "Jim",
+                        "San"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dilbata",
+                        "Wiixata",
+                        "Qibxata",
+                        "Roobii",
+                        "Kamiisa",
+                        "Jimaata",
+                        "Sanbata"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "WD",
+                    "pm": "WB"
                 }
             },
             "ethiopic": {
@@ -478,22 +482,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dil",
+                        "Wix",
+                        "Qib",
+                        "Rob",
+                        "Kam",
+                        "Jim",
+                        "San"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dilbata",
+                        "Wiixata",
+                        "Qibxata",
+                        "Roobii",
+                        "Kamiisa",
+                        "Jimaata",
+                        "Sanbata"
                     ]
                 },
                 "eras": {
@@ -511,8 +515,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "WD",
+                    "pm": "WB"
                 }
             },
             "ethioaa": {
@@ -574,22 +578,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dil",
+                        "Wix",
+                        "Qib",
+                        "Rob",
+                        "Kam",
+                        "Jim",
+                        "San"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dilbata",
+                        "Wiixata",
+                        "Qibxata",
+                        "Roobii",
+                        "Kamiisa",
+                        "Jimaata",
+                        "Sanbata"
                     ]
                 },
                 "eras": {
@@ -604,8 +608,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "WD",
+                    "pm": "WB"
                 }
             },
             "generic": {
@@ -664,22 +668,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dil",
+                        "Wix",
+                        "Qib",
+                        "Rob",
+                        "Kam",
+                        "Jim",
+                        "San"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dilbata",
+                        "Wiixata",
+                        "Qibxata",
+                        "Roobii",
+                        "Kamiisa",
+                        "Jimaata",
+                        "Sanbata"
                     ]
                 },
                 "eras": {
@@ -697,53 +701,53 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "WD",
+                    "pm": "WB"
                 }
             },
             "gregory": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Ama",
+                        "Gur",
+                        "Bit",
+                        "Elb",
+                        "Cam",
+                        "Wax",
+                        "Ado",
+                        "Hag",
+                        "Ful",
+                        "Onk",
+                        "Sad",
+                        "Mud"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Amajjii",
+                        "Guraandhala",
+                        "Bitooteessa",
+                        "Elba",
+                        "Caamsa",
+                        "Waxabajjii",
+                        "Adooleessa",
+                        "Hagayya",
+                        "Fuulbana",
+                        "Onkololeessa",
+                        "Sadaasa",
+                        "Muddee"
                     ]
                 },
                 "days": {
@@ -757,47 +761,47 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dil",
+                        "Wix",
+                        "Qib",
+                        "Rob",
+                        "Kam",
+                        "Jim",
+                        "San"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dilbata",
+                        "Wiixata",
+                        "Qibxata",
+                        "Roobii",
+                        "Kamiisa",
+                        "Jimaata",
+                        "Sanbata"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "BCE",
-                        "CE",
+                        "KD",
+                        "KB",
                         "BCE",
                         "CE"
                     ],
                     "short": [
-                        "BCE",
-                        "CE",
+                        "KD",
+                        "KB",
                         "BCE",
                         "CE"
                     ],
                     "long": [
-                        "BCE",
-                        "CE",
+                        "KD",
+                        "KB",
                         "BCE",
                         "CE"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "WD",
+                    "pm": "WB"
                 }
             },
             "hebrew": {
@@ -862,22 +866,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dil",
+                        "Wix",
+                        "Qib",
+                        "Rob",
+                        "Kam",
+                        "Jim",
+                        "San"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dilbata",
+                        "Wiixata",
+                        "Qibxata",
+                        "Roobii",
+                        "Kamiisa",
+                        "Jimaata",
+                        "Sanbata"
                     ]
                 },
                 "eras": {
@@ -892,8 +896,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "WD",
+                    "pm": "WB"
                 }
             },
             "indian": {
@@ -952,22 +956,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dil",
+                        "Wix",
+                        "Qib",
+                        "Rob",
+                        "Kam",
+                        "Jim",
+                        "San"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dilbata",
+                        "Wiixata",
+                        "Qibxata",
+                        "Roobii",
+                        "Kamiisa",
+                        "Jimaata",
+                        "Sanbata"
                     ]
                 },
                 "eras": {
@@ -982,8 +986,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "WD",
+                    "pm": "WB"
                 }
             },
             "islamic": {
@@ -1042,22 +1046,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dil",
+                        "Wix",
+                        "Qib",
+                        "Rob",
+                        "Kam",
+                        "Jim",
+                        "San"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dilbata",
+                        "Wiixata",
+                        "Qibxata",
+                        "Roobii",
+                        "Kamiisa",
+                        "Jimaata",
+                        "Sanbata"
                     ]
                 },
                 "eras": {
@@ -1072,8 +1076,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "WD",
+                    "pm": "WB"
                 }
             },
             "islamicc": {
@@ -1132,22 +1136,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dil",
+                        "Wix",
+                        "Qib",
+                        "Rob",
+                        "Kam",
+                        "Jim",
+                        "San"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dilbata",
+                        "Wiixata",
+                        "Qibxata",
+                        "Roobii",
+                        "Kamiisa",
+                        "Jimaata",
+                        "Sanbata"
                     ]
                 },
                 "eras": {
@@ -1162,53 +1166,53 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "WD",
+                    "pm": "WB"
                 }
             },
             "japanese": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Ama",
+                        "Gur",
+                        "Bit",
+                        "Elb",
+                        "Cam",
+                        "Wax",
+                        "Ado",
+                        "Hag",
+                        "Ful",
+                        "Onk",
+                        "Sad",
+                        "Mud"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Amajjii",
+                        "Guraandhala",
+                        "Bitooteessa",
+                        "Elba",
+                        "Caamsa",
+                        "Waxabajjii",
+                        "Adooleessa",
+                        "Hagayya",
+                        "Fuulbana",
+                        "Onkololeessa",
+                        "Sadaasa",
+                        "Muddee"
                     ]
                 },
                 "days": {
@@ -1222,22 +1226,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dil",
+                        "Wix",
+                        "Qib",
+                        "Rob",
+                        "Kam",
+                        "Jim",
+                        "San"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dilbata",
+                        "Wiixata",
+                        "Qibxata",
+                        "Roobii",
+                        "Kamiisa",
+                        "Jimaata",
+                        "Sanbata"
                     ]
                 },
                 "eras": {
@@ -1957,8 +1961,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "WD",
+                    "pm": "WB"
                 }
             },
             "persian": {
@@ -2017,22 +2021,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dil",
+                        "Wix",
+                        "Qib",
+                        "Rob",
+                        "Kam",
+                        "Jim",
+                        "San"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dilbata",
+                        "Wiixata",
+                        "Qibxata",
+                        "Roobii",
+                        "Kamiisa",
+                        "Jimaata",
+                        "Sanbata"
                     ]
                 },
                 "eras": {
@@ -2047,53 +2051,53 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "WD",
+                    "pm": "WB"
                 }
             },
             "roc": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Ama",
+                        "Gur",
+                        "Bit",
+                        "Elb",
+                        "Cam",
+                        "Wax",
+                        "Ado",
+                        "Hag",
+                        "Ful",
+                        "Onk",
+                        "Sad",
+                        "Mud"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Amajjii",
+                        "Guraandhala",
+                        "Bitooteessa",
+                        "Elba",
+                        "Caamsa",
+                        "Waxabajjii",
+                        "Adooleessa",
+                        "Hagayya",
+                        "Fuulbana",
+                        "Onkololeessa",
+                        "Sadaasa",
+                        "Muddee"
                     ]
                 },
                 "days": {
@@ -2107,22 +2111,22 @@
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dil",
+                        "Wix",
+                        "Qib",
+                        "Rob",
+                        "Kam",
+                        "Jim",
+                        "San"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Dilbata",
+                        "Wiixata",
+                        "Qibxata",
+                        "Roobii",
+                        "Kamiisa",
+                        "Jimaata",
+                        "Sanbata"
                     ]
                 },
                 "eras": {
@@ -2140,8 +2144,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "WD",
+                    "pm": "WB"
                 }
             }
         }
@@ -2156,8 +2160,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{currency}{number}",
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -2178,6 +2182,7 @@
             "BRL": "R$",
             "CAD": "CA$",
             "CNY": "CN¥",
+            "ETB": "Br",
             "EUR": "€",
             "GBP": "£",
             "HKD": "HK$",

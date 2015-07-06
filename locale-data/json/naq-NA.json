@@ -19,7 +19,7 @@
             "roc"
         ],
         "hourNo0": true,
-        "hour12": false,
+        "hour12": true,
         "formats": {
             "medium": "{1} {0}",
             "availableFormats": {
@@ -39,11 +39,13 @@
                 "Hmsv": "HH:mm:ss v",
                 "Hmv": "HH:mm v",
                 "M": "L",
-                "MEd": "MM-dd, E",
+                "MEd": "E, M/d",
                 "MMM": "LLL",
-                "MMMEd": "MMM d, E",
+                "MMMEd": "E, MMM d",
+                "MMMMEd": "E, MMMM d",
+                "MMMMd": "MMMM d",
                 "MMMd": "MMM d",
-                "Md": "MM-dd",
+                "Md": "M/d",
                 "d": "d",
                 "h": "h a",
                 "hm": "h:mm a",
@@ -52,101 +54,102 @@
                 "hmv": "h:mm a v",
                 "ms": "mm:ss",
                 "y": "y",
-                "yM": "y-MM",
-                "yMEd": "y-MM-dd, E",
-                "yMMM": "y MMM",
-                "yMMMEd": "y MMM d, E",
+                "yM": "M/y",
+                "yMEd": "E, M/d/y",
+                "yMMM": "MMM y",
+                "yMMMEd": "E, MMM d, y",
+                "yMMMM": "MMMM y",
                 "yMMMd": "y MMM d",
                 "yMd": "y-MM-dd",
-                "yQQQ": "y QQQ",
-                "yQQQQ": "y QQQQ"
+                "yQQQ": "QQQ y",
+                "yQQQQ": "QQQQ y"
             },
             "dateFormats": {
-                "full": "y MMMM d, EEEE",
-                "long": "y MMMM d",
-                "medium": "y MMM d",
-                "short": "y-MM-dd"
+                "full": "EEEE, d MMMM y",
+                "long": "d MMMM y",
+                "medium": "d MMM y",
+                "short": "dd/MM/y"
             },
             "timeFormats": {
-                "full": "HH:mm:ss zzzz",
-                "long": "HH:mm:ss z",
-                "medium": "HH:mm:ss",
-                "short": "HH:mm"
+                "full": "h:mm:ss a zzzz",
+                "long": "h:mm:ss a z",
+                "medium": "h:mm:ss a",
+                "short": "h:mm a"
             }
         },
         "calendars": {
             "buddhist": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun",
+                        "Jul",
+                        "Aug",
+                        "Sep",
+                        "Oct",
+                        "Nov",
+                        "Dec"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "ǃKhanni",
+                        "ǃKhanǀgôab",
+                        "ǀKhuuǁkhâb",
+                        "ǃHôaǂkhaib",
+                        "ǃKhaitsâb",
+                        "Gamaǀaeb",
+                        "ǂKhoesaob",
+                        "Aoǁkhuumûǁkhâb",
+                        "Taraǀkhuumûǁkhâb",
+                        "ǂNûǁnâiseb",
+                        "ǀHooǂgaeb",
+                        "Hôasoreǁkhâb"
                     ]
                 },
                 "days": {
                     "narrow": [
                         "S",
                         "M",
-                        "T",
+                        "E",
                         "W",
-                        "T",
+                        "D",
                         "F",
-                        "S"
+                        "A"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
+                        "Son",
+                        "Ma",
+                        "De",
+                        "Wu",
+                        "Do",
+                        "Fr",
                         "Sat"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sontaxtsees",
+                        "Mantaxtsees",
+                        "Denstaxtsees",
+                        "Wunstaxtsees",
+                        "Dondertaxtsees",
+                        "Fraitaxtsees",
+                        "Satertaxtsees"
                     ]
                 },
                 "eras": {
@@ -161,8 +164,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ǁgoagas",
+                    "pm": "ǃuias"
                 }
             },
             "chinese": {
@@ -214,34 +217,34 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
+                        "E",
                         "W",
-                        "T",
+                        "D",
                         "F",
-                        "S"
+                        "A"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
+                        "Son",
+                        "Ma",
+                        "De",
+                        "Wu",
+                        "Do",
+                        "Fr",
                         "Sat"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sontaxtsees",
+                        "Mantaxtsees",
+                        "Denstaxtsees",
+                        "Wunstaxtsees",
+                        "Dondertaxtsees",
+                        "Fraitaxtsees",
+                        "Satertaxtsees"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ǁgoagas",
+                    "pm": "ǃuias"
                 }
             },
             "coptic": {
@@ -296,29 +299,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
+                        "E",
                         "W",
-                        "T",
+                        "D",
                         "F",
-                        "S"
+                        "A"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
+                        "Son",
+                        "Ma",
+                        "De",
+                        "Wu",
+                        "Do",
+                        "Fr",
                         "Sat"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sontaxtsees",
+                        "Mantaxtsees",
+                        "Denstaxtsees",
+                        "Wunstaxtsees",
+                        "Dondertaxtsees",
+                        "Fraitaxtsees",
+                        "Satertaxtsees"
                     ]
                 },
                 "eras": {
@@ -336,8 +339,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ǁgoagas",
+                    "pm": "ǃuias"
                 }
             },
             "dangi": {
@@ -389,34 +392,34 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
+                        "E",
                         "W",
-                        "T",
+                        "D",
                         "F",
-                        "S"
+                        "A"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
+                        "Son",
+                        "Ma",
+                        "De",
+                        "Wu",
+                        "Do",
+                        "Fr",
                         "Sat"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sontaxtsees",
+                        "Mantaxtsees",
+                        "Denstaxtsees",
+                        "Wunstaxtsees",
+                        "Dondertaxtsees",
+                        "Fraitaxtsees",
+                        "Satertaxtsees"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ǁgoagas",
+                    "pm": "ǃuias"
                 }
             },
             "ethiopic": {
@@ -471,29 +474,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
+                        "E",
                         "W",
-                        "T",
+                        "D",
                         "F",
-                        "S"
+                        "A"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
+                        "Son",
+                        "Ma",
+                        "De",
+                        "Wu",
+                        "Do",
+                        "Fr",
                         "Sat"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sontaxtsees",
+                        "Mantaxtsees",
+                        "Denstaxtsees",
+                        "Wunstaxtsees",
+                        "Dondertaxtsees",
+                        "Fraitaxtsees",
+                        "Satertaxtsees"
                     ]
                 },
                 "eras": {
@@ -511,8 +514,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ǁgoagas",
+                    "pm": "ǃuias"
                 }
             },
             "ethioaa": {
@@ -567,29 +570,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
+                        "E",
                         "W",
-                        "T",
+                        "D",
                         "F",
-                        "S"
+                        "A"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
+                        "Son",
+                        "Ma",
+                        "De",
+                        "Wu",
+                        "Do",
+                        "Fr",
                         "Sat"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sontaxtsees",
+                        "Mantaxtsees",
+                        "Denstaxtsees",
+                        "Wunstaxtsees",
+                        "Dondertaxtsees",
+                        "Fraitaxtsees",
+                        "Satertaxtsees"
                     ]
                 },
                 "eras": {
@@ -604,8 +607,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ǁgoagas",
+                    "pm": "ǃuias"
                 }
             },
             "generic": {
@@ -657,29 +660,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
+                        "E",
                         "W",
-                        "T",
+                        "D",
                         "F",
-                        "S"
+                        "A"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
+                        "Son",
+                        "Ma",
+                        "De",
+                        "Wu",
+                        "Do",
+                        "Fr",
                         "Sat"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sontaxtsees",
+                        "Mantaxtsees",
+                        "Denstaxtsees",
+                        "Wunstaxtsees",
+                        "Dondertaxtsees",
+                        "Fraitaxtsees",
+                        "Satertaxtsees"
                     ]
                 },
                 "eras": {
@@ -697,107 +700,107 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ǁgoagas",
+                    "pm": "ǃuias"
                 }
             },
             "gregory": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun",
+                        "Jul",
+                        "Aug",
+                        "Sep",
+                        "Oct",
+                        "Nov",
+                        "Dec"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "ǃKhanni",
+                        "ǃKhanǀgôab",
+                        "ǀKhuuǁkhâb",
+                        "ǃHôaǂkhaib",
+                        "ǃKhaitsâb",
+                        "Gamaǀaeb",
+                        "ǂKhoesaob",
+                        "Aoǁkhuumûǁkhâb",
+                        "Taraǀkhuumûǁkhâb",
+                        "ǂNûǁnâiseb",
+                        "ǀHooǂgaeb",
+                        "Hôasoreǁkhâb"
                     ]
                 },
                 "days": {
                     "narrow": [
                         "S",
                         "M",
-                        "T",
+                        "E",
                         "W",
-                        "T",
+                        "D",
                         "F",
-                        "S"
+                        "A"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
+                        "Son",
+                        "Ma",
+                        "De",
+                        "Wu",
+                        "Do",
+                        "Fr",
                         "Sat"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sontaxtsees",
+                        "Mantaxtsees",
+                        "Denstaxtsees",
+                        "Wunstaxtsees",
+                        "Dondertaxtsees",
+                        "Fraitaxtsees",
+                        "Satertaxtsees"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "BCE",
-                        "CE",
+                        "BC",
+                        "AD",
                         "BCE",
                         "CE"
                     ],
                     "short": [
-                        "BCE",
-                        "CE",
+                        "BC",
+                        "AD",
                         "BCE",
                         "CE"
                     ],
                     "long": [
-                        "BCE",
-                        "CE",
+                        "Xristub aiǃâ",
+                        "Xristub khaoǃgâ",
                         "BCE",
                         "CE"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ǁgoagas",
+                    "pm": "ǃuias"
                 }
             },
             "hebrew": {
@@ -855,29 +858,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
+                        "E",
                         "W",
-                        "T",
+                        "D",
                         "F",
-                        "S"
+                        "A"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
+                        "Son",
+                        "Ma",
+                        "De",
+                        "Wu",
+                        "Do",
+                        "Fr",
                         "Sat"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sontaxtsees",
+                        "Mantaxtsees",
+                        "Denstaxtsees",
+                        "Wunstaxtsees",
+                        "Dondertaxtsees",
+                        "Fraitaxtsees",
+                        "Satertaxtsees"
                     ]
                 },
                 "eras": {
@@ -892,8 +895,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ǁgoagas",
+                    "pm": "ǃuias"
                 }
             },
             "indian": {
@@ -945,29 +948,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
+                        "E",
                         "W",
-                        "T",
+                        "D",
                         "F",
-                        "S"
+                        "A"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
+                        "Son",
+                        "Ma",
+                        "De",
+                        "Wu",
+                        "Do",
+                        "Fr",
                         "Sat"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sontaxtsees",
+                        "Mantaxtsees",
+                        "Denstaxtsees",
+                        "Wunstaxtsees",
+                        "Dondertaxtsees",
+                        "Fraitaxtsees",
+                        "Satertaxtsees"
                     ]
                 },
                 "eras": {
@@ -982,8 +985,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ǁgoagas",
+                    "pm": "ǃuias"
                 }
             },
             "islamic": {
@@ -1035,29 +1038,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
+                        "E",
                         "W",
-                        "T",
+                        "D",
                         "F",
-                        "S"
+                        "A"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
+                        "Son",
+                        "Ma",
+                        "De",
+                        "Wu",
+                        "Do",
+                        "Fr",
                         "Sat"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sontaxtsees",
+                        "Mantaxtsees",
+                        "Denstaxtsees",
+                        "Wunstaxtsees",
+                        "Dondertaxtsees",
+                        "Fraitaxtsees",
+                        "Satertaxtsees"
                     ]
                 },
                 "eras": {
@@ -1072,8 +1075,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ǁgoagas",
+                    "pm": "ǃuias"
                 }
             },
             "islamicc": {
@@ -1125,29 +1128,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
+                        "E",
                         "W",
-                        "T",
+                        "D",
                         "F",
-                        "S"
+                        "A"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
+                        "Son",
+                        "Ma",
+                        "De",
+                        "Wu",
+                        "Do",
+                        "Fr",
                         "Sat"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sontaxtsees",
+                        "Mantaxtsees",
+                        "Denstaxtsees",
+                        "Wunstaxtsees",
+                        "Dondertaxtsees",
+                        "Fraitaxtsees",
+                        "Satertaxtsees"
                     ]
                 },
                 "eras": {
@@ -1162,82 +1165,82 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ǁgoagas",
+                    "pm": "ǃuias"
                 }
             },
             "japanese": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun",
+                        "Jul",
+                        "Aug",
+                        "Sep",
+                        "Oct",
+                        "Nov",
+                        "Dec"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "ǃKhanni",
+                        "ǃKhanǀgôab",
+                        "ǀKhuuǁkhâb",
+                        "ǃHôaǂkhaib",
+                        "ǃKhaitsâb",
+                        "Gamaǀaeb",
+                        "ǂKhoesaob",
+                        "Aoǁkhuumûǁkhâb",
+                        "Taraǀkhuumûǁkhâb",
+                        "ǂNûǁnâiseb",
+                        "ǀHooǂgaeb",
+                        "Hôasoreǁkhâb"
                     ]
                 },
                 "days": {
                     "narrow": [
                         "S",
                         "M",
-                        "T",
+                        "E",
                         "W",
-                        "T",
+                        "D",
                         "F",
-                        "S"
+                        "A"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
+                        "Son",
+                        "Ma",
+                        "De",
+                        "Wu",
+                        "Do",
+                        "Fr",
                         "Sat"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sontaxtsees",
+                        "Mantaxtsees",
+                        "Denstaxtsees",
+                        "Wunstaxtsees",
+                        "Dondertaxtsees",
+                        "Fraitaxtsees",
+                        "Satertaxtsees"
                     ]
                 },
                 "eras": {
@@ -1957,8 +1960,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ǁgoagas",
+                    "pm": "ǃuias"
                 }
             },
             "persian": {
@@ -2010,29 +2013,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
+                        "E",
                         "W",
-                        "T",
+                        "D",
                         "F",
-                        "S"
+                        "A"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
+                        "Son",
+                        "Ma",
+                        "De",
+                        "Wu",
+                        "Do",
+                        "Fr",
                         "Sat"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sontaxtsees",
+                        "Mantaxtsees",
+                        "Denstaxtsees",
+                        "Wunstaxtsees",
+                        "Dondertaxtsees",
+                        "Fraitaxtsees",
+                        "Satertaxtsees"
                     ]
                 },
                 "eras": {
@@ -2047,82 +2050,82 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ǁgoagas",
+                    "pm": "ǃuias"
                 }
             },
             "roc": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "J",
+                        "J",
+                        "A",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jan",
+                        "Feb",
+                        "Mar",
+                        "Apr",
+                        "May",
+                        "Jun",
+                        "Jul",
+                        "Aug",
+                        "Sep",
+                        "Oct",
+                        "Nov",
+                        "Dec"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "ǃKhanni",
+                        "ǃKhanǀgôab",
+                        "ǀKhuuǁkhâb",
+                        "ǃHôaǂkhaib",
+                        "ǃKhaitsâb",
+                        "Gamaǀaeb",
+                        "ǂKhoesaob",
+                        "Aoǁkhuumûǁkhâb",
+                        "Taraǀkhuumûǁkhâb",
+                        "ǂNûǁnâiseb",
+                        "ǀHooǂgaeb",
+                        "Hôasoreǁkhâb"
                     ]
                 },
                 "days": {
                     "narrow": [
                         "S",
                         "M",
-                        "T",
+                        "E",
                         "W",
-                        "T",
+                        "D",
                         "F",
-                        "S"
+                        "A"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
+                        "Son",
+                        "Ma",
+                        "De",
+                        "Wu",
+                        "Do",
+                        "Fr",
                         "Sat"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sontaxtsees",
+                        "Mantaxtsees",
+                        "Denstaxtsees",
+                        "Wunstaxtsees",
+                        "Dondertaxtsees",
+                        "Fraitaxtsees",
+                        "Satertaxtsees"
                     ]
                 },
                 "eras": {
@@ -2140,8 +2143,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "ǁgoagas",
+                    "pm": "ǃuias"
                 }
             }
         }
@@ -2156,8 +2159,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{currency}{number}",
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -2186,6 +2189,7 @@
             "JPY": "JP¥",
             "KRW": "₩",
             "MXN": "MX$",
+            "NAD": "$",
             "NZD": "NZ$",
             "TWD": "NT$",
             "USD": "US$",

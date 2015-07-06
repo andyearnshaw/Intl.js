@@ -26,7 +26,7 @@
                 "E": "ccc",
                 "EHm": "E HH:mm",
                 "EHms": "E HH:mm:ss",
-                "Ed": "d, E",
+                "Ed": "E d.",
                 "Ehm": "E h:mm a",
                 "Ehms": "E h:mm:ss a",
                 "Gy": "G y",
@@ -38,12 +38,12 @@
                 "Hms": "HH:mm:ss",
                 "Hmsv": "HH:mm:ss v",
                 "Hmv": "HH:mm v",
-                "M": "L",
-                "MEd": "MM-dd, E",
+                "M": "LLL",
+                "MEd": "E, d. MMM",
                 "MMM": "LLL",
-                "MMMEd": "MMM d, E",
-                "MMMd": "MMM d",
-                "Md": "MM-dd",
+                "MMMEd": "E, d. MMM",
+                "MMMd": "d. MMM",
+                "Md": "d. MMM",
                 "d": "d",
                 "h": "h a",
                 "hm": "h:mm a",
@@ -54,17 +54,17 @@
                 "y": "y",
                 "yM": "y-MM",
                 "yMEd": "y-MM-dd, E",
-                "yMMM": "y MMM",
-                "yMMMEd": "y MMM d, E",
-                "yMMMd": "y MMM d",
+                "yMMM": "MMM y",
+                "yMMMEd": "E, d. MMM y",
+                "yMMMd": "d. MMM y",
                 "yMd": "y-MM-dd",
                 "yQQQ": "y QQQ",
                 "yQQQQ": "y QQQQ"
             },
             "dateFormats": {
-                "full": "y MMMM d, EEEE",
-                "long": "y MMMM d",
-                "medium": "y MMM d",
+                "full": "EEEE, d. MMMM y",
+                "long": "d. MMMM y",
+                "medium": "d. MMM y",
                 "short": "y-MM-dd"
             },
             "timeFormats": {
@@ -78,75 +78,75 @@
             "buddhist": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "H",
+                        "M",
+                        "A",
+                        "M",
+                        "B",
+                        "H",
+                        "Ö",
+                        "H",
+                        "W",
+                        "W",
+                        "C"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jen",
+                        "Hor",
+                        "Mär",
+                        "Abr",
+                        "Mei",
+                        "Brá",
+                        "Hei",
+                        "Öig",
+                        "Her",
+                        "Wím",
+                        "Win",
+                        "Chr"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jenner",
+                        "Hornig",
+                        "Märze",
+                        "Abrille",
+                        "Meije",
+                        "Bráčet",
+                        "Heiwet",
+                        "Öigšte",
+                        "Herbštmánet",
+                        "Wímánet",
+                        "Wintermánet",
+                        "Chrištmánet"
                     ]
                 },
                 "days": {
                     "narrow": [
                         "S",
                         "M",
-                        "T",
-                        "W",
-                        "T",
+                        "Z",
+                        "M",
+                        "F",
                         "F",
                         "S"
                     ],
                     "short": [
                         "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
+                        "Män",
+                        "Ziš",
+                        "Mit",
+                        "Fró",
                         "Fri",
-                        "Sat"
+                        "Sam"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sunntag",
+                        "Mäntag",
+                        "Zištag",
+                        "Mittwuč",
+                        "Fróntag",
+                        "Fritag",
+                        "Samštag"
                     ]
                 },
                 "eras": {
@@ -214,29 +214,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
-                        "W",
-                        "T",
+                        "Z",
+                        "M",
+                        "F",
                         "F",
                         "S"
                     ],
                     "short": [
                         "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
+                        "Män",
+                        "Ziš",
+                        "Mit",
+                        "Fró",
                         "Fri",
-                        "Sat"
+                        "Sam"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sunntag",
+                        "Mäntag",
+                        "Zištag",
+                        "Mittwuč",
+                        "Fróntag",
+                        "Fritag",
+                        "Samštag"
                     ]
                 },
                 "dayPeriods": {
@@ -296,29 +296,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
-                        "W",
-                        "T",
+                        "Z",
+                        "M",
+                        "F",
                         "F",
                         "S"
                     ],
                     "short": [
                         "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
+                        "Män",
+                        "Ziš",
+                        "Mit",
+                        "Fró",
                         "Fri",
-                        "Sat"
+                        "Sam"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sunntag",
+                        "Mäntag",
+                        "Zištag",
+                        "Mittwuč",
+                        "Fróntag",
+                        "Fritag",
+                        "Samštag"
                     ]
                 },
                 "eras": {
@@ -389,29 +389,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
-                        "W",
-                        "T",
+                        "Z",
+                        "M",
+                        "F",
                         "F",
                         "S"
                     ],
                     "short": [
                         "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
+                        "Män",
+                        "Ziš",
+                        "Mit",
+                        "Fró",
                         "Fri",
-                        "Sat"
+                        "Sam"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sunntag",
+                        "Mäntag",
+                        "Zištag",
+                        "Mittwuč",
+                        "Fróntag",
+                        "Fritag",
+                        "Samštag"
                     ]
                 },
                 "dayPeriods": {
@@ -471,29 +471,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
-                        "W",
-                        "T",
+                        "Z",
+                        "M",
+                        "F",
                         "F",
                         "S"
                     ],
                     "short": [
                         "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
+                        "Män",
+                        "Ziš",
+                        "Mit",
+                        "Fró",
                         "Fri",
-                        "Sat"
+                        "Sam"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sunntag",
+                        "Mäntag",
+                        "Zištag",
+                        "Mittwuč",
+                        "Fróntag",
+                        "Fritag",
+                        "Samštag"
                     ]
                 },
                 "eras": {
@@ -567,29 +567,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
-                        "W",
-                        "T",
+                        "Z",
+                        "M",
+                        "F",
                         "F",
                         "S"
                     ],
                     "short": [
                         "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
+                        "Män",
+                        "Ziš",
+                        "Mit",
+                        "Fró",
                         "Fri",
-                        "Sat"
+                        "Sam"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sunntag",
+                        "Mäntag",
+                        "Zištag",
+                        "Mittwuč",
+                        "Fróntag",
+                        "Fritag",
+                        "Samštag"
                     ]
                 },
                 "eras": {
@@ -657,29 +657,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
-                        "W",
-                        "T",
+                        "Z",
+                        "M",
+                        "F",
                         "F",
                         "S"
                     ],
                     "short": [
                         "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
+                        "Män",
+                        "Ziš",
+                        "Mit",
+                        "Fró",
                         "Fri",
-                        "Sat"
+                        "Sam"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sunntag",
+                        "Mäntag",
+                        "Zištag",
+                        "Mittwuč",
+                        "Fróntag",
+                        "Fritag",
+                        "Samštag"
                     ]
                 },
                 "eras": {
@@ -704,93 +704,93 @@
             "gregory": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "H",
+                        "M",
+                        "A",
+                        "M",
+                        "B",
+                        "H",
+                        "Ö",
+                        "H",
+                        "W",
+                        "W",
+                        "C"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jen",
+                        "Hor",
+                        "Mär",
+                        "Abr",
+                        "Mei",
+                        "Brá",
+                        "Hei",
+                        "Öig",
+                        "Her",
+                        "Wím",
+                        "Win",
+                        "Chr"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jenner",
+                        "Hornig",
+                        "Märze",
+                        "Abrille",
+                        "Meije",
+                        "Bráčet",
+                        "Heiwet",
+                        "Öigšte",
+                        "Herbštmánet",
+                        "Wímánet",
+                        "Wintermánet",
+                        "Chrištmánet"
                     ]
                 },
                 "days": {
                     "narrow": [
                         "S",
                         "M",
-                        "T",
-                        "W",
-                        "T",
+                        "Z",
+                        "M",
+                        "F",
                         "F",
                         "S"
                     ],
                     "short": [
                         "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
+                        "Män",
+                        "Ziš",
+                        "Mit",
+                        "Fró",
                         "Fri",
-                        "Sat"
+                        "Sam"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sunntag",
+                        "Mäntag",
+                        "Zištag",
+                        "Mittwuč",
+                        "Fróntag",
+                        "Fritag",
+                        "Samštag"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "BCE",
-                        "CE",
+                        "v. Chr.",
+                        "n. Chr",
                         "BCE",
                         "CE"
                     ],
                     "short": [
-                        "BCE",
-                        "CE",
+                        "v. Chr.",
+                        "n. Chr",
                         "BCE",
                         "CE"
                     ],
                     "long": [
-                        "BCE",
-                        "CE",
+                        "v. Chr.",
+                        "n. Chr",
                         "BCE",
                         "CE"
                     ]
@@ -855,29 +855,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
-                        "W",
-                        "T",
+                        "Z",
+                        "M",
+                        "F",
                         "F",
                         "S"
                     ],
                     "short": [
                         "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
+                        "Män",
+                        "Ziš",
+                        "Mit",
+                        "Fró",
                         "Fri",
-                        "Sat"
+                        "Sam"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sunntag",
+                        "Mäntag",
+                        "Zištag",
+                        "Mittwuč",
+                        "Fróntag",
+                        "Fritag",
+                        "Samštag"
                     ]
                 },
                 "eras": {
@@ -945,29 +945,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
-                        "W",
-                        "T",
+                        "Z",
+                        "M",
+                        "F",
                         "F",
                         "S"
                     ],
                     "short": [
                         "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
+                        "Män",
+                        "Ziš",
+                        "Mit",
+                        "Fró",
                         "Fri",
-                        "Sat"
+                        "Sam"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sunntag",
+                        "Mäntag",
+                        "Zištag",
+                        "Mittwuč",
+                        "Fróntag",
+                        "Fritag",
+                        "Samštag"
                     ]
                 },
                 "eras": {
@@ -1035,29 +1035,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
-                        "W",
-                        "T",
+                        "Z",
+                        "M",
+                        "F",
                         "F",
                         "S"
                     ],
                     "short": [
                         "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
+                        "Män",
+                        "Ziš",
+                        "Mit",
+                        "Fró",
                         "Fri",
-                        "Sat"
+                        "Sam"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sunntag",
+                        "Mäntag",
+                        "Zištag",
+                        "Mittwuč",
+                        "Fróntag",
+                        "Fritag",
+                        "Samštag"
                     ]
                 },
                 "eras": {
@@ -1125,29 +1125,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
-                        "W",
-                        "T",
+                        "Z",
+                        "M",
+                        "F",
                         "F",
                         "S"
                     ],
                     "short": [
                         "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
+                        "Män",
+                        "Ziš",
+                        "Mit",
+                        "Fró",
                         "Fri",
-                        "Sat"
+                        "Sam"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sunntag",
+                        "Mäntag",
+                        "Zištag",
+                        "Mittwuč",
+                        "Fróntag",
+                        "Fritag",
+                        "Samštag"
                     ]
                 },
                 "eras": {
@@ -1169,75 +1169,75 @@
             "japanese": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "H",
+                        "M",
+                        "A",
+                        "M",
+                        "B",
+                        "H",
+                        "Ö",
+                        "H",
+                        "W",
+                        "W",
+                        "C"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jen",
+                        "Hor",
+                        "Mär",
+                        "Abr",
+                        "Mei",
+                        "Brá",
+                        "Hei",
+                        "Öig",
+                        "Her",
+                        "Wím",
+                        "Win",
+                        "Chr"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jenner",
+                        "Hornig",
+                        "Märze",
+                        "Abrille",
+                        "Meije",
+                        "Bráčet",
+                        "Heiwet",
+                        "Öigšte",
+                        "Herbštmánet",
+                        "Wímánet",
+                        "Wintermánet",
+                        "Chrištmánet"
                     ]
                 },
                 "days": {
                     "narrow": [
                         "S",
                         "M",
-                        "T",
-                        "W",
-                        "T",
+                        "Z",
+                        "M",
+                        "F",
                         "F",
                         "S"
                     ],
                     "short": [
                         "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
+                        "Män",
+                        "Ziš",
+                        "Mit",
+                        "Fró",
                         "Fri",
-                        "Sat"
+                        "Sam"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sunntag",
+                        "Mäntag",
+                        "Zištag",
+                        "Mittwuč",
+                        "Fróntag",
+                        "Fritag",
+                        "Samštag"
                     ]
                 },
                 "eras": {
@@ -2010,29 +2010,29 @@
                     "narrow": [
                         "S",
                         "M",
-                        "T",
-                        "W",
-                        "T",
+                        "Z",
+                        "M",
+                        "F",
                         "F",
                         "S"
                     ],
                     "short": [
                         "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
+                        "Män",
+                        "Ziš",
+                        "Mit",
+                        "Fró",
                         "Fri",
-                        "Sat"
+                        "Sam"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sunntag",
+                        "Mäntag",
+                        "Zištag",
+                        "Mittwuč",
+                        "Fróntag",
+                        "Fritag",
+                        "Samštag"
                     ]
                 },
                 "eras": {
@@ -2054,75 +2054,75 @@
             "roc": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "J",
+                        "H",
+                        "M",
+                        "A",
+                        "M",
+                        "B",
+                        "H",
+                        "Ö",
+                        "H",
+                        "W",
+                        "W",
+                        "C"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jen",
+                        "Hor",
+                        "Mär",
+                        "Abr",
+                        "Mei",
+                        "Brá",
+                        "Hei",
+                        "Öig",
+                        "Her",
+                        "Wím",
+                        "Win",
+                        "Chr"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Jenner",
+                        "Hornig",
+                        "Märze",
+                        "Abrille",
+                        "Meije",
+                        "Bráčet",
+                        "Heiwet",
+                        "Öigšte",
+                        "Herbštmánet",
+                        "Wímánet",
+                        "Wintermánet",
+                        "Chrištmánet"
                     ]
                 },
                 "days": {
                     "narrow": [
                         "S",
                         "M",
-                        "T",
-                        "W",
-                        "T",
+                        "Z",
+                        "M",
+                        "F",
                         "F",
                         "S"
                     ],
                     "short": [
                         "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
+                        "Män",
+                        "Ziš",
+                        "Mit",
+                        "Fró",
                         "Fri",
-                        "Sat"
+                        "Sam"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Sunntag",
+                        "Mäntag",
+                        "Zištag",
+                        "Mittwuč",
+                        "Fróntag",
+                        "Fritag",
+                        "Samštag"
                     ]
                 },
                 "eras": {
@@ -2166,8 +2166,8 @@
         },
         "symbols": {
             "latn": {
-                "decimal": ".",
-                "group": ",",
+                "decimal": ",",
+                "group": "’",
                 "nan": "NaN",
                 "percent": "%",
                 "infinity": "∞"
@@ -2183,12 +2183,13 @@
             "HKD": "HK$",
             "ILS": "₪",
             "INR": "₹",
-            "JPY": "JP¥",
+            "JPY": "¥",
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
+            "RUB": "руб",
             "TWD": "NT$",
-            "USD": "US$",
+            "USD": "$",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",

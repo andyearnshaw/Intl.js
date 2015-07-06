@@ -38,34 +38,40 @@
                 "Hms": "HH:mm:ss",
                 "Hmsv": "HH:mm:ss v",
                 "Hmv": "HH:mm v",
-                "M": "L",
+                "M": "M",
                 "MEd": "MM-dd, E",
-                "MMM": "LLL",
-                "MMMEd": "MMM d, E",
-                "MMMd": "MMM d",
-                "Md": "MM-dd",
+                "MMM": "MMM",
+                "MMMEd": "E d MMM",
+                "MMMMEd": "E d MMMM",
+                "MMMMd": "d MMMM",
+                "MMMd": "d MMM",
+                "MMd": "d/MM",
+                "MMdd": "dd/MM",
+                "Md": "d/M",
                 "d": "d",
                 "h": "h a",
                 "hm": "h:mm a",
                 "hms": "h:mm:ss a",
                 "hmsv": "h:mm:ss a v",
                 "hmv": "h:mm a v",
-                "ms": "mm:ss",
+                "ms": "m:ss",
                 "y": "y",
-                "yM": "y-MM",
-                "yMEd": "y-MM-dd, E",
-                "yMMM": "y MMM",
-                "yMMMEd": "y MMM d, E",
-                "yMMMd": "y MMM d",
+                "yM": "M/y",
+                "yMEd": "E d/M/y",
+                "yMM": "MM/y",
+                "yMMM": "MMM y",
+                "yMMMEd": "E d MMM y",
+                "yMMMM": "MMMM y",
+                "yMMMd": "d MMM y",
                 "yMd": "y-MM-dd",
-                "yQQQ": "y QQQ",
-                "yQQQQ": "y QQQQ"
+                "yQQQ": "QQQ y",
+                "yQQQQ": "QQQQ y"
             },
             "dateFormats": {
-                "full": "y MMMM d, EEEE",
-                "long": "y MMMM d",
-                "medium": "y MMM d",
-                "short": "y-MM-dd"
+                "full": "EEEE d MMMM y",
+                "long": "d MMMM y",
+                "medium": "d MMM, y",
+                "short": "d/M/y"
             },
             "timeFormats": {
                 "full": "HH:mm:ss zzzz",
@@ -78,75 +84,75 @@
             "buddhist": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "Ž",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "Ž",
+                        "Ž",
+                        "U",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Žan",
+                        "Fee",
+                        "Mar",
+                        "Awi",
+                        "Me",
+                        "Žuw",
+                        "Žuy",
+                        "Ut",
+                        "Sek",
+                        "Okt",
+                        "Noo",
+                        "Dee"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Žanwiye",
+                        "Feewiriye",
+                        "Marsi",
+                        "Awiril",
+                        "Me",
+                        "Žuweŋ",
+                        "Žuyye",
+                        "Ut",
+                        "Sektanbur",
+                        "Oktoobur",
+                        "Noowanbur",
+                        "Deesanbur"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "H",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "L",
+                        "L",
+                        "L",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alh",
+                        "Ati",
+                        "Ata",
+                        "Ala",
+                        "Alm",
+                        "Alj",
+                        "Ass"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alhadi",
+                        "Atini",
+                        "Atalata",
+                        "Alarba",
+                        "Alhamiisa",
+                        "Aljuma",
+                        "Assabdu"
                     ]
                 },
                 "eras": {
@@ -161,8 +167,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Adduha",
+                    "pm": "Aluula"
                 }
             },
             "chinese": {
@@ -212,36 +218,36 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "H",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "L",
+                        "L",
+                        "L",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alh",
+                        "Ati",
+                        "Ata",
+                        "Ala",
+                        "Alm",
+                        "Alj",
+                        "Ass"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alhadi",
+                        "Atini",
+                        "Atalata",
+                        "Alarba",
+                        "Alhamiisa",
+                        "Aljuma",
+                        "Assabdu"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Adduha",
+                    "pm": "Aluula"
                 }
             },
             "coptic": {
@@ -294,31 +300,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "H",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "L",
+                        "L",
+                        "L",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alh",
+                        "Ati",
+                        "Ata",
+                        "Ala",
+                        "Alm",
+                        "Alj",
+                        "Ass"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alhadi",
+                        "Atini",
+                        "Atalata",
+                        "Alarba",
+                        "Alhamiisa",
+                        "Aljuma",
+                        "Assabdu"
                     ]
                 },
                 "eras": {
@@ -336,8 +342,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Adduha",
+                    "pm": "Aluula"
                 }
             },
             "dangi": {
@@ -387,36 +393,36 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "H",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "L",
+                        "L",
+                        "L",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alh",
+                        "Ati",
+                        "Ata",
+                        "Ala",
+                        "Alm",
+                        "Alj",
+                        "Ass"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alhadi",
+                        "Atini",
+                        "Atalata",
+                        "Alarba",
+                        "Alhamiisa",
+                        "Aljuma",
+                        "Assabdu"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Adduha",
+                    "pm": "Aluula"
                 }
             },
             "ethiopic": {
@@ -469,31 +475,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "H",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "L",
+                        "L",
+                        "L",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alh",
+                        "Ati",
+                        "Ata",
+                        "Ala",
+                        "Alm",
+                        "Alj",
+                        "Ass"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alhadi",
+                        "Atini",
+                        "Atalata",
+                        "Alarba",
+                        "Alhamiisa",
+                        "Aljuma",
+                        "Assabdu"
                     ]
                 },
                 "eras": {
@@ -511,8 +517,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Adduha",
+                    "pm": "Aluula"
                 }
             },
             "ethioaa": {
@@ -565,31 +571,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "H",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "L",
+                        "L",
+                        "L",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alh",
+                        "Ati",
+                        "Ata",
+                        "Ala",
+                        "Alm",
+                        "Alj",
+                        "Ass"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alhadi",
+                        "Atini",
+                        "Atalata",
+                        "Alarba",
+                        "Alhamiisa",
+                        "Aljuma",
+                        "Assabdu"
                     ]
                 },
                 "eras": {
@@ -604,8 +610,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Adduha",
+                    "pm": "Aluula"
                 }
             },
             "generic": {
@@ -655,31 +661,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "H",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "L",
+                        "L",
+                        "L",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alh",
+                        "Ati",
+                        "Ata",
+                        "Ala",
+                        "Alm",
+                        "Alj",
+                        "Ass"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alhadi",
+                        "Atini",
+                        "Atalata",
+                        "Alarba",
+                        "Alhamiisa",
+                        "Aljuma",
+                        "Assabdu"
                     ]
                 },
                 "eras": {
@@ -697,107 +703,107 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Adduha",
+                    "pm": "Aluula"
                 }
             },
             "gregory": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "Ž",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "Ž",
+                        "Ž",
+                        "U",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Žan",
+                        "Fee",
+                        "Mar",
+                        "Awi",
+                        "Me",
+                        "Žuw",
+                        "Žuy",
+                        "Ut",
+                        "Sek",
+                        "Okt",
+                        "Noo",
+                        "Dee"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Žanwiye",
+                        "Feewiriye",
+                        "Marsi",
+                        "Awiril",
+                        "Me",
+                        "Žuweŋ",
+                        "Žuyye",
+                        "Ut",
+                        "Sektanbur",
+                        "Oktoobur",
+                        "Noowanbur",
+                        "Deesanbur"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "H",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "L",
+                        "L",
+                        "L",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alh",
+                        "Ati",
+                        "Ata",
+                        "Ala",
+                        "Alm",
+                        "Alj",
+                        "Ass"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alhadi",
+                        "Atini",
+                        "Atalata",
+                        "Alarba",
+                        "Alhamiisa",
+                        "Aljuma",
+                        "Assabdu"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "BCE",
-                        "CE",
+                        "IJ",
+                        "IZ",
                         "BCE",
                         "CE"
                     ],
                     "short": [
-                        "BCE",
-                        "CE",
+                        "IJ",
+                        "IZ",
                         "BCE",
                         "CE"
                     ],
                     "long": [
-                        "BCE",
-                        "CE",
+                        "Isaa jine",
+                        "Isaa jamanoo",
                         "BCE",
                         "CE"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Adduha",
+                    "pm": "Aluula"
                 }
             },
             "hebrew": {
@@ -853,31 +859,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "H",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "L",
+                        "L",
+                        "L",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alh",
+                        "Ati",
+                        "Ata",
+                        "Ala",
+                        "Alm",
+                        "Alj",
+                        "Ass"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alhadi",
+                        "Atini",
+                        "Atalata",
+                        "Alarba",
+                        "Alhamiisa",
+                        "Aljuma",
+                        "Assabdu"
                     ]
                 },
                 "eras": {
@@ -892,8 +898,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Adduha",
+                    "pm": "Aluula"
                 }
             },
             "indian": {
@@ -943,31 +949,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "H",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "L",
+                        "L",
+                        "L",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alh",
+                        "Ati",
+                        "Ata",
+                        "Ala",
+                        "Alm",
+                        "Alj",
+                        "Ass"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alhadi",
+                        "Atini",
+                        "Atalata",
+                        "Alarba",
+                        "Alhamiisa",
+                        "Aljuma",
+                        "Assabdu"
                     ]
                 },
                 "eras": {
@@ -982,8 +988,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Adduha",
+                    "pm": "Aluula"
                 }
             },
             "islamic": {
@@ -1033,31 +1039,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "H",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "L",
+                        "L",
+                        "L",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alh",
+                        "Ati",
+                        "Ata",
+                        "Ala",
+                        "Alm",
+                        "Alj",
+                        "Ass"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alhadi",
+                        "Atini",
+                        "Atalata",
+                        "Alarba",
+                        "Alhamiisa",
+                        "Aljuma",
+                        "Assabdu"
                     ]
                 },
                 "eras": {
@@ -1072,8 +1078,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Adduha",
+                    "pm": "Aluula"
                 }
             },
             "islamicc": {
@@ -1123,31 +1129,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "H",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "L",
+                        "L",
+                        "L",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alh",
+                        "Ati",
+                        "Ata",
+                        "Ala",
+                        "Alm",
+                        "Alj",
+                        "Ass"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alhadi",
+                        "Atini",
+                        "Atalata",
+                        "Alarba",
+                        "Alhamiisa",
+                        "Aljuma",
+                        "Assabdu"
                     ]
                 },
                 "eras": {
@@ -1162,82 +1168,82 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Adduha",
+                    "pm": "Aluula"
                 }
             },
             "japanese": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "Ž",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "Ž",
+                        "Ž",
+                        "U",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Žan",
+                        "Fee",
+                        "Mar",
+                        "Awi",
+                        "Me",
+                        "Žuw",
+                        "Žuy",
+                        "Ut",
+                        "Sek",
+                        "Okt",
+                        "Noo",
+                        "Dee"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Žanwiye",
+                        "Feewiriye",
+                        "Marsi",
+                        "Awiril",
+                        "Me",
+                        "Žuweŋ",
+                        "Žuyye",
+                        "Ut",
+                        "Sektanbur",
+                        "Oktoobur",
+                        "Noowanbur",
+                        "Deesanbur"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "H",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "L",
+                        "L",
+                        "L",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alh",
+                        "Ati",
+                        "Ata",
+                        "Ala",
+                        "Alm",
+                        "Alj",
+                        "Ass"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alhadi",
+                        "Atini",
+                        "Atalata",
+                        "Alarba",
+                        "Alhamiisa",
+                        "Aljuma",
+                        "Assabdu"
                     ]
                 },
                 "eras": {
@@ -1957,8 +1963,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Adduha",
+                    "pm": "Aluula"
                 }
             },
             "persian": {
@@ -2008,31 +2014,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "H",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "L",
+                        "L",
+                        "L",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alh",
+                        "Ati",
+                        "Ata",
+                        "Ala",
+                        "Alm",
+                        "Alj",
+                        "Ass"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alhadi",
+                        "Atini",
+                        "Atalata",
+                        "Alarba",
+                        "Alhamiisa",
+                        "Aljuma",
+                        "Assabdu"
                     ]
                 },
                 "eras": {
@@ -2047,82 +2053,82 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Adduha",
+                    "pm": "Aluula"
                 }
             },
             "roc": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "Ž",
+                        "F",
+                        "M",
+                        "A",
+                        "M",
+                        "Ž",
+                        "Ž",
+                        "U",
+                        "S",
+                        "O",
+                        "N",
+                        "D"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Žan",
+                        "Fee",
+                        "Mar",
+                        "Awi",
+                        "Me",
+                        "Žuw",
+                        "Žuy",
+                        "Ut",
+                        "Sek",
+                        "Okt",
+                        "Noo",
+                        "Dee"
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "Žanwiye",
+                        "Feewiriye",
+                        "Marsi",
+                        "Awiril",
+                        "Me",
+                        "Žuweŋ",
+                        "Žuyye",
+                        "Ut",
+                        "Sektanbur",
+                        "Oktoobur",
+                        "Noowanbur",
+                        "Deesanbur"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
+                        "H",
                         "T",
-                        "W",
                         "T",
-                        "F",
+                        "L",
+                        "L",
+                        "L",
                         "S"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alh",
+                        "Ati",
+                        "Ata",
+                        "Ala",
+                        "Alm",
+                        "Alj",
+                        "Ass"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "Alhadi",
+                        "Atini",
+                        "Atalata",
+                        "Alarba",
+                        "Alhamiisa",
+                        "Aljuma",
+                        "Assabdu"
                     ]
                 },
                 "eras": {
@@ -2140,8 +2146,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "Adduha",
+                    "pm": "Aluula"
                 }
             }
         }
@@ -2156,8 +2162,8 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{number}{currency}",
+                "negativePattern": "-{number}{currency}"
             },
             "percent": {
                 "positivePattern": "{number}%",
@@ -2167,7 +2173,7 @@
         "symbols": {
             "latn": {
                 "decimal": ".",
-                "group": ",",
+                "group": " ",
                 "nan": "NaN",
                 "percent": "%",
                 "infinity": "∞"

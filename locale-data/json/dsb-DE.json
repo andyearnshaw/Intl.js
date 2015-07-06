@@ -24,26 +24,26 @@
             "medium": "{1} {0}",
             "availableFormats": {
                 "E": "ccc",
-                "EHm": "E HH:mm",
-                "EHms": "E HH:mm:ss",
-                "Ed": "d, E",
-                "Ehm": "E h:mm a",
-                "Ehms": "E h:mm:ss a",
-                "Gy": "G y",
-                "GyMMM": "G y MMM",
-                "GyMMMEd": "G y MMM d, E",
-                "GyMMMd": "G y MMM d",
-                "H": "HH",
-                "Hm": "HH:mm",
-                "Hms": "HH:mm:ss",
+                "EHm": "E, 'zeg'. H:mm",
+                "EHms": "E, HH:mm:ss",
+                "Ed": "E, d.",
+                "Ehm": "E, h:mm a",
+                "Ehms": "E, h:mm:ss a",
+                "Gy": "y G",
+                "GyMMM": "MMM y G",
+                "GyMMMEd": "E, d. MMM y G",
+                "GyMMMd": "d. MMM y G",
+                "H": "'zeg'. H",
+                "Hm": "'zeg'. H:mm",
+                "Hms": "H:mm:ss",
                 "Hmsv": "HH:mm:ss v",
                 "Hmv": "HH:mm v",
                 "M": "L",
-                "MEd": "MM-dd, E",
+                "MEd": "E, d.M.",
                 "MMM": "LLL",
-                "MMMEd": "MMM d, E",
-                "MMMd": "MMM d",
-                "Md": "MM-dd",
+                "MMMEd": "E, d. MMM",
+                "MMMd": "d. MMM",
+                "Md": "d.M.",
                 "d": "d",
                 "h": "h a",
                 "hm": "h:mm a",
@@ -52,101 +52,101 @@
                 "hmv": "h:mm a v",
                 "ms": "mm:ss",
                 "y": "y",
-                "yM": "y-MM",
-                "yMEd": "y-MM-dd, E",
-                "yMMM": "y MMM",
-                "yMMMEd": "y MMM d, E",
-                "yMMMd": "y MMM d",
-                "yMd": "y-MM-dd",
-                "yQQQ": "y QQQ",
-                "yQQQQ": "y QQQQ"
+                "yM": "M.y",
+                "yMEd": "E, d.M.y",
+                "yMMM": "MMM y",
+                "yMMMEd": "E, d. MMM y",
+                "yMMMd": "d. MMM y",
+                "yMd": "d.M.y",
+                "yQQQ": "QQQ y",
+                "yQQQQ": "QQQQ y"
             },
             "dateFormats": {
-                "full": "y MMMM d, EEEE",
-                "long": "y MMMM d",
-                "medium": "y MMM d",
-                "short": "y-MM-dd"
+                "full": "EEEE, d. MMMM y",
+                "long": "d. MMMM y",
+                "medium": "d.M.y",
+                "short": "d.M.yy"
             },
             "timeFormats": {
-                "full": "HH:mm:ss zzzz",
-                "long": "HH:mm:ss z",
-                "medium": "HH:mm:ss",
-                "short": "HH:mm"
+                "full": "H:mm:ss zzzz",
+                "long": "H:mm:ss z",
+                "medium": "H:mm:ss",
+                "short": "H:mm"
             }
         },
         "calendars": {
             "buddhist": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "j",
+                        "f",
+                        "m",
+                        "a",
+                        "m",
+                        "j",
+                        "j",
+                        "a",
+                        "s",
+                        "o",
+                        "n",
+                        "d"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "jan.",
+                        "feb.",
+                        "měr.",
+                        "apr.",
+                        "maj.",
+                        "jun.",
+                        "jul.",
+                        "awg.",
+                        "sep.",
+                        "okt.",
+                        "now.",
+                        "dec."
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "januara",
+                        "februara",
+                        "měrca",
+                        "apryla",
+                        "maja",
+                        "junija",
+                        "julija",
+                        "awgusta",
+                        "septembra",
+                        "oktobra",
+                        "nowembra",
+                        "decembra"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "nje",
+                        "pón",
+                        "wał",
+                        "srj",
+                        "stw",
+                        "pět",
+                        "sob"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "njeźela",
+                        "pónjeźele",
+                        "wałtora",
+                        "srjoda",
+                        "stwórtk",
+                        "pětk",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -161,8 +161,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopołdnja",
+                    "pm": "wótpołdnja"
                 }
             },
             "chinese": {
@@ -212,36 +212,36 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "nje",
+                        "pón",
+                        "wał",
+                        "srj",
+                        "stw",
+                        "pět",
+                        "sob"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "njeźela",
+                        "pónjeźele",
+                        "wałtora",
+                        "srjoda",
+                        "stwórtk",
+                        "pětk",
+                        "sobota"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopołdnja",
+                    "pm": "wótpołdnja"
                 }
             },
             "coptic": {
@@ -294,31 +294,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "nje",
+                        "pón",
+                        "wał",
+                        "srj",
+                        "stw",
+                        "pět",
+                        "sob"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "njeźela",
+                        "pónjeźele",
+                        "wałtora",
+                        "srjoda",
+                        "stwórtk",
+                        "pětk",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -336,8 +336,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopołdnja",
+                    "pm": "wótpołdnja"
                 }
             },
             "dangi": {
@@ -387,36 +387,36 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "nje",
+                        "pón",
+                        "wał",
+                        "srj",
+                        "stw",
+                        "pět",
+                        "sob"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "njeźela",
+                        "pónjeźele",
+                        "wałtora",
+                        "srjoda",
+                        "stwórtk",
+                        "pětk",
+                        "sobota"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopołdnja",
+                    "pm": "wótpołdnja"
                 }
             },
             "ethiopic": {
@@ -469,31 +469,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "nje",
+                        "pón",
+                        "wał",
+                        "srj",
+                        "stw",
+                        "pět",
+                        "sob"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "njeźela",
+                        "pónjeźele",
+                        "wałtora",
+                        "srjoda",
+                        "stwórtk",
+                        "pětk",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -511,8 +511,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopołdnja",
+                    "pm": "wótpołdnja"
                 }
             },
             "ethioaa": {
@@ -565,31 +565,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "nje",
+                        "pón",
+                        "wał",
+                        "srj",
+                        "stw",
+                        "pět",
+                        "sob"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "njeźela",
+                        "pónjeźele",
+                        "wałtora",
+                        "srjoda",
+                        "stwórtk",
+                        "pětk",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -604,8 +604,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopołdnja",
+                    "pm": "wótpołdnja"
                 }
             },
             "generic": {
@@ -655,31 +655,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "nje",
+                        "pón",
+                        "wał",
+                        "srj",
+                        "stw",
+                        "pět",
+                        "sob"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "njeźela",
+                        "pónjeźele",
+                        "wałtora",
+                        "srjoda",
+                        "stwórtk",
+                        "pětk",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -697,107 +697,107 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopołdnja",
+                    "pm": "wótpołdnja"
                 }
             },
             "gregory": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "j",
+                        "f",
+                        "m",
+                        "a",
+                        "m",
+                        "j",
+                        "j",
+                        "a",
+                        "s",
+                        "o",
+                        "n",
+                        "d"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "jan.",
+                        "feb.",
+                        "měr.",
+                        "apr.",
+                        "maj.",
+                        "jun.",
+                        "jul.",
+                        "awg.",
+                        "sep.",
+                        "okt.",
+                        "now.",
+                        "dec."
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "januara",
+                        "februara",
+                        "měrca",
+                        "apryla",
+                        "maja",
+                        "junija",
+                        "julija",
+                        "awgusta",
+                        "septembra",
+                        "oktobra",
+                        "nowembra",
+                        "decembra"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "nje",
+                        "pón",
+                        "wał",
+                        "srj",
+                        "stw",
+                        "pět",
+                        "sob"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "njeźela",
+                        "pónjeźele",
+                        "wałtora",
+                        "srjoda",
+                        "stwórtk",
+                        "pětk",
+                        "sobota"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "BCE",
-                        "CE",
-                        "BCE",
-                        "CE"
+                        "pś.Chr.n.",
+                        "pó Chr.n.",
+                        "pś.n.l.c.",
+                        "n.l.c."
                     ],
                     "short": [
-                        "BCE",
-                        "CE",
-                        "BCE",
-                        "CE"
+                        "pś.Chr.n.",
+                        "pó Chr.n.",
+                        "pś.n.l.c.",
+                        "n.l.c."
                     ],
                     "long": [
-                        "BCE",
-                        "CE",
-                        "BCE",
-                        "CE"
+                        "pśed Kristusowym naroźenim",
+                        "pó Kristusowem naroźenju",
+                        "pśed našym licenim casa",
+                        "našogo licenja casa"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopołdnja",
+                    "pm": "wótpołdnja"
                 }
             },
             "hebrew": {
@@ -853,31 +853,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "nje",
+                        "pón",
+                        "wał",
+                        "srj",
+                        "stw",
+                        "pět",
+                        "sob"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "njeźela",
+                        "pónjeźele",
+                        "wałtora",
+                        "srjoda",
+                        "stwórtk",
+                        "pětk",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -892,8 +892,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopołdnja",
+                    "pm": "wótpołdnja"
                 }
             },
             "indian": {
@@ -943,31 +943,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "nje",
+                        "pón",
+                        "wał",
+                        "srj",
+                        "stw",
+                        "pět",
+                        "sob"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "njeźela",
+                        "pónjeźele",
+                        "wałtora",
+                        "srjoda",
+                        "stwórtk",
+                        "pětk",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -982,8 +982,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopołdnja",
+                    "pm": "wótpołdnja"
                 }
             },
             "islamic": {
@@ -1033,31 +1033,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "nje",
+                        "pón",
+                        "wał",
+                        "srj",
+                        "stw",
+                        "pět",
+                        "sob"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "njeźela",
+                        "pónjeźele",
+                        "wałtora",
+                        "srjoda",
+                        "stwórtk",
+                        "pětk",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -1072,8 +1072,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopołdnja",
+                    "pm": "wótpołdnja"
                 }
             },
             "islamicc": {
@@ -1123,31 +1123,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "nje",
+                        "pón",
+                        "wał",
+                        "srj",
+                        "stw",
+                        "pět",
+                        "sob"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "njeźela",
+                        "pónjeźele",
+                        "wałtora",
+                        "srjoda",
+                        "stwórtk",
+                        "pětk",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -1162,82 +1162,82 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopołdnja",
+                    "pm": "wótpołdnja"
                 }
             },
             "japanese": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "j",
+                        "f",
+                        "m",
+                        "a",
+                        "m",
+                        "j",
+                        "j",
+                        "a",
+                        "s",
+                        "o",
+                        "n",
+                        "d"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "jan.",
+                        "feb.",
+                        "měr.",
+                        "apr.",
+                        "maj.",
+                        "jun.",
+                        "jul.",
+                        "awg.",
+                        "sep.",
+                        "okt.",
+                        "now.",
+                        "dec."
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "januara",
+                        "februara",
+                        "měrca",
+                        "apryla",
+                        "maja",
+                        "junija",
+                        "julija",
+                        "awgusta",
+                        "septembra",
+                        "oktobra",
+                        "nowembra",
+                        "decembra"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "nje",
+                        "pón",
+                        "wał",
+                        "srj",
+                        "stw",
+                        "pět",
+                        "sob"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "njeźela",
+                        "pónjeźele",
+                        "wałtora",
+                        "srjoda",
+                        "stwórtk",
+                        "pětk",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -1957,8 +1957,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopołdnja",
+                    "pm": "wótpołdnja"
                 }
             },
             "persian": {
@@ -2008,31 +2008,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "nje",
+                        "pón",
+                        "wał",
+                        "srj",
+                        "stw",
+                        "pět",
+                        "sob"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "njeźela",
+                        "pónjeźele",
+                        "wałtora",
+                        "srjoda",
+                        "stwórtk",
+                        "pětk",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -2047,82 +2047,82 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopołdnja",
+                    "pm": "wótpołdnja"
                 }
             },
             "roc": {
                 "months": {
                     "narrow": [
-                        "1",
-                        "2",
-                        "3",
-                        "4",
-                        "5",
-                        "6",
-                        "7",
-                        "8",
-                        "9",
-                        "10",
-                        "11",
-                        "12"
+                        "j",
+                        "f",
+                        "m",
+                        "a",
+                        "m",
+                        "j",
+                        "j",
+                        "a",
+                        "s",
+                        "o",
+                        "n",
+                        "d"
                     ],
                     "short": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "jan.",
+                        "feb.",
+                        "měr.",
+                        "apr.",
+                        "maj.",
+                        "jun.",
+                        "jul.",
+                        "awg.",
+                        "sep.",
+                        "okt.",
+                        "now.",
+                        "dec."
                     ],
                     "long": [
-                        "M01",
-                        "M02",
-                        "M03",
-                        "M04",
-                        "M05",
-                        "M06",
-                        "M07",
-                        "M08",
-                        "M09",
-                        "M10",
-                        "M11",
-                        "M12"
+                        "januara",
+                        "februara",
+                        "měrca",
+                        "apryla",
+                        "maja",
+                        "junija",
+                        "julija",
+                        "awgusta",
+                        "septembra",
+                        "oktobra",
+                        "nowembra",
+                        "decembra"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "S",
-                        "M",
-                        "T",
-                        "W",
-                        "T",
-                        "F",
-                        "S"
+                        "n",
+                        "p",
+                        "w",
+                        "s",
+                        "s",
+                        "p",
+                        "s"
                     ],
                     "short": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "nje",
+                        "pón",
+                        "wał",
+                        "srj",
+                        "stw",
+                        "pět",
+                        "sob"
                     ],
                     "long": [
-                        "Sun",
-                        "Mon",
-                        "Tue",
-                        "Wed",
-                        "Thu",
-                        "Fri",
-                        "Sat"
+                        "njeźela",
+                        "pónjeźele",
+                        "wałtora",
+                        "srjoda",
+                        "stwórtk",
+                        "pětk",
+                        "sobota"
                     ]
                 },
                 "eras": {
@@ -2140,8 +2140,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "AM",
-                    "pm": "PM"
+                    "am": "dopołdnja",
+                    "pm": "wótpołdnja"
                 }
             }
         }
@@ -2156,25 +2156,24 @@
                 "negativePattern": "-{number}"
             },
             "currency": {
-                "positivePattern": "{currency} {number}",
-                "negativePattern": "-{currency} {number}"
+                "positivePattern": "{number} {currency}",
+                "negativePattern": "-{number} {currency}"
             },
             "percent": {
-                "positivePattern": "{number}%",
-                "negativePattern": "-{number}%"
+                "positivePattern": "{number} %",
+                "negativePattern": "-{number} %"
             }
         },
         "symbols": {
             "latn": {
-                "decimal": ".",
-                "group": ",",
+                "decimal": ",",
+                "group": ".",
                 "nan": "NaN",
                 "percent": "%",
                 "infinity": "∞"
             }
         },
         "currencies": {
-            "AUD": "A$",
             "BRL": "R$",
             "CAD": "CA$",
             "CNY": "CN¥",
@@ -2183,12 +2182,14 @@
             "HKD": "HK$",
             "ILS": "₪",
             "INR": "₹",
-            "JPY": "JP¥",
+            "JPY": "¥",
             "KRW": "₩",
             "MXN": "MX$",
             "NZD": "NZ$",
+            "PLN": "zł",
+            "THB": "฿",
             "TWD": "NT$",
-            "USD": "US$",
+            "USD": "$",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",
