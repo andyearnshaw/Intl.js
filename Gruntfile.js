@@ -54,7 +54,12 @@ module.exports = function (grunt) {
         },
 
         jshint: {
-            all: ['index.js', 'src/*.js', '*.json']
+            options: {
+                eqeqeq: true
+            },
+            src: ['src/*.js'],
+            node: ['index.js', '*.json'],
+            build: ['tasks/**/*.js']
         },
 
         bundle_jsnext: {

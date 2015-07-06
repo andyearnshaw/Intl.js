@@ -564,7 +564,7 @@
                 parts[i] = parts[i].charAt(0).toUpperCase() + parts[i].slice(1);
 
             // Is it a singleton?
-            else if (parts[i].length === 1 && parts[i] != 'x')
+            else if (parts[i].length === 1 && parts[i] !== 'x')
                 break;
         }
         locale = $$core$$arrJoin.call(parts, '-');
@@ -761,7 +761,7 @@
 
             // c. If pos ≥ 2 and the character "-" occurs at index pos-2 of candidate,
             //    then decrease pos by 2.
-            if (pos >= 2 && candidate.charAt(pos - 2) == '-')
+            if (pos >= 2 && candidate.charAt(pos - 2) === '-')
                 pos -= 2;
 
             // d. Let candidate be the substring of candidate from position 0, inclusive,
@@ -3017,7 +3017,7 @@
             parts   = tag.split('-');
 
         // Create fallbacks for locale data with scripts, e.g. Latn, Hans, Vaii, etc
-        if (parts.length > 2 && parts[1].length == 4)
+        if (parts.length > 2 && parts[1].length === 4)
             $$core$$arrPush.call(locales, parts[0] + '-' + parts[2]);
 
         while (locale = $$core$$arrShift.call(locales)) {
