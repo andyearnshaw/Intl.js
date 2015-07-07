@@ -4,7 +4,7 @@
 var expDTComponents = /(?:[Eec]{1,6}|G{1,5}|(?:[yYu]+|U{1,5})|[ML]{1,5}|d{1,2}|a|[hkHK]{1,2}|m{1,2}|s{1,2}|z{1,4})(?=([^']*'[^']*')*[^']*$)/g;
 
 // Skip over patterns with these datetime components
-var unwantedDTCs = /[QxXVOvZASjgFDwWIQqH]/;
+var unwantedDTCs = /[QxXVOvZASjgFDwWIQq]/;
 
 // Maps the number of characters in a CLDR pattern to the specification
 var dtcLengthMap = {
@@ -107,11 +107,14 @@ export function createDateTimeFormat(format) {
     formatObj.pattern = formatObj.pattern.replace(/'([^']*)'/g, function ($0, literal) {
         return literal ? literal : "'";
     });
+    // Pattern for 12 hours inherit from pattern by default.
+    formatObj.pattern12 = formatObj.pattern;
 
     if (formatObj.pattern.indexOf('{ampm}') > -1) {
         formatObj.hour12 = true;
-        formatObj.pattern12 = formatObj.pattern;
         formatObj.pattern = formatObj.pattern.replace('{ampm}', '').replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
+    } else {
+        formatObj.hour12 = false;
     }
 
     return formatObj;
