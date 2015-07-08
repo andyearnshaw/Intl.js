@@ -1,7 +1,7 @@
 {
   "name": "intl",
-  "version": "1.0.0-rc-1",
-  "description": "polyfill the ECMA-402 Intl API (except collation)",
+  "version": "1.0.0",
+  "description": "Polyfill the ECMA-402 Intl API (except collation)",
   "main": ["dist/Intl.js", "locale-data/jsonp"],
   "keywords": [
     "intl",
