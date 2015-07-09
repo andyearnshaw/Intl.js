@@ -7,6 +7,10 @@
   "directories": {
     "test": "tests"
   },
+  "browser": {
+    "./locale-data/complete": false,
+    "./locale-data/complete.js": false
+  },
   "devDependencies": {
     "async": "^0.9.0",
     "cldr-cal-buddhist-full": "^27.0.3",
