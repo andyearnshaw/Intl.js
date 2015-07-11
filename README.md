@@ -2,15 +2,10 @@
 
 In December 2012, ECMA International published the first edition of Standard ECMA-402,
 better known as the _ECMAScript Internationalization API_. This specification provides
-the framework to bring long overdue localisation methods to ECMAScript implementations.
+the framework to bring long overdue localization methods to ECMAScript implementations.
 
-Google have an implementation of this API that is available in recent versions of V8
-and Chrome/Chromium 24 and later. Mozilla also have a working implementation in the
-current Firefox nightly builds.
-
-`Intl.js` fills the void of availability for this API. It will provide the framework as
-described by the specification, so that developers can take advantage of the native API
-in environments that support it, or `Intl.js` for legacy or unsupporting environments.
+All modern browsers, except safari, have implemented his API. `Intl.js` fills the void of availability for this API. It will provide the framework as described by the specification, so that developers can take advantage of the native API
+in environments that support it, or `Intl.js` for legacy or unsupported environments.
 
 [Build Status]: https://travis-ci.org/andyearnshaw/Intl.js.svg?branch=master
 
@@ -35,22 +30,27 @@ document.getElementById('price').textContent = nf.format(100);
 ```
 
 Ideally, you will avoid loading this library if the browser supports the
-built-in `Intl`. An example of conditional usage using [yepnopejs][] library
+built-in `Intl`. An example of conditional usage using [browserify][] or [webpack][]
 _might_ look like this:
 
 ```javascript
-yepnope({
-  test : window.Intl,
-  nope : ['path/to/intl.js'],
-  complete: function () {
-    var nf = new Intl.NumberFormat(undefined, {style:'currency', currency:'GBP'});
-    document.getElementById('price').textContent = nf.format(100);
-  }
-});
-
+function runMyApp() {
+  var nf = new Intl.NumberFormat(undefined, {style:'currency', currency:'GBP'});
+  document.getElementById('price').textContent = nf.format(100);
+}
+if (!window.Intl) {
+    require.ensure(['intl'], (require) => {
+        window.Intl = require('intl');
+        // locale data should be also included here...
+        runMyApp()
+    });
+} else {
+    runMyApp()
+}
 ```
 
-[yepnopejs]: http://yepnopejs.com/
+[webpack]: https://webpack.github.io/
+[browserify]: http://browserify.org/
 
 ## Status
 Current progress is as follows:
@@ -113,23 +113,17 @@ to legacy (ES3) environments, and the goal of this project is to at least provid
 working, albeit non-compliant implementation where ES5 methods are unavailable.
 
 A subset of the tests in the test suite are run in IE 8.  Tests that are not passable
-are skipped, but these tests are mostly about ensuring built-in function behaviour.
+are skipped, but these tests are mostly about ensuring built-in function behavior.
 
 
 ## Locale Data
-`Intl.js` uses the Unicode CLDR locale data, as recommended by the specification.
-The data is available in JSON format, or JSONP format in the [locale-data](https://github.com/andyearnshaw/Intl.js/tree/master/locale-data)
-folder.  This has been converted from CLDR version 24 using the script and config file
-in the [tools](https://github.com/andyearnshaw/Intl.js/tree/master/tools) folder.
-
-The main `Intl.js` file contains no locale data itself.  In browser environments, the
-data should be provided, parsed into a JavaScript object, using the
+`Intl.js` uses the Unicode CLDR locale data, as recommended by the specification. The main `Intl.js` file contains no locale data itself. In browser environments, the
+data should be provided, passed into a JavaScript object using the
 `Intl.__addLocaleData()` method.  In Node.js, or when using `require('intl')`, the data
 is automatically added to the runtime and does not need to be provided.
 
 Contents of the `locale-data` directory are a modified form of the Unicode CLDR
-data found at http://www.unicode.org/cldr/data/.  See the `LICENSE.txt` file
-accompanying this software for terms of use.
+data found at http://www.unicode.org/cldr/.
 
 
 ## Contribute
