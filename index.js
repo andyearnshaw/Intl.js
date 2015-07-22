@@ -1,5 +1,5 @@
 var m = require('./lib/core.js'),
-    IntlPolyfill = m.default;
+    IntlPolyfill = m['default'];
 
 // Expose `IntlPolyfill` as global to add locale data into runtime later on.
 global.IntlPolyfill = IntlPolyfill;
@@ -17,4 +17,4 @@ if (!global.Intl) {
 // providing an idiomatic api for the nodejs version of this module
 module.exports = exports = IntlPolyfill;
 // preserving the original api in case another module is relying on that
-exports.default = IntlPolyfill;
+exports['default'] = IntlPolyfill;
