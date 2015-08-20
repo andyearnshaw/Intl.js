@@ -11,37 +11,78 @@ in environments that support it, or `Intl.js` for legacy or unsupported environm
 
 
 ## Getting started
-For Node.js applications, you can install Intl.js using NPM:
+
+### Intl.js and FT Polyfill Service
+
+Intl.js polyfill was recently added to the [Polyfill service][], which is developed and maintained by a community of contributors led by a team at the [Financial Times](http://www.ft.com/). It is available thru `cdn.polyfill.io` domain, which routes traffic through [Fastly](http://www.fastly.com/), which makes it available with global high availability and superb performance no matter where your users are.
+
+To use the Intl polyfill thru the [Polyfill service][] just add one script tag in your page before you load or parse your own JavaScript:
+
+```
+<script src="https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.en"></script>
+```
+
+When specifying the `features` to use thru the polyfill service, you have to specify what locale, or locales to load along with the Intl polyfill for the page to function, in the example above we are specifying `Intl.~locale.en`, which means only `en`, but you could do something like this:
+
+```
+<script src="https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.fr,Intl.~locale.pt"></script>
+```
+
+_note: the example above will load the polyfill with two locale data set, `fr` and `pt`._
+
+This is by far the best option to use the Intl polyfill since it will only load the polyfill code and the corresponding locale data when it is really needed (e.g.: safari will get the code and patch the runtime while chrome will get an empty script tag).
+
+[Polyfill service]: https://cdn.polyfill.io/v1/docs/
+
+### Intl.js and Node
+
+For Node.js applications, you can install `intl` using NPM:
 
     npm install intl
 
-Intl.js is also available as a [Bower](http://bower.io) component for the front-end:
+Node.js 0.12 has the Intl APIs built-in, but only includes the English locale data by default. If your app needs to support more locales than English, you'll need to [built Node with the extra locale data](https://github.com/joyent/node/wiki/Intl), or use `intl` npm package to patch the runtime with the Intl polyfill. Node.js versions prior to 0.12 don't provide the Intl APIs, so they require that the runtime is polyfilled.
 
-    bower install intl
-
-For other setups, just clone the repo for the pre-built scripts and locale datafiles.
-
-In browser environments, the library will try to patch the browser by defining
-the global `Intl` is not defined.  An example of usage _might_ look like this:
+The following code snippet uses the intl polyfill and [intl-locales-supported](https://github.com/yahoo/intl-locales-supported) npm packages which will help you polyfill the Node.js runtime when the Intl APIs are missing, or if the built-in Intl is missing locale data that's needed for your app:
 
 ```javascript
-var nf = new Intl.NumberFormat(undefined, {style:'currency', currency:'GBP'});
-document.getElementById('price').textContent = nf.format(100);
+var areIntlLocalesSupported = require('intl-locales-supported');
+
+var localesMyAppSupports = [
+    /* list locales here */
+];
+
+if (global.Intl) {
+    // Determine if the built-in `Intl` has the locale data we need.
+    if (!areIntlLocalesSupported(localesMyAppSupports)) {
+        // `Intl` exists, but it doesn't have the data we need, so load the
+        // polyfill and replace the constructors with need with the polyfill's.
+        require('intl');
+        Intl.NumberFormat   = IntlPolyfill.NumberFormat;
+        Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
+    }
+} else {
+    // No `Intl`, so use and load the polyfill.
+    global.Intl = require('intl');
+}
 ```
 
-Ideally, you will avoid loading this library if the browser supports the
-built-in `Intl`. An example of conditional usage using [browserify][] or [webpack][]
-_might_ look like this:
+### Intl.js and Browserify/webpack
+
+If you build your application using [browserify][] or [webpack][], you will install `intl` npm package as a dependency of your application. Ideally, you will avoid loading this library if the browser supports the
+built-in `Intl`. An example of conditional usage using [browserify][] or [webpack][] _might_ look like this:
 
 ```javascript
 function runMyApp() {
-  var nf = new Intl.NumberFormat(undefined, {style:'currency', currency:'GBP'});
-  document.getElementById('price').textContent = nf.format(100);
+    var nf = new Intl.NumberFormat(undefined, {style:'currency', currency:'GBP'});
+    document.getElementById('price').textContent = nf.format(100);
 }
-if (!window.Intl) {
-    require.ensure(['intl'], (require) => {
-        window.Intl = require('intl');
-        // locale data should be also included here...
+if (!global.Intl) {
+    require.ensure([
+        'intl',
+        'intl/locale-data/jsonp/en.js'
+    ], function (require) {
+        require('intl');
+        require('intl/locale-data/jsonp/en.js');
         runMyApp()
     });
 } else {
@@ -49,8 +90,25 @@ if (!window.Intl) {
 }
 ```
 
+_note: the locale data is required for the polyfill to function when using it in a browser environment, in the example above, the english (`en`) locale is being required along with the polyfill itself._
+
 [webpack]: https://webpack.github.io/
 [browserify]: http://browserify.org/
+
+### Intl.js and Bower
+
+Intl.js is also available as a [Bower](http://bower.io) component for the front-end:
+
+    bower install intl
+
+Then include the polyfill in your pages as described below:
+
+```html
+<script src="path/to/intl/Intl.js"></script>
+<script src="path/to/intl/locale-data/jsonp/en.js"></script>
+```
+
+_note: use the locale for the current user, instead of hard-coding to `en`._
 
 ## Status
 Current progress is as follows:
