@@ -56,7 +56,7 @@ if (global.Intl) {
     if (!areIntlLocalesSupported(localesMyAppSupports)) {
         // `Intl` exists, but it doesn't have the data we need, so load the
         // polyfill and replace the constructors with need with the polyfill's.
-        require('intl'); // declares global var 'IntlPolyfill'
+        var IntlPolyfill = require('intl'); // will not replace global Intl since it already exists
         Intl.NumberFormat   = IntlPolyfill.NumberFormat;
         Intl.DateTimeFormat = IntlPolyfill.DateTimeFormat;
     }
