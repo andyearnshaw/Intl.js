@@ -40,7 +40,7 @@ For Node.js applications, you can install `intl` using NPM:
 
     npm install intl
 
-Node.js 0.12 has the Intl APIs built-in, but only includes the English locale data by default. If your app needs to support more locales than English, you'll need to [built Node with the extra locale data](https://github.com/joyent/node/wiki/Intl), or use `intl` npm package to patch the runtime with the Intl polyfill. Node.js versions prior to 0.12 don't provide the Intl APIs, so they require that the runtime is polyfilled.
+Node.js 0.12 has the Intl APIs built-in, but only includes the English locale data by default. If your app needs to support more locales than English, you'll need to [get Node to load the extra locale data](https://github.com/nodejs/node/wiki/Intl), or use `intl` npm package to patch the runtime with the Intl polyfill. Node.js versions prior to 0.12 and ≥v3.1 don't provide the Intl APIs, so they require that the runtime is polyfilled.
 
 The following code snippet uses the intl polyfill and [intl-locales-supported](https://github.com/yahoo/intl-locales-supported) npm packages which will help you polyfill the Node.js runtime when the Intl APIs are missing, or if the built-in Intl is missing locale data that's needed for your app:
 
