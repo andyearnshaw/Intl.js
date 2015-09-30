@@ -14,15 +14,15 @@ in environments that support it, or `Intl.js` for legacy or unsupported environm
 
 ### Intl.js and FT Polyfill Service
 
-Intl.js polyfill was recently added to the [Polyfill service][], which is developed and maintained by a community of contributors led by a team at the [Financial Times](http://www.ft.com/). It is available thru `cdn.polyfill.io` domain, which routes traffic through [Fastly](http://www.fastly.com/), which makes it available with global high availability and superb performance no matter where your users are.
+Intl.js polyfill was recently added to the [Polyfill service][], which is developed and maintained by a community of contributors led by a team at the [Financial Times](http://www.ft.com/). It is available through `cdn.polyfill.io` domain, which routes traffic through [Fastly](http://www.fastly.com/), which makes it available with global high availability and superb performance no matter where your users are.
 
-To use the Intl polyfill thru the [Polyfill service][] just add one script tag in your page before you load or parse your own JavaScript:
+To use the Intl polyfill through the [Polyfill service][] just add one script tag in your page before you load or parse your own JavaScript:
 
 ```
 <script src="https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.en"></script>
 ```
 
-When specifying the `features` to use thru the polyfill service, you have to specify what locale, or locales to load along with the Intl polyfill for the page to function, in the example above we are specifying `Intl.~locale.en`, which means only `en`, but you could do something like this:
+When specifying the `features` to use through the polyfill service, you have to specify what locale, or locales to load along with the Intl polyfill for the page to function, in the example above we are specifying `Intl.~locale.en`, which means only `en`, but you could do something like this:
 
 ```
 <script src="https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.fr,Intl.~locale.pt"></script>
