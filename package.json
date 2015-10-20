@@ -1,6 +1,6 @@
 {
   "name": "intl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Polyfill the ECMA-402 Intl API (except collation)",
   "main": "index.js",
   "jsnext:main": "src/main.js",
