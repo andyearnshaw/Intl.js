@@ -2296,6 +2296,11 @@ function BestFitFormatMatcher (options, formats) {
     get: GetFormatDateTime
 });
 
+defineProperty(Intl.DateTimeFormat.prototype, 'formatToParts', {
+    configurable: true,
+    get: GetFormatToPartsDateTime
+});
+
 function GetFormatDateTime() {
     var internal = this != null && typeof this === 'object' && getInternalProperties(this);
 
@@ -2339,14 +2344,25 @@ function GetFormatDateTime() {
     return internal['[[boundFormat]]'];
 }
 
-/**
- * When the FormatDateTime abstract operation is called with arguments dateTimeFormat
- * (which must be an object initialized as a DateTimeFormat) and x (which must be a Number
- * value), it returns a String value representing x (interpreted as a time value as
- * specified in ES5, 15.9.1.1) according to the effective locale and the formatting
- * options of dateTimeFormat.
- */
-function FormatDateTime(dateTimeFormat, x) {
+function GetFormatToPartsDateTime() {
+    var internal = this != null && typeof this === 'object' && getInternalProperties(this);
+
+    if (!internal || !internal['[[initializedDateTimeFormat]]'])
+        throw new TypeError('`this` value for formatToParts() is not an initialized Intl.DateTimeFormat object.');
+
+    if (internal['[[boundFormatToParts]]'] === undefined) {
+        var
+            F = function () {
+                var x = Number(arguments.length === 0 ? Date.now() : arguments[0]);
+                return FormatToPartsDateTime(this, x);
+            },
+            bf = fnBind.call(F, this);
+        internal['[[boundFormatToParts]]'] = bf;
+    }
+    return internal['[[boundFormatToParts]]'];
+}
+
+function CreateDateTimeParts(dateTimeFormat, x) {
     // 1. If x is not a finite Number, then throw a RangeError exception.
     if (!isFinite(x))
         throw new RangeError('Invalid valid date passed to format');
@@ -2377,7 +2393,19 @@ function FormatDateTime(dateTimeFormat, x) {
         tm = ToLocalTime(x, internal['[[calendar]]'], internal['[[timeZone]]']),
 
     // 6. Let result be the value of the [[pattern]] internal property of dateTimeFormat.
-        result = internal['[[pattern]]'],
+        pattern = internal['[[pattern]]'],
+
+    // 7.
+        result = new List(),
+
+    // 8.
+        index = 0,
+
+    // 9.
+        beginIndex = pattern.indexOf('{'),
+
+    // 10.
+        endIndex = 0,
 
     // Need the locale minus any extensions
         dataLocale = internal['[[dataLocale]]'],
@@ -2386,118 +2414,166 @@ function FormatDateTime(dateTimeFormat, x) {
         localeData = internals.DateTimeFormat['[[localeData]]'][dataLocale].calendars,
         ca = internal['[[calendar]]'];
 
-    // 7. For each row of Table 3, except the header row, do:
-    for (var p in dateTimeComponents) {
-        // a. If dateTimeFormat has an internal property with the name given in the
-        //    Property column of the row, then:
-        if (hop.call(internal, '[['+ p +']]')) {
-            var
-            // Assigned values below
-                pm, fv,
-
-            //   i. Let p be the name given in the Property column of the row.
-            //  ii. Let f be the value of the [[<p>]] internal property of dateTimeFormat.
-                f = internal['[['+ p +']]'],
-
-            // iii. Let v be the value of tm.[[<p>]].
-                v = tm['[['+ p +']]'];
-
-            //  iv. If p is "year" and v ≤ 0, then let v be 1 - v.
-            if (p === 'year' && v <= 0)
+    // 11.
+        while (beginIndex !== -1) {
+            var fv;
+            // a.
+            var endIndex = pattern.indexOf('}', beginIndex);
+            // b.
+            if (endIndex === -1) {
+              throw new Error('Unclosed pattern');
+            }
+            // c.
+            if (beginIndex > index) {
+                arrPush.call(result, {
+                    type: 'separator',
+                    value: pattern.substring(index, beginIndex)
+                });
+            }
+            // d.
+            var p = pattern.substring(beginIndex + 1, endIndex);
+            // e.
+            if (dateTimeComponents.hasOwnProperty(p)) {
+              //   i. Let f be the value of the [[<p>]] internal property of dateTimeFormat.
+              var f = internal['[['+ p +']]'];
+              //  ii. Let v be the value of tm.[[<p>]].
+              var v = tm['[['+ p +']]'];
+              // iii. If p is "year" and v ≤ 0, then let v be 1 - v.
+              if (p === 'year' && v <= 0) {
                 v = 1 - v;
-
-            //   v. If p is "month", then increase v by 1.
-            else if (p === 'month')
+              }
+              //  iv. If p is "month", then increase v by 1.
+              else if (p === 'month') {
                 v++;
-
-            //  vi. If p is "hour" and the value of the [[hour12]] internal property of
-            //      dateTimeFormat is true, then
-            else if (p === 'hour' && internal['[[hour12]]'] === true) {
-                // 1. Let v be v modulo 12.
-                v = v % 12;
-
-                // 2. If v is equal to the value of tm.[[<p>]], then let pm be false; else
-                //    let pm be true.
-                pm = v !== tm['[['+ p +']]'];
-
-                // 3. If v is 0 and the value of the [[hourNo0]] internal property of
-                //    dateTimeFormat is true, then let v be 12.
-                if (v === 0 && internal['[[hourNo0]]'] === true)
-                    v = 12;
-            }
-
-            // vii. If f is "numeric", then
-            if (f === 'numeric')
-                // 1. Let fv be the result of calling the FormatNumber abstract operation
-                //    (defined in 11.3.2) with arguments nf and v.
-                fv = FormatNumber(nf, v);
-
-            // viii. Else if f is "2-digit", then
-            else if (f === '2-digit') {
-                // 1. Let fv be the result of calling the FormatNumber abstract operation
-                //    with arguments nf2 and v.
-                fv = FormatNumber(nf2, v);
-
-                // 2. If the length of fv is greater than 2, let fv be the substring of fv
-                //    containing the last two characters.
-                if (fv.length > 2)
-                    fv = fv.slice(-2);
-            }
-
-            // ix. Else if f is "narrow", "short", or "long", then let fv be a String
-            //     value representing f in the desired form; the String value depends upon
-            //     the implementation and the effective locale and calendar of
-            //     dateTimeFormat. If p is "month", then the String value may also depend
-            //     on whether dateTimeFormat has a [[day]] internal property. If p is
-            //     "timeZoneName", then the String value may also depend on the value of
-            //     the [[inDST]] field of tm.
-            else if (f in dateWidths) {
+              }
+              //   v. If p is "hour" and the value of the [[hour12]] internal property of
+              //      dateTimeFormat is true, then
+              else if (p === 'hour' && internal['[[hour12]]'] === true) {
+                  // 1. Let v be v modulo 12.
+                  v = v % 12;
+                  // 2. If v is 0 and the value of the [[hourNo0]] internal property of
+                  //    dateTimeFormat is true, then let v be 12.
+                  if (v === 0 && internal['[[hourNo0]]'] === true) {
+                      v = 12;
+                  }
+              }
+              
+              //  vi. If f is "numeric", then
+              if (f === 'numeric') {
+                  // 1. Let fv be the result of calling the FormatNumber abstract operation
+                  //    (defined in 11.3.2) with arguments nf and v.
+                  fv = FormatNumber(nf, v);
+              }
+              // vii. Else if f is "2-digit", then
+              else if (f === '2-digit') {
+                  // 1. Let fv be the result of calling the FormatNumber abstract operation
+                  //    with arguments nf2 and v.
+                  fv = FormatNumber(nf2, v);
+                  // 2. If the length of fv is greater than 2, let fv be the substring of fv
+                  //    containing the last two characters.
+                  if (fv.length > 2) {
+                      fv = fv.slice(-2);
+                  }
+              }
+              // viii. Else if f is "narrow", "short", or "long", then let fv be a String
+              //     value representing f in the desired form; the String value depends upon
+              //     the implementation and the effective locale and calendar of
+              //     dateTimeFormat. If p is "month", then the String value may also depend
+              //     on whether dateTimeFormat has a [[day]] internal property. If p is
+              //     "timeZoneName", then the String value may also depend on the value of
+              //     the [[inDST]] field of tm.
+              else if (f in dateWidths) {
                 switch (p) {
-                    case 'month':
-                        fv = resolveDateString(localeData, ca, 'months', f, tm['[['+ p +']]']);
-                        break;
+                  case 'month':
+                    fv = resolveDateString(localeData, ca, 'months', f, tm['[['+ p +']]']);
+                    break;
 
-                    case 'weekday':
-                        try {
-                            fv = resolveDateString(localeData, ca, 'days', f, tm['[['+ p +']]']);
-                            // fv = resolveDateString(ca.days, f)[tm['[['+ p +']]']];
-                        } catch (e) {
-                            throw new Error('Could not find weekday data for locale '+locale);
-                        }
-                        break;
+                  case 'weekday':
+                    try {
+                      fv = resolveDateString(localeData, ca, 'days', f, tm['[['+ p +']]']);
+                      // fv = resolveDateString(ca.days, f)[tm['[['+ p +']]']];
+                    } catch (e) {
+                      throw new Error('Could not find weekday data for locale '+locale);
+                    }
+                    break;
 
-                    case 'timeZoneName':
-                        fv = ''; // TODO
-                        break;
+                  case 'timeZoneName':
+                    fv = ''; // TODO
+                    break;
 
                     // TODO: Era
-                    default:
-                        fv = tm['[['+ p +']]'];
+                  default:
+                    fv = tm['[['+ p +']]'];
                 }
+              }
+              // ix
+              arrPush.call(result, {
+                type: p,
+                value: fv
+              });
+            // f.
+            } else if (p === 'ampm') {
+              // i.
+              v = tm['[[hour]]'];
+              // ii./iii.
+              fv = resolveDateString(localeData, ca, 'dayPeriods', v > 11 ? 'pm' : 'am');
+              // iv.
+              arrPush.call(result, {
+                type: 'dayperiod',
+                value: fv
+              });
+            // g.
+            } else {
+              arrPush.call(result, {
+                type: 'separator',
+                value: pattern.substring(beginIndex, endIndex)
+              });
             }
-
-            // x. Replace the substring of result that consists of "{", p, and "}", with
-            //    fv.
-            result = result.replace('{'+ p +'}', fv);
+            // h.
+            index = endIndex + 1;
+            // i.
+            beginIndex = pattern.indexOf('{', index);
         }
-    }
-    // 8. If dateTimeFormat has an internal property [[hour12]] whose value is true, then
-    if (internal['[[hour12]]'] === true) {
-        // a. If pm is true, then let fv be an implementation and locale dependent String
-        //    value representing “post meridiem”; else let fv be an implementation and
-        //    locale dependent String value representing “ante meridiem”.
-        fv = resolveDateString(localeData, ca, 'dayPeriods', pm ? 'pm' : 'am');
-
-        // b. Replace the substring of result that consists of "{ampm}", with fv.
-        result = result.replace('{ampm}', fv);
-    }
-
-    // Restore properties of the RegExp object
-    regexpState.exp.test(regexpState.input);
-
-    // 9. Return result.
-    return result;
+        // 12.
+        if (endIndex < pattern.length - 1) {
+          arrPush.call(result, {
+            type: 'separator',
+            value: pattern.substr(endIndex)
+          });
+        }
+        // 13.
+        return result;
 }
+
+/**
+ * When the FormatDateTime abstract operation is called with arguments dateTimeFormat
+ * (which must be an object initialized as a DateTimeFormat) and x (which must be a Number
+ * value), it returns a String value representing x (interpreted as a time value as
+ * specified in ES5, 15.9.1.1) according to the effective locale and the formatting
+ * options of dateTimeFormat.
+ */
+function FormatDateTime(dateTimeFormat, x) {
+  var parts = CreateDateTimeParts(dateTimeFormat, x);
+  var result = '';
+
+  for (var part in parts) {
+      result += parts[part].value;
+  }
+  return result;
+}
+
+function FormatToPartsDateTime(dateTimeFormat, x) {
+  var parts = CreateDateTimeParts(dateTimeFormat, x);
+  var result = [];
+  for (var part in parts) {
+    result.push({
+      type: parts[part].type,
+      value: parts[part].value
+    });
+  }
+  return result;
+}
+
 
 /**
  * When the ToLocalTime abstract operation is called with arguments date, calendar, and
