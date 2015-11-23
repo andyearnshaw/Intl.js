@@ -4,7 +4,7 @@ In December 2012, ECMA International published the first edition of Standard ECM
 better known as the _ECMAScript Internationalization API_. This specification provides
 the framework to bring long overdue localization methods to ECMAScript implementations.
 
-All modern browsers, except safari, have implemented his API. `Intl.js` fills the void of availability for this API. It will provide the framework as described by the specification, so that developers can take advantage of the native API
+All modern browsers, except safari, have implemented this API. `Intl.js` fills the void of availability for this API. It will provide the framework as described by the specification, so that developers can take advantage of the native API
 in environments that support it, or `Intl.js` for legacy or unsupported environments.
 
 [Build Status]: https://travis-ci.org/andyearnshaw/Intl.js.svg?branch=master
