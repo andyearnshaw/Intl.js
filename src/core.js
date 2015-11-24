@@ -2153,7 +2153,7 @@ function calculateScore (options, formats, bestFit) {
     while (i < len) {
         var
         // a. Let format be the result of calling the [[Get]] internal method of formats with argument ToString(i).
-            format = formats[i],
+            format = formats[i].match,
 
         // b. Let score be 0.
             score = 0;
@@ -2230,15 +2230,46 @@ function calculateScore (options, formats, bestFit) {
             bestScore = score;
 
             // ii. Let bestFormat be format.
-            bestFormat = format;
+            bestFormat = formats[i].format;
         }
 
         // e. Increase i by 1.
         i++;
     }
 
-    // 12. Return bestFormat.
-    return bestFormat;
+    // return clone of bestFormat with our format preferences overlaid
+    var ret = new Record();
+    for (property in bestFormat) {
+        if (!hop.call(bestFormat, property))
+            continue;
+
+        ret[property] = bestFormat[property];
+    }
+
+    // assign groups to formats so we know if a preferred format can be
+    // used in place of that on bestFormat
+    var formatGroup = {
+        "numeric": "1",
+        "2-digit": "1",
+        "narrow": "2",
+        "short": "2",
+        "long": "2"
+    };
+
+    for (property in dateTimeComponents) {
+        if (!hop.call(dateTimeComponents, property))
+            continue;
+
+        optionsProp = options['[['+ property +']]'];
+
+        // only use our preference if it's compatible with bestFormat
+        if (optionsProp &&
+            (formatGroup[optionsProp] === formatGroup[bestFormat[property]])) {
+            ret[property] = optionsProp;
+        }
+    }
+
+    return ret;
 }
 
 /**
