@@ -19,13 +19,13 @@ Intl.js polyfill was recently added to the [Polyfill service][], which is develo
 To use the Intl polyfill through the [Polyfill service][] just add one script tag in your page before you load or parse your own JavaScript:
 
 ```
-<script src="https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.en"></script>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>
 ```
 
 When specifying the `features` to use through the polyfill service, you have to specify what locale, or locales to load along with the Intl polyfill for the page to function, in the example above we are specifying `Intl.~locale.en`, which means only `en`, but you could do something like this:
 
 ```
-<script src="https://cdn.polyfill.io/v1/polyfill.min.js?features=Intl.~locale.fr,Intl.~locale.pt"></script>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.fr,Intl.~locale.pt"></script>
 ```
 
 _note: the example above will load the polyfill with two locale data set, `fr` and `pt`._
