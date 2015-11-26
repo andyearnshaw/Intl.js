@@ -2002,6 +2002,27 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
     regexpState.exp.test(regexpState.input);
 
     // Return the newly initialised object
+    dateTimeFormat.resolved = {
+        calendar: ({
+            'gregory': 'gregorian' // FIXME: Chrome bug?
+        }[internal['[[calendar]]']]),
+        day: internal['[[day]]'],
+        era: internal['[[era]]'],
+        hour: internal['[[hour]]'],
+        hour12: internal['[[hour12]]'],
+        locale: internal['[[locale]]'],
+        minute: internal['[[minute]]'],
+        month: internal['[[month]]'],
+        numberingSystem: internal['[[numberingSystem]]'],
+        pattern: bestFormat.format, // Non-standard: y-M-d
+        requestedLocale: internal['[[dataLocale]]'], // FIXME: Am I right?
+        second: internal['[[second]]'],
+        timeZone: internal['[[timeZone]]'],
+        timeZoneName: internal['[[timeZoneName]]'],
+        //tz: undefined, // FIXME: Chrome bug - Is it same as internal['[[timeZone]]'] ?
+        weekday: internal['[[weekday]]'],
+        year: internal['[[year]]']
+    };
     return dateTimeFormat;
 }
 

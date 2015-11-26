@@ -46,6 +46,7 @@ export function createDateTimeFormat(format) {
 
     // Replace the pattern string with the one required by the specification, whilst
     // at the same time evaluating it for the subsets and formats
+    formatObj.format = format;
     formatObj.pattern = format.replace(expDTComponents, function ($0) {
         // See which symbol we're dealing with
         switch ($0.charAt(0)) {
