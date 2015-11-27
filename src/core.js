@@ -1944,8 +1944,9 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
         pattern,
 
     // 31. Let hr12 be the result of calling the GetOption abstract operation with
-    //     arguments options, "hour12", "boolean", undefined, and undefined.
-        hr12 = GetOption(options, 'hour12', 'boolean'/*, undefined, undefined*/);
+    //     arguments options, "hour12", "boolean", undefined, and the internal
+    //     value of "hour12" from the best format match as the result back value.
+        hr12 = GetOption(options, 'hour12', 'boolean', undefined, bestFormat.hour12);
 
     // 32. If dateTimeFormat has an internal property [[hour]], then
     if (internal['[[hour]]']) {
