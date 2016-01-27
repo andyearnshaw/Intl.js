@@ -1334,6 +1334,53 @@ function GetFormatNumber() {
         return internal['[[boundFormat]]'];
     }
 
+defineProperty(Intl.NumberFormat.prototype, 'formatToParts', {
+    configurable: true,
+    get: GetFormatToPartsNumber
+});
+
+function GetFormatToPartsNumber() {
+        var internal = this != null && typeof this === 'object' && getInternalProperties(this);
+
+        // Satisfy test 11.3_b
+        if (!internal || !internal['[[initializedNumberFormat]]'])
+            throw new TypeError('`this` value for format() is not an initialized Intl.NumberFormat object.');
+
+        // The value of the [[Get]] attribute is a function that takes the following
+        // steps:
+
+        // 1. If the [[boundFormat]] internal property of this NumberFormat object
+        //    is undefined, then:
+        if (internal['[[boundFormat]]'] === undefined) {
+            var
+            // a. Let F be a Function object, with internal properties set as
+            //    specified for built-in functions in ES5, 15, or successor, and the
+            //    length property set to 1, that takes the argument value and
+            //    performs the following steps:
+                F = function (value) {
+                    // i. If value is not provided, then let value be undefined.
+                    // ii. Let x be ToNumber(value).
+                    // iii. Return the result of calling the FormatNumber abstract
+                    //      operation (defined below) with arguments this and x.
+                    return FormatToPartsNumber(this, /* x = */Number(value));
+                },
+
+            // b. Let bind be the standard built-in function object defined in ES5,
+            //    15.3.4.5.
+            // c. Let bf be the result of calling the [[Call]] internal method of
+            //    bind with F as the this value and an argument list containing
+            //    the single item this.
+                bf = fnBind.call(F, this);
+
+            // d. Set the [[boundFormat]] internal property of this NumberFormat
+            //    object to bf.
+            internal['[[boundFormat]]'] = bf;
+        }
+        // Return the value of the [[boundFormat]] internal property of this
+        // NumberFormat object.
+        return internal['[[boundFormat]]'];
+    }
+
 /**
  * When the FormatNumber abstract operation is called with arguments numberFormat
  * (which must be an object initialized as a NumberFormat) and x (which must be a
@@ -1341,6 +1388,18 @@ function GetFormatNumber() {
  * effective locale and the formatting options of numberFormat.
  */
 function FormatNumber (numberFormat, x) {
+    var parts = CreateNumberParts(numberFormat, x);
+    return parts.map(function(part) {
+      return part.value;
+    }).join('');
+}
+
+function FormatToPartsNumber (numberFormat, x) {
+    return CreateNumberParts(numberFormat, x);
+}
+
+
+function CreateNumberParts (numberFormat, x) {
     var n,
 
     // Create an object whose props can be used to restore the values of RegExp props
@@ -1359,12 +1418,20 @@ function FormatNumber (numberFormat, x) {
     if (isFinite(x) === false) {
         // a. If x is NaN, then let n be an ILD String value indicating the NaN value.
         if (isNaN(x))
-            n = ild.nan;
+            n = [{
+              type: 'token',
+              name: 'nan',
+              value: ild.nan
+            }];
 
         // b. Else
         else {
             // a. Let n be an ILD String value indicating infinity.
-            n = ild.infinity;
+            n = [{
+              type: 'token',
+              name: 'infinity',
+              value: ild.infinity
+            }];
             // b. If x < 0, then let negative be true.
             if (x < 0)
                 negative = true;
@@ -1417,18 +1484,39 @@ function FormatNumber (numberFormat, x) {
             //    [[numberingSystem]] internal property.
             var digits = numSys[internal['[[numberingSystem]]']];
             // ii. Replace each digit in n with the value of digits[digit].
-            n = String(n).replace(/\d/g, function (digit) {
-                return digits[digit];
+            n = n.map(function(n) {
+                if (n.type === 'value') {
+                    return Object.assign(n, {
+                        value: String(n.value).replace(/\d/g, function (digit) {
+                            return digits[digit];
+                        })
+                    });
+                } else {
+                  return n;
+                }
             });
         }
         // f. Else use an implementation dependent algorithm to map n to the
         //    appropriate representation of n in the given numbering system.
         else
-            n = String(n); // ###TODO###
+            n = n.map(String); // ###TODO###
+            n = n.map(function(part) {
+              return Object.assign(part, {
+                  value: String(part.value)
+              });
+            });
 
         // g. If n contains the character ".", then replace it with an ILND String
         //    representing the decimal separator.
-        n = n.replace(/\./g, ild.decimal);
+        n = n.map(function(part) {
+            if (part.type === 'token' && part.name === 'decimalSeparator') {
+              return Object.assign(part, {
+                  value: ild.decimal,
+              });
+            } else {
+              return part;
+            }
+        });
 
         // h. If the value of the [[useGrouping]] internal property of numberFormat
         //    is true, then insert an ILND String representing a grouping separator
@@ -1483,7 +1571,8 @@ function FormatNumber (numberFormat, x) {
         result = internal[negative === true ? '[[negativePattern]]' : '[[positivePattern]]'];
 
     // 5. Replace the substring "{number}" within result with n.
-    result = result.replace('{number}', n);
+    //result = result.replace('{number}', n);
+    result = n;
 
     // 6. If the value of the [[style]] internal property of numberFormat is
     //    "currency", then:
@@ -1606,7 +1695,7 @@ function ToRawPrecision (x, minPrecision, maxPrecision) {
             m = m.slice(0, -1);
     }
     // 9. Return m.
-    return m;
+    return [m];
 }
 
 /**
@@ -1664,7 +1753,17 @@ function ToRawFixed (x, minInteger, minFraction, maxFraction) {
 
     // 10. Let m be the concatenation of Strings z and m.
     // 11. Return m.
-    return (z ? z : '') + m;
+    var rawParts = ((z ? z : '') + m).split(/\./);
+    console.log(z, m, rawParts);
+    return rawParts.length === 1 ?
+        [
+          { type: 'value', name: 'integer', value: rawParts[0] }
+        ] :
+        [
+          { type: 'value', name: 'integer', value: rawParts[0] },
+          { type: 'token', name: 'decimalSeparator', value: '.' },
+          { type: 'value', name: 'fraction', value: rawParts[1] },
+        ];
 }
 
 // Sect 11.3.2 Table 2, Numbering systems
