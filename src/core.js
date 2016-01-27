@@ -1568,11 +1568,20 @@ function CreateNumberParts (numberFormat, x) {
     // 4. If negative is true, then let result be the value of the [[negativePattern]]
     //    internal property of numberFormat; else let result be the value of the
     //    [[positivePattern]] internal property of numberFormat.
-        result = internal[negative === true ? '[[negativePattern]]' : '[[positivePattern]]'];
+        pattern = internal[negative === true ? '[[negativePattern]]' : '[[positivePattern]]'],
 
     // 5. Replace the substring "{number}" within result with n.
-    //result = result.replace('{number}', n);
-    result = n;
+        result = pattern.split(/(\{.*\})/).filter(function(part) {
+            return part !== '';
+        }).map(function(part) {
+            return { type: 'token', name: '???', value: part };
+        }).reduce(function(parts, part) {
+            if (part.value === '{number}') {
+              return parts.concat(n);
+            } else {
+              return parts.concat(part);
+            }
+        }, []);
 
     // 6. If the value of the [[style]] internal property of numberFormat is
     //    "currency", then:
@@ -1754,7 +1763,6 @@ function ToRawFixed (x, minInteger, minFraction, maxFraction) {
     // 10. Let m be the concatenation of Strings z and m.
     // 11. Return m.
     var rawParts = ((z ? z : '') + m).split(/\./);
-    console.log(z, m, rawParts);
     return rawParts.length === 1 ?
         [
           { type: 'value', name: 'integer', value: rawParts[0] }
