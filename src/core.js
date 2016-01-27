@@ -1499,10 +1499,9 @@ function CreateNumberParts (numberFormat, x) {
         // f. Else use an implementation dependent algorithm to map n to the
         //    appropriate representation of n in the given numbering system.
         else
-            n = n.map(String); // ###TODO###
             n = n.map(function(part) {
               return Object.assign(part, {
-                  value: String(part.value)
+                  value: String(part.value) // ###TODO###
               });
             });
 
@@ -1523,8 +1522,9 @@ function CreateNumberParts (numberFormat, x) {
         //    into an ILND set of locations within the integer part of n.
         if (internal['[[useGrouping]]'] === true) {
             var
-                parts  = n.split(ild.decimal),
-                igr    = parts[0],
+                igr = n.filter(function(part) {
+                    return part.type === 'value' && part.name === 'integer';
+                })[0].value,
 
                 // Primary group represents the group closest to the decimal
                 pgSize = data.patterns.primaryGroupSize || 3,
@@ -1546,21 +1546,35 @@ function CreateNumberParts (numberFormat, x) {
                     start  = igr.slice(0, idx);
 
                 if (start.length)
-                    arrPush.call(groups, start);
+                    arrPush.call(
+                        groups,
+                        {type: 'value', name: 'group', value: start},
+                        {type: 'token', name: 'groupSeparator', value: ild.group}
+                    );
 
                 // Loop to separate into secondary grouping digits
                 while (idx < end) {
-                    arrPush.call(groups, igr.slice(idx, idx + sgSize));
+                    arrPush.call(
+                        groups,
+                        {type: 'value', name: 'group', value: igr.slice(idx, idx + sgSize)},
+                        {type: 'token', name: 'groupSeparator', value: ild.group}
+                    );
                     idx += sgSize;
                 }
 
                 // Add the primary grouping digits
-                arrPush.call(groups, igr.slice(end));
+                arrPush.call(
+                    groups, {type: 'value', name: 'group', value: igr.slice(end)}
+                );
 
-                parts[0] = arrJoin.call(groups, ild.group);
+                n = n.reduce(function(parts, part) {
+                    if (part.type === 'value' && part.name === 'integer') {
+                        return parts.concat(arrSlice.call(groups));
+                    } else {
+                        return parts.concat(part);
+                    }
+                }, []);
             }
-
-            n = arrJoin.call(parts, ild.decimal);
         }
     }
 
