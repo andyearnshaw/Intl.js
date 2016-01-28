@@ -1588,7 +1588,7 @@ function CreateNumberParts (numberFormat, x) {
         result = pattern.split(/(\{.*\})/).filter(function(part) {
             return part !== '';
         }).map(function(part) {
-            return { type: 'token', name: '???', value: part };
+            return { type: 'token', name: 'pattern', value: part };
         }).reduce(function(parts, part) {
             if (part.value === '{number}') {
               return parts.concat(n);
