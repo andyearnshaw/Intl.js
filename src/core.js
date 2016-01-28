@@ -1419,8 +1419,7 @@ function CreateNumberParts (numberFormat, x) {
         // a. If x is NaN, then let n be an ILD String value indicating the NaN value.
         if (isNaN(x))
             n = [{
-              type: 'token',
-              name: 'nan',
+              type: 'nan',
               value: ild.nan
             }];
 
@@ -1428,8 +1427,7 @@ function CreateNumberParts (numberFormat, x) {
         else {
             // a. Let n be an ILD String value indicating infinity.
             n = [{
-              type: 'token',
-              name: 'infinity',
+              type: 'infinity',
               value: ild.infinity
             }];
             // b. If x < 0, then let negative be true.
@@ -1485,7 +1483,7 @@ function CreateNumberParts (numberFormat, x) {
             var digits = numSys[internal['[[numberingSystem]]']];
             // ii. Replace each digit in n with the value of digits[digit].
             n = n.map(function(n) {
-                if (n.type === 'value') {
+                if (n.type === 'integer' || n.type === 'fraction') {
                     return Object.assign(n, {
                         value: String(n.value).replace(/\d/g, function (digit) {
                             return digits[digit];
@@ -1508,7 +1506,7 @@ function CreateNumberParts (numberFormat, x) {
         // g. If n contains the character ".", then replace it with an ILND String
         //    representing the decimal separator.
         n = n.map(function(part) {
-            if (part.type === 'token' && part.name === 'decimalSeparator') {
+            if (part.type === 'decimalSeparator') {
               return Object.assign(part, {
                   value: ild.decimal,
               });
@@ -1523,7 +1521,7 @@ function CreateNumberParts (numberFormat, x) {
         if (internal['[[useGrouping]]'] === true) {
             var
                 igr = n.filter(function(part) {
-                    return part.type === 'value' && part.name === 'integer';
+                    return part.type === 'integer';
                 })[0].value,
 
                 // Primary group represents the group closest to the decimal
@@ -1548,27 +1546,27 @@ function CreateNumberParts (numberFormat, x) {
                 if (start.length)
                     arrPush.call(
                         groups,
-                        {type: 'value', name: 'group', value: start},
-                        {type: 'token', name: 'groupSeparator', value: ild.group}
+                        {type: 'group', value: start},
+                        {type: 'groupSeparator', value: ild.group}
                     );
 
                 // Loop to separate into secondary grouping digits
                 while (idx < end) {
                     arrPush.call(
                         groups,
-                        {type: 'value', name: 'group', value: igr.slice(idx, idx + sgSize)},
-                        {type: 'token', name: 'groupSeparator', value: ild.group}
+                        {type: 'group', value: igr.slice(idx, idx + sgSize)},
+                        {type: 'groupSeparator', value: ild.group}
                     );
                     idx += sgSize;
                 }
 
                 // Add the primary grouping digits
                 arrPush.call(
-                    groups, {type: 'value', name: 'group', value: igr.slice(end)}
+                    groups, {type: 'group', value: igr.slice(end)}
                 );
 
                 n = n.reduce(function(parts, part) {
-                    if (part.type === 'value' && part.name === 'integer') {
+                    if (part.type === 'integer') {
                         return parts.concat(arrSlice.call(groups));
                     } else {
                         return parts.concat(part);
@@ -1588,7 +1586,7 @@ function CreateNumberParts (numberFormat, x) {
         result = pattern.split(/(\{.*\})/).filter(function(part) {
             return part !== '';
         }).map(function(part) {
-            return { type: 'token', name: 'pattern', value: part };
+            return { type: 'prefix', value: part };
         }).reduce(function(parts, part) {
             if (part.value === '{number}') {
               return parts.concat(n);
@@ -1779,12 +1777,12 @@ function ToRawFixed (x, minInteger, minFraction, maxFraction) {
     var rawParts = ((z ? z : '') + m).split(/\./);
     return rawParts.length === 1 ?
         [
-          { type: 'value', name: 'integer', value: rawParts[0] }
+          { type: 'integer', value: rawParts[0] }
         ] :
         [
-          { type: 'value', name: 'integer', value: rawParts[0] },
-          { type: 'token', name: 'decimalSeparator', value: '.' },
-          { type: 'value', name: 'fraction', value: rawParts[1] },
+          { type: 'integer', value: rawParts[0] },
+          { type: 'decimalSeparator', value: '.' },
+          { type: 'fraction', value: rawParts[1] },
         ];
 }
 
