@@ -1935,7 +1935,9 @@ function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, options
                 p = bestFormat[prop];
 
             // ii. Set the [[<prop>]] internal property of dateTimeFormat to p.
-            internal['[['+prop+']]'] = p;
+            // Diverging from spec becuase of bug #58
+            // https://github.com/tc39/ecma402/issues/58
+            internal['[['+prop+']]'] = opt['[['+prop+']]'] || p;
         }
     }
 

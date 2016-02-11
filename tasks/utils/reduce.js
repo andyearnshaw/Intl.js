@@ -184,11 +184,32 @@ module.exports = function (locale, data) {
             };
         }
 
+        // Basic Date formats
+        // http://cldr.unicode.org/translation/date-time-patterns#TOC-Basic-Date-Formats
+        var basicDateFormats = {
+            yMMMMEEEEd: defCa.dateFormats.full,
+            yMMMMd: defCa.dateFormats.long,
+            yMMMd: defCa.dateFormats.medium,
+            yMd: defCa.dateFormats.short
+        };
+
+        // Basic Time Formats
+        // http://cldr.unicode.org/translation/date-time-patterns#TOC-Basic-Time-Formats
+        var basicTimeFormats = {
+            hmmsszzzz: defCa.timeFormats.full,
+            hmsz: defCa.timeFormats.long,
+            hms: defCa.timeFormats.medium,
+            hm: defCa.timeFormats.short
+        };
+
         ret.date.formats = {
+            short: defCa.dateTimeFormats.short,
             medium: defCa.dateTimeFormats.medium,
+            full: defCa.dateTimeFormats.full,
+            long: defCa.dateTimeFormats.long,
             availableFormats: defCa.dateTimeFormats.availableFormats,
-            dateFormats: defCa.dateFormats,
-            timeFormats: defCa.timeFormats
+            dateFormats: basicDateFormats,
+            timeFormats: basicTimeFormats
         };
     });
 
