@@ -92,20 +92,16 @@
     var $$exp$$expSingletonDupes = RegExp('^(?!x).*?-('+$$exp$$singleton+')-(?:\\w+-(?!x-))*\\1\\b', 'i');
 
     var $$exp$$expExtSequences = RegExp('-'+$$exp$$extension, 'ig');
-    var $$cldr$$expDTComponents = /(?:[Eec]{1,6}|G{1,5}|(?:[yYu]+|U{1,5})|[ML]{1,5}|d{1,2}|a|[hkHK]{1,2}|m{1,2}|s{1,2}|z{1,4})(?=([^']*'[^']*')*[^']*$)/g;
+    var $$cldr$$expDTComponents = /(?:[Eec]{1,6}|G{1,5}|[Qq]{1,5}|(?:[yYur]+|U{1,5})|[ML]{1,5}|d{1,2}|D{1,3}|F{1}|[abB]{1,5}|[hkHK]{1,2}|w{1,2}|W{1}|m{1,2}|s{1,2}|[zZOvVxX]{1,4})(?=([^']*'[^']*')*[^']*$)/g;
+    // trim patterns after transformations
+    var $$cldr$$expPatternTrimmer = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+    // Skip over patterns with these datetime components because we don't have data
+    // to back them up:
+    // timezone, weekday, amoung others
+    var $$cldr$$unwantedDTCs = /[rqQxXVOvZASjJgwWIQq]/;
 
-    // Skip over patterns with these datetime components
-    var $$cldr$$unwantedDTCs = /[QxXVOvZASjgFDwWIQqH]/;
-
-    // Maps the number of characters in a CLDR pattern to the specification
-    var $$cldr$$dtcLengthMap = {
-            month:   [ 'numeric', '2-digit', 'short', 'long', 'narrow' ],
-            weekday: [ 'short', 'short', 'short', 'long', 'narrow' ],
-            era:     [ 'short', 'short', 'short', 'long', 'narrow' ]
-        };
-
-    var $$cldr$$dtKeys = ["weekday", "era", "year", "month", "day"];
-    var $$cldr$$tmKeys = ["hour", "minute", "second", "timeZoneName"];
+    var $$cldr$$dtKeys = ["weekday", "era", "year", "month", "day", "weekday", "quarter"];
+    var $$cldr$$tmKeys = ["hour", "minute", "second", "hour12", "timeZoneName"];
 
     function $$cldr$$isDateFormatOnly(obj) {
         for (var i = 0; i < $$cldr$$tmKeys.length; i += 1) {
@@ -125,168 +121,324 @@
         return true;
     }
 
-    function $$cldr$$createDateTimeFormat(format) {
-        if ($$cldr$$unwantedDTCs.test(format))
+    function $$cldr$$joinDateAndTimeFormats(dateFormatObj, timeFormatObj) {
+        var o = {};
+        for (var i = 0; i < $$cldr$$dtKeys.length; i += 1) {
+            if (dateFormatObj[$$cldr$$dtKeys[i]]) {
+                o[$$cldr$$dtKeys[i]] = dateFormatObj[$$cldr$$dtKeys[i]];
+            }
+        }
+        for (var j = 0; j < $$cldr$$tmKeys.length; j += 1) {
+            if (timeFormatObj[$$cldr$$tmKeys[j]]) {
+                o[$$cldr$$tmKeys[j]] = timeFormatObj[$$cldr$$tmKeys[j]];
+            }
+        }
+        return o;
+    }
+
+    function $$cldr$$computeFinalPatterns(formatObj) {
+        // From http://www.unicode.org/reports/tr35/tr35-dates.html#Date_Format_Patterns:
+        //  'In patterns, two single quotes represents a literal single quote, either
+        //   inside or outside single quotes. Text within single quotes is not
+        //   interpreted in any way (except for two adjacent single quotes).'
+        formatObj.pattern12 = formatObj.extendedPattern.replace(/'([^']*)'/g, function ($0, literal) {
+            return literal ? literal : "'";
+        });
+
+        // pattern 12 is always the default. we can produce the 24 by removing {ampm}
+        formatObj.pattern = formatObj.pattern12.replace('{ampm}', '').replace($$cldr$$expPatternTrimmer, '');
+        return formatObj;
+    }
+
+    function $$cldr$$createDateTimeFormat(skeleton, pattern) {
+        // we ignore certain patterns that are unsupported to avoid this expensive op.
+        if ($$cldr$$unwantedDTCs.test(pattern))
             return undefined;
 
-        var formatObj = {};
+        var formatObj = {
+            originalPattern: pattern
+        };
 
         // Replace the pattern string with the one required by the specification, whilst
         // at the same time evaluating it for the subsets and formats
-        formatObj.pattern = format.replace($$cldr$$expDTComponents, function ($0) {
+        formatObj.extendedPattern = pattern.replace($$cldr$$expDTComponents, function ($0) {
             // See which symbol we're dealing with
             switch ($0.charAt(0)) {
+
+                // --- Era
+                case 'G':
+                    return '{era}';
+
+                // --- Year
+                case 'y':
+                case 'Y':
+                case 'u':
+                case 'U':
+                case 'r':
+                    return '{year}';
+
+                // --- Quarter (not supported in this polyfill)
+                case 'Q':
+                case 'q':
+                    return '{quarter}';
+
+                // --- Month
+                case 'M':
+                case 'L':
+                    return '{month}';
+
+                // --- Week (not supported in this polyfill)
+                case 'w':
+                case 'W':
+                    return '{weekday}';
+
+                // --- Day
+                case 'd':
+                case 'D':
+                case 'F':
+                case 'g':
+                    return '{day}';
+
+                // --- Week Day
                 case 'E':
                 case 'e':
                 case 'c':
-                    formatObj.weekday = $$cldr$$dtcLengthMap.weekday[$0.length-1];
                     return '{weekday}';
 
-                // Not supported yet
-                case 'G':
-                    formatObj.era = $$cldr$$dtcLengthMap.era[$0.length-1];
-                    return '{era}';
+                // --- Period
+                case 'a':
+                case 'b':
+                case 'B':
+                    return '{ampm}';
 
+                // --- Hour
+                case 'h':
+                case 'H':
+                case 'k':
+                case 'K':
+                    return '{hour}';
+
+                // --- Minute
+                case 'm':
+                    return '{minute}';
+
+                // --- Second
+                case 's':
+                case 'S':
+                case 'A':
+                    return '{second}';
+
+                // --- Timezone
+                case 'z':
+                case 'Z':
+                case 'O':
+                case 'v':
+                case 'V':
+                case 'X':
+                case 'x':
+                    return '{timeZoneName}';
+
+            }
+        });
+
+        // Match the skeleton string with the one required by the specification
+        // this implementation is based on the Date Field Symbol Table:
+        // http://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table
+        // Note: we are adding extra data to the formatObject even though this polyfill
+        //       might not support it.
+        skeleton.replace($$cldr$$expDTComponents, function ($0) {
+            // See which symbol we're dealing with
+            switch ($0.charAt(0)) {
+
+                // --- Era
+                case 'G':
+                    formatObj.era = [ 'short', 'short', 'short', 'long', 'narrow' ][$0.length-1];
+                    break;
+
+                // --- Year
                 case 'y':
                 case 'Y':
                 case 'u':
                 case 'U':
                     formatObj.year = $0.length === 2 ? '2-digit' : 'numeric';
-                    return '{year}';
+                    break;
+                // case 'r':
+                    // r: 1..n - For the Gregorian calendar, the 'r' year is the same as the 'u' year.
+                    // break;
 
+                // --- Quarter (not supported in this polyfill)
+                case 'Q':
+                case 'q':
+                    formatObj.quarter = [ 'numeric', '2-digit', 'short', 'long', 'narrow' ][$0.length-1];
+                    break;
+
+                // --- Month
                 case 'M':
                 case 'L':
-                    formatObj.month = $$cldr$$dtcLengthMap.month[$0.length-1];
-                    return '{month}';
+                    formatObj.month = [ 'numeric', '2-digit', 'short', 'long', 'narrow' ][$0.length-1];
+                    break;
 
+                // --- Week (not supported in this polyfill)
+                case 'w':
+                    // week of the year
+                    formatObj.week = $0.length === 2 ? '2-digit' : 'numeric';
+                    break;
+                case 'W':
+                    // week of the month
+                    formatObj.week = 'numeric';
+                    break;
+
+                // --- Day
                 case 'd':
+                    // day of the month
                     formatObj.day = $0.length === 2 ? '2-digit' : 'numeric';
-                    return '{day}';
+                    break;
+                case 'D':
+                    // day of the year
+                    formatObj.day = 'numeric';
+                    break;
+                case 'F':
+                    // day of the week
+                    formatObj.day = 'numeric';
+                    break;
+                // case 'g':
+                    // 1..n: Modified Julian day
+                    // break;
 
-                case 'a':
-                    return '{ampm}';
+                // --- Week Day
+                case 'E':
+                    // day of the week
+                    formatObj.weekday = [ 'short', 'short', 'short', 'long', 'narrow', 'short' ][$0.length-1];
+                    break;
+                case 'e':
+                    // local day of the week
+                    formatObj.weekday = [ 'numeric', '2-digit', 'short', 'long', 'narrow', 'short' ][$0.length-1];
+                    break;
+                case 'c':
+                    // stand alone local day of the week
+                    formatObj.weekday = [ 'numeric', undefined, 'short', 'long', 'narrow', 'short' ][$0.length-1];
+                    break;
 
-                case 'h':
+                // --- Period
+                case 'a': // AM, PM
+                case 'b': // am, pm, noon, midnight
+                case 'B': // flexible day periods
+                    formatObj.hour12 = true;
+                    break;
+
+                // --- Hour
                 case 'H':
                 case 'k':
-                case 'K':
                     formatObj.hour = $0.length === 2 ? '2-digit' : 'numeric';
-                    return '{hour}';
+                    break;
+                case 'h':
+                case 'K':
+                    formatObj.hour12 = true; // 12-hour-cycle time formats (using h or K)
+                    formatObj.hour = $0.length === 2 ? '2-digit' : 'numeric';
+                    break;
 
+                // --- Minute
                 case 'm':
                     formatObj.minute = $0.length === 2 ? '2-digit' : 'numeric';
-                    return '{minute}';
+                    break;
 
+                // --- Second
                 case 's':
                     formatObj.second = $0.length === 2 ? '2-digit' : 'numeric';
-                    return '{second}';
+                    break;
+                // case 'S': // 1..n: factional seconds
+                // case 'A': // 1..n: miliseconds in day
 
-                case 'z':
+                // --- Timezone
+                case 'z': // 1..3, 4: specific non-location format
+                case 'Z': // 1..3, 4, 5: The ISO8601 varios formats
+                case 'O': // 1, 4: miliseconds in day short, long
+                case 'v': // 1, 4: generic non-location format
+                case 'V': // 1, 2, 3, 4: time zone ID or city
+                case 'X': // 1, 2, 3, 4: The ISO8601 varios formats
+                case 'x': // 1, 2, 3, 4: The ISO8601 varios formats
+                    // this polyfill only supports much, for now, we are just doing something dummy
                     formatObj.timeZoneName = $0.length < 4 ? 'short' : 'long';
-                    return '{timeZoneName}';
+                    break;
+
             }
         });
 
-        // From http://www.unicode.org/reports/tr35/tr35-dates.html#Date_Format_Patterns:
-        //  'In patterns, two single quotes represents a literal single quote, either
-        //   inside or outside single quotes. Text within single quotes is not
-        //   interpreted in any way (except for two adjacent single quotes).'
-        formatObj.pattern = formatObj.pattern.replace(/'([^']*)'/g, function ($0, literal) {
-            return literal ? literal : "'";
-        });
-
-        if (formatObj.pattern.indexOf('{ampm}') > -1) {
-            formatObj.hour12 = true;
-            formatObj.pattern12 = formatObj.pattern;
-            formatObj.pattern = formatObj.pattern.replace('{ampm}', '').replace(/^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g, '');
-        }
-
-        return formatObj;
+        return $$cldr$$computeFinalPatterns(formatObj);
     }
 
     function $$cldr$$createDateTimeFormats(formats) {
         var availableFormats = formats.availableFormats;
         var timeFormats = formats.timeFormats;
         var dateFormats = formats.dateFormats;
-        var order = formats.medium;
         var result = [];
-        var key, format, computed, i, j;
+        var skeleton, pattern, computed, i, j;
         var timeRelatedFormats = [];
         var dateRelatedFormats = [];
 
-        function expandFormat(key, pattern) {
-            // Expand component lengths if necessary, as allowed in the LDML spec
-            // Get the lengths of 'M' and 'E' substrings in the date pattern
-            // as arrays that can be joined to create a new substring
-            var M = new Array((key.match(/M/g)||[]).length + 1);
-            var E = new Array((key.match(/E/g)||[]).length + 1);
-
-            // note from caridy: I'm not sure we really need this, seems to be
-            //                   useless since it relies on the keys from CLDR
-            //                   instead of the actual format pattern, but I'm not sure.
-            if (M.length > 2)
-                pattern = pattern.replace(/(M|L)+/, M.join('$1'));
-
-            if (E.length > 2)
-                pattern = pattern.replace(/([Eec])+/, E.join('$1'));
-
-            return pattern;
-        }
-
         // Map available (custom) formats into a pattern for createDateTimeFormats
-        for (key in availableFormats) {
-            if (availableFormats.hasOwnProperty(key)) {
-                format = expandFormat(key, availableFormats[key]);
-                computed = $$cldr$$createDateTimeFormat(format);
+        for (skeleton in availableFormats) {
+            if (availableFormats.hasOwnProperty(skeleton)) {
+                pattern = availableFormats[skeleton];
+                computed = $$cldr$$createDateTimeFormat(skeleton, pattern);
                 if (computed) {
                     result.push(computed);
                     // in some cases, the format is only displaying date specific props
                     // or time specific props, in which case we need to also produce the
                     // combined formats.
                     if ($$cldr$$isDateFormatOnly(computed)) {
-                        dateRelatedFormats.push(format);
+                        dateRelatedFormats.push(computed);
                     } else if ($$cldr$$isTimeFormatOnly(computed)) {
-                        timeRelatedFormats.push(format);
+                        timeRelatedFormats.push(computed);
                     }
                 }
             }
         }
 
-        // combine custom time and custom date formats when they are orthogonals to complete the
-        // formats supported by browsers by relying on the value of "formats.medium" which defines
-        // how to join custom formats into a single pattern.
-        for (i = 0; i < timeRelatedFormats.length; i += 1) {
-            for (j = 0; j < dateRelatedFormats.length; j += 1) {
-                format = order
-                    .replace('{0}', timeRelatedFormats[i])
-                    .replace('{1}', dateRelatedFormats[j])
-                    .replace(/^[,\s]+|[,\s]+$/gi, '');
-                computed = $$cldr$$createDateTimeFormat(format);
-                if (computed) {
-                    result.push(computed);
-                }
-            }
-        }
-
         // Map time formats into a pattern for createDateTimeFormats
-        for (key in timeFormats) {
-            if (timeFormats.hasOwnProperty(key)) {
-                format = expandFormat(key, timeFormats[key]);
-                computed = $$cldr$$createDateTimeFormat(format);
+        for (skeleton in timeFormats) {
+            if (timeFormats.hasOwnProperty(skeleton)) {
+                pattern = timeFormats[skeleton];
+                computed = $$cldr$$createDateTimeFormat(skeleton, pattern);
                 if (computed) {
                     result.push(computed);
+                    timeRelatedFormats.push(computed);
                 }
             }
         }
 
         // Map date formats into a pattern for createDateTimeFormats
-        for (key in dateFormats) {
-            if (dateFormats.hasOwnProperty(key)) {
-                format = expandFormat(key, dateFormats[key]);
-                computed = $$cldr$$createDateTimeFormat(format);
+        for (skeleton in dateFormats) {
+            if (dateFormats.hasOwnProperty(skeleton)) {
+                pattern = dateFormats[skeleton];
+                computed = $$cldr$$createDateTimeFormat(skeleton, pattern);
                 if (computed) {
                     result.push(computed);
+                    dateRelatedFormats.push(computed);
                 }
+            }
+        }
+
+        // combine custom time and custom date formats when they are orthogonals to complete the
+        // formats supported by CLDR.
+        // This Algo is based on section "Missing Skeleton Fields" from:
+        // http://unicode.org/reports/tr35/tr35-dates.html#availableFormats_appendItems
+        for (i = 0; i < timeRelatedFormats.length; i += 1) {
+            for (j = 0; j < dateRelatedFormats.length; j += 1) {
+                if (dateRelatedFormats[j].month === 'long') {
+                    pattern = dateRelatedFormats[j].weekday ? formats.full : formats.long;
+                } else if (dateRelatedFormats[j].month === 'short') {
+                    pattern = formats.medium;
+                } else {
+                    pattern = formats.short;
+                }
+                computed = $$cldr$$joinDateAndTimeFormats(dateRelatedFormats[j], timeRelatedFormats[i]);
+                computed.originalPattern = pattern;
+                computed.extendedPattern = pattern
+                    .replace('{0}', timeRelatedFormats[i].extendedPattern)
+                    .replace('{1}', dateRelatedFormats[j].extendedPattern)
+                    .replace(/^[,\s]+|[,\s]+$/gi, '');
+                result.push($$cldr$$computeFinalPatterns(computed));
             }
         }
 
@@ -2207,7 +2359,9 @@
                     p = bestFormat[prop];
 
                 // ii. Set the [[<prop>]] internal property of dateTimeFormat to p.
-                internal['[['+prop+']]'] = p;
+                // Diverging from spec becuase of bug #58
+                // https://github.com/tc39/ecma402/issues/58
+                internal['[['+prop+']]'] = opt['[['+prop+']]'] || p;
             }
         }
 
