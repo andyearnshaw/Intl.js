@@ -1482,38 +1482,29 @@ function CreateNumberParts (numberFormat, x) {
             //    [[numberingSystem]] internal property.
             var digits = numSys[internal['[[numberingSystem]]']];
             // ii. Replace each digit in n with the value of digits[digit].
-            n = n.map(function(n) {
-                if (n.type === 'integer' || n.type === 'fraction') {
-                    return Object.assign(n, {
-                        value: String(n.value).replace(/\d/g, function (digit) {
-                            return digits[digit];
-                        })
-                    });
-                } else {
-                  return n;
-                }
+            n = String(n).replace(/\d/g, function (digit) {
+              return digits[digit];
             });
         }
         // f. Else use an implementation dependent algorithm to map n to the
         //    appropriate representation of n in the given numbering system.
         else
-            n = n.map(function(part) {
-              return Object.assign(part, {
-                  value: String(part.value) // ###TODO###
-              });
-            });
+            n = String(n); // ###TODO###
 
         // g. If n contains the character ".", then replace it with an ILND String
         //    representing the decimal separator.
-        n = n.map(function(part) {
-            if (part.type === 'decimalSeparator') {
-              return Object.assign(part, {
-                  value: ild.decimal,
-              });
-            } else {
-              return part;
-            }
-        });
+        var rawParts = n.split(/\./);
+        if (rawParts.length === 1) {
+            n = [
+              { type: 'integer', value: rawParts[0] }
+            ];
+        } else {
+            n = [
+              { type: 'integer', value: rawParts[0] },
+              { type: 'decimalSeparator', value: ild.decimal },
+              { type: 'fraction', value: rawParts[1] },
+            ];
+        }
 
         // h. If the value of the [[useGrouping]] internal property of numberFormat
         //    is true, then insert an ILND String representing a grouping separator
@@ -1716,7 +1707,7 @@ function ToRawPrecision (x, minPrecision, maxPrecision) {
             m = m.slice(0, -1);
     }
     // 9. Return m.
-    return [m];
+    return m;
 }
 
 /**
@@ -1774,16 +1765,7 @@ function ToRawFixed (x, minInteger, minFraction, maxFraction) {
 
     // 10. Let m be the concatenation of Strings z and m.
     // 11. Return m.
-    var rawParts = ((z ? z : '') + m).split(/\./);
-    return rawParts.length === 1 ?
-        [
-          { type: 'integer', value: rawParts[0] }
-        ] :
-        [
-          { type: 'integer', value: rawParts[0] },
-          { type: 'decimalSeparator', value: '.' },
-          { type: 'fraction', value: rawParts[1] },
-        ];
+    return (z ? z : '') + m;
 }
 
 // Sect 11.3.2 Table 2, Numbering systems
