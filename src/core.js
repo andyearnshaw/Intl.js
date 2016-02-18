@@ -1577,7 +1577,7 @@ function CreateNumberParts (numberFormat, x) {
         result = pattern.split(/(\{.*\})/).filter(function(part) {
             return part !== '';
         }).map(function(part) {
-            return { type: 'prefix', value: part };
+            return { type: 'literal', value: part };
         }).reduce(function(parts, part) {
             if (part.value === '{number}') {
               return parts.concat(n);
