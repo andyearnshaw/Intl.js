@@ -1334,73 +1334,17 @@ function GetFormatNumber() {
         return internal['[[boundFormat]]'];
     }
 
-defineProperty(Intl.NumberFormat.prototype, 'formatToParts', {
-    configurable: true,
-    get: GetFormatToPartsNumber
-});
+Intl.NumberFormat.prototype.formatToParts = function(value) {
+  var internal = this != null && typeof this === 'object' && getInternalProperties(this);
+  if (!internal || !internal['[[initializedNumberFormat]]'])
+      throw new TypeError('`this` value for formatToParts() is not an initialized Intl.NumberFormat object.');
 
-function GetFormatToPartsNumber() {
-        var internal = this != null && typeof this === 'object' && getInternalProperties(this);
-
-        // Satisfy test 11.3_b
-        if (!internal || !internal['[[initializedNumberFormat]]'])
-            throw new TypeError('`this` value for format() is not an initialized Intl.NumberFormat object.');
-
-        // The value of the [[Get]] attribute is a function that takes the following
-        // steps:
-
-        // 1. If the [[boundFormat]] internal property of this NumberFormat object
-        //    is undefined, then:
-        if (internal['[[boundFormat]]'] === undefined) {
-            var
-            // a. Let F be a Function object, with internal properties set as
-            //    specified for built-in functions in ES5, 15, or successor, and the
-            //    length property set to 1, that takes the argument value and
-            //    performs the following steps:
-                F = function (value) {
-                    // i. If value is not provided, then let value be undefined.
-                    // ii. Let x be ToNumber(value).
-                    // iii. Return the result of calling the FormatNumber abstract
-                    //      operation (defined below) with arguments this and x.
-                    return FormatToPartsNumber(this, /* x = */Number(value));
-                },
-
-            // b. Let bind be the standard built-in function object defined in ES5,
-            //    15.3.4.5.
-            // c. Let bf be the result of calling the [[Call]] internal method of
-            //    bind with F as the this value and an argument list containing
-            //    the single item this.
-                bf = fnBind.call(F, this);
-
-            // d. Set the [[boundFormat]] internal property of this NumberFormat
-            //    object to bf.
-            internal['[[boundFormat]]'] = bf;
-        }
-        // Return the value of the [[boundFormat]] internal property of this
-        // NumberFormat object.
-        return internal['[[boundFormat]]'];
-    }
-
-/**
- * When the FormatNumber abstract operation is called with arguments numberFormat
- * (which must be an object initialized as a NumberFormat) and x (which must be a
- * Number value), it returns a String value representing x according to the
- * effective locale and the formatting options of numberFormat.
- */
-function FormatNumber (numberFormat, x) {
-    var parts = CreateNumberParts(numberFormat, x);
-    return parts.map(function(part) {
-      return part.value;
-    }).join('');
+  var x = Number(value);
+  return FormatNumberToParts(this, x);
 }
 
-function FormatToPartsNumber (numberFormat, x) {
-    return CreateNumberParts(numberFormat, x);
-}
-
-
-function CreateNumberParts (numberFormat, x) {
-    var n,
+function FormatNumberToParts (numberFormat, x) {
+    var
 
     // Create an object whose props can be used to restore the values of RegExp props
         regexpState = createRegExpRestore(),
@@ -1410,217 +1354,185 @@ function CreateNumberParts (numberFormat, x) {
         nums   = internal['[[numberingSystem]]'],
         data   = internals.NumberFormat['[[localeData]]'][locale],
         ild    = data.symbols[nums] || data.symbols.latn,
+        pattern,
+        result = new List();
 
-    // 1. Let negative be false.
-        negative = false;
-
-    // 2. If the result of isFinite(x) is false, then
-    if (isFinite(x) === false) {
-        // a. If x is NaN, then let n be an ILD String value indicating the NaN value.
-        if (isNaN(x))
-            n = [{
-              type: 'nan',
-              value: ild.nan
-            }];
-
-        // b. Else
-        else {
-            // a. Let n be an ILD String value indicating infinity.
-            n = [{
-              type: 'infinity',
-              value: ild.infinity
-            }];
-            // b. If x < 0, then let negative be true.
-            if (x < 0)
-                negative = true;
-        }
-    }
-    // 3. Else
-    else {
-        // a. If x < 0, then
-        if (x < 0) {
-            // i. Let negative be true.
-            negative = true;
-            // ii. Let x be -x.
-            x = -x;
-        }
-
-        // b. If the value of the [[style]] internal property of numberFormat is
-        //    "percent", let x be 100 × x.
-        if (internal['[[style]]'] === 'percent')
-            x *= 100;
-
-        // c. If the [[minimumSignificantDigits]] and [[maximumSignificantDigits]]
-        //    internal properties of numberFormat are present, then
-        if (hop.call(internal, '[[minimumSignificantDigits]]') &&
-                hop.call(internal, '[[maximumSignificantDigits]]'))
-            // i. Let n be the result of calling the ToRawPrecision abstract operation
-            //    (defined below), passing as arguments x and the values of the
-            //    [[minimumSignificantDigits]] and [[maximumSignificantDigits]]
-            //    internal properties of numberFormat.
-            n = ToRawPrecision(x,
-                  internal['[[minimumSignificantDigits]]'],
-                  internal['[[maximumSignificantDigits]]']);
-        // d. Else
-        else
-            // i. Let n be the result of calling the ToRawFixed abstract operation
-            //    (defined below), passing as arguments x and the values of the
-            //    [[minimumIntegerDigits]], [[minimumFractionDigits]], and
-            //    [[maximumFractionDigits]] internal properties of numberFormat.
-            n = ToRawFixed(x,
-                  internal['[[minimumIntegerDigits]]'],
-                  internal['[[minimumFractionDigits]]'],
-                  internal['[[maximumFractionDigits]]']);
-
-        // e. If the value of the [[numberingSystem]] internal property of
-        //    numberFormat matches one of the values in the “Numbering System” column
-        //    of Table 2 below, then
-        if (numSys[nums]) {
-            // i. Let digits be an array whose 10 String valued elements are the
-            //    UTF-16 string representations of the 10 digits specified in the
-            //    “Digits” column of Table 2 in the row containing the value of the
-            //    [[numberingSystem]] internal property.
-            var digits = numSys[internal['[[numberingSystem]]']];
-            // ii. Replace each digit in n with the value of digits[digit].
-            n = String(n).replace(/\d/g, function (digit) {
-              return digits[digit];
-            });
-        }
-        // f. Else use an implementation dependent algorithm to map n to the
-        //    appropriate representation of n in the given numbering system.
-        else
-            n = String(n); // ###TODO###
-
-        // g. If n contains the character ".", then replace it with an ILND String
-        //    representing the decimal separator.
-        var rawParts = n.split(/\./);
-        if (rawParts.length === 1) {
-            n = [
-              { type: 'integer', value: rawParts[0] }
-            ];
-        } else {
-            n = [
-              { type: 'integer', value: rawParts[0] },
-              { type: 'decimalSeparator', value: ild.decimal },
-              { type: 'fraction', value: rawParts[1] },
-            ];
-        }
-
-        // h. If the value of the [[useGrouping]] internal property of numberFormat
-        //    is true, then insert an ILND String representing a grouping separator
-        //    into an ILND set of locations within the integer part of n.
-        if (internal['[[useGrouping]]'] === true) {
-            var
-                igr = n.filter(function(part) {
-                    return part.type === 'integer';
-                })[0].value,
-
-                // Primary group represents the group closest to the decimal
-                pgSize = data.patterns.primaryGroupSize || 3,
-
-                // Secondary group is every other group
-                sgSize = data.patterns.secondaryGroupSize || pgSize;
-
-            // Group only if necessary
-            if (igr.length > pgSize) {
-                var
-                    groups = new List(),
-
-                    // Index of the primary grouping separator
-                    end    = igr.length - pgSize,
-
-                    // Starting index for our loop
-                    idx    = end % sgSize,
-
-                    start  = igr.slice(0, idx);
-
-                if (start.length)
-                    arrPush.call(
-                        groups,
-                        {type: 'group', value: start},
-                        {type: 'groupSeparator', value: ild.group}
-                    );
-
-                // Loop to separate into secondary grouping digits
-                while (idx < end) {
-                    arrPush.call(
-                        groups,
-                        {type: 'group', value: igr.slice(idx, idx + sgSize)},
-                        {type: 'groupSeparator', value: ild.group}
-                    );
-                    idx += sgSize;
-                }
-
-                // Add the primary grouping digits
-                arrPush.call(
-                    groups, {type: 'group', value: igr.slice(end)}
-                );
-
-                n = n.reduce(function(parts, part) {
-                    if (part.type === 'integer') {
-                        return parts.concat(arrSlice.call(groups));
-                    } else {
-                        return parts.concat(part);
-                    }
-                }, []);
-            }
-        }
+    if (!isNaN(x) && x < 0) {
+        x = -x;
+        pattern = internal['[[negativePattern]]'];
+    } else {
+        pattern = internal['[[positivePattern]]'];
     }
 
     var
-    // 4. If negative is true, then let result be the value of the [[negativePattern]]
-    //    internal property of numberFormat; else let result be the value of the
-    //    [[positivePattern]] internal property of numberFormat.
-        pattern = internal[negative === true ? '[[negativePattern]]' : '[[positivePattern]]'],
+        beginIndex = pattern.indexOf('{', 0),
+        endIndex = 0,
+        nextIndex = 0,
+        length = pattern.length;
 
-    // 5. Replace the substring "{number}" within result with n.
-        result = pattern.split(/(\{.*\})/).filter(function(part) {
-            return part !== '';
-        }).map(function(part) {
-            return { type: 'literal', value: part };
-        }).reduce(function(parts, part) {
-            if (part.value === '{number}') {
-              return parts.concat(n);
-            } else {
-              return parts.concat(part);
+    while (-1 < beginIndex && beginIndex < length) {
+        endIndex = pattern.indexOf('}', beginIndex);
+        if (endIndex === -1)
+            throw new Error();
+
+        if (beginIndex > nextIndex)
+            arrPush.call(result, { type: 'literal', value: pattern.substring(nextIndex, beginIndex) });
+
+        nextIndex = endIndex + 1;
+
+        var p = pattern.substring(beginIndex, nextIndex);
+
+        if (p === '{number}') {
+            if (isNaN(x))
+                arrPush.call(result, { type: 'nan', value: ild.nan });
+            if (!isFinite(x))
+                arrPush.call(result, { type: 'infinity', value: ild.infinity });
+
+            // b. If the value of the [[style]] internal property of numberFormat is
+            //    "percent", let x be 100 × x.
+            if (internal['[[style]]'] === 'percent')
+                x *= 100;
+
+            var n;
+            // c. If the [[minimumSignificantDigits]] and [[maximumSignificantDigits]]
+            //    internal properties of numberFormat are present, then
+            if (hop.call(internal, '[[minimumSignificantDigits]]') &&
+                hop.call(internal, '[[maximumSignificantDigits]]'))
+                // i. Let n be the result of calling the ToRawPrecision abstract operation
+                //    (defined below), passing as arguments x and the values of the
+                //    [[minimumSignificantDigits]] and [[maximumSignificantDigits]]
+                //    internal properties of numberFormat.
+                n = ToRawPrecision(x,
+                      internal['[[minimumSignificantDigits]]'],
+                      internal['[[maximumSignificantDigits]]']);
+            // d. Else
+            else
+                // i. Let n be the result of calling the ToRawFixed abstract operation
+                //    (defined below), passing as arguments x and the values of the
+                //    [[minimumIntegerDigits]], [[minimumFractionDigits]], and
+                //    [[maximumFractionDigits]] internal properties of numberFormat.
+                n = ToRawFixed(x,
+                      internal['[[minimumIntegerDigits]]'],
+                      internal['[[minimumFractionDigits]]'],
+                      internal['[[maximumFractionDigits]]']);
+
+            // e. If the value of the [[numberingSystem]] internal property of
+            //    numberFormat matches one of the values in the “Numbering System” column
+            //    of Table 2 below, then
+            if (numSys[nums]) {
+                // i. Let digits be an array whose 10 String valued elements are the
+                //    UTF-16 string representations of the 10 digits specified in the
+                //    “Digits” column of Table 2 in the row containing the value of the
+                //    [[numberingSystem]] internal property.
+                var digits = numSys[internal['[[numberingSystem]]']];
+                // ii. Replace each digit in n with the value of digits[digit].
+                n = String(n).replace(/\d/g, function (digit) {
+                  return digits[digit];
+                });
             }
-        }, []);
+            // f. Else use an implementation dependent algorithm to map n to the
+            //    appropriate representation of n in the given numbering system.
+            else
+                n = String(n); // ###TODO###
 
-    // 6. If the value of the [[style]] internal property of numberFormat is
-    //    "currency", then:
-    if (internal['[[style]]'] === 'currency') {
-        var cd,
-        // a. Let currency be the value of the [[currency]] internal property of
-        //    numberFormat.
-            currency = internal['[[currency]]'],
+            var decimalSplit = n.split('.');
+            var integer = decimalSplit[0];
+            var fraction = decimalSplit[1];
 
-        // Shorthand for the currency data
-            cData = data.currencies[currency];
 
-        // b. If the value of the [[currencyDisplay]] internal property of
-        //    numberFormat is "code", then let cd be currency.
-        // c. Else if the value of the [[currencyDisplay]] internal property of
-        //    numberFormat is "symbol", then let cd be an ILD string representing
-        //    currency in short form. If the implementation does not have such a
-        //    representation of currency, then use currency itself.
-        // d. Else if the value of the [[currencyDisplay]] internal property of
-        //    numberFormat is "name", then let cd be an ILD string representing
-        //    currency in long form. If the implementation does not have such a
-        //    representation of currency, then use currency itself.
-        switch (internal['[[currencyDisplay]]']) {
-            case 'symbol':
-                cd = cData || currency;
-                break;
+            // h. If the value of the [[useGrouping]] internal property of numberFormat
+            //    is true, then insert an ILND String representing a grouping separator
+            //    into an ILND set of locations within the integer part of n.
+            if (internal['[[useGrouping]]'] === true) {
+                var
+                    // Primary group represents the group closest to the decimal
+                    pgSize = data.patterns.primaryGroupSize || 3,
 
-            default:
-            case 'code':
-            case 'name':
-                cd = currency;
+                    // Secondary group is every other group
+                    sgSize = data.patterns.secondaryGroupSize || pgSize;
+
+                // Group only if necessary
+                if (integer.length > pgSize) {
+                    var
+                        groups = new List(),
+
+                        // Index of the primary grouping separator
+                        end    = integer.length - pgSize,
+
+                        // Starting index for our loop
+                        idx    = end % sgSize,
+
+                        start  = integer.slice(0, idx);
+
+                    if (start.length)
+                        arrPush.call(groups, start);
+
+                    // Loop to separate into secondary grouping digits
+                    while (idx < end) {
+                        arrPush.call(groups, integer.slice(idx, idx + sgSize));
+                        idx += sgSize;
+                    }
+
+                    // Add the primary grouping digits
+                    arrPush.call(groups, integer.slice(end));
+                }
+
+                while (groups.length) {
+                    var integerGroup = arrShift.call(groups);
+                    arrPush.call(result, { type: 'integer', value: integerGroup });
+                    if (groups.length) {
+                        arrPush.call(result, { type: 'group', value: ild.group });
+                    }
+                }
+            } else {
+                arrPush.call(result, { type: 'integer', value: integer });
+            }
+
+            if (fraction !== undefined) {
+                arrPush.call(result, { type: 'decimal', value: ild.decimal });
+                arrPush.call(result, { type: 'fraction', value: fraction });
+            }
+
+        } else if (p === '{currency}' && internal['[[style]]'] === 'currency') {
+            var cd,
+            // a. Let currency be the value of the [[currency]] internal property of
+            //    numberFormat.
+                currency = internal['[[currency]]'],
+
+            // Shorthand for the currency data
+                cData = data.currencies[currency];
+
+            // b. If the value of the [[currencyDisplay]] internal property of
+            //    numberFormat is "code", then let cd be currency.
+            // c. Else if the value of the [[currencyDisplay]] internal property of
+            //    numberFormat is "symbol", then let cd be an ILD string representing
+            //    currency in short form. If the implementation does not have such a
+            //    representation of currency, then use currency itself.
+            // d. Else if the value of the [[currencyDisplay]] internal property of
+            //    numberFormat is "name", then let cd be an ILD string representing
+            //    currency in long form. If the implementation does not have such a
+            //    representation of currency, then use currency itself.
+            switch (internal['[[currencyDisplay]]']) {
+                case 'symbol':
+                    cd = cData || currency;
+                    break;
+
+                default:
+                case 'code':
+                case 'name':
+                    cd = currency;
+            }
+
+            arrPush.call(result, { type: 'currency', value: cd });
+        } else {
+            arrPush.call(result, { type: 'literal', value: p });
         }
 
-        // e. Replace the substring "{currency}" within result with cd.
-        result = result.replace('{currency}', cd);
+        beginIndex = pattern.indexOf('{', nextIndex);
     }
+
+    if (nextIndex < length)
+        arrPush.call(result, { type: 'literal', value: pattern.substring(nextIndex, length) });
 
     // Restore the RegExp properties
     regexpState.exp.test(regexpState.input);
@@ -1628,6 +1540,16 @@ function CreateNumberParts (numberFormat, x) {
     // 7. Return result.
     return result;
 }
+
+function FormatNumber (numberFormat, x) {
+    var parts = FormatNumberToParts(numberFormat, x);
+    var result = '';
+    for (var idx in parts) {
+        result += parts[idx].value;
+    }
+    return result;
+}
+
 
 /**
  * When the ToRawPrecision abstract operation is called with arguments x (which
