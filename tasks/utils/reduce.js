@@ -1,5 +1,17 @@
 /* jshint node:true */
 
+function replaceSpecialChars (ptn) {
+  // Matches CLDR number patterns, e.g. #,##0.00, #,##,##0.00, #,##0.##, etc.
+  var numPtn = /#(?:[\.,]#+)*0(?:[,\.][0#]+)*/;
+
+  return ptn
+      .replace(numPtn, '{number}')
+      .replace('+', '{plusSign}')
+      .replace('-', '{minusSign}')
+      .replace('%', '{percentSign}')
+      .replace('¤', '{currency}');
+}
+
 /**
  * Parses a CLDR number formatting string into the object specified in ECMA-402
  * Returns an object with positivePattern and negativePattern properties
@@ -7,15 +19,14 @@
 function createNumberFormats (ptn) {
     var patterns = ptn.split(';'),
 
-        // Matches CLDR number patterns, e.g. #,##0.00, #,##,##0.00, #,##0.##, etc.
-        numPtn = /#(?:[\.,]#+)*0(?:[,\.][0#]+)*/,
         ret = {
-            positivePattern: patterns[0].replace(numPtn, '{number}').replace('¤', '{currency}')
+            positivePattern: replaceSpecialChars(patterns[0])
         };
 
     // Negative patterns aren't always specified, in those cases use '-' + positivePattern
-    ret.negativePattern = patterns[1] ? patterns[1].replace(numPtn, '{number}').replace('¤', '{currency}')
-                            : '-' + ret.positivePattern;
+    ret.negativePattern = patterns[1] ?
+        replaceSpecialChars(patterns[1]) :
+        '{minusSign}' + ret.positivePattern;
 
     return ret;
 }
@@ -108,11 +119,13 @@ module.exports = function (locale, data) {
 
         // Currently, Intl 402 only uses these symbols for numbers
         ret.number.symbols[key.split('-').pop()] = {
-            decimal: sym.decimal,
-            group:   sym.group,
-            nan:     sym.nan,
-            percent: sym.percentSign,
-            infinity:sym.infinity
+            decimal:     sym.decimal,
+            group:       sym.group,
+            nan:         sym.nan,
+            plusSign:    sym.plusSign,
+            minusSign:   sym.minusSign,
+            percentSign: sym.percentSign,
+            infinity:    sym.infinity
         };
     });
 

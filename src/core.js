@@ -1493,6 +1493,12 @@ function FormatNumberToParts (numberFormat, x) {
                 arrPush.call(result, { type: 'fraction', value: fraction });
             }
 
+        } else if (p === '{plusSign}') {
+            arrPush.call(result, { type: 'plusSign', value: ild.plusSign });
+        } else if (p === '{minusSign}') {
+            arrPush.call(result, { type: 'minusSign', value: ild.minusSign });
+        } else if (p === '{percent}' && internal['[[style]]'] === 'percent') {
+            arrPush.call(result, { type: 'percentSign', value: ild.percentSign });
         } else if (p === '{currency}' && internal['[[style]]'] === 'currency') {
             var cd,
             // a. Let currency be the value of the [[currency]] internal property of
