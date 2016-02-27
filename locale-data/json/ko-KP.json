@@ -2162,15 +2162,15 @@
         "patterns": {
             "decimal": {
                 "positivePattern": "{number}",
-                "negativePattern": "{minusSign}{number}"
+                "negativePattern": "-{number}"
             },
             "currency": {
                 "positivePattern": "{currency}{number}",
-                "negativePattern": "{minusSign}{currency}{number}"
+                "negativePattern": "-{currency}{number}"
             },
             "percent": {
-                "positivePattern": "{number}{percentSign}",
-                "negativePattern": "{minusSign}{number}{percentSign}"
+                "positivePattern": "{number}%",
+                "negativePattern": "-{number}%"
             }
         },
         "symbols": {
@@ -2178,9 +2178,7 @@
                 "decimal": ".",
                 "group": ",",
                 "nan": "NaN",
-                "plusSign": "+",
-                "minusSign": "-",
-                "percentSign": "%",
+                "percent": "%",
                 "infinity": "∞"
             }
         },

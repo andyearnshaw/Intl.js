@@ -2159,15 +2159,15 @@
         "patterns": {
             "decimal": {
                 "positivePattern": "{number}",
-                "negativePattern": "{minusSign}{number}"
+                "negativePattern": "-{number}"
             },
             "currency": {
                 "positivePattern": "{number}{currency}",
-                "negativePattern": "{minusSign}{number}{currency}"
+                "negativePattern": "-{number}{currency}"
             },
             "percent": {
-                "positivePattern": "{number}{percentSign}",
-                "negativePattern": "{minusSign}{number}{percentSign}"
+                "positivePattern": "{number}%",
+                "negativePattern": "-{number}%"
             },
             "secondaryGroupSize": 2
         },
@@ -2176,18 +2176,14 @@
                 "decimal": ".",
                 "group": ",",
                 "nan": "সংখ্যা না",
-                "plusSign": "+",
-                "minusSign": "-",
-                "percentSign": "%",
+                "percent": "%",
                 "infinity": "∞"
             },
             "latn": {
                 "decimal": ".",
                 "group": ",",
                 "nan": "NaN",
-                "plusSign": "+",
-                "minusSign": "-",
-                "percentSign": "%",
+                "percent": "%",
                 "infinity": "∞"
             }
         },
