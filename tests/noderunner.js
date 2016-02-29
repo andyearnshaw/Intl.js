@@ -3,10 +3,12 @@
 var LIBS = {
         fs:     require('fs'),
         path:   require('path'),
-        vm:     require('vm')
+        vm:     require('vm'),
     },
-    LIB_PATH = __dirname + '/../dist/Intl.complete.js',
-    INTL_LIB = LIBS.fs.readFileSync(LIB_PATH).toString(),
+    POLYFILL_PATH = __dirname + '/../dist/Intl.js',
+    POLYFILL_CODE = LIBS.fs.readFileSync(POLYFILL_PATH).toString(),
+    DATA_PATH = __dirname + '/../locale-data/complete.js',
+    DATA_CODE = LIBS.fs.readFileSync(DATA_PATH).toString(),
     TEST_DIR = __dirname + '/test262/pages';
 
 
@@ -16,7 +18,8 @@ function runTest(testPath) {
         context = LIBS.vm.createContext({});
 
     content = LIBS.fs.readFileSync(LIBS.path.resolve(TEST_DIR, testPath)).toString();
-    LIBS.vm.runInContext(INTL_LIB, context, LIB_PATH);
+    LIBS.vm.runInContext(POLYFILL_CODE, context, POLYFILL_PATH);
+    LIBS.vm.runInContext(DATA_CODE, context, DATA_PATH);
 
     try {
         LIBS.vm.runInContext(content, context, testPath);

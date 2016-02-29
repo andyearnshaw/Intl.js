@@ -13,7 +13,7 @@ module.exports = function (grunt) {
             test262: {
                 src : 'https://github.com/tc39/test262/archive/master.zip',
                 dest: 'tmp/test262.zip',
-            }
+            },
         },
 
         unzip: {
@@ -24,7 +24,7 @@ module.exports = function (grunt) {
             test262: {
                 src : 'tmp/test262.zip',
                 dest: 'tmp/',
-            }
+            },
         },
 
         copy: {
@@ -36,14 +36,14 @@ module.exports = function (grunt) {
                     'LICENSE',
                     'test/intl402/*.js',
                     'harness/*.js',
-                ]
+                ],
             },
             src: {
                 expand : true,
                 flatten: true,
                 src    : ['tmp/src/*.js'],
-                dest   : 'lib/'
-            }
+                dest   : 'lib/',
+            },
         },
 
         concat: {
@@ -55,33 +55,33 @@ module.exports = function (grunt) {
 
         jshint: {
             options: {
-                eqeqeq: true
+                eqeqeq: true,
             },
             src: ['src/*.js'],
             node: ['index.js', '*.json'],
-            build: ['tasks/**/*.js']
+            build: ['tasks/**/*.js'],
         },
 
         bundle_jsnext: {
             dest: 'dist/Intl.js',
             options: {
-                namespace: 'IntlPolyfill'
-            }
+                namespace: 'IntlPolyfill',
+            },
         },
 
         cjs_jsnext: {
-            dest: 'tmp/'
+            dest: 'tmp/',
         },
 
         uglify: {
             options: {
-                preserveComments: 'some'
+                preserveComments: 'some',
             },
             build: {
                 files: {
-                    'dist/Intl.min.js': ['dist/Intl.js']
-                }
-            }
+                    'dist/Intl.min.js': ['dist/Intl.js'],
+                },
+            },
         },
 
     });
@@ -97,7 +97,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-zip');
 
     grunt.registerTask('build', [
-        'bundle_jsnext', 'uglify', 'cjs_jsnext', 'copy:src', 'concat:complete'
+        'bundle_jsnext', 'uglify', 'cjs_jsnext', 'copy:src', 'concat:complete',
     ]);
 
     grunt.registerTask('cldr', ['clean:cldr', 'extract-cldr-data', 'compile-data']);
