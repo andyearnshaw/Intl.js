@@ -1830,7 +1830,7 @@
                         arrPush.call(groups, integer.slice(end));
                     }
 
-                    while (groups.length) {
+                    while (groups && groups.length) {
                         var integerGroup = arrShift.call(groups);
                         arrPush.call(result, { type: 'integer', value: integerGroup });
                         if (groups.length) {
@@ -1849,7 +1849,7 @@
                 arrPush.call(result, { type: 'plusSign', value: ild.plusSign });
             } else if (p === '{minusSign}') {
                 arrPush.call(result, { type: 'minusSign', value: ild.minusSign });
-            } else if (p === '{percent}' && internal['[[style]]'] === 'percent') {
+            } else if (p === '{percentSign}' && internal['[[style]]'] === 'percent') {
                 arrPush.call(result, { type: 'percentSign', value: ild.percentSign });
             } else if (p === '{currency}' && internal['[[style]]'] === 'currency') {
                 var cd = undefined,
