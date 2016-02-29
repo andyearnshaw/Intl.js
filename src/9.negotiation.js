@@ -261,22 +261,20 @@ export function /* 9.2.5 */ResolveLocale (availableLocales, requestedLocales, op
     // 4. Let foundLocale be the value of r.[[locale]].
     let foundLocale = r['[[locale]]'];
 
-    let extensionSubtags, extensionSubtagsLength, extensionIndex;
+    let extensionSubtags, extensionSubtagsLength;
 
     // 5. If r has an [[extension]] field, then
     if (hop.call(r, '[[extension]]')) {
         // a. Let extension be the value of r.[[extension]].
         let extension = r['[[extension]]'];
-        // b. Let extensionIndex be the value of r.[[extensionIndex]].
-        extensionIndex = r['[[extensionIndex]]'];
-        // c. Let split be the standard built-in function object defined in ES5,
+        // b. Let split be the standard built-in function object defined in ES5,
         //    15.5.4.14.
         let split = String.prototype.split;
-        // d. Let extensionSubtags be the result of calling the [[Call]] internal
+        // c. Let extensionSubtags be the result of calling the [[Call]] internal
         //    method of split with extension as the this value and an argument
         //    list containing the single item "-".
         extensionSubtags = split.call(extension, '-');
-        // e. Let extensionSubtagsLength be the result of calling the [[Get]]
+        // d. Let extensionSubtagsLength be the result of calling the [[Get]]
         //    internal method of extensionSubtags with argument "length".
         extensionSubtagsLength = extensionSubtags.length;
     }
@@ -393,15 +391,25 @@ export function /* 9.2.5 */ResolveLocale (availableLocales, requestedLocales, op
     }
     // 12. If the length of supportedExtension is greater than 2, then
     if (supportedExtension.length > 2) {
-        // a. Let preExtension be the substring of foundLocale from position 0,
-        //    inclusive, to position extensionIndex, exclusive.
-        let preExtension = foundLocale.substring(0, extensionIndex);
-        // b. Let postExtension be the substring of foundLocale from position
-        //    extensionIndex to the end of the string.
-        let postExtension = foundLocale.substring(extensionIndex);
-        // c. Let foundLocale be the concatenation of preExtension,
-        //    supportedExtension, and postExtension.
-        foundLocale = preExtension + supportedExtension + postExtension;
+        // a.
+        let privateIndex = foundLocale.indexOf("-x-");
+        // b.
+        if (privateIndex === -1) {
+            // i.
+            foundLocale = foundLocale + supportedExtension;
+        }
+        // c.
+        else {
+            // i.
+            let preExtension = foundLocale.substring(0, privateIndex);
+            // ii.
+            let postExtension = foundLocale.substring(privateIndex);
+            // iii.
+            foundLocale = preExtension + supportedExtension + postExtension;
+        }
+        // d. asserting - skipping
+        // e.
+        foundLocale = CanonicalizeLanguageTag(foundLocale);
     }
     // 13. Set result.[[locale]] to foundLocale.
     result['[[locale]]'] = foundLocale;
