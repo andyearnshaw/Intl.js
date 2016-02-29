@@ -518,7 +518,6 @@ function FormatNumberToParts (numberFormat, x) {
             let integer = decimalSplit[0];
             let fraction = decimalSplit[1];
 
-
             // h. If the value of the [[useGrouping]] internal property of numberFormat
             //    is true, then insert an ILND String representing a grouping separator
             //    into an ILND set of locations within the integer part of n.
@@ -529,11 +528,10 @@ function FormatNumberToParts (numberFormat, x) {
                 // Secondary group is every other group
                 let sgSize = data.patterns.secondaryGroupSize || pgSize;
 
-                let groups;
+                let groups = new List();
+
                 // Group only if necessary
                 if (integer.length > pgSize) {
-                    groups = new List();
-
                     // Index of the primary grouping separator
                     let end    = integer.length - pgSize;
 
@@ -553,9 +551,11 @@ function FormatNumberToParts (numberFormat, x) {
 
                     // Add the primary grouping digits
                     arrPush.call(groups, integer.slice(end));
+                } else {
+                    arrPush.call(groups, integer);
                 }
 
-                while (groups && groups.length) {
+                while (groups.length) {
                     let integerGroup = arrShift.call(groups);
                     arrPush.call(result, { type: 'integer', value: integerGroup });
                     if (groups.length) {
