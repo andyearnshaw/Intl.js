@@ -41,6 +41,13 @@ if (isProduction) {
 }
 
 let bundle = Promise.resolve(rollup({entry, plugins}));
-bundle.then(({write}) => write(bundleConfig));
+bundle.then(({write}) => write(bundleConfig)).then(() => {
+
+    // special case for locale-data/complete.js
+    const lib = fs.readFileSync(dest);
+    const complete = fs.readFileSync(p.resolve('locale-data/complete.js'));
+    fs.writeFileSync(p.resolve('dist/Intl.complete.js'), `${lib}\n${complete}`);
+
+});
 
 process.on('unhandledRejection', (reason) => {throw reason;});

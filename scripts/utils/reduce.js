@@ -1,8 +1,6 @@
-/* jshint node:true */
-
 function replaceSpecialChars (ptn) {
   // Matches CLDR number patterns, e.g. #,##0.00, #,##,##0.00, #,##0.##, etc.
-  var numPtn = /#(?:[\.,]#+)*0(?:[,\.][0#]+)*/;
+  let numPtn = /#(?:[\.,]#+)*0(?:[,\.][0#]+)*/;
 
   return ptn
       .replace(numPtn, '{number}')
@@ -17,10 +15,10 @@ function replaceSpecialChars (ptn) {
  * Returns an object with positivePattern and negativePattern properties
  */
 function createNumberFormats (ptn) {
-    var patterns = ptn.split(';'),
+    let patterns = ptn.split(';'),
 
         ret = {
-            positivePattern: replaceSpecialChars(patterns[0])
+            positivePattern: replaceSpecialChars(patterns[0]),
         };
 
     // Negative patterns aren't always specified, in those cases use '-' + positivePattern
@@ -34,88 +32,82 @@ function createNumberFormats (ptn) {
 /**
  * Processes an object from CLDR format to an easier-to-parse format
  */
-module.exports = function (locale, data) {
-    var
-        // Sort property name arrays to keep order and minimalise unnecessary file diffs
-        gopn = function (a) { return Object.getOwnPropertyNames(a).sort(); },
+export default function (locale, data) {
+    // Sort property name arrays to keep order and minimalise unnecessary file diffs
+    let gopn = function (a) { return Object.getOwnPropertyNames(a).sort(); };
 
-        test = RegExp.prototype.test,
+    let test = RegExp.prototype.test;
 
-        // Get own property values, useful for converting object map to array when we
-        // don't care about the keys.  Relies on predictable property ordering in V8.
-        gopv = function (o) {
-            return o ? Object.getOwnPropertyNames(o).map(function (e) { return o[e]; }) : undefined;
-        },
-        latnNu = 'latn',
+    // Get own property values, useful for converting object map to array when we
+    // don't care about the keys.  Relies on predictable property ordering in V8.
+    let gopv = function (o) {
+            return o ? Object.getOwnPropertyNames(o).map((e) => o[e]) : undefined;
+        };
+    let latnNu = 'latn';
 
-        // Copy numbering systems
-        defaultNu   = data.numbers.defaultNumberingSystem,
-        otherNu     = gopn(data.numbers.otherNumberingSystems).map(function(key) {
-                        return data.numbers.otherNumberingSystems[key];
-                    }).filter(function (key) {
-                        return key !== defaultNu && key !== latnNu;
+    // Copy numbering systems
+    let defaultNu   = data.numbers.defaultNumberingSystem;
+
+    // Map calendar names to BCP 47 unicode extension 'ca' keys
+    let caMap = {
+              'gregorian':            'gregory',
+              'ethiopic-amete-alem':  'ethioaa',
+              'islamic-civil':        'islamicc',
+          };
+
+    // Default calendar is always gregorian, apparently
+    let defCa = data.calendars.gregorian;
+
+    // Any of the time format strings can give us some additional information
+    let defaultTimeFormat = defCa.timeFormats[gopn(defCa.timeFormats)[0]];
+    let ampmTimeFormat    = defCa.dateTimeFormats.availableFormats.hms;
+
+    // Result object to be returned
+    let ret = {
+        // Identifying language tag for this data
+        locale: locale,
+
+        date: {
+            // Get supported calendars (as extension keys)
+            ca: gopn(data.calendars)
+                    .map((cal) => caMap[cal] || cal)
+
+                    // Move 'gregory' (the default) to the front, the rest is alphabetical
+                    .sort((a, b) => {
+                        return -(a === 'gregory') + (b === 'gregory') || a.localeCompare(b);
+                    }).filter((cal) => {
+                        return (cal.indexOf('-') < 0);
                     }),
 
-        // Map calendar names to BCP 47 unicode extension 'ca' keys
-        caMap = {
-                  'gregorian':            'gregory',
-                  'ethiopic-amete-alem':  'ethioaa',
-                  'islamic-civil':        'islamicc'
-              },
+            // Boolean value indicating whether hours from 1 to 12 (true) or from 0 to
+            // 11 (false) should be used. 'h' is 1 to 12, 'k' is 0 to 11.
+            hourNo0: /h/i.test(ampmTimeFormat),
 
-        // Default calendar is always gregorian, apparently
-        defCa = data.calendars.gregorian,
+            // Locales defaulting to 24hr time have 'H' or 'k' in their
+            // default time patterns
+            hour12: !/H|k/.test(defaultTimeFormat),
 
-        // Any of the time format strings can give us some additional information
-        defaultTimeFormat = defCa.timeFormats[gopn(defCa.timeFormats)[0]],
-        ampmTimeFormat    = defCa.dateTimeFormats.availableFormats.hms,
+            formats: [],
+            calendars: {},
+        },
+        number: {
+            // Numbering systems, with the default first
+            nu: (defaultNu === latnNu) ? [ latnNu ] : [ defaultNu, latnNu ],
 
-        // Result object to be returned
-        ret = {
-            // Identifying language tag for this data
-            locale: locale,
+            // Formatting patterns
+            patterns: {},
 
-            date: {
-                // Get supported calendars (as extension keys)
-                ca: gopn(data.calendars)
-                        .map(function (cal) { return caMap[cal] || cal; })
+            // Symbols
+            symbols: {},
 
-                        // Move 'gregory' (the default) to the front, the rest is alphabetical
-                        .sort(function (a, b) {
-                            return -(a === 'gregory') + (b === 'gregory') || a.localeCompare(b);
-                        }).filter(function (cal) {
-                            return (cal.indexOf('-') < 0);
-                        }),
+            currencies: {},
+        },
+    };
 
-                // Boolean value indicating whether hours from 1 to 12 (true) or from 0 to
-                // 11 (false) should be used. 'h' is 1 to 12, 'k' is 0 to 11.
-                hourNo0: /h/i.test(ampmTimeFormat),
-
-                // Locales defaulting to 24hr time have 'H' or 'k' in their
-                // default time patterns
-                hour12: !/H|k/.test(defaultTimeFormat),
-
-                formats: [],
-                calendars: {}
-            },
-            number: {
-                // Numbering systems, with the default first
-                nu: (defaultNu === latnNu) ? [ latnNu ] : [ defaultNu, latnNu ],
-
-                // Formatting patterns
-                patterns: {},
-
-                // Symbols
-                symbols: {},
-
-                currencies: {}
-            }
-        };
-
+    let ptn;
     // Copy the numeric symbols for each numbering system
-    gopn(data.numbers).filter(test.bind(/^symbols-/)).forEach(function (key) {
-        var ptn,
-            sym = data.numbers[key];
+    gopn(data.numbers).filter(test.bind(/^symbols-/)).forEach((key) => {
+        const sym = data.numbers[key];
 
         // Currently, Intl 402 only uses these symbols for numbers
         ret.number.symbols[key.split('-').pop()] = {
@@ -125,7 +117,7 @@ module.exports = function (locale, data) {
             plusSign:    sym.plusSign,
             minusSign:   sym.minusSign,
             percentSign: sym.percentSign,
-            infinity:    sym.infinity
+            infinity:    sym.infinity,
         };
     });
 
@@ -140,7 +132,7 @@ module.exports = function (locale, data) {
         ret.number.patterns.percent = createNumberFormats(ptn.standard);
 
     // Check the grouping sizes for locales that group irregularly
-    var pGroupSize = ptn.standard.match(/#+0/)[0].length,
+    let pGroupSize = ptn.standard.match(/#+0/)[0].length,
         groups = ptn.standard.split(',');
 
     // The pattern in en-US-POSIX doesn't specify group sizes, and the default
@@ -153,66 +145,66 @@ module.exports = function (locale, data) {
         ret.number.patterns.secondaryGroupSize = groups[1].length;
 
     // Copy the currency symbols
-    gopn(data.numbers.currencies).forEach(function (k) {
+    gopn(data.numbers.currencies).forEach((k) => {
         if (k !== data.numbers.currencies[k].symbol)
             ret.number.currencies[k] = data.numbers.currencies[k].symbol;
     });
 
 
     // Copy the formatting information
-    gopn(data.calendars).forEach(function (cal) {
-        var frmt;
-        var ca = caMap[cal] || cal;
+    gopn(data.calendars).forEach((cal) => {
+        let frmt;
+        let ca = caMap[cal] || cal;
         if (ret.date.ca.indexOf(ca) < 0) {
             // ignoring unknown calendars
             return;
         }
-        var obj = ret.date.calendars[ca] = {};
+        let obj = ret.date.calendars[ca] = {};
 
         if ((frmt = data.calendars[cal].months) && (frmt = frmt.format)) {
             obj.months = {
                 narrow: gopv(frmt.narrow),
                 short:  gopv(frmt.abbreviated),
-                long:   gopv(frmt.wide)
+                long:   gopv(frmt.wide),
             };
         }
         if ((frmt = data.calendars[cal].days) && (frmt = frmt.format)) {
             obj.days = {
                 narrow: gopv(frmt.narrow),
                 short:  gopv(frmt.abbreviated),
-                long:   gopv(frmt.wide)
+                long:   gopv(frmt.wide),
             };
         }
         if ((frmt = data.calendars[cal].eras)) {
             obj.eras = {
                 narrow: gopv(frmt.eraNarrow),
                 short:  gopv(frmt.eraAbbr),
-                long:   gopv(frmt.eraNames)
+                long:   gopv(frmt.eraNames),
             };
         }
         if ((frmt = data.calendars[cal].dayPeriods) && (frmt = frmt.format)) {
             obj.dayPeriods = {
                 am: (frmt.wide || frmt.abbreviated).am,
-                pm: (frmt.wide || frmt.abbreviated).pm
+                pm: (frmt.wide || frmt.abbreviated).pm,
             };
         }
 
         // Basic Date formats
         // http://cldr.unicode.org/translation/date-time-patterns#TOC-Basic-Date-Formats
-        var basicDateFormats = {
+        let basicDateFormats = {
             yMMMMEEEEd: defCa.dateFormats.full,
             yMMMMd: defCa.dateFormats.long,
             yMMMd: defCa.dateFormats.medium,
-            yMd: defCa.dateFormats.short
+            yMd: defCa.dateFormats.short,
         };
 
         // Basic Time Formats
         // http://cldr.unicode.org/translation/date-time-patterns#TOC-Basic-Time-Formats
-        var basicTimeFormats = {
+        let basicTimeFormats = {
             hmmsszzzz: defCa.timeFormats.full,
             hmsz: defCa.timeFormats.long,
             hms: defCa.timeFormats.medium,
-            hm: defCa.timeFormats.short
+            hm: defCa.timeFormats.short,
         };
 
         ret.date.formats = {
@@ -222,9 +214,9 @@ module.exports = function (locale, data) {
             long: defCa.dateTimeFormats.long,
             availableFormats: defCa.dateTimeFormats.availableFormats,
             dateFormats: basicDateFormats,
-            timeFormats: basicTimeFormats
+            timeFormats: basicTimeFormats,
         };
     });
 
     return ret;
-};
+}

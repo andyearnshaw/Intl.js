@@ -1,23 +1,19 @@
-/* jshint node:true */
+import * as glob from 'glob';
+import * as path from 'path';
 
-'use strict';
+import {
+    getParentLocale,
+    hasCalendars,
+    normalizeLocale,
+} from './locales';
 
-var path   = require('path');
-var glob   = require("glob");
-var assign = require('object.assign');
-
-var getParentLocale  = require('./locales').getParentLocale;
-var hasCalendars     = require('./locales').hasCalendars;
-var normalizeLocale  = require('./locales').normalizeLocale;
-
-module.exports = function extractCalendars(locales) {
-    var cache = {};
-    var hashes = {};
+export default function extractCalendars(locales) {
+    let cache = {};
 
     // Loads and caches the date calendars for a given `locale` because loading
     // and transforming the data is expensive.
     function getCalendars(locale) {
-        var calendars = cache[locale];
+        let calendars = cache[locale];
         if (calendars) {
             return calendars;
         }
@@ -45,13 +41,13 @@ module.exports = function extractCalendars(locales) {
         return findLocaleWithCalendar(getParentLocale(locale));
     }
 
-    return locales.reduce(function (calendars, locale) {
+    return locales.reduce((calendars, locale) => {
         locale = normalizeLocale(locale);
 
         // Walk the `locale`'s hierarchy to look for suitable ancestor with the
         // date calendars. If no ancestor is found, the given
         // `locale` will be returned.
-        var resolvedLocale = findLocaleWithCalendar(locale);
+        let resolvedLocale = findLocaleWithCalendar(locale);
 
         // Add an entry for the `locale`, which might be an ancestor. If the
         // locale doesn't have relative fields, then we fallback to the "root"
@@ -62,11 +58,11 @@ module.exports = function extractCalendars(locales) {
 
         return calendars;
     }, {});
-};
+}
 
 function loadCalendars(locale) {
     // all NPM packages providing calendars specific data
-    var pkgs = [
+    let pkgs = [
         "cldr-dates-full",
         "cldr-cal-buddhist-full",
         "cldr-cal-chinese-full",
@@ -78,17 +74,17 @@ function loadCalendars(locale) {
         "cldr-cal-islamic-full",
         "cldr-cal-japanese-full",
         "cldr-cal-persian-full",
-        "cldr-cal-roc-full"
+        "cldr-cal-roc-full",
     ];
     // walking all packages, selecting calendar files, then
     // reading the content of each calendar, and concatenating the set
-    return pkgs.reduce(function (calendars, pkgName) {
-        var dir = path.resolve(path.dirname(require.resolve(pkgName + '/package.json')), 'main', locale);
-        var filenames = glob.sync("ca-*.json", {
-                cwd: dir
+    return pkgs.reduce((calendars, pkgName) => {
+        let dir = path.resolve(path.dirname(require.resolve(pkgName + '/package.json')), 'main', locale);
+        let filenames = glob.sync("ca-*.json", {
+                cwd: dir,
             });
-        return filenames.reduce(function (calendars, filename) {
-            return assign(calendars, require(path.join(dir, filename)).main[locale].dates.calendars);
+        return filenames.reduce((calendars, filename) => {
+            return Object.assign(calendars, require(path.join(dir, filename)).main[locale].dates.calendars);
         }, calendars);
     }, {});
 }

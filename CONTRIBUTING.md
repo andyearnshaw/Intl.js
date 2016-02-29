@@ -14,35 +14,39 @@ To run the unit tests:
 
 To build files in `dist/` and `lib/`:
 
-    grunt
+    npm run build
 
 
 Updating CLDR Data
 ------------------
 
-_Note: this step is completely optional._
+To specifically build files in `locale-data`:
 
-Copy fresh CLDR data in `data/`:
+    npm run build:data
 
-    grunt update-cldr-data
+Note: this is completely optional since the regular `npm run build` will take care of it.
 
-To build files in `locale-data/` based on CLDR `data/`:
+Updating Test 262
+-----------------
 
-    grunt cldr
+To specifically build files in `tests/test262`:
 
+    grunt update-test262
+
+Note: be careful when attempting to update the tests.
 
 Source Code
 -----------
 
 All the source code is in `src/` folder, written as ES6 modules, and transpiled
-using `es6-module-transpiler` into the `lib/` and `dist/` folders.
+using `rollup` and `babel` into the `lib/` and `dist/` folders.
 
 The `dist/` is in git because of bower, make sure you commit those files as well.
 
 Release checklist
 -----------------
 
-* build all files using `grunt`
+* build all files using `npm run build`
 * run all tests using `npm test`
 * verify that [README.md] is updated
 * bump the version in [package.json]

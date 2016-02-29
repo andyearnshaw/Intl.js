@@ -1,22 +1,14 @@
-/* jshint node:true */
-
-'use strict';
-
-var path   = require('path');
-var assign = require('object.assign');
-
-var getParentLocale  = require('./locales').getParentLocale;
-var hasNumbersFields = require('./locales').hasNumbersFields;
-var normalizeLocale  = require('./locales').normalizeLocale;
+let getParentLocale  = require('./locales').getParentLocale;
+let hasNumbersFields = require('./locales').hasNumbersFields;
+let normalizeLocale  = require('./locales').normalizeLocale;
 
 module.exports = function extractNumbersFields(locales) {
-    var cache = {};
-    var hashes = {};
+    let cache = {};
 
     // Loads and caches the numbers fields for a given `locale` because loading
     // and transforming the data is expensive.
     function getNumbers(locale) {
-        var numbers = cache[locale];
+        let numbers = cache[locale];
         if (numbers) {
             return numbers;
         }
@@ -43,13 +35,13 @@ module.exports = function extractNumbersFields(locales) {
         return findLocaleWithNumbersFields(getParentLocale(locale));
     }
 
-    return locales.reduce(function (numbers, locale) {
+    return locales.reduce((numbers, locale) => {
         locale = normalizeLocale(locale);
 
         // Walk the `locale`'s hierarchy to look for suitable ancestor with the
         // date calendars. If no ancestor is found, the given
         // `locale` will be returned.
-        var resolvedLocale = findLocaleWithNumbersFields(locale);
+        let resolvedLocale = findLocaleWithNumbersFields(locale);
 
         // Add an entry for the `locale`, which might be an ancestor. If the
         // locale doesn't have relative fields, then we fallback to the "root"
@@ -63,7 +55,7 @@ module.exports = function extractNumbersFields(locales) {
 };
 
 function loadNumbers(locale) {
-    return assign(
+    return Object.assign(
         require('cldr-numbers-full/main/' + locale + '/numbers.json').main[locale].numbers,
         require('cldr-numbers-full/main/' + locale + '/currencies.json').main[locale].numbers
     );
