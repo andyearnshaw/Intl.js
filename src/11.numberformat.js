@@ -575,7 +575,7 @@ function FormatNumberToParts (numberFormat, x) {
             arrPush.call(result, { type: 'plusSign', value: ild.plusSign });
         } else if (p === '{minusSign}') {
             arrPush.call(result, { type: 'minusSign', value: ild.minusSign });
-        } else if (p === '{percent}' && internal['[[style]]'] === 'percent') {
+        } else if (p === '{percentSign}' && internal['[[style]]'] === 'percent') {
             arrPush.call(result, { type: 'percentSign', value: ild.percentSign });
         } else if (p === '{currency}' && internal['[[style]]'] === 'currency') {
             let cd,
