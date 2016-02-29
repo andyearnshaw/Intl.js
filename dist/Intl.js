@@ -3192,9 +3192,9 @@
         while (beginIndex !== -1) {
             var fv = undefined;
             // a.
-            var _endIndex = pattern.indexOf('}', beginIndex);
+            endIndex = pattern.indexOf('}', beginIndex);
             // b.
-            if (_endIndex === -1) {
+            if (endIndex === -1) {
                 throw new Error('Unclosed pattern');
             }
             // c.
@@ -3205,7 +3205,7 @@
                 });
             }
             // d.
-            var p = pattern.substring(beginIndex + 1, _endIndex);
+            var p = pattern.substring(beginIndex + 1, endIndex);
             // e.
             if (dateTimeComponents.hasOwnProperty(p)) {
                 //   i. Let f be the value of the [[<p>]] internal property of dateTimeFormat.
@@ -3300,11 +3300,11 @@
                 } else {
                         arrPush.call(result, {
                             type: 'separator',
-                            value: pattern.substring(beginIndex, _endIndex)
+                            value: pattern.substring(beginIndex, endIndex)
                         });
                     }
             // h.
-            index = _endIndex + 1;
+            index = endIndex + 1;
             // i.
             beginIndex = pattern.indexOf('{', index);
         }
