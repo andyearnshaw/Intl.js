@@ -1,19 +1,19 @@
 /* jslint esnext: true */
 
 // Match these datetime components in a CLDR pattern, except those in single quotes
-var expDTComponents = /(?:[Eec]{1,6}|G{1,5}|[Qq]{1,5}|(?:[yYur]+|U{1,5})|[ML]{1,5}|d{1,2}|D{1,3}|F{1}|[abB]{1,5}|[hkHK]{1,2}|w{1,2}|W{1}|m{1,2}|s{1,2}|[zZOvVxX]{1,4})(?=([^']*'[^']*')*[^']*$)/g;
+let expDTComponents = /(?:[Eec]{1,6}|G{1,5}|[Qq]{1,5}|(?:[yYur]+|U{1,5})|[ML]{1,5}|d{1,2}|D{1,3}|F{1}|[abB]{1,5}|[hkHK]{1,2}|w{1,2}|W{1}|m{1,2}|s{1,2}|[zZOvVxX]{1,4})(?=([^']*'[^']*')*[^']*$)/g;
 // trim patterns after transformations
-var expPatternTrimmer = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+let expPatternTrimmer = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
 // Skip over patterns with these datetime components because we don't have data
 // to back them up:
 // timezone, weekday, amoung others
-var unwantedDTCs = /[rqQxXVOvZASjJgwWIQq]/;
+let unwantedDTCs = /[rqQxXVOvZASjJgwWIQq]/;
 
-var dtKeys = ["weekday", "era", "year", "month", "day", "weekday", "quarter"];
-var tmKeys = ["hour", "minute", "second", "hour12", "timeZoneName"];
+let dtKeys = ["weekday", "era", "year", "month", "day", "weekday", "quarter"];
+let tmKeys = ["hour", "minute", "second", "hour12", "timeZoneName"];
 
 function isDateFormatOnly(obj) {
-    for (var i = 0; i < tmKeys.length; i += 1) {
+    for (let i = 0; i < tmKeys.length; i += 1) {
         if (obj.hasOwnProperty(tmKeys[i])) {
             return false;
         }
@@ -22,7 +22,7 @@ function isDateFormatOnly(obj) {
 }
 
 function isTimeFormatOnly(obj) {
-    for (var i = 0; i < dtKeys.length; i += 1) {
+    for (let i = 0; i < dtKeys.length; i += 1) {
         if (obj.hasOwnProperty(dtKeys[i])) {
             return false;
         }
@@ -31,13 +31,13 @@ function isTimeFormatOnly(obj) {
 }
 
 function joinDateAndTimeFormats(dateFormatObj, timeFormatObj) {
-    var o = {};
-    for (var i = 0; i < dtKeys.length; i += 1) {
+    let o = {};
+    for (let i = 0; i < dtKeys.length; i += 1) {
         if (dateFormatObj[dtKeys[i]]) {
             o[dtKeys[i]] = dateFormatObj[dtKeys[i]];
         }
     }
-    for (var j = 0; j < tmKeys.length; j += 1) {
+    for (let j = 0; j < tmKeys.length; j += 1) {
         if (timeFormatObj[tmKeys[j]]) {
             o[tmKeys[j]] = timeFormatObj[tmKeys[j]];
         }
@@ -50,7 +50,7 @@ function computeFinalPatterns(formatObj) {
     //  'In patterns, two single quotes represents a literal single quote, either
     //   inside or outside single quotes. Text within single quotes is not
     //   interpreted in any way (except for two adjacent single quotes).'
-    formatObj.pattern12 = formatObj.extendedPattern.replace(/'([^']*)'/g, function ($0, literal) {
+    formatObj.pattern12 = formatObj.extendedPattern.replace(/'([^']*)'/g, ($0, literal) => {
         return literal ? literal : "'";
     });
 
@@ -68,13 +68,13 @@ export function createDateTimeFormat(skeleton, pattern) {
     if (unwantedDTCs.test(pattern))
         return undefined;
 
-    var formatObj = {
-        originalPattern: pattern
+    let formatObj = {
+        originalPattern: pattern,
     };
 
     // Replace the pattern string with the one required by the specification, whilst
     // at the same time evaluating it for the subsets and formats
-    formatObj.extendedPattern = pattern.replace(expDTComponents, function ($0) {
+    formatObj.extendedPattern = pattern.replace(expDTComponents, ($0) => {
         // See which symbol we're dealing with
         switch ($0.charAt(0)) {
 
@@ -159,7 +159,7 @@ export function createDateTimeFormat(skeleton, pattern) {
     // http://unicode.org/reports/tr35/tr35-dates.html#Date_Field_Symbol_Table
     // Note: we are adding extra data to the formatObject even though this polyfill
     //       might not support it.
-    skeleton.replace(expDTComponents, function ($0) {
+    skeleton.replace(expDTComponents, ($0) => {
         // See which symbol we're dealing with
         switch ($0.charAt(0)) {
 
@@ -300,13 +300,13 @@ export function createDateTimeFormat(skeleton, pattern) {
  * them into the pattern objects used in the ECMA-402 API.
  */
 export function createDateTimeFormats(formats) {
-    var availableFormats = formats.availableFormats;
-    var timeFormats = formats.timeFormats;
-    var dateFormats = formats.dateFormats;
-    var result = [];
-    var skeleton, pattern, computed, i, j;
-    var timeRelatedFormats = [];
-    var dateRelatedFormats = [];
+    let availableFormats = formats.availableFormats;
+    let timeFormats = formats.timeFormats;
+    let dateFormats = formats.dateFormats;
+    let result = [];
+    let skeleton, pattern, computed, i, j;
+    let timeRelatedFormats = [];
+    let dateRelatedFormats = [];
 
     // Map available (custom) formats into a pattern for createDateTimeFormats
     for (skeleton in availableFormats) {

@@ -1,10 +1,8 @@
-/* jslint esnext: true */
-
-import IntlPolyfill from "./core";
+import IntlPolyfill from "./core.js";
 
 // hack to export the polyfill as global Intl if needed
-if (!this.Intl) {
-    this.Intl = IntlPolyfill;
+if (typeof Intl !== undefined) {
+    Intl = IntlPolyfill;
     IntlPolyfill.__applyLocaleSensitivePrototypes();
 }
 
