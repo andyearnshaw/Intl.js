@@ -771,7 +771,7 @@ function CreateDateTimeParts(dateTimeFormat, x) {
         while (beginIndex !== -1) {
             let fv;
             // a.
-            let endIndex = pattern.indexOf('}', beginIndex);
+            endIndex = pattern.indexOf('}', beginIndex);
             // b.
             if (endIndex === -1) {
               throw new Error('Unclosed pattern');
