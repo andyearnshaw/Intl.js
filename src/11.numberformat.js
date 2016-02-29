@@ -555,7 +555,7 @@ function FormatNumberToParts (numberFormat, x) {
                     arrPush.call(groups, integer.slice(end));
                 }
 
-                while (groups.length) {
+                while (groups && groups.length) {
                     let integerGroup = arrShift.call(groups);
                     arrPush.call(result, { type: 'integer', value: integerGroup });
                     if (groups.length) {
