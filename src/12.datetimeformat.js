@@ -779,7 +779,7 @@ function CreateDateTimeParts(dateTimeFormat, x) {
             // c.
             if (beginIndex > index) {
                 arrPush.call(result, {
-                    type: 'separator',
+                    type: 'literal',
                     value: pattern.substring(index, beginIndex),
                 });
             }
@@ -878,7 +878,7 @@ function CreateDateTimeParts(dateTimeFormat, x) {
             // g.
             } else {
               arrPush.call(result, {
-                type: 'separator',
+                type: 'literal',
                 value: pattern.substring(beginIndex, endIndex),
               });
             }
@@ -890,7 +890,7 @@ function CreateDateTimeParts(dateTimeFormat, x) {
         // 12.
         if (endIndex < pattern.length - 1) {
           arrPush.call(result, {
-            type: 'separator',
+            type: 'literal',
             value: pattern.substr(endIndex),
           });
         }
