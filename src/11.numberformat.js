@@ -457,11 +457,9 @@ function FormatNumberToParts (numberFormat, x) {
         if (beginIndex > nextIndex)
             arrPush.call(result, { type: 'literal', value: pattern.substring(nextIndex, beginIndex) });
 
-        nextIndex = endIndex + 1;
+        let p = pattern.substring(beginIndex + 1, endIndex);
 
-        let p = pattern.substring(beginIndex, nextIndex);
-
-        if (p === '{number}') {
+        if (p === 'number') {
             if (isNaN(x))
                 arrPush.call(result, { type: 'nan', value: ild.nan });
             if (!isFinite(x))
@@ -571,13 +569,13 @@ function FormatNumberToParts (numberFormat, x) {
                 arrPush.call(result, { type: 'fraction', value: fraction });
             }
 
-        } else if (p === '{plusSign}') {
+        } else if (p === 'plusSign') {
             arrPush.call(result, { type: 'plusSign', value: ild.plusSign });
-        } else if (p === '{minusSign}') {
+        } else if (p === 'minusSign') {
             arrPush.call(result, { type: 'minusSign', value: ild.minusSign });
         } else if (p === '{percentSign}' && internal['[[style]]'] === 'percent') {
             arrPush.call(result, { type: 'percentSign', value: ild.percentSign });
-        } else if (p === '{currency}' && internal['[[style]]'] === 'currency') {
+        } else if (p === 'currency' && internal['[[style]]'] === 'currency') {
             let cd,
             // a. Let currency be the value of the [[currency]] internal property of
             //    numberFormat.
@@ -609,9 +607,10 @@ function FormatNumberToParts (numberFormat, x) {
 
             arrPush.call(result, { type: 'currency', value: cd });
         } else {
-            arrPush.call(result, { type: 'literal', value: p });
+            arrPush.call(result, { type: 'literal', value: pattern.substring(beginIndex, endIndex + 1) });
         }
 
+        nextIndex = endIndex + 1;
         beginIndex = pattern.indexOf('{', nextIndex);
     }
 
