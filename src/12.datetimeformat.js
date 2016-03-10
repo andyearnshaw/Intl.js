@@ -879,7 +879,7 @@ function CreateDateTimeParts(dateTimeFormat, x) {
             } else {
               arrPush.call(result, {
                 type: 'literal',
-                value: pattern.substring(beginIndex, endIndex),
+                value: pattern.substring(beginIndex, endIndex + 1),
               });
             }
             // h.
