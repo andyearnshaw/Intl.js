@@ -2,6 +2,10 @@
 // ===========================================================================
 
 import {
+    Intl,
+} from "./8.intl.js";
+
+import {
     FormatNumber,
     NumberFormatConstructor,
 } from "./11.numberformat.js";
