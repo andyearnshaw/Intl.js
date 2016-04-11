@@ -92,7 +92,21 @@ if (!global.Intl) {
 
 _note: the locale data is required for the polyfill to function when using it in a browser environment, in the example above, the english (`en`) locale is being required along with the polyfill itself._
 
+If you're using [webpack 2], instead of `require.ensure(...)` use `System.import`:
+
+```javascript
+// ...
+
+    Promise.all([
+        System.import('intl'),
+        System.import('intl/locale-data/jsonp/en.js')
+    ]).then(runMyApp);
+
+// ...
+```
+
 [webpack]: https://webpack.github.io/
+[webpack 2]: https://gist.github.com/sokra/27b24881210b56bbaff7
 [browserify]: http://browserify.org/
 
 ### Intl.js and Bower
