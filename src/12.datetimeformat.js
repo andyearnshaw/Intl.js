@@ -872,7 +872,7 @@ function CreateDateTimeParts(dateTimeFormat, x) {
               fv = resolveDateString(localeData, ca, 'dayPeriods', v > 11 ? 'pm' : 'am');
               // iv.
               arrPush.call(result, {
-                type: 'dayperiod',
+                type: 'dayPeriod',
                 value: fv,
               });
             // g.
