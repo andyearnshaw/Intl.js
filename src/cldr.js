@@ -7,7 +7,7 @@ let expPatternTrimmer = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
 // Skip over patterns with these datetime components because we don't have data
 // to back them up:
 // timezone, weekday, amoung others
-let unwantedDTCs = /[rqQxXVOvZASjJgwWIQq]/;
+let unwantedDTCs = /[rqQASjJgwWIQq]/; // xXVO were removed from this list in favor of computing matches with timeZoneName values but printing as empty string
 
 let dtKeys = ["weekday", "era", "year", "month", "day", "weekday", "quarter"];
 let tmKeys = ["hour", "minute", "second", "hour12", "timeZoneName"];
@@ -31,15 +31,21 @@ function isTimeFormatOnly(obj) {
 }
 
 function joinDateAndTimeFormats(dateFormatObj, timeFormatObj) {
-    let o = {};
+    let o = { _: {} };
     for (let i = 0; i < dtKeys.length; i += 1) {
         if (dateFormatObj[dtKeys[i]]) {
             o[dtKeys[i]] = dateFormatObj[dtKeys[i]];
+        }
+        if (dateFormatObj._[dtKeys[i]]) {
+            o._[dtKeys[i]] = dateFormatObj._[dtKeys[i]];
         }
     }
     for (let j = 0; j < tmKeys.length; j += 1) {
         if (timeFormatObj[tmKeys[j]]) {
             o[tmKeys[j]] = timeFormatObj[tmKeys[j]];
+        }
+        if (timeFormatObj._[tmKeys[j]]) {
+            o._[tmKeys[j]] = timeFormatObj._[tmKeys[j]];
         }
     }
     return o;
@@ -59,6 +65,119 @@ function computeFinalPatterns(formatObj) {
     return formatObj;
 }
 
+function expDTComponentsMeta($0, formatObj) {
+    switch ($0.charAt(0)) {
+        // --- Era
+        case 'G':
+            formatObj.era = [ 'short', 'short', 'short', 'long', 'narrow' ][$0.length-1];
+            return '{era}';
+
+        // --- Year
+        case 'y':
+        case 'Y':
+        case 'u':
+        case 'U':
+        case 'r':
+            formatObj.year = $0.length === 2 ? '2-digit' : 'numeric';
+            return '{year}';
+
+        // --- Quarter (not supported in this polyfill)
+        case 'Q':
+        case 'q':
+            formatObj.quarter = [ 'numeric', '2-digit', 'short', 'long', 'narrow' ][$0.length-1];
+            return '{quarter}';
+
+        // --- Month
+        case 'M':
+        case 'L':
+            formatObj.month = [ 'numeric', '2-digit', 'short', 'long', 'narrow' ][$0.length-1];
+            return '{month}';
+
+        // --- Week (not supported in this polyfill)
+        case 'w':
+            // week of the year
+            formatObj.week = $0.length === 2 ? '2-digit' : 'numeric';
+            return '{weekday}';
+        case 'W':
+            // week of the month
+            formatObj.week = 'numeric';
+            return '{weekday}';
+
+        // --- Day
+        case 'd':
+            // day of the month
+            formatObj.day = $0.length === 2 ? '2-digit' : 'numeric';
+            return '{day}';
+        case 'D':
+            // day of the year
+        case 'F':
+            // day of the week
+        case 'g':
+            // 1..n: Modified Julian day
+            formatObj.day = 'numeric';
+            return '{day}';
+
+        // --- Week Day
+        case 'E':
+            // day of the week
+            formatObj.weekday = [ 'short', 'short', 'short', 'long', 'narrow', 'short' ][$0.length-1];
+            return '{weekday}';
+        case 'e':
+            // local day of the week
+            formatObj.weekday = [ 'numeric', '2-digit', 'short', 'long', 'narrow', 'short' ][$0.length-1];
+            return '{weekday}';
+        case 'c':
+            // stand alone local day of the week
+            formatObj.weekday = [ 'numeric', undefined, 'short', 'long', 'narrow', 'short' ][$0.length-1];
+            return '{weekday}';
+
+        // --- Period
+        case 'a': // AM, PM
+        case 'b': // am, pm, noon, midnight
+        case 'B': // flexible day periods
+            formatObj.hour12 = true;
+            return '{ampm}';
+
+        // --- Hour
+        case 'h':
+        case 'H':
+            formatObj.hour = $0.length === 2 ? '2-digit' : 'numeric';
+            return '{hour}';
+        case 'k':
+        case 'K':
+            formatObj.hour12 = true; // 12-hour-cycle time formats (using h or K)
+            formatObj.hour = $0.length === 2 ? '2-digit' : 'numeric';
+            return '{hour}';
+
+        // --- Minute
+        case 'm':
+            formatObj.minute = $0.length === 2 ? '2-digit' : 'numeric';
+            return '{minute}';
+
+        // --- Second
+        case 's':
+            formatObj.second = $0.length === 2 ? '2-digit' : 'numeric';
+            return '{second}';
+        case 'S':
+        case 'A':
+            formatObj.second = 'numeric';
+            return '{second}';
+
+        // --- Timezone
+        case 'z': // 1..3, 4: specific non-location format
+        case 'Z': // 1..3, 4, 5: The ISO8601 varios formats
+        case 'O': // 1, 4: miliseconds in day short, long
+        case 'v': // 1, 4: generic non-location format
+        case 'V': // 1, 2, 3, 4: time zone ID or city
+        case 'X': // 1, 2, 3, 4: The ISO8601 varios formats
+        case 'x': // 1, 2, 3, 4: The ISO8601 varios formats
+            // this polyfill only supports much, for now, we are just doing something dummy
+            formatObj.timeZoneName = $0.length < 4 ? 'short' : 'long';
+            return '{timeZoneName}';
+    }
+}
+
+
 /**
  * Converts the CLDR availableFormats into the objects and patterns required by
  * the ECMAScript Internationalization API specification.
@@ -70,88 +189,14 @@ export function createDateTimeFormat(skeleton, pattern) {
 
     let formatObj = {
         originalPattern: pattern,
+        _: {},
     };
 
     // Replace the pattern string with the one required by the specification, whilst
     // at the same time evaluating it for the subsets and formats
     formatObj.extendedPattern = pattern.replace(expDTComponents, ($0) => {
         // See which symbol we're dealing with
-        switch ($0.charAt(0)) {
-
-            // --- Era
-            case 'G':
-                return '{era}';
-
-            // --- Year
-            case 'y':
-            case 'Y':
-            case 'u':
-            case 'U':
-            case 'r':
-                return '{year}';
-
-            // --- Quarter (not supported in this polyfill)
-            case 'Q':
-            case 'q':
-                return '{quarter}';
-
-            // --- Month
-            case 'M':
-            case 'L':
-                return '{month}';
-
-            // --- Week (not supported in this polyfill)
-            case 'w':
-            case 'W':
-                return '{weekday}';
-
-            // --- Day
-            case 'd':
-            case 'D':
-            case 'F':
-            case 'g':
-                return '{day}';
-
-            // --- Week Day
-            case 'E':
-            case 'e':
-            case 'c':
-                return '{weekday}';
-
-            // --- Period
-            case 'a':
-            case 'b':
-            case 'B':
-                return '{ampm}';
-
-            // --- Hour
-            case 'h':
-            case 'H':
-            case 'k':
-            case 'K':
-                return '{hour}';
-
-            // --- Minute
-            case 'm':
-                return '{minute}';
-
-            // --- Second
-            case 's':
-            case 'S':
-            case 'A':
-                return '{second}';
-
-            // --- Timezone
-            case 'z':
-            case 'Z':
-            case 'O':
-            case 'v':
-            case 'V':
-            case 'X':
-            case 'x':
-                return '{timeZoneName}';
-
-        }
+        return expDTComponentsMeta($0, formatObj._);
     });
 
     // Match the skeleton string with the one required by the specification
@@ -161,120 +206,7 @@ export function createDateTimeFormat(skeleton, pattern) {
     //       might not support it.
     skeleton.replace(expDTComponents, ($0) => {
         // See which symbol we're dealing with
-        switch ($0.charAt(0)) {
-
-            // --- Era
-            case 'G':
-                formatObj.era = [ 'short', 'short', 'short', 'long', 'narrow' ][$0.length-1];
-                break;
-
-            // --- Year
-            case 'y':
-            case 'Y':
-            case 'u':
-            case 'U':
-                formatObj.year = $0.length === 2 ? '2-digit' : 'numeric';
-                break;
-            // case 'r':
-                // r: 1..n - For the Gregorian calendar, the 'r' year is the same as the 'u' year.
-                // break;
-
-            // --- Quarter (not supported in this polyfill)
-            case 'Q':
-            case 'q':
-                formatObj.quarter = [ 'numeric', '2-digit', 'short', 'long', 'narrow' ][$0.length-1];
-                break;
-
-            // --- Month
-            case 'M':
-            case 'L':
-                formatObj.month = [ 'numeric', '2-digit', 'short', 'long', 'narrow' ][$0.length-1];
-                break;
-
-            // --- Week (not supported in this polyfill)
-            case 'w':
-                // week of the year
-                formatObj.week = $0.length === 2 ? '2-digit' : 'numeric';
-                break;
-            case 'W':
-                // week of the month
-                formatObj.week = 'numeric';
-                break;
-
-            // --- Day
-            case 'd':
-                // day of the month
-                formatObj.day = $0.length === 2 ? '2-digit' : 'numeric';
-                break;
-            case 'D':
-                // day of the year
-                formatObj.day = 'numeric';
-                break;
-            case 'F':
-                // day of the week
-                formatObj.day = 'numeric';
-                break;
-            // case 'g':
-                // 1..n: Modified Julian day
-                // break;
-
-            // --- Week Day
-            case 'E':
-                // day of the week
-                formatObj.weekday = [ 'short', 'short', 'short', 'long', 'narrow', 'short' ][$0.length-1];
-                break;
-            case 'e':
-                // local day of the week
-                formatObj.weekday = [ 'numeric', '2-digit', 'short', 'long', 'narrow', 'short' ][$0.length-1];
-                break;
-            case 'c':
-                // stand alone local day of the week
-                formatObj.weekday = [ 'numeric', undefined, 'short', 'long', 'narrow', 'short' ][$0.length-1];
-                break;
-
-            // --- Period
-            case 'a': // AM, PM
-            case 'b': // am, pm, noon, midnight
-            case 'B': // flexible day periods
-                formatObj.hour12 = true;
-                break;
-
-            // --- Hour
-            case 'H':
-            case 'k':
-                formatObj.hour = $0.length === 2 ? '2-digit' : 'numeric';
-                break;
-            case 'h':
-            case 'K':
-                formatObj.hour12 = true; // 12-hour-cycle time formats (using h or K)
-                formatObj.hour = $0.length === 2 ? '2-digit' : 'numeric';
-                break;
-
-            // --- Minute
-            case 'm':
-                formatObj.minute = $0.length === 2 ? '2-digit' : 'numeric';
-                break;
-
-            // --- Second
-            case 's':
-                formatObj.second = $0.length === 2 ? '2-digit' : 'numeric';
-                break;
-            // case 'S': // 1..n: factional seconds
-            // case 'A': // 1..n: miliseconds in day
-
-            // --- Timezone
-            case 'z': // 1..3, 4: specific non-location format
-            case 'Z': // 1..3, 4, 5: The ISO8601 varios formats
-            case 'O': // 1, 4: miliseconds in day short, long
-            case 'v': // 1, 4: generic non-location format
-            case 'V': // 1, 2, 3, 4: time zone ID or city
-            case 'X': // 1, 2, 3, 4: The ISO8601 varios formats
-            case 'x': // 1, 2, 3, 4: The ISO8601 varios formats
-                // this polyfill only supports much, for now, we are just doing something dummy
-                formatObj.timeZoneName = $0.length < 4 ? 'short' : 'long';
-                break;
-
-        }
+        return expDTComponentsMeta($0, formatObj);
     });
 
     return computeFinalPatterns(formatObj);

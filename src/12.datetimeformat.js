@@ -240,16 +240,22 @@ export function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, 
     dataLocaleData.formats = formats;
 
     // 26. If matcher is "basic", then
-    if (matcher === 'basic')
+    if (matcher === 'basic') {
         // 27. Let bestFormat be the result of calling the BasicFormatMatcher abstract
         //     operation (defined below) with opt and formats.
         bestFormat = BasicFormatMatcher(opt, formats);
 
     // 28. Else
-    else
+    } else {
+        {
+            // diverging
+            let hr12 = GetOption(options, 'hour12', 'boolean'/*, undefined, undefined*/);
+            opt.hour12 = hr12 === undefined ? dataLocaleData.hour12 : hr12;
+        }
         // 29. Let bestFormat be the result of calling the BestFitFormatMatcher
         //     abstract operation (defined below) with opt and formats.
         bestFormat = BestFitFormatMatcher(opt, formats);
+    }
 
     // 30. For each row in Table 3, except the header row, do
     for (let prop in dateTimeComponents) {
@@ -264,14 +270,17 @@ export function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, 
             // i. Let p be the result of calling the [[Get]] internal method of bestFormat
             //    with argument prop.
             let p = bestFormat[prop];
+            {
+                // diverging
+                p = bestFormat._ && hop.call(bestFormat._, prop) ? bestFormat._[prop] : p;
+            }
 
             // ii. Set the [[<prop>]] internal property of dateTimeFormat to p.
             internal['[['+prop+']]'] = p;
         }
     }
 
-    // Assigned a value below
-    let pattern;
+    let pattern; // Assigned a value below
 
     // 31. Let hr12 be the result of calling the GetOption abstract operation with
     //     arguments options, "hour12", "boolean", undefined, and undefined.
@@ -599,8 +608,6 @@ function BasicFormatMatcher (options, formats) {
  */
 function BestFitFormatMatcher (options, formats) {
 
-    let list = [];
-
     // 1. Let removalPenalty be 120.
     let removalPenalty = 120;
 
@@ -614,10 +621,12 @@ function BestFitFormatMatcher (options, formats) {
     let longMorePenalty = 6;
 
     // 5. Let shortLessPenalty be 6.
-    let shortLessPenalty = 3;
+    let shortLessPenalty = 6;
 
     // 6. Let shortMorePenalty be 3.
-    let shortMorePenalty = 1;
+    let shortMorePenalty = 3;
+
+    let hour12Penalty = 1;
 
     // 7. Let bestScore be -Infinity.
     let bestScore = -Infinity;
@@ -700,7 +709,14 @@ function BestFitFormatMatcher (options, formats) {
             }
         }
 
-        list.push([format.originalPattern, score]);
+        {
+            // diverging to also take into consideration differences between 12 or 24 hours
+            // which is special for the best fit only.
+            if (format._.hour12 !== options.hour12) {
+                score -= hour12Penalty;
+            }
+        }
+
         // d. If score > bestScore, then
         if (score > bestScore) {
             // i. Let bestScore be score.
@@ -712,7 +728,7 @@ function BestFitFormatMatcher (options, formats) {
         // e. Increase i by 1.
         i++;
     }
-console.log(list.join('\n'));
+
     // 13. Return bestFormat.
     return bestFormat;
 }
@@ -990,7 +1006,7 @@ function CreateDateTimeParts(dateTimeFormat, x) {
               // i.
               let v = tm['[[hour]]'];
               // ii./iii.
-              fv = resolveDateString(localeData, ca, 'dayPeriods', v > 11 ? 'pm' : 'am');
+              fv = resolveDateString(localeData, ca, 'dayPeriods', v > 11 ? 'pm' : 'am', null);
               // iv.
               arrPush.call(result, {
                 type: 'dayPeriod',
@@ -1012,7 +1028,7 @@ function CreateDateTimeParts(dateTimeFormat, x) {
         if (endIndex < pattern.length - 1) {
           arrPush.call(result, {
             type: 'literal',
-            value: pattern.substr(endIndex),
+            value: pattern.substr(endIndex + 1),
           });
         }
         // 13.
