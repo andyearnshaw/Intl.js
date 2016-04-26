@@ -1,23 +1,24 @@
 import {
-    defineProperty,
-} from "./util.js";
-
-import {
-  CanonicalizeLocaleList
+    CanonicalizeLocaleList,
 } from "./9.negotiation.js";
 
+// 8 The Intl Object
 export const Intl = {};
 
-function GetCanonicalLocales (locales) {
-  let codes = CanonicalizeLocaleList(locales);
-  let result = [];
-  for (let code in codes) {
-    result.push(codes[code]);
-  }
-  return result;
-}
+// 8.2 Function Properties of the Intl Object
 
-defineProperty(Intl, 'getCanonicalLocales', {
-    configurable: true,
-    value: GetCanonicalLocales,
-});
+// 8.2.1
+// @spec[tc39/ecma402/master/spec/intl.html]
+// @clause[sec-intl.getcanonicallocales]
+Intl.getCanonicalLocales = function (locales) {
+    // 1. Let ll be ? CanonicalizeLocaleList(locales).
+    let ll = CanonicalizeLocaleList(locales);
+    // 2. Return CreateArrayFromList(ll).
+    {
+        let result = [];
+        for (let code in ll) {
+          result.push(ll[code]);
+        }
+        return result;
+    }
+};

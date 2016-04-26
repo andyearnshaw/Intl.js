@@ -266,9 +266,7 @@ export function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, 
             let p = bestFormat[prop];
 
             // ii. Set the [[<prop>]] internal property of dateTimeFormat to p.
-            // Diverging from spec becuase of bug #58
-            // https://github.com/tc39/ecma402/issues/58
-            internal['[['+prop+']]'] = opt['[['+prop+']]'] || p;
+            internal['[['+prop+']]'] = p;
         }
     }
 
@@ -437,17 +435,6 @@ export function ToDateTimeOptions (options, required, defaults) {
  * formats, the following steps are taken:
  */
 function BasicFormatMatcher (options, formats) {
-    return calculateScore(options, formats);
-}
-
-/**
- * Calculates score for BestFitFormatMatcher and BasicFormatMatcher.
- * Abstracted from BasicFormatMatcher section.
- */
-function calculateScore (options, formats, bestFit) {
-    // Additional penalty type when bestFit === true
-    let diffDataTypePenalty = 8;
-
     // 1. Let removalPenalty be 120.
     let removalPenalty = 120;
 
@@ -475,10 +462,12 @@ function calculateScore (options, formats, bestFit) {
     // 9. Let i be 0.
     let i = 0;
 
-    // 10. Let len be the result of calling the [[Get]] internal method of formats with argument "length".
+    // 10. Assert: formats is an Array object.
+
+    // 11. Let len be the result of calling the [[Get]] internal method of formats with argument "length".
     let len = formats.length;
 
-    // 11. Repeat while i < len:
+    // 12. Repeat while i < len:
     while (i < len) {
         // a. Let format be the result of calling the [[Get]] internal method of formats with argument ToString(i).
         let format = formats[i];
@@ -525,13 +514,6 @@ function calculateScore (options, formats, bestFit) {
                 // 4. Let delta be max(min(formatPropIndex - optionsPropIndex, 2), -2).
                 let delta = Math.max(Math.min(formatPropIndex - optionsPropIndex, 2), -2);
 
-                // When the bestFit argument is true, subtract additional penalty where data types are not the same
-                if (bestFit && (
-                    ((optionsProp === 'numeric' || optionsProp === '2-digit') && (formatProp !== 'numeric' && formatProp !== '2-digit'))
-                 || ((optionsProp !== 'numeric' && optionsProp !== '2-digit') && (formatProp === '2-digit' || formatProp === 'numeric'))
-                ))
-                    score -= diffDataTypePenalty;
-
                 // 5. If delta = 2, decrease score by longMorePenalty.
                 if (delta === 2)
                     score -= longMorePenalty;
@@ -563,7 +545,7 @@ function calculateScore (options, formats, bestFit) {
         i++;
     }
 
-    // 12. Return bestFormat.
+    // 13. Return bestFormat.
     return bestFormat;
 }
 
@@ -576,6 +558,29 @@ function calculateScore (options, formats, bestFit) {
  * This polyfill defines the algorithm to be the same as BasicFormatMatcher,
  * with the addition of bonus points awarded where the requested format is of
  * the same data type as the potentially matching format.
+ *
+ * This algo relies on the concept of closest distance matching described here:
+ * http://unicode.org/reports/tr35/tr35-dates.html#Matching_Skeletons
+ * Typically a “best match” is found using a closest distance match, such as:
+ *
+ * Symbols requesting a best choice for the locale are replaced.
+ *      j → one of {H, k, h, K}; C → one of {a, b, B}
+ * -> Covered by cldr.js matching process
+ *
+ * For fields with symbols representing the same type (year, month, day, etc):
+ *     Most symbols have a small distance from each other.
+ *         M ≅ L; E ≅ c; a ≅ b ≅ B; H ≅ k ≅ h ≅ K; ...
+ *     -> Covered by cldr.js matching process
+ *
+ *     Width differences among fields, other than those marking text vs numeric, are given small distance from each other.
+ *         MMM ≅ MMMM
+ *         MM ≅ M
+ *     Numeric and text fields are given a larger distance from each other.
+ *         MMM ≈ MM
+ *     Symbols representing substantial differences (week of year vs week of month) are given much larger a distances from each other.
+ *         d ≋ D; ...
+ *     Missing or extra fields cause a match to fail. (But see Missing Skeleton Fields).
+ *
  *
  * For example,
  *
@@ -593,7 +598,123 @@ function calculateScore (options, formats, bestFit) {
  * not expect to see the returned format containing narrow, short or long part names
  */
 function BestFitFormatMatcher (options, formats) {
-    return calculateScore(options, formats, true);
+
+    let list = [];
+
+    // 1. Let removalPenalty be 120.
+    let removalPenalty = 120;
+
+    // 2. Let additionPenalty be 20.
+    let additionPenalty = 20;
+
+    // 3. Let longLessPenalty be 8.
+    let longLessPenalty = 8;
+
+    // 4. Let longMorePenalty be 6.
+    let longMorePenalty = 6;
+
+    // 5. Let shortLessPenalty be 6.
+    let shortLessPenalty = 3;
+
+    // 6. Let shortMorePenalty be 3.
+    let shortMorePenalty = 1;
+
+    // 7. Let bestScore be -Infinity.
+    let bestScore = -Infinity;
+
+    // 8. Let bestFormat be undefined.
+    let bestFormat;
+
+    // 9. Let i be 0.
+    let i = 0;
+
+    // 10. Assert: formats is an Array object.
+
+    // 11. Let len be the result of calling the [[Get]] internal method of formats with argument "length".
+    let len = formats.length;
+
+    // 12. Repeat while i < len:
+    while (i < len) {
+        // a. Let format be the result of calling the [[Get]] internal method of formats with argument ToString(i).
+        let format = formats[i];
+
+        // b. Let score be 0.
+        let score = 0;
+
+        // c. For each property shown in Table 3:
+        for (let property in dateTimeComponents) {
+            if (!hop.call(dateTimeComponents, property))
+                continue;
+
+            // i. Let optionsProp be options.[[<property>]].
+            let optionsProp = options['[['+ property +']]'];
+
+            // ii. Let formatPropDesc be the result of calling the [[GetOwnProperty]] internal method of format
+            //     with argument property.
+            // iii. If formatPropDesc is not undefined, then
+            //     1. Let formatProp be the result of calling the [[Get]] internal method of format with argument property.
+            let formatProp = hop.call(format, property) ? format[property] : undefined;
+
+            // iv. If optionsProp is undefined and formatProp is not undefined, then decrease score by
+            //     additionPenalty.
+            if (optionsProp === undefined && formatProp !== undefined)
+                score -= additionPenalty;
+
+            // v. Else if optionsProp is not undefined and formatProp is undefined, then decrease score by
+            //    removalPenalty.
+            else if (optionsProp !== undefined && formatProp === undefined)
+                score -= removalPenalty;
+
+            // vi. Else
+            else {
+                // 1. Let values be the array ["2-digit", "numeric", "narrow", "short",
+                //    "long"].
+                let values = [ '2-digit', 'numeric', 'narrow', 'short', 'long' ];
+
+                // 2. Let optionsPropIndex be the index of optionsProp within values.
+                let optionsPropIndex = arrIndexOf.call(values, optionsProp);
+
+                // 3. Let formatPropIndex be the index of formatProp within values.
+                let formatPropIndex = arrIndexOf.call(values, formatProp);
+
+                // 4. Let delta be max(min(formatPropIndex - optionsPropIndex, 2), -2).
+                let delta = Math.max(Math.min(formatPropIndex - optionsPropIndex, 2), -2);
+
+                {
+                    // diverging from spec
+                    // When the bestFit argument is true, subtract additional penalty where data types are not the same
+                    if ((formatPropIndex <= 1 && optionsPropIndex >= 2) || (formatPropIndex >= 2 && optionsPropIndex <= 1)) {
+                        // 5. If delta = 2, decrease score by longMorePenalty.
+                        if (delta > 0)
+                            score -= longMorePenalty;
+                        else if (delta < 0)
+                            score -= longLessPenalty;
+                    } else {
+                        // 5. If delta = 2, decrease score by longMorePenalty.
+                        if (delta > 1)
+                            score -= shortMorePenalty;
+                        else if (delta < -1)
+                            score -= shortLessPenalty;
+                    }
+                }
+            }
+        }
+
+        list.push([format.originalPattern, score]);
+        // d. If score > bestScore, then
+        if (score > bestScore) {
+            // i. Let bestScore be score.
+            bestScore = score;
+            // ii. Let bestFormat be format.
+            bestFormat = format;
+        }
+
+        // e. Increase i by 1.
+        i++;
+    }
+console.log(list.join('\n'));
+    // 13. Return bestFormat.
+    return bestFormat;
 }
 
 /* 12.2.3 */internals.DateTimeFormat = {
