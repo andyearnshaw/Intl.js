@@ -5,11 +5,11 @@ var LIBS = {
         path:   require('path'),
         vm:     require('vm'),
     },
-    POLYFILL_PATH = __dirname + '/../dist/Intl.js',
+    POLYFILL_PATH = LIBS.path.resolve(__dirname + '/../dist/Intl.js'),
     POLYFILL_CODE = LIBS.fs.readFileSync(POLYFILL_PATH).toString(),
-    DATA_PATH = __dirname + '/../locale-data/complete.js',
+    DATA_PATH = LIBS.path.resolve(__dirname + '/../locale-data/complete.js'),
     DATA_CODE = LIBS.fs.readFileSync(DATA_PATH).toString(),
-    TEST_DIR = __dirname + '/test262/pages';
+    TEST_DIR = LIBS.path.resolve(__dirname + '/test262/pages');
 
 
 // returns Error if test threw one
