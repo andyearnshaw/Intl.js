@@ -861,7 +861,7 @@ function CreateDateTimeParts(dateTimeFormat, x) {
     let internal = dateTimeFormat.__getInternalProperties(secret);
 
     // Creating restore point for properties on the RegExp object... please wait
-    /* let regexpState = */createRegExpRestore(); // todo: review this
+    /* let regexpState = */createRegExpRestore(); // ###TODO: review this
 
     // 2. Let locale be the value of the [[locale]] internal property of dateTimeFormat.
     let locale = internal['[[locale]]'];
@@ -988,10 +988,10 @@ function CreateDateTimeParts(dateTimeFormat, x) {
                     break;
 
                   case 'timeZoneName':
-                    fv = ''; // TODO
+                    fv = ''; // ###TODO
                     break;
 
-                    // TODO: Era
+                    // ###TODO: Era
                   default:
                     fv = tm['[['+ p +']]'];
                 }
