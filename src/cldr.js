@@ -108,10 +108,8 @@ function expDTComponentsMeta($0, formatObj) {
             // day of the month
             formatObj.day = $0.length === 2 ? '2-digit' : 'numeric';
             return '{day}';
-        case 'D':
-            // day of the year
-        case 'F':
-            // day of the week
+        case 'D': // day of the year
+        case 'F': // day of the week
         case 'g':
             // 1..n: Modified Julian day
             formatObj.day = 'numeric';
