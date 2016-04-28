@@ -30,7 +30,7 @@ module.exports = function (grunt) {
                 dest  : 'tests/test262',
                 src   : [
                     'LICENSE',
-                    'test/intl402/*.js',
+                    'test/intl402/**/*.js',
                     'harness/*.js',
                 ],
             },

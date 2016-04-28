@@ -1,9 +1,13 @@
 import IntlPolyfill from "./core.js";
 
 // hack to export the polyfill as global Intl if needed
-if (typeof Intl !== undefined) {
-    Intl = IntlPolyfill;
-    IntlPolyfill.__applyLocaleSensitivePrototypes();
+if (typeof Intl !== 'undefined') {
+    try {
+        Intl = IntlPolyfill;
+        IntlPolyfill.__applyLocaleSensitivePrototypes();
+    } catch (e) {
+        // can be read only property
+    }
 }
 
 export default IntlPolyfill;

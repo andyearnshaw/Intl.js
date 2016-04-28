@@ -17,6 +17,7 @@ const bundleConfig = {
     format: 'umd',
     moduleName: 'IntlPolyfill',
     sourceMap: true,
+    external: ['Intl'],
 };
 
 let babelConfig = JSON.parse(fs.readFileSync('src/.babelrc', 'utf8'));
