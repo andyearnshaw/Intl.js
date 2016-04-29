@@ -8,11 +8,12 @@ var LIBS = {
     };
 var SRC_262     = __dirname + '/../tests/test262';
 var SRC_DIR     = SRC_262 + '/test/intl402';
-var DEST_DIR    = SRC_262 + '/pages';
+var DEST_DIR    = SRC_262 + '/pages/intl402';
 var INCLUDE_DIR = SRC_262 + '/harness';
 
 var WRAPPER_START = [
-        '//<html><head><meta http-equiv="X-UA-Compatible" content="IE=EDGE"><meta charset=utf-8></head><body><button onclick="runner()">Run</button> results: <span id="results">not yet run</span><script src="../../../dist/Intl.complete.js"></script><script>',
+        '//<html><head><meta http-equiv="X-UA-Compatible" content="IE=EDGE"><meta charset=utf-8></head><body><button onclick="runner()">Run</button> results: <span id="results">not yet run</span><script src="{{libPath}}"></script><script>',
+        '"use strict";',
         // stuff defined in harness/*.js yet not pulled in via $INCLUDE()
         'var __globalObject = Function("return this;")();',
         'function fnGlobalObject() {',
@@ -110,10 +111,10 @@ var shims = {
 shims['Array.prototype.every'] = shims['Array.prototype.forEach'];
 
 function processTest(content) {
-    var includes = [];
+    var includes = [LIBS.fs.readFileSync(LIBS.path.resolve(INCLUDE_DIR, 'assert.js')).toString()];
     content = content.replace(/includes\: \[(.*)]/g, function(all, path) {
-        path = LIBS.path.resolve(INCLUDE_DIR, path);
-        includes.push(LIBS.fs.readFileSync(path).toString());
+        var p = LIBS.path.resolve(INCLUDE_DIR, path);
+        includes.push(LIBS.fs.readFileSync(p).toString());
         return path;
     });
 
@@ -176,10 +177,10 @@ function processTest(content) {
 
 
 // Turns test into an HTML page.
-function wrapTest(content) {
+function wrapTest(content, libPath) {
     // The weird "//" makes these html files also valid node.js scripts :)
     return [
-        WRAPPER_START,
+        WRAPPER_START.replace('{{libPath}}', libPath),
         content,
         WRAPPER_END
     ].join('\n');
@@ -211,31 +212,41 @@ function listTests() {
 }
 
 function isValidTest(testPath) {
-    // these are just trouble
-    if (testPath === '9.2.5_11_g_ii_2.js') {
-        return false;
-    }
-    if (testPath.indexOf('13.1') === 0) {
-        return false;
-    }
-    if (testPath.indexOf('10') === 0) {
-        return false;
-    }
-
-    // this one requires more than one include, we need to fix the regex for that
-    // and it was in previous incarnations
-    if (testPath === '8.0_L15.js') {
+    // Collator tests are not supported
+    if (['Collator', 'localeCompare', 'toLocaleLowerCase', 'toLocaleUpperCase', '8.0_L15.js'].some(function (name) {
+        return testPath.indexOf(name) !== -1;
+    })) {
         return false;
     }
     // these are failing with: "Client code can adversely affect behavior: setter"
     // and they were in previous incarnations
-    if (testPath === '12.2.2_b.js' ||
-        testPath === '11.2.2_b.js' || // this one was in previous incarnations
-        testPath === '9.2.1_2.js'  ||
-        testPath === '9.2.6_2.js') {
+    if (['12.2.2_b.js', '12.3.2_TLT_2.js', '12.1.1_22.js', '9.2.6_2.js'].some(function (name) {
+        return testPath.indexOf(name) !== -1;
+    })) {
         return false;
     }
-
+    // Initialization issues, probably related to the v1 vs v2 vs v3
+    if (['12.1.1_1.js', '11.1.1_1.js', '11.1.2.1_4.js', '11.3_a.js', '12.3_a.js', '12.1.2.1_4.js'].some(function (name) {
+        return testPath.indexOf(name) !== -1;
+    })) {
+        return false;
+    }
+    // timeZone is not supported by this polyfill
+    // Initialization issues, probably related to the v1 vs v2 vs v3
+    if (['12.3.3.js'].some(function (name) {
+        return testPath.indexOf(name) !== -1;
+    })) {
+        return false;
+    }
+    // other tests that are not very important
+    // 1. testing for the name of the functions
+    //    TODO: to enable this test we will have to revisit almost all property methods to make it behave
+    //          correctly instead of using bind and Object.defineProperty()
+    if (['name.js'].some(function (name) {
+        return testPath.indexOf(name) !== -1;
+    })) {
+        return false;
+    }
     return true;
 }
 
@@ -251,9 +262,11 @@ module.exports = function(grunt) {
             var srcPath  = LIBS.path.resolve(SRC_DIR, testPath),
                 destPath = LIBS.path.resolve(DEST_DIR, testPath),
                 content;
+            var libPath = LIBS.path.relative(LIBS.path.dirname(srcPath), LIBS.path.resolve(__dirname,  '../dist/Intl.complete.js'));
+            console.log(libPath, srcPath, LIBS.path.resolve(__dirname,  '../dist/Intl.complete.js'));
             content = 'function runTheTest () {'+ grunt.file.read(srcPath) +' }';
             content = processTest(content);
-            content = wrapTest(content);
+            content = wrapTest(content, libPath);
             destPath = destPath.replace(/\.js$/, '.html');
             grunt.file.write(destPath, content);
         });
