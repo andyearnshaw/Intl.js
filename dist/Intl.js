@@ -48,7 +48,7 @@
 
     // Create an object with the specified prototype (2nd arg required for Record)
     var objCreate = Object.create || function (proto, props) {
-        var obj = undefined;
+        var obj = void 0;
 
         function F() {}
         F.prototype = proto;
@@ -148,8 +148,8 @@
 
         // If any of the captured strings were non-empty, iterate over them all
         if (has) {
-            for (var i = 1; i <= 9; i++) {
-                var m = cap['$' + i];
+            for (var _i = 1; _i <= 9; _i++) {
+                var m = cap['$' + _i];
 
                 // If it's empty, add an empty capturing group
                 if (!m) lm = '()' + lm;
@@ -289,7 +289,7 @@
     var expExtSequences = RegExp('-' + extension, 'ig');
 
     // Default locale is the first-added locale data for us
-    var defaultLocale = undefined;
+    var defaultLocale = void 0;
     function setDefaultLocale(locale) {
         defaultLocale = locale;
     }
@@ -669,8 +669,8 @@
      * Implementations are allowed, but not required, to apply these additional rules.
      */
     function /* 6.2.3 */CanonicalizeLanguageTag(locale) {
-        var match = undefined,
-            parts = undefined;
+        var match = void 0,
+            parts = void 0;
 
         // A language tag is in 'canonical form' when the tag is well-formed
         // according to the rules in Sections 2.1 and 2.2
@@ -717,14 +717,14 @@
         //     Value'.
         parts = locale.split('-');
 
-        for (var i = 1, max = parts.length; i < max; i++) {
-            if (hop.call(redundantTags.subtags, parts[i])) parts[i] = redundantTags.subtags[parts[i]];else if (hop.call(redundantTags.extLang, parts[i])) {
-                parts[i] = redundantTags.extLang[parts[i]][0];
+        for (var _i = 1, _max = parts.length; _i < _max; _i++) {
+            if (hop.call(redundantTags.subtags, parts[_i])) parts[_i] = redundantTags.subtags[parts[_i]];else if (hop.call(redundantTags.extLang, parts[_i])) {
+                parts[_i] = redundantTags.extLang[parts[_i]][0];
 
                 // For extlang tags, the prefix needs to be removed if it is redundant
-                if (i === 1 && redundantTags.extLang[parts[1]][1] === parts[0]) {
-                    parts = arrSlice.call(parts, i++);
-                    max -= 1;
+                if (_i === 1 && redundantTags.extLang[parts[1]][1] === parts[0]) {
+                    parts = arrSlice.call(parts, _i++);
+                    _max -= 1;
                 }
             }
         }
@@ -767,8 +767,6 @@
         // 5. Return true
         return true;
     }
-
-    var Intl$1 = {};
 
     var expUnicodeExSeq = /-u(?:-[0-9a-z]{2,8})+/gi; // See `extension` below
 
@@ -892,10 +890,10 @@
         var len = requestedLocales.length;
 
         // 3. Let availableLocale be undefined.
-        var availableLocale = undefined;
+        var availableLocale = void 0;
 
-        var locale = undefined,
-            noExtensionsLocale = undefined;
+        var locale = void 0,
+            noExtensionsLocale = void 0;
 
         // 4. Repeat while i < len and availableLocale is undefined:
         while (i < len && !availableLocale) {
@@ -988,7 +986,7 @@
         // 1. Let matcher be the value of options.[[localeMatcher]].
         var matcher = options['[[localeMatcher]]'];
 
-        var r = undefined;
+        var r = void 0;
 
         // 2. If matcher is "lookup", then
         if (matcher === 'lookup')
@@ -1007,24 +1005,21 @@
         // 4. Let foundLocale be the value of r.[[locale]].
         var foundLocale = r['[[locale]]'];
 
-        var extensionSubtags = undefined,
-            extensionSubtagsLength = undefined,
-            extensionIndex = undefined;
+        var extensionSubtags = void 0,
+            extensionSubtagsLength = void 0;
 
         // 5. If r has an [[extension]] field, then
         if (hop.call(r, '[[extension]]')) {
             // a. Let extension be the value of r.[[extension]].
             var extension = r['[[extension]]'];
-            // b. Let extensionIndex be the value of r.[[extensionIndex]].
-            extensionIndex = r['[[extensionIndex]]'];
-            // c. Let split be the standard built-in function object defined in ES5,
+            // b. Let split be the standard built-in function object defined in ES5,
             //    15.5.4.14.
             var split = String.prototype.split;
-            // d. Let extensionSubtags be the result of calling the [[Call]] internal
+            // c. Let extensionSubtags be the result of calling the [[Call]] internal
             //    method of split with extension as the this value and an argument
             //    list containing the single item "-".
             extensionSubtags = split.call(extension, '-');
-            // e. Let extensionSubtagsLength be the result of calling the [[Get]]
+            // d. Let extensionSubtagsLength be the result of calling the [[Get]]
             //    internal method of extensionSubtags with argument "length".
             extensionSubtagsLength = extensionSubtags.length;
         }
@@ -1102,10 +1097,10 @@
                             // internal method of indexOf with keyLocaleData as the this
                             // value and an argument list containing the single item
                             // "true".
-                            var valuePos = indexOf(keyLocaleData, 'true');
+                            var _valuePos = indexOf(keyLocaleData, 'true');
 
                             // b. If valuePos ≠ -1, then
-                            if (valuePos !== -1)
+                            if (_valuePos !== -1)
                                 // i. Let value be "true".
                                 value = 'true';
                         }
@@ -1140,15 +1135,25 @@
         }
         // 12. If the length of supportedExtension is greater than 2, then
         if (supportedExtension.length > 2) {
-            // a. Let preExtension be the substring of foundLocale from position 0,
-            //    inclusive, to position extensionIndex, exclusive.
-            var preExtension = foundLocale.substring(0, extensionIndex);
-            // b. Let postExtension be the substring of foundLocale from position
-            //    extensionIndex to the end of the string.
-            var postExtension = foundLocale.substring(extensionIndex);
-            // c. Let foundLocale be the concatenation of preExtension,
-            //    supportedExtension, and postExtension.
-            foundLocale = preExtension + supportedExtension + postExtension;
+            // a.
+            var privateIndex = foundLocale.indexOf("-x-");
+            // b.
+            if (privateIndex === -1) {
+                // i.
+                foundLocale = foundLocale + supportedExtension;
+            }
+            // c.
+            else {
+                    // i.
+                    var preExtension = foundLocale.substring(0, privateIndex);
+                    // ii.
+                    var postExtension = foundLocale.substring(privateIndex);
+                    // iii.
+                    foundLocale = preExtension + supportedExtension + postExtension;
+                }
+            // d. asserting - skipping
+            // e.
+            foundLocale = CanonicalizeLanguageTag(foundLocale);
         }
         // 13. Set result.[[locale]] to foundLocale.
         result['[[locale]]'] = foundLocale;
@@ -1222,8 +1227,8 @@
      * in requestedLocales. The following steps are taken:
      */
     function /*9.2.8 */SupportedLocales(availableLocales, requestedLocales, options) {
-        var matcher = undefined,
-            subset = undefined;
+        var matcher = void 0,
+            subset = void 0;
 
         // 1. If options is not undefined, then
         if (options !== undefined) {
@@ -1334,6 +1339,27 @@
         // 3. Else return fallback.
         return fallback;
     }
+
+    // 8 The Intl Object
+    var Intl$1 = {};
+
+    // 8.2 Function Properties of the Intl Object
+
+    // 8.2.1
+    // @spec[tc39/ecma402/master/spec/intl.html]
+    // @clause[sec-intl.getcanonicallocales]
+    Intl$1.getCanonicalLocales = function (locales) {
+        // 1. Let ll be ? CanonicalizeLocaleList(locales).
+        var ll = CanonicalizeLocaleList(locales);
+        // 2. Return CreateArrayFromList(ll).
+        {
+            var result = [];
+            for (var code in ll) {
+                result.push(ll[code]);
+            }
+            return result;
+        }
+    };
 
     // Currency minor units output from get-4217 grunt task, formatted
     var currencyMinorUnits = {
@@ -1467,7 +1493,7 @@
         // 19. If s is "currency" and c is undefined, throw a TypeError exception.
         if (s === 'currency' && c === undefined) throw new TypeError('Currency code is required when style is currency');
 
-        var cDigits = undefined;
+        var cDigits = void 0;
 
         // 20. If s is "currency", then
         if (s === 'currency') {
@@ -1721,7 +1747,7 @@
             nums = internal['[[numberingSystem]]'],
             data = internals.NumberFormat['[[localeData]]'][locale],
             ild = data.symbols[nums] || data.symbols.latn,
-            pattern = undefined,
+            pattern = void 0,
             result = new List();
 
         if (!isNaN(x) && x < 0) {
@@ -1742,11 +1768,9 @@
 
             if (beginIndex > nextIndex) arrPush.call(result, { type: 'literal', value: pattern.substring(nextIndex, beginIndex) });
 
-            nextIndex = endIndex + 1;
+            var p = pattern.substring(beginIndex + 1, endIndex);
 
-            var p = pattern.substring(beginIndex, nextIndex);
-
-            if (p === '{number}') {
+            if (p === 'number') {
                 if (isNaN(x)) arrPush.call(result, { type: 'nan', value: ild.nan });
                 if (!isFinite(x)) arrPush.call(result, { type: 'infinity', value: ild.infinity });
 
@@ -1754,7 +1778,7 @@
                 //    "percent", let x be 100 × x.
                 if (internal['[[style]]'] === 'percent') x *= 100;
 
-                var n = undefined;
+                var n = void 0;
                 // c. If the [[minimumSignificantDigits]] and [[maximumSignificantDigits]]
                 //    internal properties of numberFormat are present, then
                 if (hop.call(internal, '[[minimumSignificantDigits]]') && hop.call(internal, '[[maximumSignificantDigits]]'))
@@ -1805,11 +1829,10 @@
                     // Secondary group is every other group
                     var sgSize = data.patterns.secondaryGroupSize || pgSize;
 
-                    var groups = undefined;
+                    var groups = new List();
+
                     // Group only if necessary
                     if (integer.length > pgSize) {
-                        groups = new List();
-
                         // Index of the primary grouping separator
                         var end = integer.length - pgSize;
 
@@ -1828,9 +1851,11 @@
 
                         // Add the primary grouping digits
                         arrPush.call(groups, integer.slice(end));
+                    } else {
+                        arrPush.call(groups, integer);
                     }
 
-                    while (groups && groups.length) {
+                    while (groups.length) {
                         var integerGroup = arrShift.call(groups);
                         arrPush.call(result, { type: 'integer', value: integerGroup });
                         if (groups.length) {
@@ -1845,14 +1870,14 @@
                     arrPush.call(result, { type: 'decimal', value: ild.decimal });
                     arrPush.call(result, { type: 'fraction', value: fraction });
                 }
-            } else if (p === '{plusSign}') {
+            } else if (p === 'plusSign') {
                 arrPush.call(result, { type: 'plusSign', value: ild.plusSign });
-            } else if (p === '{minusSign}') {
+            } else if (p === 'minusSign') {
                 arrPush.call(result, { type: 'minusSign', value: ild.minusSign });
             } else if (p === '{percentSign}' && internal['[[style]]'] === 'percent') {
                 arrPush.call(result, { type: 'percentSign', value: ild.percentSign });
-            } else if (p === '{currency}' && internal['[[style]]'] === 'currency') {
-                var cd = undefined,
+            } else if (p === 'currency' && internal['[[style]]'] === 'currency') {
+                var cd = void 0,
 
                 // a. Let currency be the value of the [[currency]] internal property of
                 //    numberFormat.
@@ -1885,9 +1910,10 @@
 
                 arrPush.call(result, { type: 'currency', value: cd });
             } else {
-                arrPush.call(result, { type: 'literal', value: p });
+                arrPush.call(result, { type: 'literal', value: pattern.substring(beginIndex, endIndex + 1) });
             }
 
+            nextIndex = endIndex + 1;
             beginIndex = pattern.indexOf('{', nextIndex);
         }
 
@@ -1918,8 +1944,8 @@
         // 1. Let p be maxPrecision.
         var p = maxPrecision;
 
-        var m = undefined,
-            e = undefined;
+        var m = void 0,
+            e = void 0;
 
         // 2. If x = 0, then
         if (x === 0) {
@@ -1997,7 +2023,7 @@
      */
     function ToRawFixed(x, minInteger, minFraction, maxFraction) {
         // (or not because Number.toPrototype.toFixed does a lot of it for us)
-        var idx = undefined,
+        var idx = void 0,
 
 
         // We can pick up after the fixed formatted string (m) is created
@@ -2037,7 +2063,7 @@
             // a. Remove the last character from m.
             m = m.slice(0, -1);
 
-        var z = undefined;
+        var z = void 0;
         // 9. If int < minInteger, then
         if (igr < minInteger)
             // a. Let z be the String consisting of minInteger–int occurrences of the
@@ -2093,7 +2119,7 @@
         configurable: true,
         writable: true,
         value: function value() {
-            var prop = undefined,
+            var prop = void 0,
                 descs = new Record(),
                 props = ['locale', 'numberingSystem', 'style', 'currency', 'currencyDisplay', 'minimumIntegerDigits', 'minimumFractionDigits', 'maximumFractionDigits', 'minimumSignificantDigits', 'maximumSignificantDigits', 'useGrouping'],
                 internal = this !== null && babelHelpers["typeof"](this) === 'object' && getInternalProperties(this);
@@ -2118,7 +2144,7 @@
     // Skip over patterns with these datetime components because we don't have data
     // to back them up:
     // timezone, weekday, amoung others
-    var unwantedDTCs = /[rqQxXVOvZASjJgwWIQq]/;
+    var unwantedDTCs = /[rqQASjJgwWIQq]/; // xXVO were removed from this list in favor of computing matches with timeZoneName values but printing as empty string
 
     var dtKeys = ["weekday", "era", "year", "month", "day", "weekday", "quarter"];
     var tmKeys = ["hour", "minute", "second", "hour12", "timeZoneName"];
@@ -2142,15 +2168,21 @@
     }
 
     function joinDateAndTimeFormats(dateFormatObj, timeFormatObj) {
-        var o = {};
+        var o = { _: {} };
         for (var i = 0; i < dtKeys.length; i += 1) {
             if (dateFormatObj[dtKeys[i]]) {
                 o[dtKeys[i]] = dateFormatObj[dtKeys[i]];
+            }
+            if (dateFormatObj._[dtKeys[i]]) {
+                o._[dtKeys[i]] = dateFormatObj._[dtKeys[i]];
             }
         }
         for (var j = 0; j < tmKeys.length; j += 1) {
             if (timeFormatObj[tmKeys[j]]) {
                 o[tmKeys[j]] = timeFormatObj[tmKeys[j]];
+            }
+            if (timeFormatObj._[tmKeys[j]]) {
+                o._[tmKeys[j]] = timeFormatObj._[tmKeys[j]];
             }
         }
         return o;
@@ -2170,6 +2202,118 @@
         return formatObj;
     }
 
+    function expDTComponentsMeta($0, formatObj) {
+        switch ($0.charAt(0)) {
+            // --- Era
+            case 'G':
+                formatObj.era = ['short', 'short', 'short', 'long', 'narrow'][$0.length - 1];
+                return '{era}';
+
+            // --- Year
+            case 'y':
+            case 'Y':
+            case 'u':
+            case 'U':
+            case 'r':
+                formatObj.year = $0.length === 2 ? '2-digit' : 'numeric';
+                return '{year}';
+
+            // --- Quarter (not supported in this polyfill)
+            case 'Q':
+            case 'q':
+                formatObj.quarter = ['numeric', '2-digit', 'short', 'long', 'narrow'][$0.length - 1];
+                return '{quarter}';
+
+            // --- Month
+            case 'M':
+            case 'L':
+                formatObj.month = ['numeric', '2-digit', 'short', 'long', 'narrow'][$0.length - 1];
+                return '{month}';
+
+            // --- Week (not supported in this polyfill)
+            case 'w':
+                // week of the year
+                formatObj.week = $0.length === 2 ? '2-digit' : 'numeric';
+                return '{weekday}';
+            case 'W':
+                // week of the month
+                formatObj.week = 'numeric';
+                return '{weekday}';
+
+            // --- Day
+            case 'd':
+                // day of the month
+                formatObj.day = $0.length === 2 ? '2-digit' : 'numeric';
+                return '{day}';
+            case 'D': // day of the year
+            case 'F': // day of the week
+            case 'g':
+                // 1..n: Modified Julian day
+                formatObj.day = 'numeric';
+                return '{day}';
+
+            // --- Week Day
+            case 'E':
+                // day of the week
+                formatObj.weekday = ['short', 'short', 'short', 'long', 'narrow', 'short'][$0.length - 1];
+                return '{weekday}';
+            case 'e':
+                // local day of the week
+                formatObj.weekday = ['numeric', '2-digit', 'short', 'long', 'narrow', 'short'][$0.length - 1];
+                return '{weekday}';
+            case 'c':
+                // stand alone local day of the week
+                formatObj.weekday = ['numeric', undefined, 'short', 'long', 'narrow', 'short'][$0.length - 1];
+                return '{weekday}';
+
+            // --- Period
+            case 'a': // AM, PM
+            case 'b': // am, pm, noon, midnight
+            case 'B':
+                // flexible day periods
+                formatObj.hour12 = true;
+                return '{ampm}';
+
+            // --- Hour
+            case 'h':
+            case 'H':
+                formatObj.hour = $0.length === 2 ? '2-digit' : 'numeric';
+                return '{hour}';
+            case 'k':
+            case 'K':
+                formatObj.hour12 = true; // 12-hour-cycle time formats (using h or K)
+                formatObj.hour = $0.length === 2 ? '2-digit' : 'numeric';
+                return '{hour}';
+
+            // --- Minute
+            case 'm':
+                formatObj.minute = $0.length === 2 ? '2-digit' : 'numeric';
+                return '{minute}';
+
+            // --- Second
+            case 's':
+                formatObj.second = $0.length === 2 ? '2-digit' : 'numeric';
+                return '{second}';
+            case 'S':
+            case 'A':
+                formatObj.second = 'numeric';
+                return '{second}';
+
+            // --- Timezone
+            case 'z': // 1..3, 4: specific non-location format
+            case 'Z': // 1..3, 4, 5: The ISO8601 varios formats
+            case 'O': // 1, 4: miliseconds in day short, long
+            case 'v': // 1, 4: generic non-location format
+            case 'V': // 1, 2, 3, 4: time zone ID or city
+            case 'X': // 1, 2, 3, 4: The ISO8601 varios formats
+            case 'x':
+                // 1, 2, 3, 4: The ISO8601 varios formats
+                // this polyfill only supports much, for now, we are just doing something dummy
+                formatObj.timeZoneName = $0.length < 4 ? 'short' : 'long';
+                return '{timeZoneName}';
+        }
+    }
+
     /**
      * Converts the CLDR availableFormats into the objects and patterns required by
      * the ECMAScript Internationalization API specification.
@@ -2179,89 +2323,15 @@
         if (unwantedDTCs.test(pattern)) return undefined;
 
         var formatObj = {
-            originalPattern: pattern
+            originalPattern: pattern,
+            _: {}
         };
 
         // Replace the pattern string with the one required by the specification, whilst
         // at the same time evaluating it for the subsets and formats
         formatObj.extendedPattern = pattern.replace(expDTComponents, function ($0) {
             // See which symbol we're dealing with
-            switch ($0.charAt(0)) {
-
-                // --- Era
-                case 'G':
-                    return '{era}';
-
-                // --- Year
-                case 'y':
-                case 'Y':
-                case 'u':
-                case 'U':
-                case 'r':
-                    return '{year}';
-
-                // --- Quarter (not supported in this polyfill)
-                case 'Q':
-                case 'q':
-                    return '{quarter}';
-
-                // --- Month
-                case 'M':
-                case 'L':
-                    return '{month}';
-
-                // --- Week (not supported in this polyfill)
-                case 'w':
-                case 'W':
-                    return '{weekday}';
-
-                // --- Day
-                case 'd':
-                case 'D':
-                case 'F':
-                case 'g':
-                    return '{day}';
-
-                // --- Week Day
-                case 'E':
-                case 'e':
-                case 'c':
-                    return '{weekday}';
-
-                // --- Period
-                case 'a':
-                case 'b':
-                case 'B':
-                    return '{ampm}';
-
-                // --- Hour
-                case 'h':
-                case 'H':
-                case 'k':
-                case 'K':
-                    return '{hour}';
-
-                // --- Minute
-                case 'm':
-                    return '{minute}';
-
-                // --- Second
-                case 's':
-                case 'S':
-                case 'A':
-                    return '{second}';
-
-                // --- Timezone
-                case 'z':
-                case 'Z':
-                case 'O':
-                case 'v':
-                case 'V':
-                case 'X':
-                case 'x':
-                    return '{timeZoneName}';
-
-            }
+            return expDTComponentsMeta($0, formatObj._);
         });
 
         // Match the skeleton string with the one required by the specification
@@ -2271,122 +2341,7 @@
         //       might not support it.
         skeleton.replace(expDTComponents, function ($0) {
             // See which symbol we're dealing with
-            switch ($0.charAt(0)) {
-
-                // --- Era
-                case 'G':
-                    formatObj.era = ['short', 'short', 'short', 'long', 'narrow'][$0.length - 1];
-                    break;
-
-                // --- Year
-                case 'y':
-                case 'Y':
-                case 'u':
-                case 'U':
-                    formatObj.year = $0.length === 2 ? '2-digit' : 'numeric';
-                    break;
-                // case 'r':
-                // r: 1..n - For the Gregorian calendar, the 'r' year is the same as the 'u' year.
-                // break;
-
-                // --- Quarter (not supported in this polyfill)
-                case 'Q':
-                case 'q':
-                    formatObj.quarter = ['numeric', '2-digit', 'short', 'long', 'narrow'][$0.length - 1];
-                    break;
-
-                // --- Month
-                case 'M':
-                case 'L':
-                    formatObj.month = ['numeric', '2-digit', 'short', 'long', 'narrow'][$0.length - 1];
-                    break;
-
-                // --- Week (not supported in this polyfill)
-                case 'w':
-                    // week of the year
-                    formatObj.week = $0.length === 2 ? '2-digit' : 'numeric';
-                    break;
-                case 'W':
-                    // week of the month
-                    formatObj.week = 'numeric';
-                    break;
-
-                // --- Day
-                case 'd':
-                    // day of the month
-                    formatObj.day = $0.length === 2 ? '2-digit' : 'numeric';
-                    break;
-                case 'D':
-                    // day of the year
-                    formatObj.day = 'numeric';
-                    break;
-                case 'F':
-                    // day of the week
-                    formatObj.day = 'numeric';
-                    break;
-                // case 'g':
-                // 1..n: Modified Julian day
-                // break;
-
-                // --- Week Day
-                case 'E':
-                    // day of the week
-                    formatObj.weekday = ['short', 'short', 'short', 'long', 'narrow', 'short'][$0.length - 1];
-                    break;
-                case 'e':
-                    // local day of the week
-                    formatObj.weekday = ['numeric', '2-digit', 'short', 'long', 'narrow', 'short'][$0.length - 1];
-                    break;
-                case 'c':
-                    // stand alone local day of the week
-                    formatObj.weekday = ['numeric', undefined, 'short', 'long', 'narrow', 'short'][$0.length - 1];
-                    break;
-
-                // --- Period
-                case 'a': // AM, PM
-                case 'b': // am, pm, noon, midnight
-                case 'B':
-                    // flexible day periods
-                    formatObj.hour12 = true;
-                    break;
-
-                // --- Hour
-                case 'H':
-                case 'k':
-                    formatObj.hour = $0.length === 2 ? '2-digit' : 'numeric';
-                    break;
-                case 'h':
-                case 'K':
-                    formatObj.hour12 = true; // 12-hour-cycle time formats (using h or K)
-                    formatObj.hour = $0.length === 2 ? '2-digit' : 'numeric';
-                    break;
-
-                // --- Minute
-                case 'm':
-                    formatObj.minute = $0.length === 2 ? '2-digit' : 'numeric';
-                    break;
-
-                // --- Second
-                case 's':
-                    formatObj.second = $0.length === 2 ? '2-digit' : 'numeric';
-                    break;
-                // case 'S': // 1..n: factional seconds
-                // case 'A': // 1..n: miliseconds in day
-
-                // --- Timezone
-                case 'z': // 1..3, 4: specific non-location format
-                case 'Z': // 1..3, 4, 5: The ISO8601 varios formats
-                case 'O': // 1, 4: miliseconds in day short, long
-                case 'v': // 1, 4: generic non-location format
-                case 'V': // 1, 2, 3, 4: time zone ID or city
-                case 'X': // 1, 2, 3, 4: The ISO8601 varios formats
-                case 'x':
-                    // 1, 2, 3, 4: The ISO8601 varios formats
-                    // this polyfill only supports much, for now, we are just doing something dummy
-                    formatObj.timeZoneName = $0.length < 4 ? 'short' : 'long';
-                    break;
-
-            }
+            return expDTComponentsMeta($0, formatObj);
         });
 
         return computeFinalPatterns(formatObj);
@@ -2416,11 +2371,11 @@
         var timeFormats = formats.timeFormats;
         var dateFormats = formats.dateFormats;
         var result = [];
-        var skeleton = undefined,
-            pattern = undefined,
-            computed = undefined,
-            i = undefined,
-            j = undefined;
+        var skeleton = void 0,
+            pattern = void 0,
+            computed = void 0,
+            i = void 0,
+            j = void 0;
         var timeRelatedFormats = [];
         var dateRelatedFormats = [];
 
@@ -2659,7 +2614,7 @@
         }
 
         // Assigned a value below
-        var bestFormat = undefined;
+        var bestFormat = void 0;
 
         // 23. Let dataLocaleData be the result of calling the [[Get]] internal method of
         //     localeData with argument dataLocale.
@@ -2680,39 +2635,46 @@
         dataLocaleData.formats = formats;
 
         // 26. If matcher is "basic", then
-        if (matcher === 'basic')
+        if (matcher === 'basic') {
             // 27. Let bestFormat be the result of calling the BasicFormatMatcher abstract
             //     operation (defined below) with opt and formats.
             bestFormat = BasicFormatMatcher(opt, formats);
 
             // 28. Else
-        else
-            // 29. Let bestFormat be the result of calling the BestFitFormatMatcher
-            //     abstract operation (defined below) with opt and formats.
-            bestFormat = BestFitFormatMatcher(opt, formats);
+        } else {
+                {
+                    // diverging
+                    var _hr = GetOption(options, 'hour12', 'boolean' /*, undefined, undefined*/);
+                    opt.hour12 = _hr === undefined ? dataLocaleData.hour12 : _hr;
+                }
+                // 29. Let bestFormat be the result of calling the BestFitFormatMatcher
+                //     abstract operation (defined below) with opt and formats.
+                bestFormat = BestFitFormatMatcher(opt, formats);
+            }
 
         // 30. For each row in Table 3, except the header row, do
-        for (var prop in dateTimeComponents) {
-            if (!hop.call(dateTimeComponents, prop)) continue;
+        for (var _prop in dateTimeComponents) {
+            if (!hop.call(dateTimeComponents, _prop)) continue;
 
             // a. Let prop be the name given in the Property column of the row.
             // b. Let pDesc be the result of calling the [[GetOwnProperty]] internal method of
             //    bestFormat with argument prop.
             // c. If pDesc is not undefined, then
-            if (hop.call(bestFormat, prop)) {
+            if (hop.call(bestFormat, _prop)) {
                 // i. Let p be the result of calling the [[Get]] internal method of bestFormat
                 //    with argument prop.
-                var p = bestFormat[prop];
+                var p = bestFormat[_prop];
+                {
+                    // diverging
+                    p = bestFormat._ && hop.call(bestFormat._, _prop) ? bestFormat._[_prop] : p;
+                }
 
                 // ii. Set the [[<prop>]] internal property of dateTimeFormat to p.
-                // Diverging from spec becuase of bug #58
-                // https://github.com/tc39/ecma402/issues/58
-                internal['[[' + prop + ']]'] = opt['[[' + prop + ']]'] || p;
+                internal['[[' + _prop + ']]'] = p;
             }
         }
 
-        // Assigned a value below
-        var pattern = undefined;
+        var pattern = void 0; // Assigned a value below
 
         // 31. Let hr12 be the result of calling the GetOption abstract operation with
         //     arguments options, "hour12", "boolean", undefined, and undefined.
@@ -2870,17 +2832,6 @@
      * formats, the following steps are taken:
      */
     function BasicFormatMatcher(options, formats) {
-        return calculateScore(options, formats);
-    }
-
-    /**
-     * Calculates score for BestFitFormatMatcher and BasicFormatMatcher.
-     * Abstracted from BasicFormatMatcher section.
-     */
-    function calculateScore(options, formats, bestFit) {
-        // Additional penalty type when bestFit === true
-        var diffDataTypePenalty = 8;
-
         // 1. Let removalPenalty be 120.
         var removalPenalty = 120;
 
@@ -2903,15 +2854,17 @@
         var bestScore = -Infinity;
 
         // 8. Let bestFormat be undefined.
-        var bestFormat = undefined;
+        var bestFormat = void 0;
 
         // 9. Let i be 0.
         var i = 0;
 
-        // 10. Let len be the result of calling the [[Get]] internal method of formats with argument "length".
+        // 10. Assert: formats is an Array object.
+
+        // 11. Let len be the result of calling the [[Get]] internal method of formats with argument "length".
         var len = formats.length;
 
-        // 11. Repeat while i < len:
+        // 12. Repeat while i < len:
         while (i < len) {
             // a. Let format be the result of calling the [[Get]] internal method of formats with argument ToString(i).
             var format = formats[i];
@@ -2955,9 +2908,6 @@
                             // 4. Let delta be max(min(formatPropIndex - optionsPropIndex, 2), -2).
                             var delta = Math.max(Math.min(formatPropIndex - optionsPropIndex, 2), -2);
 
-                            // When the bestFit argument is true, subtract additional penalty where data types are not the same
-                            if (bestFit && ((optionsProp === 'numeric' || optionsProp === '2-digit') && formatProp !== 'numeric' && formatProp !== '2-digit' || optionsProp !== 'numeric' && optionsProp !== '2-digit' && (formatProp === '2-digit' || formatProp === 'numeric'))) score -= diffDataTypePenalty;
-
                             // 5. If delta = 2, decrease score by longMorePenalty.
                             if (delta === 2) score -= longMorePenalty;
 
@@ -2985,7 +2935,7 @@
             i++;
         }
 
-        // 12. Return bestFormat.
+        // 13. Return bestFormat.
         return bestFormat;
     }
 
@@ -2998,6 +2948,29 @@
      * This polyfill defines the algorithm to be the same as BasicFormatMatcher,
      * with the addition of bonus points awarded where the requested format is of
      * the same data type as the potentially matching format.
+     *
+     * This algo relies on the concept of closest distance matching described here:
+     * http://unicode.org/reports/tr35/tr35-dates.html#Matching_Skeletons
+     * Typically a “best match” is found using a closest distance match, such as:
+     *
+     * Symbols requesting a best choice for the locale are replaced.
+     *      j → one of {H, k, h, K}; C → one of {a, b, B}
+     * -> Covered by cldr.js matching process
+     *
+     * For fields with symbols representing the same type (year, month, day, etc):
+     *     Most symbols have a small distance from each other.
+     *         M ≅ L; E ≅ c; a ≅ b ≅ B; H ≅ k ≅ h ≅ K; ...
+     *     -> Covered by cldr.js matching process
+     *
+     *     Width differences among fields, other than those marking text vs numeric, are given small distance from each other.
+     *         MMM ≅ MMMM
+     *         MM ≅ M
+     *     Numeric and text fields are given a larger distance from each other.
+     *         MMM ≈ MM
+     *     Symbols representing substantial differences (week of year vs week of month) are given much larger a distances from each other.
+     *         d ≋ D; ...
+     *     Missing or extra fields cause a match to fail. (But see Missing Skeleton Fields).
+     *
      *
      * For example,
      *
@@ -3015,7 +2988,121 @@
      * not expect to see the returned format containing narrow, short or long part names
      */
     function BestFitFormatMatcher(options, formats) {
-        return calculateScore(options, formats, true);
+
+        // 1. Let removalPenalty be 120.
+        var removalPenalty = 120;
+
+        // 2. Let additionPenalty be 20.
+        var additionPenalty = 20;
+
+        // 3. Let longLessPenalty be 8.
+        var longLessPenalty = 8;
+
+        // 4. Let longMorePenalty be 6.
+        var longMorePenalty = 6;
+
+        // 5. Let shortLessPenalty be 6.
+        var shortLessPenalty = 6;
+
+        // 6. Let shortMorePenalty be 3.
+        var shortMorePenalty = 3;
+
+        var hour12Penalty = 1;
+
+        // 7. Let bestScore be -Infinity.
+        var bestScore = -Infinity;
+
+        // 8. Let bestFormat be undefined.
+        var bestFormat = void 0;
+
+        // 9. Let i be 0.
+        var i = 0;
+
+        // 10. Assert: formats is an Array object.
+
+        // 11. Let len be the result of calling the [[Get]] internal method of formats with argument "length".
+        var len = formats.length;
+
+        // 12. Repeat while i < len:
+        while (i < len) {
+            // a. Let format be the result of calling the [[Get]] internal method of formats with argument ToString(i).
+            var format = formats[i];
+
+            // b. Let score be 0.
+            var score = 0;
+
+            // c. For each property shown in Table 3:
+            for (var property in dateTimeComponents) {
+                if (!hop.call(dateTimeComponents, property)) continue;
+
+                // i. Let optionsProp be options.[[<property>]].
+                var optionsProp = options['[[' + property + ']]'];
+
+                // ii. Let formatPropDesc be the result of calling the [[GetOwnProperty]] internal method of format
+                //     with argument property.
+                // iii. If formatPropDesc is not undefined, then
+                //     1. Let formatProp be the result of calling the [[Get]] internal method of format with argument property.
+                var formatProp = hop.call(format, property) ? format[property] : undefined;
+
+                // iv. If optionsProp is undefined and formatProp is not undefined, then decrease score by
+                //     additionPenalty.
+                if (optionsProp === undefined && formatProp !== undefined) score -= additionPenalty;
+
+                // v. Else if optionsProp is not undefined and formatProp is undefined, then decrease score by
+                //    removalPenalty.
+                else if (optionsProp !== undefined && formatProp === undefined) score -= removalPenalty;
+
+                    // vi. Else
+                    else {
+                            // 1. Let values be the array ["2-digit", "numeric", "narrow", "short",
+                            //    "long"].
+                            var values = ['2-digit', 'numeric', 'narrow', 'short', 'long'];
+
+                            // 2. Let optionsPropIndex be the index of optionsProp within values.
+                            var optionsPropIndex = arrIndexOf.call(values, optionsProp);
+
+                            // 3. Let formatPropIndex be the index of formatProp within values.
+                            var formatPropIndex = arrIndexOf.call(values, formatProp);
+
+                            // 4. Let delta be max(min(formatPropIndex - optionsPropIndex, 2), -2).
+                            var delta = Math.max(Math.min(formatPropIndex - optionsPropIndex, 2), -2);
+
+                            {
+                                // diverging from spec
+                                // When the bestFit argument is true, subtract additional penalty where data types are not the same
+                                if (formatPropIndex <= 1 && optionsPropIndex >= 2 || formatPropIndex >= 2 && optionsPropIndex <= 1) {
+                                    // 5. If delta = 2, decrease score by longMorePenalty.
+                                    if (delta > 0) score -= longMorePenalty;else if (delta < 0) score -= longLessPenalty;
+                                } else {
+                                    // 5. If delta = 2, decrease score by longMorePenalty.
+                                    if (delta > 1) score -= shortMorePenalty;else if (delta < -1) score -= shortLessPenalty;
+                                }
+                            }
+                        }
+            }
+
+            {
+                // diverging to also take into consideration differences between 12 or 24 hours
+                // which is special for the best fit only.
+                if (format._.hour12 !== options.hour12) {
+                    score -= hour12Penalty;
+                }
+            }
+
+            // d. If score > bestScore, then
+            if (score > bestScore) {
+                // i. Let bestScore be score.
+                bestScore = score;
+                // ii. Let bestFormat be format.
+                bestFormat = format;
+            }
+
+            // e. Increase i by 1.
+            i++;
+        }
+
+        // 13. Return bestFormat.
+        return bestFormat;
     }
 
     /* 12.2.3 */internals.DateTimeFormat = {
@@ -3145,7 +3232,7 @@
         var internal = dateTimeFormat.__getInternalProperties(secret);
 
         // Creating restore point for properties on the RegExp object... please wait
-        /* let regexpState = */createRegExpRestore(); // todo: review this
+        /* let regexpState = */createRegExpRestore(); // ###TODO: review this
 
         // 2. Let locale be the value of the [[locale]] internal property of dateTimeFormat.
         var locale = internal['[[locale]]'];
@@ -3190,7 +3277,7 @@
 
         // 11.
         while (beginIndex !== -1) {
-            var fv = undefined;
+            var fv = void 0;
             // a.
             endIndex = pattern.indexOf('}', beginIndex);
             // b.
@@ -3200,7 +3287,7 @@
             // c.
             if (beginIndex > index) {
                 arrPush.call(result, {
-                    type: 'separator',
+                    type: 'literal',
                     value: pattern.substring(index, beginIndex)
                 });
             }
@@ -3272,10 +3359,10 @@
                                     break;
 
                                 case 'timeZoneName':
-                                    fv = ''; // TODO
+                                    fv = ''; // ###TODO
                                     break;
 
-                                // TODO: Era
+                                // ###TODO: Era
                                 default:
                                     fv = tm['[[' + p + ']]'];
                             }
@@ -3288,19 +3375,19 @@
                 // f.
             } else if (p === 'ampm') {
                     // i.
-                    var v = tm['[[hour]]'];
+                    var _v = tm['[[hour]]'];
                     // ii./iii.
-                    fv = resolveDateString(localeData, ca, 'dayPeriods', v > 11 ? 'pm' : 'am');
+                    fv = resolveDateString(localeData, ca, 'dayPeriods', _v > 11 ? 'pm' : 'am', null);
                     // iv.
                     arrPush.call(result, {
-                        type: 'dayperiod',
+                        type: 'dayPeriod',
                         value: fv
                     });
                     // g.
                 } else {
                         arrPush.call(result, {
-                            type: 'separator',
-                            value: pattern.substring(beginIndex, endIndex)
+                            type: 'literal',
+                            value: pattern.substring(beginIndex, endIndex + 1)
                         });
                     }
             // h.
@@ -3311,8 +3398,8 @@
         // 12.
         if (endIndex < pattern.length - 1) {
             arrPush.call(result, {
-                type: 'separator',
-                value: pattern.substr(endIndex)
+                type: 'literal',
+                value: pattern.substr(endIndex + 1)
             });
         }
         // 13.
@@ -3393,7 +3480,7 @@
         writable: true,
         configurable: true,
         value: function value() {
-            var prop = undefined,
+            var prop = void 0,
                 descs = new Record(),
                 props = ['locale', 'calendar', 'numberingSystem', 'timeZone', 'hour12', 'weekday', 'era', 'year', 'month', 'day', 'hour', 'minute', 'second', 'timeZoneName'],
                 internal = this !== null && babelHelpers["typeof"](this) === 'object' && getInternalProperties(this);
@@ -3409,7 +3496,7 @@
         }
     });
 
-    var ls = Intl.__localeSensitiveProtos = {
+    var ls = Intl$1.__localeSensitiveProtos = {
         Number: {},
         Date: {}
     };
@@ -3567,7 +3654,7 @@
         // Both NumberFormat and DateTimeFormat require number data, so throw if it isn't present
         if (!data.number) throw new Error("Object passed doesn't contain locale data for Intl.NumberFormat");
 
-        var locale = undefined,
+        var locale = void 0,
             locales = [tag],
             parts = tag.split('-');
 
@@ -3592,9 +3679,13 @@
     }
 
     // hack to export the polyfill as global Intl if needed
-    if ((typeof Intl === "undefined" ? "undefined" : babelHelpers["typeof"](Intl)) !== undefined) {
-        Intl = Intl$1;
-        Intl$1.__applyLocaleSensitivePrototypes();
+    if (typeof Intl !== 'undefined') {
+        try {
+            Intl = Intl$1;
+            Intl$1.__applyLocaleSensitivePrototypes();
+        } catch (e) {
+            // can be read only property
+        }
     }
 
     return Intl$1;
