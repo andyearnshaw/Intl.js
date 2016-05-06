@@ -991,7 +991,14 @@ function CreateDateTimeParts(dateTimeFormat, x) {
                     fv = ''; // ###TODO
                     break;
 
-                    // ###TODO: Era
+                  case 'era':
+                    try {
+                      fv = resolveDateString(localeData, ca, 'eras', f, tm['[['+ p +']]']);
+                    } catch (e) {
+                      throw new Error('Could not find era data for locale '+locale);
+                    }
+                    break;
+
                   default:
                     fv = tm['[['+ p +']]'];
                 }
