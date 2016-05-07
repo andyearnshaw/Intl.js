@@ -713,62 +713,68 @@ function ToRawPrecision (x, minPrecision, maxPrecision) {
 }
 
 /**
+ * @spec[tc39/ecma402/master/spec/numberformat.html]
+ * @clause[sec-torawfixed]
  * When the ToRawFixed abstract operation is called with arguments x (which must
  * be a finite non-negative number), minInteger (which must be an integer between
  * 1 and 21), minFraction, and maxFraction (which must be integers between 0 and
  * 20) the following steps are taken:
  */
-function ToRawFixed (x, minInteger, minFraction, maxFraction) {
-    // (or not because Number.toPrototype.toFixed does a lot of it for us)
-    let idx,
+function ToRawFixed(x, minInteger, minFraction, maxFraction) {
+    // 1. Let f be maxFraction.
+    let f = maxFraction;
+    // 2. Let n be an integer for which the exact mathematical value of n ÷ 10f – x is as close to zero as possible. If there are two such n, pick the larger n.
+    let p = Math.pow(10, f) * x; // ###TODO: add description for this variable p
+    let n = p > Math.floor(p) ? Math.round(p) : p + 1;
+    // 3. If n = 0, let m be the String "0". Otherwise, let m be the String consisting of the digits of the decimal representation of n (in order, with no leading zeroes).
+    let m = (n === 0 ? "0" : (n + '').split('.')[0]);
 
-        // We can pick up after the fixed formatted string (m) is created
-        m   = Number.prototype.toFixed.call(x, maxFraction),
-
-        // 4. If [maxFraction] ≠ 0, then
-        //    ...
-        //    e. Let int be the number of characters in a.
-        //
-        // 5. Else let int be the number of characters in m.
-        igr = m.split(".")[0].length,  // int is a reserved word
-
-        // 6. Let cut be maxFraction – minFraction.
-        cut = maxFraction - minFraction,
-
-        exp = (idx = m.indexOf('e')) > -1 ? m.slice(idx + 1) : 0;
-
-    if (exp) {
-        m = m.slice(0, idx).replace('.', '');
-        m += arrJoin.call(Array(exp - (m.length - 1) + 1), '0')
-          + '.' + arrJoin.call(Array(maxFraction + 1), '0');
-
-        igr = m.length;
+    let int;
+    // 4. If f ≠ 0, then
+    if (f !== 0) {
+        // a. Let k be the number of characters in m.
+        let k = m.length;
+        // a. If k ≤ f, then
+        if (k <= f) {
+            // i. Let z be the String consisting of f+1–k occurrences of the character "0".
+            let z = arrJoin.call(Array(f + 1 - k + 1), '0');
+            // ii. Let m be the concatenation of Strings z and m.
+            m = z + m;
+            // iii. Let k be f+1.
+            k = f + 1;
+        }
+        // a. Let a be the first k–f characters of m, and let b be the remaining f characters of m.
+        let a = m.slice(0, k - f), b = m.slice(-(k - f));
+        // a. Let m be the concatenation of the three Strings a, ".", and b.
+        m = a + "." + b;
+        // a. Let int be the number of characters in a.
+        int = a.length;
     }
-
+    // 5. Else, let int be the number of characters in m.
+    else int = m.length;
+    // 6. Let cut be maxFraction – minFraction.
+    let cut = maxFraction - minFraction;
     // 7. Repeat while cut > 0 and the last character of m is "0":
     while (cut > 0 && m.slice(-1) === "0") {
         // a. Remove the last character from m.
         m = m.slice(0, -1);
-
-        // b. Decrease cut by 1.
+        // a. Decrease cut by 1.
         cut--;
     }
-
     // 8. If the last character of m is ".", then
-    if (m.slice(-1) === ".")
+    if (m.slice(-1) === ".") {
         // a. Remove the last character from m.
         m = m.slice(0, -1);
-
-    let z;
+    }
     // 9. If int < minInteger, then
-    if (igr < minInteger)
-        // a. Let z be the String consisting of minInteger–int occurrences of the
-        //    character "0".
-        z = arrJoin.call(Array(minInteger - igr + 1), '0');
-
-    // 10. Let m be the concatenation of Strings z and m.
-    // 11. Return m.
-    return (z ? z : '') + m;
+    if (int < minInteger) {
+        // a. Let z be the String consisting of minInteger–int occurrences of the character "0".
+        let z = arrJoin.call(Array(minInteger - int + 1), '0');
+        // a. Let m be the concatenation of Strings z and m.
+        m = z + m;
+    }
+    // 10. Return m.
+    return m;
 }
 
 // Sect 11.3.2 Table 2, Numbering systems
