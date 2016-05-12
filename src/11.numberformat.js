@@ -491,7 +491,7 @@ function PartitionNumberPattern(numberFormat, x) {
     // 8. Repeat while beginIndex is an integer index into pattern:
     while (beginIndex > -1 && beginIndex < length) {
         // a. Set endIndex to Call(%StringProto_indexOf%, pattern, "}", beginIndex)
-        endIndex = pattern.indexOf('}');
+        endIndex = pattern.indexOf('}', beginIndex);
         // a. If endIndex = -1, throw new Error exception.
         if (endIndex === -1) throw new Error();
         // a. If beginIndex is greater than nextIndex, then:
@@ -514,116 +514,116 @@ function PartitionNumberPattern(numberFormat, x) {
             }
             // ii. Else if isFinite(x) is false,
             else if (!isFinite(x)) {
-                    // 1. Let n be an ILD String value indicating infinity.
-                    let n = ild.infinity;
-                    // 2. Add new part record { [[type]]: "infinity", [[value]]: n } as a new element of the list result.
-                    arrPush.call(result, { '[[type]]': 'infinity', '[[value]]': n });
+                // 1. Let n be an ILD String value indicating infinity.
+                let n = ild.infinity;
+                // 2. Add new part record { [[type]]: "infinity", [[value]]: n } as a new element of the list result.
+                arrPush.call(result, { '[[type]]': 'infinity', '[[value]]': n });
+            }
+            // iii. Else,
+            else {
+                // 1. If the value of numberFormat.[[style]] is "percent" and isFinite(x), let x be 100 × x.
+                if (internal['[[style]]'] === 'percent' && isFinite(x)) x *= 100;
+
+                let n;
+                // 2. If the numberFormat.[[minimumSignificantDigits]] and numberFormat.[[maximumSignificantDigits]] are present, then
+                if (hop.call(internal, '[[minimumSignificantDigits]]') && hop.call(internal, '[[maximumSignificantDigits]]')) {
+                    // a. Let n be ToRawPrecision(x, numberFormat.[[minimumSignificantDigits]], numberFormat.[[maximumSignificantDigits]]).
+                    n = ToRawPrecision(x, internal['[[minimumSignificantDigits]]'], internal['[[maximumSignificantDigits]]']);
                 }
-                // iii. Else,
+                // 3. Else,
                 else {
-                        // 1. If the value of numberFormat.[[style]] is "percent" and isFinite(x), let x be 100 × x.
-                        if (internal['[[style]]'] === 'percent' && isFinite(x)) x *= 100;
+                    // a. Let n be ToRawFixed(x, numberFormat.[[minimumIntegerDigits]], numberFormat.[[minimumFractionDigits]], numberFormat.[[maximumFractionDigits]]).
+                    n = ToRawFixed(x, internal['[[minimumIntegerDigits]]'], internal['[[minimumFractionDigits]]'], internal['[[maximumFractionDigits]]']);
+                }
+                // 4. If the value of the numberFormat.[[numberingSystem]] matches one of the values in the "Numbering System" column of Table 2 below, then
+                if (numSys[nums]) {
+                    // a. Let digits be an array whose 10 String valued elements are the UTF-16 string representations of the 10 digits specified in the "Digits" column of the matching row in Table 2.
+                    let digits = numSys[nums];
+                    // a. Replace each digit in n with the value of digits[digit].
+                    n = String(n).replace(/\d/g, (digit) => {
+                        return digits[digit];
+                    });
+                }
+                // 5. Else use an implementation dependent algorithm to map n to the appropriate representation of n in the given numbering system.
+                else n = String(n); // ###TODO###
 
-                        let n;
-                        // 2. If the numberFormat.[[minimumSignificantDigits]] and numberFormat.[[maximumSignificantDigits]] are present, then
-                        if (hop.call(internal, '[[minimumSignificantDigits]]') && hop.call(internal, '[[maximumSignificantDigits]]')) {
-                            // a. Let n be ToRawPrecision(x, numberFormat.[[minimumSignificantDigits]], numberFormat.[[maximumSignificantDigits]]).
-                            n = ToRawPrecision(x, internal['[[minimumSignificantDigits]]'], internal['[[maximumSignificantDigits]]']);
+                let integer;
+                let fraction;
+                // 6. Let decimalSepIndex be Call(%StringProto_indexOf%, n, ".", 0).
+                let decimalSepIndex = n.indexOf('.', 0);
+                // 7. If decimalSepIndex > 0, then:
+                if (decimalSepIndex > 0) {
+                    // a. Let integer be the substring of n from position 0, inclusive, to position decimalSepIndex, exclusive.
+                    integer = n.substring(0, decimalSepIndex);
+                    // a. Let fraction be the substring of n from position decimalSepIndex, exclusive, to the end of n.
+                    fraction = n.substring(decimalSepIndex + 1, decimalSepIndex.length);
+                }
+                // 8. Else:
+                else {
+                    // a. Let integer be n.
+                    integer = n;
+                    // a. Let fraction be undefined.
+                    fraction = undefined;
+                }
+                // 9. If the value of the numberFormat.[[useGrouping]] is true,
+                if (internal['[[useGrouping]]'] === true) {
+                    // a. Let groupSepSymbol be the ILND String representing the grouping separator.
+                    let groupSepSymbol = ild.group;
+                    // a. Let groups be a List whose elements are, in left to right order, the substrings defined by ILND set of locations within the integer.
+                    let groups = new List();
+                    // ----> implementation:
+                    // Primary group represents the group closest to the decimal
+                    let pgSize = data.patterns.primaryGroupSize || 3;
+                    // Secondary group is every other group
+                    let sgSize = data.patterns.secondaryGroupSize || pgSize;
+                    // Group only if necessary
+                    if (integer.length > pgSize) {
+                        // Index of the primary grouping separator
+                        let end = integer.length - pgSize;
+                        // Starting index for our loop
+                        let idx = end % sgSize;
+                        let start = integer.slice(0, idx);
+                        if (start.length) arrPush.call(groups, start);
+                        // Loop to separate into secondary grouping digits
+                        while (idx < end) {
+                            arrPush.call(groups, integer.slice(idx, idx + sgSize));
+                            idx += sgSize;
                         }
-                        // 3. Else,
-                        else {
-                                // a. Let n be ToRawFixed(x, numberFormat.[[minimumIntegerDigits]], numberFormat.[[minimumFractionDigits]], numberFormat.[[maximumFractionDigits]]).
-                                n = ToRawFixed(x, internal['[[minimumIntegerDigits]]'], internal['[[minimumFractionDigits]]'], internal['[[maximumFractionDigits]]']);
-                            }
-                        // 4. If the value of the numberFormat.[[numberingSystem]] matches one of the values in the "Numbering System" column of Table 2 below, then
-                        if (numSys[nums]) {
-                            // a. Let digits be an array whose 10 String valued elements are the UTF-16 string representations of the 10 digits specified in the "Digits" column of the matching row in Table 2.
-                            let digits = numSys[nums];
-                            // a. Replace each digit in n with the value of digits[digit].
-                            n = String(n).replace(/\d/g, (digit) => {
-                                return digits[digit];
-                            });
-                        }
-                        // 5. Else use an implementation dependent algorithm to map n to the appropriate representation of n in the given numbering system.
-                        else n = String(n); // ###TODO###
-
-                        let integer;
-                        let fraction;
-                        // 6. Let decimalSepIndex be Call(%StringProto_indexOf%, n, ".", 0).
-                        let decimalSepIndex = n.indexOf('.', 0);
-                        // 7. If decimalSepIndex > 0, then:
-                        if (decimalSepIndex > 0) {
-                            // a. Let integer be the substring of n from position 0, inclusive, to position decimalSepIndex, exclusive.
-                            integer = n.substring(0, decimalSepIndex - 1);
-                            // a. Let fraction be the substring of n from position decimalSepIndex, exclusive, to the end of n.
-                            fraction = n.substring(decimalSepIndex + 1, decimalSepIndex.length);
-                        }
-                        // 8. Else:
-                        else {
-                                // a. Let integer be n.
-                                integer = n;
-                                // a. Let fraction be undefined.
-                                fraction = undefined;
-                            }
-                        // 9. If the value of the numberFormat.[[useGrouping]] is true,
-                        if (internal['[[useGrouping]]'] === true) {
-                            // a. Let groupSepSymbol be the ILND String representing the grouping separator.
-                            let groupSepSymbol = ild.group;
-                            // a. Let groups be a List whose elements are, in left to right order, the substrings defined by ILND set of locations within the integer.
-                            let groups = new List();
-                            // ----> implementation:
-                            // Primary group represents the group closest to the decimal
-                            let pgSize = data.patterns.primaryGroupSize || 3;
-                            // Secondary group is every other group
-                            let sgSize = data.patterns.secondaryGroupSize || pgSize;
-                            // Group only if necessary
-                            if (integer.length > pgSize) {
-                                // Index of the primary grouping separator
-                                let end = integer.length - pgSize;
-                                // Starting index for our loop
-                                let idx = end % sgSize;
-                                let start = integer.slice(0, idx);
-                                if (start.length) arrPush.call(groups, start);
-                                // Loop to separate into secondary grouping digits
-                                while (idx < end) {
-                                    arrPush.call(groups, integer.slice(idx, idx + sgSize));
-                                    idx += sgSize;
-                                }
-                                // Add the primary grouping digits
-                                arrPush.call(groups, integer.slice(end));
-                            } else {
-                                arrPush.call(groups, integer);
-                            }
-                            // a. Assert: The number of elements in groups List is greater than 0.
-                            if (groups.length === 0) throw new Error();
-                            // a. Repeat, while groups List is not empty:
-                            while (groups.length) {
-                                // i. Remove the first element from groups and let integerGroup be the value of that element.
-                                let integerGroup = arrShift.call(groups);
-                                // ii. Add new part record { [[type]]: "integer", [[value]]: integerGroup } as a new element of the list result.
-                                arrPush.call(result, { '[[type]]': 'integer', '[[value]]': integerGroup });
-                                // iii. If groups List is not empty, then:
-                                if (groups.length) {
-                                    // 1. Add new part record { [[type]]: "group", [[value]]: groupSepSymbol } as a new element of the list result.
-                                    arrPush.call(result, { '[[type]]': 'group', '[[value]]': groupSepSymbol });
-                                }
-                            }
-                        }
-                        // 10. Else,
-                        else {
-                                // a. Add new part record { [[type]]: "integer", [[value]]: integer } as a new element of the list result.
-                                arrPush.call(result, { '[[type]]': 'integer', '[[value]]': integer });
-                            }
-                        // 11. If fraction is not undefined, then:
-                        if (fraction !== undefined) {
-                            // a. Let decimalSepSymbol be the ILND String representing the decimal separator.
-                            let decimalSepSymbol = ild.decimal;
-                            // a. Add new part record { [[type]]: "decimal", [[value]]: decimalSepSymbol } as a new element of the list result.
-                            arrPush.call(result, { '[[type]]': 'decimal', '[[value]]': decimalSepSymbol });
-                            // a. Add new part record { [[type]]: "fraction", [[value]]: fraction } as a new element of the list result.
-                            arrPush.call(result, { '[[type]]': 'fraction', '[[value]]': fraction });
+                        // Add the primary grouping digits
+                        arrPush.call(groups, integer.slice(end));
+                    } else {
+                        arrPush.call(groups, integer);
+                    }
+                    // a. Assert: The number of elements in groups List is greater than 0.
+                    if (groups.length === 0) throw new Error();
+                    // a. Repeat, while groups List is not empty:
+                    while (groups.length) {
+                        // i. Remove the first element from groups and let integerGroup be the value of that element.
+                        let integerGroup = arrShift.call(groups);
+                        // ii. Add new part record { [[type]]: "integer", [[value]]: integerGroup } as a new element of the list result.
+                        arrPush.call(result, { '[[type]]': 'integer', '[[value]]': integerGroup });
+                        // iii. If groups List is not empty, then:
+                        if (groups.length) {
+                            // 1. Add new part record { [[type]]: "group", [[value]]: groupSepSymbol } as a new element of the list result.
+                            arrPush.call(result, { '[[type]]': 'group', '[[value]]': groupSepSymbol });
                         }
                     }
+                }
+                // 10. Else,
+                else {
+                    // a. Add new part record { [[type]]: "integer", [[value]]: integer } as a new element of the list result.
+                    arrPush.call(result, { '[[type]]': 'integer', '[[value]]': integer });
+                }
+                // 11. If fraction is not undefined, then:
+                if (fraction !== undefined) {
+                    // a. Let decimalSepSymbol be the ILND String representing the decimal separator.
+                    let decimalSepSymbol = ild.decimal;
+                    // a. Add new part record { [[type]]: "decimal", [[value]]: decimalSepSymbol } as a new element of the list result.
+                    arrPush.call(result, { '[[type]]': 'decimal', '[[value]]': decimalSepSymbol });
+                    // a. Add new part record { [[type]]: "fraction", [[value]]: fraction } as a new element of the list result.
+                    arrPush.call(result, { '[[type]]': 'fraction', '[[value]]': fraction });
+                }
+            }
         }
         // a. Else if p is equal "plusSign", then:
         else if (p === "plusSign") {
@@ -704,7 +704,6 @@ export function FormatNumber(numberFormat, x) {
     // 2. Let result be an empty String.
     let result = '';
     // 3. For each part in parts, do:
-    console.log(parts);
     for (let idx in parts) {
         let part = parts[idx];
         // a. Set result to a String value produced by concatenating result and part.[[value]].
@@ -805,8 +804,7 @@ function ToRawFixed(x, minInteger, minFraction, maxFraction) {
     // 1. Let f be maxFraction.
     let f = maxFraction;
     // 2. Let n be an integer for which the exact mathematical value of n ÷ 10f – x is as close to zero as possible. If there are two such n, pick the larger n.
-    let p = Math.pow(10, f) * x; // ###TODO: add description for this variable p
-    let n = p > Math.floor(p) ? Math.round(p) : p + 1;
+    let n = Math.round(Math.pow(10, f) * x);
     // 3. If n = 0, let m be the String "0". Otherwise, let m be the String consisting of the digits of the decimal representation of n (in order, with no leading zeroes).
     let m = (n === 0 ? "0" : (n + '').split('.')[0]);
 
@@ -825,7 +823,7 @@ function ToRawFixed(x, minInteger, minFraction, maxFraction) {
             k = f + 1;
         }
         // a. Let a be the first k–f characters of m, and let b be the remaining f characters of m.
-        let a = m.slice(0, k - f), b = m.slice(-(k - f));
+        let a = m.substring(0, k - f), b = m.substring(k - f, m.length);
         // a. Let m be the concatenation of the three Strings a, ".", and b.
         m = a + "." + b;
         // a. Let int be the number of characters in a.
