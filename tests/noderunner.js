@@ -39,7 +39,7 @@ function listTests() {
         doing = todo.shift();
         path = LIBS.path.resolve(TEST_DIR, doing);
         stat = LIBS.fs.statSync(path);
-        if (stat.isFile()) {
+        if (stat.isFile() && LIBS.path.extname(path) === '.html') {
             tests.push(doing);
             continue;
         }
