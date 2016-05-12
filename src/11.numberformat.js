@@ -601,27 +601,27 @@ function PartitionNumberPattern(numberFormat, x) {
                                 // i. Remove the first element from groups and let integerGroup be the value of that element.
                                 let integerGroup = arrShift.call(groups);
                                 // ii. Add new part record { [[type]]: "integer", [[value]]: integerGroup } as a new element of the list result.
-                                arrPush.call(result, { type: 'integer', value: integerGroup });
+                                arrPush.call(result, { '[[type]]': 'integer', '[[value]]': integerGroup });
                                 // iii. If groups List is not empty, then:
                                 if (groups.length) {
                                     // 1. Add new part record { [[type]]: "group", [[value]]: groupSepSymbol } as a new element of the list result.
-                                    arrPush.call(result, { type: 'group', value: groupSepSymbol });
+                                    arrPush.call(result, { '[[type]]': 'group', '[[value]]': groupSepSymbol });
                                 }
                             }
                         }
                         // 10. Else,
                         else {
                                 // a. Add new part record { [[type]]: "integer", [[value]]: integer } as a new element of the list result.
-                                arrPush.call(result, { type: 'integer', value: integer });
+                                arrPush.call(result, { '[[type]]': 'integer', '[[value]]': integer });
                             }
                         // 11. If fraction is not undefined, then:
                         if (fraction !== undefined) {
                             // a. Let decimalSepSymbol be the ILND String representing the decimal separator.
                             let decimalSepSymbol = ild.decimal;
                             // a. Add new part record { [[type]]: "decimal", [[value]]: decimalSepSymbol } as a new element of the list result.
-                            arrPush.call(result, { type: 'decimal', value: decimalSepSymbol });
+                            arrPush.call(result, { '[[type]]': 'decimal', '[[value]]': decimalSepSymbol });
                             // a. Add new part record { [[type]]: "fraction", [[value]]: fraction } as a new element of the list result.
-                            arrPush.call(result, { type: 'fraction', value: fraction });
+                            arrPush.call(result, { '[[type]]': 'fraction', '[[value]]': fraction });
                         }
                     }
         }
@@ -630,14 +630,14 @@ function PartitionNumberPattern(numberFormat, x) {
                 // i. Let plusSignSymbol be the ILND String representing the plus sign.
                 let plusSignSymbol = ild.plusSign;
                 // ii. Add new part record { [[type]]: "plusSign", [[value]]: plusSignSymbol } as a new element of the list result.
-                arrPush.call(result, { type: 'plusSign', value: plusSignSymbol });
+                arrPush.call(result, { '[[type]]': 'plusSign', '[[value]]': plusSignSymbol });
             }
             // a. Else if p is equal "minusSign", then:
             else if (p === "minusSign") {
                     // i. Let minusSignSymbol be the ILND String representing the minus sign.
                     let minusSignSymbol = ild.minusSign;
                     // ii. Add new part record { [[type]]: "minusSign", [[value]]: minusSignSymbol } as a new element of the list result.
-                    arrPush.call(result, { type: 'minusSign', value: minusSignSymbol });
+                    arrPush.call(result, { '[[type]]': 'minusSign', '[[value]]': minusSignSymbol });
                 }
                 // a. Else if p is equal "percentSign" and numberFormat.[[style]] is "percent", then:
                 else if (p === "percentSign" && internal['[[style]]'] === "percent") {
