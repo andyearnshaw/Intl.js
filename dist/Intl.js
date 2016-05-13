@@ -2121,9 +2121,19 @@
         // 1. Let f be maxFraction.
         var f = maxFraction;
         // 2. Let n be an integer for which the exact mathematical value of n ÷ 10f – x is as close to zero as possible. If there are two such n, pick the larger n.
-        var n = Math.round(Math.pow(10, f) * x);
+        var n = Math.pow(10, f) * x; // diverging...
         // 3. If n = 0, let m be the String "0". Otherwise, let m be the String consisting of the digits of the decimal representation of n (in order, with no leading zeroes).
-        var m = n === 0 ? "0" : (n + '').split('.')[0];
+        var m = n === 0 ? "0" : n.toFixed(0); // divering...
+
+        {
+            // this diversion is needed to take into consideration big numbers
+            var idx = void 0;
+            var exp = (idx = m.indexOf('e')) > -1 ? m.slice(idx + 1) : 0;
+            if (exp) {
+                m = m.slice(0, idx).replace('.', '');
+                m += arrJoin.call(Array(exp - (m.length - 1) + 1), '0');
+            }
+        }
 
         var int = void 0;
         // 4. If f ≠ 0, then
