@@ -804,9 +804,20 @@ function ToRawFixed(x, minInteger, minFraction, maxFraction) {
     // 1. Let f be maxFraction.
     let f = maxFraction;
     // 2. Let n be an integer for which the exact mathematical value of n ÷ 10f – x is as close to zero as possible. If there are two such n, pick the larger n.
-    let n = Math.round(Math.pow(10, f) * x);
+    let n = Math.pow(10, f) * x; // diverging...
     // 3. If n = 0, let m be the String "0". Otherwise, let m be the String consisting of the digits of the decimal representation of n (in order, with no leading zeroes).
-    let m = (n === 0 ? "0" : (n + '').split('.')[0]);
+    let m = (n === 0 ? "0" : n.toFixed(0)); // divering...
+
+    {
+        // this diversion is needed to take into consideration big numbers, e.g.:
+        // 1.2344501e+37 -> 12344501000000000000000000000000000000
+        let idx;
+        let exp = (idx = m.indexOf('e')) > -1 ? m.slice(idx + 1) : 0;
+        if (exp) {
+            m = m.slice(0, idx).replace('.', '');
+            m += arrJoin.call(Array(exp - (m.length - 1) + 1), '0');
+        }
+    }
 
     let int;
     // 4. If f ≠ 0, then
