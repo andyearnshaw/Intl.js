@@ -2126,7 +2126,8 @@
         var m = n === 0 ? "0" : n.toFixed(0); // divering...
 
         {
-            // this diversion is needed to take into consideration big numbers
+            // this diversion is needed to take into consideration big numbers, e.g.:
+            // 1.2344501e+37 -> 12344501000000000000000000000000000000
             var idx = void 0;
             var exp = (idx = m.indexOf('e')) > -1 ? m.slice(idx + 1) : 0;
             if (exp) {
