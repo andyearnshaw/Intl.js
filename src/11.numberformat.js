@@ -704,8 +704,8 @@ export function FormatNumber(numberFormat, x) {
     // 2. Let result be an empty String.
     let result = '';
     // 3. For each part in parts, do:
-    for (let idx in parts) {
-        let part = parts[idx];
+    for (let i = 0; parts.length > i; i++) {
+        let part = parts[i];
         // a. Set result to a String value produced by concatenating result and part.[[value]].
         result += part['[[value]]'];
     }
