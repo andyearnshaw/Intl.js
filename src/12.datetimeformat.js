@@ -1053,8 +1053,9 @@ export function FormatDateTime(dateTimeFormat, x) {
   let parts = CreateDateTimeParts(dateTimeFormat, x);
   let result = '';
 
-  for (let part in parts) {
-      result += parts[part].value;
+  for (let i = 0; parts.length > i; i++) {
+      let part = parts[i];
+      result += part.value;
   }
   return result;
 }
@@ -1062,10 +1063,11 @@ export function FormatDateTime(dateTimeFormat, x) {
 function FormatToPartsDateTime(dateTimeFormat, x) {
   let parts = CreateDateTimeParts(dateTimeFormat, x);
   let result = [];
-  for (let part in parts) {
+  for (let i = 0; parts.length > i; i++) {
+    let part = parts[i];
     result.push({
-      type: parts[part].type,
-      value: parts[part].value,
+      type: part.type,
+      value: part.value,
     });
   }
   return result;

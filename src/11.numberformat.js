@@ -436,8 +436,8 @@ function FormatNumberToParts(numberFormat, x) {
     // 3. Let n be 0.
     let n = 0;
     // 4. For each part in parts, do:
-    for (let idx in parts) {
-        let part = parts[idx];
+    for (let i = 0; parts.length > i; i++) {
+        let part = parts[i];
         // a. Let O be ObjectCreate(%ObjectPrototype%).
         let O = {};
         // a. Perform ? CreateDataPropertyOrThrow(O, "type", part.[[type]]).
@@ -570,7 +570,7 @@ function PartitionNumberPattern(numberFormat, x) {
                     // a. Let groupSepSymbol be the ILND String representing the grouping separator.
                     let groupSepSymbol = ild.group;
                     // a. Let groups be a List whose elements are, in left to right order, the substrings defined by ILND set of locations within the integer.
-                    let groups = new List();
+                    let groups = [];
                     // ----> implementation:
                     // Primary group represents the group closest to the decimal
                     let pgSize = data.patterns.primaryGroupSize || 3;
