@@ -1,6 +1,6 @@
 {
   "name": "intl",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Polyfill the ECMA-402 Intl API (except collation)",
   "main": "index.js",
   "directories": {
@@ -72,7 +72,7 @@
     "build:dist": "npm run build:dist:dev && npm run build:dist:prod",
     "build": "npm run build:data && npm run build:lib && npm run build:dist",
     "lint": "eslint .",
-    "test": "cd tests && node noderunner.js && node saucelabs.js",
+    "test": "cd tests && node sanity.js && node noderunner.js && node saucelabs.js",
     "pretest": "npm run lint",
     "preversion": "npm run clean && npm run build && npm run test",
     "prepublish": "npm run clean && npm run build"
