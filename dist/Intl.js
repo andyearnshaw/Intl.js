@@ -1750,8 +1750,8 @@
         // 3. Let n be 0.
         var n = 0;
         // 4. For each part in parts, do:
-        for (var idx in parts) {
-            var part = parts[idx];
+        for (var i = 0; parts.length > i; i++) {
+            var part = parts[i];
             // a. Let O be ObjectCreate(%ObjectPrototype%).
             var O = {};
             // a. Perform ? CreateDataPropertyOrThrow(O, "type", part.[[type]]).
@@ -1886,7 +1886,7 @@
                                 // a. Let groupSepSymbol be the ILND String representing the grouping separator.
                                 var groupSepSymbol = ild.group;
                                 // a. Let groups be a List whose elements are, in left to right order, the substrings defined by ILND set of locations within the integer.
-                                var groups = new List();
+                                var groups = [];
                                 // ----> implementation:
                                 // Primary group represents the group closest to the decimal
                                 var pgSize = data.patterns.primaryGroupSize || 3;
@@ -2020,8 +2020,8 @@
         // 2. Let result be an empty String.
         var result = '';
         // 3. For each part in parts, do:
-        for (var idx in parts) {
-            var part = parts[idx];
+        for (var i = 0; parts.length > i; i++) {
+            var part = parts[i];
             // a. Set result to a String value produced by concatenating result and part.[[value]].
             result += part['[[value]]'];
         }
@@ -3534,8 +3534,9 @@
         var parts = CreateDateTimeParts(dateTimeFormat, x);
         var result = '';
 
-        for (var part in parts) {
-            result += parts[part].value;
+        for (var i = 0; parts.length > i; i++) {
+            var part = parts[i];
+            result += part.value;
         }
         return result;
     }
@@ -3543,10 +3544,11 @@
     function FormatToPartsDateTime(dateTimeFormat, x) {
         var parts = CreateDateTimeParts(dateTimeFormat, x);
         var result = [];
-        for (var part in parts) {
+        for (var i = 0; parts.length > i; i++) {
+            var part = parts[i];
             result.push({
-                type: parts[part].type,
-                value: parts[part].value
+                type: part.type,
+                value: part.value
             });
         }
         return result;
