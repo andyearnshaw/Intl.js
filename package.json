@@ -72,7 +72,7 @@
     "build:dist": "npm run build:dist:dev && npm run build:dist:prod",
     "build": "npm run build:data && npm run build:lib && npm run build:dist",
     "lint": "eslint .",
-    "test": "cd tests && node sanity.js && node noderunner.js && node saucelabs.js",
+    "test": "cd tests && node polyfilling.js && node sanity.js && node noderunner.js && node saucelabs.js",
     "pretest": "npm run lint",
     "preversion": "npm run clean && npm run build && npm run test",
     "prepublish": "npm run clean && npm run build"
