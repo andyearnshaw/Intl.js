@@ -9,7 +9,7 @@ import uglify from 'rollup-plugin-uglify';
 
 const isProduction = process.env.NODE_ENV === 'production';
 
-const entry = p.resolve('src/main.js');
+const entry = p.resolve('src/browser-main.js');
 const dest  = p.resolve(`dist/Intl.${isProduction ? 'min.js' : 'js'}`);
 
 const bundleConfig = {
