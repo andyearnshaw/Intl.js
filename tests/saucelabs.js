@@ -68,8 +68,8 @@ var LIBS = {
         },
         {
             browserName: "safari",
-            version: "7",
-            platform: "OS X 10.9"
+            version: "9",
+            platform: "OS X 10.11"
         }
     ],
 
@@ -91,9 +91,10 @@ var LIBS = {
     // A list of tests that ES3 environments can't pass, either because they
     // use accessors or they test for behaviour achievable only in ES5 environments
     es3blacklist = [
-        '9.2.8_4.html',
-        '11.1.1_32.html', '11.2.1.html', '11.3.3.html', '11.3_b.html',
-        '12.2.1.html', '12.3.3.html', '12.3_b.html', '12.3.2_TLT_2.html'
+        'intl402/9.2.2.html',
+        'intl402/9.2.1_2.html',
+        'intl402/NumberFormat/11.1.2.html',
+        'intl402/DateTimeFormat/12.1.2.html'
     ];
 
 LIBS.http.createServer(function(req, res) {
