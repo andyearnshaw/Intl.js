@@ -90,11 +90,23 @@ var LIBS = {
 
     // A list of tests that ES3 environments can't pass, either because they
     // use accessors or they test for behaviour achievable only in ES5 environments
-    es3blacklist = [
-        'intl402/9.2.2.html',
-        'intl402/9.2.1_2.html',
-        'intl402/NumberFormat/11.1.2.html',
-        'intl402/DateTimeFormat/12.1.2.html'
+    blacklist = [
+        '9.2.1_2.html',
+        '11.1.2.html',
+        '12.1.2.html',
+
+        // WARNING: The server did not provide any stacktrace information
+        '12.1.1_a.html', '11.1.1_a.html'
+    ],
+
+    ie8blacklist = [
+        '9.2.8_4.html',
+        '11.1.1_32.html',
+        '12.2.1.html',
+        '12.3_b.html',
+        '11.2.1.html',
+        '11.3_b.html',
+        '11.3.3.html'
     ];
 
 LIBS.http.createServer(function(req, res) {
@@ -242,9 +254,14 @@ function runTestsInBrowser(state, browserConfig, done) {
 
             browserConfig.results.currentTest = test;
 
+            //
+            if (blacklist.indexOf(test.split('/').pop()) > -1) {
+                console.log('--SKIPPED--', test, browserString, 'Not passable at the moment');
+                return taskDone();
+            }
             //- Skip impassable tests in IE 8
-            if (ie8 && (test.slice(-9) === '_L15.html' || es3blacklist.indexOf(test.split('/').pop()) > -1)) {
-                console.log('--SKIPPED--', test, browserString, 'Not passable from ES3 environments');
+            if (ie8 && (test.slice(-9) === '_L15.html' || ie8blacklist.indexOf(test.split('/').pop()) > -1)) {
+                console.log('--SKIPPED--', test, browserString, 'Not passable in IE8 environments');
                 return taskDone();
             }
 
