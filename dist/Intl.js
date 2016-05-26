@@ -3800,7 +3800,7 @@
     // hack to export the polyfill as global Intl if needed
     if (typeof Intl === 'undefined') {
         try {
-            Intl = Intl$1;
+            window.Intl = Intl$1;
             Intl$1.__applyLocaleSensitivePrototypes();
         } catch (e) {
             // can be read only property
