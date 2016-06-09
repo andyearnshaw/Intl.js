@@ -14,17 +14,17 @@ import {
     hop,
     arrPush,
     arrShift,
-    internals,
+    internals
 } from "./util.js";
 
 import {
     IsStructurallyValidLanguageTag,
     defaultLocale,
-    setDefaultLocale,
+    setDefaultLocale
 } from "./6.locales-currencies-tz.js";
 
 import {
-    Intl,
+    Intl
 } from "./8.intl.js";
 
 import "./11.numberformat.js";
@@ -45,7 +45,7 @@ defineProperty(Intl, '__applyLocaleSensitivePrototypes', {
             if (hop.call(ls.Date, k))
                 defineProperty(Date.prototype, k, { writable: true, configurable: true, value: ls.Date[k] });
         }
-    },
+    }
 });
 
 /**
@@ -59,7 +59,7 @@ defineProperty(Intl, '__addLocaleData', {
             throw new Error("Object passed doesn't identify itself with a valid language tag");
 
         addLocaleData(data, data.locale);
-    },
+    }
 });
 
 function addLocaleData (data, tag) {

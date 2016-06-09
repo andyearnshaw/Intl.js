@@ -1,5 +1,5 @@
 import {
-    CanonicalizeLocaleList,
+    CanonicalizeLocaleList
 } from "./9.negotiation.js";
 
 // 8 The Intl Object

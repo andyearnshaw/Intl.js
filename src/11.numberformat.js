@@ -2,11 +2,11 @@
 // ======================================
 
 import {
-    IsWellFormedCurrencyCode,
+    IsWellFormedCurrencyCode
 } from "./6.locales-currencies-tz.js";
 
 import {
-    Intl,
+    Intl
 } from "./8.intl.js";
 
 import {
@@ -14,7 +14,7 @@ import {
     SupportedLocales,
     ResolveLocale,
     GetNumberOption,
-    GetOption,
+    GetOption
 } from "./9.negotiation.js";
 
 import {
@@ -33,14 +33,14 @@ import {
     getInternalProperties,
     createRegExpRestore,
     secret,
-    objCreate,
+    objCreate
 } from "./util.js";
 
 // Currency minor units output from get-4217 grunt task, formatted
 const currencyMinorUnits = {
     BHD: 3, BYR: 0, XOF: 0, BIF: 0, XAF: 0, CLF: 4, CLP: 0, KMF: 0, DJF: 0,
     XPF: 0, GNF: 0, ISK: 0, IQD: 3, JPY: 0, JOD: 3, KRW: 0, KWD: 3, LYD: 3,
-    OMR: 3, PYG: 0, RWF: 0, TND: 3, UGX: 0, UYI: 0, VUV: 0, VND: 0,
+    OMR: 3, PYG: 0, RWF: 0, TND: 3, UGX: 0, UYI: 0, VUV: 0, VND: 0
 };
 
 // Define the NumberFormat constructor internally so it cannot be tainted
@@ -58,12 +58,12 @@ export function NumberFormatConstructor () {
 defineProperty(Intl, 'NumberFormat', {
     configurable: true,
     writable: true,
-    value: NumberFormatConstructor,
+    value: NumberFormatConstructor
 });
 
 // Must explicitly set prototypes as unwritable
 defineProperty(Intl.NumberFormat, 'prototype', {
-    writable: false,
+    writable: false
 });
 
 /**
@@ -89,7 +89,7 @@ export function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, opti
             // NOTE: Non-standard, for internal use only
             if (arguments[0] === secret)
                 return internal;
-        },
+        }
     });
 
     // 2. Set the [[initializedIntlObject]] internal property of numberFormat to true.
@@ -321,7 +321,7 @@ function CurrencyDigits(currency) {
 /* 11.2.3 */internals.NumberFormat = {
     '[[availableLocales]]': [],
     '[[relevantExtensionKeys]]': ['nu'],
-    '[[localeData]]': {},
+    '[[localeData]]': {}
 };
 
 /**
@@ -361,7 +361,7 @@ defineProperty(Intl.NumberFormat, 'supportedLocalesOf', {
         //    (defined in 9.2.8) with arguments availableLocales, requestedLocales,
         //    and options.
         return SupportedLocales(availableLocales, requestedLocales, options);
-    }, internals.NumberFormat),
+    }, internals.NumberFormat)
 });
 
 /**
@@ -371,7 +371,7 @@ defineProperty(Intl.NumberFormat, 'supportedLocalesOf', {
  */
 /* 11.3.2 */defineProperty(Intl.NumberFormat.prototype, 'format', {
     configurable: true,
-    get: GetFormatNumber,
+    get: GetFormatNumber
 });
 
 function GetFormatNumber() {
@@ -891,7 +891,7 @@ let numSys = {
     tamldec: ['\u0BE6', '\u0BE7', '\u0BE8', '\u0BE9', '\u0BEA', '\u0BEB', '\u0BEC', '\u0BED', '\u0BEE', '\u0BEF'],
     telu: ['\u0C66', '\u0C67', '\u0C68', '\u0C69', '\u0C6A', '\u0C6B', '\u0C6C', '\u0C6D', '\u0C6E', '\u0C6F'],
     thai: ['\u0E50', '\u0E51', '\u0E52', '\u0E53', '\u0E54', '\u0E55', '\u0E56', '\u0E57', '\u0E58', '\u0E59'],
-    tibt: ['\u0F20', '\u0F21', '\u0F22', '\u0F23', '\u0F24', '\u0F25', '\u0F26', '\u0F27', '\u0F28', '\u0F29'],
+    tibt: ['\u0F20', '\u0F21', '\u0F22', '\u0F23', '\u0F24', '\u0F25', '\u0F26', '\u0F27', '\u0F28', '\u0F29']
 };
 
 /**
@@ -916,7 +916,7 @@ let numSys = {
             props = [
                 'locale', 'numberingSystem', 'style', 'currency', 'currencyDisplay',
                 'minimumIntegerDigits', 'minimumFractionDigits', 'maximumFractionDigits',
-                'minimumSignificantDigits', 'maximumSignificantDigits', 'useGrouping',
+                'minimumSignificantDigits', 'maximumSignificantDigits', 'useGrouping'
             ],
             internal = this !== null && typeof this === 'object' && getInternalProperties(this);
 
@@ -930,5 +930,5 @@ let numSys = {
         }
 
         return objCreate({}, descs);
-    },
+    }
 });

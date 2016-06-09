@@ -6,21 +6,21 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         clean: {
-            test262: ['tmp/test262**', 'data/test262**', 'tests/test262/'],
+            test262: ['tmp/test262**', 'data/test262**', 'tests/test262/']
         },
 
         curl: {
             test262: {
                 src : 'https://github.com/tc39/test262/archive/master.zip',
-                dest: 'tmp/test262.zip',
-            },
+                dest: 'tmp/test262.zip'
+            }
         },
 
         unzip: {
             test262: {
                 src : 'tmp/test262.zip',
-                dest: 'tmp/',
-            },
+                dest: 'tmp/'
+            }
         },
 
         copy: {
@@ -31,10 +31,10 @@ module.exports = function (grunt) {
                 src   : [
                     'LICENSE',
                     'test/intl402/**/*.js',
-                    'harness/*.js',
-                ],
-            },
-        },
+                    'harness/*.js'
+                ]
+            }
+        }
 
     });
 
@@ -49,7 +49,7 @@ module.exports = function (grunt) {
         'curl:test262',
         'unzip:test262',
         'copy:test262',
-        'update-tests',
+        'update-tests'
     ]);
 
 };

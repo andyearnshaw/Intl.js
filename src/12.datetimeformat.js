@@ -2,26 +2,26 @@
 // ==================================
 
 import {
-    toLatinUpperCase,
+    toLatinUpperCase
 } from './6.locales-currencies-tz.js';
 
 import {
-    Intl,
+    Intl
 } from "./8.intl.js";
 
 import {
     CanonicalizeLocaleList,
     ResolveLocale,
     GetOption,
-    SupportedLocales,
+    SupportedLocales
 } from "./9.negotiation.js";
 
 import {
-    FormatNumber,
+    FormatNumber
 } from "./11.numberformat.js";
 
 import {
-    createDateTimeFormats,
+    createDateTimeFormats
 } from "./cldr";
 
 import {
@@ -38,7 +38,7 @@ import {
     hop,
     objCreate,
     arrPush,
-    arrIndexOf,
+    arrIndexOf
 } from './util.js';
 
 // An object map of date component keys, saves using a regex later
@@ -60,7 +60,7 @@ function resolveDateString(data, ca, component, width, key) {
         alts = {
             narrow: ['short', 'long'],
             short:  ['long', 'narrow'],
-            long:   ['short', 'narrow'],
+            long:   ['short', 'narrow']
         },
 
         //
@@ -88,12 +88,12 @@ export function DateTimeFormatConstructor () {
 defineProperty(Intl, 'DateTimeFormat', {
     configurable: true,
     writable: true,
-    value: DateTimeFormatConstructor,
+    value: DateTimeFormatConstructor
 });
 
 // Must explicitly set prototypes as unwritable
 defineProperty(DateTimeFormatConstructor, 'prototype', {
-    writable: false,
+    writable: false
 });
 
 /**
@@ -119,7 +119,7 @@ export function/* 12.1.1.1 */InitializeDateTimeFormat (dateTimeFormat, locales, 
             // NOTE: Non-standard, for internal use only
             if (arguments[0] === secret)
                 return internal;
-        },
+        }
     });
 
     // 2. Set the [[initializedIntlObject]] internal property of numberFormat to true.
@@ -356,7 +356,7 @@ let dateTimeComponents = {
             hour: [ "2-digit", "numeric" ],
           minute: [ "2-digit", "numeric" ],
           second: [ "2-digit", "numeric" ],
-    timeZoneName: [ "short", "long" ],
+    timeZoneName: [ "short", "long" ]
 };
 
 /**
@@ -736,7 +736,7 @@ function BestFitFormatMatcher (options, formats) {
 /* 12.2.3 */internals.DateTimeFormat = {
     '[[availableLocales]]': [],
     '[[relevantExtensionKeys]]': ['ca', 'nu'],
-    '[[localeData]]': {},
+    '[[localeData]]': {}
 };
 
 /**
@@ -776,7 +776,7 @@ defineProperty(Intl.DateTimeFormat, 'supportedLocalesOf', {
         //    (defined in 9.2.8) with arguments availableLocales, requestedLocales,
         //    and options.
         return SupportedLocales(availableLocales, requestedLocales, options);
-    }, internals.NumberFormat),
+    }, internals.NumberFormat)
 });
 
 /**
@@ -786,12 +786,12 @@ defineProperty(Intl.DateTimeFormat, 'supportedLocalesOf', {
  */
 /* 12.3.2 */defineProperty(Intl.DateTimeFormat.prototype, 'format', {
     configurable: true,
-    get: GetFormatDateTime,
+    get: GetFormatDateTime
 });
 
 defineProperty(Intl.DateTimeFormat.prototype, 'formatToParts', {
     configurable: true,
-    get: GetFormatToPartsDateTime,
+    get: GetFormatToPartsDateTime
 });
 
 function GetFormatDateTime() {
@@ -917,7 +917,7 @@ function CreateDateTimeParts(dateTimeFormat, x) {
             if (beginIndex > index) {
                 arrPush.call(result, {
                     type: 'literal',
-                    value: pattern.substring(index, beginIndex),
+                    value: pattern.substring(index, beginIndex)
                 });
             }
             // d.
@@ -1006,7 +1006,7 @@ function CreateDateTimeParts(dateTimeFormat, x) {
               // ix
               arrPush.call(result, {
                 type: p,
-                value: fv,
+                value: fv
               });
             // f.
             } else if (p === 'ampm') {
@@ -1017,13 +1017,13 @@ function CreateDateTimeParts(dateTimeFormat, x) {
               // iv.
               arrPush.call(result, {
                 type: 'dayPeriod',
-                value: fv,
+                value: fv
               });
             // g.
             } else {
               arrPush.call(result, {
                 type: 'literal',
-                value: pattern.substring(beginIndex, endIndex + 1),
+                value: pattern.substring(beginIndex, endIndex + 1)
               });
             }
             // h.
@@ -1035,7 +1035,7 @@ function CreateDateTimeParts(dateTimeFormat, x) {
         if (endIndex < pattern.length - 1) {
           arrPush.call(result, {
             type: 'literal',
-            value: pattern.substr(endIndex + 1),
+            value: pattern.substr(endIndex + 1)
           });
         }
         // 13.
@@ -1067,7 +1067,7 @@ function FormatToPartsDateTime(dateTimeFormat, x) {
     let part = parts[i];
     result.push({
       type: part.type,
-      value: part.value,
+      value: part.value
     });
   }
   return result;
@@ -1103,7 +1103,7 @@ function ToLocalTime(date, calendar, timeZone) {
         '[[hour]]'   : d[m + 'Hours'](),
         '[[minute]]' : d[m + 'Minutes'](),
         '[[second]]' : d[m + 'Seconds'](),
-        '[[inDST]]'  : false, // ###TODO###
+        '[[inDST]]'  : false // ###TODO###
     });
 }
 
@@ -1123,7 +1123,7 @@ function ToLocalTime(date, calendar, timeZone) {
             descs = new Record(),
             props = [
                 'locale', 'calendar', 'numberingSystem', 'timeZone', 'hour12', 'weekday',
-                'era', 'year', 'month', 'day', 'hour', 'minute', 'second', 'timeZoneName',
+                'era', 'year', 'month', 'day', 'hour', 'minute', 'second', 'timeZoneName'
             ],
             internal = this !== null && typeof this === 'object' && getInternalProperties(this);
 
@@ -1137,5 +1137,5 @@ function ToLocalTime(date, calendar, timeZone) {
         }
 
         return objCreate({}, descs);
-    },
+    }
 });

@@ -14,8 +14,8 @@ babelConfig.presets = babelConfig.presets.map((preset) => {
 let bundle = rollup({
     entry: p.resolve('src/core.js'),
     plugins: [
-        babel(babelConfig),
-    ],
+        babel(babelConfig)
+    ]
 });
 
 // Cast to native Promise.
@@ -23,7 +23,7 @@ bundle = Promise.resolve(bundle);
 
 bundle.then(({write}) => write({
     dest: p.resolve('lib/core.js'),
-    format: 'cjs',
+    format: 'cjs'
 }));
 
 process.on('unhandledRejection', (reason) => {throw reason;});

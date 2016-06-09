@@ -47,7 +47,7 @@ module.exports = function extractNumbersFields(locales) {
         // locale doesn't have relative fields, then we fallback to the "root"
         // locale's fields.
         numbers[locale] = {
-            numbers: getNumbers(resolvedLocale),
+            numbers: getNumbers(resolvedLocale)
         };
 
         return numbers;

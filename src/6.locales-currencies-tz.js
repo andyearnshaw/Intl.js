@@ -5,13 +5,13 @@ import {
     expBCP47Syntax,
     expExtSequences,
     expVariantDupes,
-    expSingletonDupes,
+    expSingletonDupes
 } from './exp';
 
 import {
     hop,
     arrJoin,
-    arrSlice,
+    arrSlice
 } from "./util.js";
 
 // Default locale is the first-added locale data for us
@@ -67,7 +67,7 @@ const redundantTags = {
         "zh-cmn-Hant": "cmn-Hant",
         "zh-gan": "gan",
         "zh-wuu": "wuu",
-        "zh-yue": "yue",
+        "zh-yue": "yue"
     },
     subtags: {
         BU: "MM",
@@ -103,7 +103,7 @@ const redundantTags = {
         tlw: "weo",
         tnf: "prs",
         ybd: "rki",
-        yma: "lrr",
+        yma: "lrr"
     },
     extLang: {
         aao: ["aao", "ar"],
@@ -332,8 +332,8 @@ const redundantTags = {
         zlm: ["zlm", "ms"],
         zmi: ["zmi", "ms"],
         zsl: ["zsl", "sgn"],
-        zsm: ["zsm", "ms"],
-    },
+        zsm: ["zsm", "ms"]
+    }
 };
 
 /**

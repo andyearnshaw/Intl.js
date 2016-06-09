@@ -187,7 +187,7 @@ export function createDateTimeFormat(skeleton, pattern) {
 
     let formatObj = {
         originalPattern: pattern,
-        _: {},
+        _: {}
     };
 
     // Replace the pattern string with the one required by the specification, whilst
