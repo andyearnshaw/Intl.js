@@ -69,6 +69,7 @@ function main() {
 
         if (err !== true) {
             console.log(name, '-- FAILED', err.message);
+            console.log(err.stack || err);
             failCount++;
         } else {
             console.log(name);
