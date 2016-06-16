@@ -15,8 +15,12 @@
     var realDefineProp = function () {
         var sentinel = {};
         try {
-            Object.defineProperty(sentinel, 'a', {});
-            return 'a' in sentinel;
+            Object.defineProperty(sentinel, 'a', {
+                get: function get() {
+                    return 1;
+                }
+            });
+            return sentinel.a === 1;
         } catch (e) {
             return false;
         }
@@ -3273,11 +3277,6 @@
         get: GetFormatDateTime
     });
 
-    defineProperty(Intl$1.DateTimeFormat.prototype, 'formatToParts', {
-        configurable: true,
-        get: GetFormatToPartsDateTime
-    });
-
     function GetFormatDateTime() {
         var internal = this !== null && babelHelpers["typeof"](this) === 'object' && getInternalProperties(this);
 
@@ -3319,7 +3318,7 @@
         return internal['[[boundFormat]]'];
     }
 
-    function GetFormatToPartsDateTime() {
+    Intl$1.DateTimeFormat.prototype.formatToParts = function formatToParts() {
         var internal = this !== null && babelHelpers["typeof"](this) === 'object' && getInternalProperties(this);
 
         if (!internal || !internal['[[initializedDateTimeFormat]]']) throw new TypeError('`this` value for formatToParts() is not an initialized Intl.DateTimeFormat object.');
@@ -3333,7 +3332,7 @@
             internal['[[boundFormatToParts]]'] = bf;
         }
         return internal['[[boundFormatToParts]]'];
-    }
+    };
 
     function CreateDateTimeParts(dateTimeFormat, x) {
         // 1. If x is not a finite Number, then throw a RangeError exception.
@@ -3583,7 +3582,8 @@
             '[[hour]]': d[m + 'Hours'](),
             '[[minute]]': d[m + 'Minutes'](),
             '[[second]]': d[m + 'Seconds'](),
-            '[[inDST]]': false });
+            '[[inDST]]': false // ###TODO###
+        });
     }
 
     /**
@@ -3594,8 +3594,7 @@
      * hour, minute, second, and timeZoneName. Properties whose corresponding internal
      * properties are not present are not assigned.
      */
-    /* 12.3.3 */ // ###TODO###
-    defineProperty(Intl$1.DateTimeFormat.prototype, 'resolvedOptions', {
+    /* 12.3.3 */defineProperty(Intl$1.DateTimeFormat.prototype, 'resolvedOptions', {
         writable: true,
         configurable: true,
         value: function value() {
