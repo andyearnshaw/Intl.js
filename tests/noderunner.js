@@ -17,6 +17,8 @@ function runTest(testPath) {
     var content,
         context = LIBS.vm.createContext({});
 
+    context.global = context
+
     content = LIBS.fs.readFileSync(LIBS.path.resolve(TEST_DIR, testPath)).toString();
     LIBS.vm.runInContext(POLYFILL_CODE, context, POLYFILL_PATH);
     LIBS.vm.runInContext(DATA_CODE, context, DATA_PATH);
