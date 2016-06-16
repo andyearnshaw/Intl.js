@@ -69,7 +69,7 @@ if (global.Intl) {
 ### Intl.js and Browserify/webpack
 
 If you build your application using [browserify][] or [webpack][], you will install `intl` npm package as a dependency of your application. Ideally, you will avoid loading this library if the browser supports the
-built-in `Intl`. An example of conditional usage using [browserify][] or [webpack][] _might_ look like this:
+built-in `Intl`. An example of conditional usage using [webpack][] _might_ look like this:
 
 ```javascript
 function runMyApp() {
@@ -89,6 +89,8 @@ if (!global.Intl) {
     runMyApp()
 }
 ```
+
+_note: a similar approach can be implemented with [browserify][], althought it does not support `require.ensure`._
 
 _note: the locale data is required for the polyfill to function when using it in a browser environment, in the example above, the english (`en`) locale is being required along with the polyfill itself._
 
