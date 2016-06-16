@@ -1,8 +1,12 @@
 const realDefineProp = (function () {
         let sentinel = {};
         try {
-            Object.defineProperty(sentinel, 'a', {});
-            return 'a' in sentinel;
+            Object.defineProperty(sentinel, 'a', {
+                get: function () {
+                    return 1;
+                }
+            });
+            return sentinel.a === 1;
         } catch (e) {
             return false;
         }

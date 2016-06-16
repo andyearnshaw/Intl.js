@@ -789,11 +789,6 @@ defineProperty(Intl.DateTimeFormat, 'supportedLocalesOf', {
     get: GetFormatDateTime
 });
 
-defineProperty(Intl.DateTimeFormat.prototype, 'formatToParts', {
-    configurable: true,
-    get: GetFormatToPartsDateTime
-});
-
 function GetFormatDateTime() {
     let internal = this !== null && typeof this === 'object' && getInternalProperties(this);
 
@@ -836,7 +831,7 @@ function GetFormatDateTime() {
     return internal['[[boundFormat]]'];
 }
 
-function GetFormatToPartsDateTime() {
+Intl.DateTimeFormat.prototype.formatToParts = function formatToParts() {
     let internal = this !== null && typeof this === 'object' && getInternalProperties(this);
 
     if (!internal || !internal['[[initializedDateTimeFormat]]'])
@@ -851,7 +846,7 @@ function GetFormatToPartsDateTime() {
         internal['[[boundFormatToParts]]'] = bf;
     }
     return internal['[[boundFormatToParts]]'];
-}
+};
 
 function CreateDateTimeParts(dateTimeFormat, x) {
     // 1. If x is not a finite Number, then throw a RangeError exception.
