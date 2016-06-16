@@ -2,23 +2,23 @@
 // ===========================================================================
 
 import {
-    Intl,
+    Intl
 } from "./8.intl.js";
 
 import {
     FormatNumber,
-    NumberFormatConstructor,
+    NumberFormatConstructor
 } from "./11.numberformat.js";
 
 import {
     ToDateTimeOptions,
     DateTimeFormatConstructor,
-    FormatDateTime,
+    FormatDateTime
 } from "./12.datetimeformat.js";
 
 let ls = Intl.__localeSensitiveProtos = {
     Number: {},
-    Date:   {},
+    Date:   {}
 };
 
 /**

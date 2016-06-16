@@ -9,13 +9,13 @@ import {
     arrSlice,
     Record,
     hop,
-    defineProperty,
+    defineProperty
 } from "./util.js";
 
 import {
     IsStructurallyValidLanguageTag,
     CanonicalizeLanguageTag,
-    DefaultLocale,
+    DefaultLocale
 } from "./6.locales-currencies-tz.js";
 
 const expUnicodeExSeq = /-u(?:-[0-9a-z]{2,8})+/gi; // See `extension` below
@@ -530,7 +530,7 @@ export function /*9.2.8 */SupportedLocales (availableLocales, requestedLocales, 
         // d. Call the [[DefineOwnProperty]] internal method of subset with P, desc,
         //    and true as arguments.
         defineProperty(subset, P, {
-            writable: false, configurable: false, value: subset[P],
+            writable: false, configurable: false, value: subset[P]
         });
     }
     // "Freeze" the array so no new elements can be added

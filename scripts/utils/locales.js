@@ -10,21 +10,21 @@ let PARENT_LOCALES_HASH = require('cldr-core/supplemental/parentLocales.json')
     .supplemental.parentLocales.parentLocale;
 
 let CALENDARS_LOCALES_HASH = glob.sync('*/ca-*.json', {
-    cwd: path.resolve(CLDR_DATES_DIR, 'main'),
+    cwd: path.resolve(CLDR_DATES_DIR, 'main')
 }).reduce((hash, filename) => {
     hash[path.dirname(filename)] = true;
     return hash;
 }, {});
 
 let NUMBERS_LOCALES_HASH = glob.sync('*/numbers.json', {
-    cwd: path.resolve(CLDR_NUMBERS_DIR, 'main'),
+    cwd: path.resolve(CLDR_NUMBERS_DIR, 'main')
 }).reduce((hash, filename) => {
     hash[path.dirname(filename)] = true;
     return hash;
 }, {});
 
 let CURRENCIES_LOCALES_HASH = glob.sync('*/currencies.json', {
-    cwd: path.resolve(CLDR_NUMBERS_DIR, 'main'),
+    cwd: path.resolve(CLDR_NUMBERS_DIR, 'main')
 }).reduce((hash, filename) => {
     hash[path.dirname(filename)] = true;
     return hash;

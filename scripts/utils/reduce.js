@@ -18,7 +18,7 @@ function createNumberFormats (ptn) {
     let patterns = ptn.split(';'),
 
         ret = {
-            positivePattern: replaceSpecialChars(patterns[0]),
+            positivePattern: replaceSpecialChars(patterns[0])
         };
 
     // Negative patterns aren't always specified, in those cases use '-' + positivePattern
@@ -52,7 +52,7 @@ export default function (locale, data) {
     let caMap = {
               'gregorian':            'gregory',
               'ethiopic-amete-alem':  'ethioaa',
-              'islamic-civil':        'islamicc',
+              'islamic-civil':        'islamicc'
           };
 
     // Default calendar is always gregorian, apparently
@@ -88,7 +88,7 @@ export default function (locale, data) {
             hour12: !/H|k/.test(defaultTimeFormat),
 
             formats: [],
-            calendars: {},
+            calendars: {}
         },
         number: {
             // Numbering systems, with the default first
@@ -100,8 +100,8 @@ export default function (locale, data) {
             // Symbols
             symbols: {},
 
-            currencies: {},
-        },
+            currencies: {}
+        }
     };
 
     let ptn;
@@ -117,7 +117,7 @@ export default function (locale, data) {
             plusSign:    sym.plusSign,
             minusSign:   sym.minusSign,
             percentSign: sym.percentSign,
-            infinity:    sym.infinity,
+            infinity:    sym.infinity
         };
     });
 
@@ -165,27 +165,27 @@ export default function (locale, data) {
             obj.months = {
                 narrow: gopv(frmt.narrow),
                 short:  gopv(frmt.abbreviated),
-                long:   gopv(frmt.wide),
+                long:   gopv(frmt.wide)
             };
         }
         if ((frmt = data.calendars[cal].days) && (frmt = frmt.format)) {
             obj.days = {
                 narrow: gopv(frmt.narrow),
                 short:  gopv(frmt.abbreviated),
-                long:   gopv(frmt.wide),
+                long:   gopv(frmt.wide)
             };
         }
         if ((frmt = data.calendars[cal].eras)) {
             obj.eras = {
                 narrow: gopv(frmt.eraNarrow),
                 short:  gopv(frmt.eraAbbr),
-                long:   gopv(frmt.eraNames),
+                long:   gopv(frmt.eraNames)
             };
         }
         if ((frmt = data.calendars[cal].dayPeriods) && (frmt = frmt.format)) {
             obj.dayPeriods = {
                 am: (frmt.wide || frmt.abbreviated).am,
-                pm: (frmt.wide || frmt.abbreviated).pm,
+                pm: (frmt.wide || frmt.abbreviated).pm
             };
         }
 
@@ -195,7 +195,7 @@ export default function (locale, data) {
             yMMMMEEEEd: defCa.dateFormats.full,
             yMMMMd: defCa.dateFormats.long,
             yMMMd: defCa.dateFormats.medium,
-            yMd: defCa.dateFormats.short,
+            yMd: defCa.dateFormats.short
         };
 
         // Basic Time Formats
@@ -204,7 +204,7 @@ export default function (locale, data) {
             hmmsszzzz: defCa.timeFormats.full,
             hmsz: defCa.timeFormats.long,
             hms: defCa.timeFormats.medium,
-            hm: defCa.timeFormats.short,
+            hm: defCa.timeFormats.short
         };
 
         ret.date.formats = {
@@ -214,7 +214,7 @@ export default function (locale, data) {
             long: defCa.dateTimeFormats.long,
             availableFormats: defCa.dateTimeFormats.availableFormats,
             dateFormats: basicDateFormats,
-            timeFormats: basicTimeFormats,
+            timeFormats: basicTimeFormats
         };
     });
 

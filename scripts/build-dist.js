@@ -17,7 +17,7 @@ const bundleConfig = {
     format: 'umd',
     moduleName: 'IntlPolyfill',
     sourceMap: true,
-    external: ['Intl'],
+    external: ['Intl']
 };
 
 let babelConfig = JSON.parse(fs.readFileSync('src/.babelrc', 'utf8'));
@@ -29,14 +29,14 @@ babelConfig.presets = babelConfig.presets.map((preset) => {
 let plugins = [
     babel(babelConfig),
     commonjs({
-        sourceMap: true,
-    }),
+        sourceMap: true
+    })
 ];
 
 if (isProduction) {
     plugins.push(
         uglify({
-            warnings: false,
+            warnings: false
         })
     );
 }
