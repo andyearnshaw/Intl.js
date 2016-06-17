@@ -666,10 +666,11 @@ function BestFitFormatMatcher (options, formats) {
             //     1. Let formatProp be the result of calling the [[Get]] internal method of format with argument property.
             let formatProp = hop.call(format, property) ? format[property] : undefined;
 
+            // Diverging: using the default properties produced by the pattern/skeleton
+            // to match it with user options, and apply a penalty
             let patternProp = hop.call(format._, property) ? format._[property] : undefined;
-
             if (optionsProp !== patternProp) {
-              score -= patternPenalty;
+                score -= patternPenalty;
             }
 
             // iv. If optionsProp is undefined and formatProp is not undefined, then decrease score by
