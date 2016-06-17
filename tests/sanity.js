@@ -30,7 +30,7 @@ assert(new IntlPolyfill.DateTimeFormat('en', {
 assert(new IntlPolyfill.DateTimeFormat('en-US', {
     hour: 'numeric',
     minute: 'numeric'
-}).format(new Date(1456859319008)), '2:08 PM', 'missing leading 0 on minutes');
+}).format(new Date('Tue Mar 01 2016 14:08:39 GMT-0500 (EST)')), '2:08 PM', 'missing leading 0 on minutes');
 assert(new IntlPolyfill.DateTimeFormat('en-GB', {
   hour: '2-digit',
   hour12: false,
