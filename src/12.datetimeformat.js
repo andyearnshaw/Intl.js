@@ -626,6 +626,8 @@ function BestFitFormatMatcher (options, formats) {
     // 6. Let shortMorePenalty be 3.
     let shortMorePenalty = 3;
 
+    let patternPenalty = 2;
+
     let hour12Penalty = 1;
 
     // 7. Let bestScore be -Infinity.
@@ -663,6 +665,12 @@ function BestFitFormatMatcher (options, formats) {
             // iii. If formatPropDesc is not undefined, then
             //     1. Let formatProp be the result of calling the [[Get]] internal method of format with argument property.
             let formatProp = hop.call(format, property) ? format[property] : undefined;
+
+            let patternProp = hop.call(format._, property) ? format._[property] : undefined;
+
+            if (optionsProp !== patternProp) {
+              score -= patternPenalty;
+            }
 
             // iv. If optionsProp is undefined and formatProp is not undefined, then decrease score by
             //     additionPenalty.
