@@ -3121,6 +3121,8 @@
         // 6. Let shortMorePenalty be 3.
         var shortMorePenalty = 3;
 
+        var patternPenalty = 2;
+
         var hour12Penalty = 1;
 
         // 7. Let bestScore be -Infinity.
@@ -3157,6 +3159,13 @@
                 // iii. If formatPropDesc is not undefined, then
                 //     1. Let formatProp be the result of calling the [[Get]] internal method of format with argument property.
                 var formatProp = hop.call(format, property) ? format[property] : undefined;
+
+                // Diverging: using the default properties produced by the pattern/skeleton
+                // to match it with user options, and apply a penalty
+                var patternProp = hop.call(format._, property) ? format._[property] : undefined;
+                if (optionsProp !== patternProp) {
+                    score -= patternPenalty;
+                }
 
                 // iv. If optionsProp is undefined and formatProp is not undefined, then decrease score by
                 //     additionPenalty.
