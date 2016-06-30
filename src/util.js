@@ -132,6 +132,10 @@ List.prototype = objCreate(null);
  * Constructs a regular expression to restore tainted RegExp properties
  */
 export function createRegExpRestore () {
+    if (internals.disableRegExpRestore) {
+        return { exp: /a/, input: 'a' };
+    }
+
     let esc = /[.?*+^$[\]\\(){}|-]/g,
         lm  = RegExp.lastMatch || '',
         ml  = RegExp.multiline ? 'm' : '',
