@@ -93,4 +93,10 @@ function addLocaleData (data, tag) {
         setDefaultLocale(tag);
 }
 
+defineProperty(Intl, '__disableRegExpRestore', {
+    value: function () {
+        internals.disableRegExpRestore = true;
+    }
+});
+
 export default Intl;
