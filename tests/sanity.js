@@ -10,6 +10,14 @@ function assert(value, expected, message) {
     }
 }
 
+function newDateUTC() {
+  var date = new Date(...arguments)
+  var localTime = date.getTime();
+  var localOffset = date.getTimezoneOffset() * 60000;
+  var utc = localTime + localOffset;
+  return new Date(utc);
+}
+
 assert(new IntlPolyfill.NumberFormat('de-DE', {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2
@@ -30,7 +38,9 @@ assert(new IntlPolyfill.DateTimeFormat('en', {
 assert(new IntlPolyfill.DateTimeFormat('en-US', {
     hour: 'numeric',
     minute: 'numeric'
-}).format(new Date('Tue Mar 01 2016 14:08:39 GMT-0500 (EST)')), '2:08 PM', 'missing leading 0 on minutes');
+}).format(newDateUTC('Tue Mar 01 2016 14:08:39 GMT-0500 (EST)')), '7:08 PM', 'missing leading 0 on minutes');
+
+// Issue #173
 assert(new IntlPolyfill.DateTimeFormat('en-GB', {
   hour: '2-digit',
   hour12: false,
