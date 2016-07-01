@@ -186,6 +186,16 @@ Contents of the `locale-data` directory are a modified form of the Unicode CLDR
 data found at http://www.unicode.org/cldr/.
 
 
+## RegExp cache / restore
+`Intl.js` attempts to cache and restore static RegExp properties before executing any
+regular expressions in order to comply with ECMA-402.  This process is imperfect,
+and some situations are not supported.  For example, you may experience errors when
+attempting to use `Intl.js` methods immediately after executing a regular expression
+against a very long input.  If a RegExp is processed that is too big a warning
+will be thrown to the console.  The resulting state of the RegExp properties is
+undefined, meaning they may or may not have been modified.
+
+
 ## Contribute
 
 See the [CONTRIBUTING file][] for info.

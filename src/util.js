@@ -171,7 +171,19 @@ export function createRegExpRestore () {
     // Create the regular expression that will reconstruct the RegExp properties
     ret.exp = new RegExp(arrJoin.call(reg, '') + lm, ml);
 
-    return ret;
+    return function() {
+      try {
+        ret.exp.test(ret.input);
+      } catch(e) {
+        // Warn instead of fail if RegExp was too big
+        if (e && e.message && e.message.slice(-14) === 'RegExp too big') {
+          console && console.warn && console.warn('Error restoring RegExp properties. RegExp too big.');
+        } else {
+          // Other issue, so rethrow
+          throw e;
+        }
+      }
+    };
 }
 
 /**
