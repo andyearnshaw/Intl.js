@@ -76,7 +76,7 @@ export function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, opti
     let internal = getInternalProperties(numberFormat);
 
     // Create an object whose props can be used to restore the values of RegExp props
-    let regexpState = createRegExpRestore();
+    let regexpRestore = createRegExpRestore();
 
     // 1. If numberFormat has an [[initializedIntlObject]] internal property with
     // value true, throw a TypeError exception.
@@ -300,7 +300,7 @@ export function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, opti
         numberFormat.format = GetFormatNumber.call(numberFormat);
 
     // Restore the RegExp properties
-    regexpState.exp.test(regexpState.input);
+    regexpRestore();
 
     // Return the newly initialised object
     return numberFormat;
@@ -339,7 +339,7 @@ defineProperty(Intl.NumberFormat, 'supportedLocalesOf', {
             throw new TypeError('supportedLocalesOf() is not a constructor');
 
         // Create an object whose props can be used to restore the values of RegExp props
-        let regexpState = createRegExpRestore(),
+        let regexpRestore = createRegExpRestore(),
 
         // 1. If options is not provided, then let options be undefined.
             options = arguments[1],
@@ -355,7 +355,7 @@ defineProperty(Intl.NumberFormat, 'supportedLocalesOf', {
             requestedLocales = CanonicalizeLocaleList(locales);
 
         // Restore the RegExp properties
-        regexpState.exp.test(regexpState.input);
+        regexpRestore();
 
         // 4. Return the result of calling the SupportedLocales abstract operation
         //    (defined in 9.2.8) with arguments availableLocales, requestedLocales,
