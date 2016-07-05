@@ -133,49 +133,68 @@ List.prototype = objCreate(null);
  */
 export function createRegExpRestore () {
     if (internals.disableRegExpRestore) {
-        return { exp: /a/, input: 'a' };
+        return function() { /* no-op */ };
     }
 
-    let esc = /[.?*+^$[\]\\(){}|-]/g,
-        lm  = RegExp.lastMatch || '',
-        ml  = RegExp.multiline ? 'm' : '',
-        ret = { input: RegExp.input },
-        reg = new List(),
-        has = false,
-        cap = {};
+    let regExpCache = {
+            lastMatch: RegExp.lastMatch || '',
+            leftContext: RegExp.leftContext,
+            multiline: RegExp.multiline,
+            input: RegExp.input
+        },
+        has = false;
 
     // Create a snapshot of all the 'captured' properties
     for (let i = 1; i <= 9; i++)
-        has = (cap['$'+i] = RegExp['$'+i]) || has;
+        has = (regExpCache['$'+i] = RegExp['$'+i]) || has;
 
-    // Now we've snapshotted some properties, escape the lastMatch string
-    lm = lm.replace(esc, '\\$&');
+    return function() {
+        // Now we've snapshotted some properties, escape the lastMatch string
+        let esc = /[.?*+^$[\]\\(){}|-]/g,
+            lm = regExpCache.lastMatch.replace(esc, '\\$&'),
+            reg = new List();
 
-    // If any of the captured strings were non-empty, iterate over them all
-    if (has) {
-        for (let i = 1; i <= 9; i++) {
-            let m = cap['$'+i];
+        // If any of the captured strings were non-empty, iterate over them all
+        if (has) {
+            for (let i = 1; i <= 9; i++) {
+                let m = regExpCache['$'+i];
 
-            // If it's empty, add an empty capturing group
-            if (!m)
-                lm = '()' + lm;
+                // If it's empty, add an empty capturing group
+                if (!m)
+                    lm = '()' + lm;
 
-            // Else find the string in lm and escape & wrap it to capture it
-            else {
-                m = m.replace(esc, '\\$&');
-                lm = lm.replace(m, '(' + m + ')');
+                // Else find the string in lm and escape & wrap it to capture it
+                else {
+                    m = m.replace(esc, '\\$&');
+                    lm = lm.replace(m, '(' + m + ')');
+                }
+
+                // Push it to the reg and chop lm to make sure further groups come after
+                arrPush.call(reg, lm.slice(0, lm.indexOf('(') + 1));
+                lm = lm.slice(lm.indexOf('(') + 1);
             }
-
-            // Push it to the reg and chop lm to make sure further groups come after
-            arrPush.call(reg, lm.slice(0, lm.indexOf('(') + 1));
-            lm = lm.slice(lm.indexOf('(') + 1);
         }
-    }
 
-    // Create the regular expression that will reconstruct the RegExp properties
-    ret.exp = new RegExp(arrJoin.call(reg, '') + lm, ml);
+        let exprStr = arrJoin.call(reg, '') + lm;
 
-    return ret;
+        // Shorten the regex by replacing each part of the expression with a match
+        // for a string of that exact length.  This is safe for the type of
+        // expressions generated above, because the expression matches the whole
+        // match string, so we know each group and each segment between capturing
+        // groups can be matched by its length alone.
+        exprStr = exprStr.replace(/(\\\(|\\\)|[^()])+/g, (match) => {
+            return `[\\s\\S]{${match.replace('\\','').length}}`;
+        });
+
+        // Create the regular expression that will reconstruct the RegExp properties
+        let expr = new RegExp(exprStr, regExpCache.multiline ? 'gm' : 'g');
+
+        // Set the lastIndex of the generated expression to ensure that the match
+        // is found in the correct index.
+        expr.lastIndex = regExpCache.leftContext.length;
+
+        expr.exec(regExpCache.input);
+    };
 }
 
 /**

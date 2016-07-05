@@ -57,3 +57,11 @@ assert(new IntlPolyfill.DateTimeFormat('en', {
 assert(new IntlPolyfill.DateTimeFormat('en-us', {
     month:'long',
 }).format(new Date(2016, 0, 1)), 'January', 'month should be long');
+
+// issue #196
+(new Array(32768 + 1)).join('a').match(/^a*$/);
+assert(new IntlPolyfill.NumberFormat('de-DE', {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+}).format(0.015), "0,02", 'RegExp too big warning');
+'a'.match(/a/);
