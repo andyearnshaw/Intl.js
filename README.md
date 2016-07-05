@@ -188,9 +188,7 @@ data found at http://www.unicode.org/cldr/.
 ## RegExp cache / restore
 `Intl.js` attempts to cache and restore static RegExp properties before executing any
 regular expressions in order to comply with ECMA-402.  This process is imperfect,
-and some situations are not supported.  For example, you may experience errors when
-attempting to use `Intl.js` methods immediately after executing a regular expression
-against a very long input.  This behavior is not strictly necessary, and is only
+and some situations are not supported.  This behavior is not strictly necessary, and is only
 required if the app depends on RegExp static properties not changing (which is highly
 unlikely).  To disable this functionality, invoke `Intl.__disableRegExpRestore()`.
 
