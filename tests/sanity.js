@@ -52,3 +52,8 @@ assert(new IntlPolyfill.DateTimeFormat('en', {
     month:'long',
     year: 'numeric'
 }).format(new Date('2016/01/16')), 'January 2016', 'month should be long');
+
+// Issues #190, #192
+assert(new IntlPolyfill.DateTimeFormat('en-us', {
+    month:'long',
+}).format(new Date(2016, 0, 1)), 'January', 'month should be long');
