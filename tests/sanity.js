@@ -59,9 +59,12 @@ assert(new IntlPolyfill.DateTimeFormat('en-us', {
 }).format(new Date(2016, 0, 1)), 'January', 'month should be long');
 
 // issue #196
-(new Array(32768 + 1)).join('a').match(/^a*$/);
-assert(new IntlPolyfill.NumberFormat('de-DE', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-}).format(0.015), "0,02", 'RegExp too big warning');
+/a*$/.exec('b' + new Array(32768 + 1).join('a'));
+var leftContext = RegExp.leftContext;
+var input = RegExp.input;
+var lastMatch = RegExp.lastMatch;
+new IntlPolyfill.NumberFormat('de-DE');
+assert(RegExp.leftContext, leftContext, 'RegExp.leftContext restored');
+assert(RegExp.input, input, 'RegExp.input restored');
+assert(RegExp.lastMatch, lastMatch, 'RegExp.lastMatch restored');
 'a'.match(/a/);
