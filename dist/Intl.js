@@ -2684,7 +2684,7 @@
   // timezone, weekday, amoung others
   var unwantedDTCs = /[rqQASjJgwWIQq]/; // xXVO were removed from this list in favor of computing matches with timeZoneName values but printing as empty string
 
-  var dtKeys = ["weekday", "era", "year", "month", "day", "weekday", "quarter"];
+  var dtKeys = ["era", "year", "month", "day", "weekday", "quarter"];
   var tmKeys = ["hour", "minute", "second", "hour12", "timeZoneName"];
 
   function isDateFormatOnly(obj) {
@@ -2981,6 +2981,53 @@
       }
 
       return result;
+  }
+
+  // this represents the exceptions of the rule that are not covered by CLDR availableFormats
+  // for single property configurations, they play no role when using multiple properties, and
+  // those that are not in this table, are not exceptions or are not covered by the data we
+  // provide.
+  var validSyntheticProps = {
+      second: {
+          numeric: 's',
+          '2-digit': 'ss'
+      },
+      minute: {
+          numeric: 'm',
+          '2-digit': 'mm'
+      },
+      year: {
+          numeric: 'y',
+          '2-digit': 'yy'
+      },
+      day: {
+          numeric: 'd',
+          '2-digit': 'dd'
+      },
+      month: {
+          numeric: 'L',
+          '2-digit': 'LL',
+          narrow: 'LLLLL',
+          short: 'LLL',
+          long: 'LLLL'
+      },
+      weekday: {
+          narrow: 'ccccc',
+          short: 'ccc',
+          long: 'cccc'
+      }
+  };
+
+  function generateSyntheticFormat(propName, propValue) {
+      if (validSyntheticProps[propName] && validSyntheticProps[propName][propValue]) {
+          var _ref2;
+
+          return _ref2 = {
+              originalPattern: validSyntheticProps[propName][propValue],
+              _: defineProperty$1({}, propName, propValue),
+              extendedPattern: "{" + propName + "}"
+          }, defineProperty$1(_ref2, propName, propValue), defineProperty$1(_ref2, "pattern12", "{" + propName + "}"), defineProperty$1(_ref2, "pattern", "{" + propName + "}"), _ref2;
+      }
   }
 
   // An object map of date component keys, saves using a regex later
@@ -3526,6 +3573,29 @@
    * not expect to see the returned format containing narrow, short or long part names
    */
   function BestFitFormatMatcher(options, formats) {
+      /** Diverging: this block implements the hack for single property configuration, eg.:
+       *
+       *      `new Intl.DateTimeFormat('en', {day: 'numeric'})`
+       *
+       * should produce a single digit with the day of the month. This is needed because
+       * CLDR `availableFormats` data structure doesn't cover these cases.
+       */
+      {
+          var optionsPropNames = [];
+          for (var property in dateTimeComponents) {
+              if (!hop.call(dateTimeComponents, property)) continue;
+
+              if (options['[[' + property + ']]'] !== undefined) {
+                  optionsPropNames.push(property);
+              }
+          }
+          if (optionsPropNames.length === 1) {
+              var _bestFormat = generateSyntheticFormat(optionsPropNames[0], options['[[' + optionsPropNames[0] + ']]']);
+              if (_bestFormat) {
+                  return _bestFormat;
+              }
+          }
+      }
 
       // 1. Let removalPenalty be 120.
       var removalPenalty = 120;
@@ -3572,21 +3642,21 @@
           var score = 0;
 
           // c. For each property shown in Table 3:
-          for (var property in dateTimeComponents) {
-              if (!hop.call(dateTimeComponents, property)) continue;
+          for (var _property in dateTimeComponents) {
+              if (!hop.call(dateTimeComponents, _property)) continue;
 
               // i. Let optionsProp be options.[[<property>]].
-              var optionsProp = options['[[' + property + ']]'];
+              var optionsProp = options['[[' + _property + ']]'];
 
               // ii. Let formatPropDesc be the result of calling the [[GetOwnProperty]] internal method of format
               //     with argument property.
               // iii. If formatPropDesc is not undefined, then
               //     1. Let formatProp be the result of calling the [[Get]] internal method of format with argument property.
-              var formatProp = hop.call(format, property) ? format[property] : undefined;
+              var formatProp = hop.call(format, _property) ? format[_property] : undefined;
 
               // Diverging: using the default properties produced by the pattern/skeleton
               // to match it with user options, and apply a penalty
-              var patternProp = hop.call(format._, property) ? format._[property] : undefined;
+              var patternProp = hop.call(format._, _property) ? format._[_property] : undefined;
               if (optionsProp !== patternProp) {
                   score -= patternPenalty;
               }

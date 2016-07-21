@@ -10,8 +10,8 @@ function assert(value, expected, message) {
     }
 }
 
-function newDateUTC() {
-  var date = new Date(...arguments)
+function newDateUTC(str) {
+  var date = new Date(str);
   var localTime = date.getTime();
   var localOffset = date.getTimezoneOffset() * 60000;
   var utc = localTime + localOffset;
@@ -26,7 +26,7 @@ assert(new IntlPolyfill.NumberFormat('de-DE', {
 assert(new IntlPolyfill.NumberFormat('en-US', {
     style: 'currency',
     currency: 'GBP',
-    minimumFractionDigits: 2,
+    minimumFractionDigits: 2
 }).format(59.88), '£59.88', 'currency with fragtional digits');
 
 assert(new IntlPolyfill.DateTimeFormat('en', {
@@ -51,12 +51,7 @@ assert(new IntlPolyfill.DateTimeFormat('en-GB', {
 assert(new IntlPolyfill.DateTimeFormat('en', {
     month:'long',
     year: 'numeric'
-}).format(new Date('2016/01/16')), 'January 2016', 'month should be long');
-
-// Issues #190, #192
-assert(new IntlPolyfill.DateTimeFormat('en-us', {
-    month:'long',
-}).format(new Date(2016, 0, 1)), 'January', 'month should be long');
+}).format(new Date('2016/01/16')), 'January 2016', 'month and year should be long');
 
 // issue #196
 /a*$/.exec('b' + new Array(32768 + 1).join('a'));
@@ -68,3 +63,38 @@ assert(RegExp.leftContext, leftContext, 'RegExp.leftContext restored');
 assert(RegExp.input, input, 'RegExp.input restored');
 assert(RegExp.lastMatch, lastMatch, 'RegExp.lastMatch restored');
 'a'.match(/a/);
+
+// Issues #190, #192
+assert(new IntlPolyfill.DateTimeFormat('en-us', {
+    month: 'long'
+}).format(new Date(2016, 0, 1)), 'January', 'single month should be long');
+
+assert(new IntlPolyfill.DateTimeFormat('en-us', {
+    day: '2-digit'
+}).format(new Date(2016, 0, 1)), '01', 'single day should be 2-digit');
+
+assert(new IntlPolyfill.DateTimeFormat('en-us', {
+    year: '2-digit'
+}).format(new Date(2016, 0, 1)), '16', 'single year should be 2-digit');
+
+assert(new IntlPolyfill.DateTimeFormat('en-us', {
+    weekday: 'short'
+}).format(new Date(2016, 0, 1)), 'Fri', 'single weekday should be short');
+
+assert(new IntlPolyfill.DateTimeFormat('en-us', {
+    minute: '2-digit'
+}).format(new Date(2016, 0, 1)), '00', 'single minute should be 2-digit');
+
+assert(new IntlPolyfill.DateTimeFormat('en-us', {
+    second: '2-digit'
+}).format(new Date(2016, 0, 1)), '00', 'single second should be 2-digit');
+
+// alternative, hour can't alway produce a single digit, because of ampm, but
+// this case should be cover by CLDR availableFormats
+assert(new IntlPolyfill.DateTimeFormat('en-us', {
+    hour: 'numeric'
+}).format(new Date(2016, 0, 1, 6)), '6 AM', 'single second should be 2-digit');
+
+assert(new IntlPolyfill.DateTimeFormat('en-GB', {
+    hour: 'numeric'
+}).format(new Date(2016, 0, 1, 6)), '6', 'single second should be 2-digit');
