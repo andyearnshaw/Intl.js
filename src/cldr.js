@@ -9,7 +9,7 @@ let expPatternTrimmer = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
 // timezone, weekday, amoung others
 let unwantedDTCs = /[rqQASjJgwWIQq]/; // xXVO were removed from this list in favor of computing matches with timeZoneName values but printing as empty string
 
-let dtKeys = ["weekday", "era", "year", "month", "day", "weekday", "quarter"];
+let dtKeys = ["era", "year", "month", "day", "weekday", "quarter"];
 let tmKeys = ["hour", "minute", "second", "hour12", "timeZoneName"];
 
 function isDateFormatOnly(obj) {
@@ -305,4 +305,54 @@ export function createDateTimeFormats(formats) {
     }
 
     return result;
+}
+
+// this represents the exceptions of the rule that are not covered by CLDR availableFormats
+// for single property configurations, they play no role when using multiple properties, and
+// those that are not in this table, are not exceptions or are not covered by the data we
+// provide.
+const validSyntheticProps = {
+    second: {
+        numeric:   's',
+        '2-digit': 'ss'
+    },
+    minute: {
+        numeric:   'm',
+        '2-digit': 'mm'
+    },
+    year: {
+        numeric:   'y',
+        '2-digit': 'yy'
+    },
+    day: {
+        numeric:   'd',
+        '2-digit': 'dd'
+    },
+    month: {
+        numeric:   'L',
+        '2-digit': 'LL',
+        narrow:    'LLLLL',
+        short:     'LLL',
+        long:      'LLLL'
+    },
+    weekday: {
+        narrow:  'ccccc',
+        short:   'ccc',
+        long:    'cccc'
+    }
+};
+
+export function generateSyntheticFormat(propName, propValue) {
+    if (validSyntheticProps[propName] && validSyntheticProps[propName][propValue]) {
+        return {
+            originalPattern: validSyntheticProps[propName][propValue],
+            _: {
+                [propName]: propValue
+            },
+            extendedPattern: `{${propName}}`,
+            [propName]: propValue,
+            pattern12: `{${propName}}`,
+            pattern: `{${propName}}`
+        };
+    }
 }

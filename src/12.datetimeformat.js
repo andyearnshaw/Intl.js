@@ -21,6 +21,7 @@ import {
 } from "./11.numberformat.js";
 
 import {
+    generateSyntheticFormat,
     createDateTimeFormats
 } from "./cldr";
 
@@ -607,6 +608,30 @@ function BasicFormatMatcher (options, formats) {
  * not expect to see the returned format containing narrow, short or long part names
  */
 function BestFitFormatMatcher (options, formats) {
+    /** Diverging: this block implements the hack for single property configuration, eg.:
+     *
+     *      `new Intl.DateTimeFormat('en', {day: 'numeric'})`
+     *
+     * should produce a single digit with the day of the month. This is needed because
+     * CLDR `availableFormats` data structure doesn't cover these cases.
+     */
+    {
+        const optionsPropNames = [];
+        for (let property in dateTimeComponents) {
+            if (!hop.call(dateTimeComponents, property))
+                continue;
+
+            if (options['[['+ property +']]'] !== undefined) {
+                optionsPropNames.push(property);
+            }
+        }
+        if (optionsPropNames.length === 1) {
+            const bestFormat = generateSyntheticFormat(optionsPropNames[0], options['[['+ optionsPropNames[0] +']]']);
+            if (bestFormat) {
+                return bestFormat;
+            }
+        }
+    }
 
     // 1. Let removalPenalty be 120.
     let removalPenalty = 120;
