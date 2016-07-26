@@ -6,7 +6,8 @@ const realDefineProp = (function () {
                     return 1;
                 }
             });
-            return sentinel.a === 1;
+            Object.defineProperty(sentinel, 'prototype', { writable: false });
+            return sentinel.a === 1 && sentinel.prototype instanceof Object;
         } catch (e) {
             return false;
         }
