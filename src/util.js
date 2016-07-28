@@ -1,5 +1,5 @@
 const realDefineProp = (function () {
-        let sentinel = {};
+        let sentinel = function(){};
         try {
             Object.defineProperty(sentinel, 'a', {
                 get: function () {
