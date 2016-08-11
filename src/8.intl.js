@@ -16,8 +16,13 @@ Intl.getCanonicalLocales = function (locales) {
     // 2. Return CreateArrayFromList(ll).
     {
         let result = [];
-        for (let code in ll) {
-          result.push(ll[code]);
+
+        let len = ll.length;
+        let k = 0;
+
+        while (k < len) {
+            result[k] = ll[k];
+            k++;
         }
         return result;
     }
