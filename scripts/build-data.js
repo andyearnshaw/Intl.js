@@ -133,16 +133,27 @@ let
     valCount = 0,
     objCount = 0,
 
-    fileData = '';
+    fileData = '',
 
-fileData += '(function(addLocaleData){\n';
+    locReducedData = {},
+    locNames = Object.keys(locStringData);
 
-let locReducedData = {};
-Object.keys(locStringData).forEach((k) => {
+const
+    defaultLocale = 'en',
+    defaultLocaleIndex = locNames.indexOf(defaultLocale);
+
+if (defaultLocaleIndex !== -1) {
+  // Move the default locale to the beginning
+  locNames.splice(defaultLocaleIndex, 1);
+  locNames.unshift(defaultLocale);
+}
+
+locNames.forEach((k) => {
     const c = locStringData[k];
     locReducedData[k] = JSON.parse(c, reviver);
 });
 
+fileData += '(function(addLocaleData){\n';
 fileData += `var a=${JSON.stringify(prims)},b=[];`;
 objs.forEach((val, idx) => {
     const ref = JSON.stringify(val).replace(/"###(objs|prims)(\[[^#]+)###"/g, replacer);
@@ -150,10 +161,10 @@ objs.forEach((val, idx) => {
     fileData += `b[${idx}]=${ref};`;
 });
 
-for (let k in locReducedData) {
+locNames.forEach((k) => {
     fileData += `addLocaleData(${locReducedData[k].replace(/###(objs|prims)(\[[^#]+)###/, replacer)});
 `;
-}
+});
 
 fileData += `})(IntlPolyfill.__addLocaleData);`;
 
