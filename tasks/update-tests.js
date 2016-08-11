@@ -19,6 +19,9 @@ var WRAPPER_START = [
         'function fnGlobalObject() {',
         '    return __globalObject;',
         '}',
+        'function Test262Error(message) {',
+        '  this.message = message || "";',
+        '}',
 
         // Make sure polyfilled ECMA-262 functions are in place for the tests
         'IntlPolyfill.__applyLocaleSensitivePrototypes();'
