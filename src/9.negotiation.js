@@ -4,6 +4,7 @@
 import {
     List,
     toObject,
+    toLength,
     arrIndexOf,
     arrPush,
     arrSlice,
@@ -42,7 +43,7 @@ export function /* 9.2.1 */CanonicalizeLocaleList (locales) {
     // 5. Let lenValue be the result of calling the [[Get]] internal method of
     //    O with the argument "length".
     // 6. Let len be ToUint32(lenValue).
-    let len = O.length;
+    let len = toLength(O.length);
 
     // 7. Let k be 0.
     let k = 0;

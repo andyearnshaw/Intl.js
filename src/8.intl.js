@@ -10,7 +10,7 @@ export const Intl = {};
 // 8.2.1
 // @spec[tc39/ecma402/master/spec/intl.html]
 // @clause[sec-intl.getcanonicallocales]
-Intl.getCanonicalLocales = function (locales) {
+function getCanonicalLocales (locales) {
     // 1. Let ll be ? CanonicalizeLocaleList(locales).
     let ll = CanonicalizeLocaleList(locales);
     // 2. Return CreateArrayFromList(ll).
@@ -26,4 +26,11 @@ Intl.getCanonicalLocales = function (locales) {
         }
         return result;
     }
-};
+}
+
+Object.defineProperty(Intl, 'getCanonicalLocales', {
+  enumerable: false,
+  configurable: true,
+  writable: true,
+  value: getCanonicalLocales
+});

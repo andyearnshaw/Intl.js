@@ -205,7 +205,38 @@ export function toObject (arg) {
     if (arg === null)
         throw new TypeError('Cannot convert null or undefined to object');
 
+    if (typeof arg === 'object')
+        return arg;
     return Object(arg);
+}
+
+export function toNumber (arg) {
+    if (typeof arg === 'number')
+        return arg;
+    return Number(arg);
+}
+
+export function toInteger (arg) {
+  let number = toNumber(arg);
+  if (isNaN(number))
+      return 0;
+  if (number === +0 ||
+      number === -0 ||
+      number === +Infinity ||
+      number === -Infinity)
+      return number;
+  if (number < 0)
+      return Math.floor(Math.abs(number)) * -1;
+  return Math.floor(Math.abs(number));
+}
+
+export function toLength (arg) {
+  let len = toInteger(arg);
+  if (len <= 0)
+      return 0;
+  if (len === Infinity)
+      return Math.pow(2, 53) - 1;
+  return Math.min(len, Math.pow(2, 53) - 1);
 }
 
 /**
