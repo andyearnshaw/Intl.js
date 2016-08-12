@@ -415,14 +415,21 @@ function GetFormatNumber() {
         return internal['[[boundFormat]]'];
     }
 
-Intl.NumberFormat.prototype.formatToParts = function(value) {
+function formatToParts(value = undefined) {
   let internal = this !== null && typeof this === 'object' && getInternalProperties(this);
   if (!internal || !internal['[[initializedNumberFormat]]'])
       throw new TypeError('`this` value for formatToParts() is not an initialized Intl.NumberFormat object.');
 
   let x = Number(value);
   return FormatNumberToParts(this, x);
-};
+}
+
+Object.defineProperty(Intl.NumberFormat.prototype, 'formatToParts', {
+  configurable: true,
+  enumerable: false,
+  writable: true,
+  value: formatToParts
+});
 
 /*
  * @spec[stasm/ecma402/number-format-to-parts/spec/numberformat.html]

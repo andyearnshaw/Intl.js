@@ -38,6 +38,7 @@ import {
     List,
     hop,
     objCreate,
+    toNumber,
     arrPush,
     arrIndexOf
 } from './util.js';
@@ -840,14 +841,14 @@ function GetFormatDateTime() {
         //    specified for built-in functions in ES5, 15, or successor, and the
         //    length property set to 0, that takes the argument date and
         //    performs the following steps:
-        let F = function () {
+        let F = function (date = undefined) {
                 //   i. If date is not provided or is undefined, then let x be the
                 //      result as if by the expression Date.now() where Date.now is
                 //      the standard built-in function defined in ES5, 15.9.4.4.
                 //  ii. Else let x be ToNumber(date).
                 // iii. Return the result of calling the FormatDateTime abstract
                 //      operation (defined below) with arguments this and x.
-                let x = Number(arguments.length === 0 ? Date.now() : arguments[0]);
+                let x = date === undefined ? Date.now() : toNumber(date);
                 return FormatDateTime(this, x);
             };
         // b. Let bind be the standard built-in function object defined in ES5,
@@ -865,22 +866,22 @@ function GetFormatDateTime() {
     return internal['[[boundFormat]]'];
 }
 
-Intl.DateTimeFormat.prototype.formatToParts = function formatToParts() {
+function formatToParts(date = undefined) {
     let internal = this !== null && typeof this === 'object' && getInternalProperties(this);
 
     if (!internal || !internal['[[initializedDateTimeFormat]]'])
         throw new TypeError('`this` value for formatToParts() is not an initialized Intl.DateTimeFormat object.');
 
-    if (internal['[[boundFormatToParts]]'] === undefined) {
-        let F = function () {
-                let x = Number(arguments.length === 0 ? Date.now() : arguments[0]);
-                return FormatToPartsDateTime(this, x);
-            };
-        let bf = fnBind.call(F, this);
-        internal['[[boundFormatToParts]]'] = bf;
-    }
-    return internal['[[boundFormatToParts]]'];
-};
+    let x = date === undefined ? Date.now() : toNumber(date);
+    return FormatToPartsDateTime(this, x);
+}
+
+Object.defineProperty(Intl.DateTimeFormat.prototype, 'formatToParts', {
+  enumerable: false,
+  writable: true,
+  configurable: true,
+  value: formatToParts
+});
 
 function CreateDateTimeParts(dateTimeFormat, x) {
     // 1. If x is not a finite Number, then throw a RangeError exception.
