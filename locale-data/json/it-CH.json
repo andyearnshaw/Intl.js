@@ -56,7 +56,7 @@
             "dateFormats": {
                 "yMMMMEEEEd": "EEEE, d MMMM y",
                 "yMMMMd": "d MMMM y",
-                "yMMMd": "d-MMM-y",
+                "yMMMd": "d MMM y",
                 "yMd": "dd.MM.yy"
             },
             "timeFormats": {

@@ -40,7 +40,7 @@
                 "MMM": "LLL",
                 "MMMd": "d בMMM",
                 "MMMEd": "E, d בMMM",
-                "MMMMd": "MMMM d",
+                "MMMMd": "d בMMMM",
                 "ms": "mm:ss",
                 "y": "y",
                 "yM": "M.y",

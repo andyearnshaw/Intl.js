@@ -157,8 +157,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "Ma/Mo",
-                    "pm": "Mambia/Mog"
+                    "am": "Mambia",
+                    "pm": "Mog"
                 }
             },
             "gregory": {
@@ -256,8 +256,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "Ma/Mo",
-                    "pm": "Mambia/Mog"
+                    "am": "Mambia",
+                    "pm": "Mog"
                 }
             }
         }

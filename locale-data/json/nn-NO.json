@@ -26,10 +26,10 @@
                 "GyMMMEd": "E d. MMM y G",
                 "h": "h a",
                 "H": "HH",
-                "hm": "h:mm a",
-                "Hm": "HH:mm",
-                "hms": "h:mm:ss a",
-                "Hms": "HH:mm:ss",
+                "hm": "h.mm a",
+                "Hm": "HH.mm",
+                "hms": "h.mm.ss a",
+                "Hms": "HH.mm.ss",
                 "hmsv": "h:mm:ss a v",
                 "Hmsv": "HH:mm:ss v",
                 "hmv": "h:mm a v",
@@ -42,7 +42,7 @@
                 "MMMd": "d. MMM",
                 "MMMEd": "E d. MMM",
                 "MMMMd": "d. MMMM",
-                "ms": "mm:ss",
+                "ms": "mm.ss",
                 "y": "y",
                 "yM": "M y",
                 "yMd": "d.M.y",
@@ -62,10 +62,10 @@
                 "yMd": "dd.MM.y"
             },
             "timeFormats": {
-                "hmmsszzzz": "'kl'. HH:mm:ss zzzz",
-                "hmsz": "HH:mm:ss z",
-                "hms": "HH:mm:ss",
-                "hm": "HH:mm"
+                "hmmsszzzz": "'kl'. HH.mm.ss zzzz",
+                "hmsz": "HH.mm.ss z",
+                "hms": "HH.mm.ss",
+                "hm": "HH.mm"
             }
         },
         "calendars": {

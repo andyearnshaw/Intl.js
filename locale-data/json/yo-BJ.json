@@ -6,7 +6,7 @@
             "generic"
         ],
         "hourNo0": true,
-        "hour12": false,
+        "hour12": true,
         "formats": {
             "short": "{1} {0}",
             "medium": "{1} {0}",
@@ -61,10 +61,10 @@
                 "yMd": "dd/MM/y"
             },
             "timeFormats": {
-                "hmmsszzzz": "HH:mm:ss zzzz",
-                "hmsz": "HH:mm:ss z",
-                "hms": "HH:mm:ss",
-                "hm": "HH:mm"
+                "hmmsszzzz": "h:mm:ss a zzzz",
+                "hmsz": "h:mm:ss a z",
+                "hms": "h:mm:ss a",
+                "hm": "h:mm a"
             }
         },
         "calendars": {

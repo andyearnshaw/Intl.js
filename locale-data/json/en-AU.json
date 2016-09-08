@@ -49,15 +49,15 @@
                 "yMEd": "E, dd/MM/y",
                 "yMMM": "MMM y",
                 "yMMMd": "d MMM y",
-                "yMMMEd": "E, d MMM,y",
+                "yMMMEd": "E, d MMM y",
                 "yMMMM": "MMMM y",
                 "yQQQ": "QQQ y",
                 "yQQQQ": "QQQQ y"
             },
             "dateFormats": {
                 "yMMMMEEEEd": "EEEE, d MMMM y",
-                "yMMMMd": "dMMMM,y",
-                "yMMMd": "dMMM,y",
+                "yMMMMd": "d MMMM y",
+                "yMMMd": "d MMM y",
                 "yMd": "d/M/yy"
             },
             "timeFormats": {

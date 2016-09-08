@@ -1,5 +1,5 @@
 {
-    "locale": "ug-CN",
+    "locale": "yue",
     "date": {
         "ca": [
             "gregory",
@@ -8,62 +8,64 @@
         "hourNo0": true,
         "hour12": true,
         "formats": {
-            "short": "{1}، {0}",
-            "medium": "{1}، {0}",
+            "short": "{1} {0}",
+            "medium": "{1} {0}",
             "full": "{1} {0}",
             "long": "{1} {0}",
             "availableFormats": {
-                "d": "d",
+                "d": "d日",
                 "E": "ccc",
                 "Ed": "d E",
-                "Ehm": "E h:mm a",
+                "Ehm": "E ah:mm",
                 "EHm": "E HH:mm",
-                "Ehms": "E h:mm:ss a",
+                "Ehms": "E ah:mm:ss",
                 "EHms": "E HH:mm:ss",
-                "Gy": "y G",
-                "GyMMM": "MMM y G",
-                "GyMMMd": "MMM d، y G",
-                "GyMMMEd": "E، MMM d، y G",
-                "h": "h a",
-                "H": "HH",
-                "hm": "h:mm a",
+                "Gy": "Gy年",
+                "GyMMM": "Gy年M月",
+                "GyMMMd": "Gy年M月d日",
+                "GyMMMEd": "Gy年M月d日 E",
+                "h": "ah時",
+                "H": "H時",
+                "hm": "ah:mm",
                 "Hm": "HH:mm",
-                "hms": "h:mm:ss a",
+                "hms": "ah:mm:ss",
                 "Hms": "HH:mm:ss",
-                "hmsv": "h:mm:ss a v",
-                "Hmsv": "HH:mm:ss v",
-                "hmv": "h:mm a v",
-                "Hmv": "HH:mm v",
-                "M": "L",
+                "hmsv": "ah:mm:ss [v]",
+                "Hmsv": "HH:mm:ss [v]",
+                "hmv": "ah:mm [v]",
+                "Hmv": "HH:mm [v]",
+                "M": "M月",
                 "Md": "M/d",
-                "MEd": "E، M/d",
+                "MEd": "M/d（E）",
+                "MMdd": "MM/dd",
                 "MMM": "LLL",
-                "MMMd": "MMM d",
-                "MMMEd": "E، MMM d",
-                "MMMMd": "MMMM d",
+                "MMMd": "M月d日",
+                "MMMEd": "M月d日 E",
+                "MMMMd": "M月d日",
                 "ms": "mm:ss",
-                "y": "y",
-                "yM": "M/y",
-                "yMd": "M/d/y",
-                "yMEd": "E، M/d/y",
-                "yMMM": "MMM y",
-                "yMMMd": "MMM d، y",
-                "yMMMEd": "E، MMM d، y",
-                "yMMMM": "y MMMM",
-                "yQQQ": "QQQ y",
-                "yQQQQ": "QQQQ y"
+                "y": "y年",
+                "yM": "y/M",
+                "yMd": "y/M/d",
+                "yMEd": "y/M/d（E）",
+                "yMM": "y/MM",
+                "yMMM": "y年M月",
+                "yMMMd": "y年M月d日",
+                "yMMMEd": "y年M月d日 E",
+                "yMMMM": "y年M月",
+                "yQQQ": "y年QQQ",
+                "yQQQQ": "y年QQQQ"
             },
             "dateFormats": {
-                "yMMMMEEEEd": "EEEE، MMMM d، y",
-                "yMMMMd": "MMMM d، y",
-                "yMMMd": "MMM d، y",
-                "yMd": "M/d/yy"
+                "yMMMMEEEEd": "y年M月d日 EEEE",
+                "yMMMMd": "y年M月d日",
+                "yMMMd": "y年M月d日",
+                "yMd": "y/M/d"
             },
             "timeFormats": {
-                "hmmsszzzz": "h:mm:ss a zzzz",
-                "hmsz": "h:mm:ss a z",
-                "hms": "h:mm:ss a",
-                "hm": "h:mm a"
+                "hmmsszzzz": "ah:mm:ss [zzzz]",
+                "hmsz": "ah:mm:ss [z]",
+                "hms": "ah:mm:ss",
+                "hm": "ah:mm"
             }
         },
         "calendars": {
@@ -114,31 +116,31 @@
                 },
                 "days": {
                     "narrow": [
-                        "ي",
-                        "د",
-                        "س",
-                        "چ",
-                        "پ",
-                        "ج",
-                        "ش"
+                        "日",
+                        "一",
+                        "二",
+                        "三",
+                        "四",
+                        "五",
+                        "六"
                     ],
                     "short": [
-                        "يە",
-                        "دۈ",
-                        "سە",
-                        "چا",
-                        "پە",
-                        "جۈ",
-                        "شە"
+                        "週日",
+                        "週一",
+                        "週二",
+                        "週三",
+                        "週四",
+                        "週五",
+                        "週六"
                     ],
                     "long": [
-                        "يەكشەنبە",
-                        "دۈشەنبە",
-                        "سەيشەنبە",
-                        "چارشەنبە",
-                        "پەيشەنبە",
-                        "جۈمە",
-                        "شەنبە"
+                        "星期日",
+                        "星期一",
+                        "星期二",
+                        "星期三",
+                        "星期四",
+                        "星期五",
+                        "星期六"
                     ]
                 },
                 "eras": {
@@ -156,8 +158,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "چۈشتىن بۇرۇن",
-                    "pm": "چۈشتىن كېيىن"
+                    "am": "上午",
+                    "pm": "下午"
                 }
             },
             "gregory": {
@@ -177,86 +179,86 @@
                         "12"
                     ],
                     "short": [
-                        "يانۋار",
-                        "فېۋرال",
-                        "مارت",
-                        "ئاپرېل",
-                        "ماي",
-                        "ئىيۇن",
-                        "ئىيۇل",
-                        "ئاۋغۇست",
-                        "سېنتەبىر",
-                        "ئۆكتەبىر",
-                        "نويابىر",
-                        "دېكابىر"
+                        "1月",
+                        "2月",
+                        "3月",
+                        "4月",
+                        "5月",
+                        "6月",
+                        "7月",
+                        "8月",
+                        "9月",
+                        "10月",
+                        "11月",
+                        "12月"
                     ],
                     "long": [
-                        "يانۋار",
-                        "فېۋرال",
-                        "مارت",
-                        "ئاپرېل",
-                        "ماي",
-                        "ئىيۇن",
-                        "ئىيۇل",
-                        "ئاۋغۇست",
-                        "سېنتەبىر",
-                        "ئۆكتەبىر",
-                        "نويابىر",
-                        "دېكابىر"
+                        "1月",
+                        "2月",
+                        "3月",
+                        "4月",
+                        "5月",
+                        "6月",
+                        "7月",
+                        "8月",
+                        "9月",
+                        "10月",
+                        "11月",
+                        "12月"
                     ]
                 },
                 "days": {
                     "narrow": [
-                        "ي",
-                        "د",
-                        "س",
-                        "چ",
-                        "پ",
-                        "ج",
-                        "ش"
+                        "日",
+                        "一",
+                        "二",
+                        "三",
+                        "四",
+                        "五",
+                        "六"
                     ],
                     "short": [
-                        "يە",
-                        "دۈ",
-                        "سە",
-                        "چا",
-                        "پە",
-                        "جۈ",
-                        "شە"
+                        "週日",
+                        "週一",
+                        "週二",
+                        "週三",
+                        "週四",
+                        "週五",
+                        "週六"
                     ],
                     "long": [
-                        "يەكشەنبە",
-                        "دۈشەنبە",
-                        "سەيشەنبە",
-                        "چارشەنبە",
-                        "پەيشەنبە",
-                        "جۈمە",
-                        "شەنبە"
+                        "星期日",
+                        "星期一",
+                        "星期二",
+                        "星期三",
+                        "星期四",
+                        "星期五",
+                        "星期六"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "BCE",
-                        "مىلادىيە",
-                        "BCE",
-                        "CE"
+                        "西元前",
+                        "西元",
+                        "公元前",
+                        "公元"
                     ],
                     "short": [
-                        "BCE",
-                        "مىلادىيە",
-                        "BCE",
-                        "CE"
+                        "西元前",
+                        "西元",
+                        "公元前",
+                        "公元"
                     ],
                     "long": [
-                        "مىلادىيەدىن بۇرۇن",
-                        "مىلادىيە",
-                        "BCE",
-                        "CE"
+                        "西元前",
+                        "西元",
+                        "公元前",
+                        "公元"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "چۈشتىن بۇرۇن",
-                    "pm": "چۈشتىن كېيىن"
+                    "am": "上午",
+                    "pm": "下午"
                 }
             }
         }
@@ -280,19 +282,19 @@
             }
         },
         "symbols": {
-            "arabext": {
-                "decimal": "٫",
-                "group": "٬",
-                "nan": "NaN",
-                "plusSign": "‎+‎",
-                "minusSign": "‎-‎",
-                "percentSign": "٪",
+            "hanidec": {
+                "decimal": ".",
+                "group": ",",
+                "nan": "非數值",
+                "plusSign": "+",
+                "minusSign": "-",
+                "percentSign": "%",
                 "infinity": "∞"
             },
             "latn": {
                 "decimal": ".",
                 "group": ",",
-                "nan": "NaN",
+                "nan": "非數值",
                 "plusSign": "+",
                 "minusSign": "-",
                 "percentSign": "%",
@@ -300,21 +302,21 @@
             }
         },
         "currencies": {
-            "AUD": "A$",
+            "AUD": "AU$",
             "BRL": "R$",
             "CAD": "CA$",
-            "CNY": "￥",
+            "CNY": "CN¥",
             "EUR": "€",
             "GBP": "£",
             "HKD": "HK$",
             "ILS": "₪",
             "INR": "₹",
-            "JPY": "JP¥",
-            "KRW": "₩",
+            "JPY": "¥",
+            "KRW": "￦",
             "MXN": "MX$",
             "NZD": "NZ$",
-            "TWD": "NT$",
-            "USD": "$",
+            "TWD": "$",
+            "USD": "US$",
             "VND": "₫",
             "XAF": "FCFA",
             "XCD": "EC$",

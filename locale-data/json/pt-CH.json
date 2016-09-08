@@ -1,5 +1,5 @@
 {
-    "locale": "nn",
+    "locale": "pt-CH",
     "date": {
         "ca": [
             "gregory",
@@ -10,62 +10,66 @@
         "formats": {
             "short": "{1}, {0}",
             "medium": "{1}, {0}",
-            "full": "{1} {0}",
-            "long": "{1} 'kl'. {0}",
+            "full": "{1} 'às' {0}",
+            "long": "{1} 'às' {0}",
             "availableFormats": {
-                "d": "d.",
+                "d": "d",
                 "E": "ccc",
-                "Ed": "E d.",
-                "Ehm": "E h:mm a",
-                "EHm": "E HH:mm",
-                "Ehms": "E h:mm:ss a",
-                "EHms": "E HH:mm:ss",
+                "Ed": "E, d",
+                "Ehm": "E, h:mm a",
+                "EHm": "E, HH:mm",
+                "Ehms": "E, h:mm:ss a",
+                "EHms": "E, HH:mm:ss",
                 "Gy": "y G",
-                "GyMMM": "MMM y G",
-                "GyMMMd": "d. MMM y G",
-                "GyMMMEd": "E d. MMM y G",
+                "GyMMM": "MMM 'de' y G",
+                "GyMMMd": "d 'de' MMM 'de' y G",
+                "GyMMMEd": "E, d 'de' MMM 'de' y G",
                 "h": "h a",
                 "H": "HH",
-                "hm": "h.mm a",
-                "Hm": "HH.mm",
-                "hms": "h.mm.ss a",
-                "Hms": "HH.mm.ss",
+                "hm": "h:mm a",
+                "Hm": "HH:mm",
+                "hms": "h:mm:ss a",
+                "Hms": "HH:mm:ss",
                 "hmsv": "h:mm:ss a v",
                 "Hmsv": "HH:mm:ss v",
                 "hmv": "h:mm a v",
                 "Hmv": "HH:mm v",
                 "M": "L",
-                "Md": "d.M.",
-                "MEd": "E d.M",
-                "MMdd": "d.M.",
+                "Md": "dd/MM",
+                "MEd": "E, dd/MM",
+                "MMdd": "dd/MM",
                 "MMM": "LLL",
-                "MMMd": "d. MMM",
-                "MMMEd": "E d. MMM",
-                "MMMMd": "d. MMMM",
-                "ms": "mm.ss",
+                "MMMd": "d/MM",
+                "MMMEd": "E, d/MM",
+                "MMMMd": "d 'de' MMMM",
+                "MMMMEd": "ccc, d 'de' MMMM",
+                "ms": "mm:ss",
                 "y": "y",
-                "yM": "M y",
-                "yMd": "d.M.y",
-                "yMEd": "E d.M.y",
-                "yMM": "MM.y",
-                "yMMM": "MMM y",
-                "yMMMd": "d. MMM y",
-                "yMMMEd": "E d. MMM y",
-                "yMMMM": "MMMM y",
-                "yQQQ": "QQQ y",
-                "yQQQQ": "QQQQ y"
+                "yM": "MM/y",
+                "yMd": "dd/MM/y",
+                "yMEd": "E, dd/MM/y",
+                "yMM": "MM/y",
+                "yMMM": "MM/y",
+                "yMMMd": "d/MM/y",
+                "yMMMEd": "E, d/MM/y",
+                "yMMMEEEEd": "EEEE, d/MM/y",
+                "yMMMM": "MMMM 'de' y",
+                "yMMMMd": "d 'de' MMMM 'de' y",
+                "yMMMMEd": "ccc, d 'de' MMMM 'de' y",
+                "yQQQ": "QQQQ 'de' y",
+                "yQQQQ": "QQQQ 'de' y"
             },
             "dateFormats": {
-                "yMMMMEEEEd": "EEEE d. MMMM y",
-                "yMMMMd": "d. MMMM y",
-                "yMMMd": "d. MMM y",
-                "yMd": "dd.MM.y"
+                "yMMMMEEEEd": "EEEE, d 'de' MMMM 'de' y",
+                "yMMMMd": "d 'de' MMMM 'de' y",
+                "yMMMd": "dd/MM/y",
+                "yMd": "dd/MM/yy"
             },
             "timeFormats": {
-                "hmmsszzzz": "'kl'. HH.mm.ss zzzz",
-                "hmsz": "HH.mm.ss z",
-                "hms": "HH.mm.ss",
-                "hm": "HH.mm"
+                "hmmsszzzz": "HH:mm:ss zzzz",
+                "hmsz": "HH:mm:ss z",
+                "hms": "HH:mm:ss",
+                "hm": "HH:mm"
             }
         },
         "calendars": {
@@ -116,31 +120,31 @@
                 },
                 "days": {
                     "narrow": [
+                        "D",
                         "S",
-                        "M",
                         "T",
-                        "O",
-                        "T",
-                        "F",
-                        "L"
+                        "Q",
+                        "Q",
+                        "S",
+                        "S"
                     ],
                     "short": [
-                        "sø.",
-                        "må.",
-                        "ty.",
-                        "on.",
-                        "to.",
-                        "fr.",
-                        "la."
+                        "domingo",
+                        "segunda",
+                        "terça",
+                        "quarta",
+                        "quinta",
+                        "sexta",
+                        "sábado"
                     ],
                     "long": [
-                        "søndag",
-                        "måndag",
-                        "tysdag",
-                        "onsdag",
-                        "torsdag",
-                        "fredag",
-                        "laurdag"
+                        "domingo",
+                        "segunda-feira",
+                        "terça-feira",
+                        "quarta-feira",
+                        "quinta-feira",
+                        "sexta-feira",
+                        "sábado"
                     ]
                 },
                 "eras": {
@@ -158,8 +162,8 @@
                     ]
                 },
                 "dayPeriods": {
-                    "am": "formiddag",
-                    "pm": "ettermiddag"
+                    "am": "da manhã",
+                    "pm": "da tarde"
                 }
             },
             "gregory": {
@@ -179,86 +183,86 @@
                         "D"
                     ],
                     "short": [
-                        "jan.",
-                        "feb.",
-                        "mars",
-                        "apr.",
+                        "jan",
+                        "fev",
+                        "mar",
+                        "abr",
                         "mai",
-                        "juni",
-                        "juli",
-                        "aug.",
-                        "sep.",
-                        "okt.",
-                        "nov.",
-                        "des."
+                        "jun",
+                        "jul",
+                        "ago",
+                        "set",
+                        "out",
+                        "nov",
+                        "dez"
                     ],
                     "long": [
-                        "januar",
-                        "februar",
-                        "mars",
-                        "april",
-                        "mai",
-                        "juni",
-                        "juli",
-                        "august",
-                        "september",
-                        "oktober",
-                        "november",
-                        "desember"
+                        "janeiro",
+                        "fevereiro",
+                        "março",
+                        "abril",
+                        "maio",
+                        "junho",
+                        "julho",
+                        "agosto",
+                        "setembro",
+                        "outubro",
+                        "novembro",
+                        "dezembro"
                     ]
                 },
                 "days": {
                     "narrow": [
+                        "D",
                         "S",
-                        "M",
                         "T",
-                        "O",
-                        "T",
-                        "F",
-                        "L"
+                        "Q",
+                        "Q",
+                        "S",
+                        "S"
                     ],
                     "short": [
-                        "sø.",
-                        "må.",
-                        "ty.",
-                        "on.",
-                        "to.",
-                        "fr.",
-                        "la."
+                        "domingo",
+                        "segunda",
+                        "terça",
+                        "quarta",
+                        "quinta",
+                        "sexta",
+                        "sábado"
                     ],
                     "long": [
-                        "søndag",
-                        "måndag",
-                        "tysdag",
-                        "onsdag",
-                        "torsdag",
-                        "fredag",
-                        "laurdag"
+                        "domingo",
+                        "segunda-feira",
+                        "terça-feira",
+                        "quarta-feira",
+                        "quinta-feira",
+                        "sexta-feira",
+                        "sábado"
                     ]
                 },
                 "eras": {
                     "narrow": [
-                        "f.Kr.",
-                        "e.Kr.",
-                        "BCE",
-                        "CE"
+                        "a.C.",
+                        "d.C.",
+                        "a.E.C.",
+                        "E.C."
                     ],
                     "short": [
-                        "f.Kr.",
-                        "e.Kr.",
-                        "BCE",
-                        "CE"
+                        "a.C.",
+                        "d.C.",
+                        "a.E.C.",
+                        "E.C."
                     ],
                     "long": [
-                        "f.Kr.",
-                        "e.Kr.",
-                        "BCE",
-                        "CE"
+                        "antes de Cristo",
+                        "depois de Cristo",
+                        "antes da Era Comum",
+                        "Era Comum"
                     ]
                 },
                 "dayPeriods": {
-                    "am": "formiddag",
-                    "pm": "ettermiddag"
+                    "am": "da manhã",
+                    "pm": "da tarde"
                 }
             }
         }
@@ -277,8 +281,8 @@
                 "negativePattern": "{minusSign}{number} {currency}"
             },
             "percent": {
-                "positivePattern": "{number} {percentSign}",
-                "negativePattern": "{minusSign}{number} {percentSign}"
+                "positivePattern": "{number}{percentSign}",
+                "negativePattern": "{minusSign}{number}{percentSign}"
             }
         },
         "symbols": {
@@ -287,13 +291,13 @@
                 "group": " ",
                 "nan": "NaN",
                 "plusSign": "+",
-                "minusSign": "−",
+                "minusSign": "-",
                 "percentSign": "%",
                 "infinity": "∞"
             }
         },
         "currencies": {
-            "AUD": "A$",
+            "AUD": "AU$",
             "BRL": "R$",
             "CAD": "CA$",
             "CNY": "CN¥",
@@ -305,8 +309,9 @@
             "JPY": "JP¥",
             "KRW": "₩",
             "MXN": "MX$",
-            "NOK": "kr",
             "NZD": "NZ$",
+            "PTE": "​",
+            "THB": "฿",
             "TWD": "NT$",
             "USD": "US$",
             "VND": "₫",
