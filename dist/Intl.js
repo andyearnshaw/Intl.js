@@ -4,15 +4,425 @@
   (global.IntlPolyfill = factory());
 }(this, function () { 'use strict';
 
+  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
+  };
+
+  var jsx = function () {
+    var REACT_ELEMENT_TYPE = typeof Symbol === "function" && Symbol.for && Symbol.for("react.element") || 0xeac7;
+    return function createRawReactElement(type, props, key, children) {
+      var defaultProps = type && type.defaultProps;
+      var childrenLength = arguments.length - 3;
+
+      if (!props && childrenLength !== 0) {
+        props = {};
+      }
+
+      if (props && defaultProps) {
+        for (var propName in defaultProps) {
+          if (props[propName] === void 0) {
+            props[propName] = defaultProps[propName];
+          }
+        }
+      } else if (!props) {
+        props = defaultProps || {};
+      }
+
+      if (childrenLength === 1) {
+        props.children = children;
+      } else if (childrenLength > 1) {
+        var childArray = Array(childrenLength);
+
+        for (var i = 0; i < childrenLength; i++) {
+          childArray[i] = arguments[i + 3];
+        }
+
+        props.children = childArray;
+      }
+
+      return {
+        $$typeof: REACT_ELEMENT_TYPE,
+        type: type,
+        key: key === undefined ? null : '' + key,
+        ref: null,
+        props: props,
+        _owner: null
+      };
+    };
+  }();
+
+  var asyncToGenerator = function (fn) {
+    return function () {
+      var gen = fn.apply(this, arguments);
+      return new Promise(function (resolve, reject) {
+        function step(key, arg) {
+          try {
+            var info = gen[key](arg);
+            var value = info.value;
+          } catch (error) {
+            reject(error);
+            return;
+          }
+
+          if (info.done) {
+            resolve(value);
+          } else {
+            return Promise.resolve(value).then(function (value) {
+              return step("next", value);
+            }, function (err) {
+              return step("throw", err);
+            });
+          }
+        }
+
+        return step("next");
+      });
+    };
+  };
+
+  var classCallCheck = function (instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  };
+
+  var createClass = function () {
+    function defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+
+    return function (Constructor, protoProps, staticProps) {
+      if (protoProps) defineProperties(Constructor.prototype, protoProps);
+      if (staticProps) defineProperties(Constructor, staticProps);
+      return Constructor;
+    };
+  }();
+
+  var defineEnumerableProperties = function (obj, descs) {
+    for (var key in descs) {
+      var desc = descs[key];
+      desc.configurable = desc.enumerable = true;
+      if ("value" in desc) desc.writable = true;
+      Object.defineProperty(obj, key, desc);
+    }
+
+    return obj;
+  };
+
+  var defaults = function (obj, defaults) {
+    var keys = Object.getOwnPropertyNames(defaults);
+
+    for (var i = 0; i < keys.length; i++) {
+      var key = keys[i];
+      var value = Object.getOwnPropertyDescriptor(defaults, key);
+
+      if (value && value.configurable && obj[key] === undefined) {
+        Object.defineProperty(obj, key, value);
+      }
+    }
+
+    return obj;
+  };
+
+  var defineProperty$1 = function (obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+
+    return obj;
+  };
+
+  var _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  var get = function get(object, property, receiver) {
+    if (object === null) object = Function.prototype;
+    var desc = Object.getOwnPropertyDescriptor(object, property);
+
+    if (desc === undefined) {
+      var parent = Object.getPrototypeOf(object);
+
+      if (parent === null) {
+        return undefined;
+      } else {
+        return get(parent, property, receiver);
+      }
+    } else if ("value" in desc) {
+      return desc.value;
+    } else {
+      var getter = desc.get;
+
+      if (getter === undefined) {
+        return undefined;
+      }
+
+      return getter.call(receiver);
+    }
+  };
+
+  var inherits = function (subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) {
+      throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+    }
+
+    subClass.prototype = Object.create(superClass && superClass.prototype, {
+      constructor: {
+        value: subClass,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+    if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+  };
+
+  var _instanceof = function (left, right) {
+    if (right != null && typeof Symbol !== "undefined" && right[Symbol.hasInstance]) {
+      return right[Symbol.hasInstance](left);
+    } else {
+      return left instanceof right;
+    }
+  };
+
+  var interopRequireDefault = function (obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  };
+
+  var interopRequireWildcard = function (obj) {
+    if (obj && obj.__esModule) {
+      return obj;
+    } else {
+      var newObj = {};
+
+      if (obj != null) {
+        for (var key in obj) {
+          if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
+        }
+      }
+
+      newObj.default = obj;
+      return newObj;
+    }
+  };
+
+  var newArrowCheck = function (innerThis, boundThis) {
+    if (innerThis !== boundThis) {
+      throw new TypeError("Cannot instantiate an arrow function");
+    }
+  };
+
+  var objectDestructuringEmpty = function (obj) {
+    if (obj == null) throw new TypeError("Cannot destructure undefined");
+  };
+
+  var objectWithoutProperties = function (obj, keys) {
+    var target = {};
+
+    for (var i in obj) {
+      if (keys.indexOf(i) >= 0) continue;
+      if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+      target[i] = obj[i];
+    }
+
+    return target;
+  };
+
+  var possibleConstructorReturn = function (self, call) {
+    if (!self) {
+      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    }
+
+    return call && (typeof call === "object" || typeof call === "function") ? call : self;
+  };
+
+  var selfGlobal = typeof global === "undefined" ? self : global;
+
+  var set = function set(object, property, value, receiver) {
+    var desc = Object.getOwnPropertyDescriptor(object, property);
+
+    if (desc === undefined) {
+      var parent = Object.getPrototypeOf(object);
+
+      if (parent !== null) {
+        set(parent, property, value, receiver);
+      }
+    } else if ("value" in desc && desc.writable) {
+      desc.value = value;
+    } else {
+      var setter = desc.set;
+
+      if (setter !== undefined) {
+        setter.call(receiver, value);
+      }
+    }
+
+    return value;
+  };
+
+  var slicedToArray = function () {
+    function sliceIterator(arr, i) {
+      var _arr = [];
+      var _n = true;
+      var _d = false;
+      var _e = undefined;
+
+      try {
+        for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+          _arr.push(_s.value);
+
+          if (i && _arr.length === i) break;
+        }
+      } catch (err) {
+        _d = true;
+        _e = err;
+      } finally {
+        try {
+          if (!_n && _i["return"]) _i["return"]();
+        } finally {
+          if (_d) throw _e;
+        }
+      }
+
+      return _arr;
+    }
+
+    return function (arr, i) {
+      if (Array.isArray(arr)) {
+        return arr;
+      } else if (Symbol.iterator in Object(arr)) {
+        return sliceIterator(arr, i);
+      } else {
+        throw new TypeError("Invalid attempt to destructure non-iterable instance");
+      }
+    };
+  }();
+
+  var slicedToArrayLoose = function (arr, i) {
+    if (Array.isArray(arr)) {
+      return arr;
+    } else if (Symbol.iterator in Object(arr)) {
+      var _arr = [];
+
+      for (var _iterator = arr[Symbol.iterator](), _step; !(_step = _iterator.next()).done;) {
+        _arr.push(_step.value);
+
+        if (i && _arr.length === i) break;
+      }
+
+      return _arr;
+    } else {
+      throw new TypeError("Invalid attempt to destructure non-iterable instance");
+    }
+  };
+
+  var taggedTemplateLiteral = function (strings, raw) {
+    return Object.freeze(Object.defineProperties(strings, {
+      raw: {
+        value: Object.freeze(raw)
+      }
+    }));
+  };
+
+  var taggedTemplateLiteralLoose = function (strings, raw) {
+    strings.raw = raw;
+    return strings;
+  };
+
+  var temporalRef = function (val, name, undef) {
+    if (val === undef) {
+      throw new ReferenceError(name + " is not defined - temporal dead zone");
+    } else {
+      return val;
+    }
+  };
+
+  var temporalUndefined = {};
+
+  var toArray = function (arr) {
+    return Array.isArray(arr) ? arr : Array.from(arr);
+  };
+
+  var toConsumableArray = function (arr) {
+    if (Array.isArray(arr)) {
+      for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
+
+      return arr2;
+    } else {
+      return Array.from(arr);
+    }
+  };
+
+
+
+  var babelHelpers$1 = Object.freeze({
+    jsx: jsx,
+    asyncToGenerator: asyncToGenerator,
+    classCallCheck: classCallCheck,
+    createClass: createClass,
+    defineEnumerableProperties: defineEnumerableProperties,
+    defaults: defaults,
+    defineProperty: defineProperty$1,
+    get: get,
+    inherits: inherits,
+    interopRequireDefault: interopRequireDefault,
+    interopRequireWildcard: interopRequireWildcard,
+    newArrowCheck: newArrowCheck,
+    objectDestructuringEmpty: objectDestructuringEmpty,
+    objectWithoutProperties: objectWithoutProperties,
+    possibleConstructorReturn: possibleConstructorReturn,
+    selfGlobal: selfGlobal,
+    set: set,
+    slicedToArray: slicedToArray,
+    slicedToArrayLoose: slicedToArrayLoose,
+    taggedTemplateLiteral: taggedTemplateLiteral,
+    taggedTemplateLiteralLoose: taggedTemplateLiteralLoose,
+    temporalRef: temporalRef,
+    temporalUndefined: temporalUndefined,
+    toArray: toArray,
+    toConsumableArray: toConsumableArray,
+    typeof: _typeof,
+    extends: _extends,
+    instanceof: _instanceof
+  });
+
   var realDefineProp = function () {
-      var sentinel = {};
+      var sentinel = function sentinel() {};
       try {
           Object.defineProperty(sentinel, 'a', {
               get: function get() {
                   return 1;
               }
           });
-          return sentinel.a === 1;
+          Object.defineProperty(sentinel, 'prototype', { writable: false });
+          return sentinel.a === 1 && sentinel.prototype instanceof Object;
       } catch (e) {
           return false;
       }
@@ -197,7 +607,28 @@
   function toObject(arg) {
       if (arg === null) throw new TypeError('Cannot convert null or undefined to object');
 
+      if ((typeof arg === 'undefined' ? 'undefined' : babelHelpers$1['typeof'](arg)) === 'object') return arg;
       return Object(arg);
+  }
+
+  function toNumber(arg) {
+      if (typeof arg === 'number') return arg;
+      return Number(arg);
+  }
+
+  function toInteger(arg) {
+      var number = toNumber(arg);
+      if (isNaN(number)) return 0;
+      if (number === +0 || number === -0 || number === +Infinity || number === -Infinity) return number;
+      if (number < 0) return Math.floor(Math.abs(number)) * -1;
+      return Math.floor(Math.abs(number));
+  }
+
+  function toLength(arg) {
+      var len = toInteger(arg);
+      if (len <= 0) return 0;
+      if (len === Infinity) return Math.pow(2, 53) - 1;
+      return Math.min(len, Math.pow(2, 53) - 1);
   }
 
   /**
@@ -787,415 +1218,6 @@
       return true;
   }
 
-  var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
-    return typeof obj;
-  } : function (obj) {
-    return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
-  };
-
-  var jsx = function () {
-    var REACT_ELEMENT_TYPE = typeof Symbol === "function" && Symbol.for && Symbol.for("react.element") || 0xeac7;
-    return function createRawReactElement(type, props, key, children) {
-      var defaultProps = type && type.defaultProps;
-      var childrenLength = arguments.length - 3;
-
-      if (!props && childrenLength !== 0) {
-        props = {};
-      }
-
-      if (props && defaultProps) {
-        for (var propName in defaultProps) {
-          if (props[propName] === void 0) {
-            props[propName] = defaultProps[propName];
-          }
-        }
-      } else if (!props) {
-        props = defaultProps || {};
-      }
-
-      if (childrenLength === 1) {
-        props.children = children;
-      } else if (childrenLength > 1) {
-        var childArray = Array(childrenLength);
-
-        for (var i = 0; i < childrenLength; i++) {
-          childArray[i] = arguments[i + 3];
-        }
-
-        props.children = childArray;
-      }
-
-      return {
-        $$typeof: REACT_ELEMENT_TYPE,
-        type: type,
-        key: key === undefined ? null : '' + key,
-        ref: null,
-        props: props,
-        _owner: null
-      };
-    };
-  }();
-
-  var asyncToGenerator = function (fn) {
-    return function () {
-      var gen = fn.apply(this, arguments);
-      return new Promise(function (resolve, reject) {
-        function step(key, arg) {
-          try {
-            var info = gen[key](arg);
-            var value = info.value;
-          } catch (error) {
-            reject(error);
-            return;
-          }
-
-          if (info.done) {
-            resolve(value);
-          } else {
-            return Promise.resolve(value).then(function (value) {
-              return step("next", value);
-            }, function (err) {
-              return step("throw", err);
-            });
-          }
-        }
-
-        return step("next");
-      });
-    };
-  };
-
-  var classCallCheck = function (instance, Constructor) {
-    if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
-    }
-  };
-
-  var createClass = function () {
-    function defineProperties(target, props) {
-      for (var i = 0; i < props.length; i++) {
-        var descriptor = props[i];
-        descriptor.enumerable = descriptor.enumerable || false;
-        descriptor.configurable = true;
-        if ("value" in descriptor) descriptor.writable = true;
-        Object.defineProperty(target, descriptor.key, descriptor);
-      }
-    }
-
-    return function (Constructor, protoProps, staticProps) {
-      if (protoProps) defineProperties(Constructor.prototype, protoProps);
-      if (staticProps) defineProperties(Constructor, staticProps);
-      return Constructor;
-    };
-  }();
-
-  var defineEnumerableProperties = function (obj, descs) {
-    for (var key in descs) {
-      var desc = descs[key];
-      desc.configurable = desc.enumerable = true;
-      if ("value" in desc) desc.writable = true;
-      Object.defineProperty(obj, key, desc);
-    }
-
-    return obj;
-  };
-
-  var defaults = function (obj, defaults) {
-    var keys = Object.getOwnPropertyNames(defaults);
-
-    for (var i = 0; i < keys.length; i++) {
-      var key = keys[i];
-      var value = Object.getOwnPropertyDescriptor(defaults, key);
-
-      if (value && value.configurable && obj[key] === undefined) {
-        Object.defineProperty(obj, key, value);
-      }
-    }
-
-    return obj;
-  };
-
-  var defineProperty$1 = function (obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-      });
-    } else {
-      obj[key] = value;
-    }
-
-    return obj;
-  };
-
-  var _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  var get = function get(object, property, receiver) {
-    if (object === null) object = Function.prototype;
-    var desc = Object.getOwnPropertyDescriptor(object, property);
-
-    if (desc === undefined) {
-      var parent = Object.getPrototypeOf(object);
-
-      if (parent === null) {
-        return undefined;
-      } else {
-        return get(parent, property, receiver);
-      }
-    } else if ("value" in desc) {
-      return desc.value;
-    } else {
-      var getter = desc.get;
-
-      if (getter === undefined) {
-        return undefined;
-      }
-
-      return getter.call(receiver);
-    }
-  };
-
-  var inherits = function (subClass, superClass) {
-    if (typeof superClass !== "function" && superClass !== null) {
-      throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-    }
-
-    subClass.prototype = Object.create(superClass && superClass.prototype, {
-      constructor: {
-        value: subClass,
-        enumerable: false,
-        writable: true,
-        configurable: true
-      }
-    });
-    if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-  };
-
-  var _instanceof = function (left, right) {
-    if (right != null && typeof Symbol !== "undefined" && right[Symbol.hasInstance]) {
-      return right[Symbol.hasInstance](left);
-    } else {
-      return left instanceof right;
-    }
-  };
-
-  var interopRequireDefault = function (obj) {
-    return obj && obj.__esModule ? obj : {
-      default: obj
-    };
-  };
-
-  var interopRequireWildcard = function (obj) {
-    if (obj && obj.__esModule) {
-      return obj;
-    } else {
-      var newObj = {};
-
-      if (obj != null) {
-        for (var key in obj) {
-          if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key];
-        }
-      }
-
-      newObj.default = obj;
-      return newObj;
-    }
-  };
-
-  var newArrowCheck = function (innerThis, boundThis) {
-    if (innerThis !== boundThis) {
-      throw new TypeError("Cannot instantiate an arrow function");
-    }
-  };
-
-  var objectDestructuringEmpty = function (obj) {
-    if (obj == null) throw new TypeError("Cannot destructure undefined");
-  };
-
-  var objectWithoutProperties = function (obj, keys) {
-    var target = {};
-
-    for (var i in obj) {
-      if (keys.indexOf(i) >= 0) continue;
-      if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
-      target[i] = obj[i];
-    }
-
-    return target;
-  };
-
-  var possibleConstructorReturn = function (self, call) {
-    if (!self) {
-      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-    }
-
-    return call && (typeof call === "object" || typeof call === "function") ? call : self;
-  };
-
-  var selfGlobal = typeof global === "undefined" ? self : global;
-
-  var set = function set(object, property, value, receiver) {
-    var desc = Object.getOwnPropertyDescriptor(object, property);
-
-    if (desc === undefined) {
-      var parent = Object.getPrototypeOf(object);
-
-      if (parent !== null) {
-        set(parent, property, value, receiver);
-      }
-    } else if ("value" in desc && desc.writable) {
-      desc.value = value;
-    } else {
-      var setter = desc.set;
-
-      if (setter !== undefined) {
-        setter.call(receiver, value);
-      }
-    }
-
-    return value;
-  };
-
-  var slicedToArray = function () {
-    function sliceIterator(arr, i) {
-      var _arr = [];
-      var _n = true;
-      var _d = false;
-      var _e = undefined;
-
-      try {
-        for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-          _arr.push(_s.value);
-
-          if (i && _arr.length === i) break;
-        }
-      } catch (err) {
-        _d = true;
-        _e = err;
-      } finally {
-        try {
-          if (!_n && _i["return"]) _i["return"]();
-        } finally {
-          if (_d) throw _e;
-        }
-      }
-
-      return _arr;
-    }
-
-    return function (arr, i) {
-      if (Array.isArray(arr)) {
-        return arr;
-      } else if (Symbol.iterator in Object(arr)) {
-        return sliceIterator(arr, i);
-      } else {
-        throw new TypeError("Invalid attempt to destructure non-iterable instance");
-      }
-    };
-  }();
-
-  var slicedToArrayLoose = function (arr, i) {
-    if (Array.isArray(arr)) {
-      return arr;
-    } else if (Symbol.iterator in Object(arr)) {
-      var _arr = [];
-
-      for (var _iterator = arr[Symbol.iterator](), _step; !(_step = _iterator.next()).done;) {
-        _arr.push(_step.value);
-
-        if (i && _arr.length === i) break;
-      }
-
-      return _arr;
-    } else {
-      throw new TypeError("Invalid attempt to destructure non-iterable instance");
-    }
-  };
-
-  var taggedTemplateLiteral = function (strings, raw) {
-    return Object.freeze(Object.defineProperties(strings, {
-      raw: {
-        value: Object.freeze(raw)
-      }
-    }));
-  };
-
-  var taggedTemplateLiteralLoose = function (strings, raw) {
-    strings.raw = raw;
-    return strings;
-  };
-
-  var temporalRef = function (val, name, undef) {
-    if (val === undef) {
-      throw new ReferenceError(name + " is not defined - temporal dead zone");
-    } else {
-      return val;
-    }
-  };
-
-  var temporalUndefined = {};
-
-  var toArray = function (arr) {
-    return Array.isArray(arr) ? arr : Array.from(arr);
-  };
-
-  var toConsumableArray = function (arr) {
-    if (Array.isArray(arr)) {
-      for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
-
-      return arr2;
-    } else {
-      return Array.from(arr);
-    }
-  };
-
-
-
-  var babelHelpers$1 = Object.freeze({
-    jsx: jsx,
-    asyncToGenerator: asyncToGenerator,
-    classCallCheck: classCallCheck,
-    createClass: createClass,
-    defineEnumerableProperties: defineEnumerableProperties,
-    defaults: defaults,
-    defineProperty: defineProperty$1,
-    get: get,
-    inherits: inherits,
-    interopRequireDefault: interopRequireDefault,
-    interopRequireWildcard: interopRequireWildcard,
-    newArrowCheck: newArrowCheck,
-    objectDestructuringEmpty: objectDestructuringEmpty,
-    objectWithoutProperties: objectWithoutProperties,
-    possibleConstructorReturn: possibleConstructorReturn,
-    selfGlobal: selfGlobal,
-    set: set,
-    slicedToArray: slicedToArray,
-    slicedToArrayLoose: slicedToArrayLoose,
-    taggedTemplateLiteral: taggedTemplateLiteral,
-    taggedTemplateLiteralLoose: taggedTemplateLiteralLoose,
-    temporalRef: temporalRef,
-    temporalUndefined: temporalUndefined,
-    toArray: toArray,
-    toConsumableArray: toConsumableArray,
-    typeof: _typeof,
-    extends: _extends,
-    instanceof: _instanceof
-  });
-
   var expUnicodeExSeq = /-u(?:-[0-9a-z]{2,8})+/gi; // See `extension` below
 
   function /* 9.2.1 */CanonicalizeLocaleList(locales) {
@@ -1219,7 +1241,7 @@
       // 5. Let lenValue be the result of calling the [[Get]] internal method of
       //    O with the argument "length".
       // 6. Let len be ToUint32(lenValue).
-      var len = O.length;
+      var len = toLength(O.length);
 
       // 7. Let k be 0.
       var k = 0;
@@ -1776,18 +1798,30 @@
   // 8.2.1
   // @spec[tc39/ecma402/master/spec/intl.html]
   // @clause[sec-intl.getcanonicallocales]
-  Intl$1.getCanonicalLocales = function (locales) {
+  function getCanonicalLocales(locales) {
       // 1. Let ll be ? CanonicalizeLocaleList(locales).
       var ll = CanonicalizeLocaleList(locales);
       // 2. Return CreateArrayFromList(ll).
       {
           var result = [];
-          for (var code in ll) {
-              result.push(ll[code]);
+
+          var len = ll.length;
+          var k = 0;
+
+          while (k < len) {
+              result[k] = ll[k];
+              k++;
           }
           return result;
       }
-  };
+  }
+
+  Object.defineProperty(Intl$1, 'getCanonicalLocales', {
+      enumerable: false,
+      configurable: true,
+      writable: true,
+      value: getCanonicalLocales
+  });
 
   // Currency minor units output from get-4217 grunt task, formatted
   var currencyMinorUnits = {
@@ -2158,13 +2192,22 @@
       return internal['[[boundFormat]]'];
   }
 
-  Intl$1.NumberFormat.prototype.formatToParts = function (value) {
+  function formatToParts() {
+      var value = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
+
       var internal = this !== null && babelHelpers$1["typeof"](this) === 'object' && getInternalProperties(this);
       if (!internal || !internal['[[initializedNumberFormat]]']) throw new TypeError('`this` value for formatToParts() is not an initialized Intl.NumberFormat object.');
 
       var x = Number(value);
       return FormatNumberToParts(this, x);
-  };
+  }
+
+  Object.defineProperty(Intl$1.NumberFormat.prototype, 'formatToParts', {
+      configurable: true,
+      enumerable: false,
+      writable: true,
+      value: formatToParts
+  });
 
   /*
    * @spec[stasm/ecma402/number-format-to-parts/spec/numberformat.html]
@@ -3797,13 +3840,15 @@
           //    length property set to 0, that takes the argument date and
           //    performs the following steps:
           var F = function F() {
+              var date = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
+
               //   i. If date is not provided or is undefined, then let x be the
               //      result as if by the expression Date.now() where Date.now is
               //      the standard built-in function defined in ES5, 15.9.4.4.
               //  ii. Else let x be ToNumber(date).
               // iii. Return the result of calling the FormatDateTime abstract
               //      operation (defined below) with arguments this and x.
-              var x = Number(arguments.length === 0 ? Date.now() : arguments[0]);
+              var x = date === undefined ? Date.now() : toNumber(date);
               return FormatDateTime(this, x);
           };
           // b. Let bind be the standard built-in function object defined in ES5,
@@ -3821,21 +3866,23 @@
       return internal['[[boundFormat]]'];
   }
 
-  Intl$1.DateTimeFormat.prototype.formatToParts = function formatToParts() {
+  function formatToParts$1() {
+      var date = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
+
       var internal = this !== null && babelHelpers$1["typeof"](this) === 'object' && getInternalProperties(this);
 
       if (!internal || !internal['[[initializedDateTimeFormat]]']) throw new TypeError('`this` value for formatToParts() is not an initialized Intl.DateTimeFormat object.');
 
-      if (internal['[[boundFormatToParts]]'] === undefined) {
-          var F = function F() {
-              var x = Number(arguments.length === 0 ? Date.now() : arguments[0]);
-              return FormatToPartsDateTime(this, x);
-          };
-          var bf = fnBind.call(F, this);
-          internal['[[boundFormatToParts]]'] = bf;
-      }
-      return internal['[[boundFormatToParts]]'];
-  };
+      var x = date === undefined ? Date.now() : toNumber(date);
+      return FormatToPartsDateTime(this, x);
+  }
+
+  Object.defineProperty(Intl$1.DateTimeFormat.prototype, 'formatToParts', {
+      enumerable: false,
+      writable: true,
+      configurable: true,
+      value: formatToParts$1
+  });
 
   function CreateDateTimeParts(dateTimeFormat, x) {
       // 1. If x is not a finite Number, then throw a RangeError exception.
