@@ -21,3 +21,8 @@ tasks/
 tmp/
 .travis.yml
 Gruntfile.js
+
+# source files
+src/
+scripts/
+locale-data/json/
