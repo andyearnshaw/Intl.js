@@ -432,7 +432,7 @@ Object.defineProperty(Intl.NumberFormat.prototype, 'formatToParts', {
 });
 
 /*
- * @spec[stasm/ecma402/number-format-to-parts/spec/numberformat.html]
+ * @spec[tc39/ecma402/master/spec/numberformat.html]
  * @clause[sec-formatnumbertoparts]
  */
 function FormatNumberToParts(numberFormat, x) {
@@ -461,7 +461,37 @@ function FormatNumberToParts(numberFormat, x) {
 }
 
 /*
- * @spec[stasm/ecma402/number-format-to-parts/spec/numberformat.html]
+ * @spec[tc39/ecma402/master/spec/numberformat.html]
+ * @clause[sec-formatnumberstring]
+ */
+function FormatNumberToString(numberFormat, x) {
+    let internal = getInternalProperties(numberFormat);
+    let result;
+
+    // 1. Assert: numberFormat.[[initializedIntlObject]] is true.
+
+    // 2. If the numberFormat.[[minimumSignificantDigits]] and numberFormat.[[maximumSignificantDigits]] are present, then
+    if (hop.call(internal, '[[minimumSignificantDigits]]') &&
+        hop.call(internal, '[[maximumSignificantDigits]]')) {
+        // a. Let result be ToRawPrecision(x, numberFormat.[[minimumSignificantDigits]], numberFormat.[[maximumSignificantDigits]]).
+        result = ToRawPrecision(x,
+          internal['[[minimumSignificantDigits]]'],
+          internal['[[maximumSignificantDigits]]']);
+    }
+    // 3. Else,
+    else {
+        // a. Let result be ToRawFixed(x, numberFormat.[[minimumIntegerDigits]], numberFormat.[[minimumFractionDigits]], numberFormat.[[maximumFractionDigits]]).
+        result = ToRawFixed(x,
+          internal['[[minimumIntegerDigits]]'],
+          internal['[[minimumFractionDigits]]'],
+          internal['[[maximumFractionDigits]]']);
+    }
+    // 4. Return result.
+    return result;
+}
+
+/*
+ * @spec[tc39/ecma402/master/spec/numberformat.html]
  * @clause[sec-partitionnumberpattern]
  */
 function PartitionNumberPattern(numberFormat, x) {
@@ -477,7 +507,7 @@ function PartitionNumberPattern(numberFormat, x) {
     if (!isNaN(x) && x < 0) {
         // a. Let x be -x.
         x = -x;
-        // a. Let pattern be the value of numberFormat.[[negativePattern]].
+        // b. Let pattern be the value of numberFormat.[[negativePattern]].
         pattern = internal['[[negativePattern]]'];
     }
     // 2. Else,
@@ -499,18 +529,18 @@ function PartitionNumberPattern(numberFormat, x) {
     while (beginIndex > -1 && beginIndex < length) {
         // a. Set endIndex to Call(%StringProto_indexOf%, pattern, "}", beginIndex)
         endIndex = pattern.indexOf('}', beginIndex);
-        // a. If endIndex = -1, throw new Error exception.
+        // b. If endIndex = -1, throw new Error exception.
         if (endIndex === -1) throw new Error();
-        // a. If beginIndex is greater than nextIndex, then:
+        // c. If beginIndex is greater than nextIndex, then:
         if (beginIndex > nextIndex) {
             // i. Let literal be a substring of pattern from position nextIndex, inclusive, to position beginIndex, exclusive.
             let literal = pattern.substring(nextIndex, beginIndex);
             // ii. Add new part record { [[type]]: "literal", [[value]]: literal } as a new element of the list result.
             arrPush.call(result, { '[[type]]': 'literal', '[[value]]': literal });
         }
-        // a. Let p be the substring of pattern from position beginIndex, exclusive, to position endIndex, exclusive.
+        // d. Let p be the substring of pattern from position beginIndex, exclusive, to position endIndex, exclusive.
         let p = pattern.substring(beginIndex + 1, endIndex);
-        // a. If p is equal "number", then:
+        // e. If p is equal "number", then:
         if (p === "number") {
             // i. If x is NaN,
             if (isNaN(x)) {
@@ -528,21 +558,13 @@ function PartitionNumberPattern(numberFormat, x) {
             }
             // iii. Else,
             else {
-                // 1. If the value of numberFormat.[[style]] is "percent" and isFinite(x), let x be 100 × x.
-                if (internal['[[style]]'] === 'percent' && isFinite(x)) x *= 100;
+                // 1. If numberFormat.[[style]] is "percent", let x be 100 × x.
+                if (internal['[[style]]'] === 'percent') x *= 100;
 
-                let n;
-                // 2. If the numberFormat.[[minimumSignificantDigits]] and numberFormat.[[maximumSignificantDigits]] are present, then
-                if (hop.call(internal, '[[minimumSignificantDigits]]') && hop.call(internal, '[[maximumSignificantDigits]]')) {
-                    // a. Let n be ToRawPrecision(x, numberFormat.[[minimumSignificantDigits]], numberFormat.[[maximumSignificantDigits]]).
-                    n = ToRawPrecision(x, internal['[[minimumSignificantDigits]]'], internal['[[maximumSignificantDigits]]']);
-                }
-                // 3. Else,
-                else {
-                    // a. Let n be ToRawFixed(x, numberFormat.[[minimumIntegerDigits]], numberFormat.[[minimumFractionDigits]], numberFormat.[[maximumFractionDigits]]).
-                    n = ToRawFixed(x, internal['[[minimumIntegerDigits]]'], internal['[[minimumFractionDigits]]'], internal['[[maximumFractionDigits]]']);
-                }
-                // 4. If the value of the numberFormat.[[numberingSystem]] matches one of the values in the "Numbering System" column of Table 2 below, then
+                // 2. Let n be FormatNumberToString(numberFormat, x).
+                let n = FormatNumberToString(numberFormat, x);
+
+                // 3. If the numberFormat.[[numberingSystem]] matches one of the values in the "Numbering System" column of Table 3 below, then
                 if (numSys[nums]) {
                     // a. Let digits be an array whose 10 String valued elements are the UTF-16 string representations of the 10 digits specified in the "Digits" column of the matching row in Table 2.
                     let digits = numSys[nums];
@@ -551,32 +573,32 @@ function PartitionNumberPattern(numberFormat, x) {
                         return digits[digit];
                     });
                 }
-                // 5. Else use an implementation dependent algorithm to map n to the appropriate representation of n in the given numbering system.
+                // 4. Else use an implementation dependent algorithm to map n to the appropriate representation of n in the given numbering system.
                 else n = String(n); // ###TODO###
 
                 let integer;
                 let fraction;
-                // 6. Let decimalSepIndex be Call(%StringProto_indexOf%, n, ".", 0).
+                // 5. Let decimalSepIndex be Call(%StringProto_indexOf%, n, ".", 0).
                 let decimalSepIndex = n.indexOf('.', 0);
-                // 7. If decimalSepIndex > 0, then:
+                // 6. If decimalSepIndex > 0, then:
                 if (decimalSepIndex > 0) {
                     // a. Let integer be the substring of n from position 0, inclusive, to position decimalSepIndex, exclusive.
                     integer = n.substring(0, decimalSepIndex);
-                    // a. Let fraction be the substring of n from position decimalSepIndex, exclusive, to the end of n.
+                    // b. Let fraction be the substring of n from position decimalSepIndex, exclusive, to the end of n.
                     fraction = n.substring(decimalSepIndex + 1, decimalSepIndex.length);
                 }
-                // 8. Else:
+                // 7. Else:
                 else {
                     // a. Let integer be n.
                     integer = n;
-                    // a. Let fraction be undefined.
+                    // b. Let fraction be undefined.
                     fraction = undefined;
                 }
-                // 9. If the value of the numberFormat.[[useGrouping]] is true,
+                // 8. If the value of the numberFormat.[[useGrouping]] is true,
                 if (internal['[[useGrouping]]'] === true) {
                     // a. Let groupSepSymbol be the ILND String representing the grouping separator.
                     let groupSepSymbol = ild.group;
-                    // a. Let groups be a List whose elements are, in left to right order, the substrings defined by ILND set of locations within the integer.
+                    // b. Let groups be a List whose elements are, in left to right order, the substrings defined by ILND set of locations within the integer.
                     let groups = [];
                     // ----> implementation:
                     // Primary group represents the group closest to the decimal
@@ -601,9 +623,9 @@ function PartitionNumberPattern(numberFormat, x) {
                     } else {
                         arrPush.call(groups, integer);
                     }
-                    // a. Assert: The number of elements in groups List is greater than 0.
+                    // c. Assert: The number of elements in groups List is greater than 0.
                     if (groups.length === 0) throw new Error();
-                    // a. Repeat, while groups List is not empty:
+                    // d. Repeat, while groups List is not empty:
                     while (groups.length) {
                         // i. Remove the first element from groups and let integerGroup be the value of that element.
                         let integerGroup = arrShift.call(groups);
@@ -616,85 +638,85 @@ function PartitionNumberPattern(numberFormat, x) {
                         }
                     }
                 }
-                // 10. Else,
+                // 9. Else,
                 else {
                     // a. Add new part record { [[type]]: "integer", [[value]]: integer } as a new element of the list result.
                     arrPush.call(result, { '[[type]]': 'integer', '[[value]]': integer });
                 }
-                // 11. If fraction is not undefined, then:
+                // 10. If fraction is not undefined, then:
                 if (fraction !== undefined) {
                     // a. Let decimalSepSymbol be the ILND String representing the decimal separator.
                     let decimalSepSymbol = ild.decimal;
-                    // a. Add new part record { [[type]]: "decimal", [[value]]: decimalSepSymbol } as a new element of the list result.
+                    // b. Add new part record { [[type]]: "decimal", [[value]]: decimalSepSymbol } as a new element of the list result.
                     arrPush.call(result, { '[[type]]': 'decimal', '[[value]]': decimalSepSymbol });
-                    // a. Add new part record { [[type]]: "fraction", [[value]]: fraction } as a new element of the list result.
+                    // c. Add new part record { [[type]]: "fraction", [[value]]: fraction } as a new element of the list result.
                     arrPush.call(result, { '[[type]]': 'fraction', '[[value]]': fraction });
                 }
             }
         }
-        // a. Else if p is equal "plusSign", then:
+        // f. Else if p is equal "plusSign", then:
         else if (p === "plusSign") {
-                // i. Let plusSignSymbol be the ILND String representing the plus sign.
-                let plusSignSymbol = ild.plusSign;
-                // ii. Add new part record { [[type]]: "plusSign", [[value]]: plusSignSymbol } as a new element of the list result.
-                arrPush.call(result, { '[[type]]': 'plusSign', '[[value]]': plusSignSymbol });
+            // i. Let plusSignSymbol be the ILND String representing the plus sign.
+            let plusSignSymbol = ild.plusSign;
+            // ii. Add new part record { [[type]]: "plusSign", [[value]]: plusSignSymbol } as a new element of the list result.
+            arrPush.call(result, { '[[type]]': 'plusSign', '[[value]]': plusSignSymbol });
+        }
+        // g. Else if p is equal "minusSign", then:
+        else if (p === "minusSign") {
+            // i. Let minusSignSymbol be the ILND String representing the minus sign.
+            let minusSignSymbol = ild.minusSign;
+            // ii. Add new part record { [[type]]: "minusSign", [[value]]: minusSignSymbol } as a new element of the list result.
+            arrPush.call(result, { '[[type]]': 'minusSign', '[[value]]': minusSignSymbol });
+        }
+        // h. Else if p is equal "percentSign" and numberFormat.[[style]] is "percent", then:
+        else if (p === "percentSign" && internal['[[style]]'] === "percent") {
+            // i. Let percentSignSymbol be the ILND String representing the percent sign.
+            let percentSignSymbol = ild.percentSign;
+            // ii. Add new part record { [[type]]: "percentSign", [[value]]: percentSignSymbol } as a new element of the list result.
+            arrPush.call(result, { '[[type]]': 'literal', '[[value]]': percentSignSymbol });
+        }
+        // i. Else if p is equal "currency" and numberFormat.[[style]] is "currency", then:
+        else if (p === "currency" && internal['[[style]]'] === "currency") {
+            // i. Let currency be the value of numberFormat.[[currency]].
+            let currency = internal['[[currency]]'];
+
+            let cd;
+
+            // iii. If numberFormat.[[currencyDisplay]] is "code", then
+            if (internal['[[currencyDisplay]]'] === "code") {
+                // 1. Let cd be currency.
+                cd = currency;
             }
-            // a. Else if p is equal "minusSign", then:
-            else if (p === "minusSign") {
-                    // i. Let minusSignSymbol be the ILND String representing the minus sign.
-                    let minusSignSymbol = ild.minusSign;
-                    // ii. Add new part record { [[type]]: "minusSign", [[value]]: minusSignSymbol } as a new element of the list result.
-                    arrPush.call(result, { '[[type]]': 'minusSign', '[[value]]': minusSignSymbol });
-                }
-                // a. Else if p is equal "percentSign" and numberFormat.[[style]] is "percent", then:
-                else if (p === "percentSign" && internal['[[style]]'] === "percent") {
-                        // i. Let percentSignSymbol be the ILND String representing the percent sign.
-                        let percentSignSymbol = ild.percentSign;
-                        // ii. Add new part record { [[type]]: "percentSign", [[value]]: percentSignSymbol } as a new element of the list result.
-                        arrPush.call(result, { '[[type]]': 'literal', '[[value]]': percentSignSymbol });
-                    }
-                    // a. Else if p is equal "currency" and numberFormat.[[style]] is "currency", then:
-                    else if (p === "currency" && internal['[[style]]'] === "currency") {
-                            // i. Let currency be the value of numberFormat.[[currency]].
-                            let currency = internal['[[currency]]'];
-
-                            let cd;
-
-                            // ii. If numberFormat.[[currencyDisplay]] is "code", then
-                            if (internal['[[currencyDisplay]]'] === "code") {
-                                // 1. Let cd be currency.
-                                cd = currency;
-                            }
-                            // iii. Else if numberFormat.[[currencyDisplay]] is "symbol", then
-                            else if (internal['[[currencyDisplay]]'] === "symbol") {
-                                    // 1. Let cd be an ILD string representing currency in short form. If the implementation does not have such a representation of currency, use currency itself.
-                                    cd = data.currencies[currency] || currency;
-                                }
-                                // iv. Else if numberFormat.[[currencyDisplay]] is "name", then
-                                else if (internal['[[currencyDisplay]]'] === "name") {
-                                        // 1. Let cd be an ILD string representing currency in long form. If the implementation does not have such a representation of currency, then use currency itself.
-                                        cd = currency;
-                                    }
-                            // v. Add new part record { [[type]]: "currency", [[value]]: cd } as a new element of the list result.
-                            arrPush.call(result, { '[[type]]': 'currency', '[[value]]': cd });
-                        }
-                        // a. Else,
-                        else {
-                                // i. Let literal be the substring of pattern from position beginIndex, inclusive, to position endIndex, inclusive.
-                                let literal = pattern.substring(beginIndex, endIndex);
-                                // ii. Add new part record { [[type]]: "literal", [[value]]: literal } as a new element of the list result.
-                                arrPush.call(result, { '[[type]]': 'literal', '[[value]]': literal });
-                            }
-        // a. Set nextIndex to endIndex + 1.
+            // iv. Else if numberFormat.[[currencyDisplay]] is "symbol", then
+            else if (internal['[[currencyDisplay]]'] === "symbol") {
+                // 1. Let cd be an ILD string representing currency in short form. If the implementation does not have such a representation of currency, use currency itself.
+                cd = data.currencies[currency] || currency;
+            }
+            // v. Else if numberFormat.[[currencyDisplay]] is "name", then
+            else if (internal['[[currencyDisplay]]'] === "name") {
+                // 1. Let cd be an ILD string representing currency in long form. If the implementation does not have such a representation of currency, then use currency itself.
+                cd = currency;
+            }
+            // vi. Add new part record { [[type]]: "currency", [[value]]: cd } as a new element of the list result.
+            arrPush.call(result, { '[[type]]': 'currency', '[[value]]': cd });
+        }
+        // j. Else,
+        else {
+          // i. Let literal be the substring of pattern from position beginIndex, inclusive, to position endIndex, inclusive.
+          let literal = pattern.substring(beginIndex, endIndex);
+          // ii. Add new part record { [[type]]: "literal", [[value]]: literal } as a new element of the list result.
+          arrPush.call(result, { '[[type]]': 'literal', '[[value]]': literal });
+        }
+        // k. Set nextIndex to endIndex + 1.
         nextIndex = endIndex + 1;
-        // a. Set beginIndex to Call(%StringProto_indexOf%, pattern, "{", nextIndex)
+        // l. Set beginIndex to Call(%StringProto_indexOf%, pattern, "{", nextIndex)
         beginIndex = pattern.indexOf('{', nextIndex);
     }
     // 9. If nextIndex is less than length, then:
     if (nextIndex < length) {
         // a. Let literal be the substring of pattern from position nextIndex, inclusive, to position length, exclusive.
         let literal = pattern.substring(nextIndex, length);
-        // a. Add new part record { [[type]]: "literal", [[value]]: literal } as a new element of the list result.
+        // b. Add new part record { [[type]]: "literal", [[value]]: literal } as a new element of the list result.
         arrPush.call(result, { '[[type]]': 'literal', '[[value]]': literal });
     }
     // 10. Return result.
@@ -702,7 +724,7 @@ function PartitionNumberPattern(numberFormat, x) {
 }
 
 /*
- * @spec[stasm/ecma402/number-format-to-parts/spec/numberformat.html]
+ * @spec[tc39/ecma402/master/spec/numberformat.html]
  * @clause[sec-formatnumber]
  */
 export function FormatNumber(numberFormat, x) {
