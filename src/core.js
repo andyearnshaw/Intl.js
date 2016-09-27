@@ -56,7 +56,7 @@ defineProperty(Intl, '__applyLocaleSensitivePrototypes', {
 defineProperty(Intl, '__addLocaleData', {
     value: function (data) {
         if (!IsStructurallyValidLanguageTag(data.locale))
-            throw new Error("Object passed doesn't identify itself with a valid language tag");
+            throw new Error("Object passed (" + data.locale + ") doesn't identify itself with a valid language tag");
 
         addLocaleData(data, data.locale);
     }
