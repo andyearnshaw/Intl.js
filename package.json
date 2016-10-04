@@ -10,6 +10,10 @@
     "./locale-data/complete": false,
     "./locale-data/complete.js": false
   },
+  "react-native": {
+    "./locale-data/complete": "./locale-data/complete",
+    "./locale-data/complete.js": "./locale-data/complete.js"
+  },
   "devDependencies": {
     "async": "^0.9.0",
     "babel-cli": "^6.2.0",
