@@ -228,6 +228,84 @@ export function /* 9.2.4 */BestFitMatcher (availableLocales, requestedLocales) {
     return LookupMatcher(availableLocales, requestedLocales);
 }
 
+// @spec[tc39/ecma402/master/spec/negotiation.html]
+// @clause[sec-unicodeextensionsubtags]
+export function UnicodeExtensionSubtags(extension) {
+    // 1. Let size be the number of elements in extension.
+    let size = extension.length;
+    // 2. If size = 0, then
+    if (size === 0) {
+        // a. Return « ».
+        return [];
+    }
+    // 3. Let extensionSubtags be « ».
+    let extensionSubtags = [];
+    // 4. Let attribute be true.
+    let attribute = true;
+    // 5. Let q be 3.
+    let q = 3;
+    // 6. Let p be q.
+    let p = q;
+    // 7. Let t be q.
+    let t = q;
+    // 8. Repeat, while q < size
+    while (q < size) {
+        // a. Let c be the code unit value of the element at index q in the String extension.
+        let c = extension.codePointAt(q);
+        // a. If c is 0x002D (HYPHEN-MINUS), then
+        if (c === 0x002D) {
+            // i. If q - p = 2, then
+            if (q - p === 2) {
+                // 1. If p - t > 1, then
+                if (p - t > 1) {
+                    // a. Let type be a String value equal to the substring of extension consisting of the code units at indices t (inclusive) through p - 1 (exclusive).
+                    let type = extension.substring(t, p - 1);
+                    // a. Append type as the last element of extensionSubtags.
+                    extensionSubtags.push(type);
+                }
+                // 2. Let key be a String value equal to the substring of extension consisting of the code units at indices p (inclusive) through q (exclusive).
+                let key = extension.substring(p, q);
+                // 3. Append key as the last element of extensionSubtags.
+                extensionSubtags.push(key);
+                // 4. Let t be q + 1.
+                t = q + 1;
+                // 5. Let attribute be false.
+                attribute = false;
+            // ii. Else if attribute is true, then
+            } else if (attribute === true) {
+                // 1. Let attr be a String value equal to the substring of extension consisting of the code units at indices p (inclusive) through q (exclusive).
+                let attr = extension.substring(p, q);
+                // 2. Append attr as the last element of extensionSubtags.
+                extensionSubtags.push(attr);
+                // 3. Let t be q + 1.
+                t = q + 1;
+            }
+            // iii. Let p be q + 1.
+            p = q + 1;
+        }
+        // a. Let q be q + 1.
+        q = q + 1;
+    }
+    // 9. If size - p = 2, then
+    if (size - p === 2) {
+        // a. If p - t > 1, then
+        if (p - t > 1) {
+            // i. Let type be a String value equal to the substring of extension consisting of the code units at indices t (inclusive) through p - 1 (exclusive).
+            let type = extension.substring(t, p - 1);
+            // ii. Append type as the last element of extensionSubtags.
+            extensionSubtags.push(type);
+        }
+        // a. Let t be p.
+        t = p;
+    }
+    // 10. Let tail be a String value equal to the substring of extension consisting of the code units at indices t (inclusive) through size (exclusive).
+    let tail = extension.substring(t, size);
+    // 11. Append tail as the last element of extensionSubtags.
+    extensionSubtags.push(tail);
+    // 12. Return extensionSubtags.
+    return extensionSubtags;
+}
+
 /**
  * The ResolveLocale abstract operation compares a BCP 47 language priority list
  * requestedLocales against the locales in availableLocales and determines the
@@ -268,15 +346,10 @@ export function /* 9.2.5 */ResolveLocale (availableLocales, requestedLocales, op
     if (hop.call(r, '[[extension]]')) {
         // a. Let extension be the value of r.[[extension]].
         let extension = r['[[extension]]'];
-        // b. Let split be the standard built-in function object defined in ES5,
-        //    15.5.4.14.
-        let split = String.prototype.split;
-        // c. Let extensionSubtags be the result of calling the [[Call]] internal
-        //    method of split with extension as the this value and an argument
-        //    list containing the single item "-".
-        extensionSubtags = split.call(extension, '-');
-        // d. Let extensionSubtagsLength be the result of calling the [[Get]]
-        //    internal method of extensionSubtags with argument "length".
+        // b. Let _extensionSubtags_ be
+        // CreateArrayFromList(UnicodeExtensionSubtags(_extension_)).
+        extensionSubtags = UnicodeExtensionSubtags(extension);
+        // c. Let _extensionSubtagsLength_ be Get(_extensionSubtags_, *"length"*)
         extensionSubtagsLength = extensionSubtags.length;
     }
 
