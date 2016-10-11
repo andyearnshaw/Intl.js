@@ -7,7 +7,7 @@
   var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) {
     return typeof obj;
   } : function (obj) {
-    return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj;
+    return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
   };
 
   var jsx = function () {
@@ -53,6 +53,186 @@
     };
   }();
 
+  var asyncIterator = function (iterable) {
+    if (typeof Symbol === "function") {
+      if (Symbol.asyncIterator) {
+        var method = iterable[Symbol.asyncIterator];
+        if (method != null) return method.call(iterable);
+      }
+
+      if (Symbol.iterator) {
+        return iterable[Symbol.iterator]();
+      }
+    }
+
+    throw new TypeError("Object is not async iterable");
+  };
+
+  var asyncGenerator = function () {
+    function AwaitValue(value) {
+      this.value = value;
+    }
+
+    function AsyncGenerator(gen) {
+      var front, back;
+
+      function send(key, arg) {
+        return new Promise(function (resolve, reject) {
+          var request = {
+            key: key,
+            arg: arg,
+            resolve: resolve,
+            reject: reject,
+            next: null
+          };
+
+          if (back) {
+            back = back.next = request;
+          } else {
+            front = back = request;
+            resume(key, arg);
+          }
+        });
+      }
+
+      function resume(key, arg) {
+        try {
+          var result = gen[key](arg);
+          var value = result.value;
+
+          if (value instanceof AwaitValue) {
+            Promise.resolve(value.value).then(function (arg) {
+              resume("next", arg);
+            }, function (arg) {
+              resume("throw", arg);
+            });
+          } else {
+            settle(result.done ? "return" : "normal", result.value);
+          }
+        } catch (err) {
+          settle("throw", err);
+        }
+      }
+
+      function settle(type, value) {
+        switch (type) {
+          case "return":
+            front.resolve({
+              value: value,
+              done: true
+            });
+            break;
+
+          case "throw":
+            front.reject(value);
+            break;
+
+          default:
+            front.resolve({
+              value: value,
+              done: false
+            });
+            break;
+        }
+
+        front = front.next;
+
+        if (front) {
+          resume(front.key, front.arg);
+        } else {
+          back = null;
+        }
+      }
+
+      this._invoke = send;
+
+      if (typeof gen.return !== "function") {
+        this.return = undefined;
+      }
+    }
+
+    if (typeof Symbol === "function" && Symbol.asyncIterator) {
+      AsyncGenerator.prototype[Symbol.asyncIterator] = function () {
+        return this;
+      };
+    }
+
+    AsyncGenerator.prototype.next = function (arg) {
+      return this._invoke("next", arg);
+    };
+
+    AsyncGenerator.prototype.throw = function (arg) {
+      return this._invoke("throw", arg);
+    };
+
+    AsyncGenerator.prototype.return = function (arg) {
+      return this._invoke("return", arg);
+    };
+
+    return {
+      wrap: function (fn) {
+        return function () {
+          return new AsyncGenerator(fn.apply(this, arguments));
+        };
+      },
+      await: function (value) {
+        return new AwaitValue(value);
+      }
+    };
+  }();
+
+  var asyncGeneratorDelegate = function (inner, awaitWrap) {
+    var iter = {},
+        waiting = false;
+
+    function pump(key, value) {
+      waiting = true;
+      value = new Promise(function (resolve) {
+        resolve(inner[key](value));
+      });
+      return {
+        done: false,
+        value: awaitWrap(value)
+      };
+    }
+
+    ;
+
+    if (typeof Symbol === "function" && Symbol.iterator) {
+      iter[Symbol.iterator] = function () {
+        return this;
+      };
+    }
+
+    iter.next = function (value) {
+      if (waiting) {
+        waiting = false;
+        return value;
+      }
+
+      return pump("next", value);
+    };
+
+    if (typeof inner.throw === "function") {
+      iter.throw = function (value) {
+        if (waiting) {
+          waiting = false;
+          throw value;
+        }
+
+        return pump("throw", value);
+      };
+    }
+
+    if (typeof inner.return === "function") {
+      iter.return = function (value) {
+        return pump("return", value);
+      };
+    }
+
+    return iter;
+  };
+
   var asyncToGenerator = function (fn) {
     return function () {
       var gen = fn.apply(this, arguments);
@@ -70,9 +250,9 @@
             resolve(value);
           } else {
             return Promise.resolve(value).then(function (value) {
-              return step("next", value);
+              step("next", value);
             }, function (err) {
-              return step("throw", err);
+              step("throw", err);
             });
           }
         }
@@ -384,6 +564,9 @@
 
   var babelHelpers$1 = Object.freeze({
     jsx: jsx,
+    asyncIterator: asyncIterator,
+    asyncGenerator: asyncGenerator,
+    asyncGeneratorDelegate: asyncGeneratorDelegate,
     asyncToGenerator: asyncToGenerator,
     classCallCheck: classCallCheck,
     createClass: createClass,
@@ -2193,7 +2376,7 @@
   }
 
   function formatToParts() {
-      var value = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
+      var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
 
       var internal = this !== null && babelHelpers$1["typeof"](this) === 'object' && getInternalProperties(this);
       if (!internal || !internal['[[initializedNumberFormat]]']) throw new TypeError('`this` value for formatToParts() is not an initialized Intl.NumberFormat object.');
@@ -2210,7 +2393,7 @@
   });
 
   /*
-   * @spec[stasm/ecma402/number-format-to-parts/spec/numberformat.html]
+   * @spec[tc39/ecma402/master/spec/numberformat.html]
    * @clause[sec-formatnumbertoparts]
    */
   function FormatNumberToParts(numberFormat, x) {
@@ -2239,7 +2422,31 @@
   }
 
   /*
-   * @spec[stasm/ecma402/number-format-to-parts/spec/numberformat.html]
+   * @spec[tc39/ecma402/master/spec/numberformat.html]
+   * @clause[sec-formatnumberstring]
+   */
+  function FormatNumberToString(numberFormat, x) {
+      var internal = getInternalProperties(numberFormat);
+      var result = void 0;
+
+      // 1. Assert: numberFormat.[[initializedIntlObject]] is true.
+
+      // 2. If the numberFormat.[[minimumSignificantDigits]] and numberFormat.[[maximumSignificantDigits]] are present, then
+      if (hop.call(internal, '[[minimumSignificantDigits]]') && hop.call(internal, '[[maximumSignificantDigits]]')) {
+          // a. Let result be ToRawPrecision(x, numberFormat.[[minimumSignificantDigits]], numberFormat.[[maximumSignificantDigits]]).
+          result = ToRawPrecision(x, internal['[[minimumSignificantDigits]]'], internal['[[maximumSignificantDigits]]']);
+      }
+      // 3. Else,
+      else {
+              // a. Let result be ToRawFixed(x, numberFormat.[[minimumIntegerDigits]], numberFormat.[[minimumFractionDigits]], numberFormat.[[maximumFractionDigits]]).
+              result = ToRawFixed(x, internal['[[minimumIntegerDigits]]'], internal['[[minimumFractionDigits]]'], internal['[[maximumFractionDigits]]']);
+          }
+      // 4. Return result.
+      return result;
+  }
+
+  /*
+   * @spec[tc39/ecma402/master/spec/numberformat.html]
    * @clause[sec-partitionnumberpattern]
    */
   function PartitionNumberPattern(numberFormat, x) {
@@ -2255,7 +2462,7 @@
       if (!isNaN(x) && x < 0) {
           // a. Let x be -x.
           x = -x;
-          // a. Let pattern be the value of numberFormat.[[negativePattern]].
+          // b. Let pattern be the value of numberFormat.[[negativePattern]].
           pattern = internal['[[negativePattern]]'];
       }
       // 2. Else,
@@ -2277,18 +2484,18 @@
       while (beginIndex > -1 && beginIndex < length) {
           // a. Set endIndex to Call(%StringProto_indexOf%, pattern, "}", beginIndex)
           endIndex = pattern.indexOf('}', beginIndex);
-          // a. If endIndex = -1, throw new Error exception.
+          // b. If endIndex = -1, throw new Error exception.
           if (endIndex === -1) throw new Error();
-          // a. If beginIndex is greater than nextIndex, then:
+          // c. If beginIndex is greater than nextIndex, then:
           if (beginIndex > nextIndex) {
               // i. Let literal be a substring of pattern from position nextIndex, inclusive, to position beginIndex, exclusive.
               var literal = pattern.substring(nextIndex, beginIndex);
               // ii. Add new part record { [[type]]: "literal", [[value]]: literal } as a new element of the list result.
               arrPush.call(result, { '[[type]]': 'literal', '[[value]]': literal });
           }
-          // a. Let p be the substring of pattern from position beginIndex, exclusive, to position endIndex, exclusive.
+          // d. Let p be the substring of pattern from position beginIndex, exclusive, to position endIndex, exclusive.
           var p = pattern.substring(beginIndex + 1, endIndex);
-          // a. If p is equal "number", then:
+          // e. If p is equal "number", then:
           if (p === "number") {
               // i. If x is NaN,
               if (isNaN(x)) {
@@ -2306,21 +2513,13 @@
                   }
                   // iii. Else,
                   else {
-                          // 1. If the value of numberFormat.[[style]] is "percent" and isFinite(x), let x be 100 × x.
-                          if (internal['[[style]]'] === 'percent' && isFinite(x)) x *= 100;
+                          // 1. If numberFormat.[[style]] is "percent", let x be 100 × x.
+                          if (internal['[[style]]'] === 'percent') x *= 100;
 
-                          var _n2 = void 0;
-                          // 2. If the numberFormat.[[minimumSignificantDigits]] and numberFormat.[[maximumSignificantDigits]] are present, then
-                          if (hop.call(internal, '[[minimumSignificantDigits]]') && hop.call(internal, '[[maximumSignificantDigits]]')) {
-                              // a. Let n be ToRawPrecision(x, numberFormat.[[minimumSignificantDigits]], numberFormat.[[maximumSignificantDigits]]).
-                              _n2 = ToRawPrecision(x, internal['[[minimumSignificantDigits]]'], internal['[[maximumSignificantDigits]]']);
-                          }
-                          // 3. Else,
-                          else {
-                                  // a. Let n be ToRawFixed(x, numberFormat.[[minimumIntegerDigits]], numberFormat.[[minimumFractionDigits]], numberFormat.[[maximumFractionDigits]]).
-                                  _n2 = ToRawFixed(x, internal['[[minimumIntegerDigits]]'], internal['[[minimumFractionDigits]]'], internal['[[maximumFractionDigits]]']);
-                              }
-                          // 4. If the value of the numberFormat.[[numberingSystem]] matches one of the values in the "Numbering System" column of Table 2 below, then
+                          // 2. Let n be FormatNumberToString(numberFormat, x).
+                          var _n2 = FormatNumberToString(numberFormat, x);
+
+                          // 3. If the numberFormat.[[numberingSystem]] matches one of the values in the "Numbering System" column of Table 3 below, then
                           if (numSys[nums]) {
                               (function () {
                                   // a. Let digits be an array whose 10 String valued elements are the UTF-16 string representations of the 10 digits specified in the "Digits" column of the matching row in Table 2.
@@ -2331,32 +2530,32 @@
                                   });
                               })();
                           }
-                          // 5. Else use an implementation dependent algorithm to map n to the appropriate representation of n in the given numbering system.
+                          // 4. Else use an implementation dependent algorithm to map n to the appropriate representation of n in the given numbering system.
                           else _n2 = String(_n2); // ###TODO###
 
                           var integer = void 0;
                           var fraction = void 0;
-                          // 6. Let decimalSepIndex be Call(%StringProto_indexOf%, n, ".", 0).
+                          // 5. Let decimalSepIndex be Call(%StringProto_indexOf%, n, ".", 0).
                           var decimalSepIndex = _n2.indexOf('.', 0);
-                          // 7. If decimalSepIndex > 0, then:
+                          // 6. If decimalSepIndex > 0, then:
                           if (decimalSepIndex > 0) {
                               // a. Let integer be the substring of n from position 0, inclusive, to position decimalSepIndex, exclusive.
                               integer = _n2.substring(0, decimalSepIndex);
-                              // a. Let fraction be the substring of n from position decimalSepIndex, exclusive, to the end of n.
+                              // b. Let fraction be the substring of n from position decimalSepIndex, exclusive, to the end of n.
                               fraction = _n2.substring(decimalSepIndex + 1, decimalSepIndex.length);
                           }
-                          // 8. Else:
+                          // 7. Else:
                           else {
                                   // a. Let integer be n.
                                   integer = _n2;
-                                  // a. Let fraction be undefined.
+                                  // b. Let fraction be undefined.
                                   fraction = undefined;
                               }
-                          // 9. If the value of the numberFormat.[[useGrouping]] is true,
+                          // 8. If the value of the numberFormat.[[useGrouping]] is true,
                           if (internal['[[useGrouping]]'] === true) {
                               // a. Let groupSepSymbol be the ILND String representing the grouping separator.
                               var groupSepSymbol = ild.group;
-                              // a. Let groups be a List whose elements are, in left to right order, the substrings defined by ILND set of locations within the integer.
+                              // b. Let groups be a List whose elements are, in left to right order, the substrings defined by ILND set of locations within the integer.
                               var groups = [];
                               // ----> implementation:
                               // Primary group represents the group closest to the decimal
@@ -2381,9 +2580,9 @@
                               } else {
                                   arrPush.call(groups, integer);
                               }
-                              // a. Assert: The number of elements in groups List is greater than 0.
+                              // c. Assert: The number of elements in groups List is greater than 0.
                               if (groups.length === 0) throw new Error();
-                              // a. Repeat, while groups List is not empty:
+                              // d. Repeat, while groups List is not empty:
                               while (groups.length) {
                                   // i. Remove the first element from groups and let integerGroup be the value of that element.
                                   var integerGroup = arrShift.call(groups);
@@ -2396,85 +2595,85 @@
                                   }
                               }
                           }
-                          // 10. Else,
+                          // 9. Else,
                           else {
                                   // a. Add new part record { [[type]]: "integer", [[value]]: integer } as a new element of the list result.
                                   arrPush.call(result, { '[[type]]': 'integer', '[[value]]': integer });
                               }
-                          // 11. If fraction is not undefined, then:
+                          // 10. If fraction is not undefined, then:
                           if (fraction !== undefined) {
                               // a. Let decimalSepSymbol be the ILND String representing the decimal separator.
                               var decimalSepSymbol = ild.decimal;
-                              // a. Add new part record { [[type]]: "decimal", [[value]]: decimalSepSymbol } as a new element of the list result.
+                              // b. Add new part record { [[type]]: "decimal", [[value]]: decimalSepSymbol } as a new element of the list result.
                               arrPush.call(result, { '[[type]]': 'decimal', '[[value]]': decimalSepSymbol });
-                              // a. Add new part record { [[type]]: "fraction", [[value]]: fraction } as a new element of the list result.
+                              // c. Add new part record { [[type]]: "fraction", [[value]]: fraction } as a new element of the list result.
                               arrPush.call(result, { '[[type]]': 'fraction', '[[value]]': fraction });
                           }
                       }
           }
-          // a. Else if p is equal "plusSign", then:
+          // f. Else if p is equal "plusSign", then:
           else if (p === "plusSign") {
                   // i. Let plusSignSymbol be the ILND String representing the plus sign.
                   var plusSignSymbol = ild.plusSign;
                   // ii. Add new part record { [[type]]: "plusSign", [[value]]: plusSignSymbol } as a new element of the list result.
                   arrPush.call(result, { '[[type]]': 'plusSign', '[[value]]': plusSignSymbol });
               }
-              // a. Else if p is equal "minusSign", then:
+              // g. Else if p is equal "minusSign", then:
               else if (p === "minusSign") {
                       // i. Let minusSignSymbol be the ILND String representing the minus sign.
                       var minusSignSymbol = ild.minusSign;
                       // ii. Add new part record { [[type]]: "minusSign", [[value]]: minusSignSymbol } as a new element of the list result.
                       arrPush.call(result, { '[[type]]': 'minusSign', '[[value]]': minusSignSymbol });
                   }
-                  // a. Else if p is equal "percentSign" and numberFormat.[[style]] is "percent", then:
+                  // h. Else if p is equal "percentSign" and numberFormat.[[style]] is "percent", then:
                   else if (p === "percentSign" && internal['[[style]]'] === "percent") {
                           // i. Let percentSignSymbol be the ILND String representing the percent sign.
                           var percentSignSymbol = ild.percentSign;
                           // ii. Add new part record { [[type]]: "percentSign", [[value]]: percentSignSymbol } as a new element of the list result.
                           arrPush.call(result, { '[[type]]': 'literal', '[[value]]': percentSignSymbol });
                       }
-                      // a. Else if p is equal "currency" and numberFormat.[[style]] is "currency", then:
+                      // i. Else if p is equal "currency" and numberFormat.[[style]] is "currency", then:
                       else if (p === "currency" && internal['[[style]]'] === "currency") {
                               // i. Let currency be the value of numberFormat.[[currency]].
                               var currency = internal['[[currency]]'];
 
                               var cd = void 0;
 
-                              // ii. If numberFormat.[[currencyDisplay]] is "code", then
+                              // iii. If numberFormat.[[currencyDisplay]] is "code", then
                               if (internal['[[currencyDisplay]]'] === "code") {
                                   // 1. Let cd be currency.
                                   cd = currency;
                               }
-                              // iii. Else if numberFormat.[[currencyDisplay]] is "symbol", then
+                              // iv. Else if numberFormat.[[currencyDisplay]] is "symbol", then
                               else if (internal['[[currencyDisplay]]'] === "symbol") {
                                       // 1. Let cd be an ILD string representing currency in short form. If the implementation does not have such a representation of currency, use currency itself.
                                       cd = data.currencies[currency] || currency;
                                   }
-                                  // iv. Else if numberFormat.[[currencyDisplay]] is "name", then
+                                  // v. Else if numberFormat.[[currencyDisplay]] is "name", then
                                   else if (internal['[[currencyDisplay]]'] === "name") {
                                           // 1. Let cd be an ILD string representing currency in long form. If the implementation does not have such a representation of currency, then use currency itself.
                                           cd = currency;
                                       }
-                              // v. Add new part record { [[type]]: "currency", [[value]]: cd } as a new element of the list result.
+                              // vi. Add new part record { [[type]]: "currency", [[value]]: cd } as a new element of the list result.
                               arrPush.call(result, { '[[type]]': 'currency', '[[value]]': cd });
                           }
-                          // a. Else,
+                          // j. Else,
                           else {
                                   // i. Let literal be the substring of pattern from position beginIndex, inclusive, to position endIndex, inclusive.
                                   var _literal = pattern.substring(beginIndex, endIndex);
                                   // ii. Add new part record { [[type]]: "literal", [[value]]: literal } as a new element of the list result.
                                   arrPush.call(result, { '[[type]]': 'literal', '[[value]]': _literal });
                               }
-          // a. Set nextIndex to endIndex + 1.
+          // k. Set nextIndex to endIndex + 1.
           nextIndex = endIndex + 1;
-          // a. Set beginIndex to Call(%StringProto_indexOf%, pattern, "{", nextIndex)
+          // l. Set beginIndex to Call(%StringProto_indexOf%, pattern, "{", nextIndex)
           beginIndex = pattern.indexOf('{', nextIndex);
       }
       // 9. If nextIndex is less than length, then:
       if (nextIndex < length) {
           // a. Let literal be the substring of pattern from position nextIndex, inclusive, to position length, exclusive.
           var _literal2 = pattern.substring(nextIndex, length);
-          // a. Add new part record { [[type]]: "literal", [[value]]: literal } as a new element of the list result.
+          // b. Add new part record { [[type]]: "literal", [[value]]: literal } as a new element of the list result.
           arrPush.call(result, { '[[type]]': 'literal', '[[value]]': _literal2 });
       }
       // 10. Return result.
@@ -2482,7 +2681,7 @@
   }
 
   /*
-   * @spec[stasm/ecma402/number-format-to-parts/spec/numberformat.html]
+   * @spec[tc39/ecma402/master/spec/numberformat.html]
    * @clause[sec-formatnumber]
    */
   function FormatNumber(numberFormat, x) {
@@ -2659,28 +2858,28 @@
   // Sect 11.3.2 Table 2, Numbering systems
   // ======================================
   var numSys = {
-      arab: ["٠", "١", "٢", "٣", "٤", "٥", "٦", "٧", "٨", "٩"],
-      arabext: ["۰", "۱", "۲", "۳", "۴", "۵", "۶", "۷", "۸", "۹"],
-      bali: ["᭐", "᭑", "᭒", "᭓", "᭔", "᭕", "᭖", "᭗", "᭘", "᭙"],
-      beng: ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"],
-      deva: ["०", "१", "२", "३", "४", "५", "६", "७", "८", "९"],
-      fullwide: ["０", "１", "２", "３", "４", "５", "６", "７", "８", "９"],
-      gujr: ["૦", "૧", "૨", "૩", "૪", "૫", "૬", "૭", "૮", "૯"],
-      guru: ["੦", "੧", "੨", "੩", "੪", "੫", "੬", "੭", "੮", "੯"],
-      hanidec: ["〇", "一", "二", "三", "四", "五", "六", "七", "八", "九"],
-      khmr: ["០", "១", "២", "៣", "៤", "៥", "៦", "៧", "៨", "៩"],
-      knda: ["೦", "೧", "೨", "೩", "೪", "೫", "೬", "೭", "೮", "೯"],
-      laoo: ["໐", "໑", "໒", "໓", "໔", "໕", "໖", "໗", "໘", "໙"],
+      arab: ["\u0660", "\u0661", "\u0662", "\u0663", "\u0664", "\u0665", "\u0666", "\u0667", "\u0668", "\u0669"],
+      arabext: ["\u06F0", "\u06F1", "\u06F2", "\u06F3", "\u06F4", "\u06F5", "\u06F6", "\u06F7", "\u06F8", "\u06F9"],
+      bali: ["\u1B50", "\u1B51", "\u1B52", "\u1B53", "\u1B54", "\u1B55", "\u1B56", "\u1B57", "\u1B58", "\u1B59"],
+      beng: ["\u09E6", "\u09E7", "\u09E8", "\u09E9", "\u09EA", "\u09EB", "\u09EC", "\u09ED", "\u09EE", "\u09EF"],
+      deva: ["\u0966", "\u0967", "\u0968", "\u0969", "\u096A", "\u096B", "\u096C", "\u096D", "\u096E", "\u096F"],
+      fullwide: ["\uFF10", "\uFF11", "\uFF12", "\uFF13", "\uFF14", "\uFF15", "\uFF16", "\uFF17", "\uFF18", "\uFF19"],
+      gujr: ["\u0AE6", "\u0AE7", "\u0AE8", "\u0AE9", "\u0AEA", "\u0AEB", "\u0AEC", "\u0AED", "\u0AEE", "\u0AEF"],
+      guru: ["\u0A66", "\u0A67", "\u0A68", "\u0A69", "\u0A6A", "\u0A6B", "\u0A6C", "\u0A6D", "\u0A6E", "\u0A6F"],
+      hanidec: ["\u3007", "\u4E00", "\u4E8C", "\u4E09", "\u56DB", "\u4E94", "\u516D", "\u4E03", "\u516B", "\u4E5D"],
+      khmr: ["\u17E0", "\u17E1", "\u17E2", "\u17E3", "\u17E4", "\u17E5", "\u17E6", "\u17E7", "\u17E8", "\u17E9"],
+      knda: ["\u0CE6", "\u0CE7", "\u0CE8", "\u0CE9", "\u0CEA", "\u0CEB", "\u0CEC", "\u0CED", "\u0CEE", "\u0CEF"],
+      laoo: ["\u0ED0", "\u0ED1", "\u0ED2", "\u0ED3", "\u0ED4", "\u0ED5", "\u0ED6", "\u0ED7", "\u0ED8", "\u0ED9"],
       latn: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
-      limb: ["᥆", "᥇", "᥈", "᥉", "᥊", "᥋", "᥌", "᥍", "᥎", "᥏"],
-      mlym: ["൦", "൧", "൨", "൩", "൪", "൫", "൬", "൭", "൮", "൯"],
-      mong: ["᠐", "᠑", "᠒", "᠓", "᠔", "᠕", "᠖", "᠗", "᠘", "᠙"],
-      mymr: ["၀", "၁", "၂", "၃", "၄", "၅", "၆", "၇", "၈", "၉"],
-      orya: ["୦", "୧", "୨", "୩", "୪", "୫", "୬", "୭", "୮", "୯"],
-      tamldec: ["௦", "௧", "௨", "௩", "௪", "௫", "௬", "௭", "௮", "௯"],
-      telu: ["౦", "౧", "౨", "౩", "౪", "౫", "౬", "౭", "౮", "౯"],
-      thai: ["๐", "๑", "๒", "๓", "๔", "๕", "๖", "๗", "๘", "๙"],
-      tibt: ["༠", "༡", "༢", "༣", "༤", "༥", "༦", "༧", "༨", "༩"]
+      limb: ["\u1946", "\u1947", "\u1948", "\u1949", "\u194A", "\u194B", "\u194C", "\u194D", "\u194E", "\u194F"],
+      mlym: ["\u0D66", "\u0D67", "\u0D68", "\u0D69", "\u0D6A", "\u0D6B", "\u0D6C", "\u0D6D", "\u0D6E", "\u0D6F"],
+      mong: ["\u1810", "\u1811", "\u1812", "\u1813", "\u1814", "\u1815", "\u1816", "\u1817", "\u1818", "\u1819"],
+      mymr: ["\u1040", "\u1041", "\u1042", "\u1043", "\u1044", "\u1045", "\u1046", "\u1047", "\u1048", "\u1049"],
+      orya: ["\u0B66", "\u0B67", "\u0B68", "\u0B69", "\u0B6A", "\u0B6B", "\u0B6C", "\u0B6D", "\u0B6E", "\u0B6F"],
+      tamldec: ["\u0BE6", "\u0BE7", "\u0BE8", "\u0BE9", "\u0BEA", "\u0BEB", "\u0BEC", "\u0BED", "\u0BEE", "\u0BEF"],
+      telu: ["\u0C66", "\u0C67", "\u0C68", "\u0C69", "\u0C6A", "\u0C6B", "\u0C6C", "\u0C6D", "\u0C6E", "\u0C6F"],
+      thai: ["\u0E50", "\u0E51", "\u0E52", "\u0E53", "\u0E54", "\u0E55", "\u0E56", "\u0E57", "\u0E58", "\u0E59"],
+      tibt: ["\u0F20", "\u0F21", "\u0F22", "\u0F23", "\u0F24", "\u0F25", "\u0F26", "\u0F27", "\u0F28", "\u0F29"]
   };
 
   /**
@@ -3840,7 +4039,7 @@
           //    length property set to 0, that takes the argument date and
           //    performs the following steps:
           var F = function F() {
-              var date = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
+              var date = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
 
               //   i. If date is not provided or is undefined, then let x be the
               //      result as if by the expression Date.now() where Date.now is
@@ -3867,7 +4066,7 @@
   }
 
   function formatToParts$1() {
-      var date = arguments.length <= 0 || arguments[0] === undefined ? undefined : arguments[0];
+      var date = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
 
       var internal = this !== null && babelHelpers$1["typeof"](this) === 'object' && getInternalProperties(this);
 
