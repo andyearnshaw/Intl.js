@@ -63,18 +63,7 @@ export default function extractCalendars(locales) {
 function loadCalendars(locale) {
     // all NPM packages providing calendars specific data
     let pkgs = [
-        "cldr-dates-full",
-        "cldr-cal-buddhist-full",
-        "cldr-cal-chinese-full",
-        "cldr-cal-coptic-full",
-        "cldr-cal-dangi-full",
-        "cldr-cal-ethiopic-full",
-        "cldr-cal-hebrew-full",
-        "cldr-cal-indian-full",
-        "cldr-cal-islamic-full",
-        "cldr-cal-japanese-full",
-        "cldr-cal-persian-full",
-        "cldr-cal-roc-full"
+        "cldr-dates-full"
     ];
     // walking all packages, selecting calendar files, then
     // reading the content of each calendar, and concatenating the set
