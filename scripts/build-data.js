@@ -78,6 +78,7 @@ function reviver (k, v) {
 mkdirpSync('locale-data/');
 mkdirpSync('locale-data/json/');
 mkdirpSync('locale-data/jsonp/');
+mkdirpSync('locale-data/module/');
 
 // extracting data into CLDR
 
@@ -113,8 +114,10 @@ Object.keys(locData).forEach((locale) => {
     const obj = reduceLocaleData(locale, locData[locale]);
     locStringData[locale] = JSON.stringify(obj, null, 4);
     const jsonpContent =  `IntlPolyfill.__addLocaleData(${JSON.stringify(obj).replace(jsonpExp, '$1:')});`;
+    const module =  `var locale = ${JSON.stringify(obj)};\nexports["default"] = locales;\n`;
     writeFile('locale-data/json/' + locale + '.json', locStringData[locale]);
     writeFile('locale-data/jsonp/' + locale + '.js', jsonpContent);
+    writeFile('locale-data/module/' + locale + '.js', module);
 });
 
 console.log('Total number of locales is ' + Object.keys(locData).length);
