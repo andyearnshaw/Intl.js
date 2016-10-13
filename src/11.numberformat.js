@@ -464,7 +464,7 @@ function FormatNumberToParts(numberFormat, x) {
  * @spec[tc39/ecma402/master/spec/numberformat.html]
  * @clause[sec-formatnumberstring]
  */
-function FormatNumberToString(numberFormat, x) {
+export function FormatNumberToString(numberFormat, x) {
     let internal = getInternalProperties(numberFormat);
     let result;
 

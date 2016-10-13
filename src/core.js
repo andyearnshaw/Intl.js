@@ -89,6 +89,11 @@ function addLocaleData (data, tag) {
             internals.DateTimeFormat['[[localeData]]'][locale] = data.date;
         }
 
+      data.plurals = {
+        'cardinal': (n) => n===1 ? 'one' : 'other',
+        'ordinal': (n) => 'one'
+      };
+
         if (data.plurals) {
             arrPush.call(internals.PluralRules['[[availableLocales]]'], locale);
             internals.PluralRules['[[localeData]]'][locale] = data.plurals;
