@@ -33,6 +33,8 @@ import "./12.datetimeformat.js";
 
 import ls from "./13.locale-sensitive-functions.js";
 
+import "./14.pluralrules.js";
+
 defineProperty(Intl, '__applyLocaleSensitivePrototypes', {
     writable: true,
     configurable: true,
@@ -85,6 +87,11 @@ function addLocaleData (data, tag) {
             data.date.nu = data.number.nu;
             arrPush.call(internals.DateTimeFormat['[[availableLocales]]'], locale);
             internals.DateTimeFormat['[[localeData]]'][locale] = data.date;
+        }
+
+        if (data.plurals) {
+            arrPush.call(internals.PluralRules['[[availableLocales]]'], locale);
+            internals.PluralRules['[[localeData]]'][locale] = data.plurals;
         }
     }
 
