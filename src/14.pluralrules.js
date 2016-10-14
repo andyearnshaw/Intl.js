@@ -5,6 +5,7 @@ import {
 import {
   GetOption,
   GetNumberOption,
+  SupportedLocales,
   ResolveLocale,
   CanonicalizeLocaleList
 } from './9.negotiation.js';
@@ -18,12 +19,16 @@ import {
   getInternalProperties,
   Record,
   List,
+  hop,
+  objCreate,
+  fnBind,
   toObject,
   secret,
+  createRegExpRestore,
   defineProperty
 } from './util.js';
 
-export function PluralRulesConstructor() {
+export function PluralRules() {
   let locales = arguments[0];
   let options = arguments[1];
 
@@ -36,10 +41,10 @@ export function PluralRulesConstructor() {
 defineProperty(Intl, 'PluralRules', {
   configurable: true,
   writable: true,
-  value: PluralRulesConstructor
+  value: PluralRules
 });
 
-defineProperty(PluralRulesConstructor, 'prototype', {
+defineProperty(PluralRules, 'prototype', {
   writable: false
 });
 
@@ -71,7 +76,7 @@ export function InitializePluralRules (pluralRules, locales, options) {
   //XXX: Should we have a matcher here?
   //let matcher =  GetOption(options, 'localeMatcher', 'string', new List('lookup', 'best fit'), 'best fit');
   let t = GetOption(options, 'type', 'string', new List('cardinal', 'ordinal'), 'cardinal');
-  internal['[[Type]]'] = t;
+  internal['[[type]]'] = t;
 
   let minID = GetNumberOption(options, 'minimumIntegerDigits', 1, 21, 1);
   let minFD = GetNumberOption(options, 'minimumFractionDigits', 0, 20, 0);
@@ -100,7 +105,7 @@ export function InitializePluralRules (pluralRules, locales, options) {
     opt, internals.PluralRules['[[relevantExtensionKeys]]'], localeData
   );
 
-  internal['[[Locale]]'] = r['[[locale]]'];
+  internal['[[locale]]'] = r['[[locale]]'];
   internal['[[InitializedPluralRules]]'] = true;
 
   return pluralRules;
@@ -162,8 +167,8 @@ function ResolvePlural(pluralRules, n) {
   }
 
   let internal = getInternalProperties(pluralRules);
-  let locale = internal['[[Locale]]'];
-  let type = internal['[[Type]]'];
+  let locale = internal['[[locale]]'];
+  let type = internal['[[type]]'];
   let s = FormatNumberToString(pluralRules, n);
   let operands = GetOperands(s);
   return PluralRuleSelection(locale, type, n, operands);
@@ -175,11 +180,42 @@ internals.PluralRules = {
   '[[localeData]]': {}
 }
 
-defineProperty(Intl.PluralRules, 'supportedLoclaesOf', {
-  configurable: true,
-  writable: true,
-  value: null
+defineProperty(Intl.PluralRules, 'supportedLocalesOf', {
+    configurable: true,
+    writable: true,
+    value: fnBind.call(function (locales) {
+        // Bound functions only have the `this` value altered if being used as a constructor,
+        // this lets us imitate a native function that has no constructor
+        if (!hop.call(this, '[[availableLocales]]'))
+            throw new TypeError('supportedLocalesOf() is not a constructor');
+
+        // Create an object whose props can be used to restore the values of RegExp props
+        let regexpRestore = createRegExpRestore(),
+
+        // 1. If options is not provided, then let options be undefined.
+            options = arguments[1],
+
+        // 2. Let availableLocales be the value of the [[availableLocales]] internal
+        //    property of the standard built-in object that is the initial value of
+        //    Intl.NumberFormat.
+
+            availableLocales = this['[[availableLocales]]'],
+
+        // 3. Let requestedLocales be the result of calling the CanonicalizeLocaleList
+        //    abstract operation (defined in 9.2.1) with argument locales.
+            requestedLocales = CanonicalizeLocaleList(locales);
+
+        // Restore the RegExp properties
+        regexpRestore();
+
+        // 4. Return the result of calling the SupportedLocales abstract operation
+        //    (defined in 9.2.8) with arguments availableLocales, requestedLocales,
+        //    and options.
+        return SupportedLocales(availableLocales, requestedLocales, options);
+    }, internals.PluralRules)
 });
+
+
 
 defineProperty(Intl.PluralRules.prototype, 'select', {
   configurable: true,
@@ -197,9 +233,9 @@ defineProperty(Intl.PluralRules.prototype, 'resolvedOptions', {
     let prop,
       descs = new Record(),
       props = [
-        'Locale', 'Type',
-        'MinimumIntegerDigits', 'MinimumFractionDigits', 'MaximumFractionDigits',
-        'MinimumSignificantDigits', 'MaximumSignificantDigits',
+        'locale', 'type',
+        'minimumIntegerDigits', 'minimumFractionDigits', 'maximumFractionDigits',
+        'minimumSignificantDigits', 'maximumSignificantDigits',
       ],
       internal = this !== null && typeof this === 'object' && getInternalProperties(this);
 
