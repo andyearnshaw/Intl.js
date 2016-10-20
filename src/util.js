@@ -152,8 +152,8 @@ export function createRegExpRestore () {
     return function() {
         // Now we've snapshotted some properties, escape the lastMatch string
         let esc = /[.?*+^$[\]\\(){}|-]/g,
-            lm = regExpCache.lastMatch.replace(esc, '\\$&'),
-            reg = new List();
+            lastMatch = regExpCache.lastMatch.replace(esc, '\\$&'),
+            exprStr = '';
 
         // If any of the captured strings were non-empty, iterate over them all
         if (has) {
@@ -162,33 +162,38 @@ export function createRegExpRestore () {
 
                 // If it's empty, add an empty capturing group
                 if (!m) {
-                  arrPush.call(reg, '(');
-                  lm = ')' + lm;
+                  exprStr += '(';
+                  lastMatch = ')' + lastMatch;
                 }
                 // Else find the string in lm and escape & wrap it to capture it
                 else {
                     m = m.replace(esc, '\\$&');
-                    let [ left, ...right ] = lm.split(m);
-                    left += '(';
-                    lm = m + ')' + right.join('');
-                    // Push it to the reg and chop lm to make sure further groups come after
-                    arrPush.call(reg, left);
+                    exprStr += lastMatch.substring(0, lastMatch.indexOf(m)) + '(';
+                    lastMatch = m + ')' + lastMatch.substring(lastMatch.indexOf(m) + m.length);
                 }
-
-
-
             }
         }
 
-        let exprStr = arrJoin.call(reg, '') + lm;
+        exprStr += lastMatch;
 
         // Shorten the regex by replacing each part of the expression with a match
         // for a string of that exact length.  This is safe for the type of
         // expressions generated above, because the expression matches the whole
         // match string, so we know each group and each segment between capturing
         // groups can be matched by its length alone.
-        // exprStr = exprStr.replace(/([^\\]\\\(|[^\\]\\\)|[^()])+/g, (match) => {
-        exprStr = exprStr.replace(/([^\\](\\\\)*\\[\)\(]((\\\\)*\\[\(\)])*|[^()])+/g, (match) => {
+        //
+        // The purpose of the regex is to match sequences of characters other
+        // than unescaped parentheses.  This is a more complicated requirement
+        // than it seems at first glance, because it's necessary to match a
+        // parenthesis which appears immediately after a backslash ("\("), but
+        // not a parenthesis which appears immediately after an escaped backslash
+        // ("\\(").  We can't simply match [^\\]\\(, because the previous
+        // backslash could itself have a backslash preceding (and escaping) it.
+        //
+        // Any attempts to simplify this regex are encouraged!  A replacement
+        // regex should match the strings "a\\\(\\\)\\" and "a\\\)\\\(" in the
+        // test string "a\\\(\\\)\\(a\\\)\\\()".
+        exprStr = exprStr.replace(/((^|[^\\])(\\\\)*\\[()]((\\\\)*\\[()])*|[^()])+/g, (match) => {
             return `[\\s\\S]{${match.replace(/\\(.)/g, '$1').length}}`;
         });
 
