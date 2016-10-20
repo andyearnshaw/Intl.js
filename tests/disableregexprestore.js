@@ -29,6 +29,16 @@ new IntlPolyfill.NumberFormat('en-US', {
 assertEqual(RegExp.input, 'a foo test', 'Normally, RegExp.input should be cached and restored');
 assertEqual(RegExp.lastMatch, 'foo', 'Normally, RegExp.lastMatch should be cached and restored');
 
+// Issues #231
+/function[\s\S]+(})/.exec('function defineProperty\\(\\) \\{\n    \\[native code\\]\n\\}');
+new IntlPolyfill.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'GBP',
+    minimumFractionDigits: 2,
+});
+assertEqual(RegExp.input, 'function defineProperty\\(\\) \\{\n    \\[native code\\]\n\\}', 'Normally, RegExp.input should be cached and restored');
+assertEqual(RegExp.lastMatch, 'function defineProperty\\(\\) \\{\n    \\[native code\\]\n\\}', 'Normally, RegExp.lastMatch should be cached and restored');
+
 IntlPolyfill.__disableRegExpRestore();
 /foo/.exec('a foo test');
 new IntlPolyfill.NumberFormat('en-US', {

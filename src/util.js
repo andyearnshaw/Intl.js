@@ -161,18 +161,22 @@ export function createRegExpRestore () {
                 let m = regExpCache['$'+i];
 
                 // If it's empty, add an empty capturing group
-                if (!m)
-                    lm = '()' + lm;
-
+                if (!m) {
+                  arrPush.call(reg, '(');
+                  lm = ')' + lm;
+                }
                 // Else find the string in lm and escape & wrap it to capture it
                 else {
                     m = m.replace(esc, '\\$&');
-                    lm = lm.replace(m, '(' + m + ')');
+                    let [ left, ...right ] = lm.split(m);
+                    left += '(';
+                    lm = m + ')' + right.join('');
+                    // Push it to the reg and chop lm to make sure further groups come after
+                    arrPush.call(reg, left);
                 }
 
-                // Push it to the reg and chop lm to make sure further groups come after
-                arrPush.call(reg, lm.slice(0, lm.indexOf('(') + 1));
-                lm = lm.slice(lm.indexOf('(') + 1);
+
+
             }
         }
 
@@ -183,8 +187,9 @@ export function createRegExpRestore () {
         // expressions generated above, because the expression matches the whole
         // match string, so we know each group and each segment between capturing
         // groups can be matched by its length alone.
-        exprStr = exprStr.replace(/(\\\(|\\\)|[^()])+/g, (match) => {
-            return `[\\s\\S]{${match.replace('\\','').length}}`;
+        // exprStr = exprStr.replace(/([^\\]\\\(|[^\\]\\\)|[^()])+/g, (match) => {
+        exprStr = exprStr.replace(/([^\\](\\\\)*\\[\)\(]((\\\\)*\\[\(\)])*|[^()])+/g, (match) => {
+            return `[\\s\\S]{${match.replace(/\\(.)/g, '$1').length}}`;
         });
 
         // Create the regular expression that will reconstruct the RegExp properties
