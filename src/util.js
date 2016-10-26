@@ -193,7 +193,7 @@ export function createRegExpRestore () {
         // Any attempts to simplify this regex are encouraged!  A replacement
         // regex should match the strings "a\\\(\\\)\\" and "a\\\)\\\(" in the
         // test string "a\\\(\\\)\\(a\\\)\\\()".
-        exprStr = exprStr.replace(/((^|[^\\])(\\\\)*\\[()]((\\\\)*\\[()])*|[^()])+/g, (match) => {
+        exprStr = exprStr.replace(/((^|[^\\])((\\\\)*\\[()])+|[^()])+/g, (match) => {
             return `[\\s\\S]{${match.replace(/\\(.)/g, '$1').length}}`;
         });
 
