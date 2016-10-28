@@ -3837,7 +3837,7 @@ function BasicFormatMatcher(options, formats) {
         // d. If score > bestScore, then
         if (score > bestScore) {
             // i. Let bestScore be score.
-            bestScore = score;
+            bestScore = score + 1;
 
             // ii. Let bestFormat be format.
             bestFormat = format;
