@@ -162,8 +162,8 @@ export function createRegExpRestore () {
 
                 // If it's empty, add an empty capturing group
                 if (!m) {
-                  exprStr += '(';
-                  lastMatch = ')' + lastMatch;
+                    exprStr += '(';
+                    lastMatch = ')' + lastMatch;
                 }
                 // Else find the string in lm and escape & wrap it to capture it
                 else {
