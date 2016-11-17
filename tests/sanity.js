@@ -127,4 +127,4 @@ assert(new IntlPolyfill.NumberFormat('bn', {
     style: 'currency',
     currency: 'BDT',
     currencyDisplay: 'name',
-}).format(12345), '১২,৩৪৫.০০\xa0BDT', 'existing space before currency symbol should be preserved for locales without symbol');
+}).format(12345), '১২,৩৪৫.০০BDT', 'no space is needed before currency code when currency code is at the end of the skeleton');

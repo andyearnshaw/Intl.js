@@ -522,16 +522,10 @@ function PartitionNumberPattern(numberFormat, x) {
          *
          * Empirical rules:
          *  - If the skeleton already have the non-breaking space, we do nothing because it is a locale without a currency symbol
-         *  - If the pattern ends on the last character, the space could be a suffix of the {currency} token, this condition is
-         *    more reliable than testing the first character because sometimes there is a minus sign.
+         *  - If the pattern ends on the last character, the space already comes from CLDR when needed and we do nothing.
          */
         const NON_BREAKING_SPACE = '\xa0'; // Non-breakable space is char 0xa0 (160 dec)
-        if (endIndex === pattern.length && beginIndex > 0) {
-            const prevCharCode = pattern.charCodeAt(beginIndex - 1);
-            if (prevCharCode !== NON_BREAKING_SPACE) {
-                return NON_BREAKING_SPACE + currencyCode;
-            }
-       } else if (pattern.length > endIndex + 1) {
+        if (pattern.length > endIndex + 1) {
             if (pattern.charCodeAt(endIndex + 1) !== NON_BREAKING_SPACE) {
                 return currencyCode + NON_BREAKING_SPACE;
             }
