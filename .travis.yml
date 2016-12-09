@@ -1,8 +1,7 @@
 language: node_js
 node_js:
-  - '5'
+  - '6'
 before_install:
-  - npm install -g npm@3
   - npm --version
 addons:
   sauce_connect:
