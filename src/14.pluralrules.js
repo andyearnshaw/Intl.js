@@ -1,3 +1,5 @@
+import plurals from 'make-plural/es6/plurals';
+
 import {
   Intl
 } from './8.intl.js';
@@ -111,54 +113,13 @@ export function InitializePluralRules (pluralRules, locales, options) {
   return pluralRules;
 }
 
-function GetOperands(s) {
-  let n = Number(s);
-  let dp = s.indexOf('.');
-
-  let iv, fv, ft, f, v, w, t;
-
-  if (dp === -1) {
-    iv = n;
-    f = 0;
-    v = 0;
-  } else {
-    iv = s.substring(0, dp);
-    fv = s.substring(dp);
-    f = Number(fv);
-    v = fv.length;
+// make-plural also handles GetOperands
+function PluralRuleSelection(locale, type, s) {
+  for (let l = locale; l; l = l.replace(/[-_]?[^-_]*$/, '')) {
+    const pf = plurals[l];
+    if (pf) return pf(s, type === 'ordinal');
   }
-
-  let i = Math.abs(Number(iv));
-
-  if (f !== 0) {
-    ft = fv;
-    while (ft.endsWith('0')) {
-      ft = ft.substr(-1);
-    }
-    w = ft.length;
-    t = Number(ft);
-  } else {
-    w = 0;
-    t = 0;
-  }
-  let result = new Record();
-  result['[[Number]]'] = n;
-  result['[[IntegerDigits]]'] = i;
-  result['[[NumberOfFractioNDigits]]'] = v;
-  result['[[NumberOfFractionDigitsWithoutTrailing]]'] = w;
-  result['[[FractionDigits]]'] = f;
-  result['[[FractionDigitsWithoutTrailing]]'] = t;
-  return result;
-}
-
-function PluralRuleSelection(locale, type, n, operands) {
-  let localeData = internals.PluralRules['[[localeData]]'];
-
-  let fn = localeData[locale][type];
-
-  return fn(
-    operands['[[Number]]']
-  );
+  return 'other';
 }
 
 function ResolvePlural(pluralRules, n) {
@@ -170,8 +131,7 @@ function ResolvePlural(pluralRules, n) {
   let locale = internal['[[locale]]'];
   let type = internal['[[type]]'];
   let s = FormatNumberToString(pluralRules, n);
-  let operands = GetOperands(s);
-  return PluralRuleSelection(locale, type, n, operands);
+  return PluralRuleSelection(locale, type, s);
 }
 
 internals.PluralRules = {
