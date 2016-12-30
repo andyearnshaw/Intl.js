@@ -66,6 +66,10 @@ defineProperty(Intl.NumberFormat, 'prototype', {
     writable: false
 });
 
+/*
+ * @spec[tc39/ecma402/master/spec/numberformat.html]
+ * @clause[sec-setnumberformatdigitoptions]
+ */
 export function /*11.1.1 */SetNumberFormatDigitOptions (intlObj, options, mnfdDefault) {
     // 1. Assert: Type(intlObj) is Object and intlObj.[[initializedIntlObject]] is true.
 
@@ -251,7 +255,7 @@ export function /*11.1.2 */InitializeNumberFormat (numberFormat, locales, option
     //     a. Let mnfdDefault be 0.
     let mnfdDefault = style === "currency" ? cDigits : 0;
 
-    // 24. Perform ! SetNumberFormatDigitOptions(numberFormat, options, mnfdDefault).
+    // 24. Perform ? SetNumberFormatDigitOptions(numberFormat, options, mnfdDefault).
     SetNumberFormatDigitOptions(internal, options, mnfdDefault);
 
     // 25. If numberFormat.[[maximumFractionDigits]] is undefined, then
