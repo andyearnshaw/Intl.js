@@ -13,7 +13,8 @@ import {
 } from './9.negotiation.js';
 
 import {
-  FormatNumberToString
+  FormatNumberToString,
+  SetNumberFormatDigitOptions,
 } from './11.numberformat.js';
 
 import {
@@ -73,33 +74,20 @@ export function InitializePluralRules (pluralRules, locales, options) {
 	else
 			options = toObject(options);
 
-  let opt = new Record();
-
-  //XXX: Should we have a matcher here?
-  //let matcher =  GetOption(options, 'localeMatcher', 'string', new List('lookup', 'best fit'), 'best fit');
   let t = GetOption(options, 'type', 'string', new List('cardinal', 'ordinal'), 'cardinal');
   internal['[[type]]'] = t;
 
-  let minID = GetNumberOption(options, 'minimumIntegerDigits', 1, 21, 1);
-  let minFD = GetNumberOption(options, 'minimumFractionDigits', 0, 20, 0);
+  let opt = new Record();
 
-  let mxfdDefault = Math.max(minFD, 3);
+  let matcher =  GetOption(options, 'localeMatcher', 'string', new List('lookup', 'best fit'), 'best fit');
+  opt['[[localeMatcher]]'] = matcher;
 
-  let maxFD = GetNumberOption(options, 'maximumFractionDigits', minFD, 20, mxfdDefault);
+  SetNumberFormatDigitOptions(internals, options, 0);
 
-  internal['[[minimumIntegerDigits]]'] = minID;
-  internal['[[minimumFractionDigits]]'] = minFD;
-  internal['[[maximumFractionDigits]]'] = maxFD;
-
-  let minSD = options.minimumSignificantDigits;
-  let maxSD = options.maximumSignificantDigits;
-
-  if (minSD !== undefined || maxSD !== undefined) {
-    minSD = GetNumberOption(options, 'minimumSignificantDigits', 1, 21, 1);
-    maxSD = GetNumberOption(options, 'maximumSignificantDigits', minSD, 21, 21);
-    internal['[[minimumSignificantDigits]]'] = minSD;
-    internal['[[maximumSignificantDigits]]'] = maxSD;
+  if (internals['[[maximumFractionDigits]]'] === undefined) {
+    internals['[[maximumFractionDigits]]'] = Math.max(internals['[[minimumFractionDigits]]'], 3);
   }
+
 
   let localeData = internals.PluralRules['[[localeData]]'];
   let r = ResolveLocale(
