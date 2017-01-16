@@ -1,4 +1,4 @@
-import plurals from 'make-plural/es6/plurals';
+import plurals from '../node_modules/make-plural/es6/plurals';
 
 import {
     Intl
