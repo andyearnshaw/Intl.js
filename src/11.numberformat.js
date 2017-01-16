@@ -87,10 +87,10 @@ export function /*11.1.1 */SetNumberFormatDigitOptions (intlObj, options, mnfdDe
     let mxfd = GetNumberOption(options, 'maximumFractionDigits', mnfd, 20);
 
     // 7. Let mnsd be ? Get(options, "minimumSignificantDigits").
-    let mnsd = Get(options, "minimumSignificantDigits");
+    let mnsd = options.minimumSignificantDigits;
 
     // 8. Let mxsd be ? Get(options, "maximumSignificantDigits").
-    let mxsd = Get(options, "maximumSignificantDigits");
+    let mxsd = options.maximumSignificantDigits;
 
     // 9. Set intlObj.[[minimumIntegerDigits]] to mnid.
     intlObj['[[minimumIntegerDigits]]'] = mnid;
@@ -110,10 +110,10 @@ export function /*11.1.1 */SetNumberFormatDigitOptions (intlObj, options, mnfdDe
         mxsd = GetNumberOption(options, "maximumSignificantDigits", mnsd, 21, 21);
 
         // c. Set intlObj.[[minimumSignificantDigits]] to mnsd.
-        intlObj['[[minimumSignifcantDigits]]'] = mnsd;
+        intlObj['[[minimumSignificantDigits]]'] = mnsd;
 
         // d. Set intlObj.[[maximumSignificantDigits]] to mxsd.
-        intlObj['[[maximumSignifcantDigits]]'] = mxsd;
+        intlObj['[[maximumSignificantDigits]]'] = mxsd;
     }
 
 }
@@ -249,29 +249,29 @@ export function /*11.1.2 */InitializeNumberFormat (numberFormat, locales, option
     if (s === 'currency')
         internal['[[currencyDisplay]]'] = cd;
 
-    // 22. If style is "currency", then
+    // 22. If s is "currency", then
     //     a. Let mnfdDefault be cDigits.
     // 23. Else,
     //     a. Let mnfdDefault be 0.
-    let mnfdDefault = style === "currency" ? cDigits : 0;
+    let mnfdDefault = s === "currency" ? cDigits : 0;
 
     // 24. Perform ? SetNumberFormatDigitOptions(numberFormat, options, mnfdDefault).
     SetNumberFormatDigitOptions(internal, options, mnfdDefault);
 
     // 25. If numberFormat.[[maximumFractionDigits]] is undefined, then
-    if (internals['[[maximumFractionDigits]]'] === undefined) {
-        // a. If style is "currency", then
-        if (style === 'currency') {
+    if (internal['[[maximumFractionDigits]]'] === undefined) {
+        // a. If s is "currency", then
+        if (s === 'currency') {
             // i. Set numberFormat.[[maximumFractionDigits]] to max(numberFormat.[[minimumFractionDigits]], cDigits).
-            internals['[[maximumFractionDigits]]'] = Math.max(internals['[[minimumFractionDigits]]'], cDigits);
-        // b. Else if style is "percent", then
-        } else if (style === 'percent') {
+            internal['[[maximumFractionDigits]]'] = Math.max(internal['[[minimumFractionDigits]]'], cDigits);
+        // b. Else if s is "percent", then
+        } else if (s === 'percent') {
             // i. Set numberFormat.[[maximumFractionDigits]] to max(numberFormat.[[minimumFractionDigits]], 0).
-            internals['[[maximumFractionDigits]]'] = Math.max(internals['[[minimumFractionDigits]]'], 0);
+            internal['[[maximumFractionDigits]]'] = Math.max(internal['[[minimumFractionDigits]]'], 0);
         // c. Else,
         } else {
             // i. Set numberFormat.[[maximumFractionDigits]] to max(numberFormat.[[minimumFractionDigits]], 3).
-            internals['[[maximumFractionDigits]]'] = Math.max(internals['[[minimumFractionDigits]]'], 3);
+            internal['[[maximumFractionDigits]]'] = Math.max(internal['[[minimumFractionDigits]]'], 3);
         }
     }
 
