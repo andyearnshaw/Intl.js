@@ -1,4 +1,4 @@
-import plurals from 'make-plural/es6/plurals';
+import plurals from '../node_modules/make-plural/es6/plurals';
 
 import {
     Intl
@@ -6,7 +6,6 @@ import {
 
 import {
     GetOption,
-    GetNumberOption,
     SupportedLocales,
     ResolveLocale,
     CanonicalizeLocaleList
@@ -14,7 +13,7 @@ import {
 
 import {
     FormatNumberToString,
-    SetNumberFormatDigitOptions,
+    SetNumberFormatDigitOptions
 } from './11.numberformat.js';
 
 import {
@@ -161,7 +160,7 @@ internals.PluralRules = {
     '[[availableLocales]]' : [],
     '[[relevantExtensionKeys]]': [],
     '[[localeData]]': {}
-}
+};
 
 defineProperty(Intl.PluralRules, 'supportedLocalesOf', {
     configurable: true,
@@ -207,7 +206,7 @@ defineProperty(Intl.PluralRules.prototype, 'select', {
         let n = Number(value);
         return ResolvePlural(pluralRules, n);
     }
-})
+});
 
 defineProperty(Intl.PluralRules.prototype, 'resolvedOptions', {
     configurable: true,
@@ -218,7 +217,7 @@ defineProperty(Intl.PluralRules.prototype, 'resolvedOptions', {
             props = [
                 'locale', 'type',
                 'minimumIntegerDigits', 'minimumFractionDigits', 'maximumFractionDigits',
-                'minimumSignificantDigits', 'maximumSignificantDigits',
+                'minimumSignificantDigits', 'maximumSignificantDigits'
             ],
             internal = this !== null && typeof this === 'object' && getInternalProperties(this);
 
