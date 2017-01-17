@@ -149,15 +149,12 @@ function ResolvePlural(pluralRules, n) {
     // 5. Let type be pluralRules.[[Type]].
     let type = internal['[[type]]'];
 
-    // 6. Let s be ? FormatNumberToString(pluralRules, n).
-    let s = FormatNumberToString(pluralRules, n);
-
     // 8. Return ? PluralRuleSelection(locale, type, n, operands). 
-    return PluralRuleSelection(locale, type, s);
+    return PluralRuleSelection(locale, type, n);
 }
 
 internals.PluralRules = {
-    '[[availableLocales]]' : [],
+    '[[availableLocales]]' : Object.keys(plurals),
     '[[relevantExtensionKeys]]': [],
     '[[localeData]]': {}
 };
