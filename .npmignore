@@ -15,6 +15,11 @@ data/
 # (It doesn't need anything used during development of this library.)
 tools/
 tests/
+.babelrc
+.eslintrc
+.eslintignore
+yarn.lock
+CONTRIBUTING.md
 
 coverage/
 tasks/
