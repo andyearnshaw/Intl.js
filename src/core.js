@@ -33,6 +33,8 @@ import "./12.datetimeformat.js";
 
 import ls from "./13.locale-sensitive-functions.js";
 
+import "./14.pluralrules.js";
+
 defineProperty(Intl, '__applyLocaleSensitivePrototypes', {
     writable: true,
     configurable: true,
@@ -87,6 +89,7 @@ function addLocaleData (data, tag) {
             internals.DateTimeFormat['[[localeData]]'][locale] = data.date;
         }
     }
+
 
     // If this is the first set of locale data added, make it the default
     if (defaultLocale === undefined)

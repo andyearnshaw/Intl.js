@@ -42,6 +42,7 @@
     "grunt-curl": "^2.2.0",
     "grunt-zip": "^0.17.1",
     "jshint": "^2.9.3",
+    "make-plural": "^4.0.1",
     "mkdirp": "^0.5.1",
     "object.assign": "^4.0.4",
     "rimraf": "^2.5.4",

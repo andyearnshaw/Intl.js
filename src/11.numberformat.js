@@ -66,12 +66,64 @@ defineProperty(Intl.NumberFormat, 'prototype', {
     writable: false
 });
 
+/*
+ * @spec[tc39/ecma402/master/spec/numberformat.html]
+ * @clause[sec-setnumberformatdigitoptions]
+ */
+export function /*11.1.1 */SetNumberFormatDigitOptions (intlObj, options, mnfdDefault) {
+    // 1. Assert: Type(intlObj) is Object and intlObj.[[initializedIntlObject]] is true.
+
+    // 2. Assert: Type(options) is Object.
+
+    // 3. Assert: type(mnfdDefault) is Number.
+
+    // 4. Let mnid be ? GetNumberOption(options, "minimumIntegerDigits,", 1, 21, 1).
+    let mnid = GetNumberOption(options, 'minimumIntegerDigits', 1, 21, 1);
+
+    // 5. Let mnfd be ? GetNumberOption(options, "minimumFractionDigits", 0, 20, mnfdDefault).
+    let mnfd = GetNumberOption(options, 'minimumFractionDigits', 0, 20, mnfdDefault);
+
+    // 6. Let mxfd be ? GetNumberOption(options, "maximumFractionDigits", mnfd, 20).
+    let mxfd = GetNumberOption(options, 'maximumFractionDigits', mnfd, 20);
+
+    // 7. Let mnsd be ? Get(options, "minimumSignificantDigits").
+    let mnsd = options.minimumSignificantDigits;
+
+    // 8. Let mxsd be ? Get(options, "maximumSignificantDigits").
+    let mxsd = options.maximumSignificantDigits;
+
+    // 9. Set intlObj.[[minimumIntegerDigits]] to mnid.
+    intlObj['[[minimumIntegerDigits]]'] = mnid;
+
+    // 10. Set intlObj.[[minimumFractionDigits]] to mnfd.
+    intlObj['[[minimumFractionDigits]]'] = mnfd;
+
+    // 11. Set intlObj.[[maximumFractionDigits]] to mxfd.
+    intlObj['[[maximumFractionDigits]]'] = mxfd;
+
+    // 12. If mnsd is not undefined or mxsd is not undefined, then
+    if (mnsd !== undefined || mxsd !== undefined) {
+        // a. Let mnsd be ? GetNumberOption(options, "minimumSignificantDigits", 1, 21, 1).
+        mnsd = GetNumberOption(options, "minimumSignificantDigits", 1, 21, 1);
+
+        // b. Let mxsd be ? GetNumberOption(options, "maximumSignificantDigits", mnsd, 21, 21).
+        mxsd = GetNumberOption(options, "maximumSignificantDigits", mnsd, 21, 21);
+
+        // c. Set intlObj.[[minimumSignificantDigits]] to mnsd.
+        intlObj['[[minimumSignificantDigits]]'] = mnsd;
+
+        // d. Set intlObj.[[maximumSignificantDigits]] to mxsd.
+        intlObj['[[maximumSignificantDigits]]'] = mxsd;
+    }
+
+}
+
 /**
  * The abstract operation InitializeNumberFormat accepts the arguments
  * numberFormat (which must be an object), locales, and options. It initializes
  * numberFormat as a NumberFormat object.
  */
-export function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, options) {
+export function /*11.1.2 */InitializeNumberFormat (numberFormat, locales, options) {
     // This will be a internal properties object if we're not already initialized
     let internal = getInternalProperties(numberFormat);
 
@@ -123,13 +175,11 @@ export function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, opti
     // 8. Set opt.[[localeMatcher]] to matcher.
     opt['[[localeMatcher]]'] = matcher;
 
-    // 9. Let NumberFormat be the standard built-in object that is the initial value
-    //    of Intl.NumberFormat.
-    // 10. Let localeData be the value of the [[localeData]] internal property of
+    // 9. Let localeData be the value of the [[localeData]] internal property of
     //     NumberFormat.
     let localeData = internals.NumberFormat['[[localeData]]'];
 
-    // 11. Let r be the result of calling the ResolveLocale abstract operation
+    // 10. Let r be the result of calling the ResolveLocale abstract operation
     //     (defined in 9.2.5) with the [[availableLocales]] internal property of
     //     NumberFormat, requestedLocales, opt, the [[relevantExtensionKeys]]
     //     internal property of NumberFormat, and localeData.
@@ -138,45 +188,45 @@ export function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, opti
             opt, internals.NumberFormat['[[relevantExtensionKeys]]'], localeData
         );
 
-    // 12. Set the [[locale]] internal property of numberFormat to the value of
+    // 11. Set the [[locale]] internal property of numberFormat to the value of
     //     r.[[locale]].
     internal['[[locale]]'] = r['[[locale]]'];
 
-    // 13. Set the [[numberingSystem]] internal property of numberFormat to the value
+    // 12. Set the [[numberingSystem]] internal property of numberFormat to the value
     //     of r.[[nu]].
     internal['[[numberingSystem]]'] = r['[[nu]]'];
 
     // The specification doesn't tell us to do this, but it's helpful later on
     internal['[[dataLocale]]'] = r['[[dataLocale]]'];
 
-    // 14. Let dataLocale be the value of r.[[dataLocale]].
+    // 13. Let dataLocale be the value of r.[[dataLocale]].
     let dataLocale = r['[[dataLocale]]'];
 
-    // 15. Let s be the result of calling the GetOption abstract operation with the
+    // 14. Let s be the result of calling the GetOption abstract operation with the
     //     arguments options, "style", "string", a List containing the three String
     //     values "decimal", "percent", and "currency", and "decimal".
     let s = GetOption(options, 'style', 'string', new List('decimal', 'percent', 'currency'), 'decimal');
 
-    // 16. Set the [[style]] internal property of numberFormat to s.
+    // 15. Set the [[style]] internal property of numberFormat to s.
     internal['[[style]]'] = s;
 
-    // 17. Let c be the result of calling the GetOption abstract operation with the
+    // 16. Let c be the result of calling the GetOption abstract operation with the
     //     arguments options, "currency", "string", undefined, and undefined.
     let c = GetOption(options, 'currency', 'string');
 
-    // 18. If c is not undefined and the result of calling the
+    // 17. If c is not undefined and the result of calling the
     //     IsWellFormedCurrencyCode abstract operation (defined in 6.3.1) with
     //     argument c is false, then throw a RangeError exception.
     if (c !== undefined && !IsWellFormedCurrencyCode(c))
         throw new RangeError("'" + c + "' is not a valid currency code");
 
-    // 19. If s is "currency" and c is undefined, throw a TypeError exception.
+    // 18. If s is "currency" and c is undefined, throw a TypeError exception.
     if (s === 'currency' && c === undefined)
         throw new TypeError('Currency code is required when style is currency');
 
     let cDigits;
 
-    // 20. If s is "currency", then
+    // 19. If s is "currency", then
     if (s === 'currency') {
         // a. Let c be the result of converting c to upper case as specified in 6.1.
         c = c.toUpperCase();
@@ -189,109 +239,77 @@ export function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, opti
         cDigits = CurrencyDigits(c);
     }
 
-    // 21. Let cd be the result of calling the GetOption abstract operation with the
+    // 20. Let cd be the result of calling the GetOption abstract operation with the
     //     arguments options, "currencyDisplay", "string", a List containing the
     //     three String values "code", "symbol", and "name", and "symbol".
     let cd = GetOption(options, 'currencyDisplay', 'string', new List('code', 'symbol', 'name'), 'symbol');
 
-    // 22. If s is "currency", then set the [[currencyDisplay]] internal property of
+    // 21. If s is "currency", then set the [[currencyDisplay]] internal property of
     //     numberFormat to cd.
     if (s === 'currency')
         internal['[[currencyDisplay]]'] = cd;
 
-    // 23. Let mnid be the result of calling the GetNumberOption abstract operation
-    //     (defined in 9.2.10) with arguments options, "minimumIntegerDigits", 1, 21,
-    //     and 1.
-    let mnid = GetNumberOption(options, 'minimumIntegerDigits', 1, 21, 1);
+    // 22. If s is "currency", then
+    //     a. Let mnfdDefault be cDigits.
+    // 23. Else,
+    //     a. Let mnfdDefault be 0.
+    let mnfdDefault = s === "currency" ? cDigits : 0;
 
-    // 24. Set the [[minimumIntegerDigits]] internal property of numberFormat to mnid.
-    internal['[[minimumIntegerDigits]]'] = mnid;
+    // 24. Perform ? SetNumberFormatDigitOptions(numberFormat, options, mnfdDefault).
+    SetNumberFormatDigitOptions(internal, options, mnfdDefault);
 
-    // 25. If s is "currency", then let mnfdDefault be cDigits; else let mnfdDefault
-    //     be 0.
-    let mnfdDefault = s === 'currency' ? cDigits : 0;
-
-    // 26. Let mnfd be the result of calling the GetNumberOption abstract operation
-    //     with arguments options, "minimumFractionDigits", 0, 20, and mnfdDefault.
-    let mnfd = GetNumberOption(options, 'minimumFractionDigits', 0, 20, mnfdDefault);
-
-    // 27. Set the [[minimumFractionDigits]] internal property of numberFormat to mnfd.
-    internal['[[minimumFractionDigits]]'] = mnfd;
-
-    // 28. If s is "currency", then let mxfdDefault be max(mnfd, cDigits); else if s
-    //     is "percent", then let mxfdDefault be max(mnfd, 0); else let mxfdDefault
-    //     be max(mnfd, 3).
-    let mxfdDefault = s === 'currency' ? Math.max(mnfd, cDigits)
-                    : (s === 'percent' ? Math.max(mnfd, 0) : Math.max(mnfd, 3));
-
-    // 29. Let mxfd be the result of calling the GetNumberOption abstract operation
-    //     with arguments options, "maximumFractionDigits", mnfd, 20, and mxfdDefault.
-    let mxfd = GetNumberOption(options, 'maximumFractionDigits', mnfd, 20, mxfdDefault);
-
-    // 30. Set the [[maximumFractionDigits]] internal property of numberFormat to mxfd.
-    internal['[[maximumFractionDigits]]'] = mxfd;
-
-    // 31. Let mnsd be the result of calling the [[Get]] internal method of options
-    //     with argument "minimumSignificantDigits".
-    let mnsd = options.minimumSignificantDigits;
-
-    // 32. Let mxsd be the result of calling the [[Get]] internal method of options
-    //     with argument "maximumSignificantDigits".
-    let mxsd = options.maximumSignificantDigits;
-
-    // 33. If mnsd is not undefined or mxsd is not undefined, then:
-    if (mnsd !== undefined || mxsd !== undefined) {
-        // a. Let mnsd be the result of calling the GetNumberOption abstract
-        //    operation with arguments options, "minimumSignificantDigits", 1, 21,
-        //    and 1.
-        mnsd = GetNumberOption(options, 'minimumSignificantDigits', 1, 21, 1);
-
-        // b. Let mxsd be the result of calling the GetNumberOption abstract
-        //     operation with arguments options, "maximumSignificantDigits", mnsd,
-        //     21, and 21.
-        mxsd = GetNumberOption(options, 'maximumSignificantDigits', mnsd, 21, 21);
-
-        // c. Set the [[minimumSignificantDigits]] internal property of numberFormat
-        //    to mnsd, and the [[maximumSignificantDigits]] internal property of
-        //    numberFormat to mxsd.
-        internal['[[minimumSignificantDigits]]'] = mnsd;
-        internal['[[maximumSignificantDigits]]'] = mxsd;
+    // 25. If numberFormat.[[maximumFractionDigits]] is undefined, then
+    if (internal['[[maximumFractionDigits]]'] === undefined) {
+        // a. If s is "currency", then
+        if (s === 'currency') {
+            // i. Set numberFormat.[[maximumFractionDigits]] to max(numberFormat.[[minimumFractionDigits]], cDigits).
+            internal['[[maximumFractionDigits]]'] = Math.max(internal['[[minimumFractionDigits]]'], cDigits);
+        // b. Else if s is "percent", then
+        } else if (s === 'percent') {
+            // i. Set numberFormat.[[maximumFractionDigits]] to max(numberFormat.[[minimumFractionDigits]], 0).
+            internal['[[maximumFractionDigits]]'] = Math.max(internal['[[minimumFractionDigits]]'], 0);
+        // c. Else,
+        } else {
+            // i. Set numberFormat.[[maximumFractionDigits]] to max(numberFormat.[[minimumFractionDigits]], 3).
+            internal['[[maximumFractionDigits]]'] = Math.max(internal['[[minimumFractionDigits]]'], 3);
+        }
     }
-    // 34. Let g be the result of calling the GetOption abstract operation with the
+
+    // 26. Let g be the result of calling the GetOption abstract operation with the
     //     arguments options, "useGrouping", "boolean", undefined, and true.
     let g = GetOption(options, 'useGrouping', 'boolean', undefined, true);
 
-    // 35. Set the [[useGrouping]] internal property of numberFormat to g.
+    // 27. Set the [[useGrouping]] internal property of numberFormat to g.
     internal['[[useGrouping]]'] = g;
 
-    // 36. Let dataLocaleData be the result of calling the [[Get]] internal method of
+    // 28. Let dataLocaleData be the result of calling the [[Get]] internal method of
     //     localeData with argument dataLocale.
     let dataLocaleData = localeData[dataLocale];
 
-    // 37. Let patterns be the result of calling the [[Get]] internal method of
+    // 29. Let patterns be the result of calling the [[Get]] internal method of
     //     dataLocaleData with argument "patterns".
     let patterns = dataLocaleData.patterns;
 
-    // 38. Assert: patterns is an object (see 11.2.3)
+    // 30. Assert: patterns is an object (see 11.2.3)
 
-    // 39. Let stylePatterns be the result of calling the [[Get]] internal method of
+    // 31. Let stylePatterns be the result of calling the [[Get]] internal method of
     //     patterns with argument s.
     let stylePatterns = patterns[s];
 
-    // 40. Set the [[positivePattern]] internal property of numberFormat to the
+    // 32. Set the [[positivePattern]] internal property of numberFormat to the
     //     result of calling the [[Get]] internal method of stylePatterns with the
     //     argument "positivePattern".
     internal['[[positivePattern]]'] = stylePatterns.positivePattern;
 
-    // 41. Set the [[negativePattern]] internal property of numberFormat to the
+    // 33. Set the [[negativePattern]] internal property of numberFormat to the
     //     result of calling the [[Get]] internal method of stylePatterns with the
     //     argument "negativePattern".
     internal['[[negativePattern]]'] = stylePatterns.negativePattern;
 
-    // 42. Set the [[boundFormat]] internal property of numberFormat to undefined.
+    // 34. Set the [[boundFormat]] internal property of numberFormat to undefined.
     internal['[[boundFormat]]'] = undefined;
 
-    // 43. Set the [[initializedNumberFormat]] internal property of numberFormat to
+    // 35. Set the [[initializedNumberFormat]] internal property of numberFormat to
     //     true.
     internal['[[initializedNumberFormat]]'] = true;
 
@@ -302,7 +320,7 @@ export function /*11.1.1.1 */InitializeNumberFormat (numberFormat, locales, opti
     // Restore the RegExp properties
     regexpRestore();
 
-    // Return the newly initialised object
+    // 36. Return the newly initialised object
     return numberFormat;
 }
 
@@ -464,7 +482,7 @@ function FormatNumberToParts(numberFormat, x) {
  * @spec[tc39/ecma402/master/spec/numberformat.html]
  * @clause[sec-formatnumberstring]
  */
-function FormatNumberToString(numberFormat, x) {
+export function FormatNumberToString(numberFormat, x) {
     let internal = getInternalProperties(numberFormat);
     let result;
 
