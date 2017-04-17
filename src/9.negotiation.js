@@ -607,8 +607,13 @@ export function /*9.2.8 */SupportedLocales (availableLocales, requestedLocales, 
             writable: false, configurable: false, value: subset[P]
         });
     }
-    // "Freeze" the array so no new elements can be added
-    defineProperty(subset, 'length', { writable: false });
+    
+    // Wrap in try catch for older browsers that don't support setting length of
+    // array such as FF 22 and below.
+    try {
+        // "Freeze" the array so no new elements can be added
+        defineProperty(subset, 'length', { writable: false });
+    } catch (e) {}
 
     // 5. Return subset
     return subset;
