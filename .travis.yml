@@ -3,6 +3,8 @@ node_js:
   - '6'
 before_install:
   - npm --version
+  - npm install
+  - npm run build
 addons:
   sauce_connect:
     username: andyearnshaw
