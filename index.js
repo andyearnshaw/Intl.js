@@ -12,4 +12,4 @@ if (!global.Intl) {
 }
 
 // providing an idiomatic api for the nodejs version of this module
-module.exports = global.IntlPolyfill;
+module.exports = global.Intl;
