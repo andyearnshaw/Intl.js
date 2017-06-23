@@ -4,7 +4,7 @@ In December 2012, ECMA International published the first edition of Standard ECM
 better known as the _ECMAScript Internationalization API_. This specification provides
 the framework to bring long overdue localization methods to ECMAScript implementations.
 
-All modern browsers, except safari, have implemented this API. `Intl.js` fills the void of availability for this API. It will provide the framework as described by the specification, so that developers can take advantage of the native API
+All modern browsers have implemented this API. `Intl.js` fills the void of availability for this API. It will provide the framework as described by the specification, so that developers can take advantage of the native API
 in environments that support it, or `Intl.js` for legacy or unsupported environments.
 
 [Build Status]: https://travis-ci.org/andyearnshaw/Intl.js.svg?branch=master
@@ -30,7 +30,7 @@ When specifying the `features` to use through the polyfill service, you have to 
 
 _note: the example above will load the polyfill with two locale data set, `fr` and `pt`._
 
-This is by far the best option to use the Intl polyfill since it will only load the polyfill code and the corresponding locale data when it is really needed (e.g.: safari will get the code and patch the runtime while chrome will get an empty script tag).
+This is by far the best option to use the Intl polyfill since it will only load the polyfill code and the corresponding locale data when it is really needed (e.g.: older browsers without the API will get the code and patch the runtime while chrome will get an empty script tag).
 
 [Polyfill service]: https://cdn.polyfill.io/v1/docs/
 
