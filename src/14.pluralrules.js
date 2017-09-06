@@ -12,7 +12,6 @@ import {
 } from './9.negotiation.js';
 
 import {
-    FormatNumberToString,
     SetNumberFormatDigitOptions
 } from './11.numberformat.js';
 
@@ -149,7 +148,7 @@ function ResolvePlural(pluralRules, n) {
     // 5. Let type be pluralRules.[[Type]].
     let type = internal['[[type]]'];
 
-    // 8. Return ? PluralRuleSelection(locale, type, n, operands). 
+    // 8. Return ? PluralRuleSelection(locale, type, n, operands).
     return PluralRuleSelection(locale, type, n);
 }
 
