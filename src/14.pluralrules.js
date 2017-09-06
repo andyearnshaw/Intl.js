@@ -12,6 +12,7 @@ import {
 } from './9.negotiation.js';
 
 import {
+    FormatNumberToString,
     SetNumberFormatDigitOptions
 } from './11.numberformat.js';
 

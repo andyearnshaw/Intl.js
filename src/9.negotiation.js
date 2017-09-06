@@ -607,7 +607,9 @@ export function /*9.2.8 */SupportedLocales (availableLocales, requestedLocales, 
             writable: false, configurable: false, value: subset[P]
         });
     }
-    
+    // "Freeze" the array so no new elements can be added
+    defineProperty(subset, 'length', { writable: false });
+
     // 5. Return subset
     return subset;
 }
