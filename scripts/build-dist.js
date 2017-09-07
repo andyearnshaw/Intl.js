@@ -36,7 +36,8 @@ let plugins = [
 if (isProduction) {
     plugins.push(
         uglify({
-            warnings: false
+            warnings: false,
+            ie8: true
         })
     );
 }
