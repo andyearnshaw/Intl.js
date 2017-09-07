@@ -660,10 +660,10 @@ export function /*9.2.9 */GetOption (options, property, type, values, fallback) 
  * provided options object, converts it to a Number value, checks whether it is
  * in the allowed range, and fills in a fallback value if necessary.
  */
-export function /* 9.2.10 */GetNumberOption (options, property, minimum, maximum, fallback) {
+export function /* 9.2.10 */GetNumberOption (options, property, minimum, maximum, fallback, value) {
     // 1. Let value be the result of calling the [[Get]] internal method of
     //    options with argument property.
-    let value = options[property];
+    value = options ? options[property] : value;
 
     // 2. If value is not undefined, then
     if (value !== undefined) {
