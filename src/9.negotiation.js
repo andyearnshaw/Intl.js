@@ -10,7 +10,8 @@ import {
     arrSlice,
     Record,
     hop,
-    defineProperty
+    defineProperty,
+    strCodePointAt
 } from "./util.js";
 
 import {
@@ -251,7 +252,7 @@ export function UnicodeExtensionSubtags(extension) {
     // 8. Repeat, while q < size
     while (q < size) {
         // a. Let c be the code unit value of the element at index q in the String extension.
-        let c = extension.codePointAt(q);
+        let c = strCodePointAt.call(extension, q);
         // a. If c is 0x002D (HYPHEN-MINUS), then
         if (c === 0x002D) {
             // i. If q - p = 2, then
