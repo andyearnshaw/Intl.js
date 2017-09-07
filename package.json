@@ -69,7 +69,8 @@
     "test": "cd tests && node polyfilling.js && node sanity.js && node disableregexprestore.js && node noderunner.js && node saucelabs.js",
     "pretest": "npm run lint",
     "preversion": "npm run clean && npm run build && npm run test",
-    "prepublish": "npm run clean && npm run build"
+    "prepublish": "npm run clean && npm run build",
+    "update-test262": "grunt update-test262"
   },
   "repository": {
     "type": "git",
