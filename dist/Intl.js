@@ -868,6 +868,38 @@ var strCodePointAt = String.prototype.codePointAt || function (position) {
     return first;
 };
 
+var objKeys = function () {
+    var hasOwnProperty = Object.prototype.hasOwnProperty,
+        hasDontEnumBug = !{ toString: null }.propertyIsEnumerable('toString'),
+        dontEnums = ['toString', 'toLocaleString', 'valueOf', 'hasOwnProperty', 'isPrototypeOf', 'propertyIsEnumerable', 'constructor'],
+        dontEnumsLength = dontEnums.length;
+
+    return function (obj) {
+        if ((typeof obj === 'undefined' ? 'undefined' : babelHelpers$1['typeof'](obj)) !== 'object' && (typeof obj !== 'function' || obj === null)) {
+            throw new TypeError('Object.keys called on non-object');
+        }
+
+        var result = [],
+            prop = void 0,
+            i = void 0;
+
+        for (prop in obj) {
+            if (hasOwnProperty.call(obj, prop)) {
+                result.push(prop);
+            }
+        }
+
+        if (hasDontEnumBug) {
+            for (i = 0; i < dontEnumsLength; i++) {
+                if (hasOwnProperty.call(obj, dontEnums[i])) {
+                    result.push(dontEnums[i]);
+                }
+            }
+        }
+        return result;
+    };
+}();
+
 /**
 * Defines regular expressions for various operations related to the BCP 47 syntax,
 * as defined at http://tools.ietf.org/html/bcp47#section-2.1
@@ -5619,7 +5651,7 @@ function ResolvePlural(pluralRules, n) {
 }
 
 internals.PluralRules = {
-    '[[availableLocales]]': Object.keys(plurals),
+    '[[availableLocales]]': objKeys(plurals),
     '[[relevantExtensionKeys]]': [],
     '[[localeData]]': {}
 };
