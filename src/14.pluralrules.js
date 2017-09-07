@@ -33,10 +33,10 @@ export function PluralRules() {
     let locales = arguments[0];
     let options = arguments[1];
 
-    if (!this || this === Intl) {
-        return new Intl.PluralRules(locales, options);
+    if (this instanceof PluralRules) {
+        return InitializePluralRules(toObject(this), locales, options);
     }
-    return InitializePluralRules(toObject(this), locales, options);
+    throw new TypeError();
 }
 
 defineProperty(Intl, 'PluralRules', {
@@ -115,6 +115,11 @@ export function InitializePluralRules (pluralRules, locales, options) {
 
     // 15. Set pluralRules.[[InitializedPluralRules]] to true.
     internal['[[InitializedPluralRules]]'] = true;
+
+    internal["[[minimumIntegerDigits]]"] = internals["minimumIntegerDigits"] || 1;
+    internal["[[minimumFractionDigits]]"] = internals["minimumFractionDigits"] || 0;
+    internal["[[maximumFractionDigits]]"] = internals["maximumFractionDigits"] || 3;
+
 
     // 16. Return pluralRules.
     return pluralRules;
@@ -197,7 +202,11 @@ defineProperty(Intl.PluralRules, 'supportedLocalesOf', {
 
 defineProperty(Intl.PluralRules.prototype, 'select', {
     configurable: true,
-    value: function(value) {
+    writable: true,
+    value: function (value) {
+        if (!(this instanceof PluralRules)) {
+            throw new TypeError();
+        }
         let pluralRules = this;
         let n = Number(value);
         return ResolvePlural(pluralRules, n);
