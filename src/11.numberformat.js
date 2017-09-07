@@ -104,10 +104,10 @@ export function /*11.1.1 */SetNumberFormatDigitOptions (intlObj, options, mnfdDe
     // 12. If mnsd is not undefined or mxsd is not undefined, then
     if (mnsd !== undefined || mxsd !== undefined) {
         // a. Let mnsd be ? GetNumberOption(options, "minimumSignificantDigits", 1, 21, 1).
-        mnsd = GetNumberOption(options, "minimumSignificantDigits", 1, 21, 1);
+        mnsd = GetNumberOption(undefined, "minimumSignificantDigits", 1, 21, 1, mnsd);
 
         // b. Let mxsd be ? GetNumberOption(options, "maximumSignificantDigits", mnsd, 21, 21).
-        mxsd = GetNumberOption(options, "maximumSignificantDigits", mnsd, 21, 21);
+        mxsd = GetNumberOption(undefined, "maximumSignificantDigits", mnsd, 21, 21, mxsd);
 
         // c. Set intlObj.[[minimumSignificantDigits]] to mnsd.
         intlObj['[[minimumSignificantDigits]]'] = mnsd;
@@ -389,10 +389,12 @@ defineProperty(Intl.NumberFormat, 'supportedLocalesOf', {
  */
 /* 11.3.2 */defineProperty(Intl.NumberFormat.prototype, 'format', {
     configurable: true,
-    get: GetFormatNumber
+    get: function () {
+        return GetFormatNumber.apply(this, arguments);
+    }
 });
 
-function GetFormatNumber() {
+function GetFormatNumber(number) { // eslint-disable-line no-unused-vars
         let internal = this !== null && typeof this === 'object' && getInternalProperties(this);
 
         // Satisfy test 11.3_b
@@ -433,16 +435,16 @@ function GetFormatNumber() {
         return internal['[[boundFormat]]'];
     }
 
-function formatToParts(value = undefined) {
+function formatToParts() {
   let internal = this !== null && typeof this === 'object' && getInternalProperties(this);
   if (!internal || !internal['[[initializedNumberFormat]]'])
       throw new TypeError('`this` value for formatToParts() is not an initialized Intl.NumberFormat object.');
 
-  let x = Number(value);
+  let x = Number(arguments[0]);
   return FormatNumberToParts(this, x);
 }
 
-Object.defineProperty(Intl.NumberFormat.prototype, 'formatToParts', {
+defineProperty(Intl.NumberFormat.prototype, 'formatToParts', {
   configurable: true,
   enumerable: false,
   writable: true,
