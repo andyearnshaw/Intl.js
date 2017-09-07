@@ -292,8 +292,7 @@ export const strCodePointAt = String.prototype.codePointAt || function(position)
 };
 
 export const objKeys = (function() {
-	'use strict';
-	var hasOwnProperty = Object.prototype.hasOwnProperty,
+	let hasOwnProperty = Object.prototype.hasOwnProperty,
 	hasDontEnumBug = !({ toString: null }).propertyIsEnumerable('toString'),
 	dontEnums = [
 		'toString',
@@ -311,7 +310,7 @@ export const objKeys = (function() {
 			throw new TypeError('Object.keys called on non-object');
 		}
 
-		var result = [], prop, i;
+		let result = [], prop, i;
 
 		for (prop in obj) {
 			if (hasOwnProperty.call(obj, prop)) {
