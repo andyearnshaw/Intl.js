@@ -26,7 +26,8 @@ import {
     toObject,
     secret,
     createRegExpRestore,
-    defineProperty
+    defineProperty,
+    objKeys
 } from './util.js';
 
 export function PluralRules() {
@@ -158,7 +159,7 @@ function ResolvePlural(pluralRules, n) {
 }
 
 internals.PluralRules = {
-    '[[availableLocales]]' : Object.keys(plurals),
+    '[[availableLocales]]' : objKeys(plurals),
     '[[relevantExtensionKeys]]': [],
     '[[localeData]]': {}
 };
