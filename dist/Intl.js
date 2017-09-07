@@ -834,6 +834,40 @@ function getInternalProperties(obj) {
     return objCreate(null);
 }
 
+/*! https://mths.be/codepointat v0.2.0 by @mathias */
+var strCodePointAt = String.prototype.codePointAt || function (position) {
+    if (this === null || this === undefined) {
+        throw TypeError();
+    }
+    var string = String(this);
+    var size = string.length;
+    // `ToInteger`
+    var index = position ? Number(position) : 0;
+    if (index !== index) {
+        // better `isNaN`
+        index = 0;
+    }
+    // Account for out-of-bounds indices:
+    if (index < 0 || index >= size) {
+        return undefined;
+    }
+    // Get the first code unit
+    var first = string.charCodeAt(index);
+    var second = void 0;
+    if ( // check if it’s the start of a surrogate pair
+    first >= 0xD800 && first <= 0xDBFF && // high surrogate
+    size > index + 1 // there is a next code unit
+    ) {
+            second = string.charCodeAt(index + 1);
+            if (second >= 0xDC00 && second <= 0xDFFF) {
+                // low surrogate
+                // https://mathiasbynens.be/notes/javascript-encoding#surrogate-formulae
+                return (first - 0xD800) * 0x400 + second - 0xDC00 + 0x10000;
+            }
+        }
+    return first;
+};
+
 /**
 * Defines regular expressions for various operations related to the BCP 47 syntax,
 * as defined at http://tools.ietf.org/html/bcp47#section-2.1
@@ -1644,7 +1678,7 @@ function UnicodeExtensionSubtags(extension) {
     // 8. Repeat, while q < size
     while (q < size) {
         // a. Let c be the code unit value of the element at index q in the String extension.
-        var c = extension.codePointAt(q);
+        var c = strCodePointAt.call(extension, q);
         // a. If c is 0x002D (HYPHEN-MINUS), then
         if (c === 0x002D) {
             // i. If q - p = 2, then
