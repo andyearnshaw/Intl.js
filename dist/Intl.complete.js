@@ -4145,7 +4145,6 @@ defineProperty(Intl$1.DateTimeFormat, 'supportedLocalesOf', {
 });
 
 function GetFormatDateTime() {
-    // eslint-disable-line no-unused-vars
     var internal = this !== null && babelHelpers$1["typeof"](this) === 'object' && getInternalProperties(this);
 
     // Satisfy test 12.3_b
