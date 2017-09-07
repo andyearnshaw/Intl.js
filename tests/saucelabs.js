@@ -60,12 +60,12 @@ var LIBS = {
             version: "10",
             platform: "Windows 8"
         },
-        // {
-        //     browserName: "internet explorer",
-        //     version: "8",
-        //     platform: "Windows 7",
-        //     prerun: 'http://localhost:8000/tests/ie8fix.bat'
-        // },
+        {
+            browserName: "internet explorer",
+            version: "8",
+            platform: "Windows 7",
+            prerun: 'http://localhost:8000/tests/ie8fix.bat'
+        },
         {
             browserName: "safari",
             version: "9",
