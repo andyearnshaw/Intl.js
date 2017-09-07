@@ -841,7 +841,7 @@ function GetFormatDateTime() {
         //    specified for built-in functions in ES5, 15, or successor, and the
         //    length property set to 0, that takes the argument date and
         //    performs the following steps:
-        let F = function (date = undefined) {
+        let F = function (date) {
                 //   i. If date is not provided or is undefined, then let x be the
                 //      result as if by the expression Date.now() where Date.now is
                 //      the standard built-in function defined in ES5, 15.9.4.4.
@@ -866,7 +866,7 @@ function GetFormatDateTime() {
     return internal['[[boundFormat]]'];
 }
 
-function formatToParts(date = undefined) {
+function formatToParts(date) {
     let internal = this !== null && typeof this === 'object' && getInternalProperties(this);
 
     if (!internal || !internal['[[initializedDateTimeFormat]]'])
@@ -876,7 +876,7 @@ function formatToParts(date = undefined) {
     return FormatToPartsDateTime(this, x);
 }
 
-Object.defineProperty(Intl.DateTimeFormat.prototype, 'formatToParts', {
+defineProperty(Intl.DateTimeFormat.prototype, 'formatToParts', {
   enumerable: false,
   writable: true,
   configurable: true,
