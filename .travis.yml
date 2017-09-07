@@ -14,3 +14,11 @@ cache:
     - node_modules
 
 sudo: false
+
+script:
+- cd tests
+- node saucelabs.js
+- node polyfilling.js
+- node sanity.js
+- node disableregexprestore.js
+- node noderunner.js
