@@ -2,6 +2,10 @@ import {
     CanonicalizeLocaleList
 } from "./9.negotiation.js";
 
+import {
+    defineProperty
+} from './util.js';
+
 // 8 The Intl Object
 export const Intl = {};
 
@@ -28,7 +32,7 @@ function getCanonicalLocales (locales) {
     }
 }
 
-Object.defineProperty(Intl, 'getCanonicalLocales', {
+defineProperty(Intl, 'getCanonicalLocales', {
   enumerable: false,
   configurable: true,
   writable: true,
