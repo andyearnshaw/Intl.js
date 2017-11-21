@@ -185,7 +185,8 @@ is automatically added to the runtime and does not need to be provided.
 Contents of the `locale-data` directory are a modified form of the Unicode CLDR
 data found at http://www.unicode.org/cldr/.
 
-## RegExp cache / restore
+
+## RegExp cache / restore
 `Intl.js` attempts to cache and restore static RegExp properties before executing any
 regular expressions in order to comply with ECMA-402.  This process is imperfect,
 and some situations are not supported.  This behavior is not strictly necessary, and is only
