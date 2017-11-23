@@ -104,10 +104,10 @@ export function /*11.1.1 */SetNumberFormatDigitOptions (intlObj, options, mnfdDe
     // 12. If mnsd is not undefined or mxsd is not undefined, then
     if (mnsd !== undefined || mxsd !== undefined) {
         // a. Let mnsd be ? GetNumberOption(options, "minimumSignificantDigits", 1, 21, 1).
-        mnsd = GetNumberOption(undefined, "minimumSignificantDigits", 1, 21, 1, mnsd);
+        mnsd = GetNumberOption(options, "minimumSignificantDigits", 1, 21, 1);
 
         // b. Let mxsd be ? GetNumberOption(options, "maximumSignificantDigits", mnsd, 21, 21).
-        mxsd = GetNumberOption(undefined, "maximumSignificantDigits", mnsd, 21, 21, mxsd);
+        mxsd = GetNumberOption(options, "maximumSignificantDigits", mnsd, 21, 21);
 
         // c. Set intlObj.[[minimumSignificantDigits]] to mnsd.
         intlObj['[[minimumSignificantDigits]]'] = mnsd;
