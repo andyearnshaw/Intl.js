@@ -1999,14 +1999,14 @@ function /*9.2.8 */SupportedLocales(availableLocales, requestedLocales, options)
         });
     }
 
-    // Wrap in try catch for older browsers that don't support setting length of
-    // array such as FF 22 and below.
-    try {
-        // "Freeze" the array so no new elements can be added
-        defineProperty(subset, 'length', { writable: false });
-    } catch (e) {}
+    // 5. repeat the above operation for the length property,
+    //    since length is not enumerable in a List.
+    //    This is by design as it matches the behavior of Array.
+    defineProperty(subset, 'length', {
+        writable: false, configurable: false, value: subset.length
+    });
 
-    // 5. Return subset
+    // 6. Return subset
     return subset;
 }
 
@@ -2497,8 +2497,7 @@ function formatToParts() {
     var internal = this !== null && babelHelpers$1["typeof"](this) === 'object' && getInternalProperties(this);
     if (!internal || !internal['[[initializedNumberFormat]]']) throw new TypeError('`this` value for formatToParts() is not an initialized Intl.NumberFormat object.');
 
-    var x = Number(value);
-    return FormatNumberToParts(this, x);
+    return FormatNumberToParts(this, value);
 }
 
 Object.defineProperty(Intl$1.NumberFormat.prototype, 'formatToParts', {
@@ -4929,6 +4928,8 @@ var plurals = {
 
     "in": _cp[0],
 
+    io: _cp[3],
+
     is: function is(n, ord) {
         var s = String(n).split('.'),
             i = s[0],
@@ -5167,7 +5168,12 @@ var plurals = {
 
     om: _cp[1],
 
-    or: _cp[1],
+    or: function or(n, ord) {
+        var s = String(n).split('.'),
+            t0 = Number(s[0]) == n;
+        if (ord) return n == 1 || n == 5 || t0 && n >= 7 && n <= 9 ? 'one' : n == 2 || n == 3 ? 'two' : n == 4 ? 'few' : n == 6 ? 'many' : 'other';
+        return n == 1 ? 'one' : 'other';
+    },
 
     os: _cp[1],
 
@@ -5202,9 +5208,9 @@ var plurals = {
 
     pt: function pt(n, ord) {
         var s = String(n).split('.'),
-            t0 = Number(s[0]) == n;
+            i = s[0];
         if (ord) return 'other';
-        return t0 && n >= 0 && n <= 2 && n != 2 ? 'one' : 'other';
+        return i == 0 || i == 1 ? 'one' : 'other';
     },
 
     "pt-PT": _cp[3],
@@ -5239,6 +5245,8 @@ var plurals = {
     sah: _cp[0],
 
     saq: _cp[1],
+
+    sd: _cp[1],
 
     sdh: _cp[1],
 
@@ -5381,7 +5389,13 @@ var plurals = {
 
     tig: _cp[1],
 
-    tk: _cp[1],
+    tk: function tk(n, ord) {
+        var s = String(n).split('.'),
+            t0 = Number(s[0]) == n,
+            n10 = t0 && s[0].slice(-1);
+        if (ord) return n10 == 6 || n10 == 9 || n == 10 ? 'few' : 'other';
+        return n == 1 ? 'one' : 'other';
+    },
 
     tl: function tl(n, ord) {
         var s = String(n).split('.'),
