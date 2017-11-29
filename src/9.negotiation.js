@@ -607,8 +607,16 @@ export function /*9.2.8 */SupportedLocales (availableLocales, requestedLocales, 
             writable: false, configurable: false, value: subset[P]
         });
     }
-    
-    // 5. Return subset
+
+    // 5. repeat the above operation for the length property,
+    //    since length is not enumerable in a List.
+    //    This is by design as it matches the behavior of Array.
+    defineProperty(subset, 'length', {
+        writable: false, configurable: false, value: subset.length
+    });
+
+
+    // 6. Return subset
     return subset;
 }
 

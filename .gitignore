@@ -10,7 +10,6 @@
 # NPM packages installed locally
 node_modules
 
-lib/
 tmp/
 tests/test262/harness/
 tests/test262/test/
