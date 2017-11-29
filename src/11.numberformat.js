@@ -438,8 +438,7 @@ function formatToParts(value = undefined) {
   if (!internal || !internal['[[initializedNumberFormat]]'])
       throw new TypeError('`this` value for formatToParts() is not an initialized Intl.NumberFormat object.');
 
-  let x = Number(value);
-  return FormatNumberToParts(this, x);
+  return FormatNumberToParts(this, value);
 }
 
 Object.defineProperty(Intl.NumberFormat.prototype, 'formatToParts', {
