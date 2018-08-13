@@ -59,9 +59,14 @@ var leftContext = RegExp.leftContext;
 var input = RegExp.input;
 var lastMatch = RegExp.lastMatch;
 new IntlPolyfill.NumberFormat('de-DE');
-assert(RegExp.leftContext, leftContext, 'RegExp.leftContext restored');
-assert(RegExp.input, input, 'RegExp.input restored');
-assert(RegExp.lastMatch, lastMatch, 'RegExp.lastMatch restored');
+// Since the console.log implementation used by the assert function can modifiy the RegExp,
+// we have to store the results before asserting them
+var actualLeftContext = RegExp.leftContext;
+var actualInput = RegExp.input;
+var actualLastMatch = RegExp.lastMatch;
+assert(actualLeftContext, leftContext, 'RegExp.leftContext restored');
+assert(actualInput, input, 'RegExp.input restored');
+assert(actualLastMatch, lastMatch, 'RegExp.lastMatch restored');
 'a'.match(/a/);
 
 // Issues #190, #192
