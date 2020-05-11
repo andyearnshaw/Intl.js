@@ -1,3 +1,8 @@
+| :warning: Intl.js is [no longer actively maintained][], due to other commitments from the original author and maintainers. Please fork if you wish to make improvements. |
+| :--- |
+
+[no longer actively maintained]: https://github.com/andyearnshaw/Intl.js/issues/341
+
 # Intl.js [![Build Status][]](https://travis-ci.org/andyearnshaw/Intl.js)
 
 In December 2012, ECMA International published the first edition of Standard ECMA-402,
