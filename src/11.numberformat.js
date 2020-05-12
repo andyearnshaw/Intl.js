@@ -521,6 +521,36 @@ function PartitionNumberPattern(numberFormat, x) {
         ild = data.symbols[nums] || data.symbols.latn,
         pattern;
 
+    // web-compat issue #221
+    function preprocessCurrencyCode(currencyCode, pattern, beginIndex, endIndex) {
+        /**
+         * http://cldr.unicode.org/translation/number-patterns
+         * This method solves a particular issues related to this note from the link above:
+         *
+         *      ¤	This will be replaced by a currency symbol, such as $ or USD. Note: by default a space is automatically
+         *          added between letters in a currency symbol and adjacent numbers. So you don't need to add a space between
+         *          them if your language writes "$12" but "USD 12".
+         *
+         * Specifically, this polyfill doesn't support currency names (it is not part of the data we produce from CLDR), in
+         * which case we fallback to using the currency code. The same applies if the currency symbol is not available. This
+         * left us with two skeletons that require some preprocessing. The problem is that there are locales that do not have
+         * a symbol, and they already assume an space is needed between the ¤ and the value. On top of that, there are locales
+         * in which the symbol goes before or after the value. This function takes all that into consideration and tries to
+         * produce the most accurate currency code, value and non-breaking space combination by analysing the skeleton.
+         *
+         * Empirical rules:
+         *  - If the skeleton already have the non-breaking space, we do nothing because it is a locale without a currency symbol
+         *  - If the pattern ends on the last character, the space already comes from CLDR when needed and we do nothing.
+         */
+        const NON_BREAKING_SPACE = '\xa0'; // Non-breakable space is char 0xa0 (160 dec)
+        if (pattern.length > endIndex + 1) {
+            if (pattern.charCodeAt(endIndex + 1) !== NON_BREAKING_SPACE) {
+                return currencyCode + NON_BREAKING_SPACE;
+            }
+        }
+        return currencyCode;
+    }
+
     // 1. If x is not NaN and x < 0, then:
     if (!isNaN(x) && x < 0) {
         // a. Let x be -x.
@@ -703,17 +733,17 @@ function PartitionNumberPattern(numberFormat, x) {
             // iii. If numberFormat.[[currencyDisplay]] is "code", then
             if (internal['[[currencyDisplay]]'] === "code") {
                 // 1. Let cd be currency.
-                cd = currency;
+                cd = preprocessCurrencyCode(currency, pattern, beginIndex, endIndex);
             }
             // iv. Else if numberFormat.[[currencyDisplay]] is "symbol", then
             else if (internal['[[currencyDisplay]]'] === "symbol") {
                 // 1. Let cd be an ILD string representing currency in short form. If the implementation does not have such a representation of currency, use currency itself.
-                cd = data.currencies[currency] || currency;
+                cd = data.currencies[currency] || preprocessCurrencyCode(currency, pattern, beginIndex, endIndex);
             }
             // v. Else if numberFormat.[[currencyDisplay]] is "name", then
             else if (internal['[[currencyDisplay]]'] === "name") {
                 // 1. Let cd be an ILD string representing currency in long form. If the implementation does not have such a representation of currency, then use currency itself.
-                cd = currency;
+                cd = preprocessCurrencyCode(currency, pattern, beginIndex, endIndex);
             }
             // vi. Add new part record { [[type]]: "currency", [[value]]: cd } as a new element of the list result.
             arrPush.call(result, { '[[type]]': 'currency', '[[value]]': cd });

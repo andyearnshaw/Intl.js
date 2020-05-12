@@ -98,3 +98,33 @@ assert(new IntlPolyfill.DateTimeFormat('en-us', {
 assert(new IntlPolyfill.DateTimeFormat('en-GB', {
     hour: 'numeric'
 }).format(new Date(2016, 0, 1, 6)), '6', 'single second should be 2-digit');
+
+// issue #221
+assert(new IntlPolyfill.NumberFormat('es-MX', {
+    style: 'currency',
+    currency: 'PYG',
+}).format(12345), 'PYG\xa012,345', 'space after currency code when in fallback mode');
+assert(new IntlPolyfill.NumberFormat('en-US', {
+    style: 'currency',
+    currencyDisplay: 'code',
+    currency: 'USD',
+}).format(12345), 'USD\xa012,345.00', 'space after currency code when in fallback mode');
+assert(new IntlPolyfill.NumberFormat('en-US', {
+    style: 'currency',
+    currencyDisplay: 'name',
+    currency: 'USD',
+}).format(12345), 'USD\xa012,345.00', 'space after currency name when in fallback mode');
+assert(new IntlPolyfill.NumberFormat('cs', {
+    style: 'currency',
+    currency: 'CSK',
+}).format(12345), '12\xa0345,00\xa0Kčs', 'existing space before currency symbol should be preserved for locales with extended symbol');
+assert(new IntlPolyfill.NumberFormat('cs', {
+    style: 'currency',
+    currency: 'CSK',
+    currencyDisplay: 'code',
+}).format(12345), '12\xa0345,00\xa0CSK', 'existing space before currency code should be preserved for locales with extended symbol');
+assert(new IntlPolyfill.NumberFormat('bn', {
+    style: 'currency',
+    currency: 'BDT',
+    currencyDisplay: 'name',
+}).format(12345), '১২,৩৪৫.০০BDT', 'no space is needed before currency code when currency code is at the end of the skeleton');
