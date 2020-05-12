@@ -78,18 +78,17 @@ built-in `Intl`. An example of conditional usage using [webpack][] _might_ look 
 
 ```javascript
 function runMyApp() {
-    var nf = new Intl.NumberFormat(undefined, {style:'currency', currency:'GBP'});
-    document.getElementById('price').textContent = nf.format(100);
+    var nf = new Intl.NumberFormat(undefined, {
+        style: 'currency',
+        currency: 'GBP'
+    })
+    document.getElementById('price').textContent = nf.format(100)
 }
-if (!global.Intl) {
-    require.ensure([
-        'intl',
-        'intl/locale-data/jsonp/en.js'
-    ], function (require) {
-        require('intl');
-        require('intl/locale-data/jsonp/en.js');
-        runMyApp()
-    });
+const selectedLocale = 'en'
+if (!window.Intl) {
+    import('intl')
+        .then(() => import(`intl/locale-data/jsonp/${selectedLocale}.js`))
+        .then(runMyApp)
 } else {
     runMyApp()
 }
